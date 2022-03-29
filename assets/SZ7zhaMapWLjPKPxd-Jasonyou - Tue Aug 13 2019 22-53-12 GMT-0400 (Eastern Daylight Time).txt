@@ -1,0 +1,1401 @@
+jasonyou@caliper:~/caliper/caliper-1/packages/caliper-samples$ caliper benchmark run --caliper-workspace . --caliper-benchconfig benchmark/simple/config-linear-rate.yaml --caliper-networkconfig network/fabric-v1.4.1/2org1peercouchdb/fabric-node.yaml 
+Benchmark for target Blockchain type fabric about to start
+info: [caliper-flow]: ####### Caliper Test #######
+info: [caliper-utils]: Executing command: cd /home/jasonyou/caliper/caliper-1/packages/caliper-samples;docker-compose -f network/fabric-v1.4.1/2org1peercouchdb/docker-compose.yaml up ;sleep 3s
+Creating network "2org1peercouchdb_default" with the default driver
+Creating couchdb.org1.example.com ... done
+Creating orderer.example.com      ... done
+Creating ca.org1.example.com      ... done
+Creating ca.org2.example.com      ... done
+Creating couchdb.org2.example.com ... done
+Creating peer0.org1.example.com   ... done
+Creating peer0.org2.example.com   ... done
+Attaching to couchdb.org1.example.com, orderer.example.com, ca.org1.example.com, couchdb.org2.example.com, ca.org2.example.com, peer0.org1.example.com, peer0.org2.example.com
+couchdb.org1.example.com    | ****************************************************
+couchdb.org1.example.com    | WARNING: CouchDB is running in Admin Party mode.
+couchdb.org1.example.com    |          This will allow anyone with access to the
+couchdb.org1.example.com    |          CouchDB port to access your database. In
+couchdb.org1.example.com    |          Docker's default configuration, this is
+couchdb.org1.example.com    |          effectively any other container on the same
+couchdb.org1.example.com    |          system.
+couchdb.org1.example.com    |          Use "-e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password"
+couchdb.org1.example.com    |          to set it in "docker run".
+couchdb.org1.example.com    | ****************************************************
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:09.339804Z nonode@nohost <0.7.0> -------- Application couch_log started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:09.846698Z nonode@nohost <0.7.0> -------- Application folsom started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:10.894457Z nonode@nohost <0.7.0> -------- Application couch_stats started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:10.894863Z nonode@nohost <0.7.0> -------- Application khash started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.042980Z nonode@nohost <0.7.0> -------- Application couch_event started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.043135Z nonode@nohost <0.7.0> -------- Application hyper started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.434252Z nonode@nohost <0.7.0> -------- Application ibrowse started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.443545Z nonode@nohost <0.7.0> -------- Application ioq started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.443693Z nonode@nohost <0.7.0> -------- Application mochiweb started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.541007Z nonode@nohost <0.195.0> -------- Apache CouchDB 2.2.0 is starting.
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:11.541097Z nonode@nohost <0.196.0> -------- Starting couch_sup
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:11.830828Z nonode@nohost <0.83.0> -------- config: [features] pluggable-storage-engines set to true for reason nil
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:12.135089Z nonode@nohost <0.83.0> -------- config: [couchdb] uuid set to 2951e0774562cc4f5838036661208fc2 for reason nil
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:13.397762Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _users
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.280774Z nonode@nohost <0.195.0> -------- Apache CouchDB has started. Time to relax.
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.282393Z nonode@nohost <0.195.0> -------- Apache CouchDB has started on http://any:5986/
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.283266Z nonode@nohost <0.7.0> -------- Application couch started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.283887Z nonode@nohost <0.7.0> -------- Application ets_lru started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.542734Z nonode@nohost <0.7.0> -------- Application rexi started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:14.778272Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _nodes
+couchdb.org1.example.com    | [warning] 2019-08-14T02:46:14.778318Z nonode@nohost <0.277.0> -------- creating missing database: _nodes
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.029099Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _dbs
+couchdb.org1.example.com    | [warning] 2019-08-14T02:46:15.029342Z nonode@nohost <0.307.0> -------- creating missing database: _dbs
+couchdb.org1.example.com    | [warning] 2019-08-14T02:46:15.029404Z nonode@nohost <0.306.0> -------- creating missing database: _dbs
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.038549Z nonode@nohost <0.7.0> -------- Application mem3 started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.041908Z nonode@nohost <0.7.0> -------- Application fabric started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.144773Z nonode@nohost <0.7.0> -------- Application chttpd started on node nonode@nohost
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:15.477614Z nonode@nohost emulator -------- Error in process <0.345.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:15.477643Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.479886Z nonode@nohost <0.7.0> -------- Application couch_index started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.480272Z nonode@nohost <0.7.0> -------- Application couch_mrview started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:15.480709Z nonode@nohost <0.7.0> -------- Application couch_plugins started on node nonode@nohost
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:15.946753Z nonode@nohost <0.83.0> -------- config: [features] scheduler set to true for reason nil
+orderer.example.com         | 2019-08-14 02:46:07.331 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+orderer.example.com         | 2019-08-14 02:46:07.780 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+orderer.example.com         | 	General.LedgerType = "file"
+orderer.example.com         | 	General.ListenAddress = "0.0.0.0"
+orderer.example.com         | 	General.ListenPort = 7050
+orderer.example.com         | 	General.TLS.Enabled = false
+orderer.example.com         | 	General.TLS.PrivateKey = "/etc/hyperledger/fabric/tls/server.key"
+orderer.example.com         | 	General.TLS.Certificate = "/etc/hyperledger/fabric/tls/server.crt"
+orderer.example.com         | 	General.TLS.RootCAs = [/etc/hyperledger/fabric/tls/ca.crt]
+orderer.example.com         | 	General.TLS.ClientAuthRequired = false
+orderer.example.com         | 	General.TLS.ClientRootCAs = []
+orderer.example.com         | 	General.Cluster.ListenAddress = ""
+orderer.example.com         | 	General.Cluster.ListenPort = 0
+orderer.example.com         | 	General.Cluster.ServerCertificate = ""
+orderer.example.com         | 	General.Cluster.ServerPrivateKey = ""
+orderer.example.com         | 	General.Cluster.ClientCertificate = ""
+orderer.example.com         | 	General.Cluster.ClientPrivateKey = ""
+orderer.example.com         | 	General.Cluster.RootCAs = []
+orderer.example.com         | 	General.Cluster.DialTimeout = 5s
+orderer.example.com         | 	General.Cluster.RPCTimeout = 7s
+orderer.example.com         | 	General.Cluster.ReplicationBufferSize = 20971520
+orderer.example.com         | 	General.Cluster.ReplicationPullTimeout = 5s
+orderer.example.com         | 	General.Cluster.ReplicationRetryTimeout = 5s
+orderer.example.com         | 	General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+orderer.example.com         | 	General.Cluster.ReplicationMaxRetries = 12
+orderer.example.com         | 	General.Cluster.SendBufferSize = 10
+orderer.example.com         | 	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+orderer.example.com         | 	General.Keepalive.ServerMinInterval = 1m0s
+orderer.example.com         | 	General.Keepalive.ServerInterval = 2h0m0s
+orderer.example.com         | 	General.Keepalive.ServerTimeout = 20s
+orderer.example.com         | 	General.GenesisMethod = "file"
+orderer.example.com         | 	General.GenesisProfile = "SampleInsecureSolo"
+orderer.example.com         | 	General.SystemChannel = "test-system-channel-name"
+orderer.example.com         | 	General.GenesisFile = "/etc/hyperledger/configtx/orgs.genesis.block"
+orderer.example.com         | 	General.Profile.Enabled = false
+orderer.example.com         | 	General.Profile.Address = "0.0.0.0:6060"
+orderer.example.com         | 	General.LocalMSPDir = "/etc/hyperledger/msp/orderer/msp"
+orderer.example.com         | 	General.LocalMSPID = "OrdererMSP"
+orderer.example.com         | 	General.BCCSP.ProviderName = "SW"
+orderer.example.com         | 	General.BCCSP.SwOpts.SecLevel = 256
+orderer.example.com         | 	General.BCCSP.SwOpts.HashFamily = "SHA2"
+orderer.example.com         | 	General.BCCSP.SwOpts.Ephemeral = false
+orderer.example.com         | 	General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/etc/hyperledger/msp/orderer/msp/keystore"
+orderer.example.com         | 	General.BCCSP.SwOpts.DummyKeystore =
+orderer.example.com         | 	General.BCCSP.SwOpts.InmemKeystore =
+orderer.example.com         | 	General.BCCSP.PluginOpts =
+orderer.example.com         | 	General.Authentication.TimeWindow = 15m0s
+orderer.example.com         | 	FileLedger.Location = "/var/hyperledger/production/orderer"
+orderer.example.com         | 	FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+orderer.example.com         | 	RAMLedger.HistorySize = 1000
+orderer.example.com         | 	Kafka.Retry.ShortInterval = 5s
+orderer.example.com         | 	Kafka.Retry.ShortTotal = 10m0s
+orderer.example.com         | 	Kafka.Retry.LongInterval = 5m0s
+orderer.example.com         | 	Kafka.Retry.LongTotal = 12h0m0s
+orderer.example.com         | 	Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+orderer.example.com         | 	Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+orderer.example.com         | 	Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+orderer.example.com         | 	Kafka.Retry.Metadata.RetryMax = 3
+orderer.example.com         | 	Kafka.Retry.Metadata.RetryBackoff = 250ms
+orderer.example.com         | 	Kafka.Retry.Producer.RetryMax = 3
+orderer.example.com         | 	Kafka.Retry.Producer.RetryBackoff = 100ms
+orderer.example.com         | 	Kafka.Retry.Consumer.RetryBackoff = 2s
+orderer.example.com         | 	Kafka.Verbose = false
+orderer.example.com         | 	Kafka.Version = 0.10.2.0
+orderer.example.com         | 	Kafka.TLS.Enabled = false
+orderer.example.com         | 	Kafka.TLS.PrivateKey = ""
+orderer.example.com         | 	Kafka.TLS.Certificate = ""
+orderer.example.com         | 	Kafka.TLS.RootCAs = []
+orderer.example.com         | 	Kafka.TLS.ClientAuthRequired = false
+orderer.example.com         | 	Kafka.TLS.ClientRootCAs = []
+orderer.example.com         | 	Kafka.SASLPlain.Enabled = false
+orderer.example.com         | 	Kafka.SASLPlain.User = ""
+orderer.example.com         | 	Kafka.SASLPlain.Password = ""
+orderer.example.com         | 	Kafka.Topic.ReplicationFactor = 3
+orderer.example.com         | 	Debug.BroadcastTraceDir = ""
+orderer.example.com         | 	Debug.DeliverTraceDir = ""
+orderer.example.com         | 	Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+orderer.example.com         | 	Operations.ListenAddress = "127.0.0.1:8443"
+orderer.example.com         | 	Operations.TLS.Enabled = false
+orderer.example.com         | 	Operations.TLS.PrivateKey = ""
+orderer.example.com         | 	Operations.TLS.Certificate = ""
+orderer.example.com         | 	Operations.TLS.RootCAs = []
+orderer.example.com         | 	Operations.TLS.ClientAuthRequired = false
+orderer.example.com         | 	Operations.TLS.ClientRootCAs = []
+orderer.example.com         | 	Metrics.Provider = "disabled"
+orderer.example.com         | 	Metrics.Statsd.Network = "udp"
+orderer.example.com         | 	Metrics.Statsd.Address = "127.0.0.1:8125"
+orderer.example.com         | 	Metrics.Statsd.WriteInterval = 30s
+orderer.example.com         | 	Metrics.Statsd.Prefix = ""
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Home directory: /etc/hyperledger/fabric-ca-server
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] parent server URL: ''
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Created default configuration file at /etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+orderer.example.com         | 2019-08-14 02:46:07.996 UTC [fsblkstorage] newBlockfileMgr -> INFO 003 Getting block information from block storage
+orderer.example.com         | 2019-08-14 02:46:08.226 UTC [orderer.commmon.multichannel] Initialize -> INFO 004 Starting system channel 'syschannel' with genesis block hash deb3cb3af117b19d28d0e0bb4c9f78581966bce8c314bd05212e6e9fc2cb6de7 and orderer type solo
+orderer.example.com         | 2019-08-14 02:46:08.230 UTC [orderer.common.server] Start -> INFO 005 Starting orderer:
+orderer.example.com         |  Version: 1.4.1
+orderer.example.com         |  Commit SHA: 87074a7
+orderer.example.com         |  Go version: go1.11.5
+orderer.example.com         |  OS/Arch: linux/amd64
+orderer.example.com         | 2019-08-14 02:46:08.230 UTC [orderer.common.server] Start -> INFO 006 Beginning to serve requests
+couchdb.org2.example.com    | ****************************************************
+couchdb.org2.example.com    | WARNING: CouchDB is running in Admin Party mode.
+couchdb.org2.example.com    |          This will allow anyone with access to the
+couchdb.org2.example.com    |          CouchDB port to access your database. In
+couchdb.org2.example.com    |          Docker's default configuration, this is
+couchdb.org2.example.com    |          effectively any other container on the same
+couchdb.org2.example.com    |          system.
+couchdb.org2.example.com    |          Use "-e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password"
+couchdb.org2.example.com    |          to set it in "docker run".
+couchdb.org2.example.com    | ****************************************************
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Starting server in home directory: /etc/hyperledger/fabric-ca-server
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Set log level: 
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Server Version: 1.4.1
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Making server filenames absolute
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initializing default CA in directory /etc/hyperledger/fabric-ca-server
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Init CA with home /etc/hyperledger/fabric-ca-server and config {Version:1.4.1 Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name:ca.org1.example.com Keyfile:/etc/hyperledger/fabric-ca-server-config/key.pem Certfile:/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem Chainfile:ca-chain.pem} Signing:0xc000255430 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[2ffeccd87af3 localhost] KeyRequest:0xc0004890c0 CA:0xc000489140 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Roles:* hf.Registrar.DelegateRoles:* hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc0004888e0 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:1000 NonceExpiration:15s NonceSweepInterval:15m}}
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] CA Home Directory: /etc/hyperledger/fabric-ca-server
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Checking configuration file version '1.4.1' against server version: '1.4.1'
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc00051c400 PluginOpts:<nil>}
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc00048a610 DummyKeystore:<nil> InmemKeystore:<nil>}
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initialize key material
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Making CA filenames absolute
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] The CA key and certificate files already exist
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Key file location: /etc/hyperledger/fabric-ca-server-config/key.pem
+ca.org1.example.com         | 2019/08/14 02:46:08 [INFO] Certificate file location: /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Validating the CA certificate and key
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check CA certificate for valid dates
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check CA certificate for valid usages
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check CA certificate for valid IsCA value
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check that key type is supported
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check that key size is of appropriate length
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Check that public key and private key match
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Home directory: /etc/hyperledger/fabric-ca-server
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] parent server URL: ''
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Created default configuration file at /etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Starting server in home directory: /etc/hyperledger/fabric-ca-server
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Set log level: 
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Server Version: 1.4.1
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Making server filenames absolute
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing default CA in directory /etc/hyperledger/fabric-ca-server
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Init CA with home /etc/hyperledger/fabric-ca-server and config {Version:1.4.1 Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name:ca.org2.example.com Keyfile:/etc/hyperledger/fabric-ca-server-config/key.pem Certfile:/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem Chainfile:ca-chain.pem} Signing:0xc00022a1b0 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[5436ca082461 localhost] KeyRequest:0xc0002dc1a0 CA:0xc0002dc220 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:* hf.Registrar.DelegateRoles:*]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc0002dd080 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:1000 NonceExpiration:15s NonceSweepInterval:15m}}
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] CA Home Directory: /etc/hyperledger/fabric-ca-server
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Checking configuration file version '1.4.1' against server version: '1.4.1'
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc0001ce400 PluginOpts:<nil>}
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc0002df690 DummyKeystore:<nil> InmemKeystore:<nil>}
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initialize key material
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Making CA filenames absolute
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] The CA key and certificate files already exist
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Key file location: /etc/hyperledger/fabric-ca-server-config/key.pem
+ca.org2.example.com         | 2019/08/14 02:46:11 [INFO] Certificate file location: /etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Validating the CA certificate and key
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check CA certificate for valid dates
+peer0.org1.example.com      | 2019-08-14 02:46:14.027 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.org1.example.com      |  Version: 1.4.1
+peer0.org1.example.com      |  Commit SHA: 87074a7
+peer0.org1.example.com      |  Go version: go1.11.5
+peer0.org1.example.com      |  OS/Arch: linux/amd64
+peer0.org1.example.com      |  Chaincode:
+peer0.org1.example.com      |   Base Image Version: 0.4.15
+peer0.org1.example.com      |   Base Docker Namespace: hyperledger
+peer0.org1.example.com      |   Base Docker Label: org.hyperledger.fabric
+peer0.org1.example.com      |   Docker Namespace: hyperledger
+peer0.org1.example.com      | 2019-08-14 02:46:14.030 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.org1.example.com      | 2019-08-14 02:46:14.031 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer0.org1.example.com      | 2019-08-14 02:46:14.292 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer0.org1.example.com      | 2019-08-14 02:46:14.486 UTC [couchdb] handleRequest -> WARN 005 Retrying couchdb request in 125ms. Attempt:1  Error:Get http://couchdb.org1.example.com:5984/: dial tcp 172.25.0.2:5984: connect: connection refused
+peer0.org1.example.com      | fatal error: unexpected signal during runtime execution
+peer0.org1.example.com      | [signal SIGSEGV: segmentation violation code=0x1 addr=0x63 pc=0x7f0defdf1259]
+peer0.org1.example.com      | 
+peer0.org1.example.com      | runtime stack:
+peer0.org1.example.com      | runtime.throw(0x1272c18, 0x2a)
+peer0.org1.example.com      | 	/opt/go/src/runtime/panic.go:608 +0x72
+peer0.org1.example.com      | runtime.sigpanic()
+peer0.org1.example.com      | 	/opt/go/src/runtime/signal_unix.go:374 +0x2f2
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 58 [syscall]:
+peer0.org1.example.com      | runtime.cgocall(0xe455e0, 0xc00005ce00, 0x29)
+peer0.org1.example.com      | 	/opt/go/src/runtime/cgocall.go:128 +0x5e fp=0xc00005cdc8 sp=0xc00005cd90 pc=0x4039ee
+peer0.org1.example.com      | net._C2func_getaddrinfo(0xc000041060, 0x0, 0xc00020e180, 0xc00000ea88, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	_cgo_gotypes.go:91 +0x55 fp=0xc00005ce00 sp=0xc00005cdc8 pc=0x616c85
+peer0.org1.example.com      | net.cgoLookupIPCNAME.func1(0xc000041060, 0x0, 0xc00020e180, 0xc00000ea88, 0x19, 0x19, 0x1000)
+peer0.org1.example.com      | 	/opt/go/src/net/cgo_unix.go:149 +0x131 fp=0xc00005ce48 sp=0xc00005ce00 pc=0x61c3b1
+peer0.org1.example.com      | net.cgoLookupIPCNAME(0xc000041040, 0x18, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/cgo_unix.go:149 +0x153 fp=0xc00005cf38 sp=0xc00005ce48 pc=0x618243
+peer0.org1.example.com      | net.cgoIPLookup(0xc000330a80, 0xc000041040, 0x18)
+peer0.org1.example.com      | 	/opt/go/src/net/cgo_unix.go:201 +0x4d fp=0xc00005cfc8 sp=0xc00005cf38 pc=0x6188fd
+peer0.org1.example.com      | runtime.goexit()
+peer0.org1.example.com      | 	/opt/go/src/runtime/asm_amd64.s:1333 +0x1 fp=0xc00005cfd0 sp=0xc00005cfc8 pc=0x45de51
+peer0.org1.example.com      | created by net.cgoLookupIP
+peer0.org1.example.com      | 	/opt/go/src/net/cgo_unix.go:211 +0xad
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 1 [select]:
+peer0.org1.example.com      | net/http.(*Transport).getConn(0xc00015b560, 0xc00020e060, 0x0, 0xc0003a0a50, 0x4, 0xc000041040, 0x1d, 0x0, 0x0, 0xc00058b040)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:1004 +0x58e
+peer0.org1.example.com      | net/http.(*Transport).roundTrip(0xc00015b560, 0xc0003f8900, 0xc00020e030, 0xc000147dc8, 0xc000147dd0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:451 +0x690
+peer0.org1.example.com      | net/http.(*Transport).RoundTrip(0xc00015b560, 0xc0003f8900, 0xc00015b560, 0xbf4cfb666547ea2f, 0x86d1f3c8e)
+peer0.org1.example.com      | 	/opt/go/src/net/http/roundtrip.go:17 +0x35
+peer0.org1.example.com      | net/http.send(0xc0003f8600, 0x139e6e0, 0xc00015b560, 0xbf4cfb666547ea2f, 0x86d1f3c8e, 0x1fa1740, 0xc00000ea78, 0xbf4cfb666547ea2f, 0xc0004b2b48, 0x1)
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:250 +0x14b
+peer0.org1.example.com      | net/http.(*Client).send(0xc00012d3e0, 0xc0003f8600, 0xbf4cfb666547ea2f, 0x86d1f3c8e, 0x1fa1740, 0xc00000ea78, 0x0, 0x1, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:174 +0xfa
+peer0.org1.example.com      | net/http.(*Client).do(0xc00012d3e0, 0xc0003f8600, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:641 +0x2a8
+peer0.org1.example.com      | net/http.(*Client).Do(0xc00012d3e0, 0xc0003f8600, 0x10, 0xc0004b2e40, 0x1)
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:509 +0x35
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.(*CouchInstance).handleRequest(0xc000349260, 0x13b7a20, 0xc000046090, 0x123cf31, 0x3, 0x0, 0x0, 0x124c88f, 0x11, 0xc0000bee00, ...)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdb.go:1752 +0x64e
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.(*CouchInstance).VerifyCouchConfig(0xc000349260, 0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdb.go:410 +0x345
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.CreateCouchInstance(0xc00003e07f, 0x1d, 0x0, 0x0, 0x0, 0x0, 0x3, 0xc, 0x826299e00, 0xc000042000, ...)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdbutil.go:58 +0x29e
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb/statecouchdb.NewVersionedDBProvider(0x13b0260, 0x1fc5e60, 0xb972cb, 0x10d80c0, 0xc00000e958)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb/statecouchdb/statecouchdb.go:46 +0xe4
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate.NewCommonStorageDBProvider(0x13a2ce0, 0xc00000e958, 0x13b0260, 0x1fc5e60, 0x139cac0, 0xc0003f8b00, 0x2, 0x4, 0x0, 0xc0000beb00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate/common_storage_db.go:48 +0x48
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger.(*Provider).Initialize(0xc0000beb00, 0xc000196b40, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/kv_ledger_provider.go:88 +0x25e
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.initialize(0xc000213590)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:73 +0x4b4
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.Initialize.func1()
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:53 +0x2a
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Validation of CA certificate and key successful
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check CA certificate for valid usages
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check CA certificate for valid IsCA value
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Loading CN from existing enrollment information
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check that key type is supported
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initializing DB
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check that key size is of appropriate length
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Check that public key and private key match
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Validation of CA certificate and key successful
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Initializing 'sqlite3' database at '/etc/hyperledger/fabric-ca-server/fabric-ca-server.db'
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Loading CN from existing enrollment information
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Using sqlite database, connect to database in home (/etc/hyperledger/fabric-ca-server/fabric-ca-server.db) directory
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing DB
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating SQLite database (/etc/hyperledger/fabric-ca-server/fabric-ca-server.db) if it does not exist...
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing 'sqlite3' database at '/etc/hyperledger/fabric-ca-server/fabric-ca-server.db'
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating users table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Using sqlite database, connect to database in home (/etc/hyperledger/fabric-ca-server/fabric-ca-server.db) directory
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating affiliations table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Creating SQLite database (/etc/hyperledger/fabric-ca-server/fabric-ca-server.db) if it does not exist...
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating certificates table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Creating users table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating credentials table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:11 [DEBUG] Creating affiliations table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating certificates table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating revocation_authority_info table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating nonces table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating credentials table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:08 [DEBUG] Creating properties table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating revocation_authority_info table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Successfully opened sqlite3 DB
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating nonces table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Initializing identity registry
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating properties table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Initialized DB identity registry
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Checking database levels '&{Identity:0 Affiliation:0 Certificate:0 Credential:0 RAInfo:0 Nonce:0}' against server levels '&{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}'
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Migrating users table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Successfully opened sqlite3 DB
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Upgrade identity table to level 1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Initializing identity registry
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Creating users table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Initialized DB identity registry
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Upgrade identity table to level 2
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Checking database levels '&{Identity:0 Affiliation:0 Certificate:0 Credential:0 RAInfo:0 Nonce:0}' against server levels '&{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}'
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Creating users table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Migrating users table...
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Migrating affiliation table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Upgrade identity table to level 1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating users table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Upgrade affiliations table to level 1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Upgrade identity table to level 2
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Creating affiliations table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating users table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Upgrade certificates table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Migrating affiliation table...
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Upgrade certificates table to level 1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Upgrade affiliations table to level 1
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Creating certificates table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating affiliations table if it does not exist
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Upgrade certificates table...
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Migrating credentials table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Upgrade certificates table to level 1
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Migrating nonces table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Creating certificates table if it does not exist
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Migrating revocation_authority_info table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Migrating credentials table...
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Loading identity table
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Loading identity 'admin'
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] DB: Getting identity admin
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Migrating nonces table...
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Migrating revocation_authority_info table...
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Loading identity table
+ca.org1.example.com         | 2019/08/14 02:46:09 [DEBUG] DB: Add identity admin
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Loading identity 'admin'
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Successfully added identity admin to the database
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:* hf.Registrar.DelegateRoles:* hf.Revoker:1 hf.IntermediateCA:1]  }
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Successfully loaded identity table
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Loading affiliations table
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] DB: Add affiliation org2
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Affiliation 'org2' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] DB: Add affiliation org2.department1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] DB: Getting identity admin
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+ca.org2.example.com         | 2019/08/14 02:46:12 [DEBUG] DB: Add identity admin
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Affiliation 'org2.department1' added
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Successfully added identity admin to the database
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] DB: Add affiliation org1
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.Registrar.DelegateRoles:* hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:*]  }
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Affiliation 'org1' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] DB: Add affiliation org1.department1
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Affiliation 'org1.department1' added
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Successfully loaded identity table
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] DB: Add affiliation org1.department2
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Loading affiliations table
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Affiliation 'org1.department2' added
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] DB: Add affiliation org2
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Successfully loaded affiliations table
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Affiliation 'org2' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-server/fabric-ca-server.db
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] DB: Add affiliation org2.department1
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing enrollment signer
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Affiliation 'org2.department1' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] No key found in BCCSP keystore, attempting fallback
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] DB: Add affiliation org1
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] validating configuration
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Affiliation 'org1' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] validate local profile
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] DB: Add affiliation org1.department1
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] profile is valid
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Affiliation 'org1.department1' added
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] validate local profile
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] profile is valid
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] validate local profile
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] profile is valid
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] CA initialization successful
+ca.org1.example.com         | 2019/08/14 02:46:11 [DEBUG] Initializing Idemix issuer...
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] DB: Add affiliation org1.department2
+peer0.org1.example.com      | sync.(*Once).Do(0x1fc5f38, 0xc0005b14e0)
+peer0.org1.example.com      | 	/opt/go/src/sync/once.go:44 +0xb3
+peer0.org1.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.Initialize(0xc000213590)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:52 +0x55
+peer0.org1.example.com      | github.com/hyperledger/fabric/peer/node.serve(0x1fc5e60, 0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/node/start.go:176 +0x5bd
+peer0.org1.example.com      | github.com/hyperledger/fabric/peer/node.glob..func1(0x1eb3b00, 0x1fc5e60, 0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/node/start.go:121 +0x9c
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x1eb3b00, 0x1fc5e60, 0x0, 0x0, 0x1eb3b00, 0x1fc5e60)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:762 +0x473
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x1eb4220, 0x8, 0x0, 0x1eb33e0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:852 +0x2fd
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(0x1eb4220, 0xc0005b1f40, 0x1)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:800 +0x2b
+peer0.org1.example.com      | main.main()
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/main.go:53 +0x2f7
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 8 [syscall]:
+peer0.org1.example.com      | os/signal.signal_recv(0x0)
+peer0.org1.example.com      | 	/opt/go/src/runtime/sigqueue.go:139 +0x9c
+peer0.org1.example.com      | os/signal.loop()
+peer0.org1.example.com      | 	/opt/go/src/os/signal/signal_unix.go:23 +0x22
+peer0.org1.example.com      | created by os/signal.init.0
+peer0.org1.example.com      | 	/opt/go/src/os/signal/signal_unix.go:29 +0x41
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 11 [IO wait]:
+peer0.org1.example.com      | internal/poll.runtime_pollWait(0x7f0dfd9bdf00, 0x72, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/runtime/netpoll.go:173 +0x66
+peer0.org1.example.com      | internal/poll.(*pollDesc).wait(0xc00024c898, 0x72, 0xc000323a00, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/internal/poll/fd_poll_runtime.go:85 +0x9a
+peer0.org1.example.com      | internal/poll.(*pollDesc).waitRead(0xc00024c898, 0xffffffffffffff00, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+peer0.org1.example.com      | internal/poll.(*FD).Accept(0xc00024c880, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/internal/poll/fd_unix.go:384 +0x1a0
+peer0.org1.example.com      | net.(*netFD).accept(0xc00024c880, 0x7f0e0142c000, 0x0, 0xc0000576b0)
+peer0.org1.example.com      | 	/opt/go/src/net/fd_unix.go:238 +0x42
+peer0.org1.example.com      | net.(*TCPListener).accept(0xc00000ee20, 0xc0000576b8, 0x40d1d8, 0x30)
+peer0.org1.example.com      | 	/opt/go/src/net/tcpsock_posix.go:139 +0x2e
+peer0.org1.example.com      | net.(*TCPListener).Accept(0xc00000ee20, 0x1174aa0, 0xc00053be00, 0x1074180, 0x1ea5270)
+peer0.org1.example.com      | 	/opt/go/src/net/tcpsock.go:260 +0x47
+peer0.org1.example.com      | net/http.(*Server).Serve(0xc0003ffe10, 0x13b6a20, 0xc00000ee20, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/server.go:2826 +0x22f
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/core/operations.(*System).Start
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Affiliation 'org1.department2' added
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] The issuer key was successfully stored. The public key is at: /etc/hyperledger/fabric-ca-server/IssuerPublicKey, secret key is at: /etc/hyperledger/fabric-ca-server/msp/keystore/IssuerSecretKey
+ca.org1.example.com         | 2019/08/14 02:46:12 [DEBUG] Intializing revocation authority for issuer 'ca.org1.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Successfully loaded affiliations table
+ca.org1.example.com         | 2019/08/14 02:46:12 [DEBUG] Initialize Idemix issuer revocation key material
+ca.org2.example.com         | 2019/08/14 02:46:13 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-server/fabric-ca-server.db
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] Idemix issuer revocation public and secret keys were generated for CA 'ca.org1.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Initializing enrollment signer
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] The revocation key was successfully stored. The public key is at: /etc/hyperledger/fabric-ca-server/IssuerRevocationPublicKey, private key is at: /etc/hyperledger/fabric-ca-server/msp/keystore/IssuerRevocationPrivateKey
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] No key found in BCCSP keystore, attempting fallback
+ca.org1.example.com         | 2019/08/14 02:46:12 [DEBUG] Intializing nonce manager for issuer 'ca.org1.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] validating configuration
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] validate local profile
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] profile is valid
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] validate local profile
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] profile is valid
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] validate local profile
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] profile is valid
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] CA initialization successful
+ca.org2.example.com         | 2019/08/14 02:46:13 [DEBUG] Initializing Idemix issuer...
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] Home directory for default CA: /etc/hyperledger/fabric-ca-server
+ca.org1.example.com         | 2019/08/14 02:46:12 [DEBUG] 1 CA instance(s) running on server
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] Operation Server Listening on 127.0.0.1:9443
+ca.org1.example.com         | 2019/08/14 02:46:12 [INFO] Listening on http://0.0.0.0:7054
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] The issuer key was successfully stored. The public key is at: /etc/hyperledger/fabric-ca-server/IssuerPublicKey, secret key is at: /etc/hyperledger/fabric-ca-server/msp/keystore/IssuerSecretKey
+ca.org2.example.com         | 2019/08/14 02:46:14 [DEBUG] Intializing revocation authority for issuer 'ca.org2.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:14 [DEBUG] Initialize Idemix issuer revocation key material
+peer0.org2.example.com      | 2019-08-14 02:46:16.186 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.org2.example.com      |  Version: 1.4.1
+peer0.org2.example.com      |  Commit SHA: 87074a7
+peer0.org2.example.com      |  Go version: go1.11.5
+peer0.org2.example.com      |  OS/Arch: linux/amd64
+peer0.org2.example.com      |  Chaincode:
+peer0.org2.example.com      |   Base Image Version: 0.4.15
+peer0.org2.example.com      |   Base Docker Namespace: hyperledger
+peer0.org2.example.com      |   Base Docker Label: org.hyperledger.fabric
+peer0.org2.example.com      |   Docker Namespace: hyperledger
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.191145Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _replicator
+peer0.org2.example.com      | 2019-08-14 02:46:16.187 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.org2.example.com      | 2019-08-14 02:46:16.187 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] Idemix issuer revocation public and secret keys were generated for CA 'ca.org2.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] The revocation key was successfully stored. The public key is at: /etc/hyperledger/fabric-ca-server/IssuerRevocationPublicKey, private key is at: /etc/hyperledger/fabric-ca-server/msp/keystore/IssuerRevocationPrivateKey
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/operations/system.go:121 +0x1a3
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 12 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c1ce0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 13 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009da00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 14 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009da00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 15 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009da00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 16 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009da00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 18 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c01c0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 19 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009c680)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 20 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009c680)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 21 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009c680)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 22 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009c680)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 23 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c0380)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 24 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009cb60)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 25 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009cb60)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 26 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009cb60)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 27 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009cb60)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 28 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c0540)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 29 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009cd00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 30 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009cd00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 31 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009cd00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 32 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009cd00)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 33 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c0700)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 34 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009d040)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+ca.org2.example.com         | 2019/08/14 02:46:14 [DEBUG] Intializing nonce manager for issuer 'ca.org2.example.com'
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] Home directory for default CA: /etc/hyperledger/fabric-ca-server
+ca.org2.example.com         | 2019/08/14 02:46:14 [DEBUG] 1 CA instance(s) running on server
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] Operation Server Listening on 127.0.0.1:9443
+ca.org2.example.com         | 2019/08/14 02:46:14 [INFO] Listening on http://0.0.0.0:7054
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 35 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009d040)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 36 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009d040)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 37 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009d040)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 38 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0003c08c0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 39 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009dba0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 40 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009dba0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 41 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009dba0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 42 [select]:
+peer0.org1.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009dba0)
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org1.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org1.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 57 [select]:
+peer0.org1.example.com      | net.cgoLookupIP(0x13b79e0, 0xc000322800, 0xc000041040, 0x18, 0x0, 0x18, 0x64, 0xc00005cce8, 0x4787e6, 0xc000349c80)
+peer0.org1.example.com      | 	/opt/go/src/net/cgo_unix.go:212 +0x17b
+peer0.org1.example.com      | net.(*Resolver).lookupIP(0x1fa0d00, 0x13b79e0, 0xc000322800, 0xc000041040, 0x18, 0x40d1d8, 0xc0003c9800, 0xc000323740, 0xc00012d501, 0xc0003f8400)
+peer0.org1.example.com      | 	/opt/go/src/net/lookup_unix.go:95 +0x166
+peer0.org1.example.com      | net.(*Resolver).lookupIP-fm(0x13b79e0, 0xc000322800, 0xc000041040, 0x18, 0x42be22, 0x100000000000008, 0xc000323740, 0x1000, 0xc00005cea0)
+peer0.org1.example.com      | 	/opt/go/src/net/lookup.go:207 +0x56
+peer0.org1.example.com      | net.glob..func1(0x13b79e0, 0xc000322800, 0xc000397b20, 0xc000041040, 0x18, 0x1, 0xc00005cf00, 0x6f0500, 0xc000349c80, 0x1001)
+peer0.org1.example.com      | 	/opt/go/src/net/hook.go:19 +0x52
+peer0.org1.example.com      | net.(*Resolver).LookupIPAddr.func1(0x0, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/lookup.go:221 +0xd8
+peer0.org1.example.com      | internal/singleflight.(*Group).doCall(0x1fa0d10, 0xc000236280, 0xc000041040, 0x18, 0xc00020e120)
+peer0.org1.example.com      | 	/opt/go/src/internal/singleflight/singleflight.go:95 +0x2e
+peer0.org1.example.com      | created by internal/singleflight.(*Group).DoChan
+peer0.org1.example.com      | 	/opt/go/src/internal/singleflight/singleflight.go:88 +0x2a0
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 55 [runnable]:
+peer0.org1.example.com      | net/http.setRequestCancel.func3(0x0, 0xc00020e030, 0xc000236230, 0xc000147dc8, 0xc000166d80)
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:320
+peer0.org1.example.com      | created by net/http.setRequestCancel
+peer0.org1.example.com      | 	/opt/go/src/net/http/client.go:320 +0x24e
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 56 [select]:
+peer0.org1.example.com      | net.(*Resolver).LookupIPAddr(0x1fa0d00, 0x13b7a20, 0xc000046090, 0xc000041040, 0x18, 0xc000041059, 0x4, 0x1760, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/net/lookup.go:227 +0x55f
+peer0.org1.example.com      | net.(*Resolver).internetAddrList(0x1fa0d00, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc000041040, 0x1d, 0x0, 0x0, 0x0, ...)
+peer0.org1.example.com      | 	/opt/go/src/net/ipsock.go:279 +0x614
+peer0.org1.example.com      | net.(*Resolver).resolveAddrList(0x1fa0d00, 0x13b7a20, 0xc000046090, 0x123da6a, 0x4, 0x123d330, 0x3, 0xc000041040, 0x1d, 0x0, ...)
+peer0.org1.example.com      | 	/opt/go/src/net/dial.go:202 +0x4fb
+peer0.org1.example.com      | net.(*Dialer).DialContext(0x1fa18c0, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc000041040, 0x1d, 0x0, 0x0, 0x0, ...)
+peer0.org1.example.com      | 	/opt/go/src/net/dial.go:384 +0x201
+peer0.org1.example.com      | net/http.(*Transport).dial(0xc00015b560, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc000041040, 0x1d, 0xc000349e00, 0xc000243db8, 0xc000243c00, ...)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:925 +0x17f
+peer0.org1.example.com      | net/http.(*Transport).dialConn(0xc00015b560, 0x13b7a20, 0xc000046090, 0x0, 0xc0003a0a50, 0x4, 0xc000041040, 0x1d, 0x1000, 0x139e4c0, ...)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:1240 +0x313
+peer0.org1.example.com      | net/http.(*Transport).getConn.func4(0xc00015b560, 0x13b7a20, 0xc000046090, 0xc00020e090, 0xc000166de0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:999 +0x6e
+peer0.org1.example.com      | created by net/http.(*Transport).getConn
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:998 +0x3d7
+peer0.org1.example.com      | 
+peer0.org1.example.com      | goroutine 54 [runnable]:
+peer0.org1.example.com      | io.(*pipe).Write(0xc0002361e0, 0xc000501000, 0x89, 0x1000, 0x0, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/io/pipe.go:89 +0x1fe
+peer0.org1.example.com      | io.(*PipeWriter).Write(0xc00000ea58, 0xc000501000, 0x89, 0x1000, 0x89, 0x0, 0x0)
+peer0.org1.example.com      | 	/opt/go/src/io/pipe.go:153 +0x4c
+peer0.org1.example.com      | io.(*multiWriter).Write(0xc00058afa0, 0xc000501000, 0x89, 0x1000, 0xc0001917c0, 0x0, 0xc000040f20)
+peer0.org1.example.com      | 	/opt/go/src/io/multi.go:60 +0x87
+peer0.org1.example.com      | net/http.persistConnWriter.Write(0xc00015bd40, 0xc000501000, 0x89, 0x1000, 0x123cf31, 0x3, 0x10137a0)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:1354 +0x52
+peer0.org1.example.com      | bufio.(*Writer).Flush(0xc000322780, 0x139bb20, 0xc000322780)
+peer0.org1.example.com      | 	/opt/go/src/bufio/bufio.go:575 +0x7b
+peer0.org1.example.com      | net/http.(*persistConn).writeLoop(0xc00015bd40)
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:1901 +0x35a
+peer0.org1.example.com      | created by net/http.(*Transport).dialConn
+peer0.org1.example.com      | 	/opt/go/src/net/http/transport.go:1339 +0x966
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:16.280888Z nonode@nohost <0.361.0> -------- creating replicator ddoc <<"_replicator">>
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.338806Z nonode@nohost <0.7.0> -------- Application couch_replicator started on node nonode@nohost
+peer0.org1.example.com exited with code 2
+peer0.org2.example.com      | 2019-08-14 02:46:16.497 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.577286Z nonode@nohost <0.7.0> -------- Application couch_peruser started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.588421Z nonode@nohost <0.7.0> -------- Application ddoc_cache started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.728595Z nonode@nohost <0.7.0> -------- Application global_changes started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.731326Z nonode@nohost <0.7.0> -------- Application jiffy started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.741137Z nonode@nohost <0.7.0> -------- Application mango started on node nonode@nohost
+peer0.org2.example.com      | 2019-08-14 02:46:16.780 UTC [couchdb] handleRequest -> WARN 005 Retrying couchdb request in 125ms. Attempt:1  Error:Get http://couchdb.org2.example.com:5984/: dial tcp 172.25.0.6:5984: connect: connection refused
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.830383Z nonode@nohost <0.7.0> -------- Application setup started on node nonode@nohost
+couchdb.org1.example.com    | [info] 2019-08-14T02:46:16.831228Z nonode@nohost <0.7.0> -------- Application snappy started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:16.886712Z nonode@nohost <0.7.0> -------- Application couch_log started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:16.894577Z nonode@nohost <0.7.0> -------- Application folsom started on node nonode@nohost
+peer0.org2.example.com      | fatal error: unexpected signal during runtime execution
+peer0.org2.example.com      | [signal SIGSEGV: segmentation violation code=0x1 addr=0x63 pc=0x7f0b41951259]
+peer0.org2.example.com      | 
+peer0.org2.example.com      | runtime stack:
+peer0.org2.example.com      | runtime.throw(0x1272c18, 0x2a)
+peer0.org2.example.com      | 	/opt/go/src/runtime/panic.go:608 +0x72
+peer0.org2.example.com      | runtime.sigpanic()
+peer0.org2.example.com      | 	/opt/go/src/runtime/signal_unix.go:374 +0x2f2
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 58 [syscall]:
+peer0.org2.example.com      | runtime.cgocall(0xe455e0, 0xc0005a3600, 0x29)
+peer0.org2.example.com      | 	/opt/go/src/runtime/cgocall.go:128 +0x5e fp=0xc0005a35c8 sp=0xc0005a3590 pc=0x4039ee
+peer0.org2.example.com      | net._C2func_getaddrinfo(0xc000040620, 0x0, 0xc00002f1d0, 0xc00000e740, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	_cgo_gotypes.go:91 +0x55 fp=0xc0005a3600 sp=0xc0005a35c8 pc=0x616c85
+peer0.org2.example.com      | net.cgoLookupIPCNAME.func1(0xc000040620, 0x0, 0xc00002f1d0, 0xc00000e740, 0x19, 0x19, 0x405f1f)
+peer0.org2.example.com      | 	/opt/go/src/net/cgo_unix.go:149 +0x131 fp=0xc0005a3648 sp=0xc0005a3600 pc=0x61c3b1
+peer0.org2.example.com      | net.cgoLookupIPCNAME(0xc0000405e0, 0x18, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/cgo_unix.go:149 +0x153 fp=0xc0005a3738 sp=0xc0005a3648 pc=0x618243
+peer0.org2.example.com      | net.cgoIPLookup(0xc000195d40, 0xc0000405e0, 0x18)
+peer0.org2.example.com      | 	/opt/go/src/net/cgo_unix.go:201 +0x4d fp=0xc0005a37c8 sp=0xc0005a3738 pc=0x6188fd
+peer0.org2.example.com      | runtime.goexit()
+peer0.org2.example.com      | 	/opt/go/src/runtime/asm_amd64.s:1333 +0x1 fp=0xc0005a37d0 sp=0xc0005a37c8 pc=0x45de51
+peer0.org2.example.com      | created by net.cgoLookupIP
+peer0.org2.example.com      | 	/opt/go/src/net/cgo_unix.go:211 +0xad
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 1 [select]:
+peer0.org2.example.com      | net/http.(*Transport).getConn(0xc00050b680, 0xc00002f050, 0x0, 0xc0002d8000, 0x4, 0xc0000405e0, 0x1d, 0x0, 0x0, 0xc00037a340)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:1004 +0x58e
+peer0.org2.example.com      | net/http.(*Transport).roundTrip(0xc00050b680, 0xc0003be700, 0xc00002f020, 0xc00014723c, 0xc000147250)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:451 +0x690
+peer0.org2.example.com      | net/http.(*Transport).RoundTrip(0xc00050b680, 0xc0003be700, 0xc00050b680, 0xbf4cfb66f7441823, 0x8769f27a8)
+peer0.org2.example.com      | 	/opt/go/src/net/http/roundtrip.go:17 +0x35
+peer0.org2.example.com      | net/http.send(0xc00010c300, 0x139e6e0, 0xc00050b680, 0xbf4cfb66f7441823, 0x8769f27a8, 0x1fa1740, 0xc00000e6f0, 0xbf4cfb66f7441823, 0xc000304b48, 0x1)
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:250 +0x14b
+peer0.org2.example.com      | net/http.(*Client).send(0xc000513a10, 0xc00010c300, 0xbf4cfb66f7441823, 0x8769f27a8, 0x1fa1740, 0xc00000e6f0, 0x0, 0x1, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:174 +0xfa
+peer0.org2.example.com      | net/http.(*Client).do(0xc000513a10, 0xc00010c300, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:641 +0x2a8
+peer0.org2.example.com      | net/http.(*Client).Do(0xc000513a10, 0xc00010c300, 0x10, 0xc000304e40, 0x1)
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:509 +0x35
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.(*CouchInstance).handleRequest(0xc00026c960, 0x13b7a20, 0xc000046090, 0x123cf31, 0x3, 0x0, 0x0, 0x124c88f, 0x11, 0xc0000bf000, ...)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdb.go:1752 +0x64e
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.(*CouchInstance).VerifyCouchConfig(0xc00026c960, 0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdb.go:410 +0x345
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/util/couchdb.CreateCouchInstance(0xc00003e07f, 0x1d, 0x0, 0x0, 0x0, 0x0, 0x3, 0xc, 0x826299e00, 0xc000042000, ...)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/util/couchdb/couchdbutil.go:58 +0x29e
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb/statecouchdb.NewVersionedDBProvider(0x13b0260, 0x1fc5e60, 0xb97306, 0x10d80c0, 0xc00000e9a8)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb/statecouchdb/statecouchdb.go:46 +0xe4
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate.NewCommonStorageDBProvider(0x13a2ce0, 0xc00000e9a8, 0x13b0260, 0x1fc5e60, 0x139cac0, 0xc0003beb00, 0x2, 0x4, 0x0, 0xc0000be800)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate/common_storage_db.go:48 +0x48
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/kvledger.(*Provider).Initialize(0xc0000be800, 0xc0001959e0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/kvledger/kv_ledger_provider.go:88 +0x25e
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.initialize(0xc000457590)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:73 +0x4b4
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.Initialize.func1()
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:53 +0x2a
+peer0.org2.example.com      | sync.(*Once).Do(0x1fc5f38, 0xc0003a14e0)
+peer0.org2.example.com      | 	/opt/go/src/sync/once.go:44 +0xb3
+peer0.org2.example.com      | github.com/hyperledger/fabric/core/ledger/ledgermgmt.Initialize(0xc000457590)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:52 +0x55
+peer0.org2.example.com      | github.com/hyperledger/fabric/peer/node.serve(0x1fc5e60, 0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/node/start.go:176 +0x5bd
+peer0.org2.example.com      | github.com/hyperledger/fabric/peer/node.glob..func1(0x1eb3b00, 0x1fc5e60, 0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/node/start.go:121 +0x9c
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x1eb3b00, 0x1fc5e60, 0x0, 0x0, 0x1eb3b00, 0x1fc5e60)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:762 +0x473
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x1eb4220, 0x8, 0x0, 0x1eb33e0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:852 +0x2fd
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(0x1eb4220, 0xc0003a1f40, 0x1)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:800 +0x2b
+peer0.org2.example.com      | main.main()
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/peer/main.go:53 +0x2f7
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 8 [syscall]:
+peer0.org2.example.com      | os/signal.signal_recv(0x0)
+peer0.org2.example.com      | 	/opt/go/src/runtime/sigqueue.go:139 +0x9c
+peer0.org2.example.com      | os/signal.loop()
+peer0.org2.example.com      | 	/opt/go/src/os/signal/signal_unix.go:23 +0x22
+peer0.org2.example.com      | created by os/signal.init.0
+peer0.org2.example.com      | 	/opt/go/src/os/signal/signal_unix.go:29 +0x41
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 11 [IO wait]:
+peer0.org2.example.com      | internal/poll.runtime_pollWait(0x7f0b42ce8f00, 0x72, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/runtime/netpoll.go:173 +0x66
+peer0.org2.example.com      | internal/poll.(*pollDesc).wait(0xc000452898, 0x72, 0xc000023a00, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/internal/poll/fd_poll_runtime.go:85 +0x9a
+peer0.org2.example.com      | internal/poll.(*pollDesc).waitRead(0xc000452898, 0xffffffffffffff00, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+peer0.org2.example.com      | internal/poll.(*FD).Accept(0xc000452880, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/internal/poll/fd_unix.go:384 +0x1a0
+peer0.org2.example.com      | net.(*netFD).accept(0xc000452880, 0x7f0b46757000, 0x0, 0xc0000576b0)
+peer0.org2.example.com      | 	/opt/go/src/net/fd_unix.go:238 +0x42
+peer0.org2.example.com      | net.(*TCPListener).accept(0xc00000ee28, 0xc0000576b8, 0x40d1d8, 0x30)
+peer0.org2.example.com      | 	/opt/go/src/net/tcpsock_posix.go:139 +0x2e
+peer0.org2.example.com      | net.(*TCPListener).Accept(0xc00000ee28, 0x1174aa0, 0xc00047e810, 0x1074180, 0x1ea5270)
+peer0.org2.example.com      | 	/opt/go/src/net/tcpsock.go:260 +0x47
+peer0.org2.example.com      | net/http.(*Server).Serve(0xc000209c70, 0x13b6a20, 0xc00000ee28, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/server.go:2826 +0x22f
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/core/operations.(*System).Start
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/core/operations/system.go:121 +0x1a3
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 12 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f3ce0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 13 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009da00)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 14 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009da00)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 15 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009da00)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 16 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009da00)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 18 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f3ea0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 19 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009dba0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 20 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009dba0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 21 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009dba0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 22 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009dba0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 23 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f22a0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 24 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009c680)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 25 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009c680)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 26 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009c680)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 27 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009c680)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 28 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f2460)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 29 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009cb60)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 30 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009cb60)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 31 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009cb60)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 32 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009cb60)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 33 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f2620)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 34 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009cea0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 35 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009cea0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 36 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009cea0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 37 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009cea0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 38 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.(*BufferPool).drain(0xc0002f27e0)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:206 +0x12a
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util.NewBufferPool
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go:237 +0x177
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 39 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).compactionError(0xc00009d040)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:90 +0xd3
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:142 +0x40c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 40 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mpoolDrain(0xc00009d040)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go:101 +0xe7
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:143 +0x42e
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 41 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).tCompaction(0xc00009d040)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:834 +0x331
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:149 +0x58c
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 42 [select]:
+peer0.org2.example.com      | github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.(*DB).mCompaction(0xc00009d040)
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go:762 +0x12e
+peer0.org2.example.com      | created by github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb.openDB
+peer0.org2.example.com      | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/syndtr/goleveldb/leveldb/db.go:150 +0x5ae
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 57 [select]:
+peer0.org2.example.com      | net.cgoLookupIP(0x13b79e0, 0xc000022580, 0xc0000405e0, 0x18, 0x0, 0xffffffff, 0x0, 0x7c0b7d7c13ea3d, 0x2feb104f91461a, 0x92922d20c66bd6)
+peer0.org2.example.com      | 	/opt/go/src/net/cgo_unix.go:212 +0x17b
+peer0.org2.example.com      | net.(*Resolver).lookupIP(0x1fa0d00, 0x13b79e0, 0xc000022580, 0xc0000405e0, 0x18, 0x65fb12980a82d3, 0xc0002fb500, 0xc000022080, 0xffffffff, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/lookup_unix.go:95 +0x166
+peer0.org2.example.com      | net.(*Resolver).lookupIP-fm(0x13b79e0, 0xc000022580, 0xc0000405e0, 0x18, 0x42be22, 0xefe47800000008, 0xc000022080, 0xebbaf3d6525ac4, 0xc0005a5ea0)
+peer0.org2.example.com      | 	/opt/go/src/net/lookup.go:207 +0x56
+peer0.org2.example.com      | net.glob..func1(0x13b79e0, 0xc000022580, 0xc0002a6140, 0xc0000405e0, 0x18, 0x895279937969e3, 0x37f94bd49fbf2d, 0x3f708a67b0a4e3, 0x87ce27ba5b2b27, 0x856b5a5a)
+peer0.org2.example.com      | 	/opt/go/src/net/hook.go:19 +0x52
+peer0.org2.example.com      | net.(*Resolver).LookupIPAddr.func1(0x0, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/lookup.go:221 +0xd8
+peer0.org2.example.com      | internal/singleflight.(*Group).doCall(0x1fa0d10, 0xc0003367d0, 0xc0000405e0, 0x18, 0xc00002f170)
+peer0.org2.example.com      | 	/opt/go/src/internal/singleflight/singleflight.go:95 +0x2e
+peer0.org2.example.com      | created by internal/singleflight.(*Group).DoChan
+peer0.org2.example.com      | 	/opt/go/src/internal/singleflight/singleflight.go:88 +0x2a0
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 54 [runnable]:
+peer0.org2.example.com      | io.(*pipe).Write(0xc0003366e0, 0xc000323000, 0x89, 0x1000, 0x0, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/io/pipe.go:89 +0x1fe
+peer0.org2.example.com      | io.(*PipeWriter).Write(0xc00000e1b8, 0xc000323000, 0x89, 0x1000, 0x89, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/io/pipe.go:153 +0x4c
+peer0.org2.example.com      | io.(*multiWriter).Write(0xc00037a2a0, 0xc000323000, 0x89, 0x1000, 0xc000330c80, 0x0, 0xc0000404a0)
+peer0.org2.example.com      | 	/opt/go/src/io/multi.go:60 +0x87
+peer0.org2.example.com      | net/http.persistConnWriter.Write(0xc0000bd0e0, 0xc000323000, 0x89, 0x1000, 0x123cf31, 0x3, 0x10137a0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:1354 +0x52
+peer0.org2.example.com      | bufio.(*Writer).Flush(0xc00007abc0, 0x139bb20, 0xc00007abc0)
+peer0.org2.example.com      | 	/opt/go/src/bufio/bufio.go:575 +0x7b
+peer0.org2.example.com      | net/http.(*persistConn).writeLoop(0xc0000bd0e0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:1901 +0x35a
+peer0.org2.example.com      | created by net/http.(*Transport).dialConn
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:1339 +0x966
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 56 [select]:
+peer0.org2.example.com      | net.(*Resolver).LookupIPAddr(0x1fa0d00, 0x13b7a20, 0xc000046090, 0xc0000405e0, 0x18, 0xc0000405f9, 0x4, 0x1760, 0x0, 0x0)
+peer0.org2.example.com      | 	/opt/go/src/net/lookup.go:227 +0x55f
+peer0.org2.example.com      | net.(*Resolver).internetAddrList(0x1fa0d00, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc0000405e0, 0x1d, 0x0, 0x0, 0x0, ...)
+peer0.org2.example.com      | 	/opt/go/src/net/ipsock.go:279 +0x614
+peer0.org2.example.com      | net.(*Resolver).resolveAddrList(0x1fa0d00, 0x13b7a20, 0xc000046090, 0x123da6a, 0x4, 0x123d330, 0x3, 0xc0000405e0, 0x1d, 0x0, ...)
+peer0.org2.example.com      | 	/opt/go/src/net/dial.go:202 +0x4fb
+peer0.org2.example.com      | net.(*Dialer).DialContext(0x1fa18c0, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc0000405e0, 0x1d, 0x0, 0x0, 0x0, ...)
+peer0.org2.example.com      | 	/opt/go/src/net/dial.go:384 +0x201
+peer0.org2.example.com      | net/http.(*Transport).dial(0xc00050b680, 0x13b7a20, 0xc000046090, 0x123d330, 0x3, 0xc0000405e0, 0x1d, 0xc00015c500, 0xc00048fdb8, 0xc00048fc00, ...)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:925 +0x17f
+peer0.org2.example.com      | net/http.(*Transport).dialConn(0xc00050b680, 0x13b7a20, 0xc000046090, 0x0, 0xc0002d8000, 0x4, 0xc0000405e0, 0x1d, 0x0, 0x525bb75da66026, ...)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:1240 +0x313
+peer0.org2.example.com      | net/http.(*Transport).getConn.func4(0xc00050b680, 0x13b7a20, 0xc000046090, 0xc00002f080, 0xc00019cd20)
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:999 +0x6e
+peer0.org2.example.com      | created by net/http.(*Transport).getConn
+peer0.org2.example.com      | 	/opt/go/src/net/http/transport.go:998 +0x3d7
+peer0.org2.example.com      | 
+peer0.org2.example.com      | goroutine 55 [runnable]:
+peer0.org2.example.com      | net/http.setRequestCancel.func3(0x0, 0xc00002f020, 0xc000336780, 0xc00014723c, 0xc00019ccc0)
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:320
+peer0.org2.example.com      | created by net/http.setRequestCancel
+peer0.org2.example.com      | 	/opt/go/src/net/http/client.go:320 +0x24e
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.183270Z nonode@nohost <0.7.0> -------- Application couch_stats started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.185088Z nonode@nohost <0.7.0> -------- Application khash started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.283677Z nonode@nohost <0.7.0> -------- Application couch_event started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.283826Z nonode@nohost <0.7.0> -------- Application hyper started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.290015Z nonode@nohost <0.7.0> -------- Application ibrowse started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.378227Z nonode@nohost <0.7.0> -------- Application ioq started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.378431Z nonode@nohost <0.7.0> -------- Application mochiweb started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.387764Z nonode@nohost <0.195.0> -------- Apache CouchDB 2.2.0 is starting.
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.387932Z nonode@nohost <0.196.0> -------- Starting couch_sup
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:17.439603Z nonode@nohost <0.83.0> -------- config: [features] pluggable-storage-engines set to true for reason nil
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:17.493147Z nonode@nohost <0.83.0> -------- config: [couchdb] uuid set to 67b6d666716f6a2adc5c12e1a7f56a98 for reason nil
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.780186Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _users
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.992738Z nonode@nohost <0.195.0> -------- Apache CouchDB has started. Time to relax.
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.992921Z nonode@nohost <0.195.0> -------- Apache CouchDB has started on http://any:5986/
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.993457Z nonode@nohost <0.7.0> -------- Application couch started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:17.993864Z nonode@nohost <0.7.0> -------- Application ets_lru started on node nonode@nohost
+peer0.org2.example.com exited with code 2
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.227686Z nonode@nohost <0.7.0> -------- Application rexi started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.237644Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _nodes
+couchdb.org2.example.com    | [warning] 2019-08-14T02:46:18.237675Z nonode@nohost <0.277.0> -------- creating missing database: _nodes
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.293154Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _dbs
+couchdb.org2.example.com    | [warning] 2019-08-14T02:46:18.293196Z nonode@nohost <0.291.0> -------- creating missing database: _dbs
+couchdb.org2.example.com    | [warning] 2019-08-14T02:46:18.293236Z nonode@nohost <0.290.0> -------- creating missing database: _dbs
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.332608Z nonode@nohost <0.7.0> -------- Application mem3 started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.334035Z nonode@nohost <0.7.0> -------- Application fabric started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.383936Z nonode@nohost <0.7.0> -------- Application chttpd started on node nonode@nohost
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:18.396327Z nonode@nohost emulator -------- Error in process <0.329.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:18.396370Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.433237Z nonode@nohost <0.7.0> -------- Application couch_index started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.434039Z nonode@nohost <0.7.0> -------- Application couch_mrview started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.441294Z nonode@nohost <0.7.0> -------- Application couch_plugins started on node nonode@nohost
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:18.533812Z nonode@nohost <0.83.0> -------- config: [features] scheduler set to true for reason nil
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.583169Z nonode@nohost <0.201.0> -------- open_result error {not_found,no_db_file} for _replicator
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:18.587321Z nonode@nohost <0.345.0> -------- creating replicator ddoc <<"_replicator">>
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.593854Z nonode@nohost <0.7.0> -------- Application couch_replicator started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.631161Z nonode@nohost <0.7.0> -------- Application couch_peruser started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.679966Z nonode@nohost <0.7.0> -------- Application ddoc_cache started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.734016Z nonode@nohost <0.7.0> -------- Application global_changes started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.735119Z nonode@nohost <0.7.0> -------- Application jiffy started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.743275Z nonode@nohost <0.7.0> -------- Application mango started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.777944Z nonode@nohost <0.7.0> -------- Application setup started on node nonode@nohost
+couchdb.org2.example.com    | [info] 2019-08-14T02:46:18.778542Z nonode@nohost <0.7.0> -------- Application snappy started on node nonode@nohost
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:20.478766Z nonode@nohost emulator -------- Error in process <0.483.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:20.479023Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:20.492817Z nonode@nohost <0.365.0> -------- couch_replicator_clustering : cluster stable
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:20.527542Z nonode@nohost <0.382.0> -------- Started replicator db changes listener <0.484.0>
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:23.426159Z nonode@nohost emulator -------- Error in process <0.467.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:23.426191Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:23.484623Z nonode@nohost <0.349.0> -------- couch_replicator_clustering : cluster stable
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:23.492381Z nonode@nohost <0.366.0> -------- Started replicator db changes listener <0.468.0>
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:25.480712Z nonode@nohost emulator -------- Error in process <0.583.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:25.480809Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:28.427751Z nonode@nohost emulator -------- Error in process <0.567.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:28.427841Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:29.543307Z nonode@nohost <0.270.0> -------- rexi_buffer : cluster stable
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:29.543434Z nonode@nohost <0.267.0> -------- rexi_server : cluster stable
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:30.482343Z nonode@nohost emulator -------- Error in process <0.650.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:30.482389Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:33.227651Z nonode@nohost <0.267.0> -------- rexi_server : cluster stable
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:33.230321Z nonode@nohost <0.270.0> -------- rexi_buffer : cluster stable
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:33.428850Z nonode@nohost emulator -------- Error in process <0.634.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:33.428875Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:35.484133Z nonode@nohost emulator -------- Error in process <0.747.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:35.484164Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:38.429909Z nonode@nohost emulator -------- Error in process <0.731.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:38.429933Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:40.485750Z nonode@nohost emulator -------- Error in process <0.812.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:40.485779Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:43.431149Z nonode@nohost emulator -------- Error in process <0.796.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:43.431177Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:45.486555Z nonode@nohost emulator -------- Error in process <0.909.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:45.486584Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:48.432066Z nonode@nohost emulator -------- Error in process <0.893.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:48.432093Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:50.487687Z nonode@nohost emulator -------- Error in process <0.974.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:50.487717Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:53.433150Z nonode@nohost emulator -------- Error in process <0.958.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:53.433226Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:46:55.488568Z nonode@nohost emulator -------- Error in process <0.1071.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:46:55.488604Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:46:58.434491Z nonode@nohost emulator -------- Error in process <0.1055.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:46:58.434529Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:00.489325Z nonode@nohost emulator -------- Error in process <0.1136.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:00.489349Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:03.436427Z nonode@nohost emulator -------- Error in process <0.1120.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:03.436457Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:05.491154Z nonode@nohost emulator -------- Error in process <0.1233.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:05.491203Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:08.437829Z nonode@nohost emulator -------- Error in process <0.1217.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:08.437853Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:10.492338Z nonode@nohost emulator -------- Error in process <0.1298.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:10.492365Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:13.439225Z nonode@nohost emulator -------- Error in process <0.1282.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:13.439248Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:15.493799Z nonode@nohost emulator -------- Error in process <0.1395.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:15.493828Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:18.440047Z nonode@nohost emulator -------- Error in process <0.1379.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:18.440079Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:20.499056Z nonode@nohost emulator -------- Error in process <0.1460.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:20.499115Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:23.485619Z nonode@nohost emulator -------- Error in process <0.1444.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:23.485663Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:25.523990Z nonode@nohost emulator -------- Error in process <0.1557.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:25.524045Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:28.487659Z nonode@nohost emulator -------- Error in process <0.1541.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:28.487705Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:30.525292Z nonode@nohost emulator -------- Error in process <0.1622.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:30.525318Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:33.493401Z nonode@nohost emulator -------- Error in process <0.1606.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:33.495654Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:35.526360Z nonode@nohost emulator -------- Error in process <0.1719.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:35.526411Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:38.496940Z nonode@nohost emulator -------- Error in process <0.1703.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:38.496967Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:40.527396Z nonode@nohost emulator -------- Error in process <0.1784.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:40.527441Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:43.527062Z nonode@nohost emulator -------- Error in process <0.1768.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:43.527116Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:45.528521Z nonode@nohost emulator -------- Error in process <0.1881.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:45.528627Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:48.529354Z nonode@nohost emulator -------- Error in process <0.1865.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:48.529409Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:50.529278Z nonode@nohost emulator -------- Error in process <0.1946.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:50.529302Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:53.530874Z nonode@nohost emulator -------- Error in process <0.1930.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:53.530899Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:47:55.638789Z nonode@nohost emulator -------- Error in process <0.2011.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:47:55.638839Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:47:58.532013Z nonode@nohost emulator -------- Error in process <0.2027.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:47:58.532052Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:00.639352Z nonode@nohost emulator -------- Error in process <0.2108.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:00.639378Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:03.541898Z nonode@nohost emulator -------- Error in process <0.2092.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:03.542724Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:05.640737Z nonode@nohost emulator -------- Error in process <0.2173.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:05.640772Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:08.544704Z nonode@nohost emulator -------- Error in process <0.2189.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:08.544740Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:10.641933Z nonode@nohost emulator -------- Error in process <0.2271.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:10.641978Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:13.545958Z nonode@nohost emulator -------- Error in process <0.2254.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:13.546000Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:15.643344Z nonode@nohost emulator -------- Error in process <0.2336.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:15.643369Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:18.583690Z nonode@nohost emulator -------- Error in process <0.2352.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:18.583718Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:20.646847Z nonode@nohost emulator -------- Error in process <0.2433.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:20.646869Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:23.588255Z nonode@nohost emulator -------- Error in process <0.2417.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:23.588276Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:25.682525Z nonode@nohost emulator -------- Error in process <0.2501.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:25.682564Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:28.591501Z nonode@nohost emulator -------- Error in process <0.2517.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:28.591550Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:30.683641Z nonode@nohost emulator -------- Error in process <0.2598.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:30.683673Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:33.592736Z nonode@nohost emulator -------- Error in process <0.2582.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:33.592760Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:35.684887Z nonode@nohost emulator -------- Error in process <0.2663.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org1.example.com    | 
+couchdb.org1.example.com    | [notice] 2019-08-14T02:48:35.684913Z nonode@nohost <0.344.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org2.example.com    | [error] 2019-08-14T02:48:38.593779Z nonode@nohost emulator -------- Error in process <0.2679.0> with exit value:
+couchdb.org2.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+couchdb.org2.example.com    | 
+couchdb.org2.example.com    | [notice] 2019-08-14T02:48:38.593805Z nonode@nohost <0.328.0> -------- chttpd_auth_cache changes listener died database_does_not_exist at mem3_shards:load_shards_from_db/6(line:395) <= mem3_shards:load_shards_from_disk/1(line:370) <= mem3_shards:load_shards_from_disk/2(line:399) <= mem3_shards:for_docid/3(line:86) <= fabric_doc_open:go/3(line:38) <= chttpd_auth_cache:ensure_auth_ddoc_exists/2(line:187) <= chttpd_auth_cache:listen_for_changes/1(line:134)
+couchdb.org1.example.com    | [error] 2019-08-14T02:48:40.686036Z nonode@nohost emulator -------- Error in process <0.2760.0> with exit value:
+couchdb.org1.example.com    | {database_does_not_exist,[{mem3_shards,load_shards_from_db,"_users",[{file,"src/mem3_shards.erl"},{line,395}]},{mem3_shards,load_shards_from_disk,1,[{file,"src/mem3_shards.erl"},{line,370}]},{mem3_shards,load_shards_from_disk,2,[{file,"src/mem3_shards.erl"},{line,399}]},{mem3_shards,for_docid,3,[{file,"src/mem3_shards.erl"},{line,86}]},{fabric_doc_open,go,3,[{file,"src/fabric_doc_open.erl"},{line,38}]},{chttpd_auth_cache,ensure_auth_ddoc_exists,2,[{file,"src/chttpd_auth_cache.erl"},{line,187}]},{chttpd_auth_cache,listen_for_changes,1,[{file,"src/chttpd_auth_cache.erl"},{line,134}]}]}
+error: [caliper-utils]: Unsuccessful command execution. Error code: undefined. Terminating signal: undefined
+error: [caliper-flow]: Error: Error: stdout maxBuffer exceeded
+    at Socket.onChildStdout (child_process.js:334:14)
+    at emitOne (events.js:121:20)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:246:13)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at Pipe.onread (net.js:601:20)
+info: [demo.js]: [Transaction Info] - Submitted: 0 Succ: 0 Fail:0 Unfinished:0
+info: [caliper-utils]: Executing command: cd /home/jasonyou/caliper/caliper-1/packages/caliper-samples;docker-compose -f network/fabric-v1.4.1/2org1peercouchdb/docker-compose.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+Stopping couchdb.org2.example.com ... done
+Stopping ca.org2.example.com      ... done
+Stopping orderer.example.com      ... done
+Stopping ca.org1.example.com      ... done
+Stopping couchdb.org1.example.com ... done
+Removing peer0.org2.example.com   ... done
+Removing peer0.org1.example.com   ... done
+Removing couchdb.org2.example.com ... done
+Removing ca.org2.example.com      ... done
+Removing orderer.example.com      ... done
+Removing ca.org1.example.com      ... done
+Removing couchdb.org1.example.com ... done
+Removing network 2org1peercouchdb_default
+/bin/sh: 1: test: "aa8fd9ce34a1: unexpected operator
+Error response from daemon: You cannot remove a running container aa8fd9ce34a1d1e28d740a4cf57b285a5ed8fde5987546a3e79719600a1ff345. Stop the container before attempting removal or force remove
+Error response from daemon: You cannot remove a running container f096631ea0b986fa648d7e64eada2acb5dd68c45ebac0d4a71c1192596f38b4b. Stop the container before attempting removal or force remove
+Error response from daemon: You cannot remove a running container 8ec8645e648c8e04a9325d6ce5e037bed2b4a522b01b74b78d67e737ea46f78b. Stop the container before attempting removal or force remove
+"docker rmi" requires at least 1 argument.
+See 'docker rmi --help'.
+
+Usage:  docker rmi [OPTIONS] IMAGE [IMAGE...]
+
+Remove one or more images
+info: [caliper-flow]: 
+
+#######################################
+# Test summary: 0 succeeded, 0 failed #
+#######################################
+
+Benchmark failure
+Error: Benchmark failure
+Command failed

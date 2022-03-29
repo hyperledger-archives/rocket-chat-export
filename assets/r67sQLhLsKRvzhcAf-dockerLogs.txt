@@ -1,0 +1,575 @@
+Attaching to mongo, watchdog, nginx, dashbard, restserver
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongo
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] db version v3.2.13
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] git version: 23899209cad60aaafe114f6aea6cb83025ff51bc
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] modules: none
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] build environment:
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten]     distmod: debian81
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten]     distarch: x86_64
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+[36mmongo         |[0m 2017-06-12T12:10:44.088+0000 I CONTROL  [initandlisten] options: {}
+[36mmongo         |[0m 2017-06-12T12:10:44.092+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[36mmongo         |[0m 2017-06-12T12:10:44.092+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=8G,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] 
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] 
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+[36mmongo         |[0m 2017-06-12T12:10:44.502+0000 I CONTROL  [initandlisten] 
+[36mmongo         |[0m 2017-06-12T12:10:44.503+0000 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+[36mmongo         |[0m 2017-06-12T12:10:44.503+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mmongo         |[0m 2017-06-12T12:10:44.504+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+[36mmongo         |[0m 2017-06-12T12:10:45.233+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:56096 #1 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:45.375+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54094 #2 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:46.243+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39456 #3 (3 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:46.247+0000 I NETWORK  [conn1] end connection 172.18.0.6:56096 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:46.388+0000 I NETWORK  [conn2] end connection 172.18.0.2:54094 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:47.020+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:56102 #4 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:47.256+0000 I NETWORK  [conn3] end connection 172.18.0.3:39456 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:47.323+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54100 #5 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:47.929+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39462 #6 (3 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:48.032+0000 I NETWORK  [conn4] end connection 172.18.0.6:56102 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:48.336+0000 I NETWORK  [conn5] end connection 172.18.0.2:54100 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:48.791+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:56108 #7 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:48.940+0000 I NETWORK  [conn6] end connection 172.18.0.3:39462 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:49.313+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54106 #8 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:49.805+0000 I NETWORK  [conn7] end connection 172.18.0.6:56108 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:49.834+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39468 #9 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:50.326+0000 I NETWORK  [conn8] end connection 172.18.0.2:54106 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:50.846+0000 I NETWORK  [conn9] end connection 172.18.0.3:39468 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:51.175+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:56114 #10 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:51.606+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54112 #11 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:52.116+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39474 #12 (3 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:52.189+0000 I NETWORK  [conn10] end connection 172.18.0.6:56114 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:52.619+0000 I NETWORK  [conn11] end connection 172.18.0.2:54112 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:53.128+0000 I NETWORK  [conn12] end connection 172.18.0.3:39474 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:53.552+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54116 #13 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:54.136+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39478 #14 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:54.563+0000 I NETWORK  [conn13] end connection 172.18.0.2:54116 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:55.134+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54120 #15 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:55.147+0000 I NETWORK  [conn14] end connection 172.18.0.3:39478 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:56.148+0000 I NETWORK  [conn15] end connection 172.18.0.2:54120 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:56.862+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39482 #16 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:57.600+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54124 #17 (2 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:57.874+0000 I NETWORK  [conn16] end connection 172.18.0.3:39482 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:10:58.615+0000 I NETWORK  [conn17] end connection 172.18.0.2:54124 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:10:59.771+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54126 #18 (1 connection now open)
+[32mnginx         |[0m Adding password for user admin
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m Traceback (most recent call last):
+[36mmongo         |[0m 2017-06-12T12:11:00.786+0000 I NETWORK  [conn18] end connection 172.18.0.2:54126 (0 connections now open)
+[32mnginx         |[0m 2017/06/12 20:11:03 [error] 10#10: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 10.0.60.78, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8080/", host: "10.101.35.60:8080"
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[36mmongo         |[0m 2017-06-12T12:11:01.585+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54128 #19 (1 connection now open)
+[32mnginx         |[0m 2017/06/12 20:11:03 [error] 10#10: *1 open() "/etc/nginx/html/50x.html" failed (2: No such file or directory), client: 10.0.60.78, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8080/", host: "10.101.35.60:8080"
+[35mdashbard      |[0m     from resources import bp_index, \
+[33mwatchdog      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from resources import front_rest_v2
+[36mmongo         |[0m 2017-06-12T12:11:02.507+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39490 #20 (2 connections now open)
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[36mmongo         |[0m 2017-06-12T12:11:02.597+0000 I NETWORK  [conn19] end connection 172.18.0.2:54128 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:11:03.524+0000 I NETWORK  [conn20] end connection 172.18.0.3:39490 (0 connections now open)
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[36mmongo         |[0m 2017-06-12T12:11:07.580+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54134 #21 (1 connection now open)
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[36mmongo         |[0m 2017-06-12T12:11:09.094+0000 I NETWORK  [conn21] end connection 172.18.0.2:54134 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:11:09.543+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39496 #22 (1 connection now open)
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[36mmongo         |[0m 2017-06-12T12:11:10.555+0000 I NETWORK  [conn22] end connection 172.18.0.3:39496 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:11:10.623+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54138 #23 (1 connection now open)
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[36mmongo         |[0m 2017-06-12T12:11:11.639+0000 I NETWORK  [conn23] end connection 172.18.0.2:54138 (0 connections now open)
+[36mmongo         |[0m 2017-06-12T12:11:59.584+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39500 #24 (1 connection now open)
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[36mmongo         |[0m 2017-06-12T12:12:00.534+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54142 #25 (2 connections now open)
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[36mmongo         |[0m 2017-06-12T12:12:00.596+0000 I NETWORK  [conn24] end connection 172.18.0.3:39500 (1 connection now open)
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[35mdashbard      |[0m     from docker import Client
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from docker import Client
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[36mmongo         |[0m 2017-06-12T12:12:01.546+0000 I NETWORK  [conn25] end connection 172.18.0.2:54142 (0 connections now open)
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[36mmongo         |[0m 2017-06-12T12:12:01.806+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:56148 #26 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:12:02.821+0000 I NETWORK  [conn26] end connection 172.18.0.6:56148 (0 connections now open)
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[36mmongo         |[0m 2017-06-12T12:12:26.708+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54146 #27 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:12:27.575+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39508 #28 (2 connections now open)
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[36mmongo         |[0m 2017-06-12T12:12:27.719+0000 I NETWORK  [conn27] end connection 172.18.0.2:54146 (1 connection now open)
+[36mmongo         |[0m 2017-06-12T12:12:28.587+0000 I NETWORK  [conn28] end connection 172.18.0.3:39508 (0 connections now open)
+[31mrestserver    |[0m     from .index import bp_index
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[36mmongo         |[0m 2017-06-12T12:12:29.131+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54150 #29 (1 connection now open)
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[36mmongo         |[0m 2017-06-12T12:12:30.145+0000 I NETWORK  [conn29] end connection 172.18.0.2:54150 (0 connections now open)
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[36mmongo         |[0m 2017-06-12T12:13:19.404+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54152 #30 (1 connection now open)
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[36mmongo         |[0m 2017-06-12T12:13:20.218+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:39514 #31 (2 connections now open)
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[36mmongo         |[0m 2017-06-12T12:13:20.417+0000 I NETWORK  [conn30] end connection 172.18.0.2:54152 (1 connection now open)
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[36mmongo         |[0m 2017-06-12T12:13:21.230+0000 I NETWORK  [conn31] end connection 172.18.0.3:39514 (0 connections now open)
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[36mmongo         |[0m 2017-06-12T12:13:22.109+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.2:54156 #32 (1 connection now open)
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from docker import Client
+[36mmongo         |[0m 2017-06-12T12:13:23.122+0000 I NETWORK  [conn32] end connection 172.18.0.2:54156 (0 connections now open)
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from docker import Client
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m     from docker import Client
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m     from resources import front_rest_v2
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m     from .index import bp_index
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from docker import Client
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from docker import Client
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[31mrestserver    |[0m     from resources import front_rest_v2
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m     from docker import Client
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m     from .index import bp_index
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m     from docker import Client
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m     from resources import bp_index, \
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m     from docker import Client
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m     from resources import bp_index, \
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from .index import bp_index
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from docker import Client
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from docker import Client
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m Traceback (most recent call last):
+[33mwatchdog      |[0m     from docker import Client
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m Traceback (most recent call last):
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[33mwatchdog      |[0m   File "watchdog.py", line 6, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[33mwatchdog      |[0m     from modules import host_handler, cluster_handler
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[33mwatchdog      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[33mwatchdog      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[33mwatchdog      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from docker import Client
+[33mwatchdog      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[33mwatchdog      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[33mwatchdog      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from resources import front_rest_v2
+[33mwatchdog      |[0m     from docker import Client
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[33mwatchdog      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m     from docker import Client
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[31mrestserver    |[0m     from resources import front_rest_v2
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from docker import Client
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m     from resources import bp_index, \
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[31mrestserver    |[0m Traceback (most recent call last):
+[35mdashbard      |[0m     from .index import bp_index
+[31mrestserver    |[0m   File "restserver.py", line 5, in <module>
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[31mrestserver    |[0m     from resources import front_rest_v2
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[31mrestserver    |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .index import bp_index
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[31mrestserver    |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[31mrestserver    |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[31mrestserver    |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[31mrestserver    |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m     from docker import Client
+[31mrestserver    |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[31mrestserver    |[0m     from .docker_swarm import get_project, \
+[31mrestserver    |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m ImportError: cannot import name 'Client'
+[31mrestserver    |[0m     from docker import Client
+[35mdashbard      |[0m Traceback (most recent call last):
+[31mrestserver    |[0m ImportError: cannot import name 'Client'
+[35mdashbard      |[0m   File "dashboard.py", line 4, in <module>
+[35mdashbard      |[0m     from resources import bp_index, \
+[35mdashbard      |[0m   File "/app/resources/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .index import bp_index
+[35mdashbard      |[0m   File "/app/resources/index.py", line 17, in <module>
+[35mdashbard      |[0m     from modules import cluster_handler, host_handler
+[35mdashbard      |[0m   File "/app/modules/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .cluster import cluster_handler
+[35mdashbard      |[0m   File "/app/modules/cluster.py", line 14, in <module>
+[35mdashbard      |[0m     from agent import get_swarm_node_ip, \
+[35mdashbard      |[0m   File "/app/agent/__init__.py", line 1, in <module>
+[35mdashbard      |[0m     from .docker_swarm import get_project, \
+[35mdashbard      |[0m   File "/app/agent/docker_swarm.py", line 10, in <module>
+[35mdashbard      |[0m     from docker import Client
+[35mdashbard      |[0m ImportError: cannot import name 'Client'

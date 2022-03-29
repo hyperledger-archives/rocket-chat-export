@@ -1,0 +1,936 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zookeeper1st
+  labels:
+    k8s-app: zookeeper1st
+    type: zookeeper
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - zookeeper
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: zookeeper1st
+      image: hyperledger/fabric-zookeeper:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "ZOO_MY_ID", value: "1" }
+        - { name: "ZOO_SERVERS", value: "server.1=zookeeper1st:2888:3888 server.2=zookeeper2nd:2888:3888 server.3=zookeeper3rd:2888:3888" }
+        - { name: "ZOO_TICK_TIME", value: "2000" }
+        - { name: "ZOO_INIT_LIMIT", value: "10" }
+        - { name: "ZOO_SYNC_LIMIT", value: "2" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zookeeper2nd
+  labels:
+    k8s-app: zookeeper2nd
+    type: zookeeper
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - zookeeper
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: zookeeper2nd
+      image: hyperledger/fabric-zookeeper:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "ZOO_MY_ID", value: "2" }
+        - { name: "ZOO_SERVERS", value: "server.1=zookeeper1st:2888:3888 server.2=zookeeper2nd:2888:3888 server.3=zookeeper3rd:2888:3888" }
+        - { name: "ZOO_TICK_TIME", value: "2000" }
+        - { name: "ZOO_INIT_LIMIT", value: "10" }
+        - { name: "ZOO_SYNC_LIMIT", value: "2" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zookeeper3rd
+  labels:
+    k8s-app: zookeeper3rd
+    type: zookeeper
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - zookeeper
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: zookeeper3rd
+      image: hyperledger/fabric-zookeeper:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "ZOO_MY_ID", value: "3" }
+        - { name: "ZOO_SERVERS", value: "server.1=zookeeper1st:2888:3888 server.2=zookeeper2nd:2888:3888 server.3=zookeeper3rd:2888:3888" }
+        - { name: "ZOO_TICK_TIME", value: "2000" }
+        - { name: "ZOO_INIT_LIMIT", value: "10" }
+        - { name: "ZOO_SYNC_LIMIT", value: "2" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka1st
+  labels:
+    k8s-app: kafka1st
+    type: kafka
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - kafka
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: kafka1st
+      image: hyperledger/fabric-kafka:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "KAFKA_BROKER_ID", value: "1" }
+        - { name: "KAFKA_ZOOKEEPER_CONNECT", value: "zookeeper1st:2181,zookeeper2nd:2181,zookeeper3rd:2181" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_MAX_REQUEST_SIZE", value: "104857600" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE", value: "true" }
+        - { name: "KAFKA_MIN_INSYNC_REPLICAS", value: "2" }
+        - { name: "KAFKA_MESSAGE_MAX_BYTES", value: "103809024" }
+        - { name: "KAFKA_REPLICA_FETCH_MAX_BYTES", value: "103809024" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka2nd
+  labels:
+    k8s-app: kafka2nd
+    type: kafka
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - kafka
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: kafka2nd
+      image: hyperledger/fabric-kafka:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "KAFKA_BROKER_ID", value: "2" }
+        - { name: "KAFKA_ZOOKEEPER_CONNECT", value: "zookeeper1st:2181,zookeeper2nd:2181,zookeeper3rd:2181" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_MAX_REQUEST_SIZE", value: "104857600" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE", value: "true" }
+        - { name: "KAFKA_MIN_INSYNC_REPLICAS", value: "2" }
+        - { name: "KAFKA_MESSAGE_MAX_BYTES", value: "103809024" }
+        - { name: "KAFKA_REPLICA_FETCH_MAX_BYTES", value: "103809024" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka3rd
+  labels:
+    k8s-app: kafka3rd
+    type: kafka
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - kafka
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: kafka3rd
+      image: hyperledger/fabric-kafka:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "KAFKA_BROKER_ID", value: "3" }
+        - { name: "KAFKA_ZOOKEEPER_CONNECT", value: "zookeeper1st:2181,zookeeper2nd:2181,zookeeper3rd:2181" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_MAX_REQUEST_SIZE", value: "104857600" }
+        - { name: "KAFKA_DEFAULT_REPLICATION_FACTOR", value: "3" }
+        - { name: "KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE", value: "true" }
+        - { name: "KAFKA_MIN_INSYNC_REPLICAS", value: "2" }
+        - { name: "KAFKA_MESSAGE_MAX_BYTES", value: "103809024" }
+        - { name: "KAFKA_REPLICA_FETCH_MAX_BYTES", value: "103809024" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orga-db-mysql
+  labels:
+    k8s-app: ca1st-orga-db-mysql
+spec:
+  containers:
+    - name: ca1st-orga-db-mysql
+      image: "mysql:5.6"
+      env:
+        - { name: "MYSQL_ROOT_PASSWORD", value: "password" }
+        - { name: "MYSQL_ROOT_HOST", value: "%" }
+      ports:
+        - containerPort: 3306
+      volumeMounts:
+        - { mountPath: "/var/lib/mysql", name: "ca1st-orga-mysql", subPath: "cas/db/rca/mysqldb" }
+  restartPolicy: OnFailure
+  volumes:
+    - name: ca1st-orga-mysql
+      persistentVolumeClaim:
+        claimName: ca1st-orga-mysql-volume
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orga
+  labels:
+    k8s-app: ca1st-orga
+    type: ca
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: ca1st-orga-volume
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - ca
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: ca1st-orga
+      image: hyperledger/fabric-ca:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "FABRIC_CA_SERVER_DB_TYPE", value: "mysql" }
+        - { name: "FABRIC_CA_SERVER_DB_DATASOURCE", value: "root:password@tcp(ca1st-orga-db-mysql:3306)/fabriccadb?parseTime=true" }
+        - { name: "FABRIC_CA_HOME", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orga/ca" }
+        - { name: "FABRIC_CA_SERVER_CA_NAME", value: "ca1st-orga" }
+        - { name: "FABRIC_CA_SERVER_CA_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orga/ca/ca_private.key" }
+        - { name: "FABRIC_CA_SERVER_CA_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orga/ca/ca.orga-cert.pem" }
+        - { name: "FABRIC_CA_SERVER_TLS_ENABLED", value: "true" }
+        - { name: "FABRIC_CA_SERVER_TLS_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orga/tlsca/tlsca_private.key" }
+        - { name: "FABRIC_CA_SERVER_TLS_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orga/tlsca/tlsca.orga-cert.pem" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric-ca-server-config", name: "task-pv-storage" }
+      command: ["fabric-ca-server"]
+      args:  ["start", "-b", "admin:adminpw", "-d"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orgb-db-mysql
+  labels:
+    k8s-app: ca1st-orgb-db-mysql
+spec:
+  containers:
+    - name: ca1st-orgb-db-mysql
+      image: "mysql:5.6"
+      env:
+        - { name: "MYSQL_ROOT_PASSWORD", value: "password" }
+        - { name: "MYSQL_ROOT_HOST", value: "%" }
+      ports:
+        - containerPort: 3306
+      volumeMounts:
+        - { mountPath: "/var/lib/mysql", name: "ca1st-orgb-mysql", subPath: "cas/db/rca/mysqldb" }
+  restartPolicy: OnFailure
+  volumes:
+    - name: ca1st-orgb-mysql
+      persistentVolumeClaim:
+        claimName: ca1st-orgb-mysql-volume
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orgb
+  labels:
+    k8s-app: ca1st-orgb
+    type: ca
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: ca1st-orgb-volume
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - ca
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: ca1st-orgb
+      image: hyperledger/fabric-ca:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "FABRIC_CA_SERVER_DB_TYPE", value: "mysql" }
+        - { name: "FABRIC_CA_SERVER_DB_DATASOURCE", value: "root:password@tcp(ca1st-orgb-db-mysql:3306)/fabriccadb?parseTime=true" }
+        - { name: "FABRIC_CA_HOME", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgb/ca" }
+        - { name: "FABRIC_CA_SERVER_CA_NAME", value: "ca1st-orgb" }
+        - { name: "FABRIC_CA_SERVER_CA_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgb/ca/ca_private.key" }
+        - { name: "FABRIC_CA_SERVER_CA_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgb/ca/ca.orgb-cert.pem" }
+        - { name: "FABRIC_CA_SERVER_TLS_ENABLED", value: "true" }
+        - { name: "FABRIC_CA_SERVER_TLS_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgb/tlsca/tlsca_private.key" }
+        - { name: "FABRIC_CA_SERVER_TLS_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric-ca-server-config", name: "task-pv-storage" }
+      command: ["fabric-ca-server"]
+      args:  ["start", "-b", "admin:adminpw", "-d"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orgc-db-mysql
+  labels:
+    k8s-app: ca1st-orgc-db-mysql
+spec:
+  containers:
+    - name: ca1st-orgc-db-mysql
+      image: "mysql:5.6"
+      env:
+        - { name: "MYSQL_ROOT_PASSWORD", value: "password" }
+        - { name: "MYSQL_ROOT_HOST", value: "%" }
+      ports:
+        - containerPort: 3306
+      volumeMounts:
+        - { mountPath: "/var/lib/mysql", name: "ca1st-orgc-mysql", subPath: "cas/db/rca/mysqldb" }
+  restartPolicy: OnFailure
+  volumes:
+    - name: ca1st-orgc-mysql
+      persistentVolumeClaim:
+        claimName: ca1st-orgc-mysql-volume
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ca1st-orgc
+  labels:
+    k8s-app: ca1st-orgc
+    type: ca
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: ca1st-orgc-volume
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - ca
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: ca1st-orgc
+      image: hyperledger/fabric-ca:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "FABRIC_CA_SERVER_DB_TYPE", value: "mysql" }
+        - { name: "FABRIC_CA_SERVER_DB_DATASOURCE", value: "root:password@tcp(ca1st-orgc-db-mysql:3306)/fabriccadb?parseTime=true" }
+        - { name: "FABRIC_CA_HOME", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgc/ca" }
+        - { name: "FABRIC_CA_SERVER_CA_NAME", value: "ca1st-orgc" }
+        - { name: "FABRIC_CA_SERVER_CA_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgc/ca/ca_private.key" }
+        - { name: "FABRIC_CA_SERVER_CA_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgc/ca/ca.orgc-cert.pem" }
+        - { name: "FABRIC_CA_SERVER_TLS_ENABLED", value: "true" }
+        - { name: "FABRIC_CA_SERVER_TLS_KEYFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgc/tlsca/tlsca_private.key" }
+        - { name: "FABRIC_CA_SERVER_TLS_CERTFILE", value: "/etc/hyperledger/fabric-ca-server-config/keyfiles/orgc/tlsca/tlsca.orgc-cert.pem" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric-ca-server-config", name: "task-pv-storage" }
+      command: ["fabric-ca-server"]
+      args:  ["start", "-b", "admin:adminpw", "-d"]
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: peer2nd-orga
+  labels:
+    k8s-app: peer2nd-orga
+    type: peer
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - peer
+          topologyKey: kubernetes.io/hostname
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+    - name: rundind
+      hostPath:
+        path: /var/run/dind/
+  containers:
+    - name: couchdb-peer2nd-orga
+      image: hyperledger/fabric-couchdb:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+    - name: peer2nd-orga
+      image: hyperledger/fabric-peer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      env:
+        - { name: "CORE_VM_ENDPOINT", value: "unix:///var/run/docker.sock" }
+        - { name: "FABRIC_CFG_PATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer2nd-orga.orga" }
+        - { name: "CORE_VM_DOCKER_ATTACHSTDOUT", value: "true" }
+        - { name: "CORE_LOGGING_GOSSIP", value: "debug"}
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "CORE_PEER_GOSSIP_USELEADERELECTION",
+            value: "True" }
+        - { name: "CORE_PEER_GOSSIP_ORGLEADER", value: "false" }
+        - { name: "CORE_PEER_TLS_ENABLED", value: "true" }
+        - { name: "CORE_PEER_TLS_CERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer2nd-orga.orga/tls/server.crt" }
+        - { name: "CORE_PEER_TLS_KEY_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer2nd-orga.orga/tls/server.key" }
+        #- { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer2nd-orga.orga/tls/ca.crt" }
+        - { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/tlsca/tlsca.orga-cert.pem" }
+        - { name: "CORE_PEER_ID", value: "peer2nd-orga" }
+        - { name: "CORE_PEER_GOSSIP_EXTERNALENDPOINT", value: ":30442" }
+        
+        - { name: "CORE_PEER_ADDRESS", value: "peer2nd-orga:7051" }
+        - { name: "CORE_PEER_LISTENADDRESS", value: "0.0.0.0:7051" }        
+        - { name: "CORE_PEER_CHAINCODEADDRESS", value: "peer2nd-orga:7052" }
+        #- { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "peer2nd-orga:7052" }
+        - { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "0.0.0.0:7052" }
+        - { name: "CORE_PEER_LOCALMSPID", value: "orga" }
+        - { name: "CORE_PEER_MSPCONFIGPATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer2nd-orga.orga/msp" }
+        - { name: "CORE_LEDGER_STATE_STATEDATABASE", value: "CouchDB" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS", value: "localhost:5984" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_WARMINDEXESAFTERNBLOCKS", value: "10" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+        - { mountPath: "/var/run", name: "rundind" }
+      command: ["peer"]
+      args: ["node", "start"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: peer1st-orga
+  labels:
+    k8s-app: peer1st-orga
+    type: peer
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - peer
+          topologyKey: kubernetes.io/hostname
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+    - name: rundind
+      hostPath:
+        path: /var/run/dind/
+  containers:
+    - name: couchdb-peer1st-orga
+      image: hyperledger/fabric-couchdb:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+    - name: peer1st-orga
+      image: hyperledger/fabric-peer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      env:
+        - { name: "CORE_VM_ENDPOINT", value: "unix:///var/run/docker.sock" }
+        - { name: "FABRIC_CFG_PATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer1st-orga.orga" }
+        - { name: "CORE_VM_DOCKER_ATTACHSTDOUT", value: "true" }
+        - { name: "CORE_LOGGING_GOSSIP", value: "debug"}
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "CORE_PEER_GOSSIP_USELEADERELECTION",
+            value: "True" }
+        - { name: "CORE_PEER_GOSSIP_ORGLEADER", value: "false" }
+        - { name: "CORE_PEER_TLS_ENABLED", value: "true" }
+        - { name: "CORE_PEER_TLS_CERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer1st-orga.orga/tls/server.crt" }
+        - { name: "CORE_PEER_TLS_KEY_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer1st-orga.orga/tls/server.key" }
+        #- { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer1st-orga.orga/tls/ca.crt" }
+        - { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/tlsca/tlsca.orga-cert.pem" }
+        - { name: "CORE_PEER_ID", value: "peer1st-orga" }
+        - { name: "CORE_PEER_GOSSIP_EXTERNALENDPOINT", value: ":30751" }
+        
+        - { name: "CORE_PEER_ADDRESS", value: "peer1st-orga:7051" }
+        - { name: "CORE_PEER_LISTENADDRESS", value: "0.0.0.0:7051" }        
+        - { name: "CORE_PEER_CHAINCODEADDRESS", value: "peer1st-orga:7052" }
+        #- { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "peer1st-orga:7052" }
+        - { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "0.0.0.0:7052" }
+        - { name: "CORE_PEER_LOCALMSPID", value: "orga" }
+        - { name: "CORE_PEER_MSPCONFIGPATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orga/peers/peer1st-orga.orga/msp" }
+        - { name: "CORE_LEDGER_STATE_STATEDATABASE", value: "CouchDB" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS", value: "localhost:5984" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_WARMINDEXESAFTERNBLOCKS", value: "10" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+        - { mountPath: "/var/run", name: "rundind" }
+      command: ["peer"]
+      args: ["node", "start"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: peer2nd-orgb
+  labels:
+    k8s-app: peer2nd-orgb
+    type: peer
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - peer
+          topologyKey: kubernetes.io/hostname
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+    - name: rundind
+      hostPath:
+        path: /var/run/dind/
+  containers:
+    - name: couchdb-peer2nd-orgb
+      image: hyperledger/fabric-couchdb:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+    - name: peer2nd-orgb
+      image: hyperledger/fabric-peer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      env:
+        - { name: "CORE_VM_ENDPOINT", value: "unix:///var/run/docker.sock" }
+        - { name: "FABRIC_CFG_PATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer2nd-orgb.orgb" }
+        - { name: "CORE_VM_DOCKER_ATTACHSTDOUT", value: "true" }
+        - { name: "CORE_LOGGING_GOSSIP", value: "debug"}
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "CORE_PEER_GOSSIP_USELEADERELECTION",
+            value: "True" }
+        - { name: "CORE_PEER_GOSSIP_ORGLEADER", value: "false" }
+        - { name: "CORE_PEER_TLS_ENABLED", value: "true" }
+        - { name: "CORE_PEER_TLS_CERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer2nd-orgb.orgb/tls/server.crt" }
+        - { name: "CORE_PEER_TLS_KEY_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer2nd-orgb.orgb/tls/server.key" }
+        #- { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer2nd-orgb.orgb/tls/ca.crt" }
+        - { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem" }
+        - { name: "CORE_PEER_ID", value: "peer2nd-orgb" }
+        - { name: "CORE_PEER_GOSSIP_EXTERNALENDPOINT", value: ":31629" }
+        
+        - { name: "CORE_PEER_ADDRESS", value: "peer2nd-orgb:7051" }
+        - { name: "CORE_PEER_LISTENADDRESS", value: "0.0.0.0:7051" }        
+        - { name: "CORE_PEER_CHAINCODEADDRESS", value: "peer2nd-orgb:7052" }
+        #- { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "peer2nd-orgb:7052" }
+        - { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "0.0.0.0:7052" }
+        - { name: "CORE_PEER_LOCALMSPID", value: "orgb" }
+        - { name: "CORE_PEER_MSPCONFIGPATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer2nd-orgb.orgb/msp" }
+        - { name: "CORE_LEDGER_STATE_STATEDATABASE", value: "CouchDB" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS", value: "localhost:5984" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_WARMINDEXESAFTERNBLOCKS", value: "10" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+        - { mountPath: "/var/run", name: "rundind" }
+      command: ["peer"]
+      args: ["node", "start"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: peer1st-orgb
+  labels:
+    k8s-app: peer1st-orgb
+    type: peer
+spec:
+  restartPolicy: OnFailure
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - peer
+          topologyKey: kubernetes.io/hostname
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+    - name: rundind
+      hostPath:
+        path: /var/run/dind/
+  containers:
+    - name: couchdb-peer1st-orgb
+      image: hyperledger/fabric-couchdb:amd64-0.4.8
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+    - name: peer1st-orgb
+      image: hyperledger/fabric-peer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      env:
+        - { name: "CORE_VM_ENDPOINT", value: "unix:///var/run/docker.sock" }
+        - { name: "FABRIC_CFG_PATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer1st-orgb.orgb" }
+        - { name: "CORE_VM_DOCKER_ATTACHSTDOUT", value: "true" }
+        - { name: "CORE_LOGGING_GOSSIP", value: "debug"}
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "CORE_PEER_GOSSIP_USELEADERELECTION",
+            value: "True" }
+        - { name: "CORE_PEER_GOSSIP_ORGLEADER", value: "false" }
+        - { name: "CORE_PEER_TLS_ENABLED", value: "true" }
+        - { name: "CORE_PEER_TLS_CERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer1st-orgb.orgb/tls/server.crt" }
+        - { name: "CORE_PEER_TLS_KEY_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer1st-orgb.orgb/tls/server.key" }
+        #- { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer1st-orgb.orgb/tls/ca.crt" }
+        - { name: "CORE_PEER_TLS_ROOTCERT_FILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem" }
+        - { name: "CORE_PEER_ID", value: "peer1st-orgb" }
+        - { name: "CORE_PEER_GOSSIP_EXTERNALENDPOINT", value: ":30000" }
+        
+        - { name: "CORE_PEER_ADDRESS", value: "peer1st-orgb:7051" }
+        - { name: "CORE_PEER_LISTENADDRESS", value: "0.0.0.0:7051" }        
+        - { name: "CORE_PEER_CHAINCODEADDRESS", value: "peer1st-orgb:7052" }
+        #- { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "peer1st-orgb:7052" }
+        - { name: "CORE_PEER_CHAINCODELISTENADDRESS", value: "0.0.0.0:7052" }
+        - { name: "CORE_PEER_LOCALMSPID", value: "orgb" }
+        - { name: "CORE_PEER_MSPCONFIGPATH", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgb/peers/peer1st-orgb.orgb/msp" }
+        - { name: "CORE_LEDGER_STATE_STATEDATABASE", value: "CouchDB" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS", value: "localhost:5984" }
+        - { name: "CORE_LEDGER_STATE_COUCHDBCONFIG_WARMINDEXESAFTERNBLOCKS", value: "10" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+        - { mountPath: "/var/run", name: "rundind" }
+      command: ["peer"]
+      args: ["node", "start"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: orderer2nd-orgc
+  labels:
+    k8s-app: orderer2nd-orgc
+    type: orderer
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - orderer
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: orderer2nd-orgc
+      image: hyperledger/fabric-orderer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "ORDERER_GENERAL_LISTENADDRESS", value: "0.0.0.0" }
+        - { name: "ORDERER_GENERAL_GENESISMETHOD", value: "file" }
+        - { name: "ORDERER_GENERAL_GENESISFILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/genesis.block" }
+        - { name: "ORDERER_GENERAL_LOCALMSPID", value: "orgc" }
+        - { name: "ORDERER_GENERAL_LOCALMSPDIR", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/msp" }
+        - { name: "ORDERER_GENERAL_TLS_ENABLED", value: "true" }
+        - { name: "ORDERER_GENERAL_TLS_SERVERHOSTOVERRIDE", value: "orderer2nd-orgc" }
+        - { name: "ORDERER_GENERAL_TLS_PRIVATEKEY", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/server.key" }
+        - { name: "ORDERER_GENERAL_TLS_CERTIFICATE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/server.crt" }
+        - { name: "ORDERER_GENERAL_TLS_ROOTCAS", value: "[/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/ca.crt]" }
+        #- { name: "ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/server.crt"}
+        #- { name: "ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/server.key" }
+        - { name: "ORDERER_KAFKA_RETRY_SHORTINTERVAL", value: "1s" }
+        - { name: "ORDERER_KAFKA_RETRY_SHORTTOTAL", value: "30s" }
+        - { name: "ORDERER_KAFKA_VERBOSE", value: "true" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+      command: ["orderer"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: orderer1st-orgc
+  labels:
+    k8s-app: orderer1st-orgc
+    type: orderer
+spec:
+  restartPolicy: OnFailure
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: fabriccerts
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: type
+              operator: In
+              values:
+                - orderer
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - name: orderer1st-orgc
+      image: hyperledger/fabric-orderer:amd64-1.4.1
+      imagePullPolicy: IfNotPresent
+      env:
+        - { name: "FABRIC_LOGGING_SPEC", value: "grpc=debug:debug" }
+        - { name: "ORDERER_GENERAL_LISTENADDRESS", value: "0.0.0.0" }
+        - { name: "ORDERER_GENERAL_GENESISMETHOD", value: "file" }
+        - { name: "ORDERER_GENERAL_GENESISFILE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/genesis.block" }
+        - { name: "ORDERER_GENERAL_LOCALMSPID", value: "orgc" }
+        - { name: "ORDERER_GENERAL_LOCALMSPDIR", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/msp" }
+        - { name: "ORDERER_GENERAL_TLS_ENABLED", value: "true" }
+        - { name: "ORDERER_GENERAL_TLS_SERVERHOSTOVERRIDE", value: "orderer1st-orgc" }
+        - { name: "ORDERER_GENERAL_TLS_PRIVATEKEY", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/server.key" }
+        - { name: "ORDERER_GENERAL_TLS_CERTIFICATE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/server.crt" }
+        - { name: "ORDERER_GENERAL_TLS_ROOTCAS", value: "[/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/ca.crt]" }
+        #- { name: "ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/server.crt"}
+        #- { name: "ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY", value: "/etc/hyperledger/fabric/artifacts/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/server.key" }
+        - { name: "ORDERER_KAFKA_RETRY_SHORTINTERVAL", value: "1s" }
+        - { name: "ORDERER_KAFKA_RETRY_SHORTTOTAL", value: "30s" }
+        - { name: "ORDERER_KAFKA_VERBOSE", value: "true" }
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "0.1"
+        limits:
+          memory: "1024Mi"
+          cpu: "0.2"
+      volumeMounts:
+        - { mountPath: "/etc/hyperledger/fabric/artifacts", name: "task-pv-storage" }
+      command: ["orderer"]
+

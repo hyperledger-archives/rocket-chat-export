@@ -1,0 +1,224 @@
+using AgentFramework.Core.Contracts;
+using AgentFramework.Core.Extensions;
+using AgentFramework.Core.Handlers.Agents;
+using AgentFramework.Core.Utils;
+using Hyperledger.Indy.AnonCredsApi;
+using Hyperledger.Indy.BlobStorageApi;
+using Hyperledger.Indy.DidApi;
+using Hyperledger.Indy.WalletApi;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
+namespace myTest.Controllers
+{
+    public class TestResult
+    {
+        public bool FirstProof { get; set; }
+        public bool SecondProof { get; set; }
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TestController : ControllerBase
+    {
+        private readonly IAgentProvider _agentProvider;
+        private readonly IProvisioningService _provisioningService;
+        private readonly ILedgerService _ledgerService;
+
+        public TestController(IAgentProvider agentProvider, IProvisioningService provisioningService, ILedgerService ledgerService)
+        {
+            _agentProvider = agentProvider;
+            _provisioningService = provisioningService;
+            _ledgerService = ledgerService;
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<TestResult>> Get()
+        {
+            var agentContext = await _agentProvider.GetContextAsync();
+            var record = await _provisioningService.GetProvisioningAsync(agentContext.Wallet);
+
+            bool valid = false, valid2 = false;
+
+            string proverWalletConfig = "{\"id\":\"prover_wallet\"}";
+            string proverWalletCredentials = "{\"key\":\"prover_wallet_key\"}";
+
+            try
+            {
+                await Wallet.CreateWalletAsync(proverWalletConfig, proverWalletCredentials);
+            }
+            catch (Exception)
+            {
+
+            }
+            var prooverWallet = await Wallet.OpenWalletAsync(proverWalletConfig, proverWalletCredentials);
+
+            try
+            {
+                var prooverDid = await Did.CreateAndStoreMyDidAsync(prooverWallet, "{}");
+
+                var schemaName = "my_test_" + DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                var schemaVersion = "1.0";
+                var schemaAttributes = "[\"name\"]";
+                var createSchemaResult = await AnonCreds.IssuerCreateSchemaAsync(record.IssuerDid, schemaName, schemaVersion, schemaAttributes);
+                var schemaId = createSchemaResult.SchemaId;
+                var schemaJson = createSchemaResult.SchemaJson;
+
+                await _ledgerService.RegisterSchemaAsync(agentContext, record.IssuerDid, schemaJson);
+
+                var schema = await _ledgerService.LookupSchemaAsync(await agentContext.Pool, schemaId);
+
+                var credDefTag = "with_revoc_" + DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                var credDefConfigJson = new { support_revocation = true }.ToJson();
+                var createCredDefResult = await AnonCreds.IssuerCreateAndStoreCredentialDefAsync(agentContext.Wallet, record.IssuerDid, schema.ObjectJson, credDefTag, null, credDefConfigJson);
+                var credDefId = createCredDefResult.CredDefId;
+                var credDefJson = createCredDefResult.CredDefJson;
+
+                await _ledgerService.RegisterCredentialDefinitionAsync(agentContext, record.IssuerDid, credDefJson);
+
+                var revRegDefConfig = "{\"issuance_type\":\"ISSUANCE_ON_DEMAND\",\"max_cred_num\":100}";
+                var tailsWriterConfig = string.Format("{{\"base_dir\":\"{0}\", \"uri_pattern\":\"\"}}", EnvironmentUtils.GetTailsPath());
+                var tailsWriter = await BlobStorage.OpenWriterAsync("default", tailsWriterConfig);
+
+                var revRegDefTag = "Tag2";
+                var createRevRegResult = await AnonCreds.IssuerCreateAndStoreRevocRegAsync(agentContext.Wallet, record.IssuerDid, null, revRegDefTag, credDefId, revRegDefConfig, tailsWriter);
+                var revRegId = createRevRegResult.RevRegId;
+                var revRegDefJson = createRevRegResult.RevRegDefJson;
+
+                await _ledgerService.RegisterRevocationRegistryDefinitionAsync(agentContext, record.IssuerDid, revRegDefJson);
+
+                await _ledgerService.SendRevocationRegistryEntryAsync(agentContext, record.IssuerDid, revRegId, "CL_ACCUM", createRevRegResult.RevRegEntryJson);
+
+                var credOffer = await AnonCreds.IssuerCreateCredentialOfferAsync(agentContext.Wallet, credDefId);
+
+                var masterSecretId = await AnonCreds.ProverCreateMasterSecretAsync(prooverWallet, null);
+
+                var createCredReqResult = await AnonCreds.ProverCreateCredentialReqAsync(prooverWallet, prooverDid.Did, credOffer, credDefJson, masterSecretId);
+                var credReqJson = createCredReqResult.CredentialRequestJson;
+                var credReqMetadataJson = createCredReqResult.CredentialRequestMetadataJson;
+
+                var blobStorageReaderCfg = await BlobStorage.OpenReaderAsync("default", tailsWriterConfig);
+
+                var credValuesJson = "{\n" +
+                "        \"name\": {\"raw\": \"Test 01\", \"encoded\": \"1139481716457488690172217916278103335\"}\n" +
+                "    }";
+                var credValuesJson_02 = "{\n" +
+                "        \"name\": {\"raw\": \"Test 02\", \"encoded\": \"1139481716457488690172217916278103335\"}\n" +
+                "    }";
+
+                //1. Credential
+                var createCredentialResult = await AnonCreds.IssuerCreateCredentialAsync(agentContext.Wallet, credOffer, credReqJson, credValuesJson, revRegId, blobStorageReaderCfg);
+                var credential = createCredentialResult.CredentialJson;
+                var revRegDeltaJson = createCredentialResult.RevocRegDeltaJson;
+                var credRevId = createCredentialResult.RevocId;
+
+                await _ledgerService.SendRevocationRegistryEntryAsync(agentContext, record.IssuerDid, revRegId, "CL_ACCUM", revRegDeltaJson);
+
+                await AnonCreds.ProverStoreCredentialAsync(prooverWallet, null, credReqMetadataJson, credential, credDefJson, revRegDefJson);
+
+                var proofRequestJson = "{\"name\":\"proof_req_test\",\"version\":\"1.0\",\"nonce\":\"123432421212\",\"requested_attributes\":{\"name\":{\"name\":\"name\",\"restrictions\":[{\"cred_def_id\":\"" + credDefId + "\"}]}},\"requested_predicates\":{},\"non_revoked\":{\"from\":" + (0).ToString() + ", \"to\":" + (DateTimeOffset.UtcNow.ToUnixTimeSeconds() + 1000).ToString() + "}}";
+
+                var credentialsForProofSearch = await AnonCreds.ProverSearchCredentialsForProofRequestAsync(prooverWallet, proofRequestJson);
+
+                var credentialsForAttribute1 = await AnonCreds.ProverFetchCredentialsForProofRequestAsync(credentialsForProofSearch, "name", 1);
+
+                string credentialsForAttribute1Id = null;
+                if (credentialsForAttribute1 != "[]")
+                {
+                    var credentialsForAttribute1Parsed = JArray.Parse(credentialsForAttribute1);
+                    credentialsForAttribute1Id = credentialsForAttribute1Parsed[0]["cred_info"]["referent"].ToObject<string>();
+                }
+
+                await AnonCreds.ProverCloseCredentialsSearchForProofRequestAsync(credentialsForProofSearch);
+
+                long timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                var revStateJson = await AnonCreds.CreateRevocationStateAsync(blobStorageReaderCfg, revRegDefJson, revRegDeltaJson, timestamp, credRevId);
+
+                var requestedCredentialsJson = string.Format("{{" +
+                                                    "\"self_attested_attributes\":{{}}," +
+                                                    "\"requested_attributes\":{{\"name\":{{\"cred_id\":\"{0}\", \"revealed\":true, \"timestamp\":{1} }}}}," +
+                                                    "\"requested_predicates\":{{}}" +
+                                                    "}}", credentialsForAttribute1Id, timestamp);
+
+                var schemas = string.Format("{{\"{0}\":{1}}}", schemaId, schema.ObjectJson);
+                var credentialDefs = string.Format("{{\"{0}\":{1}}}", credDefId, credDefJson);
+                var revStates = string.Format("{{\"{0}\": {{ \"{1}\":{2} }}}}", revRegId, timestamp, revStateJson);
+
+                var proofJson = await AnonCreds.ProverCreateProofAsync(prooverWallet, proofRequestJson, requestedCredentialsJson, masterSecretId, schemas, credentialDefs, revStates);
+
+                var delta = await _ledgerService.LookupRevocationRegistryDeltaAsync(await agentContext.Pool, revRegId, -1, timestamp);
+
+                var revRegDefs = string.Format("{{\"{0}\":{1}}}", revRegId, revRegDefJson);
+                var revRegs = string.Format("{{\"{0}\": {{ \"{1}\":{2} }}}}", revRegId, timestamp, delta.ObjectJson);
+
+                valid = await AnonCreds.VerifierVerifyProofAsync(proofRequestJson, proofJson, schemas, credentialDefs, revRegDefs, revRegs);
+
+                //2. Credential
+                createCredentialResult = await AnonCreds.IssuerCreateCredentialAsync(agentContext.Wallet, credOffer, credReqJson, credValuesJson_02, revRegId, blobStorageReaderCfg);
+                credential = createCredentialResult.CredentialJson;
+                revRegDeltaJson = createCredentialResult.RevocRegDeltaJson;
+                credRevId = createCredentialResult.RevocId;
+
+                await _ledgerService.SendRevocationRegistryEntryAsync(agentContext, record.IssuerDid, revRegId, "CL_ACCUM", revRegDeltaJson);
+
+                await AnonCreds.ProverStoreCredentialAsync(prooverWallet, null, credReqMetadataJson, credential, credDefJson, revRegDefJson);
+
+                credentialsForProofSearch = await AnonCreds.ProverSearchCredentialsForProofRequestAsync(prooverWallet, proofRequestJson);
+
+                credentialsForAttribute1 = await AnonCreds.ProverFetchCredentialsForProofRequestAsync(credentialsForProofSearch, "name", 1);
+
+                credentialsForAttribute1Id = null;
+                if (credentialsForAttribute1 != "[]")
+                {
+                    var credentialsForAttribute1Parsed = JArray.Parse(credentialsForAttribute1);
+                    credentialsForAttribute1Id = credentialsForAttribute1Parsed[0]["cred_info"]["referent"].ToObject<string>();
+                }
+
+                await AnonCreds.ProverCloseCredentialsSearchForProofRequestAsync(credentialsForProofSearch);
+
+                timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                revStateJson = await AnonCreds.CreateRevocationStateAsync(blobStorageReaderCfg, revRegDefJson, revRegDeltaJson, timestamp, credRevId);
+
+                requestedCredentialsJson = string.Format("{{" +
+                                                    "\"self_attested_attributes\":{{}}," +
+                                                    "\"requested_attributes\":{{\"name\":{{\"cred_id\":\"{0}\", \"revealed\":true, \"timestamp\":{1} }}}}," +
+                                                    "\"requested_predicates\":{{}}" +
+                                                    "}}", credentialsForAttribute1Id, timestamp);
+
+                schemas = string.Format("{{\"{0}\":{1}}}", schemaId, schema.ObjectJson);
+                credentialDefs = string.Format("{{\"{0}\":{1}}}", credDefId, credDefJson);
+                revStates = string.Format("{{\"{0}\": {{ \"{1}\":{2} }}}}", revRegId, timestamp, revStateJson);
+
+                proofJson = await AnonCreds.ProverCreateProofAsync(prooverWallet, proofRequestJson, requestedCredentialsJson, masterSecretId, schemas, credentialDefs, revStates);
+
+                delta = await _ledgerService.LookupRevocationRegistryDeltaAsync(await agentContext.Pool, revRegId, -1, timestamp);
+
+                revRegDefs = string.Format("{{\"{0}\":{1}}}", revRegId, revRegDefJson);
+                revRegs = string.Format("{{\"{0}\": {{ \"{1}\":{2} }}}}", revRegId, timestamp, delta.ObjectJson);
+
+                valid2 = await AnonCreds.VerifierVerifyProofAsync(proofRequestJson, proofJson, schemas, credentialDefs, revRegDefs, revRegs);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                await prooverWallet.CloseAsync();
+                try
+                {
+                    await Wallet.DeleteWalletAsync(proverWalletConfig, proverWalletCredentials);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            return new TestResult() { FirstProof = valid, SecondProof = valid2 };
+        }
+    }
+}

@@ -1,0 +1,1114 @@
+10-22-106-245:fabric-sdk-java dharuqueshil$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10-22-106-245:fabric-sdk-java dharuqueshil$ mvn clean install -DskipITs=false
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.hyperledger.fabric-sdk-java:fabric-sdk-java:jar:1.1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ line 492, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: osx
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.classifier: osx-x86_64
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building fabric-java-sdk 1.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ fabric-sdk-java ---
+[INFO] Deleting /Users/dharuqueshil/fabric-sdk-java/target
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.2:revision (get-the-git-infos) @ fabric-sdk-java ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.9:prepare-agent (default-prepare-agent) @ fabric-sdk-java ---
+[INFO] argLine set to -javaagent:/Users/dharuqueshil/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/Users/dharuqueshil/fabric-sdk-java/target/jacoco.exec,excludes=**/org/hyperledger/fabric/protos/**
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.9:prepare-agent (pre-unit-test) @ fabric-sdk-java ---
+[INFO] surefireArgLine set to -javaagent:/Users/dharuqueshil/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/Users/dharuqueshil/fabric-sdk-java/target/coverage-reports/jacoco-ut.exec,excludes=**/org/hyperledger/fabric/protos/**
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.5.0:compile (default) @ fabric-sdk-java ---
+[INFO] Compiling 21 proto file(s) to /Users/dharuqueshil/fabric-sdk-java/target/generated-sources/protobuf/java
+[INFO] 
+[INFO] --- protobuf-maven-plugin:0.5.0:compile-custom (default) @ fabric-sdk-java ---
+[INFO] Compiling 21 proto file(s) to /Users/dharuqueshil/fabric-sdk-java/target/generated-sources/protobuf/grpc-java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ fabric-sdk-java ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ fabric-sdk-java ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 136 source files to /Users/dharuqueshil/fabric-sdk-java/target/classes
+[INFO] /Users/dharuqueshil/fabric-sdk-java/src/main/java/org/hyperledger/fabric_ca/sdk/HFCAClient.java: Some input files use or override a deprecated API.
+[INFO] /Users/dharuqueshil/fabric-sdk-java/src/main/java/org/hyperledger/fabric_ca/sdk/HFCAClient.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.4:run (default) @ fabric-sdk-java ---
+project.artifactId
+[INFO] Executing tasks
+     [echo] Creating diagnostic dump output directory
+    [mkdir] Created dir: /Users/dharuqueshil/fabric-sdk-java/target/diagDump
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ fabric-sdk-java ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ fabric-sdk-java ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /Users/dharuqueshil/fabric-sdk-java/target/test-classes
+[WARNING] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdk/ChannelTest.java:[42,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdk/ChannelTest.java:[763,17] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdk/ChannelTest.java:[765,31] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdk/ChannelTest.java:[767,25] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[INFO] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdkintegration/End2endIT.java: Some input files use or override a deprecated API.
+[INFO] /Users/dharuqueshil/fabric-sdk-java/src/test/java/org/hyperledger/fabric/sdkintegration/End2endIT.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ fabric-sdk-java ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+objc[3146]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre/bin/java (0x10105c4c0) and /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre/lib/libinstrument.dylib (0x1011114e0). One of the two will be used. Which one is undefined.
+Running org.hyperledger.fabric.sdk.transaction.InstallProposalBuilderTest
+2018-02-22 22:40:53,691 main ERROR InstallProposalBuilder:194 - The project source directory does not exist: /Users/dharuqueshil/fabric-sdk-java/some/dir
+2018-02-22 22:40:53,701 main ERROR InstallProposalBuilder:199 - The project source directory is not a directory: /var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/junit456394595548618200/src/myapp
+2018-02-22 22:40:53,704 main INFO  InstallProposalBuilder:217 - Installing 'mycc::null::1.0'  Java chaincode chaincodePath:'null' from input stream
+2018-02-22 22:40:53,720 main ERROR InstallProposalBuilder:105 - java.io.IOException: Cannot read!
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.514 sec - in org.hyperledger.fabric.sdk.transaction.InstallProposalBuilderTest
+Running org.hyperledger.fabric.sdk.transaction.TransactionContextTest
+2018-02-22 22:40:54,060 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:54,066 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.816 sec - in org.hyperledger.fabric.sdk.transaction.TransactionContextTest
+Running org.hyperledger.fabric.sdk.transaction.JoinPeerProposalBuilderTest
+2018-02-22 22:40:54,567 main ERROR JoinPeerProposalBuilder:34 - No genesis block for Join proposal.
+org.hyperledger.fabric.sdk.exception.ProposalException: No genesis block for Join proposal.
+	at org.hyperledger.fabric.sdk.transaction.JoinPeerProposalBuilder.genesisBlock(JoinPeerProposalBuilder.java:33)
+	at org.hyperledger.fabric.sdk.transaction.JoinPeerProposalBuilderTest.testBuildNoChaincode(JoinPeerProposalBuilderTest.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.hyperledger.fabric.sdk.transaction.JoinPeerProposalBuilderTest
+Running org.hyperledger.fabric.sdk.transaction.ProtoUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.325 sec - in org.hyperledger.fabric.sdk.transaction.ProtoUtilsTest
+Running org.hyperledger.fabric.sdk.transaction.InstantiateProposalBuilderTest
+2018-02-22 22:40:54,904 main ERROR InstantiateProposalBuilder:117 - org.hyperledger.fabric.sdk.exception.InvalidArgumentException: Chaincode type is required
+2018-02-22 22:40:54,905 main ERROR InstantiateProposalBuilder:120 - java.lang.NullPointerException
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.hyperledger.fabric.sdk.transaction.InstantiateProposalBuilderTest
+Running org.hyperledger.fabric.sdk.OrdererTest
+2018-02-22 22:40:54,911 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:54,912 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 sec - in org.hyperledger.fabric.sdk.OrdererTest
+Running org.hyperledger.fabric.sdk.ChannelConfigurationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.hyperledger.fabric.sdk.ChannelConfigurationTest
+Running org.hyperledger.fabric.sdk.ChaincodeEndorsementPolicyTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 sec - in org.hyperledger.fabric.sdk.ChaincodeEndorsementPolicyTest
+Running org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest
+2018-02-22 22:40:55,861 main ERROR CryptoPrimitives:563 - Cannot validate certificate. Error is: Path does not chain with any of the trust anchors
+Certificate  [0]         Version: 3
+         SerialNumber: 14033971528718858535
+             IssuerDN: C=US,ST=NC,L=RTP,O=IBM,OU=Hyperledger Fabric,CN=tuans-mbp-2.raleigh.ibm.com,E=tdang@us.ibm.com
+           Start Date: Tue Jan 31 15:48:41 WET 2017
+           Final Date: Fri Jan 29 15:48:41 WET 2027
+            SubjectDN: C=US,ST=NC,L=RTP,O=IBM,OU=Hyperledger Fabric,CN=tuans-mbp-2.raleigh.ibm.com,E=tdang@us.ibm.com
+           Public Key: EC Public Key
+            X: 7843c99be28d6007373085bfd541ed05336abeb29b23cc3b58286fb0296e9941282d59a3055e96996017e0d35e2ac0bb
+            Y: 10ce9ebd4d966930c449ae1cccbb6f141c01bd68ce007757b0f3710b4c6c7fb930eb61e95f0938e38cd59260f44ca794
+
+  Signature Algorithm: ECDSA
+            Signature: 3065023019162170f1aadad8f1a99be2d0ece77b
+                       ee39dd3e10e383e59817a5a2edccfc2cdab77fd1
+                       0e5086332f1fb82cd0413339023100c2569cb45f
+                       f466259959e2ee4f806edd1f7fd0978e84a2a514
+                       090080e6b4cbef4b84afc564aac20e3589ba7cf6
+                       166b58
+       Extensions: 
+                       critical(false) 2.5.29.14 value = DER Octet String[20] 
+
+                       critical(false) 2.5.29.35 value = Sequence
+    Tagged [0] IMPLICIT 
+        DER Octet String[20] 
+    Tagged [1]
+        Tagged [4]
+            DER Sequence
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.6)
+                        PrintableString(US) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.8)
+                        PrintableString(NC) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.7)
+                        PrintableString(RTP) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.10)
+                        PrintableString(IBM) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.11)
+                        PrintableString(Hyperledger Fabric) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(2.5.4.3)
+                        PrintableString(tuans-mbp-2.raleigh.ibm.com) 
+                DER Set
+                    DER Sequence
+                        ObjectIdentifier(1.2.840.113549.1.9.1)
+                        IA5String(tdang@us.ibm.com) 
+    Tagged [2] IMPLICIT 
+        DER Octet String[9] 
+
+                       critical(false) BasicConstraints: isCa(true)
+
+2018-02-22 22:40:55,883 main ERROR CryptoPrimitives:563 - Cannot validate certificate. Error is: Path does not chain with any of the trust anchors
+Certificate[
+[
+  Version: V3
+  Subject: EMAILADDRESS=tdang@us.ibm.com, CN=tuans-mbp-2.raleigh.ibm.com, OU=Hyperledger Fabric, O=IBM, L=RTP, ST=NC, C=US
+  Signature Algorithm: SHA1withECDSA, OID = 1.2.840.10045.4.1
+
+  Key:  Sun EC public key, 384 bits
+  public x coord: 18510446094086635620288874307804201788583690547243161165291825307151803149201577526313996367620734590399663106080955
+  public y coord: 2586850935313268422835130450359917072306974866535629743763898443607656623072940152175541007966140552082878353942420
+  parameters: secp384r1 [NIST P-384] (1.3.132.0.34)
+  Validity: [From: Tue Jan 31 15:48:41 WET 2017,
+               To: Fri Jan 29 15:48:41 WET 2027]
+  Issuer: EMAILADDRESS=tdang@us.ibm.com, CN=tuans-mbp-2.raleigh.ibm.com, OU=Hyperledger Fabric, O=IBM, L=RTP, ST=NC, C=US
+  SerialNumber: [    c2c2aec0 0d3bb927]
+
+Certificate Extensions: 3
+[1]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 61 5D 3C 8D D5 A4 2A F4   D2 E4 8A 2D BF 31 07 F8  a]<...*....-.1..
+0010: 29 0F 42 FD                                        ).B.
+]
+[EMAILADDRESS=tdang@us.ibm.com, CN=tuans-mbp-2.raleigh.ibm.com, OU=Hyperledger Fabric, O=IBM, L=RTP, ST=NC, C=US]
+SerialNumber: [    c2c2aec0 0d3bb927]
+]
+
+[2]: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+[3]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 61 5D 3C 8D D5 A4 2A F4   D2 E4 8A 2D BF 31 07 F8  a]<...*....-.1..
+0010: 29 0F 42 FD                                        ).B.
+]
+]
+
+]
+  Algorithm: [SHA1withECDSA]
+  Signature:
+0000: 30 65 02 30 19 16 21 70   F1 AA DA D8 F1 A9 9B E2  0e.0..!p........
+0010: D0 EC E7 7B EE 39 DD 3E   10 E3 83 E5 98 17 A5 A2  .....9.>........
+0020: ED CC FC 2C DA B7 7F D1   0E 50 86 33 2F 1F B8 2C  ...,.....P.3/..,
+0030: D0 41 33 39 02 31 00 C2   56 9C B4 5F F4 66 25 99  .A39.1..V.._.f%.
+0040: 59 E2 EE 4F 80 6E DD 1F   7F D0 97 8E 84 A2 A5 14  Y..O.n..........
+0050: 09 00 80 E6 B4 CB EF 4B   84 AF C5 64 AA C2 0E 35  .......K...d...5
+0060: 89 BA 7C F6 16 6B 58                               .....kX
+
+]
+2018-02-22 22:40:56,050 main ERROR CryptoPrimitives:329 - Cannot verify. Signature algorithm is invalid. Error is: Could not verify signature
+org.hyperledger.fabric.sdk.exception.CryptoException: Cannot verify. Signature algorithm is invalid. Error is: Could not verify signature
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.verify(CryptoPrimitives.java:328)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testVerifyBadSig(CryptoPrimitivesTest.java:560)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: java.security.SignatureException: Could not verify signature
+	at sun.security.ec.ECDSASignature.engineVerify(ECDSASignature.java:320)
+	at java.security.Signature$Delegate.engineVerify(Signature.java:1194)
+	at java.security.Signature.verify(Signature.java:627)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.verify(CryptoPrimitives.java:318)
+	... 31 more
+Caused by: java.security.SignatureException: Could not decode signature
+	at sun.security.ec.ECDSASignature.decodeSignature(ECDSASignature.java:386)
+	at sun.security.ec.ECDSASignature.engineVerify(ECDSASignature.java:317)
+	... 34 more
+Caused by: java.io.IOException: Encoding bytes too short
+	at sun.security.util.DerInputStream.init(DerInputStream.java:103)
+	at sun.security.util.DerInputStream.<init>(DerInputStream.java:80)
+	at sun.security.ec.ECDSASignature.decodeSignature(ECDSASignature.java:369)
+	... 35 more
+2018-02-22 22:40:56,114 main ERROR CryptoPrimitives:886 - Cannot initialize abc123 certificate factory. Error = abc123 not found
+org.hyperledger.fabric.sdk.exception.CryptoException: Cannot initialize abc123 certificate factory. Error = abc123 not found
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.resetConfiguration(CryptoPrimitives.java:885)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.init(CryptoPrimitives.java:828)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testInitInvalidCertFormat(CryptoPrimitivesTest.java:162)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: java.security.cert.CertificateException: abc123 not found
+	at java.security.cert.CertificateFactory.getInstance(CertificateFactory.java:188)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.resetConfiguration(CryptoPrimitives.java:883)
+	... 31 more
+Caused by: java.security.NoSuchAlgorithmException: abc123 CertificateFactory not available
+	at sun.security.jca.GetInstance.getInstance(GetInstance.java:159)
+	at java.security.cert.CertificateFactory.getInstance(CertificateFactory.java:183)
+	... 32 more
+2018-02-22 22:40:56,169 main ERROR CryptoPrimitives:465 - Unable to add CA certificate to trust store. Error: Uninitialized keystore
+java.security.KeyStoreException: Uninitialized keystore
+	at java.security.KeyStore.setCertificateEntry(KeyStore.java:1187)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.addCACertificateToTrustStore(CryptoPrimitives.java:462)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testAddCACertificateToTrustStoreBadStore(CryptoPrimitivesTest.java:353)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:56,218 main ERROR CryptoPrimitives:533 - Cannot validate certificate. Error is: X.509 not found
+Certificate (PEM, hex): 2D2D224547494E202D2D2D2D2D0A4D4949436A444343416A4B6741774942416749554245567773537830546D7164627A4E776C654E42427A6F4954307777436759494B6F5A497A6A3045417749770A667A454C4D416B474131554542684D4356564D78457A415242674E5642416754436B4E6862476C6D62334A7561574578466A415542674E564241635444564E680A62694247636D467559326C7A59323878487A416442674E5642416F54466B6C7564475679626D5630494664705A47646C64484D7349456C75597934784444414B0A42674E564241735441316458567A45554D4249474131554541784D4C5A586868625842735A53356A623230774868634E4D5459784D5445784D5463774E7A41770A5768634E4D5463784D5445784D5463774E7A4177576A426A4D517377435159445651514745774A56557A45584D4255474131554543424D4F546D3979644767670A5132467962327870626D45784544414F42674E564241635442314A68624756705A326778477A415A42674E5642416F54456B6835634756796247566B5A3256790A49455A68596E4A70597A454D4D416F474131554543784D44513039514D466B77457759484B6F5A497A6A3043415159494B6F5A497A6A304441516344516741450A4842754B73414F34336873344A4770466669474D6B422F7873494C54734F766D4E32576D77707350485A4E4C36773848576533784350517464472F584A4A765A0A2B433735364B457355424D337977355054666B7538714F42707A43427044414F42674E56485138424166384542414D4342614177485159445652306C424259770A464159494B7759424251554841774547434373474151554642774D434D41774741315564457745422F7751434D414177485159445652304F42425945464F46430A6463555A346573336C746943674156446F794C66567050494D42384741315564497751594D4261414642646E516A32716E6F492F784D55646E3176446D6447310A6E4567514D43554741315564455151654D427943436D31356147397A6443356A62323243446E6433647935746557687663335175593239744D416F47434371470A534D343942414D43413067414D4555434944663948626C34786E337A3445774E4B6D696C4D396C58324671346A5770416152564239374F6D56456579416945410A32356144505148474771324176684B54307776743038635831475447434962666D754C704D774B516A33383D0A2D2D2D2D2D454E44202D2D2D2D2D0A
+Tests run: 53, Failures: 2, Errors: 3, Skipped: 1, Time elapsed: 0.785 sec <<< FAILURE! - in org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest
+testCertificationRequestToPEM(org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest)  Time elapsed: 0.173 sec  <<< ERROR!
+java.lang.NoSuchFieldError: id_dsa_with_sha3_224
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testCertificationRequestToPEM(CryptoPrimitivesTest.java:661)
+
+testLoadCACerts(org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest)  Time elapsed: 0.047 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testLoadCACerts(CryptoPrimitivesTest.java:443)
+
+testGenerateCertificateRequest(org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testGenerateCertificateRequest(CryptoPrimitivesTest.java:655)
+
+testCertificateToDER(org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testCertificateToDER(CryptoPrimitivesTest.java:670)
+
+testHashSHA3(org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest)  Time elapsed: 0.015 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[feb69c5c360a15802de6af23a3f5622da9d96aff2be78c8f188cce57a3549db6]> but was:<[12529a70e047f5d4e9e163334ed8720e84e8d50385a76488c0a1a1ee83b69e453755b92a]>
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitivesTest.testHashSHA3(CryptoPrimitivesTest.java:695)
+
+Running org.hyperledger.fabric.sdk.BlockEventTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec - in org.hyperledger.fabric.sdk.BlockEventTest
+Running org.hyperledger.fabric.sdk.ClientTest
+2018-02-22 22:40:56,460 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:56,461 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.032 sec - in org.hyperledger.fabric.sdk.ClientTest
+Running org.hyperledger.fabric.sdk.PeerTest
+2018-02-22 22:40:56,513 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:56,515 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:57,963 main WARN  EndorserClient:99 - RPC failed: Status{code=UNKNOWN, description=invalid header type MESSAGE, cause=null}
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.478 sec - in org.hyperledger.fabric.sdk.PeerTest
+Running org.hyperledger.fabric.sdk.NetworkConfigTest
+2018-02-22 22:40:58,058 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,059 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,097 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,098 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,264 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,266 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,276 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,277 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.317 sec - in org.hyperledger.fabric.sdk.NetworkConfigTest
+Running org.hyperledger.fabric.sdk.EndpointTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.397 sec - in org.hyperledger.fabric.sdk.EndpointTest
+Running org.hyperledger.fabric.sdk.ChannelTest
+2018-02-22 22:40:58,690 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,691 main WARN  SampleStore:90 - Could not find the file "/Users/dharuqueshil/test.properties"
+2018-02-22 22:40:58,851 main ERROR Channel:2404 - Sending proposal to peer1 failed because of Error bad bad bad
+java.lang.Exception: java.lang.Error: Error bad bad bad
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:2404)
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2064)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesERROR(ChannelTest.java:707)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: java.lang.Error: Error bad bad bad
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesERROR(ChannelTest.java:704)
+	... 27 more
+2018-02-22 22:40:58,864 main ERROR Channel:2413 - Sending proposal to peer1 failed because of: You interrupting me?
+java.lang.Exception: java.lang.InterruptedException: You interrupting me?
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:2413)
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2064)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowInterrupted(ChannelTest.java:660)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: java.lang.InterruptedException: You interrupting me?
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowInterrupted(ChannelTest.java:658)
+	... 27 more
+2018-02-22 22:40:58,870 main ERROR HFClient:553 - queryChannels for peer peer1 failed.Failed exception message is Sending proposal to peer1 failed because of: You interrupting me?, status is 500
+org.hyperledger.fabric.sdk.exception.ProposalException: Failed exception message is Sending proposal to peer1 failed because of: You interrupting me?, status is 500
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2077)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowInterrupted(ChannelTest.java:660)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:58,878 main ERROR Channel:2413 - Sending proposal to peer1 failed because of: rick did this:)
+java.lang.Exception: org.hyperledger.fabric.sdk.exception.PeerException: rick did this:)
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:2413)
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2064)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowPeerException(ChannelTest.java:675)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: org.hyperledger.fabric.sdk.exception.PeerException: rick did this:)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowPeerException(ChannelTest.java:673)
+	... 27 more
+2018-02-22 22:40:58,879 main ERROR HFClient:553 - queryChannels for peer peer1 failed.Failed exception message is Sending proposal to peer1 failed because of: rick did this:), status is 500
+org.hyperledger.fabric.sdk.exception.ProposalException: Failed exception message is Sending proposal to peer1 failed because of: rick did this:), status is 500
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2077)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowPeerException(ChannelTest.java:675)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:58,898 main ERROR Channel:2413 - Sending proposal to peer1 failed because of: What time is it?
+java.lang.Exception: org.hyperledger.fabric.sdk.exception.PeerException: What time is it?
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:2413)
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2064)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowTimeoutException(ChannelTest.java:690)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: org.hyperledger.fabric.sdk.exception.PeerException: What time is it?
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowTimeoutException(ChannelTest.java:688)
+	... 27 more
+2018-02-22 22:40:58,900 main ERROR HFClient:553 - queryChannels for peer peer1 failed.Failed exception message is Sending proposal to peer1 failed because of: What time is it?, status is 500
+org.hyperledger.fabric.sdk.exception.ProposalException: Failed exception message is Sending proposal to peer1 failed because of: What time is it?, status is 500
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2077)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesThrowTimeoutException(ChannelTest.java:690)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:58,937 main ERROR Channel:2413 - Sending proposal to peer1 failed because of: gRPC failure=Status{code=ABORTED, description=null, cause=null}
+java.lang.Exception: io.grpc.StatusRuntimeException: ABORTED
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:2413)
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2064)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesStatusRuntimeException(ChannelTest.java:724)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+Caused by: io.grpc.StatusRuntimeException: ABORTED
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesStatusRuntimeException(ChannelTest.java:721)
+	... 27 more
+2018-02-22 22:40:58,940 main ERROR HFClient:553 - queryChannels for peer peer1 failed.Failed exception message is Sending proposal to peer1 failed because of: gRPC failure=Status{code=ABORTED, description=null, cause=null}, status is 500
+org.hyperledger.fabric.sdk.exception.ProposalException: Failed exception message is Sending proposal to peer1 failed because of: gRPC failure=Status{code=ABORTED, description=null, cause=null}, status is 500
+	at org.hyperledger.fabric.sdk.Channel.queryChannels(Channel.java:2077)
+	at org.hyperledger.fabric.sdk.HFClient.queryChannels(HFClient.java:549)
+	at org.hyperledger.fabric.sdk.ChannelTest.testQueryInstalledChaincodesStatusRuntimeException(ChannelTest.java:724)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:58,962 main ERROR Channel:670 - Channel missing genesis block and no orderers configured
+org.hyperledger.fabric.sdk.exception.ProposalException: Channel missing genesis block and no orderers configured
+	at org.hyperledger.fabric.sdk.Channel.joinPeer(Channel.java:669)
+	at org.hyperledger.fabric.sdk.Channel.joinPeer(Channel.java:619)
+	at org.hyperledger.fabric.sdk.ChannelTest.testChannelPeerJoinNoOrderer(ChannelTest.java:532)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:58,964 main ERROR Channel:711 - org.hyperledger.fabric.sdk.exception.InvalidArgumentException: Channel channel does not have any orderers associated with it.
+Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.284 sec - in org.hyperledger.fabric.sdk.ChannelTest
+Running org.hyperledger.fabric.sdk.helper.UtilsTest
+Tests run: 28, Failures: 4, Errors: 0, Skipped: 1, Time elapsed: 0.15 sec <<< FAILURE! - in org.hyperledger.fabric.sdk.helper.UtilsTest
+testHash(org.hyperledger.fabric.sdk.helper.UtilsTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[feb69c5c360a15802de6af23a3f5622da9d96aff2be78c8f188cce57a3549db6]> but was:<[12529a70e047f5d4e9e163334ed8720e84e8d50385a76488c0a1a1ee83b69e453755b92a]>
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.testHash(UtilsTest.java:251)
+
+testGenerateDirectoryHash(org.hyperledger.fabric.sdk.helper.UtilsTest)  Time elapsed: 0.016 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a]> but was:<[6753e3380c09e385d0339eb6b050a68f66cfd60a73476e6fd6adeb72f5edd7c6f04a5d01]>
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.doGenerateDirectoryHash(UtilsTest.java:378)
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.testGenerateDirectoryHash(UtilsTest.java:57)
+
+testGenerateDirectoryHashWithRootDir(org.hyperledger.fabric.sdk.helper.UtilsTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a]> but was:<[6753e3380c09e385d0339eb6b050a68f66cfd60a73476e6fd6adeb72f5edd7c6f04a5d01]>
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.doGenerateDirectoryHash(UtilsTest.java:378)
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.testGenerateDirectoryHashWithRootDir(UtilsTest.java:63)
+
+testGenerateDirectoryHashWithPrevHash(org.hyperledger.fabric.sdk.helper.UtilsTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[6c9f96b2dd87d7a02fd3b7cc6026a6a96d21c4c53aaf5777439151690c48c7b8]> but was:<[97a0c788079c21330de4f804ada5aeb1f6fc5ac34f6cd1d84a429c085e95bd444d169bba]>
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.doGenerateDirectoryHash(UtilsTest.java:378)
+	at org.hyperledger.fabric.sdk.helper.UtilsTest.testGenerateDirectoryHashWithPrevHash(UtilsTest.java:69)
+
+Running org.hyperledger.fabric.sdk.helper.ConfigTest
+2018-02-22 22:40:59,136 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,138 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,142 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,143 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,144 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,145 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,146 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,148 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,149 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,151 main DEBUG Config:91 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.hyperledger.fabric.sdk.helper.ConfigTest
+Running org.hyperledger.fabric.sdk.exception.FabricExceptionsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec - in org.hyperledger.fabric.sdk.exception.FabricExceptionsTest
+Running org.hyperledger.fabric_ca.sdk.HFCAIdentityTest
+2018-02-22 22:40:59,205 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,206 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,259 main ERROR HFCAIdentity:281 - Error while creating user 'testuser1' from url 'http://localhost:99/api/v1/identities':  null
+2018-02-22 22:40:59,261 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,274 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,275 main ERROR HFCAIdentity:236 - Error while getting user 'testuser1' from url '/api/v1/identities/testuser1': null
+2018-02-22 22:40:59,277 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,281 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,292 main ERROR HFCAIdentity:369 - Error while deleting user 'testuser1' from url 'http://localhost:99/api/v1/identities/testuser1':  null
+2018-02-22 22:40:59,299 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,300 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,304 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,306 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,311 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,323 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,345 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,346 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,355 main ERROR HFCAIdentity:325 - Error while updating user 'testuser1' from url 'http://localhost:99/api/v1/identities/testuser1':  null
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec - in org.hyperledger.fabric_ca.sdk.HFCAIdentityTest
+Running org.hyperledger.fabric_ca.sdk.HFCAAffiliationTest
+2018-02-22 22:40:59,366 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,366 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,371 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,372 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,380 main ERROR HFCAAffiliation:274 - Error while creating affiliation neworg1 url: http://localhost:99/api/v1/affiliations  null 
+2018-02-22 22:40:59,386 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,388 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,391 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,392 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,398 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,401 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,409 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,411 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,412 main ERROR HFCAAffiliation:221 - Error while getting affiliation neworg1 url: /api/v1/affiliations/neworg1  null 
+2018-02-22 22:40:59,414 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,415 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,430 main ERROR HFCAAffiliation:393 - Error while deleting affiliation neworg1 url: http://localhost:99/api/v1/affiliations/neworg1?force=false  null 
+2018-02-22 22:40:59,431 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,432 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,434 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,436 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,441 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,443 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,448 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,449 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,455 main ERROR HFCAAffiliation:337 - Error while updating affiliation neworg1 url: http://localhost:99/api/v1/affiliations/neworg1?force=false  null 
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec - in org.hyperledger.fabric_ca.sdk.HFCAAffiliationTest
+Running org.hyperledger.fabric_ca.sdk.AttributeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.hyperledger.fabric_ca.sdk.AttributeTest
+Running org.hyperledger.fabric_ca.sdk.HFCAClientTest
+2018-02-22 22:40:59,477 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,480 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,482 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,483 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,493 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,494 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,496 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,497 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,506 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,507 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,518 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,520 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,523 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,524 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,530 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,531 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,540 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,542 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,550 main ERROR HFCAClient:1324 - org.hyperledger.fabric.sdk.exception.CryptoException: Unable to add CA certificate to trust store. Error: File 'nofile.pem' does not exist
+2018-02-22 22:40:59,552 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,553 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,555 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,556 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,585 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,586 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,603 main ERROR HFCAClient:671 - Cannot validate certificate. Error is: Could not parse certificate: java.io.IOException: Empty input
+2018-02-22 22:40:59,605 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,606 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,612 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,620 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,639 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,645 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,653 main ERROR HFCAClient:444 - If certificate signing request is supplied the key pair needs to be supplied too.
+org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException: If certificate signing request is supplied the key pair needs to be supplied too.
+	at org.hyperledger.fabric_ca.sdk.HFCAClient.enroll(HFCAClient.java:383)
+	at org.hyperledger.fabric_ca.sdk.HFCAClientTest.testEnrollmentNoKeyPair(HFCAClientTest.java:350)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+2018-02-22 22:40:59,660 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,662 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,712 main ERROR HFCAClient:331 - org.hyperledger.fabric.sdkintegration.SampleUser@5c1348c6
+2018-02-22 22:40:59,713 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,714 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,716 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,716 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,764 main ERROR HFCAClient:331 - org.hyperledger.fabric.sdkintegration.SampleUser@61668c05
+2018-02-22 22:40:59,765 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,765 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,771 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,771 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,778 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,778 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,781 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,782 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,784 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,785 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,789 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,790 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,791 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,792 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,793 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,794 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,795 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,796 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,797 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,798 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,799 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,803 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,809 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,811 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,815 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+2018-02-22 22:40:59,816 main WARN  SampleStore:90 - Could not find the file "/var/folders/zq/kznflx_d6f93_0_3tzg0h8980000gn/T/HFCSampletest.properties"
+Tests run: 31, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.358 sec <<< FAILURE! - in org.hyperledger.fabric_ca.sdk.HFCAClientTest
+testEnrollmentNoServerResponse(org.hyperledger.fabric_ca.sdk.HFCAClientTest)  Time elapsed: 0.027 sec  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: (an instance of org.hyperledger.fabric_ca.sdk.exception.EnrollmentException and exception with message a string containing "Failed to enroll user admin")
+     but: an instance of org.hyperledger.fabric_ca.sdk.exception.EnrollmentException <java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder> is a java.lang.NoClassDefFoundError
+Stacktrace was: java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
+	at org.bouncycastle.operator.jcajce.JcaContentSignerBuilder.<init>(Unknown Source)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.generateCertificationRequest(CryptoPrimitives.java:758)
+	at org.hyperledger.fabric_ca.sdk.HFCAClient.enroll(HFCAClient.java:395)
+	at org.hyperledger.fabric_ca.sdk.HFCAClientTest.testEnrollmentNoServerResponse(HFCAClientTest.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+
+
+Running org.hyperledger.fabric_ca.sdk.EnrollmentRequestTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.hyperledger.fabric_ca.sdk.EnrollmentRequestTest
+Running org.hyperledger.fabric_ca.sdk.RegistrationRequestTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.hyperledger.fabric_ca.sdk.RegistrationRequestTest
+Running org.hyperledger.fabric_ca.sdk.RevocationRequestTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.hyperledger.fabric_ca.sdk.RevocationRequestTest
+Running org.hyperledger.fabric_ca.sdk.helper.ConfigTest
+2018-02-22 22:40:59,868 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,872 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,878 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,881 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,883 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,885 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,887 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+2018-02-22 22:40:59,888 main DEBUG Config:66 - Loading configuration from /Users/dharuqueshil/fabric-sdk-java/config.properties and it is present: true
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.hyperledger.fabric_ca.sdk.helper.ConfigTest
+Running org.hyperledger.fabric_ca.sdk.exception.FabricCAExceptionsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.hyperledger.fabric_ca.sdk.exception.FabricCAExceptionsTest
+
+Results :
+
+Failed tests: 
+  UtilsTest.testGenerateDirectoryHash:57->doGenerateDirectoryHash:378 expected:<[a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a]> but was:<[6753e3380c09e385d0339eb6b050a68f66cfd60a73476e6fd6adeb72f5edd7c6f04a5d01]>
+  UtilsTest.testGenerateDirectoryHashWithPrevHash:69->doGenerateDirectoryHash:378 expected:<[6c9f96b2dd87d7a02fd3b7cc6026a6a96d21c4c53aaf5777439151690c48c7b8]> but was:<[97a0c788079c21330de4f804ada5aeb1f6fc5ac34f6cd1d84a429c085e95bd444d169bba]>
+  UtilsTest.testGenerateDirectoryHashWithRootDir:63->doGenerateDirectoryHash:378 expected:<[a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a]> but was:<[6753e3380c09e385d0339eb6b050a68f66cfd60a73476e6fd6adeb72f5edd7c6f04a5d01]>
+  UtilsTest.testHash:251 expected:<[feb69c5c360a15802de6af23a3f5622da9d96aff2be78c8f188cce57a3549db6]> but was:<[12529a70e047f5d4e9e163334ed8720e84e8d50385a76488c0a1a1ee83b69e453755b92a]>
+  CryptoPrimitivesTest.testHashSHA3:695 expected:<[feb69c5c360a15802de6af23a3f5622da9d96aff2be78c8f188cce57a3549db6]> but was:<[12529a70e047f5d4e9e163334ed8720e84e8d50385a76488c0a1a1ee83b69e453755b92a]>
+  CryptoPrimitivesTest.testLoadCACerts:443
+  HFCAClientTest.testEnrollmentNoServerResponse 
+Expected: (an instance of org.hyperledger.fabric_ca.sdk.exception.EnrollmentException and exception with message a string containing "Failed to enroll user admin")
+     but: an instance of org.hyperledger.fabric_ca.sdk.exception.EnrollmentException <java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder> is a java.lang.NoClassDefFoundError
+Stacktrace was: java.lang.NoClassDefFoundError: Could not initialize class org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder
+	at org.bouncycastle.operator.jcajce.JcaContentSignerBuilder.<init>(Unknown Source)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.generateCertificationRequest(CryptoPrimitives.java:758)
+	at org.hyperledger.fabric_ca.sdk.HFCAClient.enroll(HFCAClient.java:395)
+	at org.hyperledger.fabric_ca.sdk.HFCAClientTest.testEnrollmentNoServerResponse(HFCAClientTest.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:239)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+
+Tests in error: 
+  CryptoPrimitivesTest.testCertificateToDER:670 » NoClassDefFound Could not init...
+  CryptoPrimitivesTest.testCertificationRequestToPEM:661 » NoSuchField id_dsa_wi...
+  CryptoPrimitivesTest.testGenerateCertificateRequest:655 » NoClassDefFound Coul...
+
+Tests run: 347, Failures: 7, Errors: 3, Skipped: 5
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 24.515 s
+[INFO] Finished at: 2018-02-22T22:41:00+00:00
+[INFO] Final Memory: 44M/527M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project fabric-sdk-java: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/dharuqueshil/fabric-sdk-java/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+10-22-106-245:fabric-sdk-java dharuqueshil$ 

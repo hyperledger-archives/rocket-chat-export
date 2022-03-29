@@ -1,0 +1,1235 @@
+pg@pg-GL552JX:~$ docker ps
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                              NAMES
+41101ce7cbf8        hyperledger/fabric-peer         "sh -c 'sleep 5; p..."   40 minutes ago      Up 40 minutes       0.0.0.0:7050-7053->7050-7053/tcp   scripts_vp0_1
+18fc72ee0844        hyperledger/fabric-membersrvc   "membersrvc"             40 minutes ago      Up 40 minutes       0.0.0.0:7054->7054/tcp             scripts_membersrvc_1
+pg@pg-GL552JX:~$ docker logs -f 41101ce7cbf8
+2017-03-01 13:38:25.672 UTC [logging] InitFromViper -> DEBU 001 Setting default logging level to DEBUG for command 'node'
+2017-03-01 13:38:25.672 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+2017-03-01 13:38:25.672 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+2017-03-01 13:38:25.672 UTC [kvledger.util] CreateDirIfMissing -> DEBU 004 CreateDirIfMissing [/var/hyperledger/production/ledgersData/ledgerProvider/]
+2017-03-01 13:38:25.672 UTC [kvledger.util] logDirStatus -> DEBU 005 Before creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] does not exist
+2017-03-01 13:38:25.672 UTC [kvledger.util] logDirStatus -> DEBU 006 After creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] exists
+2017-03-01 13:38:25.676 UTC [kvledger.util] CreateDirIfMissing -> DEBU 007 CreateDirIfMissing [/var/hyperledger/production/ledgersData/blocks/index/]
+2017-03-01 13:38:25.676 UTC [kvledger.util] logDirStatus -> DEBU 008 Before creating dir - [/var/hyperledger/production/ledgersData/blocks/index/] does not exist
+2017-03-01 13:38:25.676 UTC [kvledger.util] logDirStatus -> DEBU 009 After creating dir - [/var/hyperledger/production/ledgersData/blocks/index/] exists
+2017-03-01 13:38:25.679 UTC [kvledger] NewProvider -> DEBU 00a Constructing leveldb VersionedDBProvider
+2017-03-01 13:38:25.679 UTC [stateleveldb] NewVersionedDBProvider -> DEBU 00b constructing VersionedDBProvider dbPath=/var/hyperledger/production/ledgersData/stateLeveldb
+2017-03-01 13:38:25.679 UTC [kvledger.util] CreateDirIfMissing -> DEBU 00c CreateDirIfMissing [/var/hyperledger/production/ledgersData/stateLeveldb/]
+2017-03-01 13:38:25.679 UTC [kvledger.util] logDirStatus -> DEBU 00d Before creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] does not exist
+2017-03-01 13:38:25.679 UTC [kvledger.util] logDirStatus -> DEBU 00e After creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] exists
+2017-03-01 13:38:25.686 UTC [historyleveldb] NewHistoryDBProvider -> DEBU 00f constructing HistoryDBProvider dbPath=/var/hyperledger/production/ledgersData/historyLeveldb
+2017-03-01 13:38:25.686 UTC [kvledger.util] CreateDirIfMissing -> DEBU 010 CreateDirIfMissing [/var/hyperledger/production/ledgersData/historyLeveldb/]
+2017-03-01 13:38:25.686 UTC [kvledger.util] logDirStatus -> DEBU 011 Before creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] does not exist
+2017-03-01 13:38:25.686 UTC [kvledger.util] logDirStatus -> DEBU 012 After creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] exists
+2017-03-01 13:38:25.689 UTC [kvledger] NewProvider -> INFO 013 ledger provider Initialized
+2017-03-01 13:38:25.689 UTC [ledgermgmt] initialize -> INFO 014 ledger mgmt initialized
+2017-03-01 13:38:25.689 UTC [peer] func1 -> INFO 015 Auto detected peer address: 172.17.0.3:7051
+2017-03-01 13:38:25.689 UTC [peer] func1 -> INFO 016 Auto detected peer address: 172.17.0.3:7051
+2017-03-01 13:38:25.689 UTC [nodeCmd] serve -> INFO 017 Security enabled status: true
+2017-03-01 13:38:25.690 UTC [eventhub_producer] AddEventType -> DEBU 018 registering BLOCK
+2017-03-01 13:38:25.690 UTC [eventhub_producer] AddEventType -> DEBU 019 registering CHAINCODE
+2017-03-01 13:38:25.690 UTC [eventhub_producer] AddEventType -> DEBU 01a registering REJECTION
+2017-03-01 13:38:25.690 UTC [eventhub_producer] AddEventType -> DEBU 01b registering REGISTER
+2017-03-01 13:38:25.690 UTC [eventhub_producer] start -> INFO 01c event processor started
+2017-03-01 13:38:25.690 UTC [chaincode] NewChaincodeSupport -> INFO 01d Chaincode support using peerAddress: 172.17.0.3:7051
+2017-03-01 13:38:25.690 UTC [chaincode] NewChaincodeSupport -> DEBU 01e Turn off keepalive(value 0)
+2017-03-01 13:38:25.690 UTC [sysccapi] RegisterSysCC -> INFO 01f system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+2017-03-01 13:38:25.690 UTC [sysccapi] RegisterSysCC -> INFO 020 system chaincode lccc(github.com/hyperledger/fabric/core/scc/lccc) registered
+2017-03-01 13:38:25.690 UTC [sysccapi] RegisterSysCC -> INFO 021 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+2017-03-01 13:38:25.690 UTC [sysccapi] RegisterSysCC -> INFO 022 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+2017-03-01 13:38:25.690 UTC [sysccapi] RegisterSysCC -> INFO 023 system chaincode qscc(github.com/hyperledger/fabric/core/chaincode/qscc) registered
+2017-03-01 13:38:25.690 UTC [nodeCmd] serve -> DEBU 024 Running peer
+2017-03-01 13:38:25.691 UTC [msp] GetLocalMSP -> DEBU 025 Returning existing local MSP
+2017-03-01 13:38:25.691 UTC [msp] GetDefaultSigningIdentity -> DEBU 026 Obtaining default signing identity
+2017-03-01 13:38:25.691 UTC [gossip/service] func1 -> INFO 027 Initialize gossip with endpoint 172.17.0.3:7051 and bootstrap set [127.0.0.1:7051]
+2017-03-01 13:38:25.692 UTC [msp] GetLocalMSP -> DEBU 028 Returning existing local MSP
+2017-03-01 13:38:25.692 UTC [msp] DeserializeIdentity -> INFO 029 Obtaining identity
+2017-03-01 13:38:25.692 UTC [msp] newIdentity -> DEBU 02a Creating identity instance for ID &{DEFAULT DEFAULT}
+2017-03-01 13:38:25.692 UTC [msp] GetLocalMSP -> DEBU 02b Returning existing local MSP
+2017-03-01 13:38:25.692 UTC [msp] GetDefaultSigningIdentity -> DEBU 02c Obtaining default signing identity
+2017-03-01 13:38:25.692 UTC [msp] Validate -> INFO 02d MSP DEFAULT validating identity
+2017-03-01 13:38:25.692 UTC [msp] GetLocalMSP -> DEBU 02e Returning existing local MSP
+2017-03-01 13:38:25.692 UTC [msp] DeserializeIdentity -> INFO 02f Obtaining identity
+2017-03-01 13:38:25.692 UTC [msp] newIdentity -> DEBU 030 Creating identity instance for ID &{DEFAULT DEFAULT}
+2017-03-01 13:38:25.693 UTC [gossip/discovery#172.17.0.3:7051] NewDiscoveryService -> INFO 031 Started { [] [31 187 223 182 199 174 91 202 182 195 76 101 193 68 82 145 75 51 75 246 120 133 185 26 237 208 150 137 159 72 218 133] 172.17.0.3:7051} incTime is 1488375505693029136
+2017-03-01 13:38:25.693 UTC [gossip/gossip#172.17.0.3:7051] NewGossipService -> INFO 032 Creating gossip service with self membership of { [] [31 187 223 182 199 174 91 202 182 195 76 101 193 68 82 145 75 51 75 246 120 133 185 26 237 208 150 137 159 72 218 133] 172.17.0.3:7051}
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 033 Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] DeserializeIdentity -> INFO 034 Obtaining identity
+2017-03-01 13:38:25.693 UTC [msp] newIdentity -> DEBU 035 Creating identity instance for ID &{DEFAULT DEFAULT}
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 036 Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] GetDefaultSigningIdentity -> DEBU 037 Obtaining default signing identity
+2017-03-01 13:38:25.693 UTC [msp] Validate -> INFO 038 MSP DEFAULT validating identity
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 039 Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] DeserializeIdentity -> INFO 03a Obtaining identity
+2017-03-01 13:38:25.693 UTC [msp] newIdentity -> DEBU 03b Creating identity instance for ID &{DEFAULT DEFAULT}
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 03c Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] GetDefaultSigningIdentity -> DEBU 03d Obtaining default signing identity
+2017-03-01 13:38:25.693 UTC [msp] Validate -> INFO 03e MSP DEFAULT validating identity
+2017-03-01 13:38:25.693 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 03f Sleeping 5s
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 040 Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] GetDefaultSigningIdentity -> DEBU 041 Obtaining default signing identity
+2017-03-01 13:38:25.693 UTC [msp] Sign -> DEBU 042 Sign: plaintext: 1801AA01CB070A201FBBDFB6C7AE5BCA...0A2D2D2D2D2D454E44202D2D2D2D2D0A 
+2017-03-01 13:38:25.693 UTC [msp] Sign -> DEBU 043 Sign: digest: B91301C5B3B7B1E388A8FCEF8122DF21EE91B04BA9C04C8E7F74F67C256624D1 
+2017-03-01 13:38:25.693 UTC [gossip/gossip#172.17.0.3:7051] NewGossipService -> WARN 045 External endpoint is empty, peer will not be accessible outside of its organization
+2017-03-01 13:38:25.693 UTC [gossip/discovery#172.17.0.3:7051] connect2BootstrapPeers -> INFO 044 Entering: [127.0.0.1:7051]
+2017-03-01 13:38:25.693 UTC [gossip/discovery#172.17.0.3:7051] connect2BootstrapPeers -> INFO 046 Exiting
+2017-03-01 13:38:25.693 UTC [ccprovider] NewCCContext -> INFO 047 NewCCCC (chain=,chaincode=cscc,version=0.7.0-snapshot-7134f9f,txid=2e5f83a7-64fd-4e9c-81ef-bdc2bcdcf7e2,syscc=true,proposal=0x0,canname=cscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.693 UTC [chaincode] getArgsAndEnv -> DEBU 048 Executable is chaincode
+2017-03-01 13:38:25.693 UTC [chaincode] getArgsAndEnv -> DEBU 049 Args [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.693 UTC [chaincode] launchAndWaitForRegister -> DEBU 04a start container: cscc:0.7.0-snapshot-7134f9f(networkid:dev,peerid:vp0)
+2017-03-01 13:38:25.693 UTC [container] lockContainer -> DEBU 04c waiting for container(cscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.693 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 04b Sleeping 25s
+2017-03-01 13:38:25.693 UTC [gossip/gossip#172.17.0.3:7051] start -> INFO 04d Gossip instance 172.17.0.3:7051 started
+2017-03-01 13:38:25.693 UTC [container] lockContainer -> DEBU 04e got container (cscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.693 UTC [inproccontroller] getInstance -> DEBU 050 chaincode instance created for cscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.693 UTC [container] unlockContainer -> DEBU 051 container lock deleted(cscc-0.7.0-snapshot-7134f9f)
+2017-03-01 13:38:25.693 UTC [gossip/gossip#172.17.0.3:7051] syncDiscovery -> DEBU 04f Entering discovery sync with interval 4s
+2017-03-01 13:38:25.693 UTC [inproccontroller] func1 -> DEBU 053 chaincode started for cscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.693 UTC [shim] StartInProc -> DEBU 054 in proc [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.693 UTC [shim] StartInProc -> DEBU 055 starting chat with peer using name=cscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.693 UTC [msp] GetLocalMSP -> DEBU 056 Returning existing local MSP
+2017-03-01 13:38:25.693 UTC [msp] GetDefaultSigningIdentity -> DEBU 057 Obtaining default signing identity
+2017-03-01 13:38:25.694 UTC [msp] Sign -> DEBU 058 Sign: plaintext: 18012ADB070A221A201FBBDFB6C7AE5B...0A2D2D2D2D2D454E44202D2D2D2D2D0A 
+2017-03-01 13:38:25.694 UTC [msp] Sign -> DEBU 059 Sign: digest: E3A12645F6D466F0BDF011325C10F95A28F0D5AE2F130C07F6D5C275D0285944 
+2017-03-01 13:38:25.694 UTC [shim] chatWithPeer -> DEBU 05a Registering.. sending REGISTER
+2017-03-01 13:38:25.694 UTC [msp] GetLocalMSP -> DEBU 05b Returning existing local MSP
+2017-03-01 13:38:25.694 UTC [msp] GetDefaultSigningIdentity -> DEBU 05c Obtaining default signing identity
+2017-03-01 13:38:25.694 UTC [msp] Sign -> DEBU 05d Sign: plaintext: 0A0F3137322E31372E302E333A37303531 
+2017-03-01 13:38:25.694 UTC [msp] Sign -> DEBU 05e Sign: digest: E2323EB73532019A8D9570AD80F2EBF04BCB7E46D55C0952FC0BE89A273222F7 
+2017-03-01 13:38:25.693 UTC [inproccontroller] func2 -> DEBU 052 chaincode-support started for  cscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [chaincode] HandleChaincodeStream -> DEBU 05f Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 060 []Received message REGISTER from shim
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 061 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-01 13:38:25.694 UTC [chaincode] beforeRegisterEvent -> DEBU 062 Received REGISTER in state created
+2017-03-01 13:38:25.694 UTC [chaincode] registerHandler -> DEBU 063 registered handler complete for chaincode cscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [chaincode] beforeRegisterEvent -> DEBU 064 Got REGISTER for chaincodeID = name:"cscc:0.7.0-snapshot-7134f9f" , sending back REGISTERED
+2017-03-01 13:38:25.694 UTC [chaincode] notifyDuringStartup -> DEBU 065 Notifying during startup
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 066 []Received message REGISTERED from shim
+2017-03-01 13:38:25.694 UTC [shim] handleMessage -> DEBU 067 []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-03-01 13:38:25.694 UTC [chaincode] ready -> DEBU 068 sending READY
+2017-03-01 13:38:25.694 UTC [chaincode] setChaincodeProposal -> DEBU 06a Setting chaincode proposal context...
+2017-03-01 13:38:25.694 UTC [shim] beforeRegistered -> DEBU 069 Received REGISTERED, ready for invocations
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 06b [2e5f83a7]Move state message READY
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 06c [2e5f83a7]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-01 13:38:25.694 UTC [chaincode] enterReadyState -> DEBU 06d [2e5f83a7]Entered state ready
+2017-03-01 13:38:25.694 UTC [chaincode] notify -> DEBU 06e notifying Txid:2e5f83a7-64fd-4e9c-81ef-bdc2bcdcf7e2
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 06f [2e5f83a7]sending state message READY
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 070 [2e5f83a7]Received message READY from shim
+2017-03-01 13:38:25.694 UTC [shim] handleMessage -> DEBU 071 [2e5f83a7]Handling ChaincodeMessage of type: READY(state:established)
+2017-03-01 13:38:25.694 UTC [chaincode] Launch -> DEBU 072 sending init completed
+2017-03-01 13:38:25.694 UTC [chaincode] Launch -> DEBU 073 LaunchChaincode complete
+2017-03-01 13:38:25.694 UTC [chaincode] sendExecuteMessage -> DEBU 074 [2e5f83a7]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:25.694 UTC [chaincode] setChaincodeProposal -> DEBU 075 Setting chaincode proposal context...
+2017-03-01 13:38:25.694 UTC [chaincode] sendExecuteMessage -> DEBU 076 [2e5f83a7]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 077 [2e5f83a7]Move state message INIT
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 078 [2e5f83a7]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:25.694 UTC [chaincode] filterError -> DEBU 079 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 07a [2e5f83a7]sending state message INIT
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 07b [2e5f83a7]Received message INIT from shim
+2017-03-01 13:38:25.694 UTC [shim] handleMessage -> DEBU 07c [2e5f83a7]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:25.694 UTC [shim] enterInitState -> DEBU 07d Entered state ready
+2017-03-01 13:38:25.694 UTC [shim] enterInitState -> DEBU 07e [2e5f83a7]Received INIT, initializing chaincode
+2017-03-01 13:38:25.694 UTC [chaincode] Init -> INFO 07f Init CSCC
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 080 [2e5f83a7]Init get response status: 200
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 081 [2e5f83a7]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 082 [2e5f83a7]Move state message COMPLETED
+2017-03-01 13:38:25.694 UTC [shim] handleMessage -> DEBU 083 [2e5f83a7]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:25.694 UTC [shim] func1 -> DEBU 084 [2e5f83a7]send state message COMPLETED
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 085 [2e5f83a7]Received message COMPLETED from shim
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 086 [2e5f83a7]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 087 [2e5f83a7-64fd-4e9c-81ef-bdc2bcdcf7e2]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:25.694 UTC [chaincode] notify -> DEBU 088 notifying Txid:2e5f83a7-64fd-4e9c-81ef-bdc2bcdcf7e2
+2017-03-01 13:38:25.694 UTC [sysccapi] deploySysCC -> INFO 089 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2017-03-01 13:38:25.694 UTC [ccprovider] NewCCContext -> INFO 08a NewCCCC (chain=,chaincode=lccc,version=0.7.0-snapshot-7134f9f,txid=35510162-bf4e-46c9-a161-12c0b714f94b,syscc=true,proposal=0x0,canname=lccc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [chaincode] getArgsAndEnv -> DEBU 08b Executable is chaincode
+2017-03-01 13:38:25.694 UTC [chaincode] getArgsAndEnv -> DEBU 08c Args [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.694 UTC [chaincode] launchAndWaitForRegister -> DEBU 08d start container: lccc:0.7.0-snapshot-7134f9f(networkid:dev,peerid:vp0)
+2017-03-01 13:38:25.694 UTC [container] lockContainer -> DEBU 08e waiting for container(lccc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.694 UTC [container] lockContainer -> DEBU 08f got container (lccc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.694 UTC [inproccontroller] getInstance -> DEBU 090 chaincode instance created for lccc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [container] unlockContainer -> DEBU 091 container lock deleted(lccc-0.7.0-snapshot-7134f9f)
+2017-03-01 13:38:25.694 UTC [inproccontroller] func2 -> DEBU 092 chaincode-support started for  lccc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [chaincode] HandleChaincodeStream -> DEBU 093 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-01 13:38:25.694 UTC [inproccontroller] func1 -> DEBU 094 chaincode started for lccc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [shim] StartInProc -> DEBU 095 in proc [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.694 UTC [shim] StartInProc -> DEBU 096 starting chat with peer using name=lccc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [shim] chatWithPeer -> DEBU 097 Registering.. sending REGISTER
+2017-03-01 13:38:25.694 UTC [chaincode] processStream -> DEBU 098 []Received message REGISTER from shim
+2017-03-01 13:38:25.694 UTC [chaincode] HandleMessage -> DEBU 099 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-01 13:38:25.694 UTC [chaincode] beforeRegisterEvent -> DEBU 09a Received REGISTER in state created
+2017-03-01 13:38:25.694 UTC [chaincode] registerHandler -> DEBU 09b registered handler complete for chaincode lccc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.694 UTC [chaincode] beforeRegisterEvent -> DEBU 09c Got REGISTER for chaincodeID = name:"lccc:0.7.0-snapshot-7134f9f" , sending back REGISTERED
+2017-03-01 13:38:25.695 UTC [chaincode] notifyDuringStartup -> DEBU 09d Notifying during startup
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 09e []Received message REGISTERED from shim
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 09f []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-03-01 13:38:25.695 UTC [shim] beforeRegistered -> DEBU 0a0 Received REGISTERED, ready for invocations
+2017-03-01 13:38:25.695 UTC [chaincode] ready -> DEBU 0a1 sending READY
+2017-03-01 13:38:25.695 UTC [chaincode] setChaincodeProposal -> DEBU 0a2 Setting chaincode proposal context...
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0a3 [35510162]Move state message READY
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0a4 [35510162]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-01 13:38:25.695 UTC [chaincode] enterReadyState -> DEBU 0a5 [35510162]Entered state ready
+2017-03-01 13:38:25.695 UTC [chaincode] notify -> DEBU 0a6 notifying Txid:35510162-bf4e-46c9-a161-12c0b714f94b
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0a7 [35510162]sending state message READY
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0a8 [35510162]Received message READY from shim
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 0a9 [35510162]Handling ChaincodeMessage of type: READY(state:established)
+2017-03-01 13:38:25.695 UTC [chaincode] Launch -> DEBU 0aa sending init completed
+2017-03-01 13:38:25.695 UTC [chaincode] Launch -> DEBU 0ab LaunchChaincode complete
+2017-03-01 13:38:25.695 UTC [chaincode] sendExecuteMessage -> DEBU 0ac [35510162]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:25.695 UTC [chaincode] setChaincodeProposal -> DEBU 0ad Setting chaincode proposal context...
+2017-03-01 13:38:25.695 UTC [chaincode] sendExecuteMessage -> DEBU 0ae [35510162]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0af [35510162]Move state message INIT
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0b0 [35510162]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:25.695 UTC [chaincode] filterError -> DEBU 0b1 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0b2 [35510162]sending state message INIT
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0b3 [35510162]Received message INIT from shim
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 0b4 [35510162]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:25.695 UTC [shim] enterInitState -> DEBU 0b5 Entered state ready
+2017-03-01 13:38:25.695 UTC [shim] enterInitState -> DEBU 0b6 [35510162]Received INIT, initializing chaincode
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0b7 [35510162]Init get response status: 200
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0b8 [35510162]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0b9 [35510162]Move state message COMPLETED
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 0ba [35510162]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0bb [35510162]send state message COMPLETED
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0bc [35510162]Received message COMPLETED from shim
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0bd [35510162]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0be [35510162-bf4e-46c9-a161-12c0b714f94b]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:25.695 UTC [chaincode] notify -> DEBU 0bf notifying Txid:35510162-bf4e-46c9-a161-12c0b714f94b
+2017-03-01 13:38:25.695 UTC [sysccapi] deploySysCC -> INFO 0c0 system chaincode lccc/(github.com/hyperledger/fabric/core/scc/lccc) deployed
+2017-03-01 13:38:25.695 UTC [ccprovider] NewCCContext -> INFO 0c1 NewCCCC (chain=,chaincode=escc,version=0.7.0-snapshot-7134f9f,txid=568e84a1-91b1-4a6a-a7ff-bf449afdc914,syscc=true,proposal=0x0,canname=escc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [chaincode] getArgsAndEnv -> DEBU 0c2 Executable is chaincode
+2017-03-01 13:38:25.695 UTC [chaincode] getArgsAndEnv -> DEBU 0c3 Args [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.695 UTC [chaincode] launchAndWaitForRegister -> DEBU 0c4 start container: escc:0.7.0-snapshot-7134f9f(networkid:dev,peerid:vp0)
+2017-03-01 13:38:25.695 UTC [container] lockContainer -> DEBU 0c5 waiting for container(escc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.695 UTC [container] lockContainer -> DEBU 0c6 got container (escc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.695 UTC [inproccontroller] getInstance -> DEBU 0c7 chaincode instance created for escc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [container] unlockContainer -> DEBU 0c8 container lock deleted(escc-0.7.0-snapshot-7134f9f)
+2017-03-01 13:38:25.695 UTC [inproccontroller] func2 -> DEBU 0c9 chaincode-support started for  escc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [chaincode] HandleChaincodeStream -> DEBU 0ca Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-01 13:38:25.695 UTC [inproccontroller] func1 -> DEBU 0cb chaincode started for escc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [shim] StartInProc -> DEBU 0cc in proc [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.695 UTC [shim] StartInProc -> DEBU 0cd starting chat with peer using name=escc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [shim] chatWithPeer -> DEBU 0ce Registering.. sending REGISTER
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0cf []Received message REGISTER from shim
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0d0 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-01 13:38:25.695 UTC [chaincode] beforeRegisterEvent -> DEBU 0d1 Received REGISTER in state created
+2017-03-01 13:38:25.695 UTC [chaincode] registerHandler -> DEBU 0d2 registered handler complete for chaincode escc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.695 UTC [chaincode] beforeRegisterEvent -> DEBU 0d3 Got REGISTER for chaincodeID = name:"escc:0.7.0-snapshot-7134f9f" , sending back REGISTERED
+2017-03-01 13:38:25.695 UTC [chaincode] notifyDuringStartup -> DEBU 0d4 Notifying during startup
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0d5 []Received message REGISTERED from shim
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 0d6 []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-03-01 13:38:25.695 UTC [shim] beforeRegistered -> DEBU 0d7 Received REGISTERED, ready for invocations
+2017-03-01 13:38:25.695 UTC [chaincode] ready -> DEBU 0d8 sending READY
+2017-03-01 13:38:25.695 UTC [chaincode] setChaincodeProposal -> DEBU 0d9 Setting chaincode proposal context...
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0da [568e84a1]Move state message READY
+2017-03-01 13:38:25.695 UTC [chaincode] HandleMessage -> DEBU 0db [568e84a1]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-01 13:38:25.695 UTC [chaincode] enterReadyState -> DEBU 0dc [568e84a1]Entered state ready
+2017-03-01 13:38:25.695 UTC [chaincode] notify -> DEBU 0dd notifying Txid:568e84a1-91b1-4a6a-a7ff-bf449afdc914
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0de [568e84a1]sending state message READY
+2017-03-01 13:38:25.695 UTC [shim] func1 -> DEBU 0df [568e84a1]Received message READY from shim
+2017-03-01 13:38:25.695 UTC [shim] handleMessage -> DEBU 0e0 [568e84a1]Handling ChaincodeMessage of type: READY(state:established)
+2017-03-01 13:38:25.695 UTC [chaincode] Launch -> DEBU 0e1 sending init completed
+2017-03-01 13:38:25.695 UTC [chaincode] Launch -> DEBU 0e2 LaunchChaincode complete
+2017-03-01 13:38:25.695 UTC [chaincode] sendExecuteMessage -> DEBU 0e3 [568e84a1]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:25.695 UTC [chaincode] setChaincodeProposal -> DEBU 0e4 Setting chaincode proposal context...
+2017-03-01 13:38:25.695 UTC [chaincode] sendExecuteMessage -> DEBU 0e5 [568e84a1]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:25.695 UTC [chaincode] processStream -> DEBU 0e6 [568e84a1]Move state message INIT
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 0e7 [568e84a1]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:25.696 UTC [chaincode] filterError -> DEBU 0e8 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 0e9 [568e84a1]sending state message INIT
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 0ea [568e84a1]Received message INIT from shim
+2017-03-01 13:38:25.696 UTC [shim] handleMessage -> DEBU 0eb [568e84a1]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:25.696 UTC [shim] enterInitState -> DEBU 0ec Entered state ready
+2017-03-01 13:38:25.696 UTC [shim] enterInitState -> DEBU 0ed [568e84a1]Received INIT, initializing chaincode
+2017-03-01 13:38:25.696 UTC [escc] Init -> INFO 0ee Successfully initialized ESCC
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 0ef [568e84a1]Init get response status: 200
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 0f0 [568e84a1]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 0f1 [568e84a1]Move state message COMPLETED
+2017-03-01 13:38:25.696 UTC [shim] handleMessage -> DEBU 0f2 [568e84a1]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 0f3 [568e84a1]send state message COMPLETED
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 0f4 [568e84a1]Received message COMPLETED from shim
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 0f5 [568e84a1]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 0f6 [568e84a1-91b1-4a6a-a7ff-bf449afdc914]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:25.696 UTC [chaincode] notify -> DEBU 0f7 notifying Txid:568e84a1-91b1-4a6a-a7ff-bf449afdc914
+2017-03-01 13:38:25.696 UTC [sysccapi] deploySysCC -> INFO 0f8 system chaincode escc/(github.com/hyperledger/fabric/core/scc/escc) deployed
+2017-03-01 13:38:25.696 UTC [ccprovider] NewCCContext -> INFO 0f9 NewCCCC (chain=,chaincode=vscc,version=0.7.0-snapshot-7134f9f,txid=472e5727-bba5-46a8-985c-276a2f5ca650,syscc=true,proposal=0x0,canname=vscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [chaincode] getArgsAndEnv -> DEBU 0fa Executable is chaincode
+2017-03-01 13:38:25.696 UTC [chaincode] getArgsAndEnv -> DEBU 0fb Args [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.696 UTC [chaincode] launchAndWaitForRegister -> DEBU 0fc start container: vscc:0.7.0-snapshot-7134f9f(networkid:dev,peerid:vp0)
+2017-03-01 13:38:25.696 UTC [container] lockContainer -> DEBU 0fd waiting for container(vscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.696 UTC [container] lockContainer -> DEBU 0fe got container (vscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.696 UTC [inproccontroller] getInstance -> DEBU 0ff chaincode instance created for vscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [container] unlockContainer -> DEBU 100 container lock deleted(vscc-0.7.0-snapshot-7134f9f)
+2017-03-01 13:38:25.696 UTC [inproccontroller] func2 -> DEBU 101 chaincode-support started for  vscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [chaincode] HandleChaincodeStream -> DEBU 102 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-01 13:38:25.696 UTC [inproccontroller] func1 -> DEBU 103 chaincode started for vscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [shim] StartInProc -> DEBU 104 in proc [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.696 UTC [shim] StartInProc -> DEBU 105 starting chat with peer using name=vscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [shim] chatWithPeer -> DEBU 106 Registering.. sending REGISTER
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 107 []Received message REGISTER from shim
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 108 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-01 13:38:25.696 UTC [chaincode] beforeRegisterEvent -> DEBU 109 Received REGISTER in state created
+2017-03-01 13:38:25.696 UTC [chaincode] registerHandler -> DEBU 10a registered handler complete for chaincode vscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.696 UTC [chaincode] beforeRegisterEvent -> DEBU 10b Got REGISTER for chaincodeID = name:"vscc:0.7.0-snapshot-7134f9f" , sending back REGISTERED
+2017-03-01 13:38:25.696 UTC [chaincode] notifyDuringStartup -> DEBU 10c Notifying during startup
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 10d []Received message REGISTERED from shim
+2017-03-01 13:38:25.696 UTC [shim] handleMessage -> DEBU 10e []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-03-01 13:38:25.696 UTC [shim] beforeRegistered -> DEBU 10f Received REGISTERED, ready for invocations
+2017-03-01 13:38:25.696 UTC [chaincode] ready -> DEBU 110 sending READY
+2017-03-01 13:38:25.696 UTC [chaincode] setChaincodeProposal -> DEBU 111 Setting chaincode proposal context...
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 112 [472e5727]Move state message READY
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 113 [472e5727]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-01 13:38:25.696 UTC [chaincode] enterReadyState -> DEBU 114 [472e5727]Entered state ready
+2017-03-01 13:38:25.696 UTC [chaincode] notify -> DEBU 115 notifying Txid:472e5727-bba5-46a8-985c-276a2f5ca650
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 116 [472e5727]sending state message READY
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 117 [472e5727]Received message READY from shim
+2017-03-01 13:38:25.696 UTC [shim] handleMessage -> DEBU 118 [472e5727]Handling ChaincodeMessage of type: READY(state:established)
+2017-03-01 13:38:25.696 UTC [chaincode] Launch -> DEBU 119 sending init completed
+2017-03-01 13:38:25.696 UTC [chaincode] Launch -> DEBU 11a LaunchChaincode complete
+2017-03-01 13:38:25.696 UTC [chaincode] sendExecuteMessage -> DEBU 11b [472e5727]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:25.696 UTC [chaincode] setChaincodeProposal -> DEBU 11c Setting chaincode proposal context...
+2017-03-01 13:38:25.696 UTC [chaincode] sendExecuteMessage -> DEBU 11d [472e5727]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 11e [472e5727]Move state message INIT
+2017-03-01 13:38:25.696 UTC [chaincode] HandleMessage -> DEBU 11f [472e5727]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:25.696 UTC [chaincode] filterError -> DEBU 120 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:25.696 UTC [chaincode] processStream -> DEBU 121 [472e5727]sending state message INIT
+2017-03-01 13:38:25.696 UTC [shim] func1 -> DEBU 122 [472e5727]Received message INIT from shim
+2017-03-01 13:38:25.696 UTC [shim] handleMessage -> DEBU 123 [472e5727]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:25.696 UTC [shim] enterInitState -> DEBU 124 Entered state ready
+2017-03-01 13:38:25.697 UTC [shim] enterInitState -> DEBU 125 [472e5727]Received INIT, initializing chaincode
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 126 [472e5727]Init get response status: 200
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 127 [472e5727]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 128 [472e5727]Move state message COMPLETED
+2017-03-01 13:38:25.697 UTC [shim] handleMessage -> DEBU 129 [472e5727]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 12a [472e5727]send state message COMPLETED
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 12b [472e5727]Received message COMPLETED from shim
+2017-03-01 13:38:25.697 UTC [chaincode] HandleMessage -> DEBU 12c [472e5727]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:25.697 UTC [chaincode] HandleMessage -> DEBU 12d [472e5727-bba5-46a8-985c-276a2f5ca650]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:25.697 UTC [chaincode] notify -> DEBU 12e notifying Txid:472e5727-bba5-46a8-985c-276a2f5ca650
+2017-03-01 13:38:25.697 UTC [sysccapi] deploySysCC -> INFO 12f system chaincode vscc/(github.com/hyperledger/fabric/core/scc/vscc) deployed
+2017-03-01 13:38:25.697 UTC [ccprovider] NewCCContext -> INFO 130 NewCCCC (chain=,chaincode=qscc,version=0.7.0-snapshot-7134f9f,txid=8fddbcc8-af6c-48fd-94de-2cad151249ad,syscc=true,proposal=0x0,canname=qscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [chaincode] getArgsAndEnv -> DEBU 131 Executable is chaincode
+2017-03-01 13:38:25.697 UTC [chaincode] getArgsAndEnv -> DEBU 132 Args [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.697 UTC [chaincode] launchAndWaitForRegister -> DEBU 133 start container: qscc:0.7.0-snapshot-7134f9f(networkid:dev,peerid:vp0)
+2017-03-01 13:38:25.697 UTC [container] lockContainer -> DEBU 134 waiting for container(qscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.697 UTC [container] lockContainer -> DEBU 135 got container (qscc-0.7.0-snapshot-7134f9f) lock
+2017-03-01 13:38:25.697 UTC [inproccontroller] getInstance -> DEBU 136 chaincode instance created for qscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [container] unlockContainer -> DEBU 137 container lock deleted(qscc-0.7.0-snapshot-7134f9f)
+2017-03-01 13:38:25.697 UTC [inproccontroller] func2 -> DEBU 138 chaincode-support started for  qscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [chaincode] HandleChaincodeStream -> DEBU 139 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-01 13:38:25.697 UTC [inproccontroller] func1 -> DEBU 13a chaincode started for qscc-0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [shim] StartInProc -> DEBU 13b in proc [chaincode -peer.address=172.17.0.3:7051]
+2017-03-01 13:38:25.697 UTC [shim] StartInProc -> DEBU 13c starting chat with peer using name=qscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [shim] chatWithPeer -> DEBU 13d Registering.. sending REGISTER
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 13e []Received message REGISTER from shim
+2017-03-01 13:38:25.697 UTC [chaincode] HandleMessage -> DEBU 13f []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-01 13:38:25.697 UTC [chaincode] beforeRegisterEvent -> DEBU 140 Received REGISTER in state created
+2017-03-01 13:38:25.697 UTC [chaincode] registerHandler -> DEBU 141 registered handler complete for chaincode qscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:25.697 UTC [chaincode] beforeRegisterEvent -> DEBU 142 Got REGISTER for chaincodeID = name:"qscc:0.7.0-snapshot-7134f9f" , sending back REGISTERED
+2017-03-01 13:38:25.697 UTC [chaincode] notifyDuringStartup -> DEBU 143 Notifying during startup
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 144 []Received message REGISTERED from shim
+2017-03-01 13:38:25.697 UTC [shim] handleMessage -> DEBU 145 []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-03-01 13:38:25.697 UTC [shim] beforeRegistered -> DEBU 146 Received REGISTERED, ready for invocations
+2017-03-01 13:38:25.697 UTC [chaincode] ready -> DEBU 147 sending READY
+2017-03-01 13:38:25.697 UTC [chaincode] setChaincodeProposal -> DEBU 148 Setting chaincode proposal context...
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 149 [8fddbcc8]Move state message READY
+2017-03-01 13:38:25.697 UTC [chaincode] HandleMessage -> DEBU 14a [8fddbcc8]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-01 13:38:25.697 UTC [chaincode] enterReadyState -> DEBU 14b [8fddbcc8]Entered state ready
+2017-03-01 13:38:25.697 UTC [chaincode] notify -> DEBU 14c notifying Txid:8fddbcc8-af6c-48fd-94de-2cad151249ad
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 14d [8fddbcc8]sending state message READY
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 14e [8fddbcc8]Received message READY from shim
+2017-03-01 13:38:25.697 UTC [shim] handleMessage -> DEBU 14f [8fddbcc8]Handling ChaincodeMessage of type: READY(state:established)
+2017-03-01 13:38:25.697 UTC [chaincode] Launch -> DEBU 150 sending init completed
+2017-03-01 13:38:25.697 UTC [chaincode] Launch -> DEBU 151 LaunchChaincode complete
+2017-03-01 13:38:25.697 UTC [chaincode] sendExecuteMessage -> DEBU 152 [8fddbcc8]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:25.697 UTC [chaincode] setChaincodeProposal -> DEBU 153 Setting chaincode proposal context...
+2017-03-01 13:38:25.697 UTC [chaincode] sendExecuteMessage -> DEBU 154 [8fddbcc8]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 155 [8fddbcc8]Move state message INIT
+2017-03-01 13:38:25.697 UTC [chaincode] HandleMessage -> DEBU 156 [8fddbcc8]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:25.697 UTC [chaincode] filterError -> DEBU 157 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 158 [8fddbcc8]sending state message INIT
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 159 [8fddbcc8]Received message INIT from shim
+2017-03-01 13:38:25.697 UTC [shim] handleMessage -> DEBU 15a [8fddbcc8]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:25.697 UTC [shim] enterInitState -> DEBU 15b Entered state ready
+2017-03-01 13:38:25.697 UTC [shim] enterInitState -> DEBU 15c [8fddbcc8]Received INIT, initializing chaincode
+2017-03-01 13:38:25.697 UTC [qscc] Init -> INFO 15d Init QSCC
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 15e [8fddbcc8]Init get response status: 200
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 15f [8fddbcc8]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 160 [8fddbcc8]Move state message COMPLETED
+2017-03-01 13:38:25.697 UTC [shim] handleMessage -> DEBU 161 [8fddbcc8]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:25.697 UTC [shim] func1 -> DEBU 162 [8fddbcc8]send state message COMPLETED
+2017-03-01 13:38:25.697 UTC [chaincode] processStream -> DEBU 163 [8fddbcc8]Received message COMPLETED from shim
+2017-03-01 13:38:25.698 UTC [chaincode] HandleMessage -> DEBU 164 [8fddbcc8]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:25.698 UTC [chaincode] HandleMessage -> DEBU 165 [8fddbcc8-af6c-48fd-94de-2cad151249ad]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:25.698 UTC [chaincode] notify -> DEBU 166 notifying Txid:8fddbcc8-af6c-48fd-94de-2cad151249ad
+2017-03-01 13:38:25.698 UTC [sysccapi] deploySysCC -> INFO 167 system chaincode qscc/(github.com/hyperledger/fabric/core/chaincode/qscc) deployed
+2017-03-01 13:38:25.698 UTC [nodeCmd] initSysCCs -> INFO 168 Deployed system chaincodess
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 169 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16a Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer.pem
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16b Reading directory /etc/hyperledger/fabric/msp/sampleconfig/cacerts
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16c Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/cacert.pem
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16d Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16e Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer.pem
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 16f Reading directory /etc/hyperledger/fabric/msp/sampleconfig/admincerts
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 170 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/admincert.pem
+2017-03-01 13:38:25.698 UTC [msp] getPemMaterialFromDir -> DEBU 171 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/intermediatecerts
+2017-03-01 13:38:25.698 UTC [msp] NewBccspMsp -> DEBU 172 Creating BCCSP-based MSP instance
+2017-03-01 13:38:25.698 UTC [msp] Setup -> DEBU 173 Setting up MSP instance DEFAULT
+2017-03-01 13:38:25.698 UTC [msp] newIdentity -> DEBU 174 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.698 UTC [msp] newIdentity -> DEBU 175 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.698 UTC [msp] newIdentity -> DEBU 176 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.698 UTC [SW_BCCSP] loadPrivateKey -> DEBU 177 Loading private key [be550e94606441378b27a5e4dc71400827b80d413001616250f6519137460808] at [/etc/hyperledger/fabric/msp/sampleconfig/keystore/be550e94606441378b27a5e4dc71400827b80d413001616250f6519137460808_sk]...
+2017-03-01 13:38:25.699 UTC [ledgermgmt] CreateLedger -> INFO 178 Creating leadger with id = testchainid
+2017-03-01 13:38:25.701 UTC [kvledger] Open -> DEBU 179 Open() opening kvledger: testchainid
+2017-03-01 13:38:25.701 UTC [kvledger] newBlockfileMgr -> DEBU 17a newBlockfileMgr() initializing file-based block storage for ledger: testchainid 
+2017-03-01 13:38:25.701 UTC [kvledger.util] CreateDirIfMissing -> DEBU 17b CreateDirIfMissing [/var/hyperledger/production/ledgersData/blocks/blocks/testchainid/]
+2017-03-01 13:38:25.701 UTC [kvledger.util] logDirStatus -> DEBU 17c Before creating dir - [/var/hyperledger/production/ledgersData/blocks/blocks/testchainid/] does not exist
+2017-03-01 13:38:25.701 UTC [kvledger.util] logDirStatus -> DEBU 17d After creating dir - [/var/hyperledger/production/ledgersData/blocks/blocks/testchainid/] exists
+2017-03-01 13:38:25.703 UTC [kvledger] syncCPInfoFromFS -> DEBU 17e Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[0], isChainEmpty=[true], lastBlockNumber=[0]
+2017-03-01 13:38:25.703 UTC [kvledger] syncCPInfoFromFS -> DEBU 17f status of file [/var/hyperledger/production/ledgersData/blocks/blocks/testchainid/blockfile_000000]: exists=[false], size=[0]
+2017-03-01 13:38:25.703 UTC [kvledger] newBlockIndex -> DEBU 180 newBlockIndex() - indexItems:[[BlockHash BlockNum TxID BlockNumTranNum BlockTxID TxValidationCode]]
+2017-03-01 13:38:25.703 UTC [kvledger] newBlockfileStream -> DEBU 181 newBlockfileStream(): filePath=[/var/hyperledger/production/ledgersData/blocks/blocks/testchainid/blockfile_000000], startOffset=[0]
+2017-03-01 13:38:25.703 UTC [kvledger] nextBlockBytesAndPlacementInfo -> DEBU 182 Finished reading file number [0]
+2017-03-01 13:38:25.703 UTC [kvledger] nextBlockBytesAndPlacementInfo -> DEBU 183 blockbytes [0] read from file [0]
+2017-03-01 13:38:25.703 UTC [kvledger] newKVLedger -> DEBU 184 Creating KVLedger ledgerID=testchainid: 
+2017-03-01 13:38:25.703 UTC [kvledger] recoverDBs -> DEBU 185 Entering recoverDB()
+2017-03-01 13:38:25.703 UTC [kvledger] recoverDBs -> DEBU 186 Block storage is empty.
+2017-03-01 13:38:25.703 UTC [ledgermgmt] CreateLedger -> INFO 187 Created leadger with id = testchainid
+2017-03-01 13:38:25.703 UTC [kvledger] Commit -> DEBU 188 Validating block [0]
+2017-03-01 13:38:25.703 UTC [lockbasedtxmgr] ValidateAndPrepare -> DEBU 189 Validating new block with num trans = [1]
+2017-03-01 13:38:25.703 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 18a New block arrived for validation:&common.Block{Header:(*common.BlockHeader)(0xc421499e40), Data:(*common.BlockData)(0xc4214d0b80), Metadata:(*common.BlockMetadata)(0xc4214d0b60)}, doMVCCValidation=true
+2017-03-01 13:38:25.703 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 18b Validating a block with [1] transactions
+2017-03-01 13:38:25.704 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 18c Block [0] Transaction index [0] TxId [] marked as valid by state validator
+2017-03-01 13:38:25.704 UTC [kvledger] Commit -> DEBU 18d Committing block [0] to storage
+2017-03-01 13:38:25.706 UTC [kvledger] indexBlock -> DEBU 18e Indexing block [blockNum=0, blockHash=[]byte{0x41, 0xe5, 0x94, 0x72, 0x4c, 0xe5, 0x28, 0x89, 0xeb, 0xe5, 0x25, 0xdc, 0xad, 0x7f, 0x7b, 0x8c, 0xf3, 0x62, 0x9f, 0xc3, 0xfb, 0x3a, 0xe1, 0xba, 0x5f, 0x2c, 0x3, 0x55, 0xc9, 0x7c, 0xef, 0xc7} txOffsets=
+txId= locPointer=offset=38, bytesLength=3146
+]
+2017-03-01 13:38:25.706 UTC [kvledger] indexBlock -> DEBU 18f Adding txLoc [fileSuffixNum=0, offset=38, bytesLength=3146] for tx ID: [] to index
+2017-03-01 13:38:25.706 UTC [kvledger] indexBlock -> DEBU 190 Adding txLoc [fileSuffixNum=0, offset=38, bytesLength=3146] for tx number:[1] ID: [] to blockNumTranNum index
+2017-03-01 13:38:25.706 UTC [kvledger] updateCheckpoint -> DEBU 191 Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[3190], isChainEmpty=[false], lastBlockNumber=[0]
+2017-03-01 13:38:25.706 UTC [kvledger] Commit -> DEBU 192 Committing block [0] transactions to state database
+2017-03-01 13:38:25.706 UTC [lockbasedtxmgr] Commit -> DEBU 193 Committing updates to state database
+2017-03-01 13:38:25.706 UTC [lockbasedtxmgr] Commit -> DEBU 194 Write lock aquired for committing updates to state database
+2017-03-01 13:38:25.706 UTC [lockbasedtxmgr] Commit -> DEBU 195 Updates committed to state database
+2017-03-01 13:38:25.706 UTC [kvledger] Commit -> DEBU 196 Committing block [0] transactions to history database
+2017-03-01 13:38:25.706 UTC [historyleveldb] Commit -> DEBU 197 Updating history database for blockNo [0] with [1] transactions
+2017-03-01 13:38:25.706 UTC [historyleveldb] Commit -> DEBU 198 Skipping transaction [1] since it is not an endorsement transaction
+2017-03-01 13:38:25.706 UTC [historyleveldb] Commit -> DEBU 199 Updates committed to history database for blockNo [0]
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19a Adding to config map: [Groups] /Channel
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19b Adding to config map: [Groups] /Channel/Application
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19c Adding to config map: [Groups] /Channel/Application/DEFAULT
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19d Adding to config map: [Values] /Channel/Application/DEFAULT/MSP
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19e Adding to config map: [Policy] /Channel/Application/DEFAULT/Admins
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 19f Adding to config map: [Policy] /Channel/Application/DEFAULT/Readers
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 1a0 Adding to config map: [Policy] /Channel/Application/DEFAULT/Writers
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 1a1 Adding to config map: [Policy] /Channel/Application/Readers
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 1a2 Adding to config map: [Policy] /Channel/Application/Writers
+2017-03-01 13:38:25.706 UTC [common/configtx] addToMap -> DEBU 1a3 Adding to config map: [Policy] /Channel/Application/Admins
+2017-03-01 13:38:25.706 UTC [common/configtx] proposeGroup -> DEBU 1a4 Beginning new config for channel testchainid and group 
+2017-03-01 13:38:25.706 UTC [common/configtx] proposeGroup -> DEBU 1a5 Beginning new config for channel testchainid and group /Channel
+2017-03-01 13:38:25.706 UTC [common/configtx] proposeGroup -> DEBU 1a6 Beginning new config for channel testchainid and group /Channel/Application
+2017-03-01 13:38:25.706 UTC [common/configtx/handlers/application] BeginValueProposals -> DEBU 1a7 Beginning a possible new peer shared config
+2017-03-01 13:38:25.707 UTC [common/configtx] proposeGroup -> DEBU 1a8 Beginning new config for channel testchainid and group /Channel/Application/DEFAULT
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers/application] BeginValueProposals -> DEBU 1a9 Beginning a possible new org config
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers] BeginValueProposals -> DEBU 1aa Beginning a possible new org config
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers] ProposeValue -> DEBU 1ab Initializing org MSP for id DEFAULT
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers] ProposeValue -> DEBU 1ac Setting up MSP
+2017-03-01 13:38:25.707 UTC [msp] NewBccspMsp -> DEBU 1ad Creating BCCSP-based MSP instance
+2017-03-01 13:38:25.707 UTC [msp] Setup -> DEBU 1ae Setting up MSP instance DEFAULT
+2017-03-01 13:38:25.707 UTC [msp] newIdentity -> DEBU 1af Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.707 UTC [msp] newIdentity -> DEBU 1b0 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.707 UTC [msp] newIdentity -> DEBU 1b1 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-03-01 13:38:25.707 UTC [SW_BCCSP] loadPrivateKey -> DEBU 1b2 Loading private key [be550e94606441378b27a5e4dc71400827b80d413001616250f6519137460808] at [/etc/hyperledger/fabric/msp/sampleconfig/keystore/be550e94606441378b27a5e4dc71400827b80d413001616250f6519137460808_sk]...
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b3 Proposed new policy Writers for DEFAULT
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b4 Proposed new policy Admins for DEFAULT
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b5 Proposed new policy Readers for DEFAULT
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b6 Proposed new policy Readers for Application
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b7 Proposed new policy Writers for Application
+2017-03-01 13:38:25.707 UTC [common/policies] ProposePolicy -> DEBU 1b8 Proposed new policy Admins for Application
+2017-03-01 13:38:25.707 UTC [msp] Setup -> DEBU 1b9 Setting up the MSP manager (1 msps)
+2017-03-01 13:38:25.707 UTC [msp] Setup -> DEBU 1ba MSP manager setup complete, setup 1 msps
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers/application] CommitProposals -> DEBU 1bb Committing new org config
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers] CommitProposals -> DEBU 1bc Committing new org config
+2017-03-01 13:38:25.707 UTC [common/configtx/handlers/application] CommitProposals -> DEBU 1bd Committing new peer shared config
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1be Returning policy Writers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1bf In commit adding relative sub-policy DEFAULT/Writers to Application
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c0 Returning policy Admins for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1c1 In commit adding relative sub-policy DEFAULT/Admins to Application
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c2 Returning policy Readers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1c3 In commit adding relative sub-policy DEFAULT/Readers to Application
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c4 Returning policy Readers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c5 Returning policy Writers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c6 Returning policy Admins for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c7 Returning policy DEFAULT/Admins for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1c8 In commit adding relative sub-policy Application/DEFAULT/Admins to Channel
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1c9 Returning policy DEFAULT/Readers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1ca In commit adding relative sub-policy Application/DEFAULT/Readers to Channel
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1cb Returning policy Readers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1cc In commit adding relative sub-policy Application/Readers to Channel
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1cd Returning policy Writers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1ce In commit adding relative sub-policy Application/Writers to Channel
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1cf Returning policy Admins for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1d0 In commit adding relative sub-policy Application/Admins to Channel
+2017-03-01 13:38:25.707 UTC [common/policies] GetPolicy -> DEBU 1d1 Returning policy DEFAULT/Writers for evaluation
+2017-03-01 13:38:25.707 UTC [common/policies] CommitProposals -> DEBU 1d2 In commit adding relative sub-policy Application/DEFAULT/Writers to Channel
+2017-03-01 13:38:25.708 UTC [common/policies] GetPolicy -> DEBU 1d3 Returning policy Application/Readers for evaluation
+2017-03-01 13:38:25.708 UTC [common/policies] CommitProposals -> DEBU 1d4 As expected, current configuration has policy '/Channel/Application/Readers'
+2017-03-01 13:38:25.708 UTC [common/policies] GetPolicy -> DEBU 1d5 Returning policy Application/Writers for evaluation
+2017-03-01 13:38:25.708 UTC [common/policies] CommitProposals -> DEBU 1d6 As expected, current configuration has policy '/Channel/Application/Writers'
+2017-03-01 13:38:25.708 UTC [common/policies] GetPolicy -> DEBU 1d7 Returning policy Application/Admins for evaluation
+2017-03-01 13:38:25.708 UTC [common/policies] CommitProposals -> DEBU 1d8 As expected, current configuration has policy '/Channel/Application/Admins'
+2017-03-01 13:38:25.708 UTC [gossip/service] ProcessConfigUpdate -> DEBU 1d9 Processing new config for channel testchainid
+2017-03-01 13:38:25.708 UTC [gossip/service] ProcessConfigUpdate -> DEBU 1da Calling out because config was updated for channel testchainid
+2017-03-01 13:38:25.708 UTC [msp] GetLocalMSP -> DEBU 1db Returning existing local MSP
+2017-03-01 13:38:25.708 UTC [msp] DeserializeIdentity -> INFO 1dc Obtaining identity
+2017-03-01 13:38:25.708 UTC [msp] newIdentity -> DEBU 1dd Creating identity instance for ID &{DEFAULT DEFAULT}
+2017-03-01 13:38:25.708 UTC [gossip/service] configUpdated -> DEBU 1de Creating state provider for chainID testchainid
+2017-03-01 13:38:25.708 UTC [gossip/service] InitializeChannel -> DEBU 1df Creating state provider for chainID testchainid
+2017-03-01 13:38:25.708 UTC [gossip/state] NewGossipStateProvider -> INFO 1e0 Updating node metadata information, current ledger sequence is at = 0, next expected block is = 1
+2017-03-01 13:38:25.708 UTC [gossip/state] NewGossipStateProvider -> DEBU 1e1 Updating gossip metadate state &{0}
+2017-03-01 13:38:25.708 UTC [msp] GetLocalMSP -> DEBU 1e2 Returning existing local MSP
+2017-03-01 13:38:25.708 UTC [msp] GetDefaultSigningIdentity -> DEBU 1e3 Obtaining default signing identity
+2017-03-01 13:38:25.708 UTC [msp] Sign -> DEBU 1e4 Sign: plaintext: 120B74657374636861696E696418057A...4B334BF67885B91AEDD096899F48DA85 
+2017-03-01 13:38:25.708 UTC [msp] Sign -> DEBU 1e5 Sign: digest: 6A9B43CEAF81C8E219BA900F0C9C8DB6C5DCC7F9578391C2C04AFF78A0057260 
+2017-03-01 13:38:25.708 UTC [deliveryClient] NewDeliverService -> INFO 1e6 Creating delivery service to get blocks from the ordering service, 0.0.0.0:7050
+2017-03-01 13:38:28.708 UTC [deliveryClient] NewDeliverService -> ERRO 1e7 Cannot dial to 0.0.0.0:7050, because of grpc: timed out when dialing
+2017-03-01 13:38:28.708 UTC [gossip/service] InitializeChannel -> WARN 1e8 Cannot create delivery client, due to grpc: timed out when dialing
+2017-03-01 13:38:28.708 UTC [gossip/service] InitializeChannel -> WARN 1e9 Delivery client is down won't be able to pull blocks for chain testchainid
+2017-03-01 13:38:28.709 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 1ea constructing new tx simulator
+2017-03-01 13:38:28.709 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 1eb constructing new tx simulator [bc8a2a97-0731-42b5-a7d0-4a485f792854]
+2017-03-01 13:38:28.709 UTC [ccprovider] NewCCContext -> INFO 1ec NewCCCC (chain=testchainid,chaincode=cscc,version=0.7.0-snapshot-7134f9f,txid=f1319168-056e-40d5-9ec3-60736a058a04,syscc=true,proposal=0x0,canname=cscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.709 UTC [chaincode] Launch -> DEBU 1ed chaincode is running(no need to launch) : cscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.709 UTC [chaincode] sendExecuteMessage -> DEBU 1ee [f1319168]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:28.709 UTC [chaincode] setChaincodeProposal -> DEBU 1ef Setting chaincode proposal context...
+2017-03-01 13:38:28.709 UTC [chaincode] sendExecuteMessage -> DEBU 1f0 [f1319168]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:28.709 UTC [chaincode] processStream -> DEBU 1f1 [f1319168]Move state message INIT
+2017-03-01 13:38:28.709 UTC [chaincode] HandleMessage -> DEBU 1f2 [f1319168]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:28.709 UTC [chaincode] filterError -> DEBU 1f3 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:28.709 UTC [chaincode] processStream -> DEBU 1f4 [f1319168]sending state message INIT
+2017-03-01 13:38:28.709 UTC [shim] func1 -> DEBU 1f5 [f1319168]Received message INIT from shim
+2017-03-01 13:38:28.709 UTC [shim] handleMessage -> DEBU 1f6 [f1319168]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:28.709 UTC [shim] enterInitState -> DEBU 1f7 Entered state ready
+2017-03-01 13:38:28.709 UTC [shim] enterInitState -> DEBU 1f8 [f1319168]Received INIT, initializing chaincode
+2017-03-01 13:38:28.709 UTC [chaincode] Init -> INFO 1f9 Init CSCC
+2017-03-01 13:38:28.709 UTC [shim] func1 -> DEBU 1fa [f1319168]Init get response status: 200
+2017-03-01 13:38:28.709 UTC [shim] func1 -> DEBU 1fb [f1319168]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:28.709 UTC [shim] func1 -> DEBU 1fc [f1319168]Move state message COMPLETED
+2017-03-01 13:38:28.709 UTC [shim] handleMessage -> DEBU 1fd [f1319168]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:28.709 UTC [shim] func1 -> DEBU 1fe [f1319168]send state message COMPLETED
+2017-03-01 13:38:28.709 UTC [chaincode] processStream -> DEBU 1ff [f1319168]Received message COMPLETED from shim
+2017-03-01 13:38:28.709 UTC [chaincode] HandleMessage -> DEBU 200 [f1319168]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:28.709 UTC [chaincode] HandleMessage -> DEBU 201 [f1319168-056e-40d5-9ec3-60736a058a04]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:28.709 UTC [chaincode] notify -> DEBU 202 notifying Txid:f1319168-056e-40d5-9ec3-60736a058a04
+2017-03-01 13:38:28.709 UTC [sysccapi] deploySysCC -> INFO 203 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2017-03-01 13:38:28.709 UTC [lockbasedtxmgr] Done -> DEBU 204 Done query executer/ tx simulator [bc8a2a97-0731-42b5-a7d0-4a485f792854]
+2017-03-01 13:38:28.709 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 205 constructing new tx simulator
+2017-03-01 13:38:28.709 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 206 constructing new tx simulator [8ef8a07b-f59e-46fd-8552-cdf96cbc378f]
+2017-03-01 13:38:28.709 UTC [ccprovider] NewCCContext -> INFO 207 NewCCCC (chain=testchainid,chaincode=lccc,version=0.7.0-snapshot-7134f9f,txid=ece6a5df-b794-4811-b07a-f419c9cbf68a,syscc=true,proposal=0x0,canname=lccc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.709 UTC [chaincode] Launch -> DEBU 208 chaincode is running(no need to launch) : lccc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.709 UTC [chaincode] sendExecuteMessage -> DEBU 209 [ece6a5df]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:28.709 UTC [chaincode] setChaincodeProposal -> DEBU 20a Setting chaincode proposal context...
+2017-03-01 13:38:28.710 UTC [chaincode] sendExecuteMessage -> DEBU 20b [ece6a5df]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:28.710 UTC [chaincode] processStream -> DEBU 20c [ece6a5df]Move state message INIT
+2017-03-01 13:38:28.710 UTC [chaincode] HandleMessage -> DEBU 20d [ece6a5df]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:28.710 UTC [chaincode] filterError -> DEBU 20e Ignoring NoTransitionError: no transition
+2017-03-01 13:38:28.710 UTC [chaincode] processStream -> DEBU 20f [ece6a5df]sending state message INIT
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 210 [ece6a5df]Received message INIT from shim
+2017-03-01 13:38:28.710 UTC [shim] handleMessage -> DEBU 211 [ece6a5df]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:28.710 UTC [shim] enterInitState -> DEBU 212 Entered state ready
+2017-03-01 13:38:28.710 UTC [shim] enterInitState -> DEBU 213 [ece6a5df]Received INIT, initializing chaincode
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 214 [ece6a5df]Init get response status: 200
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 215 [ece6a5df]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 216 [ece6a5df]Move state message COMPLETED
+2017-03-01 13:38:28.710 UTC [shim] handleMessage -> DEBU 217 [ece6a5df]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 218 [ece6a5df]send state message COMPLETED
+2017-03-01 13:38:28.710 UTC [chaincode] processStream -> DEBU 219 [ece6a5df]Received message COMPLETED from shim
+2017-03-01 13:38:28.710 UTC [chaincode] HandleMessage -> DEBU 21a [ece6a5df]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:28.710 UTC [chaincode] HandleMessage -> DEBU 21b [ece6a5df-b794-4811-b07a-f419c9cbf68a]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:28.710 UTC [chaincode] notify -> DEBU 21c notifying Txid:ece6a5df-b794-4811-b07a-f419c9cbf68a
+2017-03-01 13:38:28.710 UTC [sysccapi] deploySysCC -> INFO 21d system chaincode lccc/testchainid(github.com/hyperledger/fabric/core/scc/lccc) deployed
+2017-03-01 13:38:28.710 UTC [lockbasedtxmgr] Done -> DEBU 21e Done query executer/ tx simulator [8ef8a07b-f59e-46fd-8552-cdf96cbc378f]
+2017-03-01 13:38:28.710 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 21f constructing new tx simulator
+2017-03-01 13:38:28.710 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 220 constructing new tx simulator [32262566-88de-446a-857e-b1654204c3c6]
+2017-03-01 13:38:28.710 UTC [ccprovider] NewCCContext -> INFO 221 NewCCCC (chain=testchainid,chaincode=escc,version=0.7.0-snapshot-7134f9f,txid=a934e2e6-a6d8-4371-9902-e39a56a5731e,syscc=true,proposal=0x0,canname=escc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.710 UTC [chaincode] Launch -> DEBU 222 chaincode is running(no need to launch) : escc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.710 UTC [chaincode] sendExecuteMessage -> DEBU 223 [a934e2e6]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:28.710 UTC [chaincode] setChaincodeProposal -> DEBU 224 Setting chaincode proposal context...
+2017-03-01 13:38:28.710 UTC [chaincode] sendExecuteMessage -> DEBU 225 [a934e2e6]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:28.710 UTC [chaincode] processStream -> DEBU 226 [a934e2e6]Move state message INIT
+2017-03-01 13:38:28.710 UTC [chaincode] HandleMessage -> DEBU 227 [a934e2e6]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:28.710 UTC [chaincode] filterError -> DEBU 228 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:28.710 UTC [chaincode] processStream -> DEBU 229 [a934e2e6]sending state message INIT
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 22a [a934e2e6]Received message INIT from shim
+2017-03-01 13:38:28.710 UTC [shim] handleMessage -> DEBU 22b [a934e2e6]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:28.710 UTC [shim] enterInitState -> DEBU 22c Entered state ready
+2017-03-01 13:38:28.710 UTC [shim] enterInitState -> DEBU 22d [a934e2e6]Received INIT, initializing chaincode
+2017-03-01 13:38:28.710 UTC [escc] Init -> INFO 22e Successfully initialized ESCC
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 22f [a934e2e6]Init get response status: 200
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 230 [a934e2e6]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:28.710 UTC [shim] func1 -> DEBU 231 [a934e2e6]Move state message COMPLETED
+2017-03-01 13:38:28.710 UTC [shim] handleMessage -> DEBU 232 [a934e2e6]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 233 [a934e2e6]send state message COMPLETED
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 234 [a934e2e6]Received message COMPLETED from shim
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 235 [a934e2e6]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 236 [a934e2e6-a6d8-4371-9902-e39a56a5731e]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:28.711 UTC [chaincode] notify -> DEBU 237 notifying Txid:a934e2e6-a6d8-4371-9902-e39a56a5731e
+2017-03-01 13:38:28.711 UTC [sysccapi] deploySysCC -> INFO 238 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] Done -> DEBU 239 Done query executer/ tx simulator [32262566-88de-446a-857e-b1654204c3c6]
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 23a constructing new tx simulator
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 23b constructing new tx simulator [115a7595-f566-4110-9ad0-9bc6b194509c]
+2017-03-01 13:38:28.711 UTC [ccprovider] NewCCContext -> INFO 23c NewCCCC (chain=testchainid,chaincode=vscc,version=0.7.0-snapshot-7134f9f,txid=68599311-4b9c-41e3-855c-93488092f87d,syscc=true,proposal=0x0,canname=vscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.711 UTC [chaincode] Launch -> DEBU 23d chaincode is running(no need to launch) : vscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.711 UTC [chaincode] sendExecuteMessage -> DEBU 23e [68599311]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:28.711 UTC [chaincode] setChaincodeProposal -> DEBU 23f Setting chaincode proposal context...
+2017-03-01 13:38:28.711 UTC [chaincode] sendExecuteMessage -> DEBU 240 [68599311]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 241 [68599311]Move state message INIT
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 242 [68599311]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:28.711 UTC [chaincode] filterError -> DEBU 243 Ignoring NoTransitionError: no transition
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 244 [68599311]sending state message INIT
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 245 [68599311]Received message INIT from shim
+2017-03-01 13:38:28.711 UTC [shim] handleMessage -> DEBU 246 [68599311]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:28.711 UTC [shim] enterInitState -> DEBU 247 Entered state ready
+2017-03-01 13:38:28.711 UTC [shim] enterInitState -> DEBU 248 [68599311]Received INIT, initializing chaincode
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 249 [68599311]Init get response status: 200
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 24a [68599311]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 24b [68599311]Move state message COMPLETED
+2017-03-01 13:38:28.711 UTC [shim] handleMessage -> DEBU 24c [68599311]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 24d [68599311]send state message COMPLETED
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 24e [68599311]Received message COMPLETED from shim
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 24f [68599311]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 250 [68599311-4b9c-41e3-855c-93488092f87d]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:28.711 UTC [chaincode] notify -> DEBU 251 notifying Txid:68599311-4b9c-41e3-855c-93488092f87d
+2017-03-01 13:38:28.711 UTC [sysccapi] deploySysCC -> INFO 252 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] Done -> DEBU 253 Done query executer/ tx simulator [115a7595-f566-4110-9ad0-9bc6b194509c]
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 254 constructing new tx simulator
+2017-03-01 13:38:28.711 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 255 constructing new tx simulator [4f3bdd84-bafd-42b1-af80-1fc9db90120d]
+2017-03-01 13:38:28.711 UTC [ccprovider] NewCCContext -> INFO 256 NewCCCC (chain=testchainid,chaincode=qscc,version=0.7.0-snapshot-7134f9f,txid=9b4e3a67-68e4-4efa-9b80-1fcf5170ccc4,syscc=true,proposal=0x0,canname=qscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.711 UTC [chaincode] Launch -> DEBU 257 chaincode is running(no need to launch) : qscc:0.7.0-snapshot-7134f9f
+2017-03-01 13:38:28.711 UTC [chaincode] sendExecuteMessage -> DEBU 258 [9b4e3a67]Inside sendExecuteMessage. Message INIT
+2017-03-01 13:38:28.711 UTC [chaincode] setChaincodeProposal -> DEBU 259 Setting chaincode proposal context...
+2017-03-01 13:38:28.711 UTC [chaincode] sendExecuteMessage -> DEBU 25a [9b4e3a67]sendExecuteMsg trigger event INIT
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 25b [9b4e3a67]Move state message INIT
+2017-03-01 13:38:28.711 UTC [chaincode] HandleMessage -> DEBU 25c [9b4e3a67]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-01 13:38:28.711 UTC [chaincode] filterError -> DEBU 25d Ignoring NoTransitionError: no transition
+2017-03-01 13:38:28.711 UTC [chaincode] processStream -> DEBU 25e [9b4e3a67]sending state message INIT
+2017-03-01 13:38:28.711 UTC [shim] func1 -> DEBU 25f [9b4e3a67]Received message INIT from shim
+2017-03-01 13:38:28.711 UTC [shim] handleMessage -> DEBU 260 [9b4e3a67]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-03-01 13:38:28.711 UTC [shim] enterInitState -> DEBU 261 Entered state ready
+2017-03-01 13:38:28.711 UTC [shim] enterInitState -> DEBU 262 [9b4e3a67]Received INIT, initializing chaincode
+2017-03-01 13:38:28.711 UTC [qscc] Init -> INFO 263 Init QSCC
+2017-03-01 13:38:28.712 UTC [shim] func1 -> DEBU 264 [9b4e3a67]Init get response status: 200
+2017-03-01 13:38:28.712 UTC [shim] func1 -> DEBU 265 [9b4e3a67]Init invoke succeeded. Sending COMPLETED
+2017-03-01 13:38:28.712 UTC [shim] func1 -> DEBU 266 [9b4e3a67]Move state message COMPLETED
+2017-03-01 13:38:28.712 UTC [shim] handleMessage -> DEBU 267 [9b4e3a67]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-01 13:38:28.712 UTC [shim] func1 -> DEBU 268 [9b4e3a67]send state message COMPLETED
+2017-03-01 13:38:28.712 UTC [chaincode] processStream -> DEBU 269 [9b4e3a67]Received message COMPLETED from shim
+2017-03-01 13:38:28.712 UTC [chaincode] HandleMessage -> DEBU 26a [9b4e3a67]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-01 13:38:28.712 UTC [chaincode] HandleMessage -> DEBU 26b [9b4e3a67-68e4-4efa-9b80-1fcf5170ccc4]HandleMessage- COMPLETED. Notify
+2017-03-01 13:38:28.712 UTC [chaincode] notify -> DEBU 26c notifying Txid:9b4e3a67-68e4-4efa-9b80-1fcf5170ccc4
+2017-03-01 13:38:28.712 UTC [sysccapi] deploySysCC -> INFO 26d system chaincode qscc/testchainid(github.com/hyperledger/fabric/core/chaincode/qscc) deployed
+2017-03-01 13:38:28.712 UTC [lockbasedtxmgr] Done -> DEBU 26e Done query executer/ tx simulator [4f3bdd84-bafd-42b1-af80-1fc9db90120d]
+2017-03-01 13:38:28.712 UTC [nodeCmd] serve -> INFO 26f Deployed system chaincodes on testchainid
+2017-03-01 13:38:28.712 UTC [peer] Initialize -> INFO 270 Loading chain testchainid
+2017-03-01 13:38:28.712 UTC [ledgermgmt] OpenLedger -> INFO 271 Opening leadger with id = testchainid
+2017-03-01 13:38:28.712 UTC [peer] Initialize -> WARN 272 Failed to load ledger testchainid(Ledger already opened)
+2017-03-01 13:38:28.712 UTC [peer] Initialize -> DEBU 273 Error while loading ledger testchainid with message Ledger already opened. We continue to the next ledger rather than abort.
+2017-03-01 13:38:28.712 UTC [nodeCmd] serve -> INFO 274 Starting peer with ID=name:"vp0" , network ID=dev, address=172.17.0.3:7051
+2017-03-01 13:38:28.715 UTC [logging] SetModuleLevel -> DEBU 275 Module 'error' logger enabled for log level: WARNING
+2017-03-01 13:38:28.715 UTC [logging] SetModuleLevel -> DEBU 276 Module 'msp' logger enabled for log level: WARNING
+2017-03-01 13:38:28.717 UTC [eventhub_producer] registerHandler -> DEBU 277 registerHandler BLOCK
+2017-03-01 13:38:30.694 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 278 Sleeping 5s
+2017-03-01 13:38:35.695 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 279 Sleeping 5s
+2017-03-01 13:38:40.696 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 27a Sleeping 5s
+2017-03-01 13:38:45.697 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 27b Sleeping 5s
+2017-03-01 13:38:50.694 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 27c Sleeping 25s
+2017-03-01 13:38:50.698 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 27d Sleeping 5s
+2017-03-01 13:38:55.699 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 27e Sleeping 5s
+2017-03-01 13:39:00.700 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 27f Sleeping 5s
+2017-03-01 13:39:05.701 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 280 Sleeping 5s
+2017-03-01 13:39:10.701 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 281 Sleeping 5s
+2017-03-01 13:39:15.696 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 282 Sleeping 25s
+2017-03-01 13:39:15.702 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 283 Sleeping 5s
+2017-03-01 13:39:20.703 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 284 Sleeping 5s
+2017-03-01 13:39:25.703 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 285 Sleeping 5s
+2017-03-01 13:39:30.704 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 286 Sleeping 5s
+2017-03-01 13:39:35.705 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 287 Sleeping 5s
+2017-03-01 13:39:40.697 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 288 Sleeping 25s
+2017-03-01 13:39:40.706 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 289 Sleeping 5s
+2017-03-01 13:39:45.707 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 28a Sleeping 5s
+2017-03-01 13:39:50.708 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 28b Sleeping 5s
+2017-03-01 13:39:55.709 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 28c Sleeping 5s
+2017-03-01 13:40:00.711 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 28d Sleeping 5s
+2017-03-01 13:40:05.698 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 28e Sleeping 25s
+2017-03-01 13:40:05.712 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 28f Sleeping 5s
+2017-03-01 13:40:10.714 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 290 Sleeping 5s
+2017-03-01 13:40:15.715 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 291 Sleeping 5s
+2017-03-01 13:40:20.716 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 292 Sleeping 5s
+2017-03-01 13:40:25.716 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 293 Sleeping 5s
+2017-03-01 13:40:30.700 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 294 Sleeping 25s
+2017-03-01 13:40:30.717 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 295 Sleeping 5s
+2017-03-01 13:40:35.718 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 296 Sleeping 5s
+2017-03-01 13:40:40.719 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 297 Sleeping 5s
+2017-03-01 13:40:45.719 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 298 Sleeping 5s
+2017-03-01 13:40:50.720 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 299 Sleeping 5s
+2017-03-01 13:40:55.702 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 29a Sleeping 25s
+2017-03-01 13:40:55.722 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 29b Sleeping 5s
+2017-03-01 13:41:00.724 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 29c Sleeping 5s
+2017-03-01 13:41:05.726 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 29d Sleeping 5s
+2017-03-01 13:41:10.727 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 29e Sleeping 5s
+2017-03-01 13:41:15.728 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 29f Sleeping 5s
+2017-03-01 13:41:20.705 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2a0 Sleeping 25s
+2017-03-01 13:41:20.730 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a1 Sleeping 5s
+2017-03-01 13:41:25.730 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a2 Sleeping 5s
+2017-03-01 13:41:30.731 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a3 Sleeping 5s
+2017-03-01 13:41:35.733 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a4 Sleeping 5s
+2017-03-01 13:41:40.734 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a5 Sleeping 5s
+2017-03-01 13:41:45.707 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2a6 Sleeping 25s
+2017-03-01 13:41:45.735 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a7 Sleeping 5s
+2017-03-01 13:41:50.736 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a8 Sleeping 5s
+2017-03-01 13:41:55.738 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2a9 Sleeping 5s
+2017-03-01 13:42:00.739 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2aa Sleeping 5s
+2017-03-01 13:42:05.740 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ab Sleeping 5s
+2017-03-01 13:42:10.709 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2ac Sleeping 25s
+2017-03-01 13:42:10.741 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ad Sleeping 5s
+2017-03-01 13:42:15.742 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ae Sleeping 5s
+2017-03-01 13:42:20.744 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2af Sleeping 5s
+2017-03-01 13:42:25.744 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b0 Sleeping 5s
+2017-03-01 13:42:30.746 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b1 Sleeping 5s
+2017-03-01 13:42:35.710 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2b2 Sleeping 25s
+2017-03-01 13:42:35.747 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b3 Sleeping 5s
+2017-03-01 13:42:40.748 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b4 Sleeping 5s
+2017-03-01 13:42:45.749 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b5 Sleeping 5s
+2017-03-01 13:42:50.749 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b6 Sleeping 5s
+2017-03-01 13:42:55.750 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b7 Sleeping 5s
+2017-03-01 13:43:00.711 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2b8 Sleeping 25s
+2017-03-01 13:43:00.751 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2b9 Sleeping 5s
+2017-03-01 13:43:05.751 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ba Sleeping 5s
+2017-03-01 13:43:10.752 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2bb Sleeping 5s
+2017-03-01 13:43:15.753 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2bc Sleeping 5s
+2017-03-01 13:43:20.754 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2bd Sleeping 5s
+2017-03-01 13:43:25.712 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2be Sleeping 25s
+2017-03-01 13:43:25.754 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2bf Sleeping 5s
+2017-03-01 13:43:30.755 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c0 Sleeping 5s
+2017-03-01 13:43:33.438 UTC [eventhub_producer] deRegisterHandler -> DEBU 2c1 deRegisterHandler BLOCK
+2017-03-01 13:43:33.445 UTC [eventhub_producer] Chat -> ERRO 2c2 Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-03-01 13:43:35.756 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c3 Sleeping 5s
+2017-03-01 13:43:40.756 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c4 Sleeping 5s
+2017-03-01 13:43:45.757 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c5 Sleeping 5s
+2017-03-01 13:43:50.713 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2c6 Sleeping 25s
+2017-03-01 13:43:50.757 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c7 Sleeping 5s
+2017-03-01 13:43:55.759 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c8 Sleeping 5s
+2017-03-01 13:44:00.760 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2c9 Sleeping 5s
+2017-03-01 13:44:05.760 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ca Sleeping 5s
+2017-03-01 13:44:10.761 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2cb Sleeping 5s
+2017-03-01 13:44:15.714 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2cc Sleeping 25s
+2017-03-01 13:44:15.762 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2cd Sleeping 5s
+2017-03-01 13:44:20.762 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ce Sleeping 5s
+2017-03-01 13:44:25.763 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2cf Sleeping 5s
+2017-03-01 13:44:30.764 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d0 Sleeping 5s
+2017-03-01 13:44:35.764 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d1 Sleeping 5s
+2017-03-01 13:44:40.715 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2d2 Sleeping 25s
+2017-03-01 13:44:40.765 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d3 Sleeping 5s
+2017-03-01 13:44:45.765 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d4 Sleeping 5s
+2017-03-01 13:44:50.766 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d5 Sleeping 5s
+2017-03-01 13:44:55.766 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d6 Sleeping 5s
+2017-03-01 13:45:00.767 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d7 Sleeping 5s
+2017-03-01 13:45:05.716 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2d8 Sleeping 25s
+2017-03-01 13:45:05.768 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2d9 Sleeping 5s
+2017-03-01 13:45:10.768 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2da Sleeping 5s
+2017-03-01 13:45:15.769 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2db Sleeping 5s
+2017-03-01 13:45:20.770 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2dc Sleeping 5s
+2017-03-01 13:45:25.770 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2dd Sleeping 5s
+2017-03-01 13:45:30.717 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2de Sleeping 25s
+2017-03-01 13:45:30.771 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2df Sleeping 5s
+2017-03-01 13:45:35.772 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e0 Sleeping 5s
+2017-03-01 13:45:40.772 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e1 Sleeping 5s
+2017-03-01 13:45:45.773 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e2 Sleeping 5s
+2017-03-01 13:45:50.774 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e3 Sleeping 5s
+2017-03-01 13:45:55.718 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2e4 Sleeping 25s
+2017-03-01 13:45:55.774 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e5 Sleeping 5s
+2017-03-01 13:46:00.775 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e6 Sleeping 5s
+2017-03-01 13:46:05.776 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e7 Sleeping 5s
+2017-03-01 13:46:10.777 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e8 Sleeping 5s
+2017-03-01 13:46:15.777 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2e9 Sleeping 5s
+2017-03-01 13:46:20.719 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2ea Sleeping 25s
+2017-03-01 13:46:20.778 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2eb Sleeping 5s
+2017-03-01 13:46:25.779 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ec Sleeping 5s
+2017-03-01 13:46:30.779 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ed Sleeping 5s
+2017-03-01 13:46:35.780 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ee Sleeping 5s
+2017-03-01 13:46:40.780 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ef Sleeping 5s
+2017-03-01 13:46:45.720 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2f0 Sleeping 25s
+2017-03-01 13:46:45.781 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f1 Sleeping 5s
+2017-03-01 13:46:50.781 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f2 Sleeping 5s
+2017-03-01 13:46:55.782 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f3 Sleeping 5s
+2017-03-01 13:47:00.783 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f4 Sleeping 5s
+2017-03-01 13:47:05.783 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f5 Sleeping 5s
+2017-03-01 13:47:10.721 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2f6 Sleeping 25s
+2017-03-01 13:47:10.784 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f7 Sleeping 5s
+2017-03-01 13:47:15.785 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f8 Sleeping 5s
+2017-03-01 13:47:20.785 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2f9 Sleeping 5s
+2017-03-01 13:47:25.786 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2fa Sleeping 5s
+2017-03-01 13:47:30.787 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2fb Sleeping 5s
+2017-03-01 13:47:35.722 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 2fc Sleeping 25s
+2017-03-01 13:47:35.787 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2fd Sleeping 5s
+2017-03-01 13:47:40.788 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2fe Sleeping 5s
+2017-03-01 13:47:45.789 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 2ff Sleeping 5s
+2017-03-01 13:47:50.790 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 300 Sleeping 5s
+2017-03-01 13:47:55.790 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 301 Sleeping 5s
+2017-03-01 13:48:00.723 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 302 Sleeping 25s
+2017-03-01 13:48:00.791 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 303 Sleeping 5s
+2017-03-01 13:48:05.792 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 304 Sleeping 5s
+2017-03-01 13:48:10.792 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 305 Sleeping 5s
+2017-03-01 13:48:15.793 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 306 Sleeping 5s
+2017-03-01 13:48:20.794 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 307 Sleeping 5s
+2017-03-01 13:48:25.724 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 308 Sleeping 25s
+2017-03-01 13:48:25.794 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 309 Sleeping 5s
+2017-03-01 13:48:30.795 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 30a Sleeping 5s
+2017-03-01 13:48:35.796 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 30b Sleeping 5s
+2017-03-01 13:48:40.796 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 30c Sleeping 5s
+2017-03-01 13:48:45.797 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 30d Sleeping 5s
+2017-03-01 13:48:50.725 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 30e Sleeping 25s
+2017-03-01 13:48:50.797 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 30f Sleeping 5s
+2017-03-01 13:48:55.798 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 310 Sleeping 5s
+2017-03-01 13:49:00.798 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 311 Sleeping 5s
+2017-03-01 13:49:05.799 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 312 Sleeping 5s
+2017-03-01 13:49:10.800 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 313 Sleeping 5s
+2017-03-01 13:49:15.726 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 314 Sleeping 25s
+2017-03-01 13:49:15.801 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 315 Sleeping 5s
+2017-03-01 13:49:20.801 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 316 Sleeping 5s
+2017-03-01 13:49:25.802 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 317 Sleeping 5s
+2017-03-01 13:49:30.803 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 318 Sleeping 5s
+2017-03-01 13:49:35.803 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 319 Sleeping 5s
+2017-03-01 13:49:40.728 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 31a Sleeping 25s
+2017-03-01 13:49:40.804 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 31b Sleeping 5s
+2017-03-01 13:49:45.805 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 31c Sleeping 5s
+2017-03-01 13:49:50.806 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 31d Sleeping 5s
+2017-03-01 13:49:55.806 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 31e Sleeping 5s
+2017-03-01 13:50:00.807 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 31f Sleeping 5s
+2017-03-01 13:50:05.728 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 320 Sleeping 25s
+2017-03-01 13:50:05.808 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 321 Sleeping 5s
+2017-03-01 13:50:10.809 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 322 Sleeping 5s
+2017-03-01 13:50:15.810 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 323 Sleeping 5s
+2017-03-01 13:50:20.811 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 324 Sleeping 5s
+2017-03-01 13:50:25.812 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 325 Sleeping 5s
+2017-03-01 13:50:30.729 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 326 Sleeping 25s
+2017-03-01 13:50:30.812 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 327 Sleeping 5s
+2017-03-01 13:50:35.813 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 328 Sleeping 5s
+2017-03-01 13:50:40.814 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 329 Sleeping 5s
+2017-03-01 13:50:45.815 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 32a Sleeping 5s
+2017-03-01 13:50:50.815 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 32b Sleeping 5s
+2017-03-01 13:50:55.730 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 32c Sleeping 25s
+2017-03-01 13:50:55.816 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 32d Sleeping 5s
+2017-03-01 13:51:00.816 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 32e Sleeping 5s
+2017-03-01 13:51:05.817 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 32f Sleeping 5s
+2017-03-01 13:51:10.818 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 330 Sleeping 5s
+2017-03-01 13:51:15.818 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 331 Sleeping 5s
+2017-03-01 13:51:20.731 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 332 Sleeping 25s
+2017-03-01 13:51:20.819 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 333 Sleeping 5s
+2017-03-01 13:51:25.820 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 334 Sleeping 5s
+2017-03-01 13:51:30.821 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 335 Sleeping 5s
+2017-03-01 13:51:35.821 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 336 Sleeping 5s
+2017-03-01 13:51:40.822 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 337 Sleeping 5s
+2017-03-01 13:51:45.732 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 338 Sleeping 25s
+2017-03-01 13:51:45.823 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 339 Sleeping 5s
+2017-03-01 13:51:50.823 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 33a Sleeping 5s
+2017-03-01 13:51:55.824 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 33b Sleeping 5s
+2017-03-01 13:52:00.825 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 33c Sleeping 5s
+2017-03-01 13:52:05.826 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 33d Sleeping 5s
+2017-03-01 13:52:10.733 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 33e Sleeping 25s
+2017-03-01 13:52:10.826 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 33f Sleeping 5s
+2017-03-01 13:52:15.827 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 340 Sleeping 5s
+2017-03-01 13:52:20.827 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 341 Sleeping 5s
+2017-03-01 13:52:25.828 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 342 Sleeping 5s
+2017-03-01 13:52:30.829 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 343 Sleeping 5s
+2017-03-01 13:52:35.734 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 344 Sleeping 25s
+2017-03-01 13:52:35.829 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 345 Sleeping 5s
+2017-03-01 13:52:40.830 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 346 Sleeping 5s
+2017-03-01 13:52:45.831 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 347 Sleeping 5s
+2017-03-01 13:52:50.831 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 348 Sleeping 5s
+2017-03-01 13:52:55.832 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 349 Sleeping 5s
+2017-03-01 13:53:00.735 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 34a Sleeping 25s
+2017-03-01 13:53:00.833 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 34b Sleeping 5s
+2017-03-01 13:53:05.833 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 34c Sleeping 5s
+2017-03-01 13:53:10.834 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 34d Sleeping 5s
+2017-03-01 13:53:15.835 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 34e Sleeping 5s
+2017-03-01 13:53:20.835 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 34f Sleeping 5s
+2017-03-01 13:53:25.736 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 350 Sleeping 25s
+2017-03-01 13:53:25.836 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 351 Sleeping 5s
+2017-03-01 13:53:30.837 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 352 Sleeping 5s
+2017-03-01 13:53:35.837 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 353 Sleeping 5s
+2017-03-01 13:53:40.838 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 354 Sleeping 5s
+2017-03-01 13:53:45.839 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 355 Sleeping 5s
+2017-03-01 13:53:50.737 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 356 Sleeping 25s
+2017-03-01 13:53:50.839 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 357 Sleeping 5s
+2017-03-01 13:53:55.840 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 358 Sleeping 5s
+2017-03-01 13:54:00.841 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 359 Sleeping 5s
+2017-03-01 13:54:05.842 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 35a Sleeping 5s
+2017-03-01 13:54:10.842 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 35b Sleeping 5s
+2017-03-01 13:54:15.738 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 35c Sleeping 25s
+2017-03-01 13:54:15.843 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 35d Sleeping 5s
+2017-03-01 13:54:20.844 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 35e Sleeping 5s
+2017-03-01 13:54:25.845 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 35f Sleeping 5s
+2017-03-01 13:54:30.845 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 360 Sleeping 5s
+2017-03-01 13:54:35.846 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 361 Sleeping 5s
+2017-03-01 13:54:40.739 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 362 Sleeping 25s
+2017-03-01 13:54:40.846 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 363 Sleeping 5s
+2017-03-01 13:54:45.847 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 364 Sleeping 5s
+2017-03-01 13:54:50.847 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 365 Sleeping 5s
+2017-03-01 13:54:55.848 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 366 Sleeping 5s
+2017-03-01 13:55:00.848 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 367 Sleeping 5s
+2017-03-01 13:55:05.740 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 368 Sleeping 25s
+2017-03-01 13:55:05.849 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 369 Sleeping 5s
+2017-03-01 13:55:10.850 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 36a Sleeping 5s
+2017-03-01 13:55:15.850 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 36b Sleeping 5s
+2017-03-01 13:55:20.851 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 36c Sleeping 5s
+2017-03-01 13:55:25.852 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 36d Sleeping 5s
+2017-03-01 13:55:30.741 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 36e Sleeping 25s
+2017-03-01 13:55:30.853 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 36f Sleeping 5s
+2017-03-01 13:55:35.853 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 370 Sleeping 5s
+2017-03-01 13:55:40.854 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 371 Sleeping 5s
+2017-03-01 13:55:45.854 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 372 Sleeping 5s
+2017-03-01 13:55:50.855 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 373 Sleeping 5s
+2017-03-01 13:55:55.742 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 374 Sleeping 25s
+2017-03-01 13:55:55.856 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 375 Sleeping 5s
+2017-03-01 13:56:00.857 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 376 Sleeping 5s
+2017-03-01 13:56:05.857 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 377 Sleeping 5s
+2017-03-01 13:56:10.858 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 378 Sleeping 5s
+2017-03-01 13:56:15.859 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 379 Sleeping 5s
+2017-03-01 13:56:20.743 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 37a Sleeping 25s
+2017-03-01 13:56:20.860 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 37b Sleeping 5s
+2017-03-01 13:56:25.860 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 37c Sleeping 5s
+2017-03-01 13:56:30.861 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 37d Sleeping 5s
+2017-03-01 13:56:35.862 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 37e Sleeping 5s
+2017-03-01 13:56:40.862 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 37f Sleeping 5s
+2017-03-01 13:56:45.744 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 380 Sleeping 25s
+2017-03-01 13:56:45.863 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 381 Sleeping 5s
+2017-03-01 13:56:50.864 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 382 Sleeping 5s
+2017-03-01 13:56:55.865 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 383 Sleeping 5s
+2017-03-01 13:57:00.866 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 384 Sleeping 5s
+2017-03-01 13:57:05.867 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 385 Sleeping 5s
+2017-03-01 13:57:10.746 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 386 Sleeping 25s
+2017-03-01 13:57:10.869 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 387 Sleeping 5s
+2017-03-01 13:57:15.869 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 388 Sleeping 5s
+2017-03-01 13:57:20.870 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 389 Sleeping 5s
+2017-03-01 13:57:25.871 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 38a Sleeping 5s
+2017-03-01 13:57:30.871 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 38b Sleeping 5s
+2017-03-01 13:57:35.748 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 38c Sleeping 25s
+2017-03-01 13:57:35.872 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 38d Sleeping 5s
+2017-03-01 13:57:40.872 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 38e Sleeping 5s
+2017-03-01 13:57:45.873 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 38f Sleeping 5s
+2017-03-01 13:57:50.874 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 390 Sleeping 5s
+2017-03-01 13:57:55.875 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 391 Sleeping 5s
+2017-03-01 13:58:00.751 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 392 Sleeping 25s
+2017-03-01 13:58:00.876 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 393 Sleeping 5s
+2017-03-01 13:58:05.877 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 394 Sleeping 5s
+2017-03-01 13:58:10.877 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 395 Sleeping 5s
+2017-03-01 13:58:15.878 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 396 Sleeping 5s
+2017-03-01 13:58:20.879 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 397 Sleeping 5s
+2017-03-01 13:58:25.752 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 398 Sleeping 25s
+2017-03-01 13:58:25.880 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 399 Sleeping 5s
+2017-03-01 13:58:30.880 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 39a Sleeping 5s
+2017-03-01 13:58:35.881 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 39b Sleeping 5s
+2017-03-01 13:58:40.882 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 39c Sleeping 5s
+2017-03-01 13:58:45.883 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 39d Sleeping 5s
+2017-03-01 13:58:50.753 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 39e Sleeping 25s
+2017-03-01 13:58:50.883 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 39f Sleeping 5s
+2017-03-01 13:58:55.885 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a0 Sleeping 5s
+2017-03-01 13:59:00.885 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a1 Sleeping 5s
+2017-03-01 13:59:05.886 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a2 Sleeping 5s
+2017-03-01 13:59:10.887 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a3 Sleeping 5s
+2017-03-01 13:59:15.754 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3a4 Sleeping 25s
+2017-03-01 13:59:15.888 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a5 Sleeping 5s
+2017-03-01 13:59:20.889 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a6 Sleeping 5s
+2017-03-01 13:59:25.890 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a7 Sleeping 5s
+2017-03-01 13:59:30.890 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a8 Sleeping 5s
+2017-03-01 13:59:35.891 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3a9 Sleeping 5s
+2017-03-01 13:59:40.755 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3aa Sleeping 25s
+2017-03-01 13:59:40.892 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ab Sleeping 5s
+2017-03-01 13:59:45.893 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ac Sleeping 5s
+2017-03-01 13:59:50.893 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ad Sleeping 5s
+2017-03-01 13:59:55.894 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ae Sleeping 5s
+2017-03-01 14:00:00.895 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3af Sleeping 5s
+2017-03-01 14:00:05.757 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3b0 Sleeping 25s
+2017-03-01 14:00:05.896 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b1 Sleeping 5s
+2017-03-01 14:00:10.896 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b2 Sleeping 5s
+2017-03-01 14:00:15.897 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b3 Sleeping 5s
+2017-03-01 14:00:20.897 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b4 Sleeping 5s
+2017-03-01 14:00:25.898 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b5 Sleeping 5s
+2017-03-01 14:00:30.758 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3b6 Sleeping 25s
+2017-03-01 14:00:30.898 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b7 Sleeping 5s
+2017-03-01 14:00:35.899 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b8 Sleeping 5s
+2017-03-01 14:00:40.900 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3b9 Sleeping 5s
+2017-03-01 14:00:45.900 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ba Sleeping 5s
+2017-03-01 14:00:50.901 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3bb Sleeping 5s
+2017-03-01 14:00:55.759 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3bc Sleeping 25s
+2017-03-01 14:00:55.902 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3bd Sleeping 5s
+2017-03-01 14:01:00.902 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3be Sleeping 5s
+2017-03-01 14:01:05.903 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3bf Sleeping 5s
+2017-03-01 14:01:10.904 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c0 Sleeping 5s
+2017-03-01 14:01:15.905 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c1 Sleeping 5s
+2017-03-01 14:01:20.760 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3c2 Sleeping 25s
+2017-03-01 14:01:20.905 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c3 Sleeping 5s
+2017-03-01 14:01:25.906 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c4 Sleeping 5s
+2017-03-01 14:01:30.907 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c5 Sleeping 5s
+2017-03-01 14:01:35.907 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c6 Sleeping 5s
+2017-03-01 14:01:40.908 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c7 Sleeping 5s
+2017-03-01 14:01:45.761 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3c8 Sleeping 25s
+2017-03-01 14:01:45.909 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3c9 Sleeping 5s
+2017-03-01 14:01:50.910 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ca Sleeping 5s
+2017-03-01 14:01:55.910 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3cb Sleeping 5s
+2017-03-01 14:02:00.911 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3cc Sleeping 5s
+2017-03-01 14:02:05.912 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3cd Sleeping 5s
+2017-03-01 14:02:10.762 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3ce Sleeping 25s
+2017-03-01 14:02:10.913 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3cf Sleeping 5s
+2017-03-01 14:02:15.913 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d0 Sleeping 5s
+2017-03-01 14:02:20.914 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d1 Sleeping 5s
+2017-03-01 14:02:25.915 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d2 Sleeping 5s
+2017-03-01 14:02:30.915 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d3 Sleeping 5s
+2017-03-01 14:02:35.763 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3d4 Sleeping 25s
+2017-03-01 14:02:35.916 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d5 Sleeping 5s
+2017-03-01 14:02:40.917 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d6 Sleeping 5s
+2017-03-01 14:02:45.917 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d7 Sleeping 5s
+2017-03-01 14:02:50.918 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d8 Sleeping 5s
+2017-03-01 14:02:55.919 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3d9 Sleeping 5s
+2017-03-01 14:03:00.764 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3da Sleeping 25s
+2017-03-01 14:03:00.919 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3db Sleeping 5s
+2017-03-01 14:03:05.920 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3dc Sleeping 5s
+2017-03-01 14:03:10.921 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3dd Sleeping 5s
+2017-03-01 14:03:15.922 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3de Sleeping 5s
+2017-03-01 14:03:20.922 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3df Sleeping 5s
+2017-03-01 14:03:25.764 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3e0 Sleeping 25s
+2017-03-01 14:03:25.923 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e1 Sleeping 5s
+2017-03-01 14:03:30.924 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e2 Sleeping 5s
+2017-03-01 14:03:35.924 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e3 Sleeping 5s
+2017-03-01 14:03:40.925 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e4 Sleeping 5s
+2017-03-01 14:03:45.926 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e5 Sleeping 5s
+2017-03-01 14:03:50.765 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3e6 Sleeping 25s
+2017-03-01 14:03:50.926 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e7 Sleeping 5s
+2017-03-01 14:03:55.927 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e8 Sleeping 5s
+2017-03-01 14:04:00.928 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3e9 Sleeping 5s
+2017-03-01 14:04:05.928 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ea Sleeping 5s
+2017-03-01 14:04:10.929 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3eb Sleeping 5s
+2017-03-01 14:04:15.766 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3ec Sleeping 25s
+2017-03-01 14:04:15.929 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ed Sleeping 5s
+2017-03-01 14:04:20.930 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ee Sleeping 5s
+2017-03-01 14:04:25.931 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ef Sleeping 5s
+2017-03-01 14:04:30.931 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f0 Sleeping 5s
+2017-03-01 14:04:35.932 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f1 Sleeping 5s
+2017-03-01 14:04:40.767 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3f2 Sleeping 25s
+2017-03-01 14:04:40.932 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f3 Sleeping 5s
+2017-03-01 14:04:45.933 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f4 Sleeping 5s
+2017-03-01 14:04:50.934 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f5 Sleeping 5s
+2017-03-01 14:04:55.934 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f6 Sleeping 5s
+2017-03-01 14:05:00.935 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f7 Sleeping 5s
+2017-03-01 14:05:05.768 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3f8 Sleeping 25s
+2017-03-01 14:05:05.936 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3f9 Sleeping 5s
+2017-03-01 14:05:10.937 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3fa Sleeping 5s
+2017-03-01 14:05:15.937 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3fb Sleeping 5s
+2017-03-01 14:05:20.938 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3fc Sleeping 5s
+2017-03-01 14:05:25.938 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3fd Sleeping 5s
+2017-03-01 14:05:30.769 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 3fe Sleeping 25s
+2017-03-01 14:05:30.939 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 3ff Sleeping 5s
+2017-03-01 14:05:35.940 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 400 Sleeping 5s
+2017-03-01 14:05:40.940 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 401 Sleeping 5s
+2017-03-01 14:05:45.941 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 402 Sleeping 5s
+2017-03-01 14:05:50.942 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 403 Sleeping 5s
+2017-03-01 14:05:55.770 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 404 Sleeping 25s
+2017-03-01 14:05:55.942 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 405 Sleeping 5s
+2017-03-01 14:06:00.943 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 406 Sleeping 5s
+2017-03-01 14:06:05.944 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 407 Sleeping 5s
+2017-03-01 14:06:10.945 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 408 Sleeping 5s
+2017-03-01 14:06:15.945 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 409 Sleeping 5s
+2017-03-01 14:06:20.771 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 40a Sleeping 25s
+2017-03-01 14:06:20.946 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 40b Sleeping 5s
+2017-03-01 14:06:25.947 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 40c Sleeping 5s
+2017-03-01 14:06:30.948 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 40d Sleeping 5s
+2017-03-01 14:06:35.948 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 40e Sleeping 5s
+2017-03-01 14:06:40.949 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 40f Sleeping 5s
+2017-03-01 14:06:45.772 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 410 Sleeping 25s
+2017-03-01 14:06:45.950 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 411 Sleeping 5s
+2017-03-01 14:06:50.950 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 412 Sleeping 5s
+2017-03-01 14:06:55.951 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 413 Sleeping 5s
+2017-03-01 14:07:00.952 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 414 Sleeping 5s
+2017-03-01 14:07:05.953 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 415 Sleeping 5s
+2017-03-01 14:07:10.773 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 416 Sleeping 25s
+2017-03-01 14:07:10.954 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 417 Sleeping 5s
+2017-03-01 14:07:15.954 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 418 Sleeping 5s
+2017-03-01 14:07:20.955 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 419 Sleeping 5s
+2017-03-01 14:07:25.956 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 41a Sleeping 5s
+2017-03-01 14:07:30.956 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 41b Sleeping 5s
+2017-03-01 14:07:35.774 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 41c Sleeping 25s
+2017-03-01 14:07:35.957 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 41d Sleeping 5s
+2017-03-01 14:07:40.958 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 41e Sleeping 5s
+2017-03-01 14:07:45.959 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 41f Sleeping 5s
+2017-03-01 14:07:50.959 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 420 Sleeping 5s
+2017-03-01 14:07:55.960 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 421 Sleeping 5s
+2017-03-01 14:08:00.776 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 422 Sleeping 25s
+2017-03-01 14:08:00.961 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 423 Sleeping 5s
+2017-03-01 14:08:05.962 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 424 Sleeping 5s
+2017-03-01 14:08:10.963 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 425 Sleeping 5s
+2017-03-01 14:08:15.964 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 426 Sleeping 5s
+2017-03-01 14:08:20.964 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 427 Sleeping 5s
+2017-03-01 14:08:25.777 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 428 Sleeping 25s
+2017-03-01 14:08:25.965 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 429 Sleeping 5s
+2017-03-01 14:08:30.966 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 42a Sleeping 5s
+2017-03-01 14:08:35.967 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 42b Sleeping 5s
+2017-03-01 14:08:40.967 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 42c Sleeping 5s
+2017-03-01 14:08:45.968 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 42d Sleeping 5s
+2017-03-01 14:08:50.778 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 42e Sleeping 25s
+2017-03-01 14:08:50.969 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 42f Sleeping 5s
+2017-03-01 14:08:55.969 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 430 Sleeping 5s
+2017-03-01 14:09:00.970 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 431 Sleeping 5s
+2017-03-01 14:09:05.971 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 432 Sleeping 5s
+2017-03-01 14:09:10.971 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 433 Sleeping 5s
+2017-03-01 14:09:15.779 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 434 Sleeping 25s
+2017-03-01 14:09:15.972 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 435 Sleeping 5s
+2017-03-01 14:09:20.972 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 436 Sleeping 5s
+2017-03-01 14:09:25.973 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 437 Sleeping 5s
+2017-03-01 14:09:30.974 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 438 Sleeping 5s
+2017-03-01 14:09:35.974 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 439 Sleeping 5s
+2017-03-01 14:09:40.780 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 43a Sleeping 25s
+2017-03-01 14:09:40.975 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 43b Sleeping 5s
+2017-03-01 14:09:45.976 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 43c Sleeping 5s
+2017-03-01 14:09:50.977 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 43d Sleeping 5s
+2017-03-01 14:09:55.978 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 43e Sleeping 5s
+2017-03-01 14:10:00.978 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 43f Sleeping 5s
+2017-03-01 14:10:05.781 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 440 Sleeping 25s
+2017-03-01 14:10:05.979 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 441 Sleeping 5s
+2017-03-01 14:10:10.980 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 442 Sleeping 5s
+2017-03-01 14:10:15.980 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 443 Sleeping 5s
+2017-03-01 14:10:20.981 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 444 Sleeping 5s
+2017-03-01 14:10:25.982 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 445 Sleeping 5s
+2017-03-01 14:10:30.782 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 446 Sleeping 25s
+2017-03-01 14:10:30.983 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 447 Sleeping 5s
+2017-03-01 14:10:35.983 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 448 Sleeping 5s
+2017-03-01 14:10:40.984 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 449 Sleeping 5s
+2017-03-01 14:10:45.985 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 44a Sleeping 5s
+2017-03-01 14:10:50.986 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 44b Sleeping 5s
+2017-03-01 14:10:55.783 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 44c Sleeping 25s
+2017-03-01 14:10:55.987 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 44d Sleeping 5s
+2017-03-01 14:11:00.988 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 44e Sleeping 5s
+2017-03-01 14:11:05.988 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 44f Sleeping 5s
+2017-03-01 14:11:10.989 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 450 Sleeping 5s
+2017-03-01 14:11:15.990 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 451 Sleeping 5s
+2017-03-01 14:11:20.784 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 452 Sleeping 25s
+2017-03-01 14:11:20.991 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 453 Sleeping 5s
+2017-03-01 14:11:25.991 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 454 Sleeping 5s
+2017-03-01 14:11:30.992 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 455 Sleeping 5s
+2017-03-01 14:11:35.992 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 456 Sleeping 5s
+2017-03-01 14:11:40.993 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 457 Sleeping 5s
+2017-03-01 14:11:45.785 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 458 Sleeping 25s
+2017-03-01 14:11:45.994 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 459 Sleeping 5s
+2017-03-01 14:11:50.994 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 45a Sleeping 5s
+2017-03-01 14:11:55.995 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 45b Sleeping 5s
+2017-03-01 14:12:00.996 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 45c Sleeping 5s
+2017-03-01 14:12:05.996 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 45d Sleeping 5s
+2017-03-01 14:12:10.786 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 45e Sleeping 25s
+2017-03-01 14:12:10.997 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 45f Sleeping 5s
+2017-03-01 14:12:15.998 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 460 Sleeping 5s
+2017-03-01 14:12:20.999 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 461 Sleeping 5s
+2017-03-01 14:12:25.999 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 462 Sleeping 5s
+2017-03-01 14:12:31.000 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 463 Sleeping 5s
+2017-03-01 14:12:35.787 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 464 Sleeping 25s
+2017-03-01 14:12:36.001 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 465 Sleeping 5s
+2017-03-01 14:12:41.001 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 466 Sleeping 5s
+2017-03-01 14:12:46.002 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 467 Sleeping 5s
+2017-03-01 14:12:51.002 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 468 Sleeping 5s
+2017-03-01 14:12:56.003 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 469 Sleeping 5s
+2017-03-01 14:13:00.788 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 46a Sleeping 25s
+2017-03-01 14:13:01.004 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 46b Sleeping 5s
+2017-03-01 14:13:06.004 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 46c Sleeping 5s
+2017-03-01 14:13:11.005 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 46d Sleeping 5s
+2017-03-01 14:13:16.006 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 46e Sleeping 5s
+2017-03-01 14:13:21.006 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 46f Sleeping 5s
+2017-03-01 14:13:25.789 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 470 Sleeping 25s
+2017-03-01 14:13:26.007 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 471 Sleeping 5s
+2017-03-01 14:13:31.007 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 472 Sleeping 5s
+2017-03-01 14:13:36.008 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 473 Sleeping 5s
+2017-03-01 14:13:41.009 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 474 Sleeping 5s
+2017-03-01 14:13:46.009 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 475 Sleeping 5s
+2017-03-01 14:13:50.790 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 476 Sleeping 25s
+2017-03-01 14:13:51.010 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 477 Sleeping 5s
+2017-03-01 14:13:56.011 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 478 Sleeping 5s
+2017-03-01 14:14:01.011 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 479 Sleeping 5s
+2017-03-01 14:14:06.012 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 47a Sleeping 5s
+2017-03-01 14:14:11.013 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 47b Sleeping 5s
+2017-03-01 14:14:15.791 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 47c Sleeping 25s
+2017-03-01 14:14:16.013 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 47d Sleeping 5s
+2017-03-01 14:14:21.014 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 47e Sleeping 5s
+2017-03-01 14:14:26.015 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 47f Sleeping 5s
+2017-03-01 14:14:31.015 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 480 Sleeping 5s
+2017-03-01 14:14:36.016 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 481 Sleeping 5s
+2017-03-01 14:14:40.792 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 482 Sleeping 25s
+2017-03-01 14:14:41.017 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 483 Sleeping 5s
+2017-03-01 14:14:46.017 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 484 Sleeping 5s
+2017-03-01 14:14:51.018 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 485 Sleeping 5s
+2017-03-01 14:14:56.019 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 486 Sleeping 5s
+2017-03-01 14:15:01.020 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 487 Sleeping 5s
+2017-03-01 14:15:05.793 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 488 Sleeping 25s
+2017-03-01 14:15:06.020 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 489 Sleeping 5s
+2017-03-01 14:15:11.021 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 48a Sleeping 5s
+2017-03-01 14:15:16.022 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 48b Sleeping 5s
+2017-03-01 14:15:21.022 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 48c Sleeping 5s
+2017-03-01 14:15:26.023 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 48d Sleeping 5s
+2017-03-01 14:15:30.794 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 48e Sleeping 25s
+2017-03-01 14:15:31.024 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 48f Sleeping 5s
+2017-03-01 14:15:36.024 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 490 Sleeping 5s
+2017-03-01 14:15:41.025 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 491 Sleeping 5s
+2017-03-01 14:15:46.025 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 492 Sleeping 5s
+2017-03-01 14:15:51.026 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 493 Sleeping 5s
+2017-03-01 14:15:55.795 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 494 Sleeping 25s
+2017-03-01 14:15:56.027 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 495 Sleeping 5s
+2017-03-01 14:16:01.028 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 496 Sleeping 5s
+2017-03-01 14:16:06.028 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 497 Sleeping 5s
+2017-03-01 14:16:11.029 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 498 Sleeping 5s
+2017-03-01 14:16:16.030 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 499 Sleeping 5s
+2017-03-01 14:16:20.796 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 49a Sleeping 25s
+2017-03-01 14:16:21.030 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 49b Sleeping 5s
+2017-03-01 14:16:26.031 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 49c Sleeping 5s
+2017-03-01 14:16:31.032 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 49d Sleeping 5s
+2017-03-01 14:16:36.032 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 49e Sleeping 5s
+2017-03-01 14:16:41.033 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 49f Sleeping 5s
+2017-03-01 14:16:45.797 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4a0 Sleeping 25s
+2017-03-01 14:16:46.034 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a1 Sleeping 5s
+2017-03-01 14:16:51.034 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a2 Sleeping 5s
+2017-03-01 14:16:56.035 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a3 Sleeping 5s
+2017-03-01 14:17:01.036 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a4 Sleeping 5s
+2017-03-01 14:17:06.036 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a5 Sleeping 5s
+2017-03-01 14:17:10.798 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4a6 Sleeping 25s
+2017-03-01 14:17:11.037 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a7 Sleeping 5s
+2017-03-01 14:17:16.037 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a8 Sleeping 5s
+2017-03-01 14:17:21.038 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4a9 Sleeping 5s
+2017-03-01 14:17:26.039 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4aa Sleeping 5s
+2017-03-01 14:17:31.039 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4ab Sleeping 5s
+2017-03-01 14:17:35.799 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4ac Sleeping 25s
+2017-03-01 14:17:36.040 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4ad Sleeping 5s
+2017-03-01 14:17:41.040 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4ae Sleeping 5s
+2017-03-01 14:17:46.041 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4af Sleeping 5s
+2017-03-01 14:17:51.041 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b0 Sleeping 5s
+2017-03-01 14:17:56.042 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b1 Sleeping 5s
+2017-03-01 14:18:00.800 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4b2 Sleeping 25s
+2017-03-01 14:18:01.043 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b3 Sleeping 5s
+2017-03-01 14:18:06.043 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b4 Sleeping 5s
+2017-03-01 14:18:11.044 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b5 Sleeping 5s
+2017-03-01 14:18:16.044 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b6 Sleeping 5s
+2017-03-01 14:18:21.045 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b7 Sleeping 5s
+2017-03-01 14:18:25.801 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4b8 Sleeping 25s
+2017-03-01 14:18:26.046 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4b9 Sleeping 5s
+2017-03-01 14:18:31.046 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4ba Sleeping 5s
+2017-03-01 14:18:36.047 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4bb Sleeping 5s
+2017-03-01 14:18:41.048 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4bc Sleeping 5s
+2017-03-01 14:18:46.049 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4bd Sleeping 5s
+2017-03-01 14:18:50.802 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4be Sleeping 25s
+2017-03-01 14:18:51.049 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4bf Sleeping 5s
+2017-03-01 14:18:56.050 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c0 Sleeping 5s
+2017-03-01 14:19:01.051 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c1 Sleeping 5s
+2017-03-01 14:19:06.052 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c2 Sleeping 5s
+2017-03-01 14:19:11.052 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c3 Sleeping 5s
+2017-03-01 14:19:15.804 UTC [gossip/discovery#172.17.0.3:7051] periodicalReconnectToDead -> DEBU 4c4 Sleeping 25s
+2017-03-01 14:19:16.053 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c5 Sleeping 5s
+2017-03-01 14:19:21.054 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c6 Sleeping 5s
+2017-03-01 14:19:26.055 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c7 Sleeping 5s
+2017-03-01 14:19:31.055 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c8 Sleeping 5s
+2017-03-01 14:19:36.056 UTC [gossip/discovery#172.17.0.3:7051] periodicalSendAlive -> DEBU 4c9 Sleeping 5s
+^C
+pg@pg-GL552JX:~$ 
+

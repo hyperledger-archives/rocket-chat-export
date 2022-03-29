@@ -1,0 +1,1227 @@
+2018-09-12 10:54:31.976 UTC [common/deliverevents] Deliver -> DEBU 66697 Starting new Deliver handler
+2018-09-12 10:54:31.976 UTC [common/deliver] Handle -> DEBU 66698 Starting new deliver loop for 192.168.0.1:34124
+2018-09-12 10:54:31.976 UTC [common/deliver] Handle -> DEBU 66699 Attempting to read seek info message from 192.168.0.1:34124
+2018-09-12 10:54:31.976 UTC [aclmgmt] CheckACL -> DEBU 6669a acl policy not found in config for resource event/Block
+2018-09-12 10:54:31.976 UTC [common/deliver] deliverBlocks -> DEBU 6669b [channel: composerchannel] Received seekInfo (0xc423daee00) start:<newest:<> > stop:<specified:<number:9223372036854775807 > >  from 192.168.0.1:34124
+2018-09-12 10:54:31.977 UTC [endorser] ProcessProposal -> DEBU 6669c Entering: request from 192.168.0.1:34126
+2018-09-12 10:54:31.977 UTC [protoutils] ValidateProposalMessage -> DEBU 6669d ValidateProposalMessage starts for signed proposal 0xc423b2aae0
+2018-09-12 10:54:31.977 UTC [protoutils] validateChannelHeader -> DEBU 6669e validateChannelHeader info: header type 3
+2018-09-12 10:54:31.977 UTC [protoutils] checkSignatureFromCreator -> DEBU 6669f begin
+2018-09-12 10:54:31.977 UTC [protoutils] checkSignatureFromCreator -> DEBU 666a0 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:54:31.977 UTC [protoutils] checkSignatureFromCreator -> DEBU 666a1 creator is valid
+2018-09-12 10:54:31.977 UTC [protoutils] checkSignatureFromCreator -> DEBU 666a2 exits successfully
+2018-09-12 10:54:31.977 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 666a3 validateChaincodeProposalMessage starts for proposal 0xc4228d4190, header 0xc423b2ae10
+2018-09-12 10:54:31.977 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 666a4 validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:54:31.977 UTC [endorser] preProcess -> DEBU 666a5 [composerchannel][0532c9db] processing txid: 0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5
+2018-09-12 10:54:31.977 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 666a6 retrieveTransactionByID() - txId = [0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5]
+2018-09-12 10:54:31.977 UTC [aclmgmt] CheckACL -> DEBU 666a7 acl policy not found in config for resource peer/Propose
+2018-09-12 10:54:31.977 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 666a8 constructing new tx simulator
+2018-09-12 10:54:31.977 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 666a9 constructing new tx simulator txid = [0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5]
+2018-09-12 10:54:31.977 UTC [endorser] SimulateProposal -> DEBU 666aa [composerchannel][0532c9db] Entry chaincode: name:"ebl"
+2018-09-12 10:54:31.977 UTC [ccprovider] NewCCContext -> DEBU 666ab NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5,syscc=true,proposal=0xc4228d4190,canname=lscc:1.2.0)
+2018-09-12 10:54:31.978 UTC [chaincode] execute -> DEBU 666ac canonical name: lscc:1.2.0
+2018-09-12 10:54:31.978 UTC [chaincode] Execute -> DEBU 666ad Entry
+2018-09-12 10:54:31.978 UTC [shim] func1 -> DEBU 666ae [0532c9db]Received message TRANSACTION from peer
+2018-09-12 10:54:31.978 UTC [shim] handleMessage -> DEBU 666af [0532c9db] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:54:31.978 UTC [shim] handleReady -> DEBU 666b0 [0532c9db] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:54:31.978 UTC [aclmgmt] CheckACL -> DEBU 666b1 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:54:31.978 UTC [shim] handleGetState -> DEBU 666b2 [0532c9db] Sending GET_STATE
+2018-09-12 10:54:31.978 UTC [chaincode] handleMessage -> DEBU 666b3 [0532c9db] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:31.978 UTC [chaincode] HandleTransaction -> DEBU 666b4 [0532c9db] handling GET_STATE from chaincode
+2018-09-12 10:54:31.978 UTC [chaincode] HandleGetState -> DEBU 666b5 [0532c9db] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:54:31.978 UTC [statecouchdb] GetState -> DEBU 666b6 GetState(). ns=lscc, key=ebl
+2018-09-12 10:54:31.978 UTC [couchdb] ReadDoc -> DEBU 666b7 Entering ReadDoc()  id=[ebl]
+2018-09-12 10:54:31.978 UTC [couchdb] encodePathElement -> DEBU 666b8 Entering encodePathElement()  string=ebl
+2018-09-12 10:54:31.978 UTC [couchdb] encodePathElement -> DEBU 666b9 Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:54:31.978 UTC [couchdb] handleRequest -> DEBU 666ba Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:54:31.978 UTC [couchdb] handleRequest -> DEBU 666bb HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:31.990 UTC [couchdb] handleRequest -> DEBU 666bc Exiting handleRequest()
+2018-09-12 10:54:31.990 UTC [couchdb] ReadDoc -> DEBU 666bd part header=map[Content-Type:[application/json]]
+2018-09-12 10:54:31.990 UTC [couchdb] ReadDoc -> DEBU 666be part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:54:31.990 UTC [couchdb] ReadDoc -> DEBU 666bf Retrieved attachment data
+2018-09-12 10:54:31.990 UTC [chaincode] HandleTransaction -> DEBU 666c0 [0532c9db] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:31.990 UTC [shim] func1 -> DEBU 666c1 [0532c9db]Received message RESPONSE from peer
+2018-09-12 10:54:31.990 UTC [shim] handleMessage -> DEBU 666c2 [0532c9db] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:54:31.990 UTC [shim] sendChannel -> DEBU 666c3 [0532c9db] before send
+2018-09-12 10:54:31.990 UTC [shim] sendChannel -> DEBU 666c4 [0532c9db] after send
+2018-09-12 10:54:31.990 UTC [shim] handleReady -> DEBU 666c5 [0532c9db] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:54:31.990 UTC [shim] handleGetState -> DEBU 666c6 [0532c9db] GetState received payload RESPONSE
+2018-09-12 10:54:31.990 UTC [shim] func1 -> DEBU 666c7 [0532c9db] Transaction completed. Sending COMPLETED
+2018-09-12 10:54:31.990 UTC [shim] triggerNextState -> DEBU 666c8 [0532c9db] send state message COMPLETED
+2018-09-12 10:54:31.990 UTC [chaincode] handleMessage -> DEBU 666c9 [0532c9db] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:31.991 UTC [chaincode] Notify -> DEBU 666ca [0532c9db] notifying Txid:0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5, channelID:composerchannel
+2018-09-12 10:54:31.991 UTC [chaincode] Execute -> DEBU 666cb Exit
+2018-09-12 10:54:31.991 UTC [ccprovider] GetChaincodeData -> DEBU 666cc Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:54:31.991 UTC [endorser] callChaincode -> DEBU 666cd [composerchannel][0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:54:31.991 UTC [ccprovider] NewCCContext -> DEBU 666ce NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5,syscc=false,proposal=0xc4228d4190,canname=ebl:0.0.1)
+2018-09-12 10:54:31.991 UTC [chaincode] execute -> DEBU 666cf canonical name: ebl:0.0.1
+2018-09-12 10:54:31.991 UTC [chaincode] Execute -> DEBU 666d0 Entry
+2018-09-12 10:54:31.992 UTC [chaincode] handleMessage -> DEBU 666d1 [0532c9db] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:31.992 UTC [chaincode] HandleTransaction -> DEBU 666d2 [0532c9db] handling GET_STATE from chaincode
+2018-09-12 10:54:31.992 UTC [chaincode] HandleGetState -> DEBU 666d3 [0532c9db] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:54:31.992 UTC [statecouchdb] GetState -> DEBU 666d4 GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:54:31.992 UTC [couchdb] ReadDoc -> DEBU 666d5 Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:54:31.992 UTC [couchdb] encodePathElement -> DEBU 666d6 Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:54:31.992 UTC [couchdb] encodePathElement -> DEBU 666d7 Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:54:31.992 UTC [couchdb] handleRequest -> DEBU 666d8 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:54:31.992 UTC [couchdb] handleRequest -> DEBU 666d9 HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:31.994 UTC [couchdb] handleRequest -> DEBU 666da Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:31.994 UTC [couchdb] ReadDoc -> DEBU 666db Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:31.995 UTC [chaincode] HandleGetState -> DEBU 666dc [0532c9db] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:54:31.995 UTC [chaincode] HandleTransaction -> DEBU 666dd [0532c9db] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.000 UTC [chaincode] handleMessage -> DEBU 666de [0532c9db] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.000 UTC [chaincode] HandleTransaction -> DEBU 666df [0532c9db] handling GET_STATE from chaincode
+2018-09-12 10:54:32.000 UTC [chaincode] HandleGetState -> DEBU 666e0 [0532c9db] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:54:32.000 UTC [statecouchdb] GetState -> DEBU 666e1 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.000 UTC [couchdb] ReadDoc -> DEBU 666e2 Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:54:32.000 UTC [couchdb] encodePathElement -> DEBU 666e3 Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.000 UTC [couchdb] encodePathElement -> DEBU 666e4 Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:54:32.000 UTC [couchdb] handleRequest -> DEBU 666e5 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:54:32.001 UTC [couchdb] handleRequest -> DEBU 666e6 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.002 UTC [couchdb] handleRequest -> DEBU 666e7 Exiting handleRequest()
+2018-09-12 10:54:32.003 UTC [couchdb] ReadDoc -> DEBU 666e8 Exiting ReadDoc()
+2018-09-12 10:54:32.003 UTC [chaincode] HandleTransaction -> DEBU 666e9 [0532c9db] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.005 UTC [chaincode] handleMessage -> DEBU 666ea [0532c9db] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.005 UTC [chaincode] HandleTransaction -> DEBU 666eb [0532c9db] handling GET_STATE from chaincode
+2018-09-12 10:54:32.005 UTC [chaincode] HandleGetState -> DEBU 666ec [0532c9db] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:54:32.005 UTC [statecouchdb] GetState -> DEBU 666ed GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.005 UTC [couchdb] ReadDoc -> DEBU 666ee Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:54:32.005 UTC [couchdb] encodePathElement -> DEBU 666ef Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.005 UTC [couchdb] encodePathElement -> DEBU 666f0 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:54:32.005 UTC [couchdb] handleRequest -> DEBU 666f1 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:54:32.005 UTC [couchdb] handleRequest -> DEBU 666f2 HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.006 UTC [couchdb] handleRequest -> DEBU 666f3 Exiting handleRequest()
+2018-09-12 10:54:32.006 UTC [couchdb] ReadDoc -> DEBU 666f4 Exiting ReadDoc()
+2018-09-12 10:54:32.006 UTC [chaincode] HandleTransaction -> DEBU 666f5 [0532c9db] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.012 UTC [chaincode] handleMessage -> DEBU 666f6 [0532c9db] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.012 UTC [chaincode] Notify -> DEBU 666f7 [0532c9db] notifying Txid:0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5, channelID:composerchannel
+2018-09-12 10:54:32.012 UTC [chaincode] Execute -> DEBU 666f8 Exit
+2018-09-12 10:54:32.012 UTC [endorser] callChaincode -> DEBU 666f9 [composerchannel][0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5] Exit
+2018-09-12 10:54:32.012 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 666fa Simulation completed, getting simulation results
+2018-09-12 10:54:32.012 UTC [lockbasedtxmgr] Done -> DEBU 666fb Done with transaction simulation / query execution [0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5]
+2018-09-12 10:54:32.012 UTC [endorser] SimulateProposal -> DEBU 666fc [composerchannel][0532c9db] Exit
+2018-09-12 10:54:32.012 UTC [endorser] endorseProposal -> DEBU 666fd [composerchannel][0532c9db] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.012 UTC [endorser] endorseProposal -> DEBU 666fe [composerchannel][0532c9db] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:54:32.012 UTC [endorser] EndorseWithPlugin -> DEBU 666ff Entering endorsement for {plugin: escc, channel: composerchannel, tx: 0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5, chaincode: ebl}
+2018-09-12 10:54:32.013 UTC [endorser] EndorseWithPlugin -> DEBU 66700 Exiting {plugin: escc, channel: composerchannel, tx: 0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5, chaincode: ebl}
+2018-09-12 10:54:32.013 UTC [endorser] endorseProposal -> DEBU 66701 [composerchannel][0532c9db] Exit
+2018-09-12 10:54:32.013 UTC [lockbasedtxmgr] Done -> DEBU 66702 Done with transaction simulation / query execution [0532c9dbc17c0eb75f3c36869ab7d279baf8c2b8c2a65d3f5492cd6dfb7c06f5]
+2018-09-12 10:54:32.013 UTC [endorser] ProcessProposal -> DEBU 66703 Exit: request from 192.168.0.1:34126
+2018-09-12 10:54:32.026 UTC [endorser] ProcessProposal -> DEBU 66704 Entering: request from 192.168.0.1:34126
+2018-09-12 10:54:32.026 UTC [protoutils] ValidateProposalMessage -> DEBU 66705 ValidateProposalMessage starts for signed proposal 0xc423c0f170
+2018-09-12 10:54:32.026 UTC [protoutils] validateChannelHeader -> DEBU 66706 validateChannelHeader info: header type 3
+2018-09-12 10:54:32.026 UTC [protoutils] checkSignatureFromCreator -> DEBU 66707 begin
+2018-09-12 10:54:32.026 UTC [protoutils] checkSignatureFromCreator -> DEBU 66708 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:54:32.026 UTC [protoutils] checkSignatureFromCreator -> DEBU 66709 creator is valid
+2018-09-12 10:54:32.026 UTC [protoutils] checkSignatureFromCreator -> DEBU 6670a exits successfully
+2018-09-12 10:54:32.026 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6670b validateChaincodeProposalMessage starts for proposal 0xc423ec2050, header 0xc423c0f4a0
+2018-09-12 10:54:32.026 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6670c validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:54:32.026 UTC [endorser] preProcess -> DEBU 6670d [composerchannel][abacc5d7] processing txid: abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213
+2018-09-12 10:54:32.026 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 6670e retrieveTransactionByID() - txId = [abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213]
+2018-09-12 10:54:32.026 UTC [aclmgmt] CheckACL -> DEBU 6670f acl policy not found in config for resource peer/Propose
+2018-09-12 10:54:32.026 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 66710 constructing new tx simulator
+2018-09-12 10:54:32.026 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 66711 constructing new tx simulator txid = [abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213]
+2018-09-12 10:54:32.026 UTC [endorser] SimulateProposal -> DEBU 66712 [composerchannel][abacc5d7] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.026 UTC [ccprovider] NewCCContext -> DEBU 66713 NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213,syscc=true,proposal=0xc423ec2050,canname=lscc:1.2.0)
+2018-09-12 10:54:32.026 UTC [chaincode] execute -> DEBU 66714 canonical name: lscc:1.2.0
+2018-09-12 10:54:32.026 UTC [chaincode] Execute -> DEBU 66715 Entry
+2018-09-12 10:54:32.026 UTC [shim] func1 -> DEBU 66716 [abacc5d7]Received message TRANSACTION from peer
+2018-09-12 10:54:32.026 UTC [shim] handleMessage -> DEBU 66717 [abacc5d7] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:54:32.026 UTC [shim] handleReady -> DEBU 66718 [abacc5d7] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:54:32.026 UTC [aclmgmt] CheckACL -> DEBU 66719 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:54:32.026 UTC [shim] handleGetState -> DEBU 6671a [abacc5d7] Sending GET_STATE
+2018-09-12 10:54:32.027 UTC [chaincode] handleMessage -> DEBU 6671b [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.027 UTC [chaincode] HandleTransaction -> DEBU 6671c [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.027 UTC [chaincode] HandleGetState -> DEBU 6671d [abacc5d7] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:54:32.027 UTC [statecouchdb] GetState -> DEBU 6671e GetState(). ns=lscc, key=ebl
+2018-09-12 10:54:32.027 UTC [couchdb] ReadDoc -> DEBU 6671f Entering ReadDoc()  id=[ebl]
+2018-09-12 10:54:32.027 UTC [couchdb] encodePathElement -> DEBU 66720 Entering encodePathElement()  string=ebl
+2018-09-12 10:54:32.027 UTC [couchdb] encodePathElement -> DEBU 66721 Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:54:32.027 UTC [couchdb] handleRequest -> DEBU 66722 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:54:32.027 UTC [couchdb] handleRequest -> DEBU 66723 HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.030 UTC [couchdb] handleRequest -> DEBU 66724 Exiting handleRequest()
+2018-09-12 10:54:32.030 UTC [couchdb] ReadDoc -> DEBU 66725 part header=map[Content-Type:[application/json]]
+2018-09-12 10:54:32.031 UTC [couchdb] ReadDoc -> DEBU 66726 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:54:32.031 UTC [couchdb] ReadDoc -> DEBU 66727 Retrieved attachment data
+2018-09-12 10:54:32.031 UTC [chaincode] HandleTransaction -> DEBU 66728 [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.031 UTC [shim] func1 -> DEBU 66729 [abacc5d7]Received message RESPONSE from peer
+2018-09-12 10:54:32.031 UTC [shim] handleMessage -> DEBU 6672a [abacc5d7] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:54:32.031 UTC [shim] sendChannel -> DEBU 6672b [abacc5d7] before send
+2018-09-12 10:54:32.031 UTC [shim] sendChannel -> DEBU 6672c [abacc5d7] after send
+2018-09-12 10:54:32.031 UTC [shim] handleReady -> DEBU 6672d [abacc5d7] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:54:32.032 UTC [shim] handleGetState -> DEBU 6672e [abacc5d7] GetState received payload RESPONSE
+2018-09-12 10:54:32.032 UTC [shim] func1 -> DEBU 6672f [abacc5d7] Transaction completed. Sending COMPLETED
+2018-09-12 10:54:32.032 UTC [shim] triggerNextState -> DEBU 66730 [abacc5d7] send state message COMPLETED
+2018-09-12 10:54:32.032 UTC [chaincode] handleMessage -> DEBU 66731 [abacc5d7] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.032 UTC [chaincode] Notify -> DEBU 66732 [abacc5d7] notifying Txid:abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213, channelID:composerchannel
+2018-09-12 10:54:32.032 UTC [chaincode] Execute -> DEBU 66733 Exit
+2018-09-12 10:54:32.032 UTC [ccprovider] GetChaincodeData -> DEBU 66734 Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:54:32.032 UTC [endorser] callChaincode -> DEBU 66735 [composerchannel][abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:54:32.032 UTC [ccprovider] NewCCContext -> DEBU 66736 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213,syscc=false,proposal=0xc423ec2050,canname=ebl:0.0.1)
+2018-09-12 10:54:32.032 UTC [chaincode] execute -> DEBU 66737 canonical name: ebl:0.0.1
+2018-09-12 10:54:32.032 UTC [chaincode] Execute -> DEBU 66738 Entry
+2018-09-12 10:54:32.033 UTC [chaincode] handleMessage -> DEBU 66739 [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.033 UTC [chaincode] HandleTransaction -> DEBU 6673a [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.033 UTC [chaincode] HandleGetState -> DEBU 6673b [abacc5d7] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:54:32.033 UTC [statecouchdb] GetState -> DEBU 6673c GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:54:32.033 UTC [couchdb] ReadDoc -> DEBU 6673d Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:54:32.033 UTC [couchdb] encodePathElement -> DEBU 6673e Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:54:32.033 UTC [couchdb] encodePathElement -> DEBU 6673f Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:54:32.033 UTC [couchdb] handleRequest -> DEBU 66740 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:54:32.033 UTC [couchdb] handleRequest -> DEBU 66741 HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.034 UTC [couchdb] handleRequest -> DEBU 66742 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.034 UTC [couchdb] ReadDoc -> DEBU 66743 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.034 UTC [chaincode] HandleGetState -> DEBU 66744 [abacc5d7] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.034 UTC [chaincode] HandleTransaction -> DEBU 66745 [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.040 UTC [chaincode] handleMessage -> DEBU 66746 [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.041 UTC [chaincode] HandleTransaction -> DEBU 66747 [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.041 UTC [chaincode] HandleGetState -> DEBU 66748 [abacc5d7] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:54:32.041 UTC [statecouchdb] GetState -> DEBU 66749 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.041 UTC [couchdb] ReadDoc -> DEBU 6674a Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:54:32.041 UTC [couchdb] encodePathElement -> DEBU 6674b Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.041 UTC [couchdb] encodePathElement -> DEBU 6674c Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:54:32.041 UTC [couchdb] handleRequest -> DEBU 6674d Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:54:32.041 UTC [couchdb] handleRequest -> DEBU 6674e HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.043 UTC [couchdb] handleRequest -> DEBU 6674f Exiting handleRequest()
+2018-09-12 10:54:32.043 UTC [couchdb] ReadDoc -> DEBU 66750 Exiting ReadDoc()
+2018-09-12 10:54:32.043 UTC [chaincode] HandleTransaction -> DEBU 66751 [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.045 UTC [chaincode] handleMessage -> DEBU 66752 [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.045 UTC [chaincode] HandleTransaction -> DEBU 66753 [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.045 UTC [chaincode] HandleGetState -> DEBU 66754 [abacc5d7] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:54:32.045 UTC [statecouchdb] GetState -> DEBU 66755 GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.045 UTC [couchdb] ReadDoc -> DEBU 66756 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:54:32.045 UTC [couchdb] encodePathElement -> DEBU 66757 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.045 UTC [couchdb] encodePathElement -> DEBU 66758 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:54:32.045 UTC [couchdb] handleRequest -> DEBU 66759 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:54:32.045 UTC [couchdb] handleRequest -> DEBU 6675a HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.047 UTC [couchdb] handleRequest -> DEBU 6675b Exiting handleRequest()
+2018-09-12 10:54:32.047 UTC [couchdb] ReadDoc -> DEBU 6675c Exiting ReadDoc()
+2018-09-12 10:54:32.047 UTC [chaincode] HandleTransaction -> DEBU 6675d [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.048 UTC [chaincode] handleMessage -> DEBU 6675e [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.049 UTC [chaincode] HandleTransaction -> DEBU 6675f [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.049 UTC [chaincode] HandleGetState -> DEBU 66760 [abacc5d7] getting state for chaincode ebl, key $syscollections$sysdata, channel composerchannel
+2018-09-12 10:54:32.049 UTC [statecouchdb] GetState -> DEBU 66761 GetState(). ns=ebl, key=$syscollections$sysdata
+2018-09-12 10:54:32.049 UTC [couchdb] ReadDoc -> DEBU 66762 Entering ReadDoc()  id=[$syscollections$sysdata]
+2018-09-12 10:54:32.049 UTC [couchdb] encodePathElement -> DEBU 66763 Entering encodePathElement()  string=$syscollections$sysdata
+2018-09-12 10:54:32.049 UTC [couchdb] encodePathElement -> DEBU 66764 Exiting encodePathElement()  encodedStr=%00$syscollections%00$sysdata%00
+2018-09-12 10:54:32.049 UTC [couchdb] handleRequest -> DEBU 66765 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00$syscollections%00$sysdata%00?attachments=true
+2018-09-12 10:54:32.049 UTC [couchdb] handleRequest -> DEBU 66766 HTTP Request: GET /composerchannel_ebl/%00$syscollections%00$sysdata%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.050 UTC [couchdb] handleRequest -> DEBU 66767 Exiting handleRequest()
+2018-09-12 10:54:32.050 UTC [couchdb] ReadDoc -> DEBU 66768 Exiting ReadDoc()
+2018-09-12 10:54:32.050 UTC [chaincode] HandleTransaction -> DEBU 66769 [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.051 UTC [chaincode] handleMessage -> DEBU 6676a [abacc5d7] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.051 UTC [chaincode] HandleTransaction -> DEBU 6676b [abacc5d7] handling GET_STATE from chaincode
+2018-09-12 10:54:32.051 UTC [chaincode] HandleGetState -> DEBU 6676c [abacc5d7] getting state for chaincode ebl, key $sysdatametanetwork, channel composerchannel
+2018-09-12 10:54:32.051 UTC [statecouchdb] GetState -> DEBU 6676d GetState(). ns=ebl, key=$sysdatametanetwork
+2018-09-12 10:54:32.052 UTC [couchdb] ReadDoc -> DEBU 6676e Entering ReadDoc()  id=[$sysdatametanetwork]
+2018-09-12 10:54:32.052 UTC [couchdb] encodePathElement -> DEBU 6676f Entering encodePathElement()  string=$sysdatametanetwork
+2018-09-12 10:54:32.052 UTC [couchdb] encodePathElement -> DEBU 66770 Exiting encodePathElement()  encodedStr=%00$sysdata%00metanetwork%00
+2018-09-12 10:54:32.052 UTC [couchdb] handleRequest -> DEBU 66771 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00$sysdata%00metanetwork%00?attachments=true
+2018-09-12 10:54:32.052 UTC [couchdb] handleRequest -> DEBU 66772 HTTP Request: GET /composerchannel_ebl/%00$sysdata%00metanetwork%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.053 UTC [couchdb] handleRequest -> DEBU 66773 Exiting handleRequest()
+2018-09-12 10:54:32.053 UTC [couchdb] ReadDoc -> DEBU 66774 Exiting ReadDoc()
+2018-09-12 10:54:32.053 UTC [chaincode] HandleTransaction -> DEBU 66775 [abacc5d7] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.068 UTC [chaincode] handleMessage -> DEBU 66776 [abacc5d7] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.068 UTC [chaincode] Notify -> DEBU 66777 [abacc5d7] notifying Txid:abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213, channelID:composerchannel
+2018-09-12 10:54:32.068 UTC [chaincode] Execute -> DEBU 66778 Exit
+2018-09-12 10:54:32.068 UTC [endorser] callChaincode -> DEBU 66779 [composerchannel][abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213] Exit
+2018-09-12 10:54:32.068 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 6677a Simulation completed, getting simulation results
+2018-09-12 10:54:32.068 UTC [lockbasedtxmgr] Done -> DEBU 6677b Done with transaction simulation / query execution [abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213]
+2018-09-12 10:54:32.068 UTC [endorser] SimulateProposal -> DEBU 6677c [composerchannel][abacc5d7] Exit
+2018-09-12 10:54:32.068 UTC [endorser] endorseProposal -> DEBU 6677d [composerchannel][abacc5d7] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.068 UTC [endorser] endorseProposal -> DEBU 6677e [composerchannel][abacc5d7] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:54:32.068 UTC [endorser] EndorseWithPlugin -> DEBU 6677f Entering endorsement for {plugin: escc, channel: composerchannel, tx: abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213, chaincode: ebl}
+2018-09-12 10:54:32.069 UTC [endorser] EndorseWithPlugin -> DEBU 66780 Exiting {plugin: escc, channel: composerchannel, tx: abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213, chaincode: ebl}
+2018-09-12 10:54:32.069 UTC [endorser] endorseProposal -> DEBU 66781 [composerchannel][abacc5d7] Exit
+2018-09-12 10:54:32.069 UTC [lockbasedtxmgr] Done -> DEBU 66782 Done with transaction simulation / query execution [abacc5d7e3dbcc35c12ba8514645ccb0b051ca3b557bc99297c895e80d8db213]
+2018-09-12 10:54:32.069 UTC [endorser] ProcessProposal -> DEBU 66783 Exit: request from 192.168.0.1:34126
+2018-09-12 10:54:32.384 UTC [endorser] ProcessProposal -> DEBU 66784 Entering: request from 192.168.0.1:34126
+2018-09-12 10:54:32.384 UTC [protoutils] ValidateProposalMessage -> DEBU 66785 ValidateProposalMessage starts for signed proposal 0xc42312b2f0
+2018-09-12 10:54:32.384 UTC [protoutils] validateChannelHeader -> DEBU 66786 validateChannelHeader info: header type 3
+2018-09-12 10:54:32.384 UTC [protoutils] checkSignatureFromCreator -> DEBU 66787 begin
+2018-09-12 10:54:32.384 UTC [protoutils] checkSignatureFromCreator -> DEBU 66788 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:54:32.384 UTC [protoutils] checkSignatureFromCreator -> DEBU 66789 creator is valid
+2018-09-12 10:54:32.384 UTC [protoutils] checkSignatureFromCreator -> DEBU 6678a exits successfully
+2018-09-12 10:54:32.384 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6678b validateChaincodeProposalMessage starts for proposal 0xc423ec2870, header 0xc42312b650
+2018-09-12 10:54:32.384 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6678c validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:54:32.384 UTC [endorser] preProcess -> DEBU 6678d [composerchannel][320753e5] processing txid: 320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa
+2018-09-12 10:54:32.384 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 6678e retrieveTransactionByID() - txId = [320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa]
+2018-09-12 10:54:32.384 UTC [aclmgmt] CheckACL -> DEBU 6678f acl policy not found in config for resource peer/Propose
+2018-09-12 10:54:32.384 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 66790 constructing new tx simulator
+2018-09-12 10:54:32.384 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 66791 constructing new tx simulator txid = [320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa]
+2018-09-12 10:54:32.384 UTC [endorser] SimulateProposal -> DEBU 66792 [composerchannel][320753e5] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.384 UTC [ccprovider] NewCCContext -> DEBU 66793 NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa,syscc=true,proposal=0xc423ec2870,canname=lscc:1.2.0)
+2018-09-12 10:54:32.384 UTC [chaincode] execute -> DEBU 66794 canonical name: lscc:1.2.0
+2018-09-12 10:54:32.384 UTC [chaincode] Execute -> DEBU 66795 Entry
+2018-09-12 10:54:32.384 UTC [shim] func1 -> DEBU 66796 [320753e5]Received message TRANSACTION from peer
+2018-09-12 10:54:32.384 UTC [shim] handleMessage -> DEBU 66797 [320753e5] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:54:32.384 UTC [shim] handleReady -> DEBU 66798 [320753e5] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:54:32.384 UTC [aclmgmt] CheckACL -> DEBU 66799 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:54:32.385 UTC [shim] handleGetState -> DEBU 6679a [320753e5] Sending GET_STATE
+2018-09-12 10:54:32.385 UTC [chaincode] handleMessage -> DEBU 6679b [320753e5] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.385 UTC [chaincode] HandleTransaction -> DEBU 6679c [320753e5] handling GET_STATE from chaincode
+2018-09-12 10:54:32.385 UTC [chaincode] HandleGetState -> DEBU 6679d [320753e5] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:54:32.385 UTC [statecouchdb] GetState -> DEBU 6679e GetState(). ns=lscc, key=ebl
+2018-09-12 10:54:32.385 UTC [couchdb] ReadDoc -> DEBU 6679f Entering ReadDoc()  id=[ebl]
+2018-09-12 10:54:32.385 UTC [couchdb] encodePathElement -> DEBU 667a0 Entering encodePathElement()  string=ebl
+2018-09-12 10:54:32.385 UTC [couchdb] encodePathElement -> DEBU 667a1 Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:54:32.385 UTC [couchdb] handleRequest -> DEBU 667a2 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:54:32.385 UTC [couchdb] handleRequest -> DEBU 667a3 HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.386 UTC [couchdb] handleRequest -> DEBU 667a4 Exiting handleRequest()
+2018-09-12 10:54:32.386 UTC [couchdb] ReadDoc -> DEBU 667a5 part header=map[Content-Type:[application/json]]
+2018-09-12 10:54:32.386 UTC [couchdb] ReadDoc -> DEBU 667a6 part header=map[Content-Length:[189] Content-Encoding:[gzip] Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream]]
+2018-09-12 10:54:32.387 UTC [couchdb] ReadDoc -> DEBU 667a7 Retrieved attachment data
+2018-09-12 10:54:32.387 UTC [chaincode] HandleTransaction -> DEBU 667a8 [320753e5] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.387 UTC [shim] func1 -> DEBU 667a9 [320753e5]Received message RESPONSE from peer
+2018-09-12 10:54:32.387 UTC [shim] handleMessage -> DEBU 667aa [320753e5] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:54:32.387 UTC [shim] sendChannel -> DEBU 667ab [320753e5] before send
+2018-09-12 10:54:32.387 UTC [shim] sendChannel -> DEBU 667ac [320753e5] after send
+2018-09-12 10:54:32.387 UTC [shim] handleReady -> DEBU 667ad [320753e5] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:54:32.387 UTC [shim] handleGetState -> DEBU 667ae [320753e5] GetState received payload RESPONSE
+2018-09-12 10:54:32.387 UTC [shim] func1 -> DEBU 667af [320753e5] Transaction completed. Sending COMPLETED
+2018-09-12 10:54:32.387 UTC [shim] triggerNextState -> DEBU 667b0 [320753e5] send state message COMPLETED
+2018-09-12 10:54:32.387 UTC [chaincode] handleMessage -> DEBU 667b1 [320753e5] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.387 UTC [chaincode] Notify -> DEBU 667b2 [320753e5] notifying Txid:320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa, channelID:composerchannel
+2018-09-12 10:54:32.387 UTC [chaincode] Execute -> DEBU 667b3 Exit
+2018-09-12 10:54:32.387 UTC [ccprovider] GetChaincodeData -> DEBU 667b4 Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:54:32.387 UTC [endorser] callChaincode -> DEBU 667b5 [composerchannel][320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:54:32.387 UTC [ccprovider] NewCCContext -> DEBU 667b6 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa,syscc=false,proposal=0xc423ec2870,canname=ebl:0.0.1)
+2018-09-12 10:54:32.387 UTC [chaincode] execute -> DEBU 667b7 canonical name: ebl:0.0.1
+2018-09-12 10:54:32.387 UTC [chaincode] Execute -> DEBU 667b8 Entry
+2018-09-12 10:54:32.388 UTC [chaincode] handleMessage -> DEBU 667b9 [320753e5] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.388 UTC [chaincode] HandleTransaction -> DEBU 667ba [320753e5] handling GET_STATE from chaincode
+2018-09-12 10:54:32.388 UTC [chaincode] HandleGetState -> DEBU 667bb [320753e5] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:54:32.388 UTC [statecouchdb] GetState -> DEBU 667bc GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:54:32.388 UTC [couchdb] ReadDoc -> DEBU 667bd Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:54:32.388 UTC [couchdb] encodePathElement -> DEBU 667be Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:54:32.388 UTC [couchdb] encodePathElement -> DEBU 667bf Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:54:32.388 UTC [couchdb] handleRequest -> DEBU 667c0 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:54:32.388 UTC [couchdb] handleRequest -> DEBU 667c1 HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.396 UTC [couchdb] handleRequest -> DEBU 667c2 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.396 UTC [couchdb] ReadDoc -> DEBU 667c3 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.396 UTC [chaincode] HandleGetState -> DEBU 667c4 [320753e5] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.396 UTC [chaincode] HandleTransaction -> DEBU 667c5 [320753e5] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.403 UTC [chaincode] handleMessage -> DEBU 667c6 [320753e5] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.403 UTC [chaincode] HandleTransaction -> DEBU 667c7 [320753e5] handling GET_STATE from chaincode
+2018-09-12 10:54:32.403 UTC [chaincode] HandleGetState -> DEBU 667c8 [320753e5] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:54:32.403 UTC [statecouchdb] GetState -> DEBU 667c9 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.403 UTC [couchdb] ReadDoc -> DEBU 667ca Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:54:32.403 UTC [couchdb] encodePathElement -> DEBU 667cb Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.403 UTC [couchdb] encodePathElement -> DEBU 667cc Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:54:32.403 UTC [couchdb] handleRequest -> DEBU 667cd Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:54:32.403 UTC [couchdb] handleRequest -> DEBU 667ce HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.404 UTC [couchdb] handleRequest -> DEBU 667cf Exiting handleRequest()
+2018-09-12 10:54:32.405 UTC [couchdb] ReadDoc -> DEBU 667d0 Exiting ReadDoc()
+2018-09-12 10:54:32.405 UTC [chaincode] HandleTransaction -> DEBU 667d1 [320753e5] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.406 UTC [chaincode] handleMessage -> DEBU 667d2 [320753e5] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.406 UTC [chaincode] HandleTransaction -> DEBU 667d3 [320753e5] handling GET_STATE from chaincode
+2018-09-12 10:54:32.406 UTC [chaincode] HandleGetState -> DEBU 667d4 [320753e5] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:54:32.406 UTC [statecouchdb] GetState -> DEBU 667d5 GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.407 UTC [couchdb] ReadDoc -> DEBU 667d6 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:54:32.407 UTC [couchdb] encodePathElement -> DEBU 667d7 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.407 UTC [couchdb] encodePathElement -> DEBU 667d8 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:54:32.407 UTC [couchdb] handleRequest -> DEBU 667d9 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:54:32.407 UTC [couchdb] handleRequest -> DEBU 667da HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.408 UTC [couchdb] handleRequest -> DEBU 667db Exiting handleRequest()
+2018-09-12 10:54:32.408 UTC [couchdb] ReadDoc -> DEBU 667dc Exiting ReadDoc()
+2018-09-12 10:54:32.408 UTC [chaincode] HandleTransaction -> DEBU 667dd [320753e5] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.417 UTC [chaincode] handleMessage -> DEBU 667de [320753e5] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.417 UTC [chaincode] Notify -> DEBU 667df [320753e5] notifying Txid:320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa, channelID:composerchannel
+2018-09-12 10:54:32.417 UTC [chaincode] Execute -> DEBU 667e0 Exit
+2018-09-12 10:54:32.417 UTC [endorser] callChaincode -> DEBU 667e1 [composerchannel][320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa] Exit
+2018-09-12 10:54:32.418 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 667e2 Simulation completed, getting simulation results
+2018-09-12 10:54:32.418 UTC [lockbasedtxmgr] Done -> DEBU 667e3 Done with transaction simulation / query execution [320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa]
+2018-09-12 10:54:32.418 UTC [endorser] SimulateProposal -> DEBU 667e4 [composerchannel][320753e5] Exit
+2018-09-12 10:54:32.418 UTC [endorser] endorseProposal -> DEBU 667e5 [composerchannel][320753e5] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.418 UTC [endorser] endorseProposal -> DEBU 667e6 [composerchannel][320753e5] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:54:32.418 UTC [endorser] EndorseWithPlugin -> DEBU 667e7 Entering endorsement for {plugin: escc, channel: composerchannel, tx: 320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa, chaincode: ebl}
+2018-09-12 10:54:32.418 UTC [endorser] EndorseWithPlugin -> DEBU 667e8 Exiting {plugin: escc, channel: composerchannel, tx: 320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa, chaincode: ebl}
+2018-09-12 10:54:32.418 UTC [endorser] endorseProposal -> DEBU 667e9 [composerchannel][320753e5] Exit
+2018-09-12 10:54:32.418 UTC [lockbasedtxmgr] Done -> DEBU 667ea Done with transaction simulation / query execution [320753e5d519a6a051f2a5a1cc059448822b9e4eeb3d92b2c3317a289d6ce7fa]
+2018-09-12 10:54:32.418 UTC [endorser] ProcessProposal -> DEBU 667eb Exit: request from 192.168.0.1:34126
+2018-09-12 10:54:32.428 UTC [endorser] ProcessProposal -> DEBU 667ec Entering: request from 192.168.0.1:34126
+2018-09-12 10:54:32.428 UTC [protoutils] ValidateProposalMessage -> DEBU 667ed ValidateProposalMessage starts for signed proposal 0xc4236a8c90
+2018-09-12 10:54:32.428 UTC [protoutils] validateChannelHeader -> DEBU 667ee validateChannelHeader info: header type 3
+2018-09-12 10:54:32.428 UTC [protoutils] checkSignatureFromCreator -> DEBU 667ef begin
+2018-09-12 10:54:32.428 UTC [protoutils] checkSignatureFromCreator -> DEBU 667f0 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:54:32.428 UTC [protoutils] checkSignatureFromCreator -> DEBU 667f1 creator is valid
+2018-09-12 10:54:32.428 UTC [protoutils] checkSignatureFromCreator -> DEBU 667f2 exits successfully
+2018-09-12 10:54:32.428 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 667f3 validateChaincodeProposalMessage starts for proposal 0xc423ec3090, header 0xc4236a9170
+2018-09-12 10:54:32.428 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 667f4 validateChaincodeProposalMessage info: header extension references chaincode name:"cscc"
+2018-09-12 10:54:32.428 UTC [endorser] preProcess -> DEBU 667f5 [composerchannel][29067646] processing txid: 290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4
+2018-09-12 10:54:32.428 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 667f6 retrieveTransactionByID() - txId = [290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4]
+2018-09-12 10:54:32.428 UTC [endorser] SimulateProposal -> DEBU 667f7 [composerchannel][29067646] Entry chaincode: name:"cscc"
+2018-09-12 10:54:32.428 UTC [endorser] callChaincode -> DEBU 667f8 [composerchannel][290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4] Entry chaincode: name:"cscc"  version: 1.2.0
+2018-09-12 10:54:32.428 UTC [ccprovider] NewCCContext -> DEBU 667f9 NewCCCC(chain=composerchannel,chaincode=cscc,version=1.2.0,txid=290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4,syscc=true,proposal=0xc423ec3090,canname=cscc:1.2.0)
+2018-09-12 10:54:32.429 UTC [chaincode] execute -> DEBU 667fa canonical name: cscc:1.2.0
+2018-09-12 10:54:32.429 UTC [chaincode] Execute -> DEBU 667fb Entry
+2018-09-12 10:54:32.429 UTC [shim] func1 -> DEBU 667fc [29067646]Received message TRANSACTION from peer
+2018-09-12 10:54:32.429 UTC [shim] handleMessage -> DEBU 667fd [29067646] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:54:32.429 UTC [shim] handleReady -> DEBU 667fe [29067646] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:54:32.429 UTC [cscc] Invoke -> DEBU 667ff Invoke function: GetConfigBlock
+2018-09-12 10:54:32.429 UTC [aclmgmt] CheckACL -> DEBU 66800 acl policy not found in config for resource cscc/GetConfigBlock
+2018-09-12 10:54:32.429 UTC [shim] func1 -> DEBU 66801 [29067646] Transaction completed. Sending COMPLETED
+2018-09-12 10:54:32.429 UTC [shim] triggerNextState -> DEBU 66802 [29067646] send state message COMPLETED
+2018-09-12 10:54:32.429 UTC [chaincode] handleMessage -> DEBU 66803 [29067646] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.429 UTC [chaincode] Notify -> DEBU 66804 [29067646] notifying Txid:290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4, channelID:composerchannel
+2018-09-12 10:54:32.429 UTC [chaincode] Execute -> DEBU 66805 Exit
+2018-09-12 10:54:32.429 UTC [endorser] callChaincode -> DEBU 66806 [composerchannel][290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4] Exit
+2018-09-12 10:54:32.429 UTC [endorser] SimulateProposal -> DEBU 66807 [composerchannel][29067646] Exit
+2018-09-12 10:54:32.429 UTC [endorser] endorseProposal -> DEBU 66808 [composerchannel][29067646] Entry chaincode: name:"cscc"
+2018-09-12 10:54:32.429 UTC [endorser] endorseProposal -> DEBU 66809 [composerchannel][29067646] escc for chaincode name:"cscc"  is escc
+2018-09-12 10:54:32.429 UTC [endorser] EndorseWithPlugin -> DEBU 6680a Entering endorsement for {plugin: escc, channel: composerchannel, tx: 290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4, chaincode: cscc}
+2018-09-12 10:54:32.429 UTC [endorser] EndorseWithPlugin -> DEBU 6680b Exiting {plugin: escc, channel: composerchannel, tx: 290676462466cb03ae5e583aa4098d3630b6d9590de3cd2837720cb861ffdeb4, chaincode: cscc}
+2018-09-12 10:54:32.429 UTC [endorser] endorseProposal -> DEBU 6680c [composerchannel][29067646] Exit
+2018-09-12 10:54:32.429 UTC [endorser] ProcessProposal -> DEBU 6680d Exit: request from 192.168.0.1:34126
+2018-09-12 10:54:32.444 UTC [endorser] ProcessProposal -> DEBU 6680e Entering: request from 192.168.0.1:34126
+2018-09-12 10:54:32.444 UTC [protoutils] ValidateProposalMessage -> DEBU 6680f ValidateProposalMessage starts for signed proposal 0xc4236a9ce0
+2018-09-12 10:54:32.444 UTC [protoutils] validateChannelHeader -> DEBU 66810 validateChannelHeader info: header type 3
+2018-09-12 10:54:32.444 UTC [protoutils] checkSignatureFromCreator -> DEBU 66811 begin
+2018-09-12 10:54:32.444 UTC [protoutils] checkSignatureFromCreator -> DEBU 66812 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:54:32.444 UTC [protoutils] checkSignatureFromCreator -> DEBU 66813 creator is valid
+2018-09-12 10:54:32.444 UTC [protoutils] checkSignatureFromCreator -> DEBU 66814 exits successfully
+2018-09-12 10:54:32.444 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66815 validateChaincodeProposalMessage starts for proposal 0xc423ec36d0, header 0xc422a96060
+2018-09-12 10:54:32.444 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66816 validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:54:32.444 UTC [endorser] preProcess -> DEBU 66817 [composerchannel][d63c4f64] processing txid: d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa
+2018-09-12 10:54:32.444 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 66818 retrieveTransactionByID() - txId = [d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.444 UTC [aclmgmt] CheckACL -> DEBU 66819 acl policy not found in config for resource peer/Propose
+2018-09-12 10:54:32.445 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 6681a constructing new tx simulator
+2018-09-12 10:54:32.445 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 6681b constructing new tx simulator txid = [d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.445 UTC [endorser] SimulateProposal -> DEBU 6681c [composerchannel][d63c4f64] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.445 UTC [ccprovider] NewCCContext -> DEBU 6681d NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa,syscc=true,proposal=0xc423ec36d0,canname=lscc:1.2.0)
+2018-09-12 10:54:32.445 UTC [chaincode] execute -> DEBU 6681e canonical name: lscc:1.2.0
+2018-09-12 10:54:32.445 UTC [chaincode] Execute -> DEBU 6681f Entry
+2018-09-12 10:54:32.445 UTC [shim] func1 -> DEBU 66820 [d63c4f64]Received message TRANSACTION from peer
+2018-09-12 10:54:32.445 UTC [shim] handleMessage -> DEBU 66821 [d63c4f64] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:54:32.445 UTC [shim] handleReady -> DEBU 66822 [d63c4f64] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:54:32.445 UTC [aclmgmt] CheckACL -> DEBU 66823 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:54:32.445 UTC [shim] handleGetState -> DEBU 66824 [d63c4f64] Sending GET_STATE
+2018-09-12 10:54:32.445 UTC [chaincode] handleMessage -> DEBU 66825 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.445 UTC [chaincode] HandleTransaction -> DEBU 66826 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.445 UTC [chaincode] HandleGetState -> DEBU 66827 [d63c4f64] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:54:32.445 UTC [statecouchdb] GetState -> DEBU 66828 GetState(). ns=lscc, key=ebl
+2018-09-12 10:54:32.445 UTC [couchdb] ReadDoc -> DEBU 66829 Entering ReadDoc()  id=[ebl]
+2018-09-12 10:54:32.445 UTC [couchdb] encodePathElement -> DEBU 6682a Entering encodePathElement()  string=ebl
+2018-09-12 10:54:32.445 UTC [couchdb] encodePathElement -> DEBU 6682b Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:54:32.445 UTC [couchdb] handleRequest -> DEBU 6682c Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:54:32.445 UTC [couchdb] handleRequest -> DEBU 6682d HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.447 UTC [couchdb] handleRequest -> DEBU 6682e Exiting handleRequest()
+2018-09-12 10:54:32.447 UTC [couchdb] ReadDoc -> DEBU 6682f part header=map[Content-Type:[application/json]]
+2018-09-12 10:54:32.447 UTC [couchdb] ReadDoc -> DEBU 66830 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:54:32.447 UTC [couchdb] ReadDoc -> DEBU 66831 Retrieved attachment data
+2018-09-12 10:54:32.448 UTC [chaincode] HandleTransaction -> DEBU 66832 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.448 UTC [shim] func1 -> DEBU 66833 [d63c4f64]Received message RESPONSE from peer
+2018-09-12 10:54:32.448 UTC [shim] handleMessage -> DEBU 66834 [d63c4f64] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:54:32.448 UTC [shim] sendChannel -> DEBU 66835 [d63c4f64] before send
+2018-09-12 10:54:32.448 UTC [shim] sendChannel -> DEBU 66836 [d63c4f64] after send
+2018-09-12 10:54:32.448 UTC [shim] handleReady -> DEBU 66837 [d63c4f64] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:54:32.448 UTC [shim] handleGetState -> DEBU 66838 [d63c4f64] GetState received payload RESPONSE
+2018-09-12 10:54:32.448 UTC [shim] func1 -> DEBU 66839 [d63c4f64] Transaction completed. Sending COMPLETED
+2018-09-12 10:54:32.448 UTC [shim] triggerNextState -> DEBU 6683a [d63c4f64] send state message COMPLETED
+2018-09-12 10:54:32.448 UTC [chaincode] handleMessage -> DEBU 6683b [d63c4f64] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.448 UTC [chaincode] Notify -> DEBU 6683c [d63c4f64] notifying Txid:d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, channelID:composerchannel
+2018-09-12 10:54:32.449 UTC [chaincode] Execute -> DEBU 6683d Exit
+2018-09-12 10:54:32.449 UTC [ccprovider] GetChaincodeData -> DEBU 6683e Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:54:32.449 UTC [endorser] callChaincode -> DEBU 6683f [composerchannel][d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:54:32.449 UTC [ccprovider] NewCCContext -> DEBU 66840 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa,syscc=false,proposal=0xc423ec36d0,canname=ebl:0.0.1)
+2018-09-12 10:54:32.449 UTC [chaincode] execute -> DEBU 66841 canonical name: ebl:0.0.1
+2018-09-12 10:54:32.449 UTC [chaincode] Execute -> DEBU 66842 Entry
+2018-09-12 10:54:32.450 UTC [chaincode] handleMessage -> DEBU 66843 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.450 UTC [chaincode] HandleTransaction -> DEBU 66844 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.450 UTC [chaincode] HandleGetState -> DEBU 66845 [d63c4f64] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:54:32.450 UTC [statecouchdb] GetState -> DEBU 66846 GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:54:32.450 UTC [couchdb] ReadDoc -> DEBU 66847 Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:54:32.450 UTC [couchdb] encodePathElement -> DEBU 66848 Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:54:32.450 UTC [couchdb] encodePathElement -> DEBU 66849 Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:54:32.450 UTC [couchdb] handleRequest -> DEBU 6684a Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:54:32.451 UTC [couchdb] handleRequest -> DEBU 6684b HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.457 UTC [couchdb] handleRequest -> DEBU 6684c Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.458 UTC [couchdb] ReadDoc -> DEBU 6684d Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.458 UTC [chaincode] HandleGetState -> DEBU 6684e [d63c4f64] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.458 UTC [chaincode] HandleTransaction -> DEBU 6684f [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.461 UTC [chaincode] handleMessage -> DEBU 66850 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.461 UTC [chaincode] HandleTransaction -> DEBU 66851 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.461 UTC [chaincode] HandleGetState -> DEBU 66852 [d63c4f64] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:54:32.461 UTC [statecouchdb] GetState -> DEBU 66853 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.461 UTC [couchdb] ReadDoc -> DEBU 66854 Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:54:32.461 UTC [couchdb] encodePathElement -> DEBU 66855 Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:54:32.461 UTC [couchdb] encodePathElement -> DEBU 66856 Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:54:32.461 UTC [couchdb] handleRequest -> DEBU 66857 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:54:32.462 UTC [couchdb] handleRequest -> DEBU 66858 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.463 UTC [couchdb] handleRequest -> DEBU 66859 Exiting handleRequest()
+2018-09-12 10:54:32.463 UTC [couchdb] ReadDoc -> DEBU 6685a Exiting ReadDoc()
+2018-09-12 10:54:32.463 UTC [chaincode] HandleTransaction -> DEBU 6685b [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.465 UTC [chaincode] handleMessage -> DEBU 6685c [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.465 UTC [chaincode] HandleTransaction -> DEBU 6685d [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.465 UTC [chaincode] HandleGetState -> DEBU 6685e [d63c4f64] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:54:32.465 UTC [statecouchdb] GetState -> DEBU 6685f GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.465 UTC [couchdb] ReadDoc -> DEBU 66860 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:54:32.465 UTC [couchdb] encodePathElement -> DEBU 66861 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:54:32.465 UTC [couchdb] encodePathElement -> DEBU 66862 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:54:32.465 UTC [couchdb] handleRequest -> DEBU 66863 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:54:32.465 UTC [couchdb] handleRequest -> DEBU 66864 HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.467 UTC [couchdb] handleRequest -> DEBU 66865 Exiting handleRequest()
+2018-09-12 10:54:32.467 UTC [couchdb] ReadDoc -> DEBU 66866 Exiting ReadDoc()
+2018-09-12 10:54:32.467 UTC [chaincode] HandleTransaction -> DEBU 66867 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.517 UTC [chaincode] handleMessage -> DEBU 66868 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.517 UTC [chaincode] HandleTransaction -> DEBU 66869 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.517 UTC [chaincode] HandleGetState -> DEBU 6686a [d63c4f64] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper, channel composerchannel
+2018-09-12 10:54:32.517 UTC [statecouchdb] GetState -> DEBU 6686b GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper
+2018-09-12 10:54:32.518 UTC [couchdb] ReadDoc -> DEBU 6686c Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper]
+2018-09-12 10:54:32.518 UTC [couchdb] encodePathElement -> DEBU 6686d Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper
+2018-09-12 10:54:32.518 UTC [couchdb] encodePathElement -> DEBU 6686e Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00
+2018-09-12 10:54:32.518 UTC [couchdb] handleRequest -> DEBU 6686f Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00?attachments=true
+2018-09-12 10:54:32.518 UTC [couchdb] handleRequest -> DEBU 66870 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.520 UTC [couchdb] handleRequest -> DEBU 66871 Exiting handleRequest()
+2018-09-12 10:54:32.520 UTC [couchdb] ReadDoc -> DEBU 66872 Exiting ReadDoc()
+2018-09-12 10:54:32.520 UTC [chaincode] HandleTransaction -> DEBU 66873 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.547 UTC [chaincode] handleMessage -> DEBU 66874 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.547 UTC [chaincode] HandleTransaction -> DEBU 66875 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.547 UTC [chaincode] HandleGetState -> DEBU 66876 [d63c4f64] getting state for chaincode ebl, key Participant:tech.threehundredcubits.eBL.ShipperLF, channel composerchannel
+2018-09-12 10:54:32.547 UTC [statecouchdb] GetState -> DEBU 66877 GetState(). ns=ebl, key=Participant:tech.threehundredcubits.eBL.ShipperLF
+2018-09-12 10:54:32.547 UTC [couchdb] ReadDoc -> DEBU 66878 Entering ReadDoc()  id=[Participant:tech.threehundredcubits.eBL.ShipperLF]
+2018-09-12 10:54:32.547 UTC [couchdb] encodePathElement -> DEBU 66879 Entering encodePathElement()  string=Participant:tech.threehundredcubits.eBL.ShipperLF
+2018-09-12 10:54:32.547 UTC [couchdb] encodePathElement -> DEBU 6687a Exiting encodePathElement()  encodedStr=%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00
+2018-09-12 10:54:32.547 UTC [couchdb] handleRequest -> DEBU 6687b Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00?attachments=true
+2018-09-12 10:54:32.548 UTC [couchdb] handleRequest -> DEBU 6687c HTTP Request: GET /composerchannel_ebl/%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.549 UTC [couchdb] handleRequest -> DEBU 6687d Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.549 UTC [couchdb] ReadDoc -> DEBU 6687e Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.549 UTC [chaincode] HandleGetState -> DEBU 6687f [d63c4f64] No state associated with key:
+4Participant:tech.threehundredcubits.eBL.ShipperLF. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.549 UTC [chaincode] HandleTransaction -> DEBU 66880 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.549 UTC [chaincode] handleMessage -> DEBU 66881 [d63c4f64] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:54:32.549 UTC [chaincode] HandleTransaction -> DEBU 66882 [d63c4f64] handling PUT_STATE from chaincode
+2018-09-12 10:54:32.549 UTC [chaincode] HandleTransaction -> DEBU 66883 [d63c4f64] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:54:32.552 UTC [chaincode] handleMessage -> DEBU 66884 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.552 UTC [chaincode] HandleTransaction -> DEBU 66885 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.552 UTC [chaincode] HandleGetState -> DEBU 66886 [d63c4f64] getting state for chaincode ebl, key Transaction:org.hyperledger.composer.system.AddParticipantd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, channel composerchannel
+2018-09-12 10:54:32.552 UTC [statecouchdb] GetState -> DEBU 66887 GetState(). ns=ebl, key=Transaction:org.hyperledger.composer.system.AddParticipantd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa
+2018-09-12 10:54:32.552 UTC [couchdb] ReadDoc -> DEBU 66888 Entering ReadDoc()  id=[Transaction:org.hyperledger.composer.system.AddParticipantd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.552 UTC [couchdb] encodePathElement -> DEBU 66889 Entering encodePathElement()  string=Transaction:org.hyperledger.composer.system.AddParticipantd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa
+2018-09-12 10:54:32.552 UTC [couchdb] encodePathElement -> DEBU 6688a Exiting encodePathElement()  encodedStr=%00Transaction:org.hyperledger.composer.system.AddParticipant%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00
+2018-09-12 10:54:32.552 UTC [couchdb] handleRequest -> DEBU 6688b Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Transaction:org.hyperledger.composer.system.AddParticipant%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00?attachments=true
+2018-09-12 10:54:32.552 UTC [couchdb] handleRequest -> DEBU 6688c HTTP Request: GET /composerchannel_ebl/%00Transaction:org.hyperledger.composer.system.AddParticipant%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.553 UTC [couchdb] handleRequest -> DEBU 6688d Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.553 UTC [couchdb] ReadDoc -> DEBU 6688e Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.553 UTC [chaincode] HandleGetState -> DEBU 6688f [d63c4f64] No state associated with key:
+}Transaction:org.hyperledger.composer.system.AddParticipantd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.553 UTC [chaincode] HandleTransaction -> DEBU 66890 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.567 UTC [gossip/election] waitForInterrupt -> DEBU 66891 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:32.567 UTC [gossip/election] IsLeader -> DEBU 66892 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:32.568 UTC [gossip/election] waitForInterrupt -> DEBU 66893 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:32.586 UTC [chaincode] handleMessage -> DEBU 66894 [d63c4f64] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:54:32.586 UTC [chaincode] HandleTransaction -> DEBU 66895 [d63c4f64] handling PUT_STATE from chaincode
+2018-09-12 10:54:32.586 UTC [chaincode] HandleTransaction -> DEBU 66896 [d63c4f64] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:54:32.587 UTC [chaincode] handleMessage -> DEBU 66897 [d63c4f64] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:54:32.587 UTC [chaincode] HandleTransaction -> DEBU 66898 [d63c4f64] handling GET_STATE from chaincode
+2018-09-12 10:54:32.587 UTC [chaincode] HandleGetState -> DEBU 66899 [d63c4f64] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.HistorianRecordd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, channel composerchannel
+2018-09-12 10:54:32.587 UTC [statecouchdb] GetState -> DEBU 6689a GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.HistorianRecordd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa
+2018-09-12 10:54:32.587 UTC [couchdb] ReadDoc -> DEBU 6689b Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.HistorianRecordd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.587 UTC [couchdb] encodePathElement -> DEBU 6689c Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.HistorianRecordd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa
+2018-09-12 10:54:32.588 UTC [couchdb] encodePathElement -> DEBU 6689d Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.HistorianRecord%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00
+2018-09-12 10:54:32.588 UTC [couchdb] handleRequest -> DEBU 6689e Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.HistorianRecord%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00?attachments=true
+2018-09-12 10:54:32.588 UTC [couchdb] handleRequest -> DEBU 6689f HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.HistorianRecord%00d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:54:32.589 UTC [couchdb] handleRequest -> DEBU 668a0 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:54:32.589 UTC [couchdb] ReadDoc -> DEBU 668a1 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:54:32.590 UTC [chaincode] HandleGetState -> DEBU 668a2 [d63c4f64] No state associated with key:
+xAsset:org.hyperledger.composer.system.HistorianRecordd63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa. Sending RESPONSE with an empty payload
+2018-09-12 10:54:32.590 UTC [chaincode] HandleTransaction -> DEBU 668a3 [d63c4f64] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:54:32.590 UTC [chaincode] handleMessage -> DEBU 668a4 [d63c4f64] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:54:32.590 UTC [chaincode] HandleTransaction -> DEBU 668a5 [d63c4f64] handling PUT_STATE from chaincode
+2018-09-12 10:54:32.590 UTC [chaincode] HandleTransaction -> DEBU 668a6 [d63c4f64] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:54:32.592 UTC [chaincode] handleMessage -> DEBU 668a7 [d63c4f64] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:54:32.592 UTC [chaincode] Notify -> DEBU 668a8 [d63c4f64] notifying Txid:d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, channelID:composerchannel
+2018-09-12 10:54:32.592 UTC [chaincode] Execute -> DEBU 668a9 Exit
+2018-09-12 10:54:32.592 UTC [endorser] callChaincode -> DEBU 668aa [composerchannel][d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa] Exit
+2018-09-12 10:54:32.592 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 668ab Simulation completed, getting simulation results
+2018-09-12 10:54:32.592 UTC [lockbasedtxmgr] Done -> DEBU 668ac Done with transaction simulation / query execution [d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.592 UTC [endorser] SimulateProposal -> DEBU 668ad [composerchannel][d63c4f64] Exit
+2018-09-12 10:54:32.592 UTC [endorser] endorseProposal -> DEBU 668ae [composerchannel][d63c4f64] Entry chaincode: name:"ebl"
+2018-09-12 10:54:32.592 UTC [endorser] endorseProposal -> DEBU 668af [composerchannel][d63c4f64] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:54:32.592 UTC [endorser] EndorseWithPlugin -> DEBU 668b0 Entering endorsement for {plugin: escc, channel: composerchannel, tx: d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, chaincode: ebl}
+2018-09-12 10:54:32.593 UTC [endorser] EndorseWithPlugin -> DEBU 668b1 Exiting {plugin: escc, channel: composerchannel, tx: d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa, chaincode: ebl}
+2018-09-12 10:54:32.593 UTC [endorser] endorseProposal -> DEBU 668b2 [composerchannel][d63c4f64] Exit
+2018-09-12 10:54:32.593 UTC [lockbasedtxmgr] Done -> DEBU 668b3 Done with transaction simulation / query execution [d63c4f64fdc20345554a6f86ebdd3eb45ea3fd7512ea4662625fd3e3544728fa]
+2018-09-12 10:54:32.593 UTC [endorser] ProcessProposal -> DEBU 668b4 Exit: request from 192.168.0.1:34126
+2018-09-12 10:54:33.071 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668b5 Sleeping 5s
+2018-09-12 10:54:37.568 UTC [gossip/election] waitForInterrupt -> DEBU 668b6 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:37.568 UTC [gossip/election] IsLeader -> DEBU 668b7 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:37.568 UTC [gossip/election] waitForInterrupt -> DEBU 668b8 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:38.072 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668b9 Sleeping 5s
+2018-09-12 10:54:39.047 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 668ba Sleeping 25s
+2018-09-12 10:54:42.569 UTC [gossip/election] waitForInterrupt -> DEBU 668bb [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:42.569 UTC [gossip/election] IsLeader -> DEBU 668bc [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:42.569 UTC [gossip/election] waitForInterrupt -> DEBU 668bd [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:43.073 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668be Sleeping 5s
+2018-09-12 10:54:47.569 UTC [gossip/election] waitForInterrupt -> DEBU 668bf [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:47.569 UTC [gossip/election] IsLeader -> DEBU 668c0 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:47.570 UTC [gossip/election] waitForInterrupt -> DEBU 668c1 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:48.073 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668c2 Sleeping 5s
+2018-09-12 10:54:52.570 UTC [gossip/election] waitForInterrupt -> DEBU 668c3 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:52.570 UTC [gossip/election] IsLeader -> DEBU 668c4 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:52.570 UTC [gossip/election] waitForInterrupt -> DEBU 668c5 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:53.074 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668c6 Sleeping 5s
+2018-09-12 10:54:57.571 UTC [gossip/election] waitForInterrupt -> DEBU 668c7 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:54:57.571 UTC [gossip/election] IsLeader -> DEBU 668c8 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:54:57.571 UTC [gossip/election] waitForInterrupt -> DEBU 668c9 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:54:58.075 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668ca Sleeping 5s
+2018-09-12 10:55:02.571 UTC [gossip/election] waitForInterrupt -> DEBU 668cb [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:02.571 UTC [gossip/election] IsLeader -> DEBU 668cc [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:02.572 UTC [gossip/election] waitForInterrupt -> DEBU 668cd [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:03.076 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668ce Sleeping 5s
+2018-09-12 10:55:04.048 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 668cf Sleeping 25s
+2018-09-12 10:55:07.572 UTC [gossip/election] waitForInterrupt -> DEBU 668d0 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:07.572 UTC [gossip/election] IsLeader -> DEBU 668d1 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:07.572 UTC [gossip/election] waitForInterrupt -> DEBU 668d2 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:08.077 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668d3 Sleeping 5s
+2018-09-12 10:55:12.573 UTC [gossip/election] waitForInterrupt -> DEBU 668d4 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:12.573 UTC [gossip/election] IsLeader -> DEBU 668d5 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:12.573 UTC [gossip/election] waitForInterrupt -> DEBU 668d6 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:13.077 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668d7 Sleeping 5s
+2018-09-12 10:55:17.573 UTC [gossip/election] waitForInterrupt -> DEBU 668d8 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:17.573 UTC [gossip/election] IsLeader -> DEBU 668d9 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:17.574 UTC [gossip/election] waitForInterrupt -> DEBU 668da [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:18.078 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668db Sleeping 5s
+2018-09-12 10:55:22.574 UTC [gossip/election] waitForInterrupt -> DEBU 668dc [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:22.574 UTC [gossip/election] IsLeader -> DEBU 668dd [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:22.574 UTC [gossip/election] waitForInterrupt -> DEBU 668de [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:23.079 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668df Sleeping 5s
+2018-09-12 10:55:27.575 UTC [gossip/election] waitForInterrupt -> DEBU 668e0 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:27.575 UTC [gossip/election] IsLeader -> DEBU 668e1 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:27.575 UTC [gossip/election] waitForInterrupt -> DEBU 668e2 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:28.080 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668e3 Sleeping 5s
+2018-09-12 10:55:29.049 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 668e4 Sleeping 25s
+2018-09-12 10:55:32.576 UTC [gossip/election] waitForInterrupt -> DEBU 668e5 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:32.576 UTC [gossip/election] IsLeader -> DEBU 668e6 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:32.576 UTC [gossip/election] waitForInterrupt -> DEBU 668e7 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:33.081 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668e8 Sleeping 5s
+2018-09-12 10:55:37.576 UTC [gossip/election] waitForInterrupt -> DEBU 668e9 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:37.576 UTC [gossip/election] IsLeader -> DEBU 668ea [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:37.577 UTC [gossip/election] waitForInterrupt -> DEBU 668eb [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:38.082 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668ec Sleeping 5s
+2018-09-12 10:55:42.577 UTC [gossip/election] waitForInterrupt -> DEBU 668ed [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:42.577 UTC [gossip/election] IsLeader -> DEBU 668ee [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:42.577 UTC [gossip/election] waitForInterrupt -> DEBU 668ef [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:43.082 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668f0 Sleeping 5s
+2018-09-12 10:55:47.578 UTC [gossip/election] waitForInterrupt -> DEBU 668f1 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:47.578 UTC [gossip/election] IsLeader -> DEBU 668f2 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:47.578 UTC [gossip/election] waitForInterrupt -> DEBU 668f3 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:48.083 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668f4 Sleeping 5s
+2018-09-12 10:55:52.578 UTC [gossip/election] waitForInterrupt -> DEBU 668f5 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:52.579 UTC [gossip/election] IsLeader -> DEBU 668f6 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:52.579 UTC [gossip/election] waitForInterrupt -> DEBU 668f7 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:53.084 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668f8 Sleeping 5s
+2018-09-12 10:55:54.050 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 668f9 Sleeping 25s
+2018-09-12 10:55:57.579 UTC [gossip/election] waitForInterrupt -> DEBU 668fa [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:55:57.579 UTC [gossip/election] IsLeader -> DEBU 668fb [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:55:57.580 UTC [gossip/election] waitForInterrupt -> DEBU 668fc [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:55:58.085 UTC [gossip/discovery] periodicalSendAlive -> DEBU 668fd Sleeping 5s
+2018-09-12 10:56:02.580 UTC [gossip/election] waitForInterrupt -> DEBU 668fe [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:02.580 UTC [gossip/election] IsLeader -> DEBU 668ff [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:02.580 UTC [gossip/election] waitForInterrupt -> DEBU 66900 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:03.086 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66901 Sleeping 5s
+2018-09-12 10:56:07.581 UTC [gossip/election] waitForInterrupt -> DEBU 66902 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:07.581 UTC [gossip/election] IsLeader -> DEBU 66903 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:07.581 UTC [gossip/election] waitForInterrupt -> DEBU 66904 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:08.086 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66905 Sleeping 5s
+2018-09-12 10:56:12.581 UTC [gossip/election] waitForInterrupt -> DEBU 66906 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:12.581 UTC [gossip/election] IsLeader -> DEBU 66907 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:12.582 UTC [gossip/election] waitForInterrupt -> DEBU 66908 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:13.087 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66909 Sleeping 5s
+2018-09-12 10:56:17.582 UTC [gossip/election] waitForInterrupt -> DEBU 6690a [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:17.582 UTC [gossip/election] IsLeader -> DEBU 6690b [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:17.583 UTC [gossip/election] waitForInterrupt -> DEBU 6690c [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:18.088 UTC [gossip/discovery] periodicalSendAlive -> DEBU 6690d Sleeping 5s
+2018-09-12 10:56:19.051 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 6690e Sleeping 25s
+2018-09-12 10:56:22.583 UTC [gossip/election] waitForInterrupt -> DEBU 6690f [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:22.583 UTC [gossip/election] IsLeader -> DEBU 66910 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:22.583 UTC [gossip/election] waitForInterrupt -> DEBU 66911 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:23.089 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66912 Sleeping 5s
+2018-09-12 10:56:27.584 UTC [gossip/election] waitForInterrupt -> DEBU 66913 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:27.584 UTC [gossip/election] IsLeader -> DEBU 66914 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:27.584 UTC [gossip/election] waitForInterrupt -> DEBU 66915 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:28.089 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66916 Sleeping 5s
+2018-09-12 10:56:32.584 UTC [gossip/election] waitForInterrupt -> DEBU 66917 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:32.584 UTC [gossip/election] IsLeader -> DEBU 66918 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:32.585 UTC [gossip/election] waitForInterrupt -> DEBU 66919 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:33.090 UTC [gossip/discovery] periodicalSendAlive -> DEBU 6691a Sleeping 5s
+2018-09-12 10:56:37.585 UTC [gossip/election] waitForInterrupt -> DEBU 6691b [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:37.585 UTC [gossip/election] IsLeader -> DEBU 6691c [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:37.585 UTC [gossip/election] waitForInterrupt -> DEBU 6691d [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:38.091 UTC [gossip/discovery] periodicalSendAlive -> DEBU 6691e Sleeping 5s
+2018-09-12 10:56:42.586 UTC [gossip/election] waitForInterrupt -> DEBU 6691f [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:42.586 UTC [gossip/election] IsLeader -> DEBU 66920 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:42.586 UTC [gossip/election] waitForInterrupt -> DEBU 66921 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:43.092 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66922 Sleeping 5s
+2018-09-12 10:56:44.052 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 66923 Sleeping 25s
+2018-09-12 10:56:47.586 UTC [gossip/election] waitForInterrupt -> DEBU 66924 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:47.586 UTC [gossip/election] IsLeader -> DEBU 66925 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:47.587 UTC [gossip/election] waitForInterrupt -> DEBU 66926 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:48.093 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66927 Sleeping 5s
+2018-09-12 10:56:52.587 UTC [gossip/election] waitForInterrupt -> DEBU 66928 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:52.587 UTC [gossip/election] IsLeader -> DEBU 66929 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:52.587 UTC [gossip/election] waitForInterrupt -> DEBU 6692a [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:53.093 UTC [gossip/discovery] periodicalSendAlive -> DEBU 6692b Sleeping 5s
+2018-09-12 10:56:57.588 UTC [gossip/election] waitForInterrupt -> DEBU 6692c [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:56:57.588 UTC [gossip/election] IsLeader -> DEBU 6692d [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:56:57.588 UTC [gossip/election] waitForInterrupt -> DEBU 6692e [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:56:58.094 UTC [gossip/discovery] periodicalSendAlive -> DEBU 6692f Sleeping 5s
+2018-09-12 10:57:02.588 UTC [gossip/election] waitForInterrupt -> DEBU 66930 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:57:02.588 UTC [gossip/election] IsLeader -> DEBU 66931 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:57:02.589 UTC [gossip/election] waitForInterrupt -> DEBU 66932 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:57:03.095 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66933 Sleeping 5s
+2018-09-12 10:57:07.589 UTC [gossip/election] waitForInterrupt -> DEBU 66934 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Exiting
+2018-09-12 10:57:07.589 UTC [gossip/election] IsLeader -> DEBU 66935 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Returning true
+2018-09-12 10:57:07.589 UTC [gossip/election] waitForInterrupt -> DEBU 66936 [8 232 50 27 195 225 158 235 197 32 33 37 63 139 187 201 86 121 111 179 22 171 186 238 179 5 93 49 22 225 239 152] : Entering
+2018-09-12 10:57:08.096 UTC [gossip/discovery] periodicalSendAlive -> DEBU 66937 Sleeping 5s
+2018-09-12 10:57:09.053 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 66938 Sleeping 25s
+2018-09-12 10:57:11.360 UTC [common/deliverevents] Deliver -> DEBU 66939 Starting new Deliver handler
+2018-09-12 10:57:11.360 UTC [common/deliver] Handle -> DEBU 6693a Starting new deliver loop for 192.168.0.1:34138
+2018-09-12 10:57:11.360 UTC [common/deliver] Handle -> DEBU 6693b Attempting to read seek info message from 192.168.0.1:34138
+2018-09-12 10:57:11.361 UTC [aclmgmt] CheckACL -> DEBU 6693c acl policy not found in config for resource event/Block
+2018-09-12 10:57:11.361 UTC [common/deliver] deliverBlocks -> DEBU 6693d [channel: composerchannel] Received seekInfo (0xc421df72e0) start:<newest:<> > stop:<specified:<number:9223372036854775807 > >  from 192.168.0.1:34138
+2018-09-12 10:57:11.362 UTC [endorser] ProcessProposal -> DEBU 6693e Entering: request from 192.168.0.1:34140
+2018-09-12 10:57:11.362 UTC [protoutils] ValidateProposalMessage -> DEBU 6693f ValidateProposalMessage starts for signed proposal 0xc4201d5e90
+2018-09-12 10:57:11.362 UTC [protoutils] validateChannelHeader -> DEBU 66940 validateChannelHeader info: header type 3
+2018-09-12 10:57:11.362 UTC [protoutils] checkSignatureFromCreator -> DEBU 66941 begin
+2018-09-12 10:57:11.362 UTC [protoutils] checkSignatureFromCreator -> DEBU 66942 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:57:11.362 UTC [protoutils] checkSignatureFromCreator -> DEBU 66943 creator is valid
+2018-09-12 10:57:11.362 UTC [protoutils] checkSignatureFromCreator -> DEBU 66944 exits successfully
+2018-09-12 10:57:11.362 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66945 validateChaincodeProposalMessage starts for proposal 0xc42030f8b0, header 0xc4202b13e0
+2018-09-12 10:57:11.362 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66946 validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:57:11.362 UTC [endorser] preProcess -> DEBU 66947 [composerchannel][c05738ce] processing txid: c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8
+2018-09-12 10:57:11.362 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 66948 retrieveTransactionByID() - txId = [c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8]
+2018-09-12 10:57:11.362 UTC [aclmgmt] CheckACL -> DEBU 66949 acl policy not found in config for resource peer/Propose
+2018-09-12 10:57:11.363 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 6694a constructing new tx simulator
+2018-09-12 10:57:11.363 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 6694b constructing new tx simulator txid = [c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8]
+2018-09-12 10:57:11.363 UTC [endorser] SimulateProposal -> DEBU 6694c [composerchannel][c05738ce] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.363 UTC [ccprovider] NewCCContext -> DEBU 6694d NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8,syscc=true,proposal=0xc42030f8b0,canname=lscc:1.2.0)
+2018-09-12 10:57:11.363 UTC [chaincode] execute -> DEBU 6694e canonical name: lscc:1.2.0
+2018-09-12 10:57:11.363 UTC [chaincode] Execute -> DEBU 6694f Entry
+2018-09-12 10:57:11.363 UTC [shim] func1 -> DEBU 66950 [c05738ce]Received message TRANSACTION from peer
+2018-09-12 10:57:11.363 UTC [shim] handleMessage -> DEBU 66951 [c05738ce] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:57:11.363 UTC [shim] handleReady -> DEBU 66952 [c05738ce] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:57:11.363 UTC [aclmgmt] CheckACL -> DEBU 66953 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:57:11.363 UTC [shim] handleGetState -> DEBU 66954 [c05738ce] Sending GET_STATE
+2018-09-12 10:57:11.363 UTC [chaincode] handleMessage -> DEBU 66955 [c05738ce] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.363 UTC [chaincode] HandleTransaction -> DEBU 66956 [c05738ce] handling GET_STATE from chaincode
+2018-09-12 10:57:11.363 UTC [chaincode] HandleGetState -> DEBU 66957 [c05738ce] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:57:11.363 UTC [statecouchdb] GetState -> DEBU 66958 GetState(). ns=lscc, key=ebl
+2018-09-12 10:57:11.363 UTC [couchdb] ReadDoc -> DEBU 66959 Entering ReadDoc()  id=[ebl]
+2018-09-12 10:57:11.363 UTC [couchdb] encodePathElement -> DEBU 6695a Entering encodePathElement()  string=ebl
+2018-09-12 10:57:11.363 UTC [couchdb] encodePathElement -> DEBU 6695b Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:57:11.363 UTC [couchdb] handleRequest -> DEBU 6695c Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:57:11.363 UTC [couchdb] handleRequest -> DEBU 6695d HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.370 UTC [couchdb] handleRequest -> DEBU 6695e Exiting handleRequest()
+2018-09-12 10:57:11.370 UTC [couchdb] ReadDoc -> DEBU 6695f part header=map[Content-Type:[application/json]]
+2018-09-12 10:57:11.370 UTC [couchdb] ReadDoc -> DEBU 66960 part header=map[Content-Encoding:[gzip] Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189]]
+2018-09-12 10:57:11.371 UTC [couchdb] ReadDoc -> DEBU 66961 Retrieved attachment data
+2018-09-12 10:57:11.371 UTC [chaincode] HandleTransaction -> DEBU 66962 [c05738ce] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.371 UTC [shim] func1 -> DEBU 66963 [c05738ce]Received message RESPONSE from peer
+2018-09-12 10:57:11.371 UTC [shim] handleMessage -> DEBU 66964 [c05738ce] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:57:11.371 UTC [shim] sendChannel -> DEBU 66965 [c05738ce] before send
+2018-09-12 10:57:11.371 UTC [shim] sendChannel -> DEBU 66966 [c05738ce] after send
+2018-09-12 10:57:11.371 UTC [shim] handleReady -> DEBU 66967 [c05738ce] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:57:11.371 UTC [shim] handleGetState -> DEBU 66968 [c05738ce] GetState received payload RESPONSE
+2018-09-12 10:57:11.371 UTC [shim] func1 -> DEBU 66969 [c05738ce] Transaction completed. Sending COMPLETED
+2018-09-12 10:57:11.371 UTC [shim] triggerNextState -> DEBU 6696a [c05738ce] send state message COMPLETED
+2018-09-12 10:57:11.371 UTC [chaincode] handleMessage -> DEBU 6696b [c05738ce] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.372 UTC [chaincode] Notify -> DEBU 6696c [c05738ce] notifying Txid:c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8, channelID:composerchannel
+2018-09-12 10:57:11.372 UTC [chaincode] Execute -> DEBU 6696d Exit
+2018-09-12 10:57:11.372 UTC [ccprovider] GetChaincodeData -> DEBU 6696e Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:57:11.372 UTC [endorser] callChaincode -> DEBU 6696f [composerchannel][c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:57:11.372 UTC [ccprovider] NewCCContext -> DEBU 66970 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8,syscc=false,proposal=0xc42030f8b0,canname=ebl:0.0.1)
+2018-09-12 10:57:11.372 UTC [chaincode] execute -> DEBU 66971 canonical name: ebl:0.0.1
+2018-09-12 10:57:11.372 UTC [chaincode] Execute -> DEBU 66972 Entry
+2018-09-12 10:57:11.373 UTC [chaincode] handleMessage -> DEBU 66973 [c05738ce] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.373 UTC [chaincode] HandleTransaction -> DEBU 66974 [c05738ce] handling GET_STATE from chaincode
+2018-09-12 10:57:11.374 UTC [chaincode] HandleGetState -> DEBU 66975 [c05738ce] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:57:11.374 UTC [statecouchdb] GetState -> DEBU 66976 GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:57:11.374 UTC [couchdb] ReadDoc -> DEBU 66977 Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:57:11.374 UTC [couchdb] encodePathElement -> DEBU 66978 Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:57:11.374 UTC [couchdb] encodePathElement -> DEBU 66979 Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:57:11.374 UTC [couchdb] handleRequest -> DEBU 6697a Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:57:11.374 UTC [couchdb] handleRequest -> DEBU 6697b HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.376 UTC [couchdb] handleRequest -> DEBU 6697c Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:11.376 UTC [couchdb] ReadDoc -> DEBU 6697d Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:11.377 UTC [chaincode] HandleGetState -> DEBU 6697e [c05738ce] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:57:11.377 UTC [chaincode] HandleTransaction -> DEBU 6697f [c05738ce] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.383 UTC [chaincode] handleMessage -> DEBU 66980 [c05738ce] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.383 UTC [chaincode] HandleTransaction -> DEBU 66981 [c05738ce] handling GET_STATE from chaincode
+2018-09-12 10:57:11.383 UTC [chaincode] HandleGetState -> DEBU 66982 [c05738ce] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:57:11.383 UTC [statecouchdb] GetState -> DEBU 66983 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.383 UTC [couchdb] ReadDoc -> DEBU 66984 Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:57:11.383 UTC [couchdb] encodePathElement -> DEBU 66985 Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.383 UTC [couchdb] encodePathElement -> DEBU 66986 Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:57:11.383 UTC [couchdb] handleRequest -> DEBU 66987 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:57:11.383 UTC [couchdb] handleRequest -> DEBU 66988 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.385 UTC [couchdb] handleRequest -> DEBU 66989 Exiting handleRequest()
+2018-09-12 10:57:11.385 UTC [couchdb] ReadDoc -> DEBU 6698a Exiting ReadDoc()
+2018-09-12 10:57:11.386 UTC [chaincode] HandleTransaction -> DEBU 6698b [c05738ce] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.387 UTC [chaincode] handleMessage -> DEBU 6698c [c05738ce] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.387 UTC [chaincode] HandleTransaction -> DEBU 6698d [c05738ce] handling GET_STATE from chaincode
+2018-09-12 10:57:11.388 UTC [chaincode] HandleGetState -> DEBU 6698e [c05738ce] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:57:11.388 UTC [statecouchdb] GetState -> DEBU 6698f GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.388 UTC [couchdb] ReadDoc -> DEBU 66990 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:57:11.388 UTC [couchdb] encodePathElement -> DEBU 66991 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.388 UTC [couchdb] encodePathElement -> DEBU 66992 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:57:11.388 UTC [couchdb] handleRequest -> DEBU 66993 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:57:11.388 UTC [couchdb] handleRequest -> DEBU 66994 HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.389 UTC [couchdb] handleRequest -> DEBU 66995 Exiting handleRequest()
+2018-09-12 10:57:11.390 UTC [couchdb] ReadDoc -> DEBU 66996 Exiting ReadDoc()
+2018-09-12 10:57:11.390 UTC [chaincode] HandleTransaction -> DEBU 66997 [c05738ce] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.394 UTC [chaincode] handleMessage -> DEBU 66998 [c05738ce] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.394 UTC [chaincode] Notify -> DEBU 66999 [c05738ce] notifying Txid:c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8, channelID:composerchannel
+2018-09-12 10:57:11.394 UTC [chaincode] Execute -> DEBU 6699a Exit
+2018-09-12 10:57:11.394 UTC [endorser] callChaincode -> DEBU 6699b [composerchannel][c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8] Exit
+2018-09-12 10:57:11.395 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 6699c Simulation completed, getting simulation results
+2018-09-12 10:57:11.395 UTC [lockbasedtxmgr] Done -> DEBU 6699d Done with transaction simulation / query execution [c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8]
+2018-09-12 10:57:11.395 UTC [endorser] SimulateProposal -> DEBU 6699e [composerchannel][c05738ce] Exit
+2018-09-12 10:57:11.395 UTC [endorser] endorseProposal -> DEBU 6699f [composerchannel][c05738ce] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.395 UTC [endorser] endorseProposal -> DEBU 669a0 [composerchannel][c05738ce] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:57:11.395 UTC [endorser] EndorseWithPlugin -> DEBU 669a1 Entering endorsement for {plugin: escc, channel: composerchannel, tx: c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8, chaincode: ebl}
+2018-09-12 10:57:11.395 UTC [endorser] EndorseWithPlugin -> DEBU 669a2 Exiting {plugin: escc, channel: composerchannel, tx: c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8, chaincode: ebl}
+2018-09-12 10:57:11.395 UTC [endorser] endorseProposal -> DEBU 669a3 [composerchannel][c05738ce] Exit
+2018-09-12 10:57:11.395 UTC [lockbasedtxmgr] Done -> DEBU 669a4 Done with transaction simulation / query execution [c05738ce25ba226ec405a6f81f1e7bbb9a825438c7ba2a7f9d602cfa7b3f51b8]
+2018-09-12 10:57:11.395 UTC [endorser] ProcessProposal -> DEBU 669a5 Exit: request from 192.168.0.1:34140
+2018-09-12 10:57:11.411 UTC [endorser] ProcessProposal -> DEBU 669a6 Entering: request from 192.168.0.1:34140
+2018-09-12 10:57:11.411 UTC [protoutils] ValidateProposalMessage -> DEBU 669a7 ValidateProposalMessage starts for signed proposal 0xc421d2ae40
+2018-09-12 10:57:11.411 UTC [protoutils] validateChannelHeader -> DEBU 669a8 validateChannelHeader info: header type 3
+2018-09-12 10:57:11.411 UTC [protoutils] checkSignatureFromCreator -> DEBU 669a9 begin
+2018-09-12 10:57:11.411 UTC [protoutils] checkSignatureFromCreator -> DEBU 669aa creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:57:11.411 UTC [protoutils] checkSignatureFromCreator -> DEBU 669ab creator is valid
+2018-09-12 10:57:11.412 UTC [protoutils] checkSignatureFromCreator -> DEBU 669ac exits successfully
+2018-09-12 10:57:11.412 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 669ad validateChaincodeProposalMessage starts for proposal 0xc4226aa730, header 0xc421d2b3b0
+2018-09-12 10:57:11.412 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 669ae validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:57:11.412 UTC [endorser] preProcess -> DEBU 669af [composerchannel][874ffd2b] processing txid: 874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9
+2018-09-12 10:57:11.412 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 669b0 retrieveTransactionByID() - txId = [874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9]
+2018-09-12 10:57:11.412 UTC [aclmgmt] CheckACL -> DEBU 669b1 acl policy not found in config for resource peer/Propose
+2018-09-12 10:57:11.412 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 669b2 constructing new tx simulator
+2018-09-12 10:57:11.412 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 669b3 constructing new tx simulator txid = [874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9]
+2018-09-12 10:57:11.412 UTC [endorser] SimulateProposal -> DEBU 669b4 [composerchannel][874ffd2b] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.412 UTC [ccprovider] NewCCContext -> DEBU 669b5 NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9,syscc=true,proposal=0xc4226aa730,canname=lscc:1.2.0)
+2018-09-12 10:57:11.412 UTC [chaincode] execute -> DEBU 669b6 canonical name: lscc:1.2.0
+2018-09-12 10:57:11.412 UTC [chaincode] Execute -> DEBU 669b7 Entry
+2018-09-12 10:57:11.412 UTC [shim] func1 -> DEBU 669b8 [874ffd2b]Received message TRANSACTION from peer
+2018-09-12 10:57:11.412 UTC [shim] handleMessage -> DEBU 669b9 [874ffd2b] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:57:11.412 UTC [shim] handleReady -> DEBU 669ba [874ffd2b] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:57:11.412 UTC [aclmgmt] CheckACL -> DEBU 669bb acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:57:11.412 UTC [shim] handleGetState -> DEBU 669bc [874ffd2b] Sending GET_STATE
+2018-09-12 10:57:11.412 UTC [chaincode] handleMessage -> DEBU 669bd [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.412 UTC [chaincode] HandleTransaction -> DEBU 669be [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.412 UTC [chaincode] HandleGetState -> DEBU 669bf [874ffd2b] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:57:11.412 UTC [statecouchdb] GetState -> DEBU 669c0 GetState(). ns=lscc, key=ebl
+2018-09-12 10:57:11.412 UTC [couchdb] ReadDoc -> DEBU 669c1 Entering ReadDoc()  id=[ebl]
+2018-09-12 10:57:11.412 UTC [couchdb] encodePathElement -> DEBU 669c2 Entering encodePathElement()  string=ebl
+2018-09-12 10:57:11.412 UTC [couchdb] encodePathElement -> DEBU 669c3 Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:57:11.412 UTC [couchdb] handleRequest -> DEBU 669c4 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:57:11.413 UTC [couchdb] handleRequest -> DEBU 669c5 HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.414 UTC [couchdb] handleRequest -> DEBU 669c6 Exiting handleRequest()
+2018-09-12 10:57:11.414 UTC [couchdb] ReadDoc -> DEBU 669c7 part header=map[Content-Type:[application/json]]
+2018-09-12 10:57:11.415 UTC [couchdb] ReadDoc -> DEBU 669c8 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:57:11.415 UTC [couchdb] ReadDoc -> DEBU 669c9 Retrieved attachment data
+2018-09-12 10:57:11.415 UTC [chaincode] HandleTransaction -> DEBU 669ca [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.415 UTC [shim] func1 -> DEBU 669cb [874ffd2b]Received message RESPONSE from peer
+2018-09-12 10:57:11.415 UTC [shim] handleMessage -> DEBU 669cc [874ffd2b] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:57:11.415 UTC [shim] sendChannel -> DEBU 669cd [874ffd2b] before send
+2018-09-12 10:57:11.415 UTC [shim] sendChannel -> DEBU 669ce [874ffd2b] after send
+2018-09-12 10:57:11.415 UTC [shim] handleReady -> DEBU 669cf [874ffd2b] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:57:11.415 UTC [shim] handleGetState -> DEBU 669d0 [874ffd2b] GetState received payload RESPONSE
+2018-09-12 10:57:11.415 UTC [shim] func1 -> DEBU 669d1 [874ffd2b] Transaction completed. Sending COMPLETED
+2018-09-12 10:57:11.415 UTC [shim] triggerNextState -> DEBU 669d2 [874ffd2b] send state message COMPLETED
+2018-09-12 10:57:11.415 UTC [chaincode] handleMessage -> DEBU 669d3 [874ffd2b] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.415 UTC [chaincode] Notify -> DEBU 669d4 [874ffd2b] notifying Txid:874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9, channelID:composerchannel
+2018-09-12 10:57:11.415 UTC [chaincode] Execute -> DEBU 669d5 Exit
+2018-09-12 10:57:11.415 UTC [ccprovider] GetChaincodeData -> DEBU 669d6 Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:57:11.416 UTC [endorser] callChaincode -> DEBU 669d7 [composerchannel][874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:57:11.416 UTC [ccprovider] NewCCContext -> DEBU 669d8 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9,syscc=false,proposal=0xc4226aa730,canname=ebl:0.0.1)
+2018-09-12 10:57:11.416 UTC [chaincode] execute -> DEBU 669d9 canonical name: ebl:0.0.1
+2018-09-12 10:57:11.416 UTC [chaincode] Execute -> DEBU 669da Entry
+2018-09-12 10:57:11.417 UTC [chaincode] handleMessage -> DEBU 669db [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.417 UTC [chaincode] HandleTransaction -> DEBU 669dc [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.417 UTC [chaincode] HandleGetState -> DEBU 669dd [874ffd2b] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:57:11.417 UTC [statecouchdb] GetState -> DEBU 669de GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:57:11.417 UTC [couchdb] ReadDoc -> DEBU 669df Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:57:11.417 UTC [couchdb] encodePathElement -> DEBU 669e0 Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:57:11.417 UTC [couchdb] encodePathElement -> DEBU 669e1 Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:57:11.417 UTC [couchdb] handleRequest -> DEBU 669e2 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:57:11.417 UTC [couchdb] handleRequest -> DEBU 669e3 HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.418 UTC [couchdb] handleRequest -> DEBU 669e4 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:11.418 UTC [couchdb] ReadDoc -> DEBU 669e5 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:11.418 UTC [chaincode] HandleGetState -> DEBU 669e6 [874ffd2b] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:57:11.418 UTC [chaincode] HandleTransaction -> DEBU 669e7 [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.423 UTC [chaincode] handleMessage -> DEBU 669e8 [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.423 UTC [chaincode] HandleTransaction -> DEBU 669e9 [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.423 UTC [chaincode] HandleGetState -> DEBU 669ea [874ffd2b] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:57:11.423 UTC [statecouchdb] GetState -> DEBU 669eb GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.423 UTC [couchdb] ReadDoc -> DEBU 669ec Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:57:11.423 UTC [couchdb] encodePathElement -> DEBU 669ed Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.423 UTC [couchdb] encodePathElement -> DEBU 669ee Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:57:11.424 UTC [couchdb] handleRequest -> DEBU 669ef Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:57:11.424 UTC [couchdb] handleRequest -> DEBU 669f0 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.425 UTC [couchdb] handleRequest -> DEBU 669f1 Exiting handleRequest()
+2018-09-12 10:57:11.426 UTC [couchdb] ReadDoc -> DEBU 669f2 Exiting ReadDoc()
+2018-09-12 10:57:11.426 UTC [chaincode] HandleTransaction -> DEBU 669f3 [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.428 UTC [chaincode] handleMessage -> DEBU 669f4 [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.428 UTC [chaincode] HandleTransaction -> DEBU 669f5 [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.429 UTC [chaincode] HandleGetState -> DEBU 669f6 [874ffd2b] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:57:11.429 UTC [statecouchdb] GetState -> DEBU 669f7 GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.429 UTC [couchdb] ReadDoc -> DEBU 669f8 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:57:11.429 UTC [couchdb] encodePathElement -> DEBU 669f9 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.429 UTC [couchdb] encodePathElement -> DEBU 669fa Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:57:11.429 UTC [couchdb] handleRequest -> DEBU 669fb Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:57:11.429 UTC [couchdb] handleRequest -> DEBU 669fc HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.430 UTC [couchdb] handleRequest -> DEBU 669fd Exiting handleRequest()
+2018-09-12 10:57:11.430 UTC [couchdb] ReadDoc -> DEBU 669fe Exiting ReadDoc()
+2018-09-12 10:57:11.431 UTC [chaincode] HandleTransaction -> DEBU 669ff [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.434 UTC [chaincode] handleMessage -> DEBU 66a00 [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.434 UTC [chaincode] HandleTransaction -> DEBU 66a01 [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.434 UTC [chaincode] HandleGetState -> DEBU 66a02 [874ffd2b] getting state for chaincode ebl, key $syscollections$sysdata, channel composerchannel
+2018-09-12 10:57:11.434 UTC [statecouchdb] GetState -> DEBU 66a03 GetState(). ns=ebl, key=$syscollections$sysdata
+2018-09-12 10:57:11.435 UTC [couchdb] ReadDoc -> DEBU 66a04 Entering ReadDoc()  id=[$syscollections$sysdata]
+2018-09-12 10:57:11.435 UTC [couchdb] encodePathElement -> DEBU 66a05 Entering encodePathElement()  string=$syscollections$sysdata
+2018-09-12 10:57:11.435 UTC [couchdb] encodePathElement -> DEBU 66a06 Exiting encodePathElement()  encodedStr=%00$syscollections%00$sysdata%00
+2018-09-12 10:57:11.435 UTC [couchdb] handleRequest -> DEBU 66a07 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00$syscollections%00$sysdata%00?attachments=true
+2018-09-12 10:57:11.435 UTC [couchdb] handleRequest -> DEBU 66a08 HTTP Request: GET /composerchannel_ebl/%00$syscollections%00$sysdata%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.436 UTC [couchdb] handleRequest -> DEBU 66a09 Exiting handleRequest()
+2018-09-12 10:57:11.436 UTC [couchdb] ReadDoc -> DEBU 66a0a Exiting ReadDoc()
+2018-09-12 10:57:11.436 UTC [chaincode] HandleTransaction -> DEBU 66a0b [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.437 UTC [chaincode] handleMessage -> DEBU 66a0c [874ffd2b] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.437 UTC [chaincode] HandleTransaction -> DEBU 66a0d [874ffd2b] handling GET_STATE from chaincode
+2018-09-12 10:57:11.438 UTC [chaincode] HandleGetState -> DEBU 66a0e [874ffd2b] getting state for chaincode ebl, key $sysdatametanetwork, channel composerchannel
+2018-09-12 10:57:11.438 UTC [statecouchdb] GetState -> DEBU 66a0f GetState(). ns=ebl, key=$sysdatametanetwork
+2018-09-12 10:57:11.438 UTC [couchdb] ReadDoc -> DEBU 66a10 Entering ReadDoc()  id=[$sysdatametanetwork]
+2018-09-12 10:57:11.438 UTC [couchdb] encodePathElement -> DEBU 66a11 Entering encodePathElement()  string=$sysdatametanetwork
+2018-09-12 10:57:11.438 UTC [couchdb] encodePathElement -> DEBU 66a12 Exiting encodePathElement()  encodedStr=%00$sysdata%00metanetwork%00
+2018-09-12 10:57:11.438 UTC [couchdb] handleRequest -> DEBU 66a13 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00$sysdata%00metanetwork%00?attachments=true
+2018-09-12 10:57:11.438 UTC [couchdb] handleRequest -> DEBU 66a14 HTTP Request: GET /composerchannel_ebl/%00$sysdata%00metanetwork%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.439 UTC [couchdb] handleRequest -> DEBU 66a15 Exiting handleRequest()
+2018-09-12 10:57:11.439 UTC [couchdb] ReadDoc -> DEBU 66a16 Exiting ReadDoc()
+2018-09-12 10:57:11.439 UTC [chaincode] HandleTransaction -> DEBU 66a17 [874ffd2b] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.454 UTC [chaincode] handleMessage -> DEBU 66a18 [874ffd2b] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.454 UTC [chaincode] Notify -> DEBU 66a19 [874ffd2b] notifying Txid:874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9, channelID:composerchannel
+2018-09-12 10:57:11.455 UTC [chaincode] Execute -> DEBU 66a1a Exit
+2018-09-12 10:57:11.455 UTC [endorser] callChaincode -> DEBU 66a1b [composerchannel][874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9] Exit
+2018-09-12 10:57:11.455 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 66a1c Simulation completed, getting simulation results
+2018-09-12 10:57:11.455 UTC [lockbasedtxmgr] Done -> DEBU 66a1d Done with transaction simulation / query execution [874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9]
+2018-09-12 10:57:11.455 UTC [endorser] SimulateProposal -> DEBU 66a1e [composerchannel][874ffd2b] Exit
+2018-09-12 10:57:11.455 UTC [endorser] endorseProposal -> DEBU 66a1f [composerchannel][874ffd2b] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.455 UTC [endorser] endorseProposal -> DEBU 66a20 [composerchannel][874ffd2b] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:57:11.455 UTC [endorser] EndorseWithPlugin -> DEBU 66a21 Entering endorsement for {plugin: escc, channel: composerchannel, tx: 874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9, chaincode: ebl}
+2018-09-12 10:57:11.455 UTC [endorser] EndorseWithPlugin -> DEBU 66a22 Exiting {plugin: escc, channel: composerchannel, tx: 874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9, chaincode: ebl}
+2018-09-12 10:57:11.455 UTC [endorser] endorseProposal -> DEBU 66a23 [composerchannel][874ffd2b] Exit
+2018-09-12 10:57:11.455 UTC [lockbasedtxmgr] Done -> DEBU 66a24 Done with transaction simulation / query execution [874ffd2b8a2ebaecdd8cac9feae48d97031761c85fa6abc840a57dfd4f5a97d9]
+2018-09-12 10:57:11.455 UTC [endorser] ProcessProposal -> DEBU 66a25 Exit: request from 192.168.0.1:34140
+2018-09-12 10:57:11.774 UTC [endorser] ProcessProposal -> DEBU 66a26 Entering: request from 192.168.0.1:34140
+2018-09-12 10:57:11.774 UTC [protoutils] ValidateProposalMessage -> DEBU 66a27 ValidateProposalMessage starts for signed proposal 0xc422630a80
+2018-09-12 10:57:11.774 UTC [protoutils] validateChannelHeader -> DEBU 66a28 validateChannelHeader info: header type 3
+2018-09-12 10:57:11.774 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a29 begin
+2018-09-12 10:57:11.775 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a2a creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:57:11.775 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a2b creator is valid
+2018-09-12 10:57:11.775 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a2c exits successfully
+2018-09-12 10:57:11.775 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66a2d validateChaincodeProposalMessage starts for proposal 0xc4226ab0e0, header 0xc422630db0
+2018-09-12 10:57:11.775 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66a2e validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:57:11.775 UTC [endorser] preProcess -> DEBU 66a2f [composerchannel][57ab5905] processing txid: 57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0
+2018-09-12 10:57:11.775 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 66a30 retrieveTransactionByID() - txId = [57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0]
+2018-09-12 10:57:11.775 UTC [aclmgmt] CheckACL -> DEBU 66a31 acl policy not found in config for resource peer/Propose
+2018-09-12 10:57:11.775 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 66a32 constructing new tx simulator
+2018-09-12 10:57:11.775 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 66a33 constructing new tx simulator txid = [57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0]
+2018-09-12 10:57:11.775 UTC [endorser] SimulateProposal -> DEBU 66a34 [composerchannel][57ab5905] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.775 UTC [ccprovider] NewCCContext -> DEBU 66a35 NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0,syscc=true,proposal=0xc4226ab0e0,canname=lscc:1.2.0)
+2018-09-12 10:57:11.775 UTC [chaincode] execute -> DEBU 66a36 canonical name: lscc:1.2.0
+2018-09-12 10:57:11.775 UTC [chaincode] Execute -> DEBU 66a37 Entry
+2018-09-12 10:57:11.775 UTC [shim] func1 -> DEBU 66a38 [57ab5905]Received message TRANSACTION from peer
+2018-09-12 10:57:11.775 UTC [shim] handleMessage -> DEBU 66a39 [57ab5905] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:57:11.775 UTC [shim] handleReady -> DEBU 66a3a [57ab5905] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:57:11.775 UTC [aclmgmt] CheckACL -> DEBU 66a3b acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:57:11.775 UTC [shim] handleGetState -> DEBU 66a3c [57ab5905] Sending GET_STATE
+2018-09-12 10:57:11.775 UTC [chaincode] handleMessage -> DEBU 66a3d [57ab5905] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.775 UTC [chaincode] HandleTransaction -> DEBU 66a3e [57ab5905] handling GET_STATE from chaincode
+2018-09-12 10:57:11.775 UTC [chaincode] HandleGetState -> DEBU 66a3f [57ab5905] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:57:11.775 UTC [statecouchdb] GetState -> DEBU 66a40 GetState(). ns=lscc, key=ebl
+2018-09-12 10:57:11.775 UTC [couchdb] ReadDoc -> DEBU 66a41 Entering ReadDoc()  id=[ebl]
+2018-09-12 10:57:11.775 UTC [couchdb] encodePathElement -> DEBU 66a42 Entering encodePathElement()  string=ebl
+2018-09-12 10:57:11.776 UTC [couchdb] encodePathElement -> DEBU 66a43 Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:57:11.776 UTC [couchdb] handleRequest -> DEBU 66a44 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:57:11.776 UTC [couchdb] handleRequest -> DEBU 66a45 HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.781 UTC [couchdb] handleRequest -> DEBU 66a46 Exiting handleRequest()
+2018-09-12 10:57:11.781 UTC [couchdb] ReadDoc -> DEBU 66a47 part header=map[Content-Type:[application/json]]
+2018-09-12 10:57:11.781 UTC [couchdb] ReadDoc -> DEBU 66a48 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:57:11.781 UTC [couchdb] ReadDoc -> DEBU 66a49 Retrieved attachment data
+2018-09-12 10:57:11.781 UTC [chaincode] HandleTransaction -> DEBU 66a4a [57ab5905] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.781 UTC [shim] func1 -> DEBU 66a4b [57ab5905]Received message RESPONSE from peer
+2018-09-12 10:57:11.781 UTC [shim] handleMessage -> DEBU 66a4c [57ab5905] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:57:11.781 UTC [shim] sendChannel -> DEBU 66a4d [57ab5905] before send
+2018-09-12 10:57:11.781 UTC [shim] sendChannel -> DEBU 66a4e [57ab5905] after send
+2018-09-12 10:57:11.782 UTC [shim] handleReady -> DEBU 66a4f [57ab5905] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:57:11.782 UTC [shim] handleGetState -> DEBU 66a50 [57ab5905] GetState received payload RESPONSE
+2018-09-12 10:57:11.782 UTC [shim] func1 -> DEBU 66a51 [57ab5905] Transaction completed. Sending COMPLETED
+2018-09-12 10:57:11.782 UTC [shim] triggerNextState -> DEBU 66a52 [57ab5905] send state message COMPLETED
+2018-09-12 10:57:11.782 UTC [chaincode] handleMessage -> DEBU 66a53 [57ab5905] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.782 UTC [chaincode] Notify -> DEBU 66a54 [57ab5905] notifying Txid:57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0, channelID:composerchannel
+2018-09-12 10:57:11.782 UTC [chaincode] Execute -> DEBU 66a55 Exit
+2018-09-12 10:57:11.782 UTC [ccprovider] GetChaincodeData -> DEBU 66a56 Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:57:11.782 UTC [endorser] callChaincode -> DEBU 66a57 [composerchannel][57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:57:11.782 UTC [ccprovider] NewCCContext -> DEBU 66a58 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0,syscc=false,proposal=0xc4226ab0e0,canname=ebl:0.0.1)
+2018-09-12 10:57:11.782 UTC [chaincode] execute -> DEBU 66a59 canonical name: ebl:0.0.1
+2018-09-12 10:57:11.782 UTC [chaincode] Execute -> DEBU 66a5a Entry
+2018-09-12 10:57:11.783 UTC [chaincode] handleMessage -> DEBU 66a5b [57ab5905] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.783 UTC [chaincode] HandleTransaction -> DEBU 66a5c [57ab5905] handling GET_STATE from chaincode
+2018-09-12 10:57:11.783 UTC [chaincode] HandleGetState -> DEBU 66a5d [57ab5905] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:57:11.783 UTC [statecouchdb] GetState -> DEBU 66a5e GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:57:11.783 UTC [couchdb] ReadDoc -> DEBU 66a5f Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:57:11.783 UTC [couchdb] encodePathElement -> DEBU 66a60 Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:57:11.783 UTC [couchdb] encodePathElement -> DEBU 66a61 Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:57:11.783 UTC [couchdb] handleRequest -> DEBU 66a62 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:57:11.784 UTC [couchdb] handleRequest -> DEBU 66a63 HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.785 UTC [couchdb] handleRequest -> DEBU 66a64 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:11.785 UTC [couchdb] ReadDoc -> DEBU 66a65 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:11.785 UTC [chaincode] HandleGetState -> DEBU 66a66 [57ab5905] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:57:11.785 UTC [chaincode] HandleTransaction -> DEBU 66a67 [57ab5905] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.789 UTC [chaincode] handleMessage -> DEBU 66a68 [57ab5905] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.789 UTC [chaincode] HandleTransaction -> DEBU 66a69 [57ab5905] handling GET_STATE from chaincode
+2018-09-12 10:57:11.789 UTC [chaincode] HandleGetState -> DEBU 66a6a [57ab5905] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:57:11.789 UTC [statecouchdb] GetState -> DEBU 66a6b GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.789 UTC [couchdb] ReadDoc -> DEBU 66a6c Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:57:11.789 UTC [couchdb] encodePathElement -> DEBU 66a6d Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.789 UTC [couchdb] encodePathElement -> DEBU 66a6e Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:57:11.790 UTC [couchdb] handleRequest -> DEBU 66a6f Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:57:11.790 UTC [couchdb] handleRequest -> DEBU 66a70 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.791 UTC [couchdb] handleRequest -> DEBU 66a71 Exiting handleRequest()
+2018-09-12 10:57:11.791 UTC [couchdb] ReadDoc -> DEBU 66a72 Exiting ReadDoc()
+2018-09-12 10:57:11.791 UTC [chaincode] HandleTransaction -> DEBU 66a73 [57ab5905] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.793 UTC [chaincode] handleMessage -> DEBU 66a74 [57ab5905] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.793 UTC [chaincode] HandleTransaction -> DEBU 66a75 [57ab5905] handling GET_STATE from chaincode
+2018-09-12 10:57:11.793 UTC [chaincode] HandleGetState -> DEBU 66a76 [57ab5905] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:57:11.793 UTC [statecouchdb] GetState -> DEBU 66a77 GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.793 UTC [couchdb] ReadDoc -> DEBU 66a78 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:57:11.793 UTC [couchdb] encodePathElement -> DEBU 66a79 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.793 UTC [couchdb] encodePathElement -> DEBU 66a7a Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:57:11.793 UTC [couchdb] handleRequest -> DEBU 66a7b Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:57:11.793 UTC [couchdb] handleRequest -> DEBU 66a7c HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.794 UTC [couchdb] handleRequest -> DEBU 66a7d Exiting handleRequest()
+2018-09-12 10:57:11.794 UTC [couchdb] ReadDoc -> DEBU 66a7e Exiting ReadDoc()
+2018-09-12 10:57:11.794 UTC [chaincode] HandleTransaction -> DEBU 66a7f [57ab5905] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.804 UTC [chaincode] handleMessage -> DEBU 66a80 [57ab5905] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.805 UTC [chaincode] Notify -> DEBU 66a81 [57ab5905] notifying Txid:57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0, channelID:composerchannel
+2018-09-12 10:57:11.805 UTC [chaincode] Execute -> DEBU 66a82 Exit
+2018-09-12 10:57:11.805 UTC [endorser] callChaincode -> DEBU 66a83 [composerchannel][57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0] Exit
+2018-09-12 10:57:11.805 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 66a84 Simulation completed, getting simulation results
+2018-09-12 10:57:11.805 UTC [lockbasedtxmgr] Done -> DEBU 66a85 Done with transaction simulation / query execution [57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0]
+2018-09-12 10:57:11.805 UTC [endorser] SimulateProposal -> DEBU 66a86 [composerchannel][57ab5905] Exit
+2018-09-12 10:57:11.805 UTC [endorser] endorseProposal -> DEBU 66a87 [composerchannel][57ab5905] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.805 UTC [endorser] endorseProposal -> DEBU 66a88 [composerchannel][57ab5905] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:57:11.805 UTC [endorser] EndorseWithPlugin -> DEBU 66a89 Entering endorsement for {plugin: escc, channel: composerchannel, tx: 57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0, chaincode: ebl}
+2018-09-12 10:57:11.805 UTC [endorser] EndorseWithPlugin -> DEBU 66a8a Exiting {plugin: escc, channel: composerchannel, tx: 57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0, chaincode: ebl}
+2018-09-12 10:57:11.805 UTC [endorser] endorseProposal -> DEBU 66a8b [composerchannel][57ab5905] Exit
+2018-09-12 10:57:11.805 UTC [lockbasedtxmgr] Done -> DEBU 66a8c Done with transaction simulation / query execution [57ab59051d2724c120e888e09a25050f131dd229ab773706ef3a4640bcafa2f0]
+2018-09-12 10:57:11.805 UTC [endorser] ProcessProposal -> DEBU 66a8d Exit: request from 192.168.0.1:34140
+2018-09-12 10:57:11.815 UTC [endorser] ProcessProposal -> DEBU 66a8e Entering: request from 192.168.0.1:34140
+2018-09-12 10:57:11.815 UTC [protoutils] ValidateProposalMessage -> DEBU 66a8f ValidateProposalMessage starts for signed proposal 0xc421f2b710
+2018-09-12 10:57:11.815 UTC [protoutils] validateChannelHeader -> DEBU 66a90 validateChannelHeader info: header type 3
+2018-09-12 10:57:11.815 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a91 begin
+2018-09-12 10:57:11.815 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a92 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:57:11.815 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a93 creator is valid
+2018-09-12 10:57:11.815 UTC [protoutils] checkSignatureFromCreator -> DEBU 66a94 exits successfully
+2018-09-12 10:57:11.815 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66a95 validateChaincodeProposalMessage starts for proposal 0xc4226abcc0, header 0xc421f2bb60
+2018-09-12 10:57:11.816 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66a96 validateChaincodeProposalMessage info: header extension references chaincode name:"cscc"
+2018-09-12 10:57:11.816 UTC [endorser] preProcess -> DEBU 66a97 [composerchannel][73df2f1a] processing txid: 73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3
+2018-09-12 10:57:11.816 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 66a98 retrieveTransactionByID() - txId = [73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3]
+2018-09-12 10:57:11.816 UTC [endorser] SimulateProposal -> DEBU 66a99 [composerchannel][73df2f1a] Entry chaincode: name:"cscc"
+2018-09-12 10:57:11.816 UTC [endorser] callChaincode -> DEBU 66a9a [composerchannel][73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3] Entry chaincode: name:"cscc"  version: 1.2.0
+2018-09-12 10:57:11.816 UTC [ccprovider] NewCCContext -> DEBU 66a9b NewCCCC(chain=composerchannel,chaincode=cscc,version=1.2.0,txid=73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3,syscc=true,proposal=0xc4226abcc0,canname=cscc:1.2.0)
+2018-09-12 10:57:11.816 UTC [chaincode] execute -> DEBU 66a9c canonical name: cscc:1.2.0
+2018-09-12 10:57:11.816 UTC [chaincode] Execute -> DEBU 66a9d Entry
+2018-09-12 10:57:11.816 UTC [shim] func1 -> DEBU 66a9e [73df2f1a]Received message TRANSACTION from peer
+2018-09-12 10:57:11.816 UTC [shim] handleMessage -> DEBU 66a9f [73df2f1a] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:57:11.816 UTC [shim] handleReady -> DEBU 66aa0 [73df2f1a] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:57:11.816 UTC [cscc] Invoke -> DEBU 66aa1 Invoke function: GetConfigBlock
+2018-09-12 10:57:11.816 UTC [aclmgmt] CheckACL -> DEBU 66aa2 acl policy not found in config for resource cscc/GetConfigBlock
+2018-09-12 10:57:11.816 UTC [shim] func1 -> DEBU 66aa3 [73df2f1a] Transaction completed. Sending COMPLETED
+2018-09-12 10:57:11.816 UTC [shim] triggerNextState -> DEBU 66aa4 [73df2f1a] send state message COMPLETED
+2018-09-12 10:57:11.816 UTC [chaincode] handleMessage -> DEBU 66aa5 [73df2f1a] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.816 UTC [chaincode] Notify -> DEBU 66aa6 [73df2f1a] notifying Txid:73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3, channelID:composerchannel
+2018-09-12 10:57:11.816 UTC [chaincode] Execute -> DEBU 66aa7 Exit
+2018-09-12 10:57:11.817 UTC [endorser] callChaincode -> DEBU 66aa8 [composerchannel][73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3] Exit
+2018-09-12 10:57:11.817 UTC [endorser] SimulateProposal -> DEBU 66aa9 [composerchannel][73df2f1a] Exit
+2018-09-12 10:57:11.817 UTC [endorser] endorseProposal -> DEBU 66aaa [composerchannel][73df2f1a] Entry chaincode: name:"cscc"
+2018-09-12 10:57:11.817 UTC [endorser] endorseProposal -> DEBU 66aab [composerchannel][73df2f1a] escc for chaincode name:"cscc"  is escc
+2018-09-12 10:57:11.817 UTC [endorser] EndorseWithPlugin -> DEBU 66aac Entering endorsement for {plugin: escc, channel: composerchannel, tx: 73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3, chaincode: cscc}
+2018-09-12 10:57:11.817 UTC [endorser] EndorseWithPlugin -> DEBU 66aad Exiting {plugin: escc, channel: composerchannel, tx: 73df2f1a9b043bc80863a9b986360bbfd5b01939ddbde89db4880e843e542bf3, chaincode: cscc}
+2018-09-12 10:57:11.817 UTC [endorser] endorseProposal -> DEBU 66aae [composerchannel][73df2f1a] Exit
+2018-09-12 10:57:11.817 UTC [endorser] ProcessProposal -> DEBU 66aaf Exit: request from 192.168.0.1:34140
+2018-09-12 10:57:11.831 UTC [endorser] ProcessProposal -> DEBU 66ab0 Entering: request from 192.168.0.1:34140
+2018-09-12 10:57:11.831 UTC [protoutils] ValidateProposalMessage -> DEBU 66ab1 ValidateProposalMessage starts for signed proposal 0xc4232f4750
+2018-09-12 10:57:11.831 UTC [protoutils] validateChannelHeader -> DEBU 66ab2 validateChannelHeader info: header type 3
+2018-09-12 10:57:11.831 UTC [protoutils] checkSignatureFromCreator -> DEBU 66ab3 begin
+2018-09-12 10:57:11.831 UTC [protoutils] checkSignatureFromCreator -> DEBU 66ab4 creator is &{Org1MSP 0ce0ae297817db77cb128c69afae76f392f603795f60cd0b5d9d93910a4a8ba9}
+2018-09-12 10:57:11.831 UTC [protoutils] checkSignatureFromCreator -> DEBU 66ab5 creator is valid
+2018-09-12 10:57:11.832 UTC [protoutils] checkSignatureFromCreator -> DEBU 66ab6 exits successfully
+2018-09-12 10:57:11.832 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66ab7 validateChaincodeProposalMessage starts for proposal 0xc421de2f50, header 0xc4232f4a80
+2018-09-12 10:57:11.832 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 66ab8 validateChaincodeProposalMessage info: header extension references chaincode name:"ebl"
+2018-09-12 10:57:11.832 UTC [endorser] preProcess -> DEBU 66ab9 [composerchannel][b65c1dcb] processing txid: b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8
+2018-09-12 10:57:11.832 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 66aba retrieveTransactionByID() - txId = [b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:11.832 UTC [aclmgmt] CheckACL -> DEBU 66abb acl policy not found in config for resource peer/Propose
+2018-09-12 10:57:11.832 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 66abc constructing new tx simulator
+2018-09-12 10:57:11.832 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 66abd constructing new tx simulator txid = [b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:11.832 UTC [endorser] SimulateProposal -> DEBU 66abe [composerchannel][b65c1dcb] Entry chaincode: name:"ebl"
+2018-09-12 10:57:11.832 UTC [ccprovider] NewCCContext -> DEBU 66abf NewCCCC(chain=composerchannel,chaincode=lscc,version=1.2.0,txid=b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8,syscc=true,proposal=0xc421de2f50,canname=lscc:1.2.0)
+2018-09-12 10:57:11.832 UTC [chaincode] execute -> DEBU 66ac0 canonical name: lscc:1.2.0
+2018-09-12 10:57:11.832 UTC [chaincode] Execute -> DEBU 66ac1 Entry
+2018-09-12 10:57:11.832 UTC [shim] func1 -> DEBU 66ac2 [b65c1dcb]Received message TRANSACTION from peer
+2018-09-12 10:57:11.832 UTC [shim] handleMessage -> DEBU 66ac3 [b65c1dcb] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-12 10:57:11.832 UTC [shim] handleReady -> DEBU 66ac4 [b65c1dcb] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-12 10:57:11.832 UTC [aclmgmt] CheckACL -> DEBU 66ac5 acl policy not found in config for resource lscc/GetChaincodeData
+2018-09-12 10:57:11.832 UTC [shim] handleGetState -> DEBU 66ac6 [b65c1dcb] Sending GET_STATE
+2018-09-12 10:57:11.832 UTC [chaincode] handleMessage -> DEBU 66ac7 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.832 UTC [chaincode] HandleTransaction -> DEBU 66ac8 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:11.832 UTC [chaincode] HandleGetState -> DEBU 66ac9 [b65c1dcb] getting state for chaincode lscc, key ebl, channel composerchannel
+2018-09-12 10:57:11.832 UTC [statecouchdb] GetState -> DEBU 66aca GetState(). ns=lscc, key=ebl
+2018-09-12 10:57:11.832 UTC [couchdb] ReadDoc -> DEBU 66acb Entering ReadDoc()  id=[ebl]
+2018-09-12 10:57:11.832 UTC [couchdb] encodePathElement -> DEBU 66acc Entering encodePathElement()  string=ebl
+2018-09-12 10:57:11.832 UTC [couchdb] encodePathElement -> DEBU 66acd Exiting encodePathElement()  encodedStr=ebl
+2018-09-12 10:57:11.833 UTC [couchdb] handleRequest -> DEBU 66ace Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_lscc/ebl?attachments=true
+2018-09-12 10:57:11.833 UTC [couchdb] handleRequest -> DEBU 66acf HTTP Request: GET /composerchannel_lscc/ebl?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.834 UTC [couchdb] handleRequest -> DEBU 66ad0 Exiting handleRequest()
+2018-09-12 10:57:11.834 UTC [couchdb] ReadDoc -> DEBU 66ad1 part header=map[Content-Type:[application/json]]
+2018-09-12 10:57:11.834 UTC [couchdb] ReadDoc -> DEBU 66ad2 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[189] Content-Encoding:[gzip]]
+2018-09-12 10:57:11.835 UTC [couchdb] ReadDoc -> DEBU 66ad3 Retrieved attachment data
+2018-09-12 10:57:11.835 UTC [chaincode] HandleTransaction -> DEBU 66ad4 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.835 UTC [shim] func1 -> DEBU 66ad5 [b65c1dcb]Received message RESPONSE from peer
+2018-09-12 10:57:11.835 UTC [shim] handleMessage -> DEBU 66ad6 [b65c1dcb] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-12 10:57:11.835 UTC [shim] sendChannel -> DEBU 66ad7 [b65c1dcb] before send
+2018-09-12 10:57:11.835 UTC [shim] sendChannel -> DEBU 66ad8 [b65c1dcb] after send
+2018-09-12 10:57:11.835 UTC [shim] handleReady -> DEBU 66ad9 [b65c1dcb] Received RESPONSE, communicated (state:ready)
+2018-09-12 10:57:11.835 UTC [shim] handleGetState -> DEBU 66ada [b65c1dcb] GetState received payload RESPONSE
+2018-09-12 10:57:11.835 UTC [shim] func1 -> DEBU 66adb [b65c1dcb] Transaction completed. Sending COMPLETED
+2018-09-12 10:57:11.835 UTC [shim] triggerNextState -> DEBU 66adc [b65c1dcb] send state message COMPLETED
+2018-09-12 10:57:11.835 UTC [chaincode] handleMessage -> DEBU 66add [b65c1dcb] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:11.835 UTC [chaincode] Notify -> DEBU 66ade [b65c1dcb] notifying Txid:b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, channelID:composerchannel
+2018-09-12 10:57:11.835 UTC [chaincode] Execute -> DEBU 66adf Exit
+2018-09-12 10:57:11.835 UTC [ccprovider] GetChaincodeData -> DEBU 66ae0 Getting chaincode data for <ebl, 0.0.1> from cache
+2018-09-12 10:57:11.835 UTC [endorser] callChaincode -> DEBU 66ae1 [composerchannel][b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8] Entry chaincode: name:"ebl"  version: 0.0.1
+2018-09-12 10:57:11.836 UTC [ccprovider] NewCCContext -> DEBU 66ae2 NewCCCC(chain=composerchannel,chaincode=ebl,version=0.0.1,txid=b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8,syscc=false,proposal=0xc421de2f50,canname=ebl:0.0.1)
+2018-09-12 10:57:11.836 UTC [chaincode] execute -> DEBU 66ae3 canonical name: ebl:0.0.1
+2018-09-12 10:57:11.836 UTC [chaincode] Execute -> DEBU 66ae4 Entry
+2018-09-12 10:57:11.837 UTC [chaincode] handleMessage -> DEBU 66ae5 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.837 UTC [chaincode] HandleTransaction -> DEBU 66ae6 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:11.837 UTC [chaincode] HandleGetState -> DEBU 66ae7 [b65c1dcb] getting state for chaincode ebl, key ComposerLogCfg, channel composerchannel
+2018-09-12 10:57:11.837 UTC [statecouchdb] GetState -> DEBU 66ae8 GetState(). ns=ebl, key=ComposerLogCfg
+2018-09-12 10:57:11.837 UTC [couchdb] ReadDoc -> DEBU 66ae9 Entering ReadDoc()  id=[ComposerLogCfg]
+2018-09-12 10:57:11.837 UTC [couchdb] encodePathElement -> DEBU 66aea Entering encodePathElement()  string=ComposerLogCfg
+2018-09-12 10:57:11.837 UTC [couchdb] encodePathElement -> DEBU 66aeb Exiting encodePathElement()  encodedStr=ComposerLogCfg
+2018-09-12 10:57:11.837 UTC [couchdb] handleRequest -> DEBU 66aec Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/ComposerLogCfg?attachments=true
+2018-09-12 10:57:11.837 UTC [couchdb] handleRequest -> DEBU 66aed HTTP Request: GET /composerchannel_ebl/ComposerLogCfg?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.838 UTC [couchdb] handleRequest -> DEBU 66aee Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:11.838 UTC [couchdb] ReadDoc -> DEBU 66aef Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:11.838 UTC [chaincode] HandleGetState -> DEBU 66af0 [b65c1dcb] No state associated with key:
+ComposerLogCfg. Sending RESPONSE with an empty payload
+2018-09-12 10:57:11.838 UTC [chaincode] HandleTransaction -> DEBU 66af1 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.842 UTC [chaincode] handleMessage -> DEBU 66af2 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.842 UTC [chaincode] HandleTransaction -> DEBU 66af3 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:11.842 UTC [chaincode] HandleGetState -> DEBU 66af4 [b65c1dcb] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd, channel composerchannel
+2018-09-12 10:57:11.842 UTC [statecouchdb] GetState -> DEBU 66af5 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.842 UTC [couchdb] ReadDoc -> DEBU 66af6 Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd]
+2018-09-12 10:57:11.842 UTC [couchdb] encodePathElement -> DEBU 66af7 Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.Identitye0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd
+2018-09-12 10:57:11.842 UTC [couchdb] encodePathElement -> DEBU 66af8 Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00
+2018-09-12 10:57:11.842 UTC [couchdb] handleRequest -> DEBU 66af9 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true
+2018-09-12 10:57:11.842 UTC [couchdb] handleRequest -> DEBU 66afa HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.Identity%00e0a9fa8e2f812cb2e9401bb9af4befba7dfe36131260b9dc3d040008951b86cd%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.843 UTC [couchdb] handleRequest -> DEBU 66afb Exiting handleRequest()
+2018-09-12 10:57:11.844 UTC [couchdb] ReadDoc -> DEBU 66afc Exiting ReadDoc()
+2018-09-12 10:57:11.844 UTC [chaincode] HandleTransaction -> DEBU 66afd [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.845 UTC [chaincode] handleMessage -> DEBU 66afe [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.845 UTC [chaincode] HandleTransaction -> DEBU 66aff [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:11.846 UTC [chaincode] HandleGetState -> DEBU 66b00 [b65c1dcb] getting state for chaincode ebl, key Participant:org.hyperledger.composer.system.NetworkAdminadmin, channel composerchannel
+2018-09-12 10:57:11.846 UTC [statecouchdb] GetState -> DEBU 66b01 GetState(). ns=ebl, key=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.846 UTC [couchdb] ReadDoc -> DEBU 66b02 Entering ReadDoc()  id=[Participant:org.hyperledger.composer.system.NetworkAdminadmin]
+2018-09-12 10:57:11.846 UTC [couchdb] encodePathElement -> DEBU 66b03 Entering encodePathElement()  string=Participant:org.hyperledger.composer.system.NetworkAdminadmin
+2018-09-12 10:57:11.846 UTC [couchdb] encodePathElement -> DEBU 66b04 Exiting encodePathElement()  encodedStr=%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00
+2018-09-12 10:57:11.846 UTC [couchdb] handleRequest -> DEBU 66b05 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true
+2018-09-12 10:57:11.846 UTC [couchdb] handleRequest -> DEBU 66b06 HTTP Request: GET /composerchannel_ebl/%00Participant:org.hyperledger.composer.system.NetworkAdmin%00admin%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.848 UTC [couchdb] handleRequest -> DEBU 66b07 Exiting handleRequest()
+2018-09-12 10:57:11.848 UTC [couchdb] ReadDoc -> DEBU 66b08 Exiting ReadDoc()
+2018-09-12 10:57:11.848 UTC [chaincode] HandleTransaction -> DEBU 66b09 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:11.957 UTC [chaincode] handleMessage -> DEBU 66b0a [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:11.957 UTC [chaincode] HandleTransaction -> DEBU 66b0b [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:11.958 UTC [chaincode] HandleGetState -> DEBU 66b0c [b65c1dcb] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper, channel composerchannel
+2018-09-12 10:57:11.958 UTC [statecouchdb] GetState -> DEBU 66b0d GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper
+2018-09-12 10:57:11.958 UTC [couchdb] ReadDoc -> DEBU 66b0e Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper]
+2018-09-12 10:57:11.958 UTC [couchdb] encodePathElement -> DEBU 66b0f Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.ParticipantRegistrytech.threehundredcubits.eBL.Shipper
+2018-09-12 10:57:11.958 UTC [couchdb] encodePathElement -> DEBU 66b10 Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00
+2018-09-12 10:57:11.958 UTC [couchdb] handleRequest -> DEBU 66b11 Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00?attachments=true
+2018-09-12 10:57:11.958 UTC [couchdb] handleRequest -> DEBU 66b12 HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.ParticipantRegistry%00tech.threehundredcubits.eBL.Shipper%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:11.960 UTC [couchdb] handleRequest -> DEBU 66b13 Exiting handleRequest()
+2018-09-12 10:57:11.960 UTC [couchdb] ReadDoc -> DEBU 66b14 Exiting ReadDoc()
+2018-09-12 10:57:11.960 UTC [chaincode] HandleTransaction -> DEBU 66b15 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:12.011 UTC [chaincode] handleMessage -> DEBU 66b16 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:12.011 UTC [chaincode] HandleTransaction -> DEBU 66b17 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:12.011 UTC [chaincode] HandleGetState -> DEBU 66b18 [b65c1dcb] getting state for chaincode ebl, key Participant:tech.threehundredcubits.eBL.ShipperLF, channel composerchannel
+2018-09-12 10:57:12.012 UTC [statecouchdb] GetState -> DEBU 66b19 GetState(). ns=ebl, key=Participant:tech.threehundredcubits.eBL.ShipperLF
+2018-09-12 10:57:12.012 UTC [couchdb] ReadDoc -> DEBU 66b1a Entering ReadDoc()  id=[Participant:tech.threehundredcubits.eBL.ShipperLF]
+2018-09-12 10:57:12.012 UTC [couchdb] encodePathElement -> DEBU 66b1b Entering encodePathElement()  string=Participant:tech.threehundredcubits.eBL.ShipperLF
+2018-09-12 10:57:12.012 UTC [couchdb] encodePathElement -> DEBU 66b1c Exiting encodePathElement()  encodedStr=%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00
+2018-09-12 10:57:12.012 UTC [couchdb] handleRequest -> DEBU 66b1d Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00?attachments=true
+2018-09-12 10:57:12.012 UTC [couchdb] handleRequest -> DEBU 66b1e HTTP Request: GET /composerchannel_ebl/%00Participant:tech.threehundredcubits.eBL.Shipper%00LF%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:12.013 UTC [couchdb] handleRequest -> DEBU 66b1f Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:12.013 UTC [couchdb] ReadDoc -> DEBU 66b20 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:12.013 UTC [chaincode] HandleGetState -> DEBU 66b21 [b65c1dcb] No state associated with key:
+4Participant:tech.threehundredcubits.eBL.ShipperLF. Sending RESPONSE with an empty payload
+2018-09-12 10:57:12.013 UTC [chaincode] HandleTransaction -> DEBU 66b22 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:12.014 UTC [chaincode] handleMessage -> DEBU 66b23 [b65c1dcb] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:57:12.014 UTC [chaincode] HandleTransaction -> DEBU 66b24 [b65c1dcb] handling PUT_STATE from chaincode
+2018-09-12 10:57:12.014 UTC [chaincode] HandleTransaction -> DEBU 66b25 [b65c1dcb] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:57:12.017 UTC [chaincode] handleMessage -> DEBU 66b26 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:12.018 UTC [chaincode] HandleTransaction -> DEBU 66b27 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:12.018 UTC [chaincode] HandleGetState -> DEBU 66b28 [b65c1dcb] getting state for chaincode ebl, key Transaction:org.hyperledger.composer.system.AddParticipantb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, channel composerchannel
+2018-09-12 10:57:12.018 UTC [statecouchdb] GetState -> DEBU 66b29 GetState(). ns=ebl, key=Transaction:org.hyperledger.composer.system.AddParticipantb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8
+2018-09-12 10:57:12.018 UTC [couchdb] ReadDoc -> DEBU 66b2a Entering ReadDoc()  id=[Transaction:org.hyperledger.composer.system.AddParticipantb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:12.018 UTC [couchdb] encodePathElement -> DEBU 66b2b Entering encodePathElement()  string=Transaction:org.hyperledger.composer.system.AddParticipantb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8
+2018-09-12 10:57:12.018 UTC [couchdb] encodePathElement -> DEBU 66b2c Exiting encodePathElement()  encodedStr=%00Transaction:org.hyperledger.composer.system.AddParticipant%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00
+2018-09-12 10:57:12.018 UTC [couchdb] handleRequest -> DEBU 66b2d Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Transaction:org.hyperledger.composer.system.AddParticipant%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00?attachments=true
+2018-09-12 10:57:12.018 UTC [couchdb] handleRequest -> DEBU 66b2e HTTP Request: GET /composerchannel_ebl/%00Transaction:org.hyperledger.composer.system.AddParticipant%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:12.019 UTC [couchdb] handleRequest -> DEBU 66b2f Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:12.019 UTC [couchdb] ReadDoc -> DEBU 66b30 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:12.019 UTC [chaincode] HandleGetState -> DEBU 66b31 [b65c1dcb] No state associated with key:
+}Transaction:org.hyperledger.composer.system.AddParticipantb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8. Sending RESPONSE with an empty payload
+2018-09-12 10:57:12.019 UTC [chaincode] HandleTransaction -> DEBU 66b32 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:12.020 UTC [chaincode] handleMessage -> DEBU 66b33 [b65c1dcb] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:57:12.020 UTC [chaincode] HandleTransaction -> DEBU 66b34 [b65c1dcb] handling PUT_STATE from chaincode
+2018-09-12 10:57:12.020 UTC [chaincode] HandleTransaction -> DEBU 66b35 [b65c1dcb] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:57:12.022 UTC [chaincode] handleMessage -> DEBU 66b36 [b65c1dcb] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-12 10:57:12.022 UTC [chaincode] HandleTransaction -> DEBU 66b37 [b65c1dcb] handling GET_STATE from chaincode
+2018-09-12 10:57:12.022 UTC [chaincode] HandleGetState -> DEBU 66b38 [b65c1dcb] getting state for chaincode ebl, key Asset:org.hyperledger.composer.system.HistorianRecordb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, channel composerchannel
+2018-09-12 10:57:12.022 UTC [statecouchdb] GetState -> DEBU 66b39 GetState(). ns=ebl, key=Asset:org.hyperledger.composer.system.HistorianRecordb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8
+2018-09-12 10:57:12.022 UTC [couchdb] ReadDoc -> DEBU 66b3a Entering ReadDoc()  id=[Asset:org.hyperledger.composer.system.HistorianRecordb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:12.022 UTC [couchdb] encodePathElement -> DEBU 66b3b Entering encodePathElement()  string=Asset:org.hyperledger.composer.system.HistorianRecordb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8
+2018-09-12 10:57:12.022 UTC [couchdb] encodePathElement -> DEBU 66b3c Exiting encodePathElement()  encodedStr=%00Asset:org.hyperledger.composer.system.HistorianRecord%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00
+2018-09-12 10:57:12.022 UTC [couchdb] handleRequest -> DEBU 66b3d Entering handleRequest()  method=GET  url=http://couchdb:5984/composerchannel_ebl/%00Asset:org.hyperledger.composer.system.HistorianRecord%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00?attachments=true
+2018-09-12 10:57:12.022 UTC [couchdb] handleRequest -> DEBU 66b3e HTTP Request: GET /composerchannel_ebl/%00Asset:org.hyperledger.composer.system.HistorianRecord%00b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8%00?attachments=true HTTP/1.1 | Host: couchdb:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2018-09-12 10:57:12.023 UTC [couchdb] handleRequest -> DEBU 66b3f Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-12 10:57:12.023 UTC [couchdb] ReadDoc -> DEBU 66b40 Document not found (404), returning nil value instead of 404 error
+2018-09-12 10:57:12.023 UTC [chaincode] HandleGetState -> DEBU 66b41 [b65c1dcb] No state associated with key:
+xAsset:org.hyperledger.composer.system.HistorianRecordb65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8. Sending RESPONSE with an empty payload
+2018-09-12 10:57:12.023 UTC [chaincode] HandleTransaction -> DEBU 66b42 [b65c1dcb] Completed GET_STATE. Sending RESPONSE
+2018-09-12 10:57:12.024 UTC [chaincode] handleMessage -> DEBU 66b43 [b65c1dcb] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-12 10:57:12.024 UTC [chaincode] HandleTransaction -> DEBU 66b44 [b65c1dcb] handling PUT_STATE from chaincode
+2018-09-12 10:57:12.024 UTC [chaincode] HandleTransaction -> DEBU 66b45 [b65c1dcb] Completed PUT_STATE. Sending RESPONSE
+2018-09-12 10:57:12.026 UTC [chaincode] handleMessage -> DEBU 66b46 [b65c1dcb] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-12 10:57:12.026 UTC [chaincode] Notify -> DEBU 66b47 [b65c1dcb] notifying Txid:b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, channelID:composerchannel
+2018-09-12 10:57:12.026 UTC [chaincode] Execute -> DEBU 66b48 Exit
+2018-09-12 10:57:12.026 UTC [endorser] callChaincode -> DEBU 66b49 [composerchannel][b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8] Exit
+2018-09-12 10:57:12.026 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 66b4a Simulation completed, getting simulation results
+2018-09-12 10:57:12.026 UTC [lockbasedtxmgr] Done -> DEBU 66b4b Done with transaction simulation / query execution [b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:12.026 UTC [endorser] SimulateProposal -> DEBU 66b4c [composerchannel][b65c1dcb] Exit
+2018-09-12 10:57:12.026 UTC [endorser] endorseProposal -> DEBU 66b4d [composerchannel][b65c1dcb] Entry chaincode: name:"ebl"
+2018-09-12 10:57:12.026 UTC [endorser] endorseProposal -> DEBU 66b4e [composerchannel][b65c1dcb] escc for chaincode name:"ebl"  is escc
+2018-09-12 10:57:12.026 UTC [endorser] EndorseWithPlugin -> DEBU 66b4f Entering endorsement for {plugin: escc, channel: composerchannel, tx: b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, chaincode: ebl}
+2018-09-12 10:57:12.026 UTC [endorser] EndorseWithPlugin -> DEBU 66b50 Exiting {plugin: escc, channel: composerchannel, tx: b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8, chaincode: ebl}
+2018-09-12 10:57:12.026 UTC [endorser] endorseProposal -> DEBU 66b51 [composerchannel][b65c1dcb] Exit
+2018-09-12 10:57:12.026 UTC [lockbasedtxmgr] Done -> DEBU 66b52 Done with transaction simulation / query execution [b65c1dcb98debc32f2f1ee9e63f3d16cf9af0d39c1d3de191c484c9ca8c265a8]
+2018-09-12 10:57:12.026 UTC [endorser] ProcessProposal -> DEBU 66b53 Exit: request from 192.168.0.1:34140

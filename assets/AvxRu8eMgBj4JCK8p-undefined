@@ -1,0 +1,127 @@
+UTC [protoutils] ValidateProposalMessage -> DEBU 1164 ValidateProposalMessage starts for signed proposal 0xc421739c20
+2017-03-29 10:21:26.865 UTC [protoutils] validateChannelHeader -> DEBU 1165 validateChannelHeader info: header type 3
+2017-03-29 10:21:26.865 UTC [protoutils] checkSignatureFromCreator -> DEBU 1166 checkSignatureFromCreator starts
+2017-03-29 10:21:26.865 UTC [protoutils] checkSignatureFromCreator -> DEBU 1167 checkSignatureFromCreator info: creator is &{DEFAULT DEFAULT}
+2017-03-29 10:21:26.866 UTC [protoutils] checkSignatureFromCreator -> DEBU 1168 checkSignatureFromCreator info: creator is valid
+2017-03-29 10:21:26.867 UTC [protoutils] checkSignatureFromCreator -> DEBU 1169 checkSignatureFromCreator exists successfully
+2017-03-29 10:21:26.867 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 116a validateChaincodeProposalMessage starts for proposal 0xc422008320, header 0xc421739c50
+2017-03-29 10:21:26.867 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 116b validateChaincodeProposalMessage info: header extension references chaincode name:"lccc"
+2017-03-29 10:21:26.867 UTC [kvledger] retrieveTransactionByID -> DEBU 116c retrieveTransactionByID() - txId = [857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d]
+2017-03-29 10:21:26.867 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 116d constructing new tx simulator
+2017-03-29 10:21:26.868 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 116e constructing new tx simulator [296fb396-56f4-459b-b7f8-dd94f43abdad]
+2017-03-29 10:21:26.868 UTC [ccprovider] NewCCContext -> DEBU 116f NewCCCC (chain=mycc2,chaincode=lccc,version=1.0.0-snapshot-424cbde,txid=857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d,syscc=true,proposal=0xc422008320,canname=lccc:1.0.0-snapshot-424cbde
+2017-03-29 10:21:26.868 UTC [chaincode] Launch -> DEBU 1170 chaincode is running(no need to launch) : lccc:1.0.0-snapshot-424cbde
+2017-03-29 10:21:26.868 UTC [chaincode] sendExecuteMessage -> DEBU 1171 [857bc1ec]Inside sendExecuteMessage. Message TRANSACTION
+2017-03-29 10:21:26.868 UTC [chaincode] setChaincodeProposal -> DEBU 1172 Setting chaincode proposal context...
+2017-03-29 10:21:26.868 UTC [chaincode] setChaincodeProposal -> DEBU 1173 Proposal different from nil. Creating chaincode proposal context...
+2017-03-29 10:21:26.868 UTC [chaincode] sendExecuteMessage -> DEBU 1174 [857bc1ec]sendExecuteMsg trigger event TRANSACTION
+2017-03-29 10:21:26.868 UTC [chaincode] processStream -> DEBU 1175 [857bc1ec]Move state message TRANSACTION
+2017-03-29 10:21:26.868 UTC [chaincode] HandleMessage -> DEBU 1176 [857bc1ec]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2017-03-29 10:21:26.868 UTC [chaincode] filterError -> DEBU 1177 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.868 UTC [chaincode] processStream -> DEBU 1178 [857bc1ec]sending state message TRANSACTION
+2017-03-29 10:21:26.868 UTC [shim] func1 -> DEBU 1179 [857bc1ec]Received message TRANSACTION from shim
+2017-03-29 10:21:26.868 UTC [shim] handleMessage -> DEBU 117a [857bc1ec]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2017-03-29 10:21:26.869 UTC [shim] beforeTransaction -> DEBU 117b [857bc1ec]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2017-03-29 10:21:26.870 UTC [shim] handleGetState -> DEBU 117c [857bc1ec]Sending GET_STATE
+2017-03-29 10:21:26.870 UTC [chaincode] processStream -> DEBU 117d [857bc1ec]Received message GET_STATE from shim
+2017-03-29 10:21:26.870 UTC [chaincode] HandleMessage -> DEBU 117e [857bc1ec]Fabric side Handling ChaincodeMessage of type: GET_STATE in state ready
+2017-03-29 10:21:26.870 UTC [chaincode] afterGetState -> DEBU 117f [857bc1ec]Received GET_STATE, invoking get state from ledger
+2017-03-29 10:21:26.870 UTC [chaincode] filterError -> DEBU 1180 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.870 UTC [chaincode] func1 -> DEBU 1181 [857bc1ec] getting state for chaincode lccc, key mycn2, channel mycc2
+2017-03-29 10:21:26.871 UTC [stateleveldb] GetState -> DEBU 1182 GetState(). ns=lccc, key=mycn2
+2017-03-29 10:21:26.871 UTC [chaincode] func1 -> DEBU 1183 [857bc1ec]No state associated with key: mycn2. Sending RESPONSE with an empty payload
+2017-03-29 10:21:26.871 UTC [chaincode] 1 -> DEBU 1184 [857bc1ec]handleGetState serial send RESPONSE
+2017-03-29 10:21:26.871 UTC [shim] func1 -> DEBU 1185 [857bc1ec]Received message RESPONSE from shim
+2017-03-29 10:21:26.871 UTC [shim] handleMessage -> DEBU 1186 [857bc1ec]Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2017-03-29 10:21:26.871 UTC [shim] sendChannel -> DEBU 1187 [857bc1ec]before send
+2017-03-29 10:21:26.871 UTC [shim] sendChannel -> DEBU 1188 [857bc1ec]after send
+2017-03-29 10:21:26.871 UTC [shim] afterResponse -> DEBU 1189 [857bc1ec]Received RESPONSE, communicated (state:ready)
+2017-03-29 10:21:26.871 UTC [shim] handleGetState -> DEBU 118a [857bc1ec]GetState received payload RESPONSE
+2017-03-29 10:21:26.872 UTC [shim] handlePutState -> DEBU 118b [857bc1ec]Inside putstate
+2017-03-29 10:21:26.872 UTC [shim] handlePutState -> DEBU 118c [857bc1ec]Sending PUT_STATE
+2017-03-29 10:21:26.872 UTC [chaincode] processStream -> DEBU 118d [857bc1ec]Received message PUT_STATE from shim
+2017-03-29 10:21:26.872 UTC [chaincode] HandleMessage -> DEBU 118e [857bc1ec]Fabric side Handling ChaincodeMessage of type: PUT_STATE in state ready
+2017-03-29 10:21:26.872 UTC [chaincode] filterError -> DEBU 118f Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.872 UTC [chaincode] func1 -> DEBU 1190 [857bc1ec]state is ready
+2017-03-29 10:21:26.872 UTC [chaincode] func1 -> DEBU 1191 [857bc1ec]Completed PUT_STATE. Sending RESPONSE
+2017-03-29 10:21:26.873 UTC [chaincode] 1 -> DEBU 1192 [857bc1ec]enterBusyState trigger event RESPONSE
+2017-03-29 10:21:26.873 UTC [chaincode] processStream -> DEBU 1193 [857bc1ec]Move state message RESPONSE
+2017-03-29 10:21:26.873 UTC [chaincode] HandleMessage -> DEBU 1194 [857bc1ec]Fabric side Handling ChaincodeMessage of type: RESPONSE in state ready
+2017-03-29 10:21:26.873 UTC [chaincode] filterError -> DEBU 1195 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.873 UTC [chaincode] processStream -> DEBU 1196 [857bc1ec]sending state message RESPONSE
+2017-03-29 10:21:26.874 UTC [shim] func1 -> DEBU 1197 [857bc1ec]Received message RESPONSE from shim
+2017-03-29 10:21:26.874 UTC [shim] handleMessage -> DEBU 1198 [857bc1ec]Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2017-03-29 10:21:26.874 UTC [shim] sendChannel -> DEBU 1199 [857bc1ec]before send
+2017-03-29 10:21:26.875 UTC [shim] sendChannel -> DEBU 119a [857bc1ec]after send
+2017-03-29 10:21:26.875 UTC [shim] afterResponse -> DEBU 119b [857bc1ec]Received RESPONSE, communicated (state:ready)
+2017-03-29 10:21:26.876 UTC [shim] handlePutState -> DEBU 119c [857bc1ec]Received RESPONSE. Successfully updated state
+2017-03-29 10:21:26.876 UTC [shim] func1 -> DEBU 119d [857bc1ec]Transaction completed. Sending COMPLETED
+2017-03-29 10:21:26.877 UTC [shim] func1 -> DEBU 119e [857bc1ec]Move state message COMPLETED
+2017-03-29 10:21:26.877 UTC [shim] handleMessage -> DEBU 119f [857bc1ec]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-29 10:21:26.877 UTC [shim] func1 -> DEBU 11a0 [857bc1ec]send state message COMPLETED
+2017-03-29 10:21:26.877 UTC [chaincode] processStream -> DEBU 11a1 [857bc1ec]Received message COMPLETED from shim
+2017-03-29 10:21:26.877 UTC [chaincode] HandleMessage -> DEBU 11a2 [857bc1ec]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-29 10:21:26.877 UTC [chaincode] HandleMessage -> DEBU 11a3 [857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d]HandleMessage- COMPLETED. Notify
+2017-03-29 10:21:26.877 UTC [chaincode] notify -> DEBU 11a4 notifying Txid:857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d
+2017-03-29 10:21:26.878 UTC [ccprovider] NewCCContext -> DEBU 11a5 NewCCCC (chain=mycc2,chaincode=mycn2,version=v0,txid=857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d,syscc=false,proposal=0xc422008320,canname=mycn2:v0
+2017-03-29 10:21:26.878 UTC [chaincode] Launch -> DEBU 11a6 chaincode is running(no need to launch) : mycn2:v0
+2017-03-29 10:21:26.878 UTC [chaincode] sendExecuteMessage -> DEBU 11a7 [857bc1ec]Inside sendExecuteMessage. Message INIT
+2017-03-29 10:21:26.878 UTC [chaincode] setChaincodeProposal -> DEBU 11a8 Setting chaincode proposal context...
+2017-03-29 10:21:26.878 UTC [chaincode] setChaincodeProposal -> DEBU 11a9 Proposal different from nil. Creating chaincode proposal context...
+2017-03-29 10:21:26.879 UTC [chaincode] sendExecuteMessage -> DEBU 11aa [857bc1ec]sendExecuteMsg trigger event INIT
+2017-03-29 10:21:26.879 UTC [chaincode] processStream -> DEBU 11ab [857bc1ec]Move state message INIT
+2017-03-29 10:21:26.879 UTC [chaincode] HandleMessage -> DEBU 11ac [857bc1ec]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-29 10:21:26.879 UTC [chaincode] filterError -> DEBU 11ad Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.879 UTC [chaincode] processStream -> DEBU 11ae [857bc1ec]sending state message INIT
+2017-03-29 10:21:26.882 UTC [chaincode] processStream -> DEBU 11af [857bc1ec]Received message PUT_STATE from shim
+2017-03-29 10:21:26.882 UTC [chaincode] HandleMessage -> DEBU 11b0 [857bc1ec]Fabric side Handling ChaincodeMessage of type: PUT_STATE in state ready
+2017-03-29 10:21:26.882 UTC [chaincode] filterError -> DEBU 11b1 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.882 UTC [chaincode] func1 -> DEBU 11b2 [857bc1ec]state is ready
+2017-03-29 10:21:26.882 UTC [chaincode] func1 -> DEBU 11b3 [857bc1ec]Completed PUT_STATE. Sending RESPONSE
+2017-03-29 10:21:26.882 UTC [chaincode] 1 -> DEBU 11b4 [857bc1ec]enterBusyState trigger event RESPONSE
+2017-03-29 10:21:26.882 UTC [chaincode] processStream -> DEBU 11b5 [857bc1ec]Move state message RESPONSE
+2017-03-29 10:21:26.882 UTC [chaincode] HandleMessage -> DEBU 11b6 [857bc1ec]Fabric side Handling ChaincodeMessage of type: RESPONSE in state ready
+2017-03-29 10:21:26.882 UTC [chaincode] filterError -> DEBU 11b7 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.882 UTC [chaincode] processStream -> DEBU 11b8 [857bc1ec]sending state message RESPONSE
+2017-03-29 10:21:26.882 UTC [chaincode] processStream -> DEBU 11b9 [857bc1ec]Received message PUT_STATE from shim
+2017-03-29 10:21:26.882 UTC [chaincode] HandleMessage -> DEBU 11ba [857bc1ec]Fabric side Handling ChaincodeMessage of type: PUT_STATE in state ready
+2017-03-29 10:21:26.883 UTC [chaincode] func1 -> DEBU 11bc [857bc1ec]state is ready
+2017-03-29 10:21:26.883 UTC [chaincode] func1 -> DEBU 11bd [857bc1ec]Completed PUT_STATE. Sending RESPONSE
+2017-03-29 10:21:26.883 UTC [chaincode] 1 -> DEBU 11be [857bc1ec]enterBusyState trigger event RESPONSE
+2017-03-29 10:21:26.883 UTC [chaincode] filterError -> DEBU 11bb Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.883 UTC [chaincode] processStream -> DEBU 11bf [857bc1ec]Move state message RESPONSE
+2017-03-29 10:21:26.883 UTC [chaincode] HandleMessage -> DEBU 11c0 [857bc1ec]Fabric side Handling ChaincodeMessage of type: RESPONSE in state ready
+2017-03-29 10:21:26.883 UTC [chaincode] filterError -> DEBU 11c1 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.883 UTC [chaincode] processStream -> DEBU 11c2 [857bc1ec]sending state message RESPONSE
+2017-03-29 10:21:26.883 UTC [chaincode] processStream -> DEBU 11c3 [857bc1ec]Received message COMPLETED from shim
+2017-03-29 10:21:26.883 UTC [chaincode] HandleMessage -> DEBU 11c4 [857bc1ec]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-29 10:21:26.883 UTC [chaincode] HandleMessage -> DEBU 11c5 [857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d]HandleMessage- COMPLETED. Notify
+2017-03-29 10:21:26.883 UTC [chaincode] notify -> DEBU 11c6 notifying Txid:857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d
+2017-03-29 10:21:26.883 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 11c7 Simulation completed, getting simulation results
+2017-03-29 10:21:26.883 UTC [lockbasedtxmgr] Done -> DEBU 11c8 Done with transaction simulation / query execution [296fb396-56f4-459b-b7f8-dd94f43abdad]
+2017-03-29 10:21:26.884 UTC [endorser] endorseProposal -> DEBU 11c9 endorseProposal starts for chainID mycc2, ccid name:"lccc"
+2017-03-29 10:21:26.884 UTC [endorser] endorseProposal -> DEBU 11ca endorseProposal info: escc for cid name:"lccc"  is escc
+2017-03-29 10:21:26.884 UTC [ccprovider] NewCCContext -> DEBU 11cb NewCCCC (chain=mycc2,chaincode=escc,version=1.0.0-snapshot-424cbde,txid=857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d,syscc=true,proposal=0xc422008320,canname=escc:1.0.0-snapshot-424cbde
+2017-03-29 10:21:26.884 UTC [chaincode] Launch -> DEBU 11cc chaincode is running(no need to launch) : escc:1.0.0-snapshot-424cbde
+2017-03-29 10:21:26.884 UTC [chaincode] sendExecuteMessage -> DEBU 11cd [857bc1ec]Inside sendExecuteMessage. Message TRANSACTION
+2017-03-29 10:21:26.884 UTC [chaincode] setChaincodeProposal -> DEBU 11ce Setting chaincode proposal context...
+2017-03-29 10:21:26.884 UTC [chaincode] setChaincodeProposal -> DEBU 11cf Proposal different from nil. Creating chaincode proposal context...
+2017-03-29 10:21:26.884 UTC [chaincode] sendExecuteMessage -> DEBU 11d0 [857bc1ec]sendExecuteMsg trigger event TRANSACTION
+2017-03-29 10:21:26.884 UTC [chaincode] processStream -> DEBU 11d1 [857bc1ec]Move state message TRANSACTION
+2017-03-29 10:21:26.884 UTC [chaincode] HandleMessage -> DEBU 11d2 [857bc1ec]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2017-03-29 10:21:26.884 UTC [chaincode] filterError -> DEBU 11d3 Ignoring NoTransitionError: no transition
+2017-03-29 10:21:26.884 UTC [chaincode] processStream -> DEBU 11d4 [857bc1ec]sending state message TRANSACTION
+2017-03-29 10:21:26.884 UTC [shim] func1 -> DEBU 11d5 [857bc1ec]Received message TRANSACTION from shim
+2017-03-29 10:21:26.884 UTC [shim] handleMessage -> DEBU 11d6 [857bc1ec]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2017-03-29 10:21:26.884 UTC [shim] beforeTransaction -> DEBU 11d7 [857bc1ec]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2017-03-29 10:21:26.884 UTC [escc] Invoke -> DEBU 11d8 ESCC starts: 7 args
+2017-03-29 10:21:26.884 UTC [escc] Invoke -> DEBU 11d9 ESCC exits successfully
+2017-03-29 10:21:26.884 UTC [shim] func1 -> DEBU 11da [857bc1ec]Transaction completed. Sending COMPLETED
+2017-03-29 10:21:26.885 UTC [shim] func1 -> DEBU 11db [857bc1ec]Move state message COMPLETED
+2017-03-29 10:21:26.885 UTC [shim] handleMessage -> DEBU 11dc [857bc1ec]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-29 10:21:26.885 UTC [shim] func1 -> DEBU 11dd [857bc1ec]send state message COMPLETED
+2017-03-29 10:21:26.885 UTC [chaincode] processStream -> DEBU 11de [857bc1ec]Received message COMPLETED from shim
+2017-03-29 10:21:26.885 UTC [chaincode] HandleMessage -> DEBU 11df [857bc1ec]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-29 10:21:26.885 UTC [chaincode] HandleMessage -> DEBU 11e0 [857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d]HandleMessage- COMPLETED. Notify
+2017-03-29 10:21:26.885 UTC [chaincode] notify -> DEBU 11e1 notifying Txid:857bc1eccbbc789db0545c6bb357c36f3459fe9be819adb95a7cd29c0f594f3d
+2017-03-29 10:21:26.885 UTC [lockbasedtxmgr] Done -> DEBU 11e2 Done with transaction simulation / query execution [296fb396-56f4-459b-b7f8-dd94f43abdad]

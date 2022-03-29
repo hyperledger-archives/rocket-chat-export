@@ -1,0 +1,274 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>jsmitchell</strong> (Thu, 23 May 2019 15:54:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>amundson</strong> (Thu, 23 May 2019 15:58:30 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>DjCillers</strong> (Sun, 16 Jun 2019 11:12:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>varubasi77</strong> (Tue, 18 Jun 2019 18:55:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>AmimKnabben</strong> (Thu, 20 Jun 2019 01:47:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ruairih</strong> (Thu, 20 Jun 2019 15:48:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mpiekarska</strong> (Mon, 24 Jun 2019 08:16:57 GMT):<br/>
+Thanks for your active participation and discussion. Slides, meeting notes, and recording will be posted on Supply Chain SIG wiki home page.
+
+A few discrete action items highlighted in red. There are action items requested by everyone in projects.
+
+As a reminder if you have not joined a specific project yet, please consider doing so. Start by adding your name to projects, and contributing content. 
+
+Thank you. 
+
+Meeting Minutes - 6/20/2019
+
+General:
+Reviewed poll result to determine SIG meeting time - Thursday, 9am PST still a top choice. Poll is opened indefinitely for everyone to vote. 
+Recognized Marco Carvalho, Adnan Iftekhar, and Zaher Srour for their community leadership and enthusiastic contribution in the last two weeks 
+Shared a few industry news items- The retailer, Target, unveiled and open sourced project ConsenSource, that runs on sawtooth. Codebase is in GitHub, FB announced Libra, Fed government doing a study on how they may use blockchain with Booz Allen (see slides for links to articles, and repos, etc)
+
+Open Discussions:
+Suggestion: It would be good to get an update on progress made in food consortiums, find contacts and invite them to present, make it part of the discussions: MediLedger, FoodTrust, Target’s ConsenSource (if anyone knows someone who can speak about these consortiums feel free to invite them, and we can add them to the agenda). Everyone - invite contacts from these food consortiums to come and present in our SIG meeting. 
+Suggestion: Bret Carpenter will send abstract of his proposed talk on use of Geospatial info, for potential inclusion in a future SIG meeting. 
+Question: Grid project details and code repo may be found here: https://wiki.hyperledger.org/display/GRID/Hyperledger+Grid
+
+Member Introductions: 
+Joseph Catende - FL, Accountant, F500 company, Interested in Grid, access to codebase, Entrepreneur - Github. Startup - How GTM can be made into an agile process.
+Bret Carpenter - Financial professional, Asset management in precious metal. Bold Forward with CDW, Inception program with Nvidia - Geospatial - Would like to present AR and Geospatial technology he is developing. 
+Kamlesh - Pune, India - Startup, IT, Building supply chain solutions for different sectors based on Hyperledger Fabric
+Christian Winzeler - Works in RSM, based in S. California, Food & Beverage consulting practice, interested in Food Safety
+Amim Knabben - Logistics company in NY
+Wesley Graham - Oracle, Product Management, Track and Trace app, interested in defining standards 
+John Hopkins - Track and Trace  for a cannibis startup, interested in Grid, working on Semantics Working Group working on overlays to create shared context across different ledgers
+
+Project Updates: 
+
+	Food Safety Project Meeting Notes
+Add Ripe.io, Corda, Food Trust
+Add more details to scope
+Deliverable suggestion - one stop shop for understanding where the industry is at, best practices, analysis of consortium models - what’s unique about them
+Talk about how these interact with outside systems - return data - how do we make it easy for getting that data in/out of blockchain - Bret has done some work in Blockchain and AWS - Integration/Interoperability heading/bullet is needed.
+Vivek Ahuja & Michael Ribet from Sofbang will join this project - please add yourself to wiki.
+</p>
+<p><strong>mpiekarska</strong> (Mon, 24 Jun 2019 08:17:12 GMT):<br/>
+
+
+	Supply Chain Contract Template Meeting Notes
+Defining interactions, taxonomy, participants
+Start with High level - types of smart contracts with supply chain. Then go to industry specific smart contracts (pharma, beverage, life science)
+Its not system specific - hyperledger fabric or sawtooth - that’s implementation detail. This project seeks to capture the business logic - data model, state transitions, business logic is the smart contract implementing.
+Create a spec for smart contract logic - what capabilities should the smart contract support. 
+Project Transact will be announced shortly - integration points for blockchain with supply chain processes
+Be more specific to particular supply chain sub-processes e.g. purchase orders, reconciliation, acceptance notices, etc. talking about how smart contracts deal with these sub-processes. 
+Does what asset you monitor also has an implication on smart contract logic - it should be a nuance worth covering
+One idea - group can review BiTA specs - https://static1.squarespace.com/static/5aa97ac8372b96325bb9ad66/t/5c7e8882f9619a98a55ec24d/1551796355748/BiTAS+Location+Component+Specification+v4.pdf (Dave to check if this is current or not) - and propose smart contracts that can handle state transitions with the events.
+GS1 also has defined EPCIS for data models and state transitions, which could be used to build logic for smart contract template - https://www.gs1.org/sites/default/files/docs/epc/EPCIS-Standard-1.2-r-2016-09-29.pdf. 
+
+	Use Case Repository:
+Mark and Jay to create a wiki based structure that we can use to define each use case.
+Everyone writes editable use cases (sample will be posted) on wiki for collaborative editing
+Create categories for use cases - by industry - retail, food, pharma, discrete manufacturing, process manufacturing, logistics, etc. 
+
+	Using Blockchain for Drug Supply Chain Security Act 
+Action: Put a link to the actual DSCSA regulation document
+Government wants to more granuarly track drugs in supply chain
+Ben shared a link to the FDA page that outlines things like MediLedger - their specs for smart contracts are on Github
+Legislation is being transformed into specs through 2023 - i.e. Unique identifier for all drugs at a salable unit level that carries though from manufacturer, to wholesaler, to pharmacy - several FDA pilots are underway
+One use case for MediLedger is to verify returned drugs 
+Baiju, Marco, Ben and others will jump on a call next week - others please add your name to wiki if you want to be included in that call.
+FDA already has a “guidance document” - Ben to provide link on wiki page - that’s already established data models, schemas, etc.
+Also, GS1 has a spec for healthcare and pharmaceutical already - that talks about DSCSA - to frame up data models and schemas - https://www.gs1us.org/industries/healthcare/standards-in-use/pharmaceutical. For this use case, defining a schema (data model) and smart contracts to handle the type of transactions that need to be processed by a distributed solution would be a great exercise for this use case.  ("Definition of Done" could be completing those deliverables.)
+Marta to make introductions to GS1 team, and invite them to the next call
+
+</p>
+<p><strong>mpiekarska</strong> (Mon, 24 Jun 2019 08:18:10 GMT):<br/>
+Original Message here https://lists.hyperledger.org/g/supply-chain-sig/message/37
+</p>
+<p><strong>changeagent</strong> (Wed, 03 Jul 2019 20:27:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kenty</strong> (Thu, 04 Jul 2019 16:12:23 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>invaliduser</strong> (Sat, 13 Jul 2019 13:23:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Tatse</strong> (Wed, 17 Jul 2019 05:35:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jsmitchell</strong> (Tue, 30 Jul 2019 19:25:36 GMT):<br/>
+Are there minutes/recordings from the July 25th meeting? I can't find them on the wiki.
+</p>
+<p><strong>GhanVashishtha</strong> (Wed, 31 Jul 2019 07:14:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>raccoonrat</strong> (Wed, 07 Aug 2019 01:47:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>lehors</strong> (Thu, 08 Aug 2019 16:45:28 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>amundson</strong> (Thu, 26 Sep 2019 17:17:28 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>arsulegai</strong> (Wed, 09 Oct 2019 04:03:03 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>JitendraHushare</strong> (Wed, 16 Oct 2019 03:19:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>iampukar</strong> (Thu, 28 Nov 2019 06:19:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>harrywright</strong> (Wed, 18 Dec 2019 18:06:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Silona</strong> (Tue, 14 Jan 2020 17:06:13 GMT):<br/>
+Calling all Projects, SIG, and WG!!!  We will have a Video recording Studio setup at HGF (Hyperledger Global Forum). We are asking that all projects and groups help us create a 5 minute video about your group so that we can promote it afterward. Sign up Here! https://wiki.hyperledger.org/display/HGF/Video+Recording+Schedule
+</p>
+<p><strong>tickmatrix</strong> (Thu, 16 Jan 2020 10:30:20 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sankarshanm</strong> (Thu, 16 Jan 2020 10:32:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 05:36:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 05:39:59 GMT):<br/>
+Hi @Silona , is that possible to know more detaild agenda for "Pharma presentation by Priya Gopal " being held on 20th of Feb? 
+Because it is going to be 2 am in the morning if i would particiate into this call and wanted to know if it is worth participating . 
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 05:39:59 GMT):<br/>
+Hi @Silona , is that possible to know more detaild agenda for "Pharma presentation by Priya Gopal " being held on 20th of Feb? 
+Because it is going to be 2 am in the morning if i would particiate into this call and wanted to know if it is worth checking out in real time . 
+</p>
+<p><strong>Silona</strong> (Thu, 06 Feb 2020 05:58:59 GMT):<br/>
+I'm not sure it would be best to ask the chair. If you look on their page on the wiki... It should be there. Cheers!
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot. Also, does anyone in the group have references indicating the data with regard to serialization being replaceable with blockchain in pharma? most of papers, reports i googled were around in 2018 which the market was at its peak 
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot. Also, does anyone in the group have references indicating the data with regard to serialization being replaceable with blockchain in pharma? most of papers, reports i found were around in 2018 which the market was at its peak
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot. Also, does anyone in the group have references indicating the data with regard to serialization being replaceable with blockchain in pharma? most of papers, reports i found were around in 2018 which the market was at its peak and i wonder if there is any latest reports or papers in 2019
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot. Also, does anyone in the group have references indicating the data with regard to serialization being replaceable with blockchain in pharma? most of papers, reports i found were around in 2018 which market was at its peak and i wonder if there is any latest reports or papers in 2019
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:19 GMT):<br/>
+thanks a lot. Also, does anyone in the group have references indicating the data with regard to a mention of serialization being replaceable with blockchain in pharma? most of papers, reports i found were around in 2018 which market was at its peak and i wonder if there is any latest reports or papers in 2019
+</p>
+<p><strong>Tomomi.Yamano</strong> (Thu, 06 Feb 2020 06:15:23 GMT):<br/>
+@Silona 
+</p>
+<p><strong>ajayjadhav</strong> (Wed, 19 Feb 2020 08:19:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ajayjadhav</strong> (Wed, 19 Feb 2020 08:21:14 GMT):<br/>
+Hello everyone, are there any use cases being (or already) discussed in this group around the use of Blockchain/DLT in Air Cargo industry?
+</p>
+<p><strong>Patrick-Erichsen</strong> (Wed, 04 Mar 2020 22:52:28 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Patrick-Erichsen</strong> (Wed, 04 Mar 2020 22:52:28 GMT):<br/>
+Would it be possible to get a copy of the email sent out that Brian mentioned in his keynote this morning? Around the use case that a prof from Auburn has been working. 
+</p>
+<p><strong>YokeshSankar</strong> (Fri, 06 Mar 2020 07:44:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dineshthemacho1</strong> (Mon, 09 Mar 2020 06:26:19 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>knowledgebroker</strong> (Fri, 15 May 2020 02:27:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>matgnt</strong> (Wed, 20 May 2020 14:31:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>hidura</strong> (Thu, 04 Jun 2020 22:59:20 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>knagware9</strong> (Thu, 23 Jul 2020 11:15:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ever-upwards</strong> (Wed, 02 Sep 2020 16:45:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>AbhinavMakker</strong> (Sun, 06 Sep 2020 09:55:15 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>AbhinavMakker</strong> (Sun, 06 Sep 2020 09:55:15 GMT):<br/>
+Hi, hope you all are doing good. I am a blockchain enthusiast and is proactively looking forward to contribute to this project as a developer. Kindly suggest how to embark on this journey.
+</p>
+<p><strong>JasleenBindra</strong> (Tue, 08 Sep 2020 17:19:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mammutjaeger</strong> (Tue, 22 Sep 2020 09:54:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mammutjaeger</strong> (Tue, 22 Sep 2020 09:58:10 GMT):<br/>
+Hi everyone, I am interested in writing my master thesis on a supply chain-related Hyperledger Fabric use case. Is there any specific use case you are working on at the moment. I would like to set up a handy prototype. Best Regards Simon
+</p>
+<p><strong>mammutjaeger</strong> (Tue, 22 Sep 2020 09:58:10 GMT):<br/>
+Hi everyone, I am interested in writing my master thesis on a supply chain-related Hyperledger Fabric use case. Is there any specific use case you are working on at the moment? I would like to set up a handy prototype. Best Regards Simon
+</p>
+<p><strong>amonter5</strong> (Thu, 29 Oct 2020 11:49:19 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>amonter5</strong> (Thu, 29 Oct 2020 11:49:21 GMT):<br/>
+Hi everyone,
+
+My name is Adrian founder of GST. We are a global tech community in 35+ countries and we have partnered with the Hyperledger community in the past to make connections worldwide.
+
+I just had a chat with David Boswell, and he mentioned you guys are doing webinars for the community and present projects and/or startups relating to Social impact blockchain solutions.
+
+Now, I’m reaching out because we are interested in helping those projects connect with the right partners in multiple new markets for the purpose of scaling up, finding sales, and distribution channels.
+
+We do this through a matching engine by matching real-world organizational problems with solutions. We would love and get more data on those projects here. Check out this post https://medium.com/globalsouthtech/looking-for-teams-startups-and-projects-to-help-them-scale-up-bce9497eadfa
+
+I would love to engage further with this group and explore collaborations if any comments please just let me know
+
+Thanks a lot
+Adrian
+</p>
+<p><strong>bmsuite</strong> (Thu, 29 Oct 2020 12:06:51 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>squarfed</strong> (Tue, 27 Apr 2021 17:49:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>gusBar</strong> (Thu, 06 May 2021 05:13:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>indranil32</strong> (Wed, 23 Jun 2021 05:14:30 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>indranil32</strong> (Wed, 23 Jun 2021 05:17:04 GMT):<br/>
+Has there been any initiative to support EDIs related to Supply Chains out of the box in Grid or Sawtooth ?
+</p>
+<p><strong>DPJ</strong> (Wed, 14 Jul 2021 03:46:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>DPJ</strong> (Wed, 14 Jul 2021 03:47:47 GMT):<br/>
+Hi Adrian
+</p>
+<p><strong>ErikValiquette</strong> (Sat, 15 Jan 2022 00:37:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Ravjot</strong> (Tue, 18 Jan 2022 17:43:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sbohanlf</strong> (Tue, 25 Jan 2022 15:23:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>

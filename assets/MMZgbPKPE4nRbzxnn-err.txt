@@ -1,0 +1,53 @@
+#########  Generating Orderer Genesis block ##############
++ configtxgen -profile POCGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+2020-05-02 11:36:24.499 IST [common.tools.configtxgen] main -> INFO 001 Loading configuration
+2020-05-02 11:36:24.514 IST [common.tools.configtxgen] func1 -> PANI 002 interface conversion: interface {} is nil, not string
+panic: interface conversion: interface {} is nil, not string [recovered]
+	panic: interface conversion: interface {} is nil, not string
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc000143d90, 0x0, 0x0, 0x0)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:230 +0x545
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).log(0xc00051a188, 0x4, 0xc000132e80, 0x35, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0x100
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).Panicf(...)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159
+github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panic(0xc00051a190, 0xc0002b00b0, 0x1, 0x1)
+	/__w/1/go/src/github.com/hyperledger/fabric/common/flogging/zap.go:73 +0x99
+main.main.func1()
+	/__w/1/go/src/github.com/hyperledger/fabric/cmd/configtxgen/main.go:253 +0x176
+panic(0xadd300, 0xc0001fd3e0)
+	/usr/local/go/src/runtime/panic.go:967 +0x166
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodeStructFromMap(0xc000010608, 0xc00050a7e0, 0x10, 0xacd0e0, 0xc000148d50, 0x15, 0xb6ed20, 0xc0001be6c0, 0x199, 0xc000148d50, ...)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:1109 +0x1c10
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodeStruct(0xc000010608, 0xc00050a7e0, 0x10, 0xacd0e0, 0xc000148d50, 0xb6ed20, 0xc0001be6c0, 0x199, 0xacd0e0, 0xc000148d50)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:959 +0x540
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decode(0xc000010608, 0xc00050a7e0, 0x10, 0xacd0e0, 0xc000148d50, 0xb6ed20, 0xc0001be6c0, 0x199, 0xacd0e0, 0xc000148d50)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:288 +0x72e
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodePtr(0xc000010608, 0xc00050a7e0, 0x10, 0xacd0e0, 0xc000148d50, 0xabf8c0, 0xc0001fd2f0, 0x196, 0xacd0e0, 0xc000148d50)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:775 +0x39b
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decode(0xc000010608, 0xc00050a7e0, 0x10, 0xacd0e0, 0xc000148d50, 0xabf8c0, 0xc0001fd2f0, 0x196, 0xc00000ff80, 0x97)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:292 +0x65e
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodeSlice(0xc000010608, 0xa6659f, 0xd, 0xa87fa0, 0xc00000ff80, 0xa82d60, 0xc0000a3458, 0x197, 0xa87fa0, 0xc00000ff80)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:863 +0x45c
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decode(0xc000010608, 0xa6659f, 0xd, 0xa87fa0, 0xc00000ff80, 0xa82d60, 0xc0000a3458, 0x197, 0x94, 0x0)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:294 +0x7e4
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodeStructFromMap(0xc000010608, 0x0, 0x0, 0xacf840, 0xc000224de0, 0x15, 0xb5a680, 0xc0000a3450, 0x199, 0xc000224de0, ...)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:1101 +0x1715
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decodeStruct(0xc000010608, 0x0, 0x0, 0xacf840, 0xc000224de0, 0xb5a680, 0xc0000a3450, 0x199, 0xacf840, 0xc000224de0)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:959 +0x540
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).decode(0xc000010608, 0x0, 0x0, 0xacf840, 0xc000224de0, 0xb5a680, 0xc0000a3450, 0x199, 0xc0000a3450, 0x199)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:288 +0x72e
+github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure.(*Decoder).Decode(0xc000010608, 0xacf840, 0xc000224de0, 0x0, 0xc0001b3e20)
+	/__w/1/go/src/github.com/hyperledger/fabric/vendor/github.com/mitchellh/mapstructure/mapstructure.go:222 +0xf0
+github.com/hyperledger/fabric/common/viperutil.EnhancedExactUnmarshal(0xc000197d48, 0xabf9e0, 0xc0000a3450, 0x2, 0x11ac720)
+	/__w/1/go/src/github.com/hyperledger/fabric/common/viperutil/config_util.go:352 +0x335
+github.com/hyperledger/fabric/internal/configtxgen/genesisconfig.(*configCache).load(0x117c9d0, 0xc000197d48, 0xc00003ee80, 0x34, 0x0, 0x0, 0x0)
+	/__w/1/go/src/github.com/hyperledger/fabric/internal/configtxgen/genesisconfig/config.go:471 +0x27d
+github.com/hyperledger/fabric/internal/configtxgen/genesisconfig.Load(0x7ffdd74bc5bd, 0xa, 0x0, 0x0, 0x0, 0x0)
+	/__w/1/go/src/github.com/hyperledger/fabric/internal/configtxgen/genesisconfig/config.go:257 +0x313
+main.main()
+	/__w/1/go/src/github.com/hyperledger/fabric/cmd/configtxgen/main.go:268 +0xf56
++ res=2
++ set +x
+Failed to generate genesis block...

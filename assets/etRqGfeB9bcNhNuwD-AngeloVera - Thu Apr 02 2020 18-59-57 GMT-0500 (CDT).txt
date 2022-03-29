@@ -1,0 +1,50 @@
+angelo@angelo-VirtualBox:~/Caliper/caliper-benchmarks$ npx caliper benchmark run --caliper-benchconfig benchmarks/samples/fabric/marbles/config.yaml --caliper-networkconfig networks/fabric/fabric-v1.1/2org1peergoleveldb/fabric-go.yaml --caliper-workspace .
+Benchmark for target Blockchain type fabric about to start
+2020.04.02-18:29:54.020 info  [caliper] [benchmark-validator] No observer specified, will default to `none`
+2020.04.02-18:29:54.021 info  [caliper] [caliper-flow] ####### Caliper Test #######
+2020.04.02-18:29:54.026 info  [caliper] [null-observer] Configured observer
+2020.04.02-18:29:54.029 info  [caliper] [caliper-utils] Executing command: cd /home/angelo/Caliper/caliper-benchmarks;docker-compose -f networks/fabric/docker-compose/2org1peergoleveldb/docker-compose.yaml up -d;sleep 3s
+The FABRIC_VERSION variable is not set. Defaulting to a blank string.
+Couldn't connect to Docker daemon at http+docker://localunixsocket - is it running?
+
+If it's at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
+2020.04.02-18:29:58.696 info  [caliper] [adapters/fabric] Fabric SDK version: 1.1.0; TLS: none
+error: [NetworkConfig101.js]: NetworkConfig101 - problem reading the PEM file :: Error: ENOENT: no such file or directory, open '/home/angelo/Caliper/caliper-benchmarks/networks/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem'
+2020.04.02-18:29:58.748 error [caliper] [caliper-flow] Error: Error: ENOENT: no such file or directory, open '/home/angelo/Caliper/caliper-benchmarks/networks/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at readFileSync (/home/angelo/Caliper/caliper-benchmarks/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:409:17)
+    at getPEMfromConfig (/home/angelo/Caliper/caliper-benchmarks/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:398:13)
+    at NetworkConfig_1_0.getOrganization (/home/angelo/Caliper/caliper-benchmarks/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:297:16)
+    at Client._setAdminFromConfig (/home/angelo/Caliper/caliper-benchmarks/node_modules/fabric-client/lib/Client.js:1254:51)
+    at Client.loadFromConfig (/home/angelo/Caliper/caliper-benchmarks/node_modules/fabric-client/lib/Client.js:140:9)
+    at Fabric._prepareClientProfile (/home/angelo/Caliper/caliper-benchmarks/node_modules/@hyperledger/caliper-fabric/lib/fabric.js:1644:17)
+    at Fabric._initializeRegistrars (/home/angelo/Caliper/caliper-benchmarks/node_modules/@hyperledger/caliper-fabric/lib/fabric.js:800:47)
+    at Fabric.init (/home/angelo/Caliper/caliper-benchmarks/node_modules/@hyperledger/caliper-fabric/lib/fabric.js:2310:20)
+2020.04.02-18:29:58.750 info  [caliper] [caliper-utils] Executing command: cd /home/angelo/Caliper/caliper-benchmarks;docker-compose -f networks/fabric/docker-compose/2org1peergoleveldb/docker-compose.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+The FABRIC_VERSION variable is not set. Defaulting to a blank string.
+Couldn't connect to Docker daemon at http+docker://localunixsocket - is it running?
+
+If it's at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/images/json?filters=%7B%22reference%22%3A%7B%22dev%2A%22%3Atrue%7D%7D: dial unix /var/run/docker.sock: connect: permission denied
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/images/json?filters=%7B%22reference%22%3A%7B%22dev%2A%22%3Atrue%7D%7D: dial unix /var/run/docker.sock: connect: permission denied
+"docker rmi" requires at least 1 argument.
+See 'docker rmi --help'.
+
+Usage:  docker rmi [OPTIONS] IMAGE [IMAGE...]
+
+Remove one or more images
+Benchmark failure
+Error: Benchmark failure
+    at Function.handler (/home/angelo/Caliper/caliper-benchmarks/node_modules/@hyperledger/caliper-cli/lib/benchmark/lib/runBenchmark.js:70:23)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+Command failed

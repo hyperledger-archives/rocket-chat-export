@@ -1,0 +1,342 @@
+[10:26:05.208 [MainThread] cli INFO] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[10:26:05.208 [MainThread] cli INFO] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[10:26:05.209 [MainThread] cli WARNING] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[10:26:05.218 [MainThread] state_verifier DEBUG] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[10:26:05.268 [MainThread] state_verifier DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:26:05.269 [MainThread] state_verifier INFO] Skipping state verification: chain head's state root is present
+[10:26:05.271 [MainThread] cli INFO] Starting validator with serial scheduler
+[10:26:05.271 [MainThread] core DEBUG] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[10:26:05.271 [MainThread] core DEBUG] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[10:26:05.271 [MainThread] core DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:26:05.272 [MainThread] threadpool DEBUG] Creating thread pool executor Component
+[10:26:05.272 [MainThread] threadpool DEBUG] Creating thread pool executor Network
+[10:26:05.273 [MainThread] threadpool DEBUG] Creating thread pool executor Client
+[10:26:05.273 [MainThread] threadpool DEBUG] Creating thread pool executor Signature
+[10:26:05.274 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:26:05.278 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:26:05.286 [MainThread] threadpool DEBUG] Creating thread pool executor Executing
+[10:26:05.290 [MainThread] threadpool DEBUG] Creating thread pool executor Consensus
+[10:26:05.290 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:26:05.295 [MainThread] threadpool DEBUG] Creating thread pool executor Instrumented
+[10:26:05.309 [InterconnectThread-1] selector_events DEBUG] Using selector: ZMQSelector
+[10:26:05.327 [InterconnectThread-1] interconnect INFO] Listening on tcp://127.0.0.1:4004
+[10:26:05.327 [InterconnectThread-1] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:26:05.327 [InterconnectThread-1] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:26:05.328 [MainThread] genesis DEBUG] genesis_batch_file: not found
+[10:26:05.328 [MainThread] genesis DEBUG] block_chain_id: not yet specified
+[10:26:05.328 [MainThread] genesis INFO] No chain head and not the genesis node: starting in peering mode
+[10:26:05.329 [InterconnectThread-2] selector_events DEBUG] Using selector: ZMQSelector
+[10:26:05.329 [InterconnectThread-2] interconnect INFO] Listening on tcp://127.0.0.1:5050
+[10:26:05.329 [InterconnectThread-2] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:26:05.330 [InterconnectThread-2] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:26:05.331 [InterconnectThread-3] selector_events DEBUG] Using selector: ZMQSelector
+[10:26:05.335 [MainThread] cli ERROR] Can't bind to tcp://10.0.2.16:8800: Cannot assign requested address
+[10:26:05.335 [MainThread] dispatch WARNING] Attempted to remove send_message function for connection ServerThread, but no send_message function was registered
+[10:26:05.335 [MainThread] dispatch WARNING] Attempted to remove send_last_message function for connection ServerThread, but no send_last_message function was registered
+[10:26:05.336 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:26:05.336 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:26:05.336 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:26:05.336 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:26:09.342 [MainThread] core INFO] remaining threads: InterconnectThread-3 (InstrumentedThread), InterconnectThread-1 (InstrumentedThread), InterconnectThread-2 (InstrumentedThread)
+[10:26:12.346 [MainThread] core INFO] remaining threads: InterconnectThread-1 (InstrumentedThread), InterconnectThread-2 (InstrumentedThread)
+[10:26:14.349 [MainThread] core INFO] remaining threads: InterconnectThread-1 (InstrumentedThread), InterconnectThread-2 (InstrumentedThread)
+[10:26:14.645 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 512, in setup
+    self._socket.bind(self._address)
+  File "zmq/backend/cython/socket.pyx", line 487, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5156)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:7535)
+zmq.error.ZMQError: Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 516, in setup
+    str(e)))
+sawtooth_validator.exceptions.LocalConfigurationError: Can't bind to tcp://10.0.2.16:8800: Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 280, in main
+    sys.exit(1)
+SystemExit: 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt
+[10:28:24.637 [MainThread] cli INFO] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[10:28:24.642 [MainThread] cli INFO] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[10:28:24.642 [MainThread] cli WARNING] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[10:28:24.646 [MainThread] state_verifier DEBUG] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[10:28:24.647 [MainThread] state_verifier DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:28:24.647 [MainThread] state_verifier INFO] Skipping state verification: chain head's state root is present
+[10:28:24.650 [MainThread] cli INFO] Starting validator with serial scheduler
+[10:28:24.650 [MainThread] core DEBUG] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[10:28:24.650 [MainThread] core DEBUG] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[10:28:24.650 [MainThread] core DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:28:24.651 [MainThread] threadpool DEBUG] Creating thread pool executor Component
+[10:28:24.651 [MainThread] threadpool DEBUG] Creating thread pool executor Network
+[10:28:24.651 [MainThread] threadpool DEBUG] Creating thread pool executor Client
+[10:28:24.651 [MainThread] threadpool DEBUG] Creating thread pool executor Signature
+[10:28:24.652 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:28:24.654 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:28:24.655 [MainThread] threadpool DEBUG] Creating thread pool executor Executing
+[10:28:24.662 [MainThread] threadpool DEBUG] Creating thread pool executor Consensus
+[10:28:24.663 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:28:24.664 [MainThread] threadpool DEBUG] Creating thread pool executor Instrumented
+[10:28:24.671 [InterconnectThread-1] selector_events DEBUG] Using selector: ZMQSelector
+[10:28:24.675 [InterconnectThread-1] interconnect INFO] Listening on tcp://127.0.0.1:4004
+[10:28:24.678 [InterconnectThread-1] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:28:24.682 [InterconnectThread-1] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:28:24.682 [MainThread] genesis DEBUG] genesis_batch_file: not found
+[10:28:24.683 [MainThread] genesis DEBUG] block_chain_id: not yet specified
+[10:28:24.686 [MainThread] genesis INFO] No chain head and not the genesis node: starting in peering mode
+[10:28:24.687 [InterconnectThread-2] selector_events DEBUG] Using selector: ZMQSelector
+[10:28:24.687 [InterconnectThread-2] interconnect INFO] Listening on tcp://127.0.0.1:5050
+[10:28:24.687 [InterconnectThread-2] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:28:24.688 [InterconnectThread-2] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:28:24.689 [InterconnectThread-3] selector_events DEBUG] Using selector: ZMQSelector
+[10:28:24.695 [InterconnectThread-3] interconnect INFO] Listening on tcp://10.0.2.16:8800
+[10:28:24.695 [InterconnectThread-3] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:28:24.695 [InterconnectThread-3] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:28:24.696 [ConnectionManager] gossip DEBUG] Endpoint has not completed authorization in 10 seconds: tcp://10.0.2.15:8800
+[10:28:24.696 [ConnectionManager] gossip DEBUG] attempting to peer with tcp://10.0.2.15:8800
+[10:28:24.696 [ConnectionManager] interconnect DEBUG] Adding connection to tcp://10.0.2.15:8800
+[10:28:24.697 [OutboundConnectionThread-4] selector_events DEBUG] Using selector: ZMQSelector
+[10:28:24.697 [OutboundConnectionThread-4] dispatch DEBUG] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:24.697 [OutboundConnectionThread-4] dispatch DEBUG] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:24.716 [Thread-5] interconnect DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[10:28:24.719 [Thread-6] handlers DEBUG] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[10:28:24.720 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:28:24.723 [Thread-6] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:28:24.723 [Thread-6] gossip DEBUG] Endpoint has completed authorization: tcp://10.0.2.15:8800 (id: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958)
+[10:28:24.723 [Thread-6] gossip DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 succeeded
+[10:28:24.724 [Thread-6] handlers DEBUG] Connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 is approved
+[10:28:24.795 [Thread-6] handlers DEBUG] got connect message from b56b6559b5bb92a4cda7185890f011e98b41ba7a8f60ae6326512d78e4350648ac8e00b66f4190b34f463ce4ede0cde209c4b7f541856d78842f06fd09d83c75. sending ack
+[10:28:24.795 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:28:24.795 [Thread-6] interconnect DEBUG] Determining whether inbound connection should be allowed. num connections: 2 max 100
+[10:28:24.796 [Thread-6] handlers DEBUG] Allowing incoming connection: b56b6559b5bb92a4cda7185890f011e98b41ba7a8f60ae6326512d78e4350648ac8e00b66f4190b34f463ce4ede0cde209c4b7f541856d78842f06fd09d83c75
+[10:28:24.799 [Thread-8] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:28:24.800 [Thread-8] handlers DEBUG] Connection: b56b6559b5bb92a4cda7185890f011e98b41ba7a8f60ae6326512d78e4350648ac8e00b66f4190b34f463ce4ede0cde209c4b7f541856d78842f06fd09d83c75 is approved
+[10:28:44.716 [InterconnectThread-3] interconnect DEBUG] No response from b56b6559b5bb92a4cda7185890f011e98b41ba7a8f60ae6326512d78e4350648ac8e00b66f4190b34f463ce4ede0cde209c4b7f541856d78842f06fd09d83c75 in 19.9169819355011 seconds - beginning heartbeat pings.
+[10:28:44.722 [ConnectionManager] gossip DEBUG] Endpoint has not completed authorization in 20 seconds: tcp://10.0.2.15:8800
+[10:28:44.722 [ConnectionManager] interconnect DEBUG] Removing connection: b56b6559b5bb92a4cda7185890f011e98b41ba7a8f60ae6326512d78e4350648ac8e00b66f4190b34f463ce4ede0cde209c4b7f541856d78842f06fd09d83c75
+[10:28:44.722 [ConnectionManager] gossip DEBUG] attempting to peer with tcp://10.0.2.15:8800
+[10:28:44.722 [ConnectionManager] interconnect DEBUG] Adding connection to tcp://10.0.2.15:8800
+[10:28:44.723 [OutboundConnectionThread-12] selector_events DEBUG] Using selector: ZMQSelector
+[10:28:44.723 [OutboundConnectionThread-12] dispatch DEBUG] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:44.724 [OutboundConnectionThread-12] dispatch DEBUG] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:44.744 [Thread-5] interconnect DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[10:28:44.762 [Thread-6] handlers DEBUG] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[10:28:44.762 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:28:44.763 [Thread-6] handlers DEBUG] Connection has already sent ConnectionRequest: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958, Remove connection.
+[10:28:44.763 [Thread-6] dispatch WARNING] Sending hang-up in reply to NETWORK_CONNECT to connection 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958
+[10:28:44.763 [OutboundConnectionThread-12] interconnect DEBUG] OutboundConnectionThread-tcp://10.0.2.15:8800 sending last message AUTHORIZATION_CONNECTION_RESPONSE to tcp://10.0.2.15:8800
+[10:28:44.764 [OutboundConnectionThread-12] dispatch DEBUG] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:44.767 [OutboundConnectionThread-12] dispatch DEBUG] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:28:44.767 [OutboundConnectionThread-12] dispatch WARNING] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800, but no send_message function was registered
+[10:28:44.767 [OutboundConnectionThread-12] dispatch WARNING] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800, but no send_last_message function was registered
+[10:28:47.303 [Thread-8] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:28:57.313 [Thread-10] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:29:07.324 [Thread-9] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:29:17.333 [Thread-11] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:29:24.772 [ConnectionManager] gossip DEBUG] Endpoint has not completed authorization in 40 seconds: tcp://10.0.2.15:8800
+[10:29:24.772 [ConnectionManager] gossip DEBUG] attempting to peer with tcp://10.0.2.15:8800
+[10:29:24.773 [ConnectionManager] interconnect DEBUG] Adding connection to tcp://10.0.2.15:8800
+[10:29:24.773 [OutboundConnectionThread-20] selector_events DEBUG] Using selector: ZMQSelector
+[10:29:24.774 [OutboundConnectionThread-20] dispatch DEBUG] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:29:24.774 [OutboundConnectionThread-20] dispatch DEBUG] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:29:24.780 [Thread-5] interconnect DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[10:29:24.789 [Thread-6] handlers DEBUG] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[10:29:24.794 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:29:24.802 [Thread-14] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:29:24.802 [Thread-14] gossip DEBUG] Endpoint has completed authorization: tcp://10.0.2.15:8800 (id: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958)
+[10:29:24.803 [Thread-14] gossip DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 succeeded
+[10:29:24.803 [Thread-14] handlers DEBUG] Connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 is approved
+[10:29:26.147 [Thread-23] processor_handlers WARNING] Max occupancy was not provided by transaction processor: a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74. Using default max occupancy: 10
+[10:29:26.148 [Thread-23] processor_handlers INFO] registered transaction processor: connection_id=a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[10:29:38.811 [Thread-23] processor_handlers WARNING] Max occupancy was not provided by transaction processor: db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159. Using default max occupancy: 10
+[10:29:38.811 [Thread-23] processor_handlers INFO] registered transaction processor: connection_id=db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[10:29:52.835 [Thread-23] processor_handlers WARNING] Max occupancy was not provided by transaction processor: 7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa. Using default max occupancy: 10
+[10:29:52.835 [Thread-23] processor_handlers INFO] registered transaction processor: connection_id=7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[10:30:44.881 [ConnectionManager] gossip DEBUG] Endpoint has not completed authorization in 80 seconds: tcp://10.0.2.15:8800
+[10:30:44.882 [ConnectionManager] interconnect DEBUG] Removing connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958
+[10:30:44.882 [ConnectionManager] dispatch DEBUG] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:44.882 [ConnectionManager] dispatch DEBUG] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:44.882 [ConnectionManager] gossip DEBUG] attempting to peer with tcp://10.0.2.15:8800
+[10:30:44.883 [ConnectionManager] interconnect DEBUG] Adding connection to tcp://10.0.2.15:8800
+[10:30:44.888 [OutboundConnectionThread-29] selector_events DEBUG] Using selector: ZMQSelector
+[10:30:44.889 [OutboundConnectionThread-29] dispatch DEBUG] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:44.891 [OutboundConnectionThread-29] dispatch DEBUG] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:44.917 [Thread-7] interconnect DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[10:30:44.939 [Thread-10] handlers DEBUG] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[10:30:44.941 [Thread-10] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:30:44.959 [Thread-17] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:30:44.962 [Thread-17] gossip DEBUG] Endpoint has completed authorization: tcp://10.0.2.15:8800 (id: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958)
+[10:30:44.962 [Thread-17] gossip DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 succeeded
+[10:30:44.963 [Thread-17] handlers DEBUG] Connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 is approved
+[10:30:47.390 [OutboundConnectionThread-20] dispatch DEBUG] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:47.390 [OutboundConnectionThread-20] dispatch DEBUG] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:30:57.401 [Thread-9] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:07.410 [Thread-18] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:17.420 [Thread-11] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:27.431 [Thread-19] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:37.433 [Thread-6] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:47.442 [Thread-14] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:31:57.450 [Thread-8] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:32:07.458 [Thread-16] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:32:17.468 [Thread-10] dispatch WARNING] Can't send message PING_RESPONSE back to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 because connection OutboundConnectionThread-tcp://10.0.2.15:8800 not in dispatcher
+[10:32:24.993 [MainThread] cli INFO] Initiating graceful shutdown (press Ctrl+C again to force)
+[10:32:24.993 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:32:24.995 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:32:24.995 [MainThread] dispatch WARNING] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800, but no send_message function was registered
+[10:32:24.996 [MainThread] dispatch WARNING] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800, but no send_last_message function was registered
+[10:32:24.997 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:32:24.998 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:32:24.998 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:32:24.998 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:32:25.047 [Dummy-32] (unknown file) WARNING] [src/journal/publisher.rs: 564] PublisherThread exiting
+[10:32:25.234 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt
+[10:33:31.133 [MainThread] cli INFO] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[10:33:31.141 [MainThread] cli INFO] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[10:33:31.141 [MainThread] cli WARNING] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[10:33:31.143 [MainThread] state_verifier DEBUG] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[10:33:31.144 [MainThread] state_verifier DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:33:31.144 [MainThread] state_verifier INFO] Skipping state verification: chain head's state root is present
+[10:33:31.146 [MainThread] cli INFO] Starting validator with serial scheduler
+[10:33:31.146 [MainThread] core DEBUG] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[10:33:31.146 [MainThread] core DEBUG] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[10:33:31.147 [MainThread] core DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[10:33:31.147 [MainThread] threadpool DEBUG] Creating thread pool executor Component
+[10:33:31.150 [MainThread] threadpool DEBUG] Creating thread pool executor Network
+[10:33:31.150 [MainThread] threadpool DEBUG] Creating thread pool executor Client
+[10:33:31.151 [MainThread] threadpool DEBUG] Creating thread pool executor Signature
+[10:33:31.151 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:33:31.151 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:33:31.152 [MainThread] threadpool DEBUG] Creating thread pool executor Executing
+[10:33:31.162 [MainThread] threadpool DEBUG] Creating thread pool executor Consensus
+[10:33:31.162 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[10:33:31.164 [MainThread] threadpool DEBUG] Creating thread pool executor Instrumented
+[10:33:31.173 [InterconnectThread-1] selector_events DEBUG] Using selector: ZMQSelector
+[10:33:31.174 [InterconnectThread-1] interconnect INFO] Listening on tcp://127.0.0.1:4004
+[10:33:31.174 [InterconnectThread-1] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:33:31.174 [InterconnectThread-1] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:33:31.175 [MainThread] genesis DEBUG] genesis_batch_file: not found
+[10:33:31.178 [MainThread] genesis DEBUG] block_chain_id: not yet specified
+[10:33:31.179 [MainThread] genesis INFO] No chain head and not the genesis node: starting in peering mode
+[10:33:31.180 [InterconnectThread-2] selector_events DEBUG] Using selector: ZMQSelector
+[10:33:31.181 [InterconnectThread-2] interconnect INFO] Listening on tcp://127.0.0.1:5050
+[10:33:31.182 [InterconnectThread-2] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:33:31.182 [InterconnectThread-2] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:33:31.187 [InterconnectThread-3] selector_events DEBUG] Using selector: ZMQSelector
+[10:33:31.189 [InterconnectThread-3] interconnect INFO] Listening on tcp://10.0.2.16:8800
+[10:33:31.194 [InterconnectThread-3] dispatch DEBUG] Added send_message function for connection ServerThread
+[10:33:31.194 [InterconnectThread-3] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[10:33:31.196 [ConnectionManager] gossip DEBUG] Endpoint has not completed authorization in 10 seconds: tcp://10.0.2.15:8800
+[10:33:31.206 [ConnectionManager] gossip DEBUG] attempting to peer with tcp://10.0.2.15:8800
+[10:33:31.206 [ConnectionManager] interconnect DEBUG] Adding connection to tcp://10.0.2.15:8800
+[10:33:31.206 [OutboundConnectionThread-4] selector_events DEBUG] Using selector: ZMQSelector
+[10:33:31.210 [OutboundConnectionThread-4] dispatch DEBUG] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:33:31.212 [OutboundConnectionThread-4] dispatch DEBUG] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:33:31.222 [Thread-5] interconnect DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[10:33:31.226 [Thread-6] handlers DEBUG] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[10:33:31.227 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:33:31.230 [Thread-6] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:33:31.230 [Thread-6] gossip DEBUG] Endpoint has completed authorization: tcp://10.0.2.15:8800 (id: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958)
+[10:33:31.238 [Thread-6] gossip DEBUG] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 succeeded
+[10:33:31.240 [Thread-6] handlers DEBUG] Connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 is approved
+[10:33:31.259 [Thread-5] gossip DEBUG] Peering request to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was successful
+[10:33:31.260 [Thread-5] gossip DEBUG] Added connection_id 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 with endpoint tcp://10.0.2.15:8800, connected identities are now {'05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958': 'tcp://10.0.2.15:8800'}
+[10:33:31.262 [Thread-9] processor_handlers WARNING] Max occupancy was not provided by transaction processor: a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74. Using default max occupancy: 10
+[10:33:31.262 [Thread-9] processor_handlers INFO] registered transaction processor: connection_id=a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[10:33:31.264 [Thread-9] processor_handlers WARNING] Max occupancy was not provided by transaction processor: db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159. Using default max occupancy: 10
+[10:33:31.266 [Thread-9] processor_handlers INFO] registered transaction processor: connection_id=db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[10:33:31.267 [Thread-9] processor_handlers WARNING] Max occupancy was not provided by transaction processor: 7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa. Using default max occupancy: 10
+[10:33:31.268 [Thread-9] processor_handlers INFO] registered transaction processor: connection_id=7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[10:33:31.274 [Thread-8] handlers DEBUG] got connect message from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65. sending ack
+[10:33:31.274 [Thread-8] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:33:31.274 [Thread-8] interconnect DEBUG] Determining whether inbound connection should be allowed. num connections: 2 max 100
+[10:33:31.275 [Thread-8] handlers DEBUG] Allowing incoming connection: 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65
+[10:33:31.278 [Thread-6] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:33:31.278 [Thread-6] handlers DEBUG] Connection: 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 is approved
+[10:33:31.297 [Thread-12] processor_handlers WARNING] Max occupancy was not provided by transaction processor: 7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa. Using default max occupancy: 10
+[10:33:31.297 [Thread-12] processor_handlers INFO] registered transaction processor: connection_id=7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[10:33:31.330 [Thread-6] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:33:31.381 [Thread-18] completer DEBUG] Request missing predecessor: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836
+[10:33:31.391 [Thread-8] permission_verifier DEBUG] Chain head is not set yet. Permit all.
+[10:33:32.194 [Dummy-36] (unknown file) INFO] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836, block_num: 0, state_root_hash: 64352345e067bd772812ea4fdafc8f42b6415958453407e076c0bd75db7c3f13, previous_block_id: 0000000000000000)
+[10:33:32.203 [Dummy-36] block_validator DEBUG] Adding block 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19 for processing
+[10:33:32.964 [Thread-45] block_validator INFO] Block 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19 (block_num:1, state:248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id:1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836) passed validation
+[10:33:32.965 [Thread-45] block_validator DEBUG] Removing block from processing 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19
+[10:33:46.647 [Thread-47] handlers INFO] Consensus engine registered: PoET 0.1
+[10:33:46.704 [Thread-47] handlers ERROR] ConsensusStateGet
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/handlers.py", line 547, in handle_request
+    request.block_id, request.addresses)
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 183, in state_get
+    self._get_blocks([block_id])[0].get_state_view(
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in _get_blocks
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in <listcomp>
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/journal/block_cache.py", line 69, in __getitem__
+    raise ValueError("None or empty block_id is an invalid identifier")
+ValueError: None or empty block_id is an invalid identifier
+[10:33:47.477 [Dummy-59] (unknown file) INFO] [src/journal/chain.rs: 258] Building fork resolution for chain head 'Block(id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836, block_num: 0, state_root_hash: 64352345e067bd772812ea4fdafc8f42b6415958453407e076c0bd75db7c3f13, previous_block_id: 0000000000000000)' against new block 'Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)'
+[10:33:47.515 [Dummy-59] (unknown file) INFO] [src/journal/chain.rs: 634] Chain head updated to Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[10:33:47.533 [Dummy-59] (unknown file) INFO] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[10:33:51.211 [InterconnectThread-3] interconnect DEBUG] No response from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 in 19.933665990829468 seconds - beginning heartbeat pings.
+[10:33:51.725 [Dummy-36] block_validator DEBUG] Adding block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f for processing
+[10:33:51.774 [Thread-45] block_validator INFO] Block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f (block_num:2, state:9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id:0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19) passed validation
+[10:33:51.774 [Thread-45] block_validator DEBUG] Removing block from processing 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f
+[10:33:51.930 [Dummy-59] (unknown file) INFO] [src/journal/chain.rs: 258] Building fork resolution for chain head 'Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)' against new block 'Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)'
+[10:33:51.932 [Dummy-59] (unknown file) INFO] [src/journal/chain.rs: 634] Chain head updated to Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[10:33:51.932 [Dummy-59] (unknown file) INFO] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[10:33:58.164 [Thread-6] handlers DEBUG] got connect message from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97. sending ack
+[10:33:58.164 [Thread-6] handlers DEBUG] Endpoint of connecting node is tcp://10.0.2.15:8800
+[10:33:58.165 [Thread-6] interconnect DEBUG] Determining whether inbound connection should be allowed. num connections: 3 max 100
+[10:33:58.165 [Thread-6] handlers DEBUG] Allowing incoming connection: 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97
+[10:33:58.170 [Thread-32] handlers DEBUG] Connection: 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 is approved
+[10:33:58.186 [Thread-15] gossip_handlers DEBUG] Got peer register message from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 (tcp://10.0.2.15:8800, protocol v1)
+[10:33:58.189 [Thread-15] gossip DEBUG] Added connection_id 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 with endpoint tcp://10.0.2.15:8800, connected identities are now {'05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958': 'tcp://10.0.2.15:8800', '5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97': 'tcp://10.0.2.15:8800'}
+[10:33:58.225 [Thread-33] responder DEBUG] Responding to block requests: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f
+[10:34:11.225 [InterconnectThread-3] interconnect DEBUG] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 12.99444842338562 seconds - beginning heartbeat pings.
+[10:35:01.266 [InterconnectThread-3] interconnect DEBUG] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 17.189827919006348 seconds - beginning heartbeat pings.
+[10:35:41.279 [InterconnectThread-3] interconnect INFO] No response from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 in 130.00165629386902 seconds - removing connection.
+[10:35:51.280 [InterconnectThread-3] interconnect DEBUG] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 10.902607679367065 seconds - beginning heartbeat pings.
+[10:37:41.369 [InterconnectThread-3] interconnect INFO] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 120.9918200969696 seconds - removing connection.
+[10:38:43.827 [MainThread] cli INFO] Initiating graceful shutdown (press Ctrl+C again to force)
+[10:38:43.828 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:38:43.829 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:38:43.829 [MainThread] dispatch DEBUG] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:38:43.829 [MainThread] dispatch DEBUG] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[10:38:43.830 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:38:43.830 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:38:43.832 [MainThread] dispatch DEBUG] Removed send_message function for connection ServerThread
+[10:38:43.832 [MainThread] dispatch DEBUG] Removed send_last_message function for connection ServerThread
+[10:38:43.842 [InterconnectThread-2] dispatch WARNING] Attempted to remove send_message function for connection ServerThread, but no send_message function was registered
+[10:38:43.842 [InterconnectThread-2] dispatch WARNING] Attempted to remove send_last_message function for connection ServerThread, but no send_last_message function was registered
+[10:38:43.911 [Dummy-68] (unknown file) WARNING] [src/journal/publisher.rs: 564] PublisherThread exiting
+[10:38:44.053 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt

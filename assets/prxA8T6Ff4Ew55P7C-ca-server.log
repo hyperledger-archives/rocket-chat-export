@@ -1,0 +1,225 @@
+2018/05/11 10:07:04 [INFO] Configuration file location: /home/ondar/rootca/fabric-ca-server-config.yaml
+2018/05/11 10:07:04 [INFO] Starting server in home directory: /home/ondar/rootca
+2018/05/11 10:07:04 [INFO] Server Version: 1.1.1-snapshot-e656889
+2018/05/11 10:07:04 [INFO] Server Levels: &{Identity:1 Affiliation:1 Certificate:1}
+2018/05/11 10:07:04 [DEBUG] Making server filenames absolute
+2018/05/11 10:07:04 [DEBUG] Initializing default CA in directory /home/ondar/rootca
+2018/05/11 10:07:04 [DEBUG] Init CA with home /home/ondar/rootca and config {Version:1.1.1-snapshot-e656889 Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile: Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc420356070 CSR:{CN:crypfirootca Names:[{C:RU ST: L:Moscow O:Crypfi OU:CrypfiRootCa SerialNumber:}] Hosts:[localhost.localdomain localhost] KeyRequest:<nil> CA:0xc42035e540 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc420344510 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/05/11 10:07:04 [DEBUG] CA Home Directory: /home/ondar/rootca
+2018/05/11 10:07:04 [DEBUG] Checking configuration file version '1.1.1-snapshot-e656889' against server version: '1.1.1-snapshot-e656889'
+2018/05/11 10:07:04 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc420344570 PluginOpts:<nil> Pkcs11Opts:<nil>}
+2018/05/11 10:07:04 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc42034bd10 DummyKeystore:<nil>}
+2018/05/11 10:07:04 [DEBUG] Initialize key material
+2018/05/11 10:07:04 [DEBUG] Making CA filenames absolute
+2018/05/11 10:07:04 [DEBUG] Root CA certificate request: {CN:crypfirootca Names:[{C:RU ST: L:Moscow O:Crypfi OU:CrypfiRootCa SerialNumber:}] Hosts:[localhost.localdomain localhost] KeyRequest:0xc42035eba0 CA:0xc42035e540 SerialNumber:}
+2018/05/11 10:07:04 [INFO] generating key: &{A:ecdsa S:256}
+2018/05/11 10:07:04 [DEBUG] generate key from request: algo=ecdsa, size=256
+2018/05/11 10:07:04 [INFO] encoded CSR
+2018/05/11 10:07:04 [DEBUG] validating configuration
+2018/05/11 10:07:04 [DEBUG] validate local profile
+2018/05/11 10:07:04 [DEBUG] profile is valid
+2018/05/11 10:07:04 [INFO] signed certificate with serial number 516074798613035645988848060929092035001186097427
+2018/05/11 10:07:04 [INFO] The CA key and certificate were generated for CA 
+2018/05/11 10:07:04 [INFO] The key was stored by BCCSP provider 'SW'
+2018/05/11 10:07:04 [INFO] The certificate is at: /home/ondar/rootca/ca-cert.pem
+2018/05/11 10:07:04 [DEBUG] Initializing DB
+2018/05/11 10:07:04 [DEBUG] Initializing 'sqlite3' database at '/home/ondar/rootca/fabric-ca-server.db'
+2018/05/11 10:07:04 [DEBUG] Using sqlite database, connect to database in home (/home/ondar/rootca/fabric-ca-server.db) directory
+2018/05/11 10:07:04 [DEBUG] Creating SQLite database (/home/ondar/rootca/fabric-ca-server.db) if it does not exist...
+2018/05/11 10:07:04 [DEBUG] Creating users table if it does not exist
+2018/05/11 10:07:04 [DEBUG] Creating affiliations table if it does not exist
+2018/05/11 10:07:04 [DEBUG] Creating certificates table if it does not exist
+2018/05/11 10:07:04 [DEBUG] Creating properties table if it does not exist
+2018/05/11 10:07:05 [DEBUG] Successfully opened sqlite3 DB
+2018/05/11 10:07:05 [DEBUG] Checking database schema...
+2018/05/11 10:07:05 [DEBUG] Update SQLite schema, if using outdated schema
+2018/05/11 10:07:05 [DEBUG] Upgrade identities table
+2018/05/11 10:07:05 [DEBUG] Creating users table if it does not exist
+2018/05/11 10:07:05 [DEBUG] Upgrade affiliation table
+2018/05/11 10:07:05 [DEBUG] Creating affiliations table if it does not exist
+2018/05/11 10:07:05 [DEBUG] Upgrade certificates table
+2018/05/11 10:07:05 [DEBUG] Creating certificates table if it does not exist
+2018/05/11 10:07:05 [DEBUG] Initializing identity registry
+2018/05/11 10:07:05 [DEBUG] Initialized DB identity registry
+2018/05/11 10:07:05 [DEBUG] DB: Get properties [identity.level affiliation.level certificate.level]
+2018/05/11 10:07:05 [DEBUG] Checking database levels 'map[affiliation.level:0 certificate.level:0 identity.level:0]' against server levels '&{Identity:1 Affiliation:1 Certificate:1}'
+2018/05/11 10:07:05 [DEBUG] Loading identity table
+2018/05/11 10:07:05 [DEBUG] Loading identity 'admin'
+2018/05/11 10:07:05 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:05 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/05/11 10:07:05 [DEBUG] DB: Add identity admin
+2018/05/11 10:07:05 [DEBUG] Successfully added identity admin to the database
+2018/05/11 10:07:05 [DEBUG] Registered identity: { Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:-1 Attrs:map[hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1]  }
+2018/05/11 10:07:05 [DEBUG] Successfully loaded identity table
+2018/05/11 10:07:05 [DEBUG] Loading affiliations table
+2018/05/11 10:07:05 [DEBUG] DB: Add affiliation org1
+2018/05/11 10:07:05 [DEBUG] Affiliation 'org1' added
+2018/05/11 10:07:05 [DEBUG] DB: Add affiliation org1.department1
+2018/05/11 10:07:05 [DEBUG] Affiliation 'org1.department1' added
+2018/05/11 10:07:05 [DEBUG] DB: Add affiliation org1.department2
+2018/05/11 10:07:05 [DEBUG] Affiliation 'org1.department2' added
+2018/05/11 10:07:05 [DEBUG] DB: Add affiliation org2
+2018/05/11 10:07:06 [DEBUG] Affiliation 'org2' added
+2018/05/11 10:07:06 [DEBUG] DB: Add affiliation org2.department1
+2018/05/11 10:07:06 [DEBUG] Affiliation 'org2.department1' added
+2018/05/11 10:07:06 [DEBUG] Successfully loaded affiliations table
+2018/05/11 10:07:06 [DEBUG] Checking and performing migration, if needed
+2018/05/11 10:07:06 [DEBUG] Updating database level to &{Identity:1 Affiliation:1 Certificate:1}
+2018/05/11 10:07:06 [INFO] Initialized sqlite3 database at /home/ondar/rootca/fabric-ca-server.db
+2018/05/11 10:07:06 [DEBUG] Initializing enrollment signer
+2018/05/11 10:07:06 [DEBUG] validating configuration
+2018/05/11 10:07:06 [DEBUG] validate local profile
+2018/05/11 10:07:06 [DEBUG] profile is valid
+2018/05/11 10:07:06 [DEBUG] validate local profile
+2018/05/11 10:07:06 [DEBUG] profile is valid
+2018/05/11 10:07:06 [DEBUG] validate local profile
+2018/05/11 10:07:06 [DEBUG] profile is valid
+2018/05/11 10:07:06 [DEBUG] CA initialization successful
+2018/05/11 10:07:06 [INFO] Home directory for default CA: /home/ondar/rootca
+2018/05/11 10:07:06 [DEBUG] 1 CA instance(s) running on server
+2018/05/11 10:07:06 [INFO] Listening on http://0.0.0.0:7054
+2018/05/11 10:07:09 [DEBUG] Received request for /enroll
+2018/05/11 10:07:09 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-e656889 Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/ondar/rootca/ca-key.pem Certfile:/home/ondar/rootca/ca-cert.pem Chainfile:/home/ondar/rootca/ca-chain.pem} Signing:0xc420356070 CSR:{CN:crypfirootca Names:[{C:RU ST: L:Moscow O:Crypfi OU:CrypfiRootCa SerialNumber:}] Hosts:[localhost.localdomain localhost] KeyRequest:0xc42035eb80 CA:0xc42035e540 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/ondar/rootca/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc420344510 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/05/11 10:07:09 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:09 [DEBUG] DB: Login user admin with max enrollments of -1 and state of 0
+2018/05/11 10:07:10 [DEBUG] DB: identity admin successfully logged in
+2018/05/11 10:07:10 [DEBUG] Processing sign request: id=admin, CommonName=admin, Subject=<nil>
+2018/05/11 10:07:10 [DEBUG] Request is not for a CA signing certificate
+2018/05/11 10:07:10 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:10 [DEBUG] Finished processing sign request
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:10 [INFO] signed certificate with serial number 684220785773470277349033791340709100481849330561
+2018/05/11 10:07:10 [DEBUG] DB: Insert Certificate
+2018/05/11 10:07:10 [DEBUG] Saved serial number as hex 77d9856afad10af24e9601ee07b49a6c14e00b81
+2018/05/11 10:07:10 [DEBUG] saved certificate with serial number 684220785773470277349033791340709100481849330561
+2018/05/11 10:07:10 [DEBUG] Successfully incremented state for identity admin to 1
+2018/05/11 10:07:10 [INFO] [::1]:36344 POST /enroll 201 0 "OK"
+2018/05/11 10:07:10 [DEBUG] Received request for /register
+2018/05/11 10:07:10 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/05/11 10:07:10 [DEBUG] DB: Get certificate by serial (77d9856afad10af24e9601ee07b49a6c14e00b81) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:10 [DEBUG] Successful token authentication of 'admin'
+2018/05/11 10:07:10 [DEBUG] Received registration request from admin: { Name:admin2 Type:client Secret:**** MaxEnrollments:0 Affiliation: Attributes:[{hf.Registrar.Roles peer,user false} {hf.Revoker true false} {admin true true}] CAName:  }
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:10 [DEBUG] No affiliation provided in registration request, will default to using registrar's affiliation of ''
+2018/05/11 10:07:10 [DEBUG] canRegister - Check to see if user 'admin' can register
+2018/05/11 10:07:10 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/05/11 10:07:10 [DEBUG] Validate Affiliation
+2018/05/11 10:07:10 [DEBUG] Checking to see if affiliation '' contains caller's affiliation ''
+2018/05/11 10:07:10 [DEBUG] Caller has root affiliation
+2018/05/11 10:07:10 [DEBUG] Validate ID
+2018/05/11 10:07:10 [DEBUG] Validating affiliation: 
+2018/05/11 10:07:10 [DEBUG] Checking to see if registrar can register the requested attributes: [{Name:hf.Registrar.Roles Value:peer,user ECert:false} {Name:hf.Revoker Value:true ECert:false} {Name:admin Value:true ECert:true}]
+2018/05/11 10:07:10 [DEBUG] Validating that registrar with the following values for hf.Registrar.Attributes '*' is authorized to register the requested attribute '&{Name:hf.Registrar.Roles Value:peer,user ECert:false}'
+2018/05/11 10:07:10 [DEBUG] Checking if registrar can register attribute: hf.Registrar.Roles
+2018/05/11 10:07:10 [DEBUG] Performing authorization check...
+2018/05/11 10:07:10 [DEBUG] Checking if caller is authorized to register attribute 'hf.Registrar.Roles' with the requested value of '%!s(func() string=0xc0b0e0)'
+2018/05/11 10:07:10 [DEBUG] Requested attribute type is list
+2018/05/11 10:07:10 [DEBUG] Validating that registrar with the following values for hf.Registrar.Attributes '*' is authorized to register the requested attribute '&{Name:hf.Revoker Value:true ECert:false}'
+2018/05/11 10:07:10 [DEBUG] Checking if registrar can register attribute: hf.Revoker
+2018/05/11 10:07:10 [DEBUG] Performing authorization check...
+2018/05/11 10:07:10 [DEBUG] Checking if caller is authorized to register attribute 'hf.Revoker' with the requested value of '%!s(func() string=0xc0b0e0)'
+2018/05/11 10:07:10 [DEBUG] Requested attribute type is boolean
+2018/05/11 10:07:10 [DEBUG] Validating that registrar with the following values for hf.Registrar.Attributes '*' is authorized to register the requested attribute '&{Name:admin Value:true ECert:true}'
+2018/05/11 10:07:10 [DEBUG] Checking if registrar can register attribute: admin
+2018/05/11 10:07:10 [DEBUG] Performing authorization check...
+2018/05/11 10:07:10 [DEBUG] Registering user id: admin2
+2018/05/11 10:07:10 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:10 [DEBUG] DB: Add identity admin2
+2018/05/11 10:07:10 [DEBUG] Successfully added identity admin2 to the database
+2018/05/11 10:07:10 [INFO] [::1]:36370 POST /register 201 0 "OK"
+2018/05/11 10:07:10 [DEBUG] Received request for /enroll
+2018/05/11 10:07:10 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-e656889 Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/ondar/rootca/ca-key.pem Certfile:/home/ondar/rootca/ca-cert.pem Chainfile:/home/ondar/rootca/ca-chain.pem} Signing:0xc420356070 CSR:{CN:crypfirootca Names:[{C:RU ST: L:Moscow O:Crypfi OU:CrypfiRootCa SerialNumber:}] Hosts:[localhost.localdomain localhost] KeyRequest:0xc42035eb80 CA:0xc42035e540 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/ondar/rootca/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc420344510 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:10 [DEBUG] DB: Login user admin2 with max enrollments of -1 and state of 0
+2018/05/11 10:07:10 [DEBUG] DB: identity admin2 successfully logged in
+2018/05/11 10:07:10 [DEBUG] Processing sign request: id=admin2, CommonName=admin2, Subject=<nil>
+2018/05/11 10:07:10 [DEBUG] Request is not for a CA signing certificate
+2018/05/11 10:07:10 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:10 [DEBUG] Finished processing sign request
+2018/05/11 10:07:10 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:10 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2261646d696e223a2274727565222c2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a2261646d696e32222c2268662e54797065223a22636c69656e74227d7d}
+2018/05/11 10:07:10 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2261646d696e223a2274727565222c2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a2261646d696e32222c2268662e54797065223a22636c69656e74227d7d}
+2018/05/11 10:07:10 [INFO] signed certificate with serial number 406321422150084136726155072103505058060876212210
+2018/05/11 10:07:10 [DEBUG] DB: Insert Certificate
+2018/05/11 10:07:10 [DEBUG] Saved serial number as hex 472c152ce38569902c31c1cc46b32844c6b567f2
+2018/05/11 10:07:10 [DEBUG] saved certificate with serial number 406321422150084136726155072103505058060876212210
+2018/05/11 10:07:11 [DEBUG] Successfully incremented state for identity admin2 to 1
+2018/05/11 10:07:11 [INFO] [::1]:36372 POST /enroll 201 0 "OK"
+2018/05/11 10:07:11 [DEBUG] Received request for /reenroll
+2018/05/11 10:07:11 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin2'
+2018/05/11 10:07:11 [DEBUG] DB: Get certificate by serial (472c152ce38569902c31c1cc46b32844c6b567f2) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:11 [DEBUG] Successful token authentication of 'admin2'
+2018/05/11 10:07:11 [DEBUG] Processing sign request: id=admin2, CommonName=admin2, Subject=<nil>
+2018/05/11 10:07:11 [DEBUG] Request is not for a CA signing certificate
+2018/05/11 10:07:11 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:11 [DEBUG] Finished processing sign request
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:11 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2261646d696e223a2274727565222c2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a2261646d696e32222c2268662e54797065223a22636c69656e74227d7d}
+2018/05/11 10:07:11 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2261646d696e223a2274727565222c2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a2261646d696e32222c2268662e54797065223a22636c69656e74227d7d}
+2018/05/11 10:07:11 [INFO] signed certificate with serial number 379885054870999047380983376305308563796612140986
+2018/05/11 10:07:11 [DEBUG] DB: Insert Certificate
+2018/05/11 10:07:11 [DEBUG] Saved serial number as hex 428aa28fe81c86098d9cf03b56b138121fc0cfba
+2018/05/11 10:07:11 [DEBUG] saved certificate with serial number 379885054870999047380983376305308563796612140986
+2018/05/11 10:07:11 [INFO] [::1]:36398 POST /reenroll 201 0 "OK"
+2018/05/11 10:07:11 [DEBUG] Received request for /revoke
+2018/05/11 10:07:11 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin'
+2018/05/11 10:07:11 [DEBUG] DB: Get certificate by serial (77d9856afad10af24e9601ee07b49a6c14e00b81) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:11 [DEBUG] Successful token authentication of 'admin'
+2018/05/11 10:07:11 [DEBUG] getUserAttrValue identity=admin, attr=hf.Revoker
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:11 [DEBUG] getUserAttrValue identity=admin, name=hf.Revoker, value=&{hf.Revoker 1 %!s(bool=false)}
+2018/05/11 10:07:11 [DEBUG] DB: Get certificate by serial (472c152ce38569902c31c1cc46b32844c6b567f2) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin
+2018/05/11 10:07:11 [DEBUG] Checking to see if affiliation '' contains caller's affiliation ''
+2018/05/11 10:07:11 [DEBUG] Caller has root affiliation
+2018/05/11 10:07:11 [DEBUG] Checking to see if caller 'admin' can act on type 'client'
+2018/05/11 10:07:11 [DEBUG] Checking to see if caller 'admin' is a registrar
+2018/05/11 10:07:11 [DEBUG] DB: Revoke certificate by serial (472c152ce38569902c31c1cc46b32844c6b567f2) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:11 [DEBUG] Revoke was successful: {RevocationRequest:{Name: Serial:472c152ce38569902c31c1cc46b32844c6b567f2 AKI:b289841489e0c5f0161d71421c05c60af317f346 Reason:keycompromise CAName: GenCRL:true}}
+2018/05/11 10:07:11 [DEBUG] Generating CRL
+2018/05/11 10:07:11 [DEBUG] DB: Get revoked certificates that were revoked after 0001-01-01 00:00:00 +0000 UTC and before 0001-01-01 00:00:00 +0000 UTC that are expired after 0001-01-01 00:00:00 +0000 UTC and before 0001-01-01 00:00:00 +0000 UTC
+2018/05/11 10:07:11 [INFO] [::1]:36400 POST /revoke 200 0 "OK"
+2018/05/11 10:07:11 [DEBUG] Received request for /register
+2018/05/11 10:07:11 [DEBUG] Checking for revocation/expiration of certificate owned by 'admin2'
+2018/05/11 10:07:11 [DEBUG] DB: Get certificate by serial (428aa28fe81c86098d9cf03b56b138121fc0cfba) and aki (b289841489e0c5f0161d71421c05c60af317f346)
+2018/05/11 10:07:11 [DEBUG] Successful token authentication of 'admin2'
+2018/05/11 10:07:11 [DEBUG] Received registration request from admin2: { Name:user1 Type:user Secret:**** MaxEnrollments:0 Affiliation: Attributes:[] CAName:  }
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity admin2
+2018/05/11 10:07:11 [DEBUG] No affiliation provided in registration request, will default to using registrar's affiliation of ''
+2018/05/11 10:07:11 [DEBUG] canRegister - Check to see if user 'admin2' can register
+2018/05/11 10:07:11 [DEBUG] Checking to see if caller 'admin2' is a registrar
+2018/05/11 10:07:11 [DEBUG] Validate Affiliation
+2018/05/11 10:07:11 [DEBUG] Checking to see if affiliation '' contains caller's affiliation ''
+2018/05/11 10:07:11 [DEBUG] Caller has root affiliation
+2018/05/11 10:07:11 [DEBUG] Validate ID
+2018/05/11 10:07:11 [DEBUG] Validating affiliation: 
+2018/05/11 10:07:11 [DEBUG] Registering user id: user1
+2018/05/11 10:07:11 [DEBUG] Max enrollment value verification - User specified max enrollment: 0, CA max enrollment: -1
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity user1
+2018/05/11 10:07:11 [DEBUG] DB: Add identity user1
+2018/05/11 10:07:11 [DEBUG] Successfully added identity user1 to the database
+2018/05/11 10:07:11 [INFO] [::1]:36402 POST /register 201 0 "OK"
+2018/05/11 10:07:11 [DEBUG] Received request for /enroll
+2018/05/11 10:07:11 [DEBUG] ca.Config: &{Version:1.1.1-snapshot-e656889 Cfg:{Identities:{AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile:/home/ondar/rootca/ca-key.pem Certfile:/home/ondar/rootca/ca-cert.pem Chainfile:/home/ondar/rootca/ca-chain.pem} Signing:0xc420356070 CSR:{CN:crypfirootca Names:[{C:RU ST: L:Moscow O:Crypfi OU:CrypfiRootCa SerialNumber:}] Hosts:[localhost.localdomain localhost] KeyRequest:0xc42035eb80 CA:0xc42035e540 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.Registrar.Roles:peer,orderer,client,user hf.Registrar.DelegateRoles:peer,orderer,client,user hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1 hf.Registrar.Attributes:*]  }]} Affiliations:map[org2:[department1] org1:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:/home/ondar/rootca/fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc420344510 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** Profile: Label: CSR:<nil> CAName: AttrReqs:[]  }} CRL:{Expiry:24h0m0s}}
+2018/05/11 10:07:11 [DEBUG] DB: Getting identity user1
+2018/05/11 10:07:11 [DEBUG] DB: Login user user1 with max enrollments of -1 and state of 0
+2018/05/11 10:07:12 [DEBUG] DB: identity user1 successfully logged in
+2018/05/11 10:07:12 [DEBUG] Processing sign request: id=user1, CommonName=user1, Subject=<nil>
+2018/05/11 10:07:12 [DEBUG] Request is not for a CA signing certificate
+2018/05/11 10:07:12 [DEBUG] Checking CSR fields to make sure that they do not exceed maximum character limits
+2018/05/11 10:07:12 [DEBUG] DB: Getting identity user1
+2018/05/11 10:07:12 [DEBUG] Finished processing sign request
+2018/05/11 10:07:12 [DEBUG] DB: Getting identity user1
+2018/05/11 10:07:12 [DEBUG] Attribute extension being added to certificate is: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a227573657231222c2268662e54797065223a2275736572227d7d}
+2018/05/11 10:07:12 [DEBUG] Adding attribute extension to CSR: &{ID:[1 2 3 4 5 6 7 8 1] Critical:false Value:7b226174747273223a7b2268662e416666696c696174696f6e223a22222c2268662e456e726f6c6c6d656e744944223a227573657231222c2268662e54797065223a2275736572227d7d}
+2018/05/11 10:07:12 [INFO] signed certificate with serial number 234851791579054451763915457381947393457463569857
+2018/05/11 10:07:12 [DEBUG] DB: Insert Certificate
+2018/05/11 10:07:12 [DEBUG] Saved serial number as hex 29231e59b4451ac52e653b0caa182647b5192dc1
+2018/05/11 10:07:12 [DEBUG] saved certificate with serial number 234851791579054451763915457381947393457463569857
+2018/05/11 10:07:12 [DEBUG] Successfully incremented state for identity user1 to 1
+2018/05/11 10:07:12 [INFO] [::1]:36404 POST /enroll 201 0 "OK"

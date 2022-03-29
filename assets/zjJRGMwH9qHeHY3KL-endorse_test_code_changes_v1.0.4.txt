@@ -1,0 +1,184 @@
+diff --git a/balance-transfer/app.js b/balance-transfer/app.js
+index db936b8..db00b33 100644
+--- a/balance-transfer/app.js
++++ b/balance-transfer/app.js
+@@ -255,6 +255,7 @@ app.post('/channels/:channelName/chaincodes/:chaincodeName', function(req, res)
+ 	var channelName = req.params.channelName;
+ 	var fcn = req.body.fcn;
+ 	var args = req.body.args;
++	var other_orgs = req.body.other_orgs;
+ 	logger.debug('channelName  : ' + channelName);
+ 	logger.debug('chaincodeName : ' + chaincodeName);
+ 	logger.debug('fcn  : ' + fcn);
+@@ -276,7 +277,7 @@ app.post('/channels/:channelName/chaincodes/:chaincodeName', function(req, res)
+ 		return;
+ 	}
+ 
+-	invoke.invokeChaincode(peers, channelName, chaincodeName, fcn, args, req.username, req.orgname)
++	invoke.invokeChaincode(peers, channelName, chaincodeName, fcn, args, req.username, req.orgname, other_orgs)
+ 	.then(function(message) {
+ 		res.send(message);
+ 	});
+diff --git a/balance-transfer/app/helper.js b/balance-transfer/app/helper.js
+index 8a227f7..c23d0d7 100644
+--- a/balance-transfer/app/helper.js
++++ b/balance-transfer/app/helper.js
+@@ -132,6 +132,62 @@ function newRemotes(names, forPeers, userOrg) {
+ 	return targets;
+ }
+ 
++//Updated code to send txn to other organization peers
++//Existing code (for loop in this file, where cleints, channels are initialized) maintains separate client objects for each organization, in which channel object is present and to the channel object organization peers are added. Due to which target peers are populated only for that organization.
++//Events are not considered here, to avoid MSP related error
++function newRemotesInvoke(names, forPeers, userOrg, other_orgs) {
++	let client = getClientForOrg(userOrg);
++	
++	let targets = [];
++	// find the peer that match the names
++	
++	for (let idx in names) {
++		let peerName = names[idx];
++		if (ORGS[userOrg].peers[peerName]) {
++			// found a peer matching the name
++			let data = fs.readFileSync(path.join(__dirname, ORGS[userOrg].peers[peerName]['tls_cacerts']));
++			let grpcOpts = {
++				pem: Buffer.from(data).toString(),
++				'ssl-target-name-override': ORGS[userOrg].peers[peerName]['server-hostname']
++			};
++			                            
++			if (forPeers) {
++				targets.push(client.newPeer(ORGS[userOrg].peers[peerName].requests, grpcOpts));
++				if(other_orgs) {//other org's peers
++					logger.debug("******************* Other orgs addition *********************");
++					for (let org in other_orgs)	{
++						//logger.debug("******************* Other orgs *********************"+other_orgs[org]);
++						if(ORGS[other_orgs[org]]) {
++						if(ORGS[other_orgs[org]].peers[peerName]) {
++							let otherorg_peerdata = fs.readFileSync(path.join(__dirname, ORGS[other_orgs[org]].peers[peerName]['tls_cacerts']));
++				                	let grpcOpts_others = { pem: Buffer.from(otherorg_peerdata).toString(),
++				                'ssl-target-name-override': ORGS[other_orgs[org]].peers[peerName]['server-hostname']};
++				                	targets.push(client.newPeer(ORGS[other_orgs[org]].peers[peerName].requests, grpcOpts_others));	
++						}
++						else {
++							logger.debug("******************* No such Other org's peer*********************"+other_orgs[org], ORGS[other_orgs[org]].peers[peerName]);
++						}
++						}
++						else {
++							logger.debug("******************* No such Other org *********************"+other_orgs[org]);
++						}
++					}			
++				}
++			} else {
++				let eh = client.newEventHub();
++				eh.setPeerAddr(ORGS[userOrg].peers[peerName].events, grpcOpts);
++				targets.push(eh);
++			}
++		}
++	}
++	
++	if (targets.length === 0) {
++	        logger.error(util.format('Failed to find peers matching the names %s', names));
++	}       
++	
++	return targets;
++}
++
+ //-------------------------------------//
+ // APIs
+ //-------------------------------------//
+@@ -147,6 +203,10 @@ var newPeers = function(names, org) {
+ 	return newRemotes(names, true, org);
+ };
+ 
++var newPeersInvoke = function(names, org, other_orgs) {
++	return newRemotesInvoke(names, true, org, other_orgs);
++};
++
+ var newEventHubs = function(names, org) {
+ 	return newRemotes(names, false, org);
+ };
+@@ -314,6 +374,7 @@ exports.setupChaincodeDeploy = setupChaincodeDeploy;
+ exports.getMspID = getMspID;
+ exports.ORGS = ORGS;
+ exports.newPeers = newPeers;
++exports.newPeersInvoke = newPeersInvoke;
+ exports.newEventHubs = newEventHubs;
+ exports.getRegisteredUsers = getRegisteredUsers;
+ exports.getOrgAdmin = getOrgAdmin;
+diff --git a/balance-transfer/app/instantiate-chaincode.js b/balance-transfer/app/instantiate-chaincode.js
+index 437b904..14a65ff 100644
+--- a/balance-transfer/app/instantiate-chaincode.js
++++ b/balance-transfer/app/instantiate-chaincode.js
+@@ -43,12 +43,25 @@ var instantiateChaincode = function(channelName, chaincodeName, chaincodeVersion
+ 		throw new Error('Failed to enroll user \'' + username + '\'. ' + err);
+ 	}).then((success) => {
+ 		tx_id = client.newTransactionID();
++
++		//endorsement policy
++		var epolicy = {
++			identities: [
++				{ role: { name: "member", mspId: "Org1MSP" }},
++				{ role: { name: "member", mspId: "Org2MSP" }}
++			],
++			policy: {
++				"2-of": [{ "signed-by": 0 }, { "signed-by": 1 }]
++			}
++		};
++
+ 		// send proposal to endorser
+ 		var request = {
+ 			chaincodeId: chaincodeName,
+ 			chaincodeVersion: chaincodeVersion,
+ 			args: args,
+-			txId: tx_id
++			txId: tx_id,
++			"endorsement-policy": epolicy
+ 		};
+ 
+ 		if (functionName)
+diff --git a/balance-transfer/app/invoke-transaction.js b/balance-transfer/app/invoke-transaction.js
+index 2a63d7f..b72cc65 100644
+--- a/balance-transfer/app/invoke-transaction.js
++++ b/balance-transfer/app/invoke-transaction.js
+@@ -24,11 +24,16 @@ var logger = helper.getLogger('invoke-chaincode');
+ var EventHub = require('fabric-client/lib/EventHub.js');
+ var ORGS = hfc.getConfigSetting('network-config');
+ 
+-var invokeChaincode = function(peerNames, channelName, chaincodeName, fcn, args, username, org) {
++var invokeChaincode = function(peerNames, channelName, chaincodeName, fcn, args, username, org, otherOrgs) {
+ 	logger.debug(util.format('\n============ invoke transaction on organization %s ============\n', org));
+ 	var client = helper.getClientForOrg(org);
+ 	var channel = helper.getChannelForOrg(org);
+-	var targets = (peerNames) ? helper.newPeers(peerNames, org) : undefined;
++
++	//peer names parsing as per no. of proposals
++	//logger.debug('peerNames:'+peerNames);
++	//logger.debug('otherOrgs:'+otherOrgs);
++
++	var targets = (peerNames) ? helper.newPeersInvoke(peerNames, org, otherOrgs) : undefined;
+ 	var tx_id = null;
+ 
+ 	return helper.getRegisteredUsers(username, org).then((user) => {
+diff --git a/balance-transfer/testAPIs.sh b/balance-transfer/testAPIs.sh
+index ab0d7eb..ec58ca1 100755
+--- a/balance-transfer/testAPIs.sh
++++ b/balance-transfer/testAPIs.sh
+@@ -118,6 +118,7 @@ curl -s -X POST \
+ echo
+ echo
+ 
++# peers and other_orgs arguments are needed to send transaction endorsement requests to other organizations, than to the organization to which the token belongs
+ echo "POST invoke chaincode on peers of Org1 and Org2"
+ echo
+ TRX_ID=$(curl -s -X POST \
+@@ -126,7 +127,9 @@ TRX_ID=$(curl -s -X POST \
+   -H "content-type: application/json" \
+   -d '{
+ 	"fcn":"move",
+-	"args":["a","b","10"]
++	"args":["a","b","10"],
++	"peers":["peer1"], 
++	"other_orgs":["org2"]
+ }')
+ echo "Transacton ID is $TRX_ID"
+ echo

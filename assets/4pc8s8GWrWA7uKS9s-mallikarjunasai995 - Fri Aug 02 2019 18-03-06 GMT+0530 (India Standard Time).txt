@@ -1,0 +1,66 @@
+hi team while running the cello master node .. am getting the error in cello-engine-tasks container 
+
+
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/__main__.py", line 16, in main
+cello-engine-tasks  |     _main()
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 322, in main
+cello-engine-tasks  |     cmd.execute_from_commandline(argv)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 496, in execute_from_commandline
+cello-engine-tasks  |     super(CeleryCommand, self).execute_from_commandline(argv)))
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 273, in execute_from_commandline
+cello-engine-tasks  |     argv = self.setup_app_from_commandline(argv)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 479, in setup_app_from_commandline
+cello-engine-tasks  |     self.app = self.find_app(app)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 501, in find_app
+cello-engine-tasks  |     return find_app(app, symbol_by_name=self.symbol_by_name)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/app/utils.py", line 359, in find_app
+cello-engine-tasks  |     sym = symbol_by_name(app, imp=imp)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 504, in symbol_by_name
+cello-engine-tasks  |     return imports.symbol_by_name(name, imp=imp)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/kombu/utils/imports.py", line 57, in symbol_by_name
+cello-engine-tasks  |     module = imp(module_name, package=package, **kwargs)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/utils/imports.py", line 104, in import_from_cwd
+cello-engine-tasks  |     return imp(module, package=package)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+cello-engine-tasks  |     return _bootstrap._gcd_import(name[level:], package, level)
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+cello-engine-tasks  | ModuleNotFoundError: No module named 'api_engine'
+cello-engine-tasks  | Traceback (most recent call last):
+cello-engine-tasks  |   File "/usr/local/bin/celery", line 10, in <module>
+cello-engine-tasks  |     sys.exit(main())
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/__main__.py", line 16, in main
+cello-engine-tasks  |     _main()
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 322, in main
+cello-engine-tasks  |     cmd.execute_from_commandline(argv)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 496, in execute_from_commandline
+cello-engine-tasks  |     super(CeleryCommand, self).execute_from_commandline(argv)))
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 273, in execute_from_commandline
+cello-engine-tasks  |     argv = self.setup_app_from_commandline(argv)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 479, in setup_app_from_commandline
+cello-engine-tasks  |     self.app = self.find_app(app)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 501, in find_app
+cello-engine-tasks  |     return find_app(app, symbol_by_name=self.symbol_by_name)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/app/utils.py", line 359, in find_app
+cello-engine-tasks  |     sym = symbol_by_name(app, imp=imp)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/base.py", line 504, in symbol_by_name
+cello-engine-tasks  |     return imports.symbol_by_name(name, imp=imp)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/kombu/utils/imports.py", line 57, in symbol_by_name
+cello-engine-tasks  |     module = imp(module_name, package=package, **kwargs)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/utils/imports.py", line 104, in import_from_cwd
+cello-engine-tasks  |     return imp(module, package=package)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+cello-engine-tasks  |     return _bootstrap._gcd_import(name[level:], package, level)
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+cello-engine-tasks  |   File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+cello-engine-tasks  | ModuleNotFoundError: No module named 'api_engine'
+cello-engine-tasks  | Traceback (most recent call last):
+cello-engine-tasks  |   File "/usr/local/bin/celery", line 10, in <module>
+cello-engine-tasks  |     sys.exit(main())
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/__main__.py", line 16, in main
+cello-engine-tasks  |     _main()
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 322, in main
+cello-engine-tasks  |     cmd.execute_from_commandline(argv)
+cello-engine-tasks  |   File "/usr/local/lib/python3.6/site-packages/celery/bin/celery.py", line 496, in execute_from_commandline

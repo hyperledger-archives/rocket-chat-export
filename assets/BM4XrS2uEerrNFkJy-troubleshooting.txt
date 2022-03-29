@@ -1,0 +1,889 @@
+rensatest@RF5CD101K5BG:~/poc/grid$ docker-compose -f examples/splinter/docker-compose.yaml up
+
+
+db-alpha is up-to-date
+Starting pike-contract-builder ...
+splinter-db-beta is up-to-date
+Starting gridd-gamma           ...
+Starting gridd-alpha           ...
+Starting splinterd-beta        ...
+Starting gridd-beta            ...
+Starting pike-contract-builder           ... done
+Starting gridd-gamma                     ... done
+Starting gridd-alpha                     ... done
+Starting splinterd-beta                  ... done
+Starting gridd-beta                      ... done
+Starting purchase-order-contract-builder ... done
+Starting grid-ui-alpha                   ... done
+Starting splinterd-gamma                 ... done
+Starting location-contract-builder       ... done
+Starting scabbard-cli-beta               ... done
+Starting product-contract-builder        ... done
+Starting schema-contract-builder         ... done
+Starting grid-ui-beta                    ... done
+Starting splinter_generate-registry_1    ... done
+Starting grid-ui-gamma                   ... done
+Starting tnt-contract-builder            ... done
+Starting scabbard-cli-alpha              ... done
+Starting splinterd-alpha                 ... done
+Attaching to db-alpha, splinter-db-beta, db-beta, db-gamma, splinter-db-gamma, registry-server, splinter-db-alpha, product-contract-builder, gridd-alpha, location-contract-builder, purchase-order-contract-builder, splinterd-beta, gridd-beta, pike-contract-builder, schema-contract-builder, scabbard-cli-beta, splinter_generate-registry_1, gridd-gamma, grid-ui-alpha, scabbard-cli-alpha, tnt-contract-builder, grid-ui-beta, splinterd-gamma, grid-ui-gamma, splinterd-alpha
+grid-ui-alpha                      | [Thu Sep 02 16:01:18.615902 2021] [so:warn] [pid 1:tid 140591524836480] AH01574: module headers_module is already loaded, skipping
+grid-ui-alpha                      | [Thu Sep 02 16:01:18.624816 2021] [so:warn] [pid 1:tid 140591524836480] AH01574: module headers_module is already loaded, skipping
+grid-ui-alpha                      | [Thu Sep 02 16:01:18.634528 2021] [mpm_event:notice] [pid 1:tid 140591524836480] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-alpha                      | [Thu Sep 02 16:01:18.634579 2021] [core:notice] [pid 1:tid 140591524836480] AH00094: Command line: 'httpd -D FOREGROUND'
+grid-ui-beta                       | [Thu Sep 02 16:01:19.409202 2021] [so:warn] [pid 1:tid 140362787103872] AH01574: module headers_module is already loaded, skipping
+grid-ui-beta                       | [Thu Sep 02 16:01:19.474611 2021] [so:warn] [pid 1:tid 140362787103872] AH01574: module headers_module is already loaded, skipping
+grid-ui-beta                       | [Thu Sep 02 16:01:19.490810 2021] [mpm_event:notice] [pid 1:tid 140362787103872] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-beta                       | [Thu Sep 02 16:01:19.490945 2021] [core:notice] [pid 1:tid 140362787103872] AH00094: Command line: 'httpd -D FOREGROUND'
+db-alpha                           | The files belonging to this database system will be owned by user "postgres".
+db-alpha                           | This user must also own the server process.
+db-alpha                           |
+db-alpha                           | The database cluster will be initialized with locale "en_US.utf8".
+db-alpha                           | The default database encoding has accordingly been set to "UTF8".
+db-alpha                           | The default text search configuration will be set to "english".
+db-beta                            | The files belonging to this database system will be owned by user "postgres".
+db-beta                            | This user must also own the server process.
+db-beta                            |
+db-beta                            | The database cluster will be initialized with locale "en_US.utf8".
+db-beta                            | The default database encoding has accordingly been set to "UTF8".
+db-beta                            | The default text search configuration will be set to "english".
+db-beta                            |
+db-beta                            | Data page checksums are disabled.
+db-beta                            |
+db-beta                            | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-beta                            | creating subdirectories ... ok
+db-beta                            | selecting dynamic shared memory implementation ... posix
+db-beta                            | selecting default max_connections ... 100
+db-beta                            | selecting default shared_buffers ... 128MB
+db-beta                            | selecting default time zone ... Etc/UTCdb-beta                            | creating configuration files ... ok
+db-beta                            | running bootstrap script ... ok
+db-beta                            | performing post-bootstrap initialization ... ok
+db-beta                            | syncing data to disk ... ok
+db-beta                            |
+db-beta                            |
+db-beta                            | Success. You can now start the database server using:
+db-beta                            |
+db-beta                            |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-beta                            |
+db-beta                            | initdb: warning: enabling "trust" authentication for local connections
+db-beta                            | You can change this by editing pg_hba.conf or using the option -A, or
+db-beta                            | --auth-local and --auth-host, the next time you run initdb.
+db-beta                            | waiting for server to start....2021-09-02 15:37:37.617 UTC [47] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitdb-beta                            | 2021-09-02 15:37:37.633 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-beta                            | 2021-09-02 15:37:37.672 UTC [48] LOG:  database system was shut down at 2021-09-02 15:37:36 UTC
+db-beta                            | 2021-09-02 15:37:37.689 UTC [47] LOG:  database system is ready to accept connections
+db-beta                            |  done
+db-beta                            | server started
+db-beta                            | CREATE DATABASE
+db-beta                            |
+db-beta                            |
+db-beta                            | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-beta                            |
+db-beta                            | 2021-09-02 15:37:38.566 UTC [47] LOG:  received fast shutdown request
+db-beta                            | waiting for server to shut down....2021-09-02 15:37:38.575 UTC [47] LOG:  aborting any active transactions
+db-beta                            | 2021-09-02 15:37:38.579 UTC [47] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-beta                            | 2021-09-02 15:37:38.582 UTC [49] LOG:  shutting down
+db-beta                            | 2021-09-02 15:37:38.649 UTC [47] LOG:  database system is shut down
+db-beta                            |  done
+db-beta                            | server stopped
+db-beta                            |
+db-beta                            | PostgreSQL init process complete; ready for start up.
+db-beta                            |
+db-beta                            | 2021-09-02 15:37:38.708 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-beta                            | 2021-09-02 15:37:38.709 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-beta                            | 2021-09-02 15:37:38.709 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-beta                            | 2021-09-02 15:37:38.724 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-beta                            | 2021-09-02 15:37:38.744 UTC [75] LOG:  database system was shut down at 2021-09-02 15:37:38 UTC
+db-beta                            | 2021-09-02 15:37:38.758 UTC [1] LOG:  database system is ready to accept connections
+db-beta                            |
+db-beta                            | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-beta                            |
+db-beta                            | 2021-09-02 16:00:57.425 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-beta                            | 2021-09-02 16:00:57.475 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-beta                            | 2021-09-02 16:00:57.475 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-beta                            | 2021-09-02 16:00:57.500 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-beta                            | 2021-09-02 16:00:57.562 UTC [26] LOG:  database system was interrupted; last known up at 2021-09-02 15:43:03 UTC
+db-beta                            | 2021-09-02 16:01:01.684 UTC [26] LOG:  database system was not properly shut down; automatic recovery in progress
+db-beta                            | 2021-09-02 16:01:01.704 UTC [26] LOG:  redo starts at 0/17491D0
+db-beta                            | 2021-09-02 16:01:01.704 UTC [26] LOG:  invalid record length at 0/17492B8: wanted 24, got 0
+db-beta                            | 2021-09-02 16:01:01.704 UTC [26] LOG:  redo done at 0/1749280
+db-beta                            | 2021-09-02 16:01:02.008 UTC [1] LOG:  database system is ready to accept connections
+grid-ui-gamma                      | [Thu Sep 02 16:01:19.747516 2021] [so:warn] [pid 1:tid 140692762543232] AH01574: module headers_module is already loaded, skipping
+db-alpha                           |
+db-alpha                           | Data page checksums are disabled.
+db-alpha                           |
+db-alpha                           | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-alpha                           | creating subdirectories ... ok
+db-alpha                           | selecting dynamic shared memory implementation ... posix
+db-alpha                           | selecting default max_connections ... 100
+db-alpha                           | selecting default shared_buffers ... 128MB
+db-alpha                           | selecting default time zone ... Etc/UTCdb-alpha                           | creating configuration files ... ok
+db-alpha                           | running bootstrap script ... ok
+db-alpha                           | performing post-bootstrap initialization ... ok
+db-alpha                           | initdb: warning: enabling "trust" authentication for local connections
+db-alpha                           | You can change this by editing pg_hba.conf or using the option -A, or
+db-alpha                           | --auth-local and --auth-host, the next time you run initdb.
+db-alpha                           | syncing data to disk ... ok
+db-alpha                           |
+db-alpha                           |
+db-alpha                           | Success. You can now start the database server using:
+db-alpha                           |
+db-alpha                           |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-alpha                           |
+db-alpha                           | waiting for server to start....2021-09-02 15:37:37.648 UTC [47] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitdb-alpha                           | 2021-09-02 15:37:37.664 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-alpha                           | 2021-09-02 15:37:37.700 UTC [48] LOG:  database system was shut down at 2021-09-02 15:37:36 UTC
+db-alpha                           | 2021-09-02 15:37:37.717 UTC [47] LOG:  database system is ready to accept connections
+db-alpha                           |  done
+db-alpha                           | server started
+db-alpha                           | CREATE DATABASE
+db-alpha                           |
+db-alpha                           |
+db-alpha                           | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-alpha                           |
+db-alpha                           | waiting for server to shut down...2021-09-02 15:37:38.616 UTC [47] LOG:  received fast shutdown request
+db-alpha                           | .2021-09-02 15:37:38.630 UTC [47] LOG:  aborting any active transactions
+db-alpha                           | 2021-09-02 15:37:38.633 UTC [47] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-alpha                           | 2021-09-02 15:37:38.633 UTC [49] LOG:  shutting down
+db-alpha                           | 2021-09-02 15:37:38.707 UTC [47] LOG:  database system is shut down
+db-alpha                           |  done
+db-alpha                           | server stopped
+db-alpha                           |
+db-alpha                           | PostgreSQL init process complete; ready for start up.
+db-alpha                           |
+db-alpha                           | 2021-09-02 15:37:38.754 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-alpha                           | 2021-09-02 15:37:38.754 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-alpha                           | 2021-09-02 15:37:38.754 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-alpha                           | 2021-09-02 15:37:38.777 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-alpha                           | 2021-09-02 15:37:38.796 UTC [75] LOG:  database system was shut down at 2021-09-02 15:37:38 UTC
+db-alpha                           | 2021-09-02 15:37:38.806 UTC [1] LOG:  database system is ready to accept connections
+db-alpha                           |
+db-alpha                           | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-alpha                           |
+db-alpha                           | 2021-09-02 16:00:57.874 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-alpha                           | 2021-09-02 16:00:57.874 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+gridd-alpha                        | keys files exist; skipping generation
+gridd-alpha                        | Successfully applied Grid migrations
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+gridd-alpha                        | WARN [gridd::splinter::app_auth_handler::node] Unable to get splinter status: error sending request for url (http://splinterd-alpha:8085/status): error trying to connect: tcp connect error: No route to host (os error 113)
+gridd-alpha                        | WARN [gridd::splinter::app_auth_handler::node] Retrying in: 2 seconds
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+gridd-alpha                        | WARN [gridd::splinter::app_auth_handler::node] Unable to get splinter status: error sending request for url (http://splinterd-alpha:8085/status): error trying to connect: tcp connect error: Connection refused (os error 111)
+gridd-alpha                        | WARN [gridd::splinter::app_auth_handler::node] Retrying in: 4 seconds
+grid-ui-gamma                      | [Thu Sep 02 16:01:19.771587 2021] [so:warn] [pid 1:tid 140692762543232] AH01574: module headers_module is already loaded, skipping
+grid-ui-gamma                      | [Thu Sep 02 16:01:19.774536 2021] [mpm_event:notice] [pid 1:tid 140692762543232] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-gamma                      | [Thu Sep 02 16:01:19.774771 2021] [core:notice] [pid 1:tid 140692762543232] AH00094: Command line: 'httpd -D FOREGROUND'
+gridd-beta                         | keys files exist; skipping generation
+gridd-beta                         | Successfully applied Grid migrations
+gridd-beta                         | DEBUG [reqwest::connect] starting new connection: http://splinterd-beta:8085/
+gridd-beta                         | WARN [gridd::splinter::app_auth_handler::node] Unable to get splinter status: error sending request for url (http://splinterd-beta:8085/status): error trying to connect: tcp connect error: Connection refused (os error 111)
+gridd-beta                         | WARN [gridd::splinter::app_auth_handler::node] Retrying in: 2 seconds
+gridd-beta                         | DEBUG [reqwest::connect] starting new connection: http://splinterd-beta:8085/
+gridd-beta                         | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-beta:8085/status
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:17 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 1s
+db-alpha                           | 2021-09-02 16:00:57.874 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-alpha                           | 2021-09-02 16:00:57.907 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-alpha                           | 2021-09-02 16:00:57.952 UTC [25] LOG:  database system was interrupted; last known up at 2021-09-02 15:43:03 UTC
+db-alpha                           | 2021-09-02 16:01:02.518 UTC [25] LOG:  database system was not properly shut down; automatic recovery in progress
+db-alpha                           | 2021-09-02 16:01:02.528 UTC [25] LOG:  redo starts at 0/17491D0
+db-alpha                           | 2021-09-02 16:01:02.528 UTC [25] LOG:  invalid record length at 0/17492B8: wanted 24, got 0
+db-alpha                           | 2021-09-02 16:01:02.528 UTC [25] LOG:  redo done at 0/1749280
+db-alpha                           | 2021-09-02 16:01:02.608 UTC [1] LOG:  database system is ready to accept connections
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+db-gamma                           | The files belonging to this database system will be owned by user "postgres".
+db-gamma                           | This user must also own the server process.
+db-gamma                           |
+db-gamma                           | The database cluster will be initialized with locale "en_US.utf8".
+db-gamma                           | The default database encoding has accordingly been set to "UTF8".
+db-gamma                           | The default text search configuration will be set to "english".
+db-gamma                           |
+db-gamma                           | Data page checksums are disabled.
+db-gamma                           |
+db-gamma                           | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-gamma                           | creating subdirectories ... ok
+db-gamma                           | selecting dynamic shared memory implementation ... posix
+db-gamma                           | selecting default max_connections ... 100
+db-gamma                           | selecting default shared_buffers ... 128MB
+db-gamma                           | selecting default time zone ... Etc/UTCdb-gamma                           | creating configuration files ... ok
+db-gamma                           | running bootstrap script ... ok
+db-gamma                           | performing post-bootstrap initialization ... ok
+db-gamma                           | initdb: warning: enabling "trust" authentication for local connections
+db-gamma                           | You can change this by editing pg_hba.conf or using the option -A, or
+db-gamma                           | --auth-local and --auth-host, the next time you run initdb.
+db-gamma                           | syncing data to disk ... ok
+db-gamma                           |
+db-gamma                           |
+db-gamma                           | Success. You can now start the database server using:
+db-gamma                           |
+db-gamma                           |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-gamma                           |
+db-gamma                           | waiting for server to start....2021-09-02 15:37:31.746 UTC [46] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitdb-gamma                           | 2021-09-02 15:37:31.762 UTC [46] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-gamma                           | 2021-09-02 15:37:31.799 UTC [47] LOG:  database system was shut down at 2021-09-02 15:37:30 UTC
+db-gamma                           | 2021-09-02 15:37:31.808 UTC [46] LOG:  database system is ready to accept connections
+db-gamma                           |  done
+db-gamma                           | server started
+db-gamma                           | CREATE DATABASE
+db-gamma                           |
+db-gamma                           |
+db-gamma                           | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-gamma                           |
+db-gamma                           | waiting for server to shut down...2021-09-02 15:37:32.389 UTC [46] LOG:  received fast shutdown request
+db-gamma                           | .2021-09-02 15:37:32.403 UTC [46] LOG:  aborting any active transactions
+db-gamma                           | 2021-09-02 15:37:32.406 UTC [46] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+db-gamma                           | 2021-09-02 15:37:32.408 UTC [48] LOG:  shutting down
+db-gamma                           | 2021-09-02 15:37:32.528 UTC [46] LOG:  database system is shut down
+db-gamma                           |  done
+db-gamma                           | server stopped
+db-gamma                           |
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:17 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 1s
+gridd-beta                         | INFO [actix_server::builder] Starting 2 workers
+gridd-beta                         | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 1 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 1 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+db-gamma                           | PostgreSQL init process complete; ready for start up.
+db-gamma                           |
+db-gamma                           | 2021-09-02 15:37:32.642 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-gamma                           | 2021-09-02 15:37:32.642 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-gamma                           | 2021-09-02 15:37:32.642 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-gamma                           | 2021-09-02 15:37:32.672 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-gamma                           | 2021-09-02 15:37:32.756 UTC [74] LOG:  database system was shut down at 2021-09-02 15:37:32 UTC
+db-gamma                           | 2021-09-02 15:37:32.778 UTC [1] LOG:  database system is ready to accept connections
+db-gamma                           |
+db-gamma                           | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-gamma                           |
+db-gamma                           | 2021-09-02 16:00:55.539 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-gamma                           | 2021-09-02 16:00:55.540 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-gamma                           | 2021-09-02 16:00:55.540 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-gamma                           | 2021-09-02 16:00:55.559 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-gamma                           | 2021-09-02 16:00:55.581 UTC [24] LOG:  database system was interrupted; last known up at 2021-09-02 15:42:57 UTC
+db-gamma                           | 2021-09-02 16:00:56.180 UTC [24] LOG:  database system was not properly shut down; automatic recovery in progress
+db-gamma                           | 2021-09-02 16:00:56.189 UTC [24] LOG:  redo starts at 0/17491D0
+db-gamma                           | 2021-09-02 16:00:56.189 UTC [24] LOG:  invalid record length at 0/17492B8: wanted 24, got 0
+db-gamma                           | 2021-09-02 16:00:56.189 UTC [24] LOG:  redo done at 0/1749280
+db-gamma                           | 2021-09-02 16:00:56.251 UTC [1] LOG:  database system is ready to accept connections
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:18 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 2s
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:18 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 1s
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 1 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:18 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 2s
+gridd-gamma                        | keys files exist; skipping generation
+gridd-gamma                        | Successfully applied Grid migrations
+gridd-gamma                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-gamma:8085/
+gridd-gamma                        | WARN [gridd::splinter::app_auth_handler::node] Unable to get splinter status: error sending request for url (http://splinterd-gamma:8085/status): error trying to connect: tcp connect error: Connection refused (os error 111)
+gridd-gamma                        | WARN [gridd::splinter::app_auth_handler::node] Retrying in: 2 seconds
+location-contract-builder exited with code 0
+pike-contract-builder exited with code 0
+product-contract-builder exited with code 0
+purchase-order-contract-builder exited with code 0
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.4. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.4. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | [Thu Sep 02 15:37:25.288402 2021] [mpm_event:notice] [pid 1:tid 140332229268608] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+registry-server                    | [Thu Sep 02 15:37:25.302459 2021] [core:notice] [pid 1:tid 140332229268608] AH00094: Command line: 'httpd -D FOREGROUND'
+registry-server                    | 172.19.0.19 - - [02/Sep/2021:15:37:34 +0000] "GET /registry.yaml HTTP/1.1" 404 196
+registry-server                    | 172.19.0.15 - - [02/Sep/2021:15:37:35 +0000] "GET /registry.yaml HTTP/1.1" 404 196
+registry-server                    | 172.19.0.24 - - [02/Sep/2021:15:37:39 +0000] "GET /registry.yaml HTTP/1.1" 404 196
+registry-server                    | 172.19.0.19 - - [02/Sep/2021:15:47:34 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.15 - - [02/Sep/2021:15:47:35 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.24 - - [02/Sep/2021:15:47:39 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.15 - - [02/Sep/2021:15:49:35 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.19 - - [02/Sep/2021:15:49:36 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.19 - - [02/Sep/2021:15:53:07 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.19.0.15 - - [02/Sep/2021:15:53:07 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.3. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.3. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | [Thu Sep 02 16:00:57.541360 2021] [mpm_event:notice] [pid 1:tid 139982287086720] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+registry-server                    | [Thu Sep 02 16:00:57.548844 2021] [core:notice] [pid 1:tid 139982287086720] AH00094: Command line: 'httpd -D FOREGROUND'
+registry-server                    | 172.19.0.10 - - [02/Sep/2021:16:01:15 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+schema-contract-builder exited with code 0
+splinter-db-beta                   | The files belonging to this database system will be owned by user "postgres".
+splinter-db-beta                   | This user must also own the server process.
+splinter-db-beta                   |
+splinter-db-beta                   | The database cluster will be initialized with locale "en_US.utf8".
+splinter-db-beta                   | The default database encoding has accordingly been set to "UTF8".
+splinter-db-beta                   | The default text search configuration will be set to "english".
+splinter-db-beta                   |
+splinter-db-beta                   | Data page checksums are disabled.
+splinter-db-beta                   |
+splinter-db-beta                   | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+splinter-db-beta                   | creating subdirectories ... ok
+splinter-db-beta                   | selecting dynamic shared memory implementation ... posix
+splinter-db-beta                   | selecting default max_connections ... 100
+splinter-db-beta                   | selecting default shared_buffers ... 128MB
+splinter-db-beta                   | selecting default time zone ... Etc/UTCsplinter-db-beta                   | creating configuration files ... ok
+splinter-db-beta                   | running bootstrap script ... ok
+splinter-db-beta                   | performing post-bootstrap initialization ... ok
+splinter-db-beta                   | initdb: warning: enabling "trust" authentication for local connections
+splinter-db-beta                   | You can change this by editing pg_hba.conf or using the option -A, or
+splinter-db-beta                   | --auth-local and --auth-host, the next time you run initdb.
+splinter-db-beta                   | syncing data to disk ... ok
+splinter-db-beta                   |
+splinter-db-beta                   |
+splinter-db-beta                   | Success. You can now start the database server using:
+splinter-db-beta                   |
+splinter-db-beta                   |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+splinter-db-beta                   |
+splinter-db-beta                   | waiting for server to start....2021-09-02 15:37:30.163 UTC [47] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitsplinter-db-beta                   | 2021-09-02 15:37:30.170 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-beta                   | 2021-09-02 15:37:30.217 UTC [48] LOG:  database system was shut down at 2021-09-02 15:37:29 UTC
+splinter-db-beta                   | 2021-09-02 15:37:30.228 UTC [47] LOG:  database system is ready to accept connections
+splinter-db-beta                   |  done
+splinter-db-beta                   | server started
+splinter-db-beta                   | CREATE DATABASE
+splinter-db-beta                   |
+splinter-db-beta                   |
+splinter-db-beta                   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+splinter-db-beta                   |
+splinter-db-beta                   | 2021-09-02 15:37:31.366 UTC [47] LOG:  received fast shutdown request
+splinter-db-beta                   | waiting for server to shut down....2021-09-02 15:37:31.375 UTC [47] LOG:  aborting any active transactions
+splinter-db-beta                   | 2021-09-02 15:37:31.379 UTC [47] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+splinter-db-beta                   | 2021-09-02 15:37:31.380 UTC [49] LOG:  shutting down
+splinter-db-beta                   | 2021-09-02 15:37:31.440 UTC [47] LOG:  database system is shut down
+splinter-db-beta                   |  done
+splinter-db-beta                   | server stopped
+splinter-db-beta                   |
+splinter-db-beta                   | PostgreSQL init process complete; ready for start up.
+splinter-db-beta                   |
+splinter-db-beta                   | 2021-09-02 15:37:31.506 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-beta                   | 2021-09-02 15:37:31.506 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-beta                   | 2021-09-02 15:37:31.506 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-beta                   | 2021-09-02 15:37:31.532 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-beta                   | 2021-09-02 15:37:31.559 UTC [75] LOG:  database system was shut down at 2021-09-02 15:37:31 UTC
+splinter-db-beta                   | 2021-09-02 15:37:31.575 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-beta                   |
+splinter-db-beta                   | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-beta                   |
+splinter-db-beta                   | 2021-09-02 16:00:57.873 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-beta                   | 2021-09-02 16:00:57.873 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-beta                   | 2021-09-02 16:00:57.873 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-beta                   | 2021-09-02 16:00:57.906 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-beta                   | 2021-09-02 16:00:57.951 UTC [25] LOG:  database system was interrupted; last known up at 2021-09-02 15:42:40 UTC
+splinter-db-beta                   | 2021-09-02 16:01:02.296 UTC [25] LOG:  database system was not properly shut down; automatic recovery in progress
+splinter-db-beta                   | 2021-09-02 16:01:02.308 UTC [25] LOG:  redo starts at 0/1613DF0
+splinter-db-beta                   | 2021-09-02 16:01:02.308 UTC [25] LOG:  invalid record length at 0/1613ED8: wanted 24, got 0
+splinter-db-beta                   | 2021-09-02 16:01:02.308 UTC [25] LOG:  redo done at 0/1613EA0
+splinter-db-beta                   | 2021-09-02 16:01:02.407 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-alpha                  | The files belonging to this database system will be owned by user "postgres".
+splinter-db-alpha                  | This user must also own the server process.
+splinter-db-alpha                  |
+splinter-db-alpha                  | The database cluster will be initialized with locale "en_US.utf8".
+splinter-db-alpha                  | The default database encoding has accordingly been set to "UTF8".
+splinter-db-alpha                  | The default text search configuration will be set to "english".
+splinter-db-alpha                  |
+splinter-db-alpha                  | Data page checksums are disabled.
+splinter-db-alpha                  |
+splinter-db-alpha                  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+splinter-db-alpha                  | creating subdirectories ... ok
+splinter-db-alpha                  | selecting dynamic shared memory implementation ... posix
+splinter-db-alpha                  | selecting default max_connections ... 100
+splinter-db-alpha                  | selecting default shared_buffers ... 128MB
+splinter-db-alpha                  | selecting default time zone ... Etc/UTCsplinter-db-alpha                  | creating configuration files ... ok
+splinter-db-alpha                  | running bootstrap script ... ok
+splinter-db-alpha                  | performing post-bootstrap initialization ... ok
+splinter-db-alpha                  | syncing data to disk ... ok
+splinter-db-alpha                  |
+splinter-db-alpha                  |
+splinter-db-alpha                  | Success. You can now start the database server using:
+splinter-db-alpha                  |
+splinter-db-alpha                  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+splinter-db-alpha                  |
+splinter-db-alpha                  | initdb: warning: enabling "trust" authentication for local connections
+splinter-db-alpha                  | You can change this by editing pg_hba.conf or using the option -A, or
+splinter-db-alpha                  | --auth-local and --auth-host, the next time you run initdb.
+splinter-db-alpha                  | waiting for server to start....2021-09-02 15:37:31.767 UTC [48] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitsplinter-db-alpha                  | 2021-09-02 15:37:31.776 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-alpha                  | 2021-09-02 15:37:31.815 UTC [49] LOG:  database system was shut down at 2021-09-02 15:37:30 UTC
+splinter-db-alpha                  | 2021-09-02 15:37:31.831 UTC [48] LOG:  database system is ready to accept connections
+splinter-db-alpha                  |  done
+splinter-db-alpha                  | server started
+splinter-db-alpha                  | CREATE DATABASE
+splinter-db-alpha                  |
+splinter-db-alpha                  |
+splinter-db-alpha                  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+splinter-db-alpha                  |
+splinter-db-alpha                  | 2021-09-02 15:37:32.466 UTC [48] LOG:  received fast shutdown request
+splinter-db-alpha                  | waiting for server to shut down....2021-09-02 15:37:32.477 UTC [48] LOG:  aborting any active transactions
+splinter_generate-registry_1 exited with code 0
+splinter-db-alpha                  | 2021-09-02 15:37:32.487 UTC [48] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+splinter-db-alpha                  | 2021-09-02 15:37:32.494 UTC [50] LOG:  shutting down
+splinter-db-alpha                  | 2021-09-02 15:37:32.677 UTC [48] LOG:  database system is shut down
+splinter-db-alpha                  |  done
+splinter-db-alpha                  | server stopped
+splinter-db-alpha                  |
+splinter-db-alpha                  | PostgreSQL init process complete; ready for start up.
+splinter-db-alpha                  |
+splinter-db-alpha                  | 2021-09-02 15:37:32.808 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-alpha                  | 2021-09-02 15:37:32.835 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-alpha                  | 2021-09-02 15:37:32.835 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-alpha                  | 2021-09-02 15:37:32.858 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-alpha                  | 2021-09-02 15:37:32.950 UTC [76] LOG:  database system was shut down at 2021-09-02 15:37:32 UTC
+splinter-db-alpha                  | 2021-09-02 15:37:32.961 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-alpha                  |
+splinter-db-gamma                  | The files belonging to this database system will be owned by user "postgres".
+splinter-db-gamma                  | This user must also own the server process.
+splinter-db-gamma                  |
+splinter-db-gamma                  | The database cluster will be initialized with locale "en_US.utf8".
+splinter-db-gamma                  | The default database encoding has accordingly been set to "UTF8".
+splinter-db-gamma                  | The default text search configuration will be set to "english".
+splinter-db-gamma                  |
+splinter-db-gamma                  | Data page checksums are disabled.
+splinter-db-gamma                  |
+splinter-db-gamma                  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+splinter-db-gamma                  | creating subdirectories ... ok
+splinter-db-gamma                  | selecting dynamic shared memory implementation ... posix
+splinter-db-gamma                  | selecting default max_connections ... 100
+splinter-db-gamma                  | selecting default shared_buffers ... 128MB
+splinter-db-gamma                  | selecting default time zone ... Etc/UTCsplinter-db-gamma                  | creating configuration files ... ok
+splinter-db-gamma                  | running bootstrap script ... ok
+splinter-db-gamma                  | performing post-bootstrap initialization ... ok
+splinter-db-gamma                  | syncing data to disk ... ok
+splinter-db-gamma                  |
+splinter-db-gamma                  |
+splinter-db-gamma                  | Success. You can now start the database server using:
+splinter-db-gamma                  |
+splinter-db-gamma                  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+splinter-db-gamma                  |
+splinter-db-gamma                  | initdb: warning: enabling "trust" authentication for local connections
+splinter-db-gamma                  | You can change this by editing pg_hba.conf or using the option -A, or
+splinter-db-gamma                  | --auth-local and --auth-host, the next time you run initdb.
+splinter-db-gamma                  | waiting for server to start....2021-09-02 15:37:37.454 UTC [47] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bitsplinter-db-gamma                  | 2021-09-02 15:37:37.470 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-gamma                  | 2021-09-02 15:37:37.504 UTC [48] LOG:  database system was shut down at 2021-09-02 15:37:36 UTC
+splinter-db-gamma                  | 2021-09-02 15:37:37.518 UTC [47] LOG:  database system is ready to accept connections
+splinter-db-gamma                  |  done
+splinter-db-gamma                  | server started
+splinter-db-gamma                  | CREATE DATABASE
+splinter-db-gamma                  |
+splinter-db-gamma                  |
+splinter-db-gamma                  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+splinter-db-gamma                  |
+splinter-db-gamma                  | waiting for server to shut down....2021-09-02 15:37:38.400 UTC [47] LOG:  received fast shutdown request
+splinter-db-gamma                  | 2021-09-02 15:37:38.410 UTC [47] LOG:  aborting any active transactions
+splinter-db-gamma                  | 2021-09-02 15:37:38.414 UTC [47] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+splinter-db-gamma                  | 2021-09-02 15:37:38.414 UTC [49] LOG:  shutting down
+splinter-db-gamma                  | 2021-09-02 15:37:38.468 UTC [47] LOG:  database system is shut down
+splinter-db-gamma                  |  done
+splinter-db-alpha                  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-alpha                  |
+splinter-db-alpha                  | 2021-09-02 16:00:57.708 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-alpha                  | 2021-09-02 16:00:57.709 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-alpha                  | 2021-09-02 16:00:57.709 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-alpha                  | 2021-09-02 16:00:57.741 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-alpha                  | 2021-09-02 16:00:57.800 UTC [24] LOG:  database system was interrupted; last known up at 2021-09-02 15:42:41 UTC
+splinter-db-alpha                  | 2021-09-02 16:01:01.590 UTC [24] LOG:  database system was not properly shut down; automatic recovery in progress
+splinter-db-alpha                  | 2021-09-02 16:01:01.605 UTC [24] LOG:  redo starts at 0/1613DF0
+splinter-db-alpha                  | 2021-09-02 16:01:01.605 UTC [24] LOG:  invalid record length at 0/1613ED8: wanted 24, got 0
+splinter-db-alpha                  | 2021-09-02 16:01:01.605 UTC [24] LOG:  redo done at 0/1613EA0
+splinter-db-alpha                  | 2021-09-02 16:01:01.955 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-gamma                  | server stopped
+splinter-db-gamma                  |
+splinter-db-gamma                  | PostgreSQL init process complete; ready for start up.
+splinter-db-gamma                  |
+splinter-db-gamma                  | 2021-09-02 15:37:38.541 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-gamma                  | 2021-09-02 15:37:38.541 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-gamma                  | 2021-09-02 15:37:38.541 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-gamma                  | 2021-09-02 15:37:38.567 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-gamma                  | 2021-09-02 15:37:38.591 UTC [75] LOG:  database system was shut down at 2021-09-02 15:37:38 UTC
+splinter-db-gamma                  | 2021-09-02 15:37:38.608 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-gamma                  |
+splinter-db-gamma                  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-gamma                  |
+splinter-db-gamma                  | 2021-09-02 16:00:57.417 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-gamma                  | 2021-09-02 16:00:57.468 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-gamma                  | 2021-09-02 16:00:57.468 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-gamma                  | 2021-09-02 16:00:57.490 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-gamma                  | 2021-09-02 16:00:57.562 UTC [29] LOG:  database system was interrupted; last known up at 2021-09-02 15:42:47 UTC
+splinter-db-gamma                  | 2021-09-02 16:01:01.147 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+splinter-db-gamma                  | 2021-09-02 16:01:01.171 UTC [29] LOG:  redo starts at 0/1613DF0
+splinter-db-gamma                  | 2021-09-02 16:01:01.171 UTC [29] LOG:  invalid record length at 0/1613ED8: wanted 24, got 0
+splinter-db-gamma                  | 2021-09-02 16:01:01.171 UTC [29] LOG:  redo done at 0/1613EA0
+splinter-db-gamma                  | 2021-09-02 16:01:01.422 UTC [1] LOG:  database system is ready to accept connections
+splinterd-beta                     | Successfully applied biome credentials migrations
+splinterd-beta                     | [2021-09-02 16:01:15.373] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-beta                     | [2021-09-02 16:01:15.374] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-beta                     | [2021-09-02 16:01:15.374] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-beta                     | [2021-09-02 16:01:15.374] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-beta                     | [2021-09-02 16:01:15.374] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.397] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-beta:8044"] (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: node_id: beta-node-000 (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-beta:5432/splinter (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-beta                     | [2021-09-02 16:01:15.399] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-beta                     | [2021-09-02 16:01:15.403] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-beta                     | [2021-09-02 16:01:15.438] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-beta                     | [2021-09-02 16:01:15.440] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID beta-node-000
+splinterd-beta                     | [2021-09-02 16:01:15.454] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-beta                     | [2021-09-02 16:01:15.454] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-beta                     | [2021-09-02 16:01:15.455] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-beta                     | [2021-09-02 16:01:15.478] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-beta                     | [2021-09-02 16:01:15.478] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-beta                     | [2021-09-02 16:01:15.481] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::beta-node-000 (remote endpoint: inproc://admin-service)
+splinterd-beta                     | [2021-09-02 16:01:15.499] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::beta-node-000
+splinterd-beta                     | [2021-09-02 16:01:15.500] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::beta-node-000 (remote endpoint: inproc://orchestator)
+splinterd-beta                     | [2021-09-02 16:01:15.500] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::beta-node-000
+splinterd-beta                     | [2021-09-02 16:01:15.717] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+splinterd-beta                     | [2021-09-02 16:01:15.901] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-beta                     | [2021-09-02 16:01:15.908] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+splinterd-beta                     | [2021-09-02 16:01:15.931] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-beta                     | [2021-09-02 16:01:15.939] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-02 16:01:15.945] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-beta                     | [2021-09-02 16:01:15.945] T["main"] INFO [splinterd::daemon] Adding biome routes
+splinterd-beta                     | [2021-09-02 16:01:16.055] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-beta                     | [2021-09-02 16:01:16.056] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-beta                     | [2021-09-02 16:01:16.056] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-beta                     | [2021-09-02 16:01:16.074] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-beta                     | [2021-09-02 16:01:16.075] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-beta                     | [2021-09-02 16:01:16.080] T["Service admin::beta-node-000"] INFO [splinter::service::processor] Starting Service: admin::beta-node-000
+splinterd-beta                     | [2021-09-02 16:01:16.088] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::beta-node-000 [67 bytes]
+splinterd-beta                     | [2021-09-02 16:01:16.088] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::beta-node-000" correlation_id: "fad9510a-8833-4d0a-85eb-d1db0169f2d3"
+splinterd-beta                     | [2021-09-02 16:01:16.090] T["Peer Manager"] INFO [splinter::peer] Attempting to peer with alpha-node-000
+splinterd-beta                     | [2021-09-02 16:01:17.962] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.12:53586 "GET /status HTTP/1.1" 200 179 "-" "-" 0.000207
+splinterd-beta                     | [2021-09-02 16:01:17.981] T["actix-rt:worker:1"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+tnt-contract-builder exited with code 0
+splinterd-beta                     | [2021-09-02 16:01:17.981] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.19.0.12:53592 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000383
+splinterd-beta                     | [2021-09-02 16:01:17.992] T["actix-rt:worker:0"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+splinterd-beta                     | [2021-09-02 16:01:17.992] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.12:53598 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000173
+splinterd-beta                     | [2021-09-02 16:01:18.976] T["actix-rt:worker:1"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+splinterd-beta                     | [2021-09-02 16:01:18.976] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.19.0.12:53628 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000152
+splinterd-beta                     | [2021-09-02 16:01:18.997] T["actix-rt:worker:0"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+splinterd-beta                     | [2021-09-02 16:01:18.997] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.12:53630 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000436
+splinterd-beta                     | [2021-09-02 16:01:19.006] T["actix-rt:worker:1"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+splinterd-beta                     | [2021-09-02 16:01:19.006] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.19.0.12:53632 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000266
+splinterd-beta                     | [2021-09-02 16:01:19.007] T["actix-rt:worker:0"] WARN [splinter::admin::rest_api::actix::ws_register_type] Admin service is not running
+splinterd-beta                     | [2021-09-02 16:01:19.007] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.12:53634 "GET /ws/admin/register/grid HTTP/1.1" 503 0 "-" "-" 0.000562
+splinterd-beta                     | [2021-09-02 16:01:19.227] T["Peer Manager"] INFO [splinter::peer] Unable to request connection for peer alpha-node-000: Unable to connect to tcps://splinterd-alpha:8044
+splinterd-beta                     | [2021-09-02 16:01:19.366] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from orchestator::beta-node-000 [57 bytes]
+splinterd-beta                     | [2021-09-02 16:01:19.366] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "2PtYv-PH4cv" service_id: "gsBB" correlation_id: "74725500-0cf1-4cd5-a9e7-d09aba22a37c"
+splinterd-gamma                    | Successfully applied biome credentials migrations
+splinterd-alpha                    | Successfully applied biome credentials migrations
+splinterd-gamma                    | [2021-09-02 16:01:20.100] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-gamma                    | [2021-09-02 16:01:20.100] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-gamma                    | [2021-09-02 16:01:20.101] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-gamma                    | [2021-09-02 16:01:20.101] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-gamma                    | [2021-09-02 16:01:20.101] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+splinterd-gamma                    | [2021-09-02 16:01:20.111] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.111] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.111] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.111] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.112] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-gamma:8044"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.113] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.113] T["main"] DEBUG [splinterd::config] Config: node_id: gamma-node-000 (source: CommandLine)splinterd-gamma                    | [2021-09-02 16:01:20.113] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.113] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.113] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.114] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)splinterd-gamma                    | [2021-09-02 16:01:20.114] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.114] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.115] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.115] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-gamma:5432/splinter (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.115] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.116] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-gamma                    | [2021-09-02 16:01:20.116] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-gamma                    | [2021-09-02 16:01:20.116] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-alpha                    | [2021-09-02 16:01:20.117] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-alpha                    | [2021-09-02 16:01:20.117] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-alpha                    | [2021-09-02 16:01:20.118] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-alpha                    | [2021-09-02 16:01:20.118] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-alpha                    | [2021-09-02 16:01:20.118] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+splinterd-gamma                    | [2021-09-02 16:01:20.118] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-gamma                    | [2021-09-02 16:01:20.121] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-gamma                    | [2021-09-02 16:01:20.121] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID gamma-node-000
+splinterd-gamma                    | [2021-09-02 16:01:20.124] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-gamma                    | [2021-09-02 16:01:20.124] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-gamma                    | [2021-09-02 16:01:20.125] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-gamma                    | [2021-09-02 16:01:20.127] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-gamma                    | [2021-09-02 16:01:20.127] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-gamma                    | [2021-09-02 16:01:20.133] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::gamma-node-000 (remote endpoint: inproc://admin-service)
+splinterd-gamma                    | [2021-09-02 16:01:20.133] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::gamma-node-000
+splinterd-gamma                    | [2021-09-02 16:01:20.134] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::gamma-node-000 (remote endpoint: inproc://orchestator)
+splinterd-gamma                    | [2021-09-02 16:01:20.134] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::gamma-node-000splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-alpha:8044"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: node_id: alpha-node-000 (source: CommandLine)splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-alpha:5432/splinter (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-alpha                    | [2021-09-02 16:01:20.138] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-alpha                    | [2021-09-02 16:01:20.142] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-alpha                    | [2021-09-02 16:01:20.144] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-alpha                    | [2021-09-02 16:01:20.144] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID alpha-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.146] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-alpha                    | [2021-09-02 16:01:20.146] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-alpha                    | [2021-09-02 16:01:20.147] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-alpha                    | [2021-09-02 16:01:20.148] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-alpha                    | [2021-09-02 16:01:20.148] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-alpha                    | [2021-09-02 16:01:20.167] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::alpha-node-000 (remote endpoint: inproc://admin-service)
+splinterd-alpha                    | [2021-09-02 16:01:20.167] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::alpha-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.167] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::alpha-node-000 (remote endpoint: inproc://orchestator)
+splinterd-alpha                    | [2021-09-02 16:01:20.167] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::alpha-node-000splinterd-alpha                    | [2021-09-02 16:01:20.195] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+splinterd-alpha                    | [2021-09-02 16:01:20.232] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-alpha                    | [2021-09-02 16:01:20.233] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+splinterd-alpha                    | [2021-09-02 16:01:20.235] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.19.0.26 - - [02/Sep/2021:16:01:20 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-02 16:01:20.266] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-02 16:01:20.268] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-alpha                    | [2021-09-02 16:01:20.268] T["main"] INFO [splinterd::daemon] Adding biome routes
+splinterd-gamma                    | [2021-09-02 16:01:20.291] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+splinterd-alpha                    | [2021-09-02 16:01:20.342] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-alpha                    | [2021-09-02 16:01:20.342] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-alpha                    | [2021-09-02 16:01:20.342] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-alpha                    | [2021-09-02 16:01:20.344] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-alpha                    | [2021-09-02 16:01:20.345] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-alpha                    | [2021-09-02 16:01:20.357] T["Service admin::alpha-node-000"] INFO [splinter::service::processor] Starting Service: admin::alpha-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.358] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::alpha-node-000 [68 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.358] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::alpha-node-000" correlation_id: "67f3de11-18f9-448b-91d9-fe49210d00fb"
+splinterd-alpha                    | [2021-09-02 16:01:20.359] T["Peer Manager"] INFO [splinter::peer] Attempting to peer with beta-node-000
+splinterd-beta                     | [2021-09-02 16:01:20.366] T["<unnamed>"] DEBUG [splinterd::daemon] Received connection from tcps://172.19.0.26:36902
+splinterd-gamma                    | [2021-09-02 16:01:20.370] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-alpha                    | [2021-09-02 16:01:20.371] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Beginning handshake for b59187a7-b100-4a3e-ab45-5ee3c32c5398
+splinterd-alpha                    | [2021-09-02 16:01:20.371] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Sent bidirectional connect request to b59187a7-b100-4a3e-ab45-5ee3c32c5398
+splinterd-gamma                    | [2021-09-02 16:01:20.387] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+splinterd-gamma                    | [2021-09-02 16:01:20.390] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-gamma                    | [2021-09-02 16:01:20.398] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+registry-server                    | 172.19.0.21 - - [02/Sep/2021:16:01:20 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-gamma                    | [2021-09-02 16:01:20.407] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-gamma                    | [2021-09-02 16:01:20.407] T["main"] INFO [splinterd::daemon] Adding biome routes
+splinterd-beta                     | [2021-09-02 16:01:20.467] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Beginning handshake for b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e
+splinterd-beta                     | [2021-09-02 16:01:20.467] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Sent bidirectional connect request to b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e
+splinterd-beta                     | [2021-09-02 16:01:20.468] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Ignoring duplicate connect request from b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e
+splinterd-beta                     | [2021-09-02 16:01:20.468] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Receive connect response from connection b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e: ConnectResponse { accepted_authorization_types: [Trust] }
+splinterd-alpha                    | [2021-09-02 16:01:20.474] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Ignoring duplicate connect request from b59187a7-b100-4a3e-ab45-5ee3c32c5398
+splinterd-alpha                    | [2021-09-02 16:01:20.474] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Receive connect response from connection b59187a7-b100-4a3e-ab45-5ee3c32c5398: ConnectResponse { accepted_authorization_types: [Trust] }
+splinterd-alpha                    | [2021-09-02 16:01:20.474] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Sending Authorized message to connection b59187a7-b100-4a3e-ab45-5ee3c32c5398 after receiving identity beta-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.485] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from orchestator::alpha-node-000 [57 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.486] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "2PtYv-PH4cv" service_id: "gsAA" correlation_id: "8b284ff1-92ef-4ee7-8569-02ea7c6398ba"
+splinterd-gamma                    | [2021-09-02 16:01:20.487] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-gamma                    | [2021-09-02 16:01:20.488] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-gamma                    | [2021-09-02 16:01:20.489] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-gamma                    | [2021-09-02 16:01:20.490] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-gamma                    | [2021-09-02 16:01:20.490] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-gamma                    | [2021-09-02 16:01:20.497] T["Service admin::gamma-node-000"] INFO [splinter::service::processor] Starting Service: admin::gamma-node-000
+splinterd-gamma                    | [2021-09-02 16:01:20.499] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::gamma-node-000 [68 bytes]
+splinterd-gamma                    | [2021-09-02 16:01:20.500] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::gamma-node-000" correlation_id: "e02668fd-7dd0-4bda-b15a-e36579861613"
+splinterd-beta                     | [2021-09-02 16:01:20.569] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Sending Authorized message to connection b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e after receiving identity alpha-node-000
+splinterd-beta                     | [2021-09-02 16:01:20.569] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Received authorize message from b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e
+splinterd-beta                     | [2021-09-02 16:01:20.569] T["AuthorizationManager--2"] DEBUG [splinter::network::auth::handlers] Authorized by b71b01d2-7a9c-4bf0-bb3e-7aa28b70888e
+splinterd-beta                     | [2021-09-02 16:01:20.570] T["Peer Manager"] INFO [splinter::peer] Received peer connection from alpha-node-000 (remote endpoint: tcps://172.19.0.26:36902)
+splinterd-beta                     | [2021-09-02 16:01:20.570] T["Peer Manager"] INFO [splinter::peer] Adding inbound connection to Pending peer: alpha-node-000
+splinterd-beta                     | [2021-09-02 16:01:20.571] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service] Peer alpha-node-000 has connected
+splinterd-beta                     | [2021-09-02 16:01:20.571] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service::shared] Sending service protocol request to admin::alpha-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.575] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Received authorize message from b59187a7-b100-4a3e-ab45-5ee3c32c5398
+splinterd-alpha                    | [2021-09-02 16:01:20.575] T["AuthorizationManager--0"] DEBUG [splinter::network::auth::handlers] Authorized by b59187a7-b100-4a3e-ab45-5ee3c32c5398
+splinterd-beta                     | [2021-09-02 16:01:20.575] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [63 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.576] T["Peer Manager"] INFO [splinter::peer] Pending peer beta-node-000 connected via tcps://splinterd-beta:8044
+splinterd-alpha                    | [2021-09-02 16:01:20.576] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service] Peer beta-node-000 has connected
+splinterd-alpha                    | [2021-09-02 16:01:20.576] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service::shared] Sending service protocol request to admin::beta-node-000
+splinterd-alpha                    | [2021-09-02 16:01:20.577] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [63 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.577] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [9 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.578] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [9 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.578] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [63 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.578] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [9 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.580] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_REQUEST protocol_request {protocol_min: 1 protocol_max: 1}
+splinterd-beta                     | [2021-09-02 16:01:20.581] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [61 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.581] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [7 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.679] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [63 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.679] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [61 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.679] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [9 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.679] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [7 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.682] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_REQUEST protocol_request {protocol_min: 1 protocol_max: 1}
+splinterd-alpha                    | [2021-09-02 16:01:20.683] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_RESPONSE protocol_response {protocol: 1}
+splinterd-alpha                    | [2021-09-02 16:01:20.683] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [61 bytes]
+splinterd-alpha                    | [2021-09-02 16:01:20.684] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [7 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.785] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [61 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.785] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [7 bytes]
+splinterd-beta                     | [2021-09-02 16:01:20.786] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_RESPONSE protocol_response {protocol: 1}
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 2 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 2 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+gridd-beta                         | ERROR [splinter::events::ws] The server didn't upgrade: 503 Service Unavailable
+gridd-beta                         | ERROR [gridd::splinter::app_auth_handler] An error occured while listening for admin events Received status code 503 while attempting to establish a connection
+gridd-beta                         | DEBUG [gridd::splinter::app_auth_handler] Attempting to restart connection
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 503, version: HTTP/1.1, headers: {"content-length": "0", "connection": "upgrade", "date": "Thu, 02 Sep 2021 16:01:18 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] Reconnecting in 2s
+gridd-beta                         | DEBUG [splinter::events::ws] Attempting to reconnect. Attempt number 2 out of 10
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+gridd-beta                         | INFO [splinter::events::reactor] A ws connection closed
+splinterd-beta                     | [2021-09-02 16:01:20.982] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.982] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.982] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+splinterd-beta                     | [2021-09-02 16:01:20.984] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.984] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.984] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+splinterd-beta                     | [2021-09-02 16:01:20.985] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.985] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.985] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "upgrade": "websocket", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "upgrade": "websocket", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "upgrade": "websocket", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+splinterd-beta                     | [2021-09-02 16:01:20.987] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.988] T["actix-rt:worker:0"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.988] T["actix-rt:worker:0"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+splinterd-beta                     | [2021-09-02 16:01:20.993] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-beta                     | [2021-09-02 16:01:20.993] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+splinterd-beta                     | [2021-09-02 16:01:20.993] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "upgrade": "websocket", "date": "Thu, 02 Sep 2021 16:01:20 GMT"}, body: Body(Empty) }
+gridd-gamma                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-gamma:8085/
+splinterd-gamma                    | [2021-09-02 16:01:21.326] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.17:60804 "GET /status HTTP/1.1" 200 182 "-" "-" 0.000112
+gridd-gamma                        | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-gamma:8085/status
+gridd-gamma                        | DEBUG [splinter::events::ws] starting: http://splinterd-gamma:8085/ws/admin/register/grid
+splinterd-gamma                    | [2021-09-02 16:01:21.332] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-gamma                    | [2021-09-02 16:01:21.332] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-gamma                    | Response HTTP/1.1 101 Switching Protocols
+splinterd-gamma                    |   headers:
+splinterd-gamma                    |     "upgrade": "websocket"
+splinterd-gamma                    |     "transfer-encoding": "chunked"
+splinterd-gamma                    |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-gamma                    |   body: Stream
+splinterd-gamma                    |
+splinterd-gamma                    | [2021-09-02 16:01:21.332] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-gamma                        | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Thu, 02 Sep 2021 16:01:21 GMT"}, body: Body(Empty) }
+gridd-gamma                        | INFO [actix_server::builder] Starting 2 workers
+gridd-gamma                        | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+splinterd-alpha                    | [2021-09-02 16:01:23.552] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.19.0.9:34904 "GET /status HTTP/1.1" 200 182 "-" "-" 0.000079
+gridd-alpha                        | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-alpha:8085/status
+gridd-alpha                        | DEBUG [splinter::events::ws] starting: http://splinterd-alpha:8085/ws/admin/register/grid
+splinterd-alpha                    | [2021-09-02 16:01:23.560] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-alpha                    | [2021-09-02 16:01:23.560] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-alpha                    | Response HTTP/1.1 101 Switching Protocols
+splinterd-alpha                    |   headers:
+splinterd-alpha                    |     "upgrade": "websocket"
+splinterd-alpha                    |     "transfer-encoding": "chunked"
+splinterd-alpha                    |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-alpha                    |   body: Stream
+splinterd-alpha                    |
+splinterd-alpha                    | [2021-09-02 16:01:23.560] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-alpha                        | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Thu, 02 Sep 2021 16:01:23 GMT"}, body: Body(Empty) }
+gridd-alpha                        | INFO [actix_server::builder] Starting 2 workers
+gridd-alpha                        | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+splinterd-alpha                    | [2021-09-02 16:02:36.662] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 127.0.0.1:59982 "GET /admin/circuits?limit=1000 HTTP/1.1" 200 819 "-" "-" 0.001193
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+splinterd-alpha                    | [2021-09-02 16:06:25.887] T["actix-rt:worker:1"] DEBUG [scabbard::service] Batch Status Link Created: /scabbard/2PtYv-PH4cv/gsAA/batch_statuses?ids=6f07ad51abc265fd64d42e796ba5abf9529ab0a5ab7197b15c94f75c69322e4a1cca5c57d28edf3957d803db91c5a4b8ad87185f1bb6728f47fe060b4715f33c
+splinterd-alpha                    | [2021-09-02 16:06:25.887] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.19.0.9:34912 "POST /scabbard/2PtYv-PH4cv/gsAA/batches HTTP/1.1" 202 185 "-" "-" 0.001007
+gridd-alpha                        | DEBUG [reqwest::async_impl::client] response '202 Accepted' for http://splinterd-alpha:8085/scabbard/2PtYv-PH4cv/gsAA/batches
+splinterd-alpha                    | [2021-09-02 16:06:25.935] T["consensus-gsAA"] DEBUG [transact::execution::executor] Execute called, creating execution adapter 0
+splinterd-alpha                    | [2021-09-02 16:06:25.935] T["ExecutionTaskReader-0"] DEBUG [transact::execution::executor::reader] Completed task iterator!
+splinterd-alpha                    | [2021-09-02 16:06:25.936] T["StaticExecutionAdapter"] DEBUG [transact::execution::adapter::static_adapter] Executing TransactionPair { transaction: Transaction {header_signature: "94629358a1ab3d1f5931e19b3c769dbc1d9ebd641b7fdea8a82a8bc408f60f8f7206535feb52589c79f1ce9421ed7174a047a6e2e25a51350cfa82bd87010c9e", header: <737 bytes>,  payload: <98 bytes> }, header: TransactionHeader{ family_name: "sabre", family_version: "0.5", inputs: ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]outputs: ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]signer_public_key: "025dc84ca9994d4287a47ecb042bd0dacb72312dfad2c7f37866f9cbf80aca4cc2", payload_hash: "b6d9f25a08ce64604690492cd0649a52b7d6e106069e3667f68a2f56ee88ff3439eddb7fbd1fff95aa21cfd0c59ed827cbcf1f489df0b958070611bd16b34836", payload_hash_method: SHA512, nonce: "30313030" } } in context [216, 68, 15, 95, 49, 116, 65, 43, 167, 120, 56, 109, 213, 170, 202, 52]
+splinterd-alpha                    | [2021-09-02 16:06:25.939] T["StaticExecutionAdapter"] INFO [sawtooth_sabre::handler] Action: Execute Contract ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"] ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]
+splinterd-alpha                    | [2021-09-02 16:06:25.940] T["consensus-gsAA"] ERROR [splinter::consensus::two_phase] Error while creating proposal: proposal manager error occurred: scabbard state error: transaction failed: "Contract does not exist: grid_pike, 2"

@@ -1,0 +1,121 @@
+{
+    "name": "BlockIT",
+    "version": "1.0.0",
+    "client": {
+        "organization": "BlockIT",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "channels": {
+      "test1": {
+        "peers": {
+          "peer0.blockit.co": {}
+        },
+        "connection": {
+          "timeout": {
+            "peer": {
+              "endorser": "6000",
+              "eventHub": "6000",
+              "eventReg": "6000"
+            }
+          }
+        }
+      }
+    },
+    "organizations": {
+        "BlockIT": {
+            "mspid": "BlockITMSP",
+            "peers": [
+                "peer0.blockit.co",
+                "peer1.blockit.co",
+                "peer2.blockit.co"
+            ],
+            "certificateAuthorities": [
+                "ca.blockit.co"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.blockit.co": {
+            "url": "grpcs://127.0.0.1:7051",
+            "tlsCACerts": {
+                "path": "./crypto-config/peerOrganizations/blockit.co/tlsca/tlsca.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.blockit.co",
+                "hostnameOverride": "peer0.blockit.co"
+            }
+        },
+        "peer1.blockit.co": {
+            "url": "grpcs://127.0.0.1:8051",
+            "tlsCACerts": {
+                "path": "./crypto-config/peerOrganizations/blockit.co/tlsca/tlsca.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.blockit.co",
+                "hostnameOverride": "peer1.blockit.co"
+            }
+        },
+        "peer2.blockit.co": {
+            "url": "grpcs://127.0.0.1:9051",
+            "tlsCACerts": {
+                "path": "./crypto-config/peerOrganizations/blockit.co/tlsca/tlsca.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.blockit.co",
+                "hostnameOverride": "peer2.blockit.co"
+            }
+        }
+    },
+
+    "orderers": {
+        "orderer0.audit.blockit.co": {
+            "url": "grpcs://127.0.0.1:7050",
+            "tlsCACerts": {
+                "path": "./crypto-config/ordererOrganizations/audit.blockit.co/orderers/orderer0.audit.blockit.co/msp/tlscacerts/tlsca.audit.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.audit.blockit.co",
+                "hostnameOverride": "orderer0.audit.blockit.co"
+            }
+
+        },
+        "orderer1.audit.blockit.co": {
+            "url": "grpcs://127.0.0.1:8050",
+            "tlsCACerts": {
+                "path": "./crypto-config/ordererOrganizations/audit.blockit.co/orderers/orderer1.audit.blockit.co/msp/tlscacerts/tlsca.audit.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer1.audit.blockit.co",
+                "hostnameOverride": "orderer1.audit.blockit.co"
+            }
+        },
+        "orderer2.audit.blockit.co": {
+            "url": "grpcs://127.0.0.1:9050",
+            "tlsCACerts": {
+                "path": "./crypto-config/ordererOrganizations/audit.blockit.co/orderers/orderer2.audit.blockit.co/msp/tlscacerts/tlsca.audit.blockit.co-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer2.audit.blockit.co",
+                "hostnameOverride": "orderer2.audit.blockit.co"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.blockit.co": {
+            "url": "https://127.0.0.1:4020",
+            "caName": "ca-blockit",
+            "tlsCACerts": {
+                "path": "./crypto-config/peerOrganizations/blockit.co/ca/ca.blockit.co-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

@@ -1,0 +1,255 @@
+**configtx.yaml file**
+```
+Organizations:
+
+    - &Alpha
+        Name: Alpha
+        ID: AlphaMSP
+        MSPDir: crypto-config/ordererOrganizations/alpha.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('AlphaMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('AlphaMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('AlphaMSP.admin')"
+
+        OrdererEndpoints:
+            - orderer1.alpha.com:7050
+            - orderer2.alpha.com:8050
+            - orderer3.alpha.com:9050        
+
+    - &Beta
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Beta
+        # ID to load the MSP definition as
+        ID: BetaMSP
+        MSPDir: crypto-config/peerOrganizations/beta.com/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('BetaMSP.admin', 'BetaMSP.peer', 'BetaMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('BetaMSP.admin', 'BetaMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('BetaMSP.admin')"
+            Endorsement:    
+                Type: Signature
+                Rule: "OR('BetaMSP.peer')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.beta.com
+              Port: 7051
+
+    - &Gamma
+        Name: Gamma
+        ID: GammaMSP
+        MSPDir: crypto-config/peerOrganizations/gamma.com/msp   
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('GammaMSP.admin', 'GammaMSP.peer', 'GammaMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('GammaMSP.admin', 'GammaMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('GammaMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('GammaMSP.peer')"
+
+        AnchorPeers: 
+            - Host: peer0.gamma.com
+            - Port: 9051
+
+Capabilities:
+    # Channel capabilities apply to both the orderers and the peers and must be
+    # supported by both.
+    # Set the value of the capability to true to require it.
+    Channel: &ChannelCapabilities
+        V2_0: true
+
+    # Orderer capabilities apply only to the orderers, and may be safely
+    # used with prior release peers.
+    # Set the value of the capability to true to require it.
+    Orderer: &OrdererCapabilities
+        V2_0: true
+
+    # Application capabilities apply only to the peer network, and may be safely
+    # used with prior release orderers.
+    # Set the value of the capability to true to require it.
+    Application: &ApplicationCapabilities
+        V2_0: true
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Application policies, their canonical path is
+    #   /Channel/Application/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "ANY Admins"
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+
+    Capabilities:
+        <<: *ApplicationCapabilities        
+################################################################################
+#
+#   SECTION: Orderer
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for orderer related parameters
+#
+################################################################################
+Orderer: &OrdererDefaults
+    OrdererType: etcdraft
+
+    EtcdRaft:
+        Consenters:
+        - Host: orderer1.alpha.com
+          Port: 7050
+          ClientTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer1.alpha.com/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer1.alpha.com/tls/server.crt
+        - Host: orderer2.alpha.com
+          Port: 8050
+          ClientTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer2.alpha.com/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer2.alpha.com/tls/server.crt
+        - Host: orderer3.alpha.com
+          Port: 9050
+          ClientTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer3.alpha.com/tls/server.crt
+          ServerTLSCert: crypto-config/ordererOrganizations/alpha.com/orderers/orderer3.alpha.com/tls/server.crt      
+
+    # Batch Timeout: The amount of time to wait before creating a batch/block
+    BatchTimeout: 2s
+    # Batch Size: Controls the number of messages batched into a block
+    BatchSize:
+        # Max Message Count: The maximum number of messages to permit in a batch
+        MaxMessageCount: 10
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed for
+        # the serialized messages in a batch.
+        AbsoluteMaxBytes: 99 MB
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed for
+        # the serialized messages in a batch. A message larger than the preferred
+        # max bytes will result in a batch larger than preferred max bytes.
+        PreferredMaxBytes: 512 KB
+    
+    # Organizations is the list of orgs which are defined as participants on
+    # the orderer side of the network
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Orderer policies, their canonical path is
+    #   /Channel/Orderer/<PolicyName>
+    Policies:
+    Readers:
+        Type: ImplicitMeta
+        Rule: "ANY Readers"
+    Writers:
+        Type: ImplicitMeta
+        Rule: "ANY Writers"
+    Admins:
+        Type: ImplicitMeta
+        Rule: "ANY Admins"
+    BlockValidation:
+        Type: ImplicitMeta
+        Rule: "ANY Writers"
+    # Capabilities describes the channel level capabilities, see the
+    # dedicated Capabilities section elsewhere in this file for a full
+    # description    
+    #Capabilities:
+    #    <<: *OrdererCapabilities
+################################################################################
+#
+#   CHANNEL
+#
+#   This section defines the values to encode into a config transaction or
+#   genesis block for channel related parameters.
+#
+################################################################################
+Channel: &ChannelDefaults
+    # Policies defines the set of policies at this level of the config tree
+    # For Channel policies, their canonical path is
+    #   /Channel/<PolicyName>
+    Policies:
+        # Who may invoke the 'Deliver' API
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        # Who may invoke the 'Broadcast' API
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        # By default, who may modify elements at this config level
+        Admins:
+            Type: ImplicitMeta
+            Rule: "ANY Admins"
+
+    Capabilities:
+        <<: *ChannelCapabilities
+
+Profiles:
+    OrdererGenesis:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *Alpha
+            Capabilities:
+                <<: *OrdererCapabilities    
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Beta
+                    - *Gamma
+            
+    Channel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Beta
+                - *Gamma
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+```

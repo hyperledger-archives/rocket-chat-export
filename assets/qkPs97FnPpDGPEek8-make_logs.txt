@@ -1,0 +1,278 @@
+~/cello$ make logs
+docker-compose logs -f --tail=200
+Attaching to dashboard, restserver, mongo, watchdog, nginx
+watchdog      | [2017-07-13 22:24:52,485] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+dashboard     | Traceback (most recent call last):
+watchdog      | [2017-07-13 22:24:52,486] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+restserver    | Traceback (most recent call last):
+dashboard     |   File "dashboard.py", line 8, in <module>
+watchdog      | [2017-07-13 22:24:52,492] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongo
+restserver    |   File "restserver.py", line 10, in <module>
+dashboard     |     from resources import bp_index, \
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+watchdog      | [2017-07-13 22:24:52,493] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+nginx         | Adding password for user admin
+restserver    |     from resources import front_rest_v2
+dashboard     |     from .login import bp_login
+watchdog      | [2017-07-13 22:24:52,494] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+nginx         | 2017/07/13 22:24:51 [emerg] 9#9: host not found in upstream "dashboard:8080" in /etc/nginx/nginx.conf:55
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] db version v3.2.15
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+watchdog      | [2017-07-13 22:24:52,494] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+nginx         | nginx: [emerg] host not found in upstream "dashboard:8080" in /etc/nginx/nginx.conf:55
+restserver    |     from .login import bp_login
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] git version: e11e3c1b9c9ce3f7b4a79493e16f5e4504e01140
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+watchdog      | [2017-07-13 22:25:10,513] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+nginx         | Adding password for user admin
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+watchdog      | [2017-07-13 22:25:10,514] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+dashboard     | Traceback (most recent call last):
+watchdog      | [2017-07-13 22:25:10,519] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] modules: none
+dashboard     |   File "dashboard.py", line 8, in <module>
+watchdog      | [2017-07-13 22:25:10,520] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+restserver    | Traceback (most recent call last):
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] build environment:
+dashboard     |     from resources import bp_index, \
+watchdog      | [2017-07-13 22:25:10,520] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+restserver    |   File "restserver.py", line 10, in <module>
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten]     distmod: debian81
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+watchdog      | [2017-07-13 22:25:10,520] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+restserver    |     from resources import front_rest_v2
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten]     distarch: x86_64
+dashboard     |     from .login import bp_login
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from .login import bp_login
+mongo         | 2017-07-13T14:24:51.843+0000 I CONTROL  [initandlisten] options: {}
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+mongo         | 2017-07-13T14:24:51.846+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:51.846+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=8G,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+dashboard     | Traceback (most recent call last):
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:24:52.170+0000 I CONTROL  [initandlisten] 
+dashboard     |   File "dashboard.py", line 8, in <module>
+restserver    | Traceback (most recent call last):
+mongo         | 2017-07-13T14:24:52.170+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+dashboard     |     from resources import bp_index, \
+restserver    |   File "restserver.py", line 10, in <module>
+mongo         | 2017-07-13T14:24:52.170+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from resources import front_rest_v2
+mongo         | 2017-07-13T14:24:52.170+0000 I CONTROL  [initandlisten] 
+dashboard     |     from .login import bp_login
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:24:52.171+0000 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:52.171+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:24:52.171+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+dashboard     | Traceback (most recent call last):
+mongo         | 2017-07-13T14:24:52.282+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:57366 #1 (1 connection now open)
+restserver    | Traceback (most recent call last):
+dashboard     |   File "dashboard.py", line 8, in <module>
+mongo         | 2017-07-13T14:24:52.290+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57120 #2 (2 connections now open)
+restserver    |   File "restserver.py", line 10, in <module>
+dashboard     |     from resources import bp_index, \
+mongo         | 2017-07-13T14:24:52.486+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:57370 #3 (3 connections now open)
+restserver    |     from resources import front_rest_v2
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:24:52.935+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40600 #4 (4 connections now open)
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+dashboard     |     from .login import bp_login
+mongo         | 2017-07-13T14:24:53.328+0000 I NETWORK  [conn2] end connection 172.18.0.5:57120 (3 connections now open)
+restserver    |     from .login import bp_login
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+mongo         | 2017-07-13T14:24:53.956+0000 I NETWORK  [conn4] end connection 172.18.0.6:40600 (2 connections now open)
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:54.349+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57132 #5 (3 connections now open)
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:24:54.706+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40612 #6 (4 connections now open)
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+dashboard     | Traceback (most recent call last):
+mongo         | 2017-07-13T14:24:55.378+0000 I NETWORK  [conn5] end connection 172.18.0.5:57132 (3 connections now open)
+restserver    | Traceback (most recent call last):
+dashboard     |   File "dashboard.py", line 8, in <module>
+mongo         | 2017-07-13T14:24:55.729+0000 I NETWORK  [conn6] end connection 172.18.0.6:40612 (2 connections now open)
+restserver    |   File "restserver.py", line 10, in <module>
+dashboard     |     from resources import bp_index, \
+mongo         | 2017-07-13T14:24:56.470+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40618 #7 (3 connections now open)
+restserver    |     from resources import front_rest_v2
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:24:56.498+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57146 #8 (4 connections now open)
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+dashboard     |     from .login import bp_login
+mongo         | 2017-07-13T14:24:57.497+0000 I NETWORK  [conn7] end connection 172.18.0.6:40618 (3 connections now open)
+restserver    |     from .login import bp_login
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+mongo         | 2017-07-13T14:24:57.532+0000 I NETWORK  [conn8] end connection 172.18.0.5:57146 (2 connections now open)
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:58.402+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57156 #9 (3 connections now open)
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:24:58.655+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40632 #10 (4 connections now open)
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:24:59.424+0000 I NETWORK  [conn9] end connection 172.18.0.5:57156 (3 connections now open)
+restserver    | Traceback (most recent call last):
+dashboard     | Traceback (most recent call last):
+mongo         | 2017-07-13T14:24:59.688+0000 I NETWORK  [conn10] end connection 172.18.0.6:40632 (2 connections now open)
+restserver    |   File "restserver.py", line 10, in <module>
+dashboard     |   File "dashboard.py", line 8, in <module>
+mongo         | 2017-07-13T14:25:00.720+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57166 #11 (3 connections now open)
+restserver    |     from resources import front_rest_v2
+dashboard     |     from resources import bp_index, \
+mongo         | 2017-07-13T14:25:01.272+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40642 #12 (4 connections now open)
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:25:01.742+0000 I NETWORK  [conn11] end connection 172.18.0.5:57166 (3 connections now open)
+restserver    |     from .login import bp_login
+dashboard     |     from .login import bp_login
+mongo         | 2017-07-13T14:25:02.304+0000 I NETWORK  [conn12] end connection 172.18.0.6:40642 (2 connections now open)
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+mongo         | 2017-07-13T14:25:03.812+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57176 #13 (3 connections now open)
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+mongo         | 2017-07-13T14:25:04.584+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40656 #14 (4 connections now open)
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:25:04.838+0000 I NETWORK  [conn13] end connection 172.18.0.5:57176 (3 connections now open)
+restserver    | Traceback (most recent call last):
+dashboard     | Traceback (most recent call last):
+mongo         | 2017-07-13T14:25:05.618+0000 I NETWORK  [conn14] end connection 172.18.0.6:40656 (2 connections now open)
+restserver    |   File "restserver.py", line 10, in <module>
+dashboard     |   File "dashboard.py", line 8, in <module>
+mongo         | 2017-07-13T14:25:08.534+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57184 #15 (3 connections now open)
+dashboard     |     from resources import bp_index, \
+restserver    |     from resources import front_rest_v2
+mongo         | 2017-07-13T14:25:09.462+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40662 #16 (4 connections now open)
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+mongo         | 2017-07-13T14:25:09.557+0000 I NETWORK  [conn15] end connection 172.18.0.5:57184 (3 connections now open)
+dashboard     |     from .login import bp_login
+restserver    |     from .login import bp_login
+mongo         | 2017-07-13T14:25:10.487+0000 I NETWORK  [conn16] end connection 172.18.0.6:40662 (2 connections now open)
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:25:16.417+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57194 #17 (3 connections now open)
+dashboard     | Traceback (most recent call last):
+dashboard     |   File "dashboard.py", line 8, in <module>
+dashboard     |     from resources import bp_index, \
+dashboard     |   File "/app/resources/__init__.py", line 16, in <module>
+dashboard     |     from .login import bp_login
+dashboard     |   File "/app/resources/login.py", line 13, in <module>
+dashboard     |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+dashboard     | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:25:17.439+0000 I NETWORK  [conn17] end connection 172.18.0.5:57194 (2 connections now open)
+mongo         | 2017-07-13T14:25:18.215+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:40670 #18 (3 connections now open)
+mongo         | 2017-07-13T14:25:19.238+0000 I NETWORK  [conn18] end connection 172.18.0.6:40670 (2 connections now open)
+restserver exited with code 1
+watchdog      | [2017-07-13 22:25:28,539] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-13 22:25:28,540] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-13 22:25:28,544] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-13 22:25:28,545] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-13 22:25:28,546] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-13 22:25:28,546] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+mongo         | 2017-07-13T14:25:30.707+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57222 #19 (3 connections now open)
+mongo         | 2017-07-13T14:25:31.729+0000 I NETWORK  [conn19] end connection 172.18.0.5:57222 (2 connections now open)
+dashboard exited with code 1
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:25:32.710+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:57226 #20 (3 connections now open)
+restserver    | Traceback (most recent call last):
+restserver    |   File "restserver.py", line 10, in <module>
+restserver    |     from resources import front_rest_v2
+restserver    |   File "/app/resources/__init__.py", line 16, in <module>
+restserver    |     from .login import bp_login
+restserver    |   File "/app/resources/login.py", line 13, in <module>
+restserver    |     from common import log_handler, LOG_LEVEL, NETWORK_TYPES, CONSENSUS_PLUGINS, \
+restserver    | ImportError: cannot import name 'CONSENSUS_PLUGINS'
+mongo         | 2017-07-13T14:25:33.737+0000 I NETWORK  [conn20] end connection 172.18.0.5:57226 (2 connections now open)
+^CERROR: Aborting.

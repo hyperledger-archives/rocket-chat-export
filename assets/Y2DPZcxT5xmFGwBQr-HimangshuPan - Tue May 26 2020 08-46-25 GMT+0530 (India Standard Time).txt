@@ -1,0 +1,54 @@
+Hey Team I am trying to run the mobile edge agent using mediator. I have setup the mediator and build the app. upon creation of the wallet in the mobile app it seems it connected with the mediator agent.
+But while I am trying to make connections with the cloud aca-py  agent getting this following error.
+```2020-05-25 13:52:28,950 aiohttp.access INFO 172.26.0.5 [25/May/2020:13:52:28 +0000] "POST / HTTP/1.0" 200 149 "-" "-"
+2020-05-25 13:52:28,951 aries_cloudagent.protocols.connections.manager WARNING No corresponding DID found for sender verkey: 8GemG8WgZU5iHJf3PmRZf3yoxaA9fuoDZzAcwr75vQtQ
+2020-05-25 13:52:28,952 aries_cloudagent.protocols.connections.manager WARNING No corresponding DID found for recipient verkey: EQSjk54g9g2GMEM5gp4F44yvSJwDkBZp1yWqgXu7VupD
+2020-05-25 13:52:28,955 aries_cloudagent.messaging.models.base ERROR ConnectionRequest message validation error:
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/messaging/models/base.py", line 127, in deserialize
+    return schema.loads(obj) if isinstance(obj, str) else schema.load(obj)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/marshmallow/schema.py", line 684, in load
+    data, many=many, partial=partial, unknown=unknown, postprocess=True
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/marshmallow/schema.py", line 842, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'label': ['Field may not be null.']}
+2020-05-25 13:52:28,956 aries_cloudagent.core.dispatcher ERROR Message parsing failed: Error deserializing message: ConnectionRequest schema validation failed, sending problem report
+2020-05-25 13:52:28,958 aries_cloudagent.core.dispatcher ERROR Handler error: ConnectionManager.get_connection_targets
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/protocols/connections/manager.py", line 950, in get_connection_targets
+    await entry.set_result([row.serialize() for row in targets], 3600)
+TypeError: 'NoneType' object is not iterable
+2020-05-25 13:52:28,958 aries_cloudagent.core.conductor ERROR Exception in message handler:
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/dispatcher.py", line 160, in handle_message
+    await responder.send_reply(error_result)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/messaging/responder.py", line 103, in send_reply
+    await self.send_outbound(outbound)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/dispatcher.py", line 269, in send_outbound
+    await self._send(self._context, message, self._inbound_message)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/conductor.py", line 304, in outbound_message_router
+    await self.queue_outbound(context, outbound, inbound)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/conductor.py", line 330, in queue_outbound
+    mgr.get_connection_targets(connection_id=outbound.connection_id)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/protocols/connections/manager.py", line 950, in get_connection_targets
+    await entry.set_result([row.serialize() for row in targets], 3600)
+TypeError: 'NoneType' object is not iterable
+2020-05-25 13:52:28,958 aries_cloudagent.core.dispatcher ERROR Handler error: Dispatcher.handle_message
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/dispatcher.py", line 160, in handle_message
+    await responder.send_reply(error_result)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/messaging/responder.py", line 103, in send_reply
+    await self.send_outbound(outbound)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/dispatcher.py", line 269, in send_outbound
+    await self._send(self._context, message, self._inbound_message)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/conductor.py", line 304, in outbound_message_router
+    await self.queue_outbound(context, outbound, inbound)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/core/conductor.py", line 330, in queue_outbound
+    mgr.get_connection_targets(connection_id=outbound.connection_id)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/protocols/connections/manager.py", line 950, in get_connection_targets
+    await entry.set_result([row.serialize() for row in targets], 3600)
+TypeError: 'NoneType' object is not iterable
+ubuntu@ip-172-31-38-24:~$ client_loop: send disconnect: Connection reset by peer```
+Here I noticed "marshmallow.exceptions.ValidationError: {'label': ['Field may not be null.']}" line and its says the label is not set.
+Question: While I am using mediator agent for the mobile edge agent the label is of the mobile edge agent or the mediator agent?
+Please help me to understand and fix this.Thanks in Advance.

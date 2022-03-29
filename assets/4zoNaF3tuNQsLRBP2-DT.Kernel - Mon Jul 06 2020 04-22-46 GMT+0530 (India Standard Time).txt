@@ -1,0 +1,103 @@
+*Complete Output:*
+
+2020.07.06-04:13:41.643 info  [caliper] [cli-launch-master]     Set workspace path: /mnt/c/data/code/cpp/project8/hlf/caliper-benchmarks-v1
+2020.07.06-04:13:41.644 info  [caliper] [cli-launch-master]     Set benchmark configuration path: /mnt/c/data/code/cpp/project8/hlf/caliper-benchmarks-v1/benchmarks/samples/fabric/marbles/config.yaml
+2020.07.06-04:13:41.645 info  [caliper] [cli-launch-master]     Set network configuration path: /mnt/c/data/code/cpp/project8/hlf/caliper-benchmarks-v1/networks/fabric/fabric-v1.4.1/2org1peergoleveldb_raft/fabric-go-tls.yaml
+2020.07.06-04:13:41.645 info  [caliper] [cli-launch-master]     Set SUT type: fabric
+2020.07.06-04:13:41.739 info  [caliper] [benchmark-validator]   No observer specified, will default to `none`
+2020.07.06-04:13:41.740 info  [caliper] [caliper-engine]        Starting benchmark flow
+2020.07.06-04:13:41.847 info  [caliper] [adapters/fabric]       Initializing standard adaptor compatible with installed SDK: 1.4.1
+2020.07.06-04:13:48.148 info  [caliper] [caliper-utils]         Executing command: cd ../caliper-benchmarks-v1/; export FABRIC_VERSION=1.4.1;export FABRIC_CA_VERSION=1.4.1;docker-compose -f networks/fabric/docker-compose/2org1peergoleveldb_raft/docker-compose-tls.yaml up -d;sleep 3s
+Creating network "2org1peergoleveldbraft_default" with the default driver
+Creating ca.org2.example.com ...
+Creating ca.org1.example.com ...
+Creating ca.org1.example.com
+Creating ca.org1.example.com ... done
+Creating orderer0.example.com ...
+Creating orderer2.example.com ...
+Creating orderer1.example.com ...
+Creating orderer0.example.com
+Creating orderer2.example.com
+Creating orderer0.example.com ... done
+Creating peer0.org1.example.com ...
+Creating peer0.org2.example.com ...
+Creating peer0.org1.example.com
+Creating peer0.org1.example.com ... done
+2020.07.06-04:13:54.686 info  [caliper] [caliper-engine]        Executed start command in 6.538 seconds
+2020.07.06-04:13:54.687 info  [caliper] [adapters/fabric]       Fabric SDK version: 1.4.1; TLS: server
+2020.07.06-04:13:56.958 info  [caliper] [adapters/fabric]       Org1's registrar enrolled successfully
+2020.07.06-04:13:57.156 info  [caliper] [adapters/fabric]       Org2's registrar enrolled successfully
+2020.07.06-04:13:57.198 info  [caliper] [adapters/fabric]       Org1's admin's materials are successfully loaded
+2020.07.06-04:13:57.239 info  [caliper] [adapters/fabric]       Org2's admin's materials are successfully loaded
+2020.07.06-04:13:57.274 info  [caliper] [adapters/fabric]       client0.org1.example.com's materials are successfully loaded
+2020.07.06-04:13:57.307 info  [caliper] [adapters/fabric]       client0.org2.example.com's materials are successfully loaded
+2020.07.06-04:13:57.308 info  [caliper] [adapters/fabric]       Channel 'mychannel' definiton being retrieved from file
+2020.07.06-04:13:57.445 info  [caliper] [adapters/fabric]       Channel 'mychannel' successfully created
+2020.07.06-04:13:57.446 info  [caliper] [adapters/fabric]       Sleeping 5s...
+2020.07.06-04:14:02.613 info  [caliper] [adapters/fabric]       Org1's peers successfully joined mychannel: peer0.org1.example.com
+2020.07.06-04:14:02.696 info  [caliper] [adapters/fabric]       Org2's peers successfully joined mychannel: peer0.org2.example.com
+2020.07.06-04:14:02.696 info  [caliper] [adapters/fabric]       Sleeping 5s...
+2020.07.06-04:14:07.698 info  [caliper] [caliper-engine]        Executed "init" step in 13.012 seconds
+2020.07.06-04:14:07.699 info  [caliper] [adapters/fabric]       Installing chaincodes for mychannel...
+2020.07.06-04:14:07.850 info  [caliper] [adapters/fabric]       marbles@v0 successfully installed on Org1's peers: peer0.org1.example.com
+2020.07.06-04:14:07.966 info  [caliper] [adapters/fabric]       marbles@v0 successfully installed on Org2's peers: peer0.org2.example.com
+2020.07.06-04:14:08.012 info  [caliper] [adapters/fabric]       drm@v0 successfully installed on Org1's peers: peer0.org1.example.com
+2020.07.06-04:14:08.037 info  [caliper] [adapters/fabric]       drm@v0 successfully installed on Org2's peers: peer0.org2.example.com
+2020.07.06-04:14:08.076 info  [caliper] [adapters/fabric]       simple@v0 successfully installed on Org1's peers: peer0.org1.example.com
+2020.07.06-04:14:08.104 info  [caliper] [adapters/fabric]       simple@v0 successfully installed on Org2's peers: peer0.org2.example.com
+2020.07.06-04:14:08.150 info  [caliper] [adapters/fabric]       smallbank@v0 successfully installed on Org1's peers: peer0.org1.example.com
+2020.07.06-04:14:08.176 info  [caliper] [adapters/fabric]       smallbank@v0 successfully installed on Org2's peers: peer0.org2.example.com
+2020.07.06-04:14:08.177 info  [caliper] [adapters/fabric]       Instantiating marbles@v0 in mychannel. This might take some time...
+2020.07.06-04:14:28.335 error [caliper] [caliper-engine]        Error while performing "install" step: Error: Invalid endorsement for marbles@v0 in mychannel from peer0.org1.example.com: error starting container: error starting container: API error (404): network 2org1peergoleveldb_raft_default not found
+2020.07.06-04:14:28.335 info  [caliper] [caliper-engine]        Executed "install" step in 20.637 seconds
+2020.07.06-04:14:28.336 info  [caliper] [caliper-utils]         Executing command: cd ../caliper-benchmarks-v1/; docker-compose -f networks/fabric/docker-compose/2org1peergoleveldb_raft/docker-compose-tls.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+The FABRIC_VERSION variable is not set. Defaulting to a blank string.
+The FABRIC_CA_VERSION variable is not set. Defaulting to a blank string.
+Stopping peer0.org2.example.com ... done
+Stopping peer0.org1.example.com ... done
+Stopping orderer1.example.com   ... done
+Stopping orderer0.example.com   ... done
+Stopping orderer2.example.com   ... done
+Stopping ca.org2.example.com    ... done
+Stopping ca.org1.example.com    ... done
+Removing peer0.org2.example.com ... done
+Removing peer0.org1.example.com ... done
+Removing orderer1.example.com   ... done
+Removing orderer0.example.com   ... done
+Removing orderer2.example.com   ... done
+Removing ca.org2.example.com    ... done
+Removing ca.org1.example.com    ... done
+Removing network 2org1peergoleveldbraft_default
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+/bin/sh: 1: test: "9317c8325aaf: unexpected operator
+Untagged: dev-peer0.org2.example.com-marbles-v0-82ec74ea3ac84a8926b1d7d3d256a2e2f41b74928c28cf4bcdbb5a7774a90f87:latest
+Deleted: sha256:c760baa1a232716aacef6aeffabca863d93dd7a454e8a73ff17d7d6103413451
+Deleted: sha256:cf89584c23f39801d2f6412ec7603fc2d3f28846e74a434cc3f1eadaf78e3a26
+Deleted: sha256:2660d76d76ab2109acb7dcffff0a1170d0e3e311129a5d1eee674af54c0f71c8
+Untagged: dev-peer0.org1.example.com-marbles-v0-d970bb5377683adf108a269e3670f7f9cbb849f3eff58fe19595ea3374a52ea0:latest
+Deleted: sha256:9317c8325aafe8c7624ffd205b695abe1c7f2c46c87d4980772f17115ce35df5
+Deleted: sha256:d0e19c2892807fcd319d932bf2239e7c89b4c2baad2b36d4b6059c255014f0e6
+Deleted: sha256:c96cd030c621ead23639cc5f70f79fa27586b004351ab229c8f043e24c7861b9
+Deleted: sha256:80763b943fd50d2d711207524b14c1b8297c6cb27111296f1b95286c6b66c503
+2020.07.06-04:14:41.991 info  [caliper] [caliper-engine]        Executed end command in 13.656 seconds
+2020.07.06-04:14:41.991 error [caliper] [cli-launch-master]     Benchmark failed with error code 5
+Usage:
+ caliper launch master --caliper-bind-sut fabric:1.4.1 [other options]
+
+Options:
+  --help, -h           Show usage information  [boolean]
+  --version            Show version information  [boolean]
+  --caliper-bind-sut   The name and version of the platform to bind to  [string]
+  --caliper-bind-cwd   The working directory for performing the SDK install  [string]
+  --caliper-bind-args  Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter  [string]
+  --caliper-bind-file  Yaml file to override default (supported) package versions when binding an SDK  [string]
+
+Error: Benchmark failed with error code 5
+    at Function.handler (/mnt/c/data/code/cpp/project8/hlf/caliper/node_modules/@hyperledger/caliper-cli/lib/launch/lib/launchMaster.js:70:23)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)

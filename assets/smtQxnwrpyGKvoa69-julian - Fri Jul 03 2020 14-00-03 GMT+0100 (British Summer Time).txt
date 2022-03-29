@@ -1,0 +1,45 @@
+Hello.  I have been following the guide: https://hyperledger-fabric-ca.readthedocs.io/en/latest/operations_guide.html but using a later version of fabric.  2.1.1.  I have got to the point of starting the orderer, but it fails with the following message: 
+orderer1-org0    | panic: runtime error: index out of range [1] with length 1
+orderer1-org0    | 
+orderer1-org0    | goroutine 1 [running]:
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).sanitizeCert(0xc00015aa00, 0xc00015f080, 0x119c500, 0xe8fde0, 0xc00094cb60)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimpl.go:812 +0x1f8
+orderer1-org0    | github.com/hyperledger/fabric/msp.newIdentity(0xc00015f080, 0x11873e0, 0xc000136640, 0xc00015aa00, 0xc00004d708, 0x11873e0, 0xc000136640, 0x0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/identities.go:61 +0x6d
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).getIdentityFromConf(0xc00015aa00, 0xc000354000, 0x3b8, 0x400, 0xc00015e000, 0x0, 0x0, 0x203000, 0x22, 0xc00094cc88)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimpl.go:197 +0x115
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).setupCAs(0xc00015aa00, 0xc0001b8f00, 0x0, 0x0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimplsetup.go:134 +0x65a
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).preSetupV142(0xc00015aa00, 0xc0001b8f00, 0xc0001080f0, 0xff)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimplsetup.go:539 +0x64
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).setupV142(0xc00015aa00, 0xc0001b8f00, 0xc00094cd01, 0xc0000147c0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimplsetup.go:615 +0x39
+orderer1-org0    | github.com/hyperledger/fabric/msp.(*bccspmsp).Setup(0xc00015aa00, 0xc00014d5c0, 0x0, 0xc00014d600)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/mspimpl.go:264 +0x16d
+orderer1-org0    | github.com/hyperledger/fabric/msp/cache.(*cachedMSP).Setup(0xc00018ade0, 0xc00014d5c0, 0x1193720, 0xc00018ade0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/msp/cache/cache.go:88 +0x4b
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.(*MSPConfigHandler).ProposeMSP(0xc000512ee0, 0xc00014d5c0, 0xffc305, 0x19, 0xc00094cf58, 0x1)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/msp.go:75 +0xd5
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.(*OrganizationConfig).validateMSP(0xc00014d580, 0xc00094cfc8, 0x1)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/organization.go:85 +0xde
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.(*OrganizationConfig).Validate(...)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/organization.go:78
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewOrganizationConfig(0xc00004c6d6, 0x7, 0xc0002e4280, 0xc000512ee0, 0x0, 0x0, 0x8)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/organization.go:54 +0x10e
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewConsortiumConfig(0xc0002e4230, 0xc000512ee0, 0xc00094d138, 0xf03140, 0xc00018acc0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/consortium.go:44 +0x196
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewConsortiumsConfig(0xc0002e41e0, 0xc000512ee0, 0xc00094d250, 0x0, 0x0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/consortiums.go:31 +0x103
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewChannelConfig(0xc000109540, 0x1191720, 0xc0002e58b0, 0x0, 0xe669b4, 0x5)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/channel.go:105 +0x4c7
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewBundle(0xc00004c940, 0xa, 0xc000195a10, 0x1191720, 0xc0002e58b0, 0x0, 0x50, 0xf43cc0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/bundle.go:187 +0x85
+orderer1-org0    | github.com/hyperledger/fabric/common/channelconfig.NewBundleFromEnvelope(0xc000108f50, 0x1191720, 0xc0002e58b0, 0x117d720, 0xc000108f50, 0x0)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/common/channelconfig/bundle.go:178 +0x167
+orderer1-org0    | github.com/hyperledger/fabric/orderer/common/server.ValidateBootstrapBlock(0xc00014c940, 0x1191720, 0xc0002e58b0, 0x117b1a0, 0xc000512100)
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/orderer/common/server/onboarding.go:353 +0x14e
+orderer1-org0    | github.com/hyperledger/fabric/orderer/common/server.Main()
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/orderer/common/server/main.go:129 +0x12ca
+orderer1-org0    | main.main()
+orderer1-org0    |      /go/src/github.com/hyperledger/fabric/cmd/orderer/main.go:15 +0x20
+orderer1-org0 exited with code 2

@@ -1,0 +1,482 @@
+TAP version 13
+2021-10-23 15:13:33          API-WS: disconnected from ws://127.0.0.1:9944: 1006:: Connection dropped by remote peer.
+ok 1 - packages/cactus-plugin-ledger-connector-polkadot/src/test/typescript/integration/run-transaction.test.ts # time=18101.115ms {
+    # BEFORE Instantiate plugin
+    ok 1 Pruning didn't throw OK
+    # Instantiate plugin
+    [2021-10-23T14:13:25.772Z] DEBUG (SubstrateTestLedger): Created instance of SubstrateTestLedger OK
+    [2021-10-23T14:13:25.773Z] DEBUG (SubstrateTestLedger): Pulling image ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274...
+    [2021-10-23T14:13:26.983Z] DEBUG (SubstrateTestLedger): Pulled image ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274 OK
+    [2021-10-23T14:13:26.983Z] DEBUG (SubstrateTestLedger): Starting ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274 with options:  {
+      Env: [
+        'WORKING_DIR=/var/www/node-template',
+        'CONTAINER_NAME=contracts-node-template-cactus',
+        'PORT=9944',
+        'DOCKER_PORT=9944',
+        'CARGO_HOME=/var/www/node-template/.cargo'
+      ],
+      Healthcheck: {
+        Test: [
+          'CMD-SHELL',
+          'rustup --version && rustc --version && cargo --version'
+        ],
+        Interval: 1000000000,
+        Timeout: 3000000000,
+        Retries: 10,
+        StartPeriod: 1000000000
+      },
+      ExposedPorts: { '9944/tcp': {} },
+      HostConfig: {
+        AutoRemove: true,
+        PublishAllPorts: false,
+        Privileged: false,
+        PortBindings: { '9944/tcp': [Array] }
+      }
+    }
+    [2021-10-23T14:13:29.234Z] DEBUG (SubstrateTestLedger): Started ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274 successfully. ID=64e83bc64676ed613c7bfe9937f57d7e854ef3885d8725bc25e510fac2456722
+    [2021-10-23T14:13:29.239Z] DEBUG (SubstrateTestLedger): Registered container log stream callbacks OK
+    [2021-10-23T14:13:29.240Z] DEBUG (SubstrateTestLedger): Starting to wait for healthcheck... 
+    [2021-10-23T14:13:29.242Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m Substrate Contracts Node    \r\n'
+    [2021-10-23T14:13:29.242Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m ✌️  version 0.1.0-3f63edf-x86_64-linux-gnu    \r\n'
+    [2021-10-23T14:13:29.243Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m ❤️  by Parity Technologies <admin@parity.io>, 2021-2021    \r\n'
+    [2021-10-23T14:13:29.243Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m 📋 Chain specification: Development    \r\n'
+    [2021-10-23T14:13:29.243Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m 🏷 Node name: inquisitive-stomach-4326    \r\n'
+    [2021-10-23T14:13:29.243Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m 👤 Role: AUTHORITY    \r\n'
+    [2021-10-23T14:13:29.243Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m 💾 Database: RocksDb at /root/.local/share/substrate-contracts-node/chains/dev/db/full    \r\n'
+    [2021-10-23T14:13:29.244Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:29\x1B[0m ⛓  Native runtime: substrate-contracts-node-100 (substrate-contracts-node-1.tx1.au1)    \r\n'
+    [2021-10-23T14:13:30.228Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m 🔨 Initializing Genesis block/state (state: 0x0a8d…2d8a, header-hash: 0x79c9…5ee4)    \r\n'
+    [2021-10-23T14:13:30.244Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.    \r\n'
+    [2021-10-23T14:13:30.650Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m ⏱  Loaded block-time = 6s from block 0x79c9523d97c2cfc26ed8a8184e53c970e2bdebe79860c9f9019aaba6ee965ee4    \r\n'
+    [2021-10-23T14:13:30.650Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m 🏷 Local node identity is: 12D3KooWDrcNWAWGFXHKea2qqqbf8RCy4sTLCG5wwqjkwXu9TQJy    \r\n'
+    [2021-10-23T14:13:30.658Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m 📦 Highest known block at #0    \r\n'
+    [2021-10-23T14:13:30.658Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m 〽️ Prometheus exporter started at 127.0.0.1:9615    \r\n'
+    [2021-10-23T14:13:30.659Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:30\x1B[0m Listening for new connections on 0.0.0.0:9944.    \r\n'
+    [2021-10-23T14:13:32.255Z] DEBUG (SubstrateTestLedger): Healthcheck passed OK
+    ok 2 should be truthy
+    
+    [2021-10-23T14:13:32.299Z] DEBUG (SubstrateTestLedger): [ghcr.io/hyperledger/cactus-substrate-all-in-one:2021-10-15---feat-1274] '\x1B[2m2021-10-23 14:13:32\x1B[0m Accepted a new tcp connection from 172.17.0.1:33034.    \r\n'
+    [2021-10-23T14:13:33.033Z] INFO (PluginLedgerConnectorPolkadot): Installing web services for plugin @hyperledger/cactus-plugin-ledger-connector-polkadot...
+    [2021-10-23T14:13:33.033Z] INFO (PluginLedgerConnectorPolkadot): Installed web services for plugin @hyperledger/cactus-plugin-ledger-connector-polkadot OK {
+      endpoints: [
+        GetPrometheusExporterMetricsEndpointV1 {
+          opts: [Object],
+          log: [Logger]
+        }
+      ]
+    }
+    Error: Request failed with status code 404
+        at createError (/home/catarina/Documentos/Cactus-current/cactus/packages/cactus-plugin-ledger-connector-polkadot/node_modules/axios/lib/core/createError.js:16:15)
+        at settle (/home/catarina/Documentos/Cactus-current/cactus/packages/cactus-plugin-ledger-connector-polkadot/node_modules/axios/lib/core/settle.js:17:12)
+        at IncomingMessage.handleStreamEnd (/home/catarina/Documentos/Cactus-current/cactus/packages/cactus-plugin-ledger-connector-polkadot/node_modules/axios/lib/adapters/http.js:293:11)
+        at IncomingMessage.emit (events.js:327:22)
+        at IncomingMessage.EventEmitter.emit (domain.js:467:12)
+        at endReadableNT (internal/streams/readable.js:1327:12)
+        at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+      config: {
+        transitional: {
+          silentJSONParsing: true,
+          forcedJSONParsing: true,
+          clarifyTimeoutError: false
+        },
+        adapter: [Function: httpAdapter],
+        transformRequest: [ [Function: transformRequest] ],
+        transformResponse: [ [Function: transformResponse] ],
+        timeout: 0,
+        xsrfCookieName: 'XSRF-TOKEN',
+        xsrfHeaderName: 'X-XSRF-TOKEN',
+        maxContentLength: -1,
+        maxBodyLength: -1,
+        validateStatus: [Function: validateStatus],
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'User-Agent': 'axios/0.22.0',
+          'Content-Length': 750
+        },
+        method: 'get',
+        data: '{"accountAddress":{"address":"5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y","addressRaw":{"0":144,"1":181,"2":171,"3":32,"4":92,"5":105,"6":116,"7":201,"8":234,"9":132,"10":27,"11":230,"12":136,"13":134,"14":70,"15":51,"16":220,"17":156,"18":168,"19":163,"20":87,"21":132,"22":62,"23":234,"24":207,"25":35,"26":20,"27":100,"28":153,"29":101,"30":254,"31":34},"isLocked":false,"meta":{"isTesting":true,"name":"charlie"},"publicKey":{"0":144,"1":181,"2":171,"3":32,"4":92,"5":105,"6":116,"7":201,"8":234,"9":132,"10":27,"11":230,"12":136,"13":134,"14":70,"15":51,"16":220,"17":156,"18":168,"19":163,"20":87,"21":132,"22":62,"23":234,"24":207,"25":35,"26":20,"27":100,"28":153,"29":101,"30":254,"31":34},"type":"sr25519"},"transactionExpiration":50}',
+        url: 'http://0.0.0.0:35363/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info'
+      },
+      request: <ref *1> ClientRequest {
+        _events: [Object: null prototype] {
+          socket: [Function (anonymous)],
+          abort: [Function (anonymous)],
+          aborted: [Function (anonymous)],
+          connect: [Function (anonymous)],
+          error: [Function (anonymous)],
+          timeout: [Function (anonymous)],
+          prefinish: [Function: requestOnPrefinish]
+        },
+        _eventsCount: 7,
+        _maxListeners: undefined,
+        outputData: [],
+        outputSize: 0,
+        writable: true,
+        destroyed: false,
+        _last: true,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        _defaultKeepAlive: true,
+        useChunkedEncodingByDefault: false,
+        sendDate: false,
+        _removedConnection: false,
+        _removedContLen: false,
+        _removedTE: false,
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: true,
+        _headerSent: true,
+        socket: Socket {
+          connecting: false,
+          _hadError: false,
+          _parent: null,
+          _host: null,
+          _readableState: [ReadableState],
+          _events: [Object: null prototype],
+          _eventsCount: 7,
+          _maxListeners: undefined,
+          _writableState: [WritableState],
+          allowHalfOpen: false,
+          _sockname: null,
+          _pendingData: null,
+          _pendingEncoding: '',
+          server: null,
+          _server: null,
+          parser: null,
+          _httpMessage: [Circular *1],
+          [Symbol(async_id_symbol)]: 231,
+          [Symbol(kHandle)]: [TCP],
+          [Symbol(kSetNoDelay)]: false,
+          [Symbol(lastWriteQueueSize)]: 0,
+          [Symbol(timeout)]: null,
+          [Symbol(kBuffer)]: null,
+          [Symbol(kBufferCb)]: null,
+          [Symbol(kBufferGen)]: null,
+          [Symbol(kCapture)]: false,
+          [Symbol(kBytesRead)]: 0,
+          [Symbol(kBytesWritten)]: 0,
+          [Symbol(RequestTimeout)]: undefined
+        },
+        _header: 'GET /api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info HTTP/1.1\r\n' +
+          'Accept: application/json, text/plain, */*\r\n' +
+          'Content-Type: application/json\r\n' +
+          'User-Agent: axios/0.22.0\r\n' +
+          'Content-Length: 750\r\n' +
+          'Host: 0.0.0.0:35363\r\n' +
+          'Connection: close\r\n' +
+          '\r\n',
+        _keepAliveTimeout: 0,
+        _onPendingData: [Function: noopPendingOutput],
+        agent: Agent {
+          _events: [Object: null prototype],
+          _eventsCount: 2,
+          _maxListeners: undefined,
+          defaultPort: 80,
+          protocol: 'http:',
+          options: [Object],
+          requests: {},
+          sockets: [Object],
+          freeSockets: {},
+          keepAliveMsecs: 1000,
+          keepAlive: false,
+          maxSockets: Infinity,
+          maxFreeSockets: 256,
+          scheduling: 'fifo',
+          maxTotalSockets: Infinity,
+          totalSocketCount: 4,
+          [Symbol(kCapture)]: false
+        },
+        socketPath: undefined,
+        method: 'GET',
+        maxHeaderSize: undefined,
+        insecureHTTPParser: undefined,
+        path: '/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info',
+        _ended: true,
+        res: IncomingMessage {
+          _readableState: [ReadableState],
+          _events: [Object: null prototype],
+          _eventsCount: 3,
+          _maxListeners: undefined,
+          socket: [Socket],
+          httpVersionMajor: 1,
+          httpVersionMinor: 1,
+          httpVersion: '1.1',
+          complete: true,
+          headers: [Object],
+          rawHeaders: [Array],
+          trailers: {},
+          rawTrailers: [],
+          aborted: false,
+          upgrade: false,
+          url: '',
+          method: null,
+          statusCode: 404,
+          statusMessage: 'Not Found',
+          client: [Socket],
+          _consuming: false,
+          _dumped: false,
+          req: [Circular *1],
+          responseUrl: 'http://0.0.0.0:35363/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info',
+          redirects: [],
+          [Symbol(kCapture)]: false,
+          [Symbol(RequestTimeout)]: undefined
+        },
+        aborted: false,
+        timeoutCb: null,
+        upgradeOrConnect: false,
+        parser: null,
+        maxHeadersCount: null,
+        reusedSocket: false,
+        host: '0.0.0.0',
+        protocol: 'http:',
+        _redirectable: Writable {
+          _writableState: [WritableState],
+          _events: [Object: null prototype],
+          _eventsCount: 2,
+          _maxListeners: undefined,
+          _options: [Object],
+          _ended: true,
+          _ending: true,
+          _redirectCount: 0,
+          _redirects: [],
+          _requestBodyLength: 750,
+          _requestBodyBuffers: [],
+          _onNativeResponse: [Function (anonymous)],
+          _currentRequest: [Circular *1],
+          _currentUrl: 'http://0.0.0.0:35363/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info',
+          [Symbol(kCapture)]: false
+        },
+        [Symbol(kCapture)]: false,
+        [Symbol(kNeedDrain)]: false,
+        [Symbol(corked)]: 0,
+        [Symbol(kOutHeaders)]: [Object: null prototype] {
+          accept: [Array],
+          'content-type': [Array],
+          'user-agent': [Array],
+          'content-length': [Array],
+          host: [Array]
+        }
+      },
+      response: {
+        status: 404,
+        statusText: 'Not Found',
+        headers: {
+          'x-powered-by': 'Express',
+          'content-security-policy': "default-src 'none'",
+          'x-content-type-options': 'nosniff',
+          'content-type': 'text/html; charset=utf-8',
+          'content-length': '227',
+          date: 'Sat, 23 Oct 2021 14:13:33 GMT',
+          connection: 'close'
+        },
+        config: {
+          transitional: [Object],
+          adapter: [Function: httpAdapter],
+          transformRequest: [Array],
+          transformResponse: [Array],
+          timeout: 0,
+          xsrfCookieName: 'XSRF-TOKEN',
+          xsrfHeaderName: 'X-XSRF-TOKEN',
+          maxContentLength: -1,
+          maxBodyLength: -1,
+          validateStatus: [Function: validateStatus],
+          headers: [Object],
+          method: 'get',
+          data: '{"accountAddress":{"address":"5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y","addressRaw":{"0":144,"1":181,"2":171,"3":32,"4":92,"5":105,"6":116,"7":201,"8":234,"9":132,"10":27,"11":230,"12":136,"13":134,"14":70,"15":51,"16":220,"17":156,"18":168,"19":163,"20":87,"21":132,"22":62,"23":234,"24":207,"25":35,"26":20,"27":100,"28":153,"29":101,"30":254,"31":34},"isLocked":false,"meta":{"isTesting":true,"name":"charlie"},"publicKey":{"0":144,"1":181,"2":171,"3":32,"4":92,"5":105,"6":116,"7":201,"8":234,"9":132,"10":27,"11":230,"12":136,"13":134,"14":70,"15":51,"16":220,"17":156,"18":168,"19":163,"20":87,"21":132,"22":62,"23":234,"24":207,"25":35,"26":20,"27":100,"28":153,"29":101,"30":254,"31":34},"type":"sr25519"},"transactionExpiration":50}',
+          url: 'http://0.0.0.0:35363/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info'
+        },
+        request: <ref *1> ClientRequest {
+          _events: [Object: null prototype],
+          _eventsCount: 7,
+          _maxListeners: undefined,
+          outputData: [],
+          outputSize: 0,
+          writable: true,
+          destroyed: false,
+          _last: true,
+          chunkedEncoding: false,
+          shouldKeepAlive: false,
+          _defaultKeepAlive: true,
+          useChunkedEncodingByDefault: false,
+          sendDate: false,
+          _removedConnection: false,
+          _removedContLen: false,
+          _removedTE: false,
+          _contentLength: null,
+          _hasBody: true,
+          _trailer: '',
+          finished: true,
+          _headerSent: true,
+          socket: [Socket],
+          _header: 'GET /api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info HTTP/1.1\r\n' +
+            'Accept: application/json, text/plain, */*\r\n' +
+            'Content-Type: application/json\r\n' +
+            'User-Agent: axios/0.22.0\r\n' +
+            'Content-Length: 750\r\n' +
+            'Host: 0.0.0.0:35363\r\n' +
+            'Connection: close\r\n' +
+            '\r\n',
+          _keepAliveTimeout: 0,
+          _onPendingData: [Function: noopPendingOutput],
+          agent: [Agent],
+          socketPath: undefined,
+          method: 'GET',
+          maxHeaderSize: undefined,
+          insecureHTTPParser: undefined,
+          path: '/api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info',
+          _ended: true,
+          res: [IncomingMessage],
+          aborted: false,
+          timeoutCb: null,
+          upgradeOrConnect: false,
+          parser: null,
+          maxHeadersCount: null,
+          reusedSocket: false,
+          host: '0.0.0.0',
+          protocol: 'http:',
+          _redirectable: [Writable],
+          [Symbol(kCapture)]: false,
+          [Symbol(kNeedDrain)]: false,
+          [Symbol(corked)]: 0,
+          [Symbol(kOutHeaders)]: [Object: null prototype]
+        },
+        data: '<!DOCTYPE html>\n' +
+          '<html lang="en">\n' +
+          '<head>\n' +
+          '<meta charset="utf-8">\n' +
+          '<title>Error</title>\n' +
+          '</head>\n' +
+          '<body>\n' +
+          '<pre>Cannot GET /api/v1/plugins/@hyperledger/cactus-plugin-ledger-connector-polkadot/get-transaction-info</pre>\n' +
+          '</body>\n' +
+          '</html>\n'
+      },
+      isAxiosError: true,
+      toJSON: [Function: toJSON]
+    }
+    [2021-10-23T14:13:34.207Z] INFO (PluginLedgerConnectorPolkadot): Shutting down connection to substrate...
+    1..2
+    # tests 2
+    # pass  2
+    
+    # ok
+}
+
+1..1
+# time=18139.268ms
+ERROR: Coverage for lines (24.18%) does not meet global threshold (100%)
+ERROR: Coverage for functions (13.51%) does not meet global threshold (100%)
+ERROR: Coverage for branches (8.32%) does not meet global threshold (100%)
+ERROR: Coverage for statements (24.97%) does not meet global threshold (100%)
+---------------------------------------|---------|----------|---------|---------|-------------------
+File                                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------------------|---------|----------|---------|---------|-------------------
+All files                              |   24.97 |     8.32 |   13.51 |   24.18 |                   
+ cactus-common/src/main/typescript     |   38.27 |    16.46 |   28.57 |   35.39 |                   
+  bools.ts                             |     100 |       50 |     100 |     100 | 13                
+  checks.ts                            |      50 |       60 |     100 |      50 | 17-18,36-37       
+  coded-error.ts                       |      20 |        0 |       0 |      25 | 7-12              
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+  js-object-signer.ts                  |   15.63 |        0 |       0 |   15.63 | 32-115            
+  key-converter.ts                     |   12.24 |     7.69 |   14.29 |    12.5 | 15-125            
+  objects.ts                           |    6.25 |        0 |       0 |    6.67 | 33-63             
+  public-api.ts                        |     100 |      100 |      25 |     100 |                   
+  secp256k1-keys.ts                    |   42.86 |      100 |       0 |   42.86 | 17-24             
+  servers.ts                           |   56.82 |    33.33 |      50 |   60.98 | 25,30,87-114      
+  strings.ts                           |   28.57 |        0 |       0 |   28.57 | 9-19              
+ ...us-common/src/main/typescript/http |     100 |      100 |     100 |     100 |                   
+  http-status-code-errors.ts           |     100 |      100 |     100 |     100 |                   
+ ...common/src/main/typescript/logging |   72.73 |    36.36 |      50 |   72.73 |                   
+  logger-provider.ts                   |   71.43 |    28.57 |   33.33 |   71.43 | 26-29             
+  logger.ts                            |   73.68 |       50 |   54.55 |   73.68 | 42-54,63          
+ cactus-core-api/src/main/typescript   |     100 |      100 |   16.67 |     100 |                   
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+  public-api.ts                        |     100 |      100 |   16.67 |     100 |                   
+ ...generated/openapi/typescript-axios |      84 |    63.64 |      80 |   85.71 |                   
+  api.ts                               |     100 |      100 |     100 |     100 |                   
+  base.ts                              |   38.46 |        0 |       0 |   41.67 | 52-55,67-69       
+  configuration.ts                     |     100 |       50 |     100 |     100 | 77-99             
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+ ...ore-api/src/main/typescript/plugin |      50 |        0 |       0 |      50 |                   
+  i-cactus-plugin.ts                   |      50 |        0 |       0 |      50 | 76                
+  plugin-factory.ts                    |      50 |      100 |       0 |      50 | 3                 
+ ...rc/main/typescript/plugin/keychain |      50 |        0 |       0 |      50 |                   
+  is-i-plugin-keychain.ts              |      50 |        0 |       0 |      50 | 4                 
+ ...ain/typescript/plugin/object-store |      50 |        0 |       0 |      50 |                   
+  is-i-plugin-object-store.ts          |      50 |        0 |       0 |      50 | 4                 
+ ...main/typescript/plugin/web-service |      60 |        0 |       0 |      60 |                   
+  i-endpoint-authz-options.ts          |   66.67 |        0 |       0 |   66.67 | 33                
+  i-plugin-web-service.ts              |      50 |        0 |       0 |      50 | 18                
+ cactus-core/src/main/typescript       |   23.47 |        0 |    2.94 |   20.43 |                   
+  ...ensus-has-transaction-finality.ts |      25 |        0 |       0 |      25 | 10-27             
+  consortium-repository.ts             |   15.79 |        0 |       0 |   16.67 | 28-62             
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+  plugin-registry.ts                   |    8.62 |        0 |       0 |    8.62 | 38-158            
+  public-api.ts                        |     100 |      100 |   16.67 |     100 |                   
+ ...e/src/main/typescript/web-services |      40 |       10 |    12.5 |      40 |                   
+  authorization-options-provider.ts    |      25 |        0 |       0 |      25 | 30-57             
+  ...-open-api-validator-middleware.ts |   15.79 |        0 |       0 |   15.79 | 25-69             
+  register-web-service-endpoint.ts     |   86.67 |       50 |     100 |   86.67 | 30-33             
+ ...ector-polkadot/src/main/typescript |   38.92 |    11.76 |   35.71 |   38.18 |                   
+  ...tory-ledger-connector-polkadot.ts |      75 |      100 |       0 |      75 | 19                
+  plugin-ledger-connector-polkadot.ts  |   35.48 |    11.76 |    37.5 |   35.06 | ...42-488,497-503 
+  public-api.ts                        |    87.5 |      100 |   33.33 |   85.71 | 19                
+ ...generated/openapi/typescript-axios |    59.2 |       25 |   41.38 |   55.56 |                   
+  api.ts                               |   58.82 |    28.57 |      40 |   59.09 | ...01,222-241,261 
+  base.ts                              |   76.92 |    66.67 |      50 |      75 | 67-69             
+  common.ts                            |   63.27 |    20.83 |      50 |      55 | ...9,78-82,94-100 
+  configuration.ts                     |      10 |        0 |       0 |      10 | 78-99             
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+ ...ain/typescript/prometheus-exporter |      75 |       50 |      40 |      75 |                   
+  data-fetcher.ts                      |      50 |      100 |       0 |      50 | 8-9               
+  metrics.ts                           |     100 |      100 |     100 |     100 |                   
+  prometheus-exporter.ts               |   76.92 |       50 |      50 |   76.92 | 22-29             
+ ...t/src/main/typescript/web-services |   59.26 |       50 |    87.5 |   59.26 |                   
+  ...s-exporter-metrics-endpoint-v1.ts |   59.26 |       50 |    87.5 |   59.26 | 80-92             
+ ...s-test-tooling/src/main/typescript |   98.86 |        0 |    1.64 |    98.8 |                   
+  i-key-pair.ts                        |      50 |        0 |       0 |      50 | 9                 
+  index.ts                             |     100 |      100 |     100 |     100 |                   
+  public-api.ts                        |     100 |      100 |    1.67 |     100 |                   
+ ...t-tooling/src/main/typescript/besu |    7.76 |        0 |       0 |    7.85 |                   
+  besu-mp-test-ledger.ts               |   10.26 |        0 |       0 |   10.26 | 39-198            
+  besu-test-ledger.ts                  |    6.59 |        0 |       0 |    6.71 | 63-420            
+ ...cript/cactus-keychain-vault-server |   17.02 |        0 |       0 |   17.02 |                   
+  cactus-keychain-vault-server.ts      |   17.02 |        0 |       0 |   17.02 | 42-135            
+ ...tooling/src/main/typescript/common |   20.58 |    18.31 |   26.32 |   19.85 |                   
+  containers.ts                        |    22.4 |    20.97 |   31.91 |   21.63 | ...32-535,556-631 
+  streams.ts                           |     3.7 |        0 |       0 |     3.7 | 19-75             
+ ...-tooling/src/main/typescript/corda |     8.7 |        0 |       0 |    8.81 |                   
+  corda-test-ledger.ts                 |    8.13 |        0 |       0 |    8.23 | 78-409            
+  sample-cordapp-enum.ts               |     100 |      100 |     100 |     100 |                   
+ ...rc/main/typescript/corda-connector |   11.49 |        0 |       0 |   11.63 |                   
+  corda-connector-container.ts         |   11.49 |        0 |       0 |   11.63 | 68-236            
+ ...tooling/src/main/typescript/fabric |    6.95 |        0 |       0 |    7.03 |                   
+  fabric-test-ledger-v1.ts             |    6.95 |        0 |       0 |    7.03 | 79-528            
+ ...src/main/typescript/github-actions |   76.92 |    66.67 |     100 |   76.92 |                   
+  is-running-in-github-action.ts       |     100 |      100 |     100 |     100 |                   
+  prune-docker-all-if-github-action.ts |   66.67 |       50 |     100 |   66.67 | 21-26             
+ ...ooling/src/main/typescript/go-ipfs |   11.27 |        0 |       0 |   11.27 |                   
+  go-ipfs-test-container.ts            |   11.27 |        0 |       0 |   11.27 | 40-190            
+ ...ling/src/main/typescript/http-echo |       8 |        0 |       0 |    8.25 |                   
+  http-echo-container.ts               |       8 |        0 |       0 |    8.25 | 38-240            
+ ...-tooling/src/main/typescript/iroha |    4.67 |        0 |       0 |    4.76 |                   
+  iroha-test-ledger.ts                 |    4.67 |        0 |       0 |    4.76 | 98-443            
+ ...oling/src/main/typescript/keycloak |    7.64 |        0 |       0 |    7.86 |                   
+  keycloak-container.ts                |    7.64 |        0 |       0 |    7.86 | 48-352            
+ ...ing/src/main/typescript/localstack |      16 |        0 |       0 |      16 |                   
+  localstack-container.ts              |      16 |        0 |       0 |      16 | 41-149            
+ ...g/src/main/typescript/openethereum |   16.28 |        0 |       0 |   16.28 |                   
+  openethereum-test-ledger.ts          |   16.28 |        0 |       0 |   16.28 | 60-242            
+ ...oling/src/main/typescript/postgres |    6.77 |        0 |       0 |    6.92 |                   
+  postgres-test-container.ts           |    6.77 |        0 |       0 |    6.92 | 61-320            
+ ...tooling/src/main/typescript/quorum |    6.92 |        0 |       0 |    7.05 |                   
+  quorum-test-ledger.ts                |    6.92 |        0 |       0 |    7.05 | 58-405            
+ ...rc/main/typescript/rustc-container |   15.48 |        0 |       0 |   15.48 |                   
+  rustc-build-cmd.ts                   |     100 |      100 |     100 |     100 |                   
+  rustc-container.ts                   |   14.46 |        0 |       0 |   14.46 | 62-217            
+ ...n/typescript/substrate-test-ledger |   70.37 |       52 |   64.71 |   70.37 |                   
+  substrate-test-ledger.ts             |   70.37 |       52 |   64.71 |   70.37 | ...58-159,170-200 
+ .../main/typescript/vault-test-server |   17.31 |        0 |       0 |   17.31 |                   
+  vault-test-server.ts                 |   17.31 |        0 |       0 |   17.31 | 44-154            
+---------------------------------------|---------|----------|---------|---------|-------------------

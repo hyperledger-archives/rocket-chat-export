@@ -1,0 +1,101 @@
+2018-10-13 08:09:31.901 UTC [lscc] executeInstall -> INFO 14f Installed Chaincode [ebl] Version [0.0.5] to peer
+2018-10-13 08:16:12.423 UTC [deliveryClient] try -> WARN 150 Got error: rpc error: code = Unavailable desc = transport is closing , at 1 attempt. Retrying in 1s
+2018-10-13 08:16:12.626 UTC [gossip/comm] func1 -> WARN 151 peer1.org2.example.com:7051, PKIid:[115 63 173 113 117 0 91 156 109 240 14 76 150 29 157 186 222 30 62 9 192 217 98 111 200 18 111 126 249 185 212 253] isn't responsive: EOF
+2018-10-13 08:16:12.626 UTC [gossip/discovery] expireDeadMembers -> WARN 152 Entering [[115 63 173 113 117 0 91 156 109 240 14 76 150 29 157 186 222 30 62 9 192 217 98 111 200 18 111 126 249 185 212 253]]
+2018-10-13 08:16:12.626 UTC [gossip/discovery] expireDeadMembers -> WARN 153 Closing connection to Endpoint: peer1.org2.example.com:7051, InternalEndpoint: , PKI-ID: [115 63 173 113 117 0 91 156 109 240 14 76 150 29 157 186 222 30 62 9 192 217 98 111 200 18 111 126 249 185 212 253], Metadata: []
+2018-10-13 08:16:12.626 UTC [gossip/discovery] expireDeadMembers -> WARN 154 Exiting
+2018-10-13 08:16:14.867 UTC [gossip/discovery] getDeadMembers -> WARN 155 Haven't heard from [159 66 86 156 70 127 117 241 54 78 154 173 109 154 154 37 172 23 9 161 17 85 77 37 169 197 96 136 152 120 70 154] for 4m17.871321505s
+2018-10-13 08:16:14.868 UTC [gossip/discovery] expireDeadMembers -> WARN 156 Entering [[159 66 86 156 70 127 117 241 54 78 154 173 109 154 154 37 172 23 9 161 17 85 77 37 169 197 96 136 152 120 70 154]]
+2018-10-13 08:16:14.868 UTC [gossip/discovery] expireDeadMembers -> WARN 157 Closing connection to Endpoint: peer1.org1.example.com:7051, InternalEndpoint: peer1.org1.example.com:7051, PKI-ID: [159 66 86 156 70 127 117 241 54 78 154 173 109 154 154 37 172 23 9 161 17 85 77 37 169 197 96 136 152 120 70 154], Metadata: []
+2018-10-13 08:16:14.868 UTC [gossip/discovery] expireDeadMembers -> WARN 158 Exiting
+2018-10-13 08:18:14.002 UTC [chaincode] Launch -> ERRO 159 start failed: timeout expired while starting chaincode ebl:0.0.5 for transaction 3792472d0e10d54d44c5647d66f7f4a31eafe3f1c95b1e1529f162b578cdee4b
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).start
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:106
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:58
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:117
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Invoke
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:227
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:179
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:131
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:173
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:287
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:501
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+        /opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:923
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1148
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:637
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:2361
+2018-10-13 08:18:14.003 UTC [endorser] SimulateProposal -> ERRO 15a [mychannel][3792472d] failed to invoke chaincode name:"lscc" , error: timeout expired while starting chaincode ebl:0.0.5 for transaction 3792472d0e10d54d44c5647d66f7f4a31eafe3f1c95b1e1529f162b578cdee4b
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).start
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:106
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:58
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:117
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Invoke
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:227
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:179
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:131
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:173
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:287
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:501
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+        /opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:923
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1148
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:637
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:2361
+failed to execute transaction 3792472d0e10d54d44c5647d66f7f4a31eafe3f1c95b1e1529f162b578cdee4b
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:181
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:131
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:173
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:287
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:501
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+        /opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:923
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1148
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:637
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:2361

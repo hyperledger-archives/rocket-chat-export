@@ -1,0 +1,65 @@
+@here Iam new to compose development , iam getting the following error while running lerna bootstrap , could any one help me out regarding this issue ?
+```
+
+root@ubuntu:/home/ubuntu/opensource/composer# lerna bootstrap
+lerna info version 2.0.0
+lerna info Bootstrapping 24 packages
+lerna info lifecycle preinstall
+lerna info Installing external dependencies
+lerna info hoist Installing hoisted dependencies into root
+lerna info hoist Pruning hoisted dependencies
+lerna info hoist Finished pruning hoisted dependencies
+lerna ERR! execute Error: Command failed: npm install
+lerna ERR! execute npm WARN deprecated fs-promise@1.0.0: Use mz or fs-extra^3.0 with Promise Support
+lerna ERR! execute npm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
+lerna ERR! execute npm WARN deprecated ng2-bootstrap@1.6.3: DEPRECATED: package was renamed to ngx-bootstrap
+lerna ERR! execute npm WARN deprecated typings@2.1.1: Typings is deprecated in favor of NPM @types -- see README for more information
+lerna ERR! execute npm WARN deprecated crypto@0.0.3: This package is no longer supported. It's now a built-in Node module. If you've depended on crypto, you should switch to the one that's built-in.
+lerna ERR! execute npm WARN deprecated node-uuid@1.4.8: Use uuid module instead
+lerna ERR! execute npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+lerna ERR! execute npm WARN deprecated nodemailer@2.7.2: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+lerna ERR! execute npm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys
+lerna ERR! execute npm ERR! code 128
+lerna ERR! execute npm ERR! Command failed: /usr/bin/git clone --depth=1 -q -b master https://github.com/mcavage/node-asn1.git /root/.npm/_cacache/tmp/git-clone-f47dac87
+lerna ERR! execute npm ERR! fatal: could not create leading directories of '/root/.npm/_cacache/tmp/git-clone-f47dac87': Permission denied
+lerna ERR! execute npm ERR! 
+lerna ERR! execute 
+lerna ERR! execute npm ERR! A complete log of this run can be found in:
+lerna ERR! execute npm ERR!     /root/.npm/_logs/2017-08-12T21_09_43_387Z-debug.log
+lerna ERR! execute 
+lerna ERR! execute     at Promise.all.then.arr (/usr/lib/node_modules/lerna/node_modules/execa/index.js:210:11)
+lerna ERR! execute     at <anonymous>
+lerna ERR! execute     at process._tickCallback (internal/process/next_tick.js:188:7)
+lerna ERR! execute  callback with error
+lerna ERR! execute  { Error: Command failed: npm install
+lerna ERR! execute npm WARN deprecated fs-promise@1.0.0: Use mz or fs-extra^3.0 with Promise Support
+lerna ERR! execute npm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
+lerna ERR! execute npm WARN deprecated ng2-bootstrap@1.6.3: DEPRECATED: package was renamed to ngx-bootstrap
+lerna ERR! execute npm WARN deprecated typings@2.1.1: Typings is deprecated in favor of NPM @types -- see README for more information
+lerna ERR! execute npm WARN deprecated crypto@0.0.3: This package is no longer supported. It's now a built-in Node module. If you've depended on crypto, you should switch to the one that's built-in.
+lerna ERR! execute npm WARN deprecated node-uuid@1.4.8: Use uuid module instead
+lerna ERR! execute npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+lerna ERR! execute npm WARN deprecated nodemailer@2.7.2: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/
+lerna ERR! execute npm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys
+lerna ERR! execute npm ERR! code 128
+lerna ERR! execute npm ERR! Command failed: /usr/bin/git clone --depth=1 -q -b master https://github.com/mcavage/node-asn1.git /root/.npm/_cacache/tmp/git-clone-f47dac87
+lerna ERR! execute npm ERR! fatal: could not create leading directories of '/root/.npm/_cacache/tmp/git-clone-f47dac87': Permission denied
+lerna ERR! execute npm ERR! 
+lerna ERR! execute 
+lerna ERR! execute npm ERR! A complete log of this run can be found in:
+lerna ERR! execute npm ERR!     /root/.npm/_logs/2017-08-12T21_09_43_387Z-debug.log
+lerna ERR! execute 
+lerna ERR! execute     at Promise.all.then.arr (/usr/lib/node_modules/lerna/node_modules/execa/index.js:210:11)
+lerna ERR! execute     at <anonymous>
+lerna ERR! execute     at process._tickCallback (internal/process/next_tick.js:188:7)
+lerna ERR! execute   stack: 'Error: Command failed: npm install\nnpm WARN deprecated fs-promise@1.0.0: Use mz or fs-extra^3.0 with Promise Support\nnpm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade\nnpm WARN deprecated ng2-bootstrap@1.6.3: DEPRECATED: package was renamed to ngx-bootstrap\nnpm WARN deprecated typings@2.1.1: Typings is deprecated in favor of NPM @types -- see README for more information\nnpm WARN deprecated crypto@0.0.3: This package is no longer supported. It\'s now a built-in Node module. If you\'ve depended on crypto, you should switch to the one that\'s built-in.\nnpm WARN deprecated node-uuid@1.4.8: Use uuid module instead\nnpm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer\nnpm WARN deprecated nodemailer@2.7.2: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/\nnpm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys\nnpm ERR! code 128\nnpm ERR! Command failed: /usr/bin/git clone --depth=1 -q -b master https://github.com/mcavage/node-asn1.git /root/.npm/_cacache/tmp/git-clone-f47dac87\nnpm ERR! fatal: could not create leading directories of \'/root/.npm/_cacache/tmp/git-clone-f47dac87\': Permission denied\nnpm ERR! \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /root/.npm/_logs/2017-08-12T21_09_43_387Z-debug.log\n\n    at Promise.all.then.arr (/usr/lib/node_modules/lerna/node_modules/execa/index.js:210:11)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)',
+lerna ERR! execute   code: 1,
+lerna ERR! execute   killed: false,
+lerna ERR! execute   stdout: '',
+lerna ERR! execute   stderr: 'npm WARN deprecated fs-promise@1.0.0: Use mz or fs-extra^3.0 with Promise Support\nnpm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade\nnpm WARN deprecated ng2-bootstrap@1.6.3: DEPRECATED: package was renamed to ngx-bootstrap\nnpm WARN deprecated typings@2.1.1: Typings is deprecated in favor of NPM @types -- see README for more information\nnpm WARN deprecated crypto@0.0.3: This package is no longer supported. It\'s now a built-in Node module. If you\'ve depended on crypto, you should switch to the one that\'s built-in.\nnpm WARN deprecated node-uuid@1.4.8: Use uuid module instead\nnpm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer\nnpm WARN deprecated nodemailer@2.7.2: All versions below 4.0.1 of Nodemailer are deprecated. See https://nodemailer.com/status/\nnpm WARN deprecated object-keys@0.2.0: Please update to the latest object-keys\nnpm ERR! code 128\nnpm ERR! Command failed: /usr/bin/git clone --depth=1 -q -b master https://github.com/mcavage/node-asn1.git /root/.npm/_cacache/tmp/git-clone-f47dac87\nnpm ERR! fatal: could not create leading directories of \'/root/.npm/_cacache/tmp/git-clone-f47dac87\': Permission denied\nnpm ERR! \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /root/.npm/_logs/2017-08-12T21_09_43_387Z-debug.log\n',
+lerna ERR! execute   failed: true,
+lerna ERR! execute   signal: null,
+lerna ERR! execute   cmd: 'npm install',
+lerna ERR! execute   timedOut: false }
+```
+

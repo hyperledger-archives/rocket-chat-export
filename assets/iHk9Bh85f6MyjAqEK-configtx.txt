@@ -1,0 +1,152 @@
+#
+---
+Capabilities:
+  Global: &ChannelCapabilities
+    V1_4_3: true
+  Orderer: &OrdererCapabilities
+    V1_4_2: true
+  Application: &ApplicationCapabilities
+    V1_4_2: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Channel: &ChannelDefaults
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Organizations:
+
+#
+  - &supplychainOrg
+    Name: supplychainMSP
+    ID: supplychainMSP
+    MSPDir: ./crypto-config/ordererOrganizations/supplychain-net/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('supplychainMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('supplychainMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('supplychainMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('supplychainMSP.member')"
+    
+#
+  - &carrierOrg
+    Name: carrierMSP
+    ID: carrierMSP
+    MSPDir: ./crypto-config/peerOrganizations/carrier-net/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('carrierMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('carrierMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('carrierMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('carrierMSP.member')"
+          
+    AnchorPeers:
+      # AnchorPeers defines the location of peers which can be used
+      # for cross org gossip communication.  Note, this value is only
+      # encoded in the genesis block in the Application section context
+      - Host: peer0.carrier-net
+        Port: 7051
+#
+  - &storeOrg
+    Name: storeMSP
+    ID: storeMSP
+    MSPDir: ./crypto-config/peerOrganizations/store-net/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('storeMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('storeMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('storeMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('storeMSP.member')"
+          
+    AnchorPeers:
+      # AnchorPeers defines the location of peers which can be used
+      # for cross org gossip communication.  Note, this value is only
+      # encoded in the genesis block in the Application section context
+      - Host: peer0.store-net
+        Port: 7051
+#
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+  Addresses:
+    - orderer1.supplychain-net:7050
+
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 98 MB
+    PreferredMaxBytes: 1024 KB
+  EtcdRaft:
+    Consenters:
+      - Host: orderer1.supplychain-net
+        Port: 7050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/supplychain-net/orderers/orderer1.supplychain-net/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/supplychain-net/orderers/orderer1.supplychain-net/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+  Capabilities:
+    <<: *OrdererCapabilities
+#
+Profiles:
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Orderer:
+      <<: *OrdererDefaults
+      OrdererType: etcdraft
+      EtcdRaft:
+        Consenters:
+        - Host: orderer1.supplychain-net
+          Port: 7050
+          ClientTLSCert: ./crypto-config/ordererOrganizations/supplychain-net/orderers/orderer1.supplychain-net/tls/server.crt
+          ServerTLSCert: ./crypto-config/ordererOrganizations/supplychain-net/orderers/orderer1.supplychain-net/tls/server.crt
+      Organizations:
+        - *supplychainOrg
+    Consortiums:
+      SupplyChainConsortium:
+        Organizations:
+          - *carrierOrg
+          - *storeOrg
+  AllChannel:
+    <<: *ChannelDefaults
+    Consortium: SupplyChainConsortium
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - *carrierOrg
+        - *storeOrg
+#

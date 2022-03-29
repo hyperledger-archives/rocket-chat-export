@@ -1,0 +1,63 @@
+Been a long day, I'll leave this message here and grab some sleep and see if some pearls of wisdom are available on the morrow.
+If you see my comments above, I've spent the last couple of days trying to deploy a fabric rest server on Google Cloud Platform. This involves creating a CA, Orderer, a couple of peers and then deploying a business network on top
+Here are the latest logs, any advice as to what I'm missing in my config is appreciated (it runs fine locally)
+*node create-channel.js*
+```
+2017-06-29T06:39:47.827278321Z node create-channel.js
+2017-06-29T06:39:48.182415807Z info: Returning a new winston logger with default configurations
+2017-06-29T06:39:48.638233254Z using non-tls connection
+2017-06-29T06:39:48.648688112Z info: [Client.js]: Failed to load user "admin" from local key value store
+2017-06-29T06:39:49.015426405Z info: [FabricCAClientImpl.js]: Successfully constructed Fabric CA client from options - {"protocol":"http","hostname":"104.154.240.212","port":7054}
+2017-06-29T06:39:49.015757207Z info: [FabricCAClientImpl.js]: Successfully constructed Fabric CA service client: endpoint - {"protocol":"http","hostname":"104.154.240.212","port":7054}
+2017-06-29T06:39:49.136439345Z info: [crypto_ecdsa_aes]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/root/.hfc-key-store"}}
+2017-06-29T06:39:49.264292946Z Successfully enrolled user 'admin'
+2017-06-29T06:39:49.267766134Z info: [crypto_ecdsa_aes]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/root/.hfc-key-store"}}
+2017-06-29T06:39:49.27875337Z Successfully enrolled user 'admin'
+2017-06-29T06:39:49.279994959Z Successfully read file
+2017-06-29T06:39:49.29708332Z error: [Orderer.js]: sendBroadcast - reject with BAD_REQUEST
+2017-06-29T06:39:49.299800697Z Error: BAD_REQUEST
+2017-06-29T06:39:49.299849992Z     at ClientDuplexStream.<anonymous> (/src/business_network/node_modules/fabric-client/lib/Orderer.js:95:21)
+```
+* CA looks good*
+*Orderer*
+```
+2017-06-29T06:25:58.34709897Z 2017/06/29 06:25:58 transport: http2Server.HandleStreams received bogus greeting from client: "GET / HTTP/1.1\r\nHost: 10"
+2017-06-29T06:25:58.538027043Z 2017/06/29 06:25:58 transport: http2Server.HandleStreams received bogus greeting from client: "GET / HTTP/1.1\r\nHost: 10"
+2017-06-29T06:26:03.689517959Z 2017/06/29 06:26:03 transport: http2Server.HandleStreams received bogus greeting from client: "GET / HTTP/1.1\r\nHost: 10"
+2017-06-29T06:26:33.837100636Z 2017/06/29 06:26:33 transport: http2Server.HandleStreams received bogus greeting from client: "GET / HTTP/1.1\r\nHost: 10"
+2017-06-29T06:38:50.636755233Z 2017-06-29 06:38:50.636 UTC [msp] Validate -> INFO 004 MSP OrdererMSP validating identity
+2017-06-29T06:38:50.645269978Z 2017-06-29 06:38:50.645 UTC [msp] Validate -> INFO 005 MSP OrdererMSP validating identity
+2017-06-29T06:38:50.694242754Z 2017-06-29 06:38:50.694 UTC [orderer/multichain] newChain -> INFO 006 Created and starting new chain mychannel
+2017-06-29T06:38:56.91803874Z 2017-06-29 06:38:56.917 UTC [msp] Validate -> INFO 007 MSP Org1MSP validating identity
+2017-06-29T06:38:56.925052064Z 2017-06-29 06:38:56.924 UTC [orderer/common/deliver] Handle -> WARN 008 Error reading from stream: EOF
+2017-06-29T06:39:04.43551982Z 2017-06-29 06:39:04.434 UTC [msp] Validate -> INFO 009 MSP Org1MSP validating identity
+2017-06-29T06:39:04.452980096Z 2017-06-29 06:39:04.452 UTC [orderer/common/deliver] Handle -> WARN 00a Error reading from stream: EOF
+2017-06-29T06:39:04.489432735Z 2017-06-29 06:39:04.488 UTC [msp] Validate -> INFO 00b MSP Org1MSP validating identity
+2017-06-29T06:39:04.49666299Z 2017-06-29 06:39:04.496 UTC [orderer/common/deliver] Handle -> WARN 00c Error reading from stream: EOF
+2017-06-29T06:39:14.260716404Z 2017-06-29 06:39:14.260 UTC [msp] Validate -> INFO 00d MSP Org1MSP validating identity
+2017-06-29T06:39:14.264404478Z 2017-06-29 06:39:14.264 UTC [orderer/common/deliver] Handle -> WARN 00e Error reading from stream: EOF
+2017-06-29T06:39:14.274630817Z 2017-06-29 06:39:14.274 UTC [msp] Validate -> INFO 00f MSP Org1MSP validating identity
+2017-06-29T06:39:14.277891412Z 2017-06-29 06:39:14.277 UTC [orderer/common/deliver] Handle -> WARN 010 Error reading from stream: EOF
+2017-06-29T06:39:19.863160359Z 2017-06-29 06:39:19.862 UTC [orderer/common/broadcast] Handle -> WARN 011 Rejecting CONFIG_UPDATE because: Error validating DeltaSet: Attempt to set key [Values] /Channel/Orderer/OrdererMSP/MSP to version 0, but key is at version 0
+2017-06-29T06:39:21.087422358Z 2017-06-29 06:39:21.086 UTC [msp] Validate -> INFO 012 MSP Org1MSP validating identity
+2017-06-29T06:39:21.095199811Z 2017-06-29 06:39:21.095 UTC [orderer/common/deliver] Handle -> WARN 013 Error reading from stream: EOF
+2017-06-29T06:39:25.104954644Z 2017-06-29 06:39:25.104 UTC [msp] Validate -> INFO 014 MSP Org1MSP validating identity
+2017-06-29T06:39:25.121456223Z 2017-06-29 06:39:25.121 UTC [orderer/common/deliver] Handle -> WARN 015 Error reading from stream: EOF
+2017-06-29T06:39:25.149660782Z 2017-06-29 06:39:25.149 UTC [msp] Validate -> INFO 016 MSP Org1MSP validating identity
+2017-06-29T06:39:25.154287687Z 2017-06-29 06:39:25.154 UTC [orderer/common/deliver] Handle -> WARN 017 Error reading from stream: EOF
+2017-06-29T06:39:49.294467054Z 2017-06-29 06:39:49.294 UTC [orderer/common/broadcast] Handle -> WARN 018 Rejecting CONFIG_UPDATE because: Error validating DeltaSet: Attempt to set key [Values] /Channel/Application/Org2MSP/MSP to version 0, but key is at version 0
+```
+*Peer0*
+```
+2017-06-29T05:40:22.000051209Z 2017-06-29 05:40:22.000 UTC [nodeCmd] initSysCCs -> INFO 023 Deployed system chaincodess
+2017-06-29T05:40:22.000406659Z 2017-06-29 05:40:22.000 UTC [nodeCmd] serve -> INFO 024 Starting peer with ID=[name:"peer0" ], network ID=[dev], address=[peer0:7051]
+2017-06-29T05:40:22.0034868Z 2017-06-29 05:40:22.003 UTC [nodeCmd] serve -> INFO 025 Started peer with ID=[name:"peer0" ], network ID=[dev], address=[peer0:7051]
+2017-06-29T05:47:20.540149135Z 2017-06-29 05:47:20.539 UTC [eventhub_producer] Chat -> ERRO 026 Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:47:29.363244332Z 2017-06-29 05:47:29.363 UTC [eventhub_producer] Chat -> ERRO 027 Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:47:51.622099691Z 2017-06-29 05:47:51.621 UTC [eventhub_producer] Chat -> ERRO 028 Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:48:24.814176189Z 2017-06-29 05:48:24.814 UTC [eventhub_producer] Chat -> ERRO 029 Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:49:23.170805423Z 2017-06-29 05:49:23.170 UTC [eventhub_producer] Chat -> ERRO 02a Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:50:51.321061476Z 2017-06-29 05:50:51.320 UTC [eventhub_producer] Chat -> ERRO 02b Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T05:53:50.792124336Z 2017-06-29 05:53:50.791 UTC [eventhub_producer] Chat -> ERRO 02c Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-06-29T06:10:56.255070922Z 2017-06-29 06:10:56.254 UTC [eventhub_producer] Chat -> ERRO 02d Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+```

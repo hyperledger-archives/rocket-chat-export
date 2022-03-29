@@ -1,0 +1,43 @@
+It  is a2org(buyer, lender) and solo orderer (seller org) setup, configtx dosent contain any policies and channel creation, join and chaincode instattiation works without errors, here are the logs at peer pertaining to chaincode instatitation```
+^[[36m2019-12-05 08:26:50.193 UTC [protoutils] checkSignatureFromCreator -> DEBU fa8^[[0m exits successfully
+^[[36m2019-12-05 08:26:50.194 UTC [protoutils] validateChaincodeProposalMessage -> DEBU fa9^[[0m validateChaincodeProposalMessage starts for proposal 0xc002e8b180, header 0xc002ea5b30
+^[[36m2019-12-05 08:26:50.194 UTC [protoutils] validateChaincodeProposalMessage -> DEBU faa^[[0m validateChaincodeProposalMessage info: header extension references chaincode name:"lscc"
+^[[36m2019-12-05 08:26:50.194 UTC [endorser] preProcess -> DEBU fab^[[0m [customchannel][5d66aa9d] processing txid: 5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad
+^[[36m2019-12-05 08:26:50.194 UTC [fsblkstorage] retrieveTransactionByID -> DEBU fac^[[0m retrieveTransactionByID() - txId = [5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad]
+^[[36m2019-12-05 08:26:50.194 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU fad^[[0m constructing new tx simulator
+^[[36m2019-12-05 08:26:50.195 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU fae^[[0m constructing new tx simulator txid = [5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad]
+^[[36m2019-12-05 08:26:50.195 UTC [endorser] SimulateProposal -> DEBU faf^[[0m [customchannel][5d66aa9d] Entry chaincode: name:"lscc"
+^[[34m2019-12-05 08:26:50.195 UTC [endorser] callChaincode -> INFO fb0^[[0m [customchannel][5d66aa9d] Entry chaincode: name:"lscc"
+^[[36m2019-12-05 08:26:50.195 UTC [chaincode] Execute -> DEBU fb1^[[0m Entry
+^[[36m2019-12-05 08:26:50.196 UTC [chaincode] handleMessage -> DEBU fb2^[[0m [5d66aa9d] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+^[[36m2019-12-05 08:26:50.196 UTC [chaincode] HandleTransaction -> DEBU fb3^[[0m [5d66aa9d] handling GET_STATE from chaincode
+^[[36m2019-12-05 08:26:50.197 UTC [chaincode] HandleGetState -> DEBU fb4^[[0m [5d66aa9d] getting state for chaincode lscc, key mycc, channel customchannel
+^[[36m2019-12-05 08:26:50.197 UTC [stateleveldb] GetState -> DEBU fb5^[[0m GetState(). ns=lscc, key=mycc
+^[[36m2019-12-05 08:26:50.197 UTC [chaincode] HandleGetState -> DEBU fb6^[[0m [5d66aa9d] No state associated with key: mycc. Sending RESPONSE with an empty payload
+^[[36m2019-12-05 08:26:50.197 UTC [chaincode] HandleTransaction -> DEBU fb7^[[0m [5d66aa9d] Completed GET_STATE. Sending RESPONSE
+^[[36m2019-12-05 08:26:50.198 UTC [msp] GetManagerForChain -> DEBU fb8^[[0m Returning existing manager for channel 'customchannel'
+^[[36m2019-12-05 08:26:50.198 UTC [cauthdsl] func1 -> DEBU fb9^[[0m 0xc0030f1cd0 gate 1575534410198563798 evaluation starts
+^[[36m2019-12-05 08:26:50.198 UTC [cauthdsl] func2 -> DEBU fba^[[0m 0xc0030f1cd0 signed by 0 principal evaluation starts (used [false])
+^[[36m2019-12-05 08:26:50.198 UTC [cauthdsl] func2 -> DEBU fbb^[[0m 0xc0030f1cd0 processing identity 0 with bytes of aa8b30
+^[[36m2019-12-05 08:26:50.199 UTC [cauthdsl] func2 -> DEBU fbc^[[0m 0xc0030f1cd0 identity 0 does not satisfy principal: the identity is a member of a different MSP (expected OrgbuyerMSP, got OrglenderMSP)
+^[[36m2019-12-05 08:26:50.199 UTC [cauthdsl] func2 -> DEBU fbd^[[0m 0xc0030f1cd0 principal evaluation fails
+^[[36m2019-12-05 08:26:50.199 UTC [cauthdsl] func2 -> DEBU fbe^[[0m 0xc0030f1cd0 signed by 1 principal evaluation starts (used [false])
+^[[36m2019-12-05 08:26:50.199 UTC [cauthdsl] func2 -> DEBU fbf^[[0m 0xc0030f1cd0 processing identity 0 with bytes of aa8b30
+^[[36m2019-12-05 08:26:50.199 UTC [msp] satisfiesPrincipalInternalPreV13 -> DEBU fc0^[[0m Checking if identity satisfies ADMIN role for OrglenderMSP
+^[[36m2019-12-05 08:26:50.200 UTC [cauthdsl] func2 -> DEBU fc1^[[0m 0xc0030f1cd0 identity 0 does not satisfy principal: This identity is not an admin
+^[[36m2019-12-05 08:26:50.200 UTC [cauthdsl] func2 -> DEBU fc2^[[0m 0xc0030f1cd0 principal evaluation fails
+^[[36m2019-12-05 08:26:50.200 UTC [cauthdsl] func2 -> DEBU fc3^[[0m 0xc0030f1cd0 signed by 2 principal evaluation starts (used [false])
+^[[36m2019-12-05 08:26:50.200 UTC [cauthdsl] func2 -> DEBU fc4^[[0m 0xc0030f1cd0 processing identity 0 with bytes of aa8b30
+^[[36m2019-12-05 08:26:50.200 UTC [cauthdsl] func2 -> DEBU fc5^[[0m 0xc0030f1cd0 identity 0 does not satisfy principal: the identity is a member of a different MSP (expected OrgsellerMSP, got OrglenderMSP)
+^[[36m2019-12-05 08:26:50.201 UTC [cauthdsl] func2 -> DEBU fc6^[[0m 0xc0030f1cd0 principal evaluation fails
+^[[36m2019-12-05 08:26:50.201 UTC [cauthdsl] func1 -> DEBU fc7^[[0m 0xc0030f1cd0 gate 1575534410198563798 evaluation fails
+^[[36m2019-12-05 08:26:50.201 UTC [chaincode] handleMessage -> DEBU fc8^[[0m [5d66aa9d] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+^[[36m2019-12-05 08:26:50.201 UTC [chaincode] Notify -> DEBU fc9^[[0m [5d66aa9d] notifying Txid:5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad, channelID:customchannel
+^[[36m2019-12-05 08:26:50.201 UTC [chaincode] Execute -> DEBU fca^[[0m Exit
+^[[34m2019-12-05 08:26:50.201 UTC [endorser] callChaincode -> INFO fcb^[[0m [customchannel][5d66aa9d] Exit chaincode: name:"lscc"  (6ms)
+^[[36m2019-12-05 08:26:50.201 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU fcc^[[0m Simulation completed, getting simulation results
+^[[36m2019-12-05 08:26:50.201 UTC [lockbasedtxmgr] Done -> DEBU fcd^[[0m Done with transaction simulation / query execution [5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad]
+^[[36m2019-12-05 08:26:50.201 UTC [endorser] SimulateProposal -> DEBU fce^[[0m [customchannel][5d66aa9d] Exit
+^[[31m2019-12-05 08:26:50.201 UTC [endorser] ProcessProposal -> ERRO fcf^[[0m [customchannel][5d66aa9d] simulateProposal() resulted in chaincode name:"lscc"  response status 500 for txid: 5d66aa9d76c2446847c4708ad764c206a888e176e66c940a2bd8293af4dd77ad
+
+``` 

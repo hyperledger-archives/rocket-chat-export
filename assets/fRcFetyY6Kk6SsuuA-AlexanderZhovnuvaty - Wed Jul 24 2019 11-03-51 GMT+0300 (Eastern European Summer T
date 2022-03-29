@@ -1,0 +1,64 @@
+`(venv3) azhovnuv@azhovnuv-mate:~/PycharmProjects/sawtooth-core$ ./bin/run_tests -m identity
+[---Running identity tests---]
+/home/azhovnuv/PycharmProjects/sawtooth-core
+/home/azhovnuv/PycharmProjects/sawtooth-core/bin/run_docker_test:244: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  compose = yaml.load(contents)
+Building test-tp-identity
+...
+build_test_image  | Get:1 http://repo.sawtooth.me/ubuntu/nightly bionic/universe amd64 python3-sawtooth-sdk all 1.2.3~dev5-1 [45.1 kB]
+build_test_image  | Err:1 http://repo.sawtooth.me/ubuntu/nightly bionic/universe amd64 python3-sawtooth-sdk all 1.2.3~dev5-1
+build_test_image  | File has unexpected size (45132 != 45088). Mirror sync in progress? [IP: 54.192.230.139 80]
+build_test_image  | Hashes of expected file:
+build_test_image  | - SHA512:4bf4f244b9961c446e583281d7197e1f1d6ac717fc65f16d3521e553c6eefe36748314dd8c5b937b7aef71070cb2a5ee78798b8bef6c06febe9f01cea80fe086
+build_test_image  | - SHA256:48964d0cbdc5d647b3a957b582fda1927845a84f80c7228ab48f3083c251fdae
+build_test_image  | - SHA1:4c7bf875a7a734f9b23b7a3d7842ecefcad93ed6 [weak]
+build_test_image  | - MD5Sum:17e2dabef20c0d7de9fbcb7e581b3346 [weak]
+build_test_image  | - Filesize:45088 [weak]
+build_test_image  | E: Failed to fetch http://repo.sawtooth.me/ubuntu/nightly/dists/bionic/pool/universe/python3-sawtooth-sdk_1.2.3~dev5-1_all.deb  File has unexpected size (45132 != 45088). Mirror sync in progress? [IP: 54.192.230.139 80]
+build_test_image  |    Hashes of expected file:
+build_test_image  | - SHA512:4bf4f244b9961c446e583281d7197e1f1d6ac717fc65f16d3521e553c6eefe36748314dd8c5b937b7aef71070cb2a5ee78798b8bef6c06febe9f01cea80fe086
+build_test_image  | - SHA256:48964d0cbdc5d647b3a957b582fda1927845a84f80c7228ab48f3083c251fdae
+build_test_image  | - SHA1:4c7bf875a7a734f9b23b7a3d7842ecefcad93ed6 [weak]
+build_test_image  | - MD5Sum:17e2dabef20c0d7de9fbcb7e581b3346 [weak]
+build_test_image  | - Filesize:45088 [weak]
+build_test_image  | E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+ERROR: Service 'test-tp-identity' failed to build: The command '/bin/sh -c apt-get install -y -q     python3-sawtooth-sdk' returned a non-zero code: 100
+build_test_image  | 
+INFO:__main__:Starting test TEST-TP-IDENTITY
+INFO:__main__:Bringing up with ['docker-compose', '-p', 'latest', '-f', './families/identity/tests/test_tp_identity.yaml', 'up', '--abort-on-container-exit']
+Creating network "latest_default" with the default driver
+Building test-tp-identity
+...
+After this operation, 571 kB of additional disk space will be used.
+Get:1 http://repo.sawtooth.me/ubuntu/nightly bionic/universe amd64 python3-sawtooth-sdk all 1.2.3~dev5-1 [45.1 kB]
+Err:1 http://repo.sawtooth.me/ubuntu/nightly bionic/universe amd64 python3-sawtooth-sdk all 1.2.3~dev5-1
+  File has unexpected size (45132 != 45088). Mirror sync in progress? [IP: 54.192.230.139 80]
+  Hashes of expected file:
+   - SHA512:4bf4f244b9961c446e583281d7197e1f1d6ac717fc65f16d3521e553c6eefe36748314dd8c5b937b7aef71070cb2a5ee78798b8bef6c06febe9f01cea80fe086
+   - SHA256:48964d0cbdc5d647b3a957b582fda1927845a84f80c7228ab48f3083c251fdae
+   - SHA1:4c7bf875a7a734f9b23b7a3d7842ecefcad93ed6 [weak]
+   - MD5Sum:17e2dabef20c0d7de9fbcb7e581b3346 [weak]
+   - Filesize:45088 [weak]
+E: Failed to fetch http://repo.sawtooth.me/ubuntu/nightly/dists/bionic/pool/universe/python3-sawtooth-sdk_1.2.3~dev5-1_all.deb  File has unexpected size 
+(45132 != 45088). Mirror sync in progress? [IP: 54.192.230.139 80]
+   Hashes of expected file:
+    - SHA512:4bf4f244b9961c446e583281d7197e1f1d6ac717fc65f16d3521e553c6eefe36748314dd8c5b937b7aef71070cb2a5ee78798b8bef6c06febe9f01cea80fe086
+    - SHA256:48964d0cbdc5d647b3a957b582fda1927845a84f80c7228ab48f3083c251fdae
+    - SHA1:4c7bf875a7a734f9b23b7a3d7842ecefcad93ed6 [weak]
+    - MD5Sum:17e2dabef20c0d7de9fbcb7e581b3346 [weak]
+    - Filesize:45088 [weak]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+ERROR: Service 'test-tp-identity' failed to build: The command '/bin/sh -c apt-get install -y -q     python3-sawtooth-sdk' returned a non-zero code: 100
+ERROR:__main__:Test error in TEST-TP-IDENTITY
+ERROR:__main__:Command '['docker-compose', '-p', 'latest', '-f', './families/identity/tests/test_tp_identity.yaml', 'up', '--abort-on-container-exit']' returned non-zero exit status 1
+Traceback (most recent call last):
+  File "/home/azhovnuv/PycharmProjects/sawtooth-core/bin/run_docker_test", line 134, in main
+    timeout=timer.remaining())
+  File "/usr/lib/python3.5/subprocess.py", line 708, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker-compose', '-p', 'latest', '-f', './families/identity/tests/test_tp_identity.yaml', 'up', '--abort-on-container-exit']' returned non-zero exit status 1
+ERROR:__main__:Could not gather information about image used.
+INFO:__main__:Shutting down with: ['docker-compose', '-p', 'latest', '-f', './families/identity/tests/test_tp_identity.yaml', 'down', '--remove-orphans', '--volumes']
+Removing network latest_default
+ERROR:__main__:Test TEST-TP-IDENTITY failed
+`

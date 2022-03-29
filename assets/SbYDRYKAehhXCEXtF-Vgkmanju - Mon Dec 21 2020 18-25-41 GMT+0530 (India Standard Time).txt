@@ -1,0 +1,313 @@
+`[2020-12-21T20:41:21.193] [DEBUG] main - false ssl-certs /opt/explorer/ssl-certs
+[2020-12-21T20:41:21.297] [INFO] PgService - SSL to Postgresql disabled
+[2020-12-21T20:41:21.297] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@explorerdb:5432/fabricexplorer
+[2020-12-21T20:41:21.918] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-12-21T20:41:21.918] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, {
+  Bankema: { name: 'Bankema', profile: './connection-profile/Bankema.json' }
+}
+[2020-12-21T20:41:21.918] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-12-21T20:41:21.919] [INFO] Platform -  client_configs.name  Bankema  client_configs.profile  ./connection-profile/Bankema.json
+[2020-12-21T20:41:21.919] [DEBUG] Platform - Creating client [Bankema] >>  { name: 'Bankema', profile: './connection-profile/Bankema.json' }
+[2020-12-21T20:41:21.919] [DEBUG] User - User : factor-admin
+[2020-12-21T20:41:21.944] [INFO] Platform - Already registered : admin
+[2020-12-21T20:41:21.944] [DEBUG] FabricUtils - ************ Initializing fabric client for [Bankema]************
+[2020-12-21T20:41:21.944] [DEBUG] FabricClient - Client configuration [Bankema]  ...  this.client_config  { name: 'Bankema', profile: './connection-profile/Bankema.json' }
+[2020-12-21T20:41:21.945] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-12-21T20:41:21.945] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-12-21T20:41:21.945] [INFO] FabricConfig - FabricConfig, this.config.channels  bankemachannel
+[2020-12-21T20:41:22.370] [INFO] FabricGateway - enrollUserIdentity: userName : factor-admin
+[2020-12-21T20:41:24.009] [DEBUG] FabricGateway - queryChannels ChannelQueryResponse {
+  channels: [ ChannelInfo { channel_id: 'bankemachannel' } ]
+}
+[2020-12-21T20:41:24.009] [DEBUG] FabricClient - Client channels >> [{"channel_id":"bankemachannel"}]
+[2020-12-21T20:41:24.010] [DEBUG] FabricClient - Initializing channel  bankemachannel
+[2020-12-21T20:41:24.025] [DEBUG] FabricGateway - queryBlock {
+  header: {
+    number: Long { low: 0, high: 0, unsigned: true },
+    previous_hash: <Buffer >,
+    data_hash: <Buffer 0e 7b 19 c0 81 84 64 d1 a9 92 33 a6 92 b5 af 45 78 ce 93 08 47 a5 94 0a c3 28 bd 6b 54 6a ff 69>
+  },
+  data: { data: [ [Object] ] },
+  metadata: { metadata: [ [Object], {}, [Array], {}, <Buffer > ] }
+}
+[2020-12-21T20:41:24.026] [DEBUG] FabricClient - Genesis Block for client [Bankema]
+[2020-12-21T20:41:24.026] [INFO] FabricUtils - generateBlockHash 0
+[2020-12-21T20:41:24.028] [DEBUG] FabricClient - Channel genesis hash for channel [bankemachannel] >> 192101143f9d1facdbbfc5a5f8d8812d6593be594c9746b962d35323eed6a360
+[2020-12-21T20:41:24.028] [DEBUG] FabricClient - Initialized channel >> bankemachannel
+[2020-12-21T20:41:24.029] [INFO] Platform - initializeListener, client_name, client  Bankema { name: 'Bankema', profile: './connection-profile/Bankema.json' }
+[2020-12-21T20:41:24.030] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-12-21T20:41:24.030] [INFO] main - pid is 18
+[2020-12-21T20:44:00.063] [DEBUG] NetworkService - Network list  Map {
+  'Bankema' => {
+    name: 'Bankema',
+    instance: FabricClient {
+      network_name: 'Bankema',
+      client_name: 'Bankema',
+      fabricGateway: [FabricGateway],
+      channelsGenHash: [Map],
+      client_config: [Object],
+      status: true,
+      channels: [Array]
+    }
+  }
+}
+[2020-12-21T20:44:00.064] [DEBUG] NetworkService - Network list  Bankema
+[2020-12-21T20:44:00.064] [DEBUG] NetworkService - Network list  [ { name: 'Bankema', authEnabled: true } ]
+[2020-12-21T20:44:00.064] [DEBUG] Proxy - networkList >> [ [Object] ]
+[2020-12-21T20:52:53.673] [DEBUG] NetworkService - Network list  Map {
+  'Bankema' => {
+    name: 'Bankema',
+    instance: FabricClient {
+      network_name: 'Bankema',
+      client_name: 'Bankema',
+      fabricGateway: [FabricGateway],
+      channelsGenHash: [Map],
+      client_config: [Object],
+      status: true,
+      channels: [Array]
+    }
+  }
+}
+[2020-12-21T20:52:53.673] [DEBUG] NetworkService - Network list  Bankema
+[2020-12-21T20:52:53.673] [DEBUG] NetworkService - Network list  [ { name: 'Bankema', authEnabled: true } ]
+[2020-12-21T20:52:53.673] [DEBUG] Proxy - networkList >> [ [Object] ]
+[2020-12-21T20:53:11.313] [DEBUG] Auth - req.body {
+  user: 'factor-admin',
+  password: 'factor-adminpw',
+  network: 'Bankema'
+}
+[2020-12-21T20:53:11.314] [DEBUG] User - User : factor-admin
+[2020-12-21T20:53:11.314] [INFO] UserService - user.network  Bankema
+[2020-12-21T20:53:11.314] [INFO] UserService - Network: Bankema enableAuthentication true
+[2020-12-21T20:53:11.383] [DEBUG] Proxy - result of authentication >> true
+[2020-12-21T20:53:12.241] [DEBUG] Proxy - getCurrentChannel: network_name Bankema
+[2020-12-21T20:53:12.242] [DEBUG] Proxy - getCurrentChannel >> {"currentChannel":"192101143f9d1facdbbfc5a5f8d8812d6593be594c9746b962d35323eed6a360"}
+[2020-12-21T20:53:12.565] [DEBUG] CRUDService - getBlockAndTxList.byOrgs  false
+[2020-12-21T20:53:12.565] [DEBUG] CRUDService - sqlBlockTxList  select a.* from  (
+      select (select c.name from channel c where c.channel_genesis_hash =
+         '192101143f9d1facdbbfc5a5f8d8812d6593be594c9746b962d35323eed6a360' and c.network_name = 'Bankema') as channelname, blocks.blocknum,blocks.txcount ,blocks.datahash ,blocks.blockhash ,blocks.prehash,blocks.createdt, blocks.blksize, (
+        SELECT  array_agg(txhash) as txhash FROM transactions where blockid = blocks.blocknum and
+         channel_genesis_hash = '192101143f9d1facdbbfc5a5f8d8812d6593be594c9746b962d35323eed6a360' and network_name = 'Bankema' and createdt between '2020-12-20T12:53:12.565Z' and '2020-12-21T12:53:12.565Z') from blocks where
+         blocks.channel_genesis_hash ='192101143f9d1facdbbfc5a5f8d8812d6593be594c9746b962d35323eed6a360' and blocks.network_name = 'Bankema' and blocknum >= 0 and blocks.createdt between '2020-12-20T12:53:12.565Z' and '2020-12-21T12:53:12.565Z'
+									order by blocks.blocknum desc)  a where  a.txhash IS NOT NULL
+[2020-12-21T20:53:12.566] [DEBUG] CRUDService - Finished sqlBlockTxList  Promise { <pending> }
+[2020-12-21T20:53:12.569] [DEBUG] dbroutes - Return getBlockAndTxList  []
+[2020-12-21T20:53:12.571] [DEBUG] Proxy - getChannels >> []
+[2020-12-21T20:53:12.962] [DEBUG] CRUDService - getTxList.byOrgs  false
+[2020-12-21T20:53:13.259] [DEBUG] Proxy - getChannelsInfo >> []
+[2020-12-21T20:53:13.260] [DEBUG] FabricClient - initializeChannelFromDiscover  bankemachannel
+[2020-12-21T20:53:13.593] [INFO] FabricClient - Discovered factorMSP [
+  {
+    mspid: 'factorMSP',
+    endpoint: 'peer0.factor-net.x.y.z.com:8443',
+    name: 'peer0.factor-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.593] [INFO] FabricClient - Discovered bankemaMSP [
+  {
+    mspid: 'bankemaMSP',
+    endpoint: 'peer0.bankema-net.x.y.z.com:8443',
+    name: 'peer0.bankema-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.594] [INFO] FabricClient - Discovered corgMSP [
+  {
+    mspid: 'corgMSP',
+    endpoint: 'peer0.corg-net.x.y.z.com:8443',
+    name: 'peer0.corg-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.594] [INFO] FabricClient - Discovered insurerMSP [
+  {
+    mspid: 'insurerMSP',
+    endpoint: 'peer0.insurer-net.x.y.z.com:8443',
+    name: 'peer0.insurer-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.594] [INFO] FabricClient - Discovered vendorMSP [
+  {
+    mspid: 'vendorMSP',
+    endpoint: 'peer0.vendor-net.x.y.z.com:8443',
+    name: 'peer0.vendor-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.595] [INFO] FabricClient - Discovered investor3MSP [
+  {
+    mspid: 'investor3MSP',
+    endpoint: 'peer0.investor3-net.x.y.z.com:8443',
+    name: 'peer0.investor3-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.595] [DEBUG] Proxy - getPeersStatus >> 0
+[2020-12-21T20:53:13.887] [DEBUG] FabricClient - initializeChannelFromDiscover  bankemachannel
+[2020-12-21T20:53:13.991] [INFO] FabricClient - Discovered corgMSP [
+  {
+    mspid: 'corgMSP',
+    endpoint: 'peer0.corg-net.x.y.z.com:8443',
+    name: 'peer0.corg-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.991] [INFO] FabricClient - Discovered insurerMSP [
+  {
+    mspid: 'insurerMSP',
+    endpoint: 'peer0.insurer-net.x.y.z.com:8443',
+    name: 'peer0.insurer-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.992] [INFO] FabricClient - Discovered vendorMSP [
+  {
+    mspid: 'vendorMSP',
+    endpoint: 'peer0.vendor-net.x.y.z.com:8443',
+    name: 'peer0.vendor-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.992] [INFO] FabricClient - Discovered investor3MSP [
+  {
+    mspid: 'investor3MSP',
+    endpoint: 'peer0.investor3-net.x.y.z.com:8443',
+    name: 'peer0.investor3-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.992] [INFO] FabricClient - Discovered factorMSP [
+  {
+    mspid: 'factorMSP',
+    endpoint: 'peer0.factor-net.x.y.z.com:8443',
+    name: 'peer0.factor-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.992] [INFO] FabricClient - Discovered bankemaMSP [
+  {
+    mspid: 'bankemaMSP',
+    endpoint: 'peer0.bankema-net.x.y.z.com:8443',
+    name: 'peer0.bankema-net.x.y.z.com:8443',
+    ledgerHeight: Long { low: 2287, high: 0, unsigned: true },
+    chaincodes: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ]
+  }
+]
+[2020-12-21T20:53:13.993] [DEBUG] Proxy - getPeersStatus >> 0`

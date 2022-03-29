@@ -1,0 +1,845 @@
+[34m2020-04-17 08:01:45.244 UTC [localconfig] completeInitialization -> INFO 001[0m Kafka.Version unset, setting to 0.10.2.0
+[34m2020-04-17 08:01:45.259 UTC [orderer.common.server] prettyPrintStruct -> INFO 002[0m Orderer config values:
+	General.LedgerType = "file"
+	General.ListenAddress = "0.0.0.0"
+	General.ListenPort = 7050
+	General.TLS.Enabled = true
+	General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+	General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+	General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+	General.TLS.ClientAuthRequired = false
+	General.TLS.ClientRootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+	General.Cluster.ListenAddress = ""
+	General.Cluster.ListenPort = 0
+	General.Cluster.ServerCertificate = ""
+	General.Cluster.ServerPrivateKey = ""
+	General.Cluster.ClientCertificate = "/var/hyperledger/orderer/tls/server.crt"
+	General.Cluster.ClientPrivateKey = "/var/hyperledger/orderer/tls/server.key"
+	General.Cluster.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+	General.Cluster.DialTimeout = 5s
+	General.Cluster.RPCTimeout = 7s
+	General.Cluster.ReplicationBufferSize = 20971520
+	General.Cluster.ReplicationPullTimeout = 5s
+	General.Cluster.ReplicationRetryTimeout = 5s
+	General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+	General.Cluster.ReplicationMaxRetries = 12
+	General.Cluster.SendBufferSize = 10
+	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+	General.Cluster.TLSHandshakeTimeShift = 0s
+	General.Keepalive.ServerMinInterval = 1m0s
+	General.Keepalive.ServerInterval = 2h0m0s
+	General.Keepalive.ServerTimeout = 20s
+	General.ConnectionTimeout = 0s
+	General.GenesisMethod = "file"
+	General.GenesisProfile = "initial"
+	General.SystemChannel = "test-system-channel-name"
+	General.GenesisFile = "/var/hyperledger/orderer/genesis.block"
+	General.Profile.Enabled = false
+	General.Profile.Address = "0.0.0.0:6060"
+	General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+	General.LocalMSPID = "chintuordorg2"
+	General.BCCSP.ProviderName = "SW"
+	General.BCCSP.SwOpts.SecLevel = 256
+	General.BCCSP.SwOpts.HashFamily = "SHA2"
+	General.BCCSP.SwOpts.Ephemeral = false
+	General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+	General.BCCSP.SwOpts.DummyKeystore =
+	General.BCCSP.SwOpts.InmemKeystore =
+	General.BCCSP.PluginOpts =
+	General.Authentication.TimeWindow = 15m0s
+	General.Authentication.NoExpirationChecks = false
+	FileLedger.Location = "/var/hyperledger/production/orderer"
+	FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+	RAMLedger.HistorySize = 1000
+	Kafka.Retry.ShortInterval = 5s
+	Kafka.Retry.ShortTotal = 10m0s
+	Kafka.Retry.LongInterval = 5m0s
+	Kafka.Retry.LongTotal = 12h0m0s
+	Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+	Kafka.Retry.Metadata.RetryMax = 3
+	Kafka.Retry.Metadata.RetryBackoff = 250ms
+	Kafka.Retry.Producer.RetryMax = 3
+	Kafka.Retry.Producer.RetryBackoff = 100ms
+	Kafka.Retry.Consumer.RetryBackoff = 2s
+	Kafka.Verbose = false
+	Kafka.Version = 0.10.2.0
+	Kafka.TLS.Enabled = false
+	Kafka.TLS.PrivateKey = ""
+	Kafka.TLS.Certificate = ""
+	Kafka.TLS.RootCAs = []
+	Kafka.TLS.ClientAuthRequired = false
+	Kafka.TLS.ClientRootCAs = []
+	Kafka.SASLPlain.Enabled = false
+	Kafka.SASLPlain.User = ""
+	Kafka.SASLPlain.Password = ""
+	Kafka.Topic.ReplicationFactor = 3
+	Debug.BroadcastTraceDir = ""
+	Debug.DeliverTraceDir = ""
+	Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+	Operations.ListenAddress = ":8443"
+	Operations.TLS.Enabled = false
+	Operations.TLS.PrivateKey = ""
+	Operations.TLS.Certificate = ""
+	Operations.TLS.RootCAs = []
+	Operations.TLS.ClientAuthRequired = false
+	Operations.TLS.ClientRootCAs = []
+	Metrics.Provider = "prometheus"
+	Metrics.Statsd.Network = "udp"
+	Metrics.Statsd.Address = "127.0.0.1:8125"
+	Metrics.Statsd.WriteInterval = 30s
+	Metrics.Statsd.Prefix = ""
+[34m2020-04-17 08:01:45.372 UTC [orderer.common.server] extractSysChanLastConfig -> INFO 003[0m Not bootstrapping because of 2 existing channels
+[34m2020-04-17 08:01:45.431 UTC [orderer.common.server] extractSysChanLastConfig -> INFO 004[0m System channel: name=testchainid, height=14, last config block number=13
+[34m2020-04-17 08:01:45.431 UTC [orderer.common.server] selectClusterBootBlock -> INFO 005[0m Cluster boot block is system channel last config block; Blocks Header.Number system-channel=13, bootstrap=0
+[34m2020-04-17 08:01:45.463 UTC [orderer.common.cluster] loadVerifier -> INFO 006[0m Loaded verifier for channel mychannel from config block at index 14
+[34m2020-04-17 08:01:45.468 UTC [orderer.common.cluster] loadVerifier -> INFO 007[0m Loaded verifier for channel testchainid from config block at index 13
+[34m2020-04-17 08:01:45.468 UTC [orderer.common.server] initializeServerConfig -> INFO 008[0m Starting orderer with TLS enabled
+[34m2020-04-17 08:01:45.468 UTC [orderer.common.server] configureClusterListener -> INFO 009[0m Cluster listener is not configured, defaulting to use the general listener on port 7050
+[34m2020-04-17 08:01:45.469 UTC [orderer.common.server] initializeMultichannelRegistrar -> INFO 00a[0m Not bootstrapping because of existing channels
+[33m2020-04-17 08:01:45.475 UTC [orderer.consensus.etcdraft] detectSelfID -> WARN 00b[0m Could not find -----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUcX3YLD6wVqa/B6UanQqdhyZE0LkwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjEuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABApfqV6a
+0IKy6TH6jp+/z0KpHROnu1w0maeoharuTXzNbW9gEkJQeNY9U6VIwXnh4wlQf9S+
+2rSdu6+37H9ktqCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFFzwE1mM
+jCzqJydCSSbwKVScdqQRMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIxgi9vcmRlcmVyMS5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIxLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAlH82MJA80qm+emV5H/0f4YANAgp8wBI8/l0+pqdUfAoCIDgdSV7TefEh
+V2sB3ra8Q0LFYzDQ8shFGz1P6FjBPrAM
+-----END CERTIFICATE-----
+ among [-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUSC4KSJKTkux6OdCKFpgX49vzcpswCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTgwMFoXDTIxMDQxNTA3MDMwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjEuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIhcLqs0
+GKHf4yfnK1pXwz29YZSLb4/VpajiQhMKAu9iNsMT90os0zZJDkmzZM0jInY0vl98
+ZtT29CWwjYpi2mmjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFBQTfMWq
+bbWRWChskplUw2ilMZOAMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIxgi9vcmRlcmVyMS45ZjU5MWM1ZDRkZDM0NTM3
+YjBkMC51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIxLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiBLUl5qkht3nBRwBeLXdUSQjwVlN6tgm5iipWDcIKl7VwIgZsQjBy9shZrH
+5/AdPyFuV3HnZxXXVhDbEKdGB+yfvhI=
+-----END CERTIFICATE-----
+ -----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+ -----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+]
+[34m2020-04-17 08:01:45.494 UTC [orderer.common.server] TrackChain -> INFO 00c[0m Adding mychannel to the set of chains to track
+[33m2020-04-17 08:01:45.498 UTC [orderer.consensus.etcdraft] detectSelfID -> WARN 00d[0m Could not find -----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUcX3YLD6wVqa/B6UanQqdhyZE0LkwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjEuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABApfqV6a
+0IKy6TH6jp+/z0KpHROnu1w0maeoharuTXzNbW9gEkJQeNY9U6VIwXnh4wlQf9S+
+2rSdu6+37H9ktqCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFFzwE1mM
+jCzqJydCSSbwKVScdqQRMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIxgi9vcmRlcmVyMS5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIxLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAlH82MJA80qm+emV5H/0f4YANAgp8wBI8/l0+pqdUfAoCIDgdSV7TefEh
+V2sB3ra8Q0LFYzDQ8shFGz1P6FjBPrAM
+-----END CERTIFICATE-----
+ among [-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUSC4KSJKTkux6OdCKFpgX49vzcpswCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTgwMFoXDTIxMDQxNTA3MDMwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjEuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIhcLqs0
+GKHf4yfnK1pXwz29YZSLb4/VpajiQhMKAu9iNsMT90os0zZJDkmzZM0jInY0vl98
+ZtT29CWwjYpi2mmjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFBQTfMWq
+bbWRWChskplUw2ilMZOAMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIxgi9vcmRlcmVyMS45ZjU5MWM1ZDRkZDM0NTM3
+YjBkMC51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIxLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiBLUl5qkht3nBRwBeLXdUSQjwVlN6tgm5iipWDcIKl7VwIgZsQjBy9shZrH
+5/AdPyFuV3HnZxXXVhDbEKdGB+yfvhI=
+-----END CERTIFICATE-----
+ -----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+ -----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+]
+[34m2020-04-17 08:01:45.499 UTC [orderer.common.server] TrackChain -> INFO 00e[0m Adding testchainid to the set of chains to track
+[34m2020-04-17 08:01:45.499 UTC [orderer.commmon.multichannel] Initialize -> INFO 00f[0m Starting system channel 'testchainid' with genesis block hash 804281e65b5123b36c73603f285cace4fa7d091f6bbd8b81fa3b5d4c0599db38 and orderer type etcdraft
+[34m2020-04-17 08:01:45.499 UTC [orderer.common.server] Start -> INFO 010[0m Starting orderer:
+ Version: 1.4.4
+ Commit SHA: 7917a40
+ Go version: go1.12.12
+ OS/Arch: linux/amd64
+[34m2020-04-17 08:01:45.499 UTC [orderer.common.server] Start -> INFO 011[0m Beginning to serve requests
+[34m2020-04-17 08:01:55.472 UTC [orderer.common.server] replicateDisabledChains -> INFO 012[0m Found 2 inactive chains: [mychannel testchainid]
+[34m2020-04-17 08:01:55.473 UTC [orderer.common.cluster] ReplicateChains -> INFO 013[0m Will now replicate chains [mychannel testchainid]
+[34m2020-04-17 08:01:55.480 UTC [orderer.common.cluster] discoverChannels -> INFO 014[0m Discovered 2 channels: [mychannel testchainid]
+[34m2020-04-17 08:01:55.480 UTC [orderer.common.cluster] channelsToPull -> INFO 015[0m Evaluating channels to pull: [mychannel testchainid]
+[34m2020-04-17 08:01:55.480 UTC [orderer.common.cluster] channelsToPull -> INFO 016[0m Probing whether I should pull channel mychannel
+[34m2020-04-17 08:01:55.535 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 017[0m orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.535 UTC [comm.grpc.server] 1 -> INFO 018[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34726 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.5902ms
+[34m2020-04-17 08:01:55.544 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 019[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.545 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 01a[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.545 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 01b[0m Returning the heights of OSNs mapped by endpoints map[orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:16 orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:16]
+[34m2020-04-17 08:01:55.562 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 01c[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14
+[33m2020-04-17 08:01:55.562 UTC [orderer.common.cluster.replication] func1 -> WARN 01d[0m Received error of type 'minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.562 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 01e[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.563 UTC [comm.grpc.server] 1 -> INFO 01f[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34742 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.390488ms
+[34m2020-04-17 08:01:55.596 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 020[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.596 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 021[0m Connected to orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 15
+[34m2020-04-17 08:01:55.597 UTC [orderer.common.cluster.replication] obtainStream -> INFO 022[0m Sending request for block [15] to orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.598 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 023[0m Got block [15] of size 28 KB from orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.613 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 024[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.614 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 025[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14
+[33m2020-04-17 08:01:55.614 UTC [orderer.common.cluster.replication] func1 -> WARN 026[0m Received error of type 'minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.614 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 027[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.614 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 028[0m Connected to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 15
+[34m2020-04-17 08:01:55.614 UTC [orderer.common.cluster.replication] obtainStream -> INFO 029[0m Sending request for block [15] to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.615 UTC [comm.grpc.server] 1 -> INFO 02a[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34758 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=2.160036ms
+[34m2020-04-17 08:01:55.616 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 02b[0m Got block [15] of size 28 KB from orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.618 UTC [orderer.common.cluster] channelsToPull -> INFO 02c[0m I need to pull channel mychannel
+[34m2020-04-17 08:01:55.618 UTC [orderer.common.cluster] channelsToPull -> INFO 02d[0m Probing whether I should pull channel testchainid
+[34m2020-04-17 08:01:55.632 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 02e[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.634 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 02f[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.636 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 030[0m orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 13
+[34m2020-04-17 08:01:55.637 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 031[0m Returning the heights of OSNs mapped by endpoints map[orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:14 orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15]
+[34m2020-04-17 08:01:55.637 UTC [comm.grpc.server] 1 -> INFO 032[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34770 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.817815ms
+[34m2020-04-17 08:01:55.648 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 033[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.650 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 034[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.670 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 035[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13
+[33m2020-04-17 08:01:55.670 UTC [orderer.common.cluster.replication] func1 -> WARN 036[0m Received error of type 'minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.670 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 037[0m Connected to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 14
+[34m2020-04-17 08:01:55.671 UTC [orderer.common.cluster.replication] obtainStream -> INFO 038[0m Sending request for block [14] to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.671 UTC [comm.grpc.server] 1 -> INFO 039[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34782 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=2.748673ms
+[34m2020-04-17 08:01:55.672 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 03a[0m Got block [14] of size 31 KB from orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.682 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 03b[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.684 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 03c[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13
+[33m2020-04-17 08:01:55.684 UTC [orderer.common.cluster.replication] func1 -> WARN 03d[0m Received error of type 'minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.684 UTC [comm.grpc.server] 1 -> INFO 03e[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34794 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=986.362µs
+[34m2020-04-17 08:01:55.686 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 03f[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.686 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 040[0m Connected to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 14
+[34m2020-04-17 08:01:55.687 UTC [orderer.common.cluster.replication] obtainStream -> INFO 041[0m Sending request for block [14] to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.688 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 042[0m Got block [14] of size 31 KB from orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.691 UTC [orderer.common.cluster] channelsToPull -> INFO 043[0m I need to pull channel testchainid
+[34m2020-04-17 08:01:55.691 UTC [orderer.common.cluster] ReplicateChains -> INFO 044[0m Found myself in 2 channels out of 2 : {[{mychannel 0xc0002d7200} {testchainid 0xc000085e80}] []}
+[34m2020-04-17 08:01:55.692 UTC [orderer.common.cluster] appendBlock -> INFO 045[0m Skipping commit of block [0] for channel mychannel because height is at 15
+[34m2020-04-17 08:01:55.692 UTC [orderer.common.cluster] appendBlock -> INFO 046[0m Skipping commit of block [0] for channel testchainid because height is at 14
+[34m2020-04-17 08:01:55.692 UTC [orderer.common.cluster] PullChannel -> INFO 047[0m Pulling channel mychannel
+[34m2020-04-17 08:01:55.706 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 048[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.706 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 049[0m orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.707 UTC [comm.grpc.server] 1 -> INFO 04a[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34798 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=2.440454ms
+[34m2020-04-17 08:01:55.708 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 04b[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.708 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 04c[0m Returning the heights of OSNs mapped by endpoints map[orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:16 orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:16]
+[34m2020-04-17 08:01:55.708 UTC [orderer.common.cluster] PullChannel -> INFO 04d[0m Latest block height for channel mychannel is 16
+[34m2020-04-17 08:01:55.721 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 04e[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.722 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 04f[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 15
+[34m2020-04-17 08:01:55.723 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 050[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14
+[33m2020-04-17 08:01:55.723 UTC [orderer.common.cluster.replication] func1 -> WARN 051[0m Received error of type 'minimum requested sequence is 15 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 14' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.723 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 052[0m Connected to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 15
+[34m2020-04-17 08:01:55.724 UTC [orderer.common.cluster.replication] obtainStream -> INFO 053[0m Sending request for block [15] to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.724 UTC [comm.grpc.server] 1 -> INFO 054[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34818 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.652504ms
+[34m2020-04-17 08:01:55.725 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 055[0m Got block [15] of size 28 KB from orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.728 UTC [orderer.common.cluster] VerifyBlockSignature -> INFO 056[0m Initializing new PolicyManager for channel mychannel
+[34m2020-04-17 08:01:55.790 UTC [orderer.common.cluster] appendBlock -> INFO 057[0m Committed block [15] for channel mychannel
+[34m2020-04-17 08:01:55.790 UTC [orderer.common.cluster] PullChannel -> INFO 058[0m Pulling channel testchainid
+[34m2020-04-17 08:01:55.803 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 059[0m orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 13
+[34m2020-04-17 08:01:55.803 UTC [comm.grpc.server] 1 -> INFO 05a[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34822 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.723609ms
+[34m2020-04-17 08:01:55.804 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 05b[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.805 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 05c[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.805 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 05d[0m Returning the heights of OSNs mapped by endpoints map[orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:14 orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15]
+[34m2020-04-17 08:01:55.805 UTC [orderer.common.cluster] PullChannel -> INFO 05e[0m Latest block height for channel testchainid is 15
+[34m2020-04-17 08:01:55.816 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 05f[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.818 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 060[0m Skipping pulling from orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443: minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13
+[33m2020-04-17 08:01:55.818 UTC [orderer.common.cluster.replication] func1 -> WARN 061[0m Received error of type 'minimum requested sequence is 14 but orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at sequence 13' from {orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 [-----BEGIN CERTIFICATE-----
+MIICkTCCAjagAwIBAgIUFgGXAJuQvLbJzNK2UBnOORX38GAwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNTA2NTA0MloXDTMwMDQxMzA3MDA0Mlow
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErLtY5C/K
+sqsHghU4TpmWdYgOjuKYC79ktQB6Om1NaVzVyWaXQd/TPLcixH6R7Q1Nx5ianRHc
+JkWGBk0cYMuxnaOBsTCBrjAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFCvQl+QP
+FeGI+pCIr9+iCtIZcWEdMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAK
+BggqhkjOPQQDAgNJADBGAiEA87+d/10BMOYugaukcQxBSqmbZDAJ7tb8UdPwM6Cd
+bwUCIQC/389axu0hHN8+y5DPwNjlvEtMxTV8nZa/9oyG7oTDUw==
+-----END CERTIFICATE-----
+]}
+[34m2020-04-17 08:01:55.818 UTC [comm.grpc.server] 1 -> INFO 062[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34840 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=3.48532ms
+[34m2020-04-17 08:01:55.819 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 063[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.819 UTC [orderer.common.cluster.replication] connectToSomeEndpoint -> INFO 064[0m Connected to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 with last block seq of 14
+[34m2020-04-17 08:01:55.819 UTC [orderer.common.cluster.replication] obtainStream -> INFO 065[0m Sending request for block [14] to orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.820 UTC [orderer.common.cluster.replication] pullBlocks -> INFO 066[0m Got block [14] of size 31 KB from orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443
+[34m2020-04-17 08:01:55.839 UTC [orderer.common.cluster] appendBlock -> INFO 067[0m Committed block [14] for channel testchainid
+[34m2020-04-17 08:01:55.839 UTC [orderer.common.cluster] PullChannel -> INFO 068[0m Pulling channel testchainid
+[34m2020-04-17 08:01:55.851 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 069[0m orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.851 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 06a[0m orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.851 UTC [comm.grpc.server] 1 -> INFO 06b[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:34852 grpc.peer_subject="CN=orderer1.chintuordorg2,OU=orderer,O=Hyperledger,ST=North Carolina,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=1.689706ms
+[34m2020-04-17 08:01:55.853 UTC [orderer.common.cluster.replication] fetchLastBlockSeq -> INFO 06c[0m orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443 is at block sequence of 14
+[34m2020-04-17 08:01:55.854 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 06d[0m Returning the heights of OSNs mapped by endpoints map[orderer1.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer2.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15 orderer3.c70219a46d3c4b4ab9dc.uksouth.aksapp.io:443:15]
+[34m2020-04-17 08:01:55.854 UTC [orderer.common.cluster] PullChannel -> INFO 06e[0m Latest block height for channel testchainid is 15
+[34m2020-04-17 08:01:55.854 UTC [orderer.common.cluster] pullChannelBlocks -> INFO 06f[0m Latest height found (15) is equal to our height, skipping pulling channel testchainid
+[34m2020-04-17 08:01:55.854 UTC [orderer.common.server] replicateDisabledChains -> INFO 070[0m Successfully replicated 2 chains: [mychannel testchainid]
+[34m2020-04-17 08:01:55.854 UTC [orderer.commmon.multichannel] CreateChain -> INFO 071[0m A chain of type *inactive.Chain for channel mychannel already exists. Halting it.
+[34m2020-04-17 08:01:55.857 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 072[0m EvictionSuspicion not set, defaulting to 10m0s
+[34m2020-04-17 08:01:55.859 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 073[0m Found WAL data at path '/var/hyperledger/production/orderer/etcdraft/wal/mychannel', replaying it channel=mychannel node=1
+[34m2020-04-17 08:01:55.915 UTC [orderer.commmon.multichannel] newChain -> INFO 074[0m Created and starting new chain mychannel
+[34m2020-04-17 08:01:55.915 UTC [orderer.consensus.etcdraft] Start -> INFO 075[0m Starting Raft node channel=mychannel node=1
+[34m2020-04-17 08:01:55.915 UTC [orderer.common.cluster] Configure -> INFO 076[0m Entering, channel: mychannel, nodes: [ID: 2,
+Endpoint: orderer2:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+ ID: 3,
+Endpoint: orderer3:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+]
+[34m2020-04-17 08:01:55.915 UTC [orderer.common.cluster] updateStubInMapping -> INFO 077[0m Allocating a new stub for node 2 with endpoint of orderer2:7050 for channel mychannel
+[34m2020-04-17 08:01:55.915 UTC [orderer.common.cluster] updateStubInMapping -> INFO 078[0m Deactivating node 2 in channel mychannel with endpoint of orderer2:7050 due to TLS certificate change
+[34m2020-04-17 08:01:55.916 UTC [orderer.common.cluster] updateStubInMapping -> INFO 079[0m Allocating a new stub for node 3 with endpoint of orderer3:7050 for channel mychannel
+[34m2020-04-17 08:01:55.916 UTC [orderer.common.cluster] updateStubInMapping -> INFO 07a[0m Deactivating node 3 in channel mychannel with endpoint of orderer3:7050 due to TLS certificate change
+[34m2020-04-17 08:01:55.917 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 07b[0m 2 exists in both old and new membership for channel mychannel , skipping its deactivation
+[34m2020-04-17 08:01:55.917 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 07c[0m 3 exists in both old and new membership for channel mychannel , skipping its deactivation
+[34m2020-04-17 08:01:55.917 UTC [orderer.common.cluster] Configure -> INFO 07d[0m Exiting
+[34m2020-04-17 08:01:55.918 UTC [orderer.consensus.etcdraft] start -> INFO 07e[0m Restarting raft node channel=mychannel node=1
+[34m2020-04-17 08:01:55.918 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 07f[0m 1 became follower at term 3 channel=mychannel node=1
+[34m2020-04-17 08:01:55.918 UTC [orderer.consensus.etcdraft] newRaft -> INFO 080[0m newRaft 1 [peers: [], term: 3, commit: 18, applied: 0, lastindex: 19, lastterm: 3] channel=mychannel node=1
+[34m2020-04-17 08:01:55.918 UTC [orderer.commmon.multichannel] CreateChain -> INFO 081[0m A chain of type *inactive.Chain for channel testchainid already exists. Halting it.
+[34m2020-04-17 08:01:55.922 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 082[0m EvictionSuspicion not set, defaulting to 10m0s
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 083[0m Found WAL data at path '/var/hyperledger/production/orderer/etcdraft/wal/testchainid', replaying it channel=testchainid node=1
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] apply -> INFO 084[0m Applied config change to add node 1, current nodes in channel: [1] channel=mychannel node=1
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] apply -> INFO 085[0m Applied config change to add node 2, current nodes in channel: [1 2] channel=mychannel node=1
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] apply -> INFO 086[0m Applied config change to add node 3, current nodes in channel: [1 2 3] channel=mychannel node=1
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 087[0m Got block [13], expect block [16], this node was forced to catch up channel=mychannel node=1
+[34m2020-04-17 08:01:55.925 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 088[0m Got block [14], expect block [16], this node was forced to catch up channel=mychannel node=1
+[34m2020-04-17 08:01:55.980 UTC [orderer.commmon.multichannel] newChain -> INFO 089[0m Created and starting new chain testchainid
+[34m2020-04-17 08:01:55.980 UTC [orderer.consensus.etcdraft] Start -> INFO 08a[0m Starting Raft node channel=testchainid node=1
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] Configure -> INFO 08b[0m Entering, channel: testchainid, nodes: [ID: 3,
+Endpoint: orderer3:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDEzCCArqgAwIBAgIUQWrnwmL5x327GMSQsGK+aTdbIVIwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNjEzMTcwMFoXDTIxMDQxNjEzMjIwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjMuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABDp96ZZB
+V/YMarGGIfmVk+wpgsR7lyzo708xX8IX8drHdZWhqWi7rNG2rtBdjegCDeSqLB40
+a4/xjnM49RGkySOjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFGZ3jd9V
+WjrUfnYh7HDeEKgr1w7gMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIzgi9vcmRlcmVyMy5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIzLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNH
+ADBEAiAcaKNx1iCd3jW7JsB/s+7DxNc9++5b769YmZBFZ5NNYgIgQM0940aeifHx
+wEtbG9d7k0r47r4/oGrpHI56wbLtBio=
+-----END CERTIFICATE-----
+ ID: 2,
+Endpoint: orderer2:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDFDCCArqgAwIBAgIUEsD9h7VhKAlxgrvhllmj5/ni4FcwCgYIKoZIzj0EAwIw
+bjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xFjAUBgNVBAoMDWNo
+aW50dW9yZG9yZzIxFjAUBgNVBAsMDWNoaW50dW9yZG9yZzIxGjAYBgNVBAMMEXJj
+YS5jaGludHVvcmRvcmcyMB4XDTIwMDQxNzA1NTkwMFoXDTIxMDQxNzA2MDQwMFow
+bzELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEfMB0GA1UEAxMWb3JkZXJl
+cjIuY2hpbnR1b3Jkb3JnMjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJQiAIyk
+iqN4RK33eE3LJOPoMOwkTvAaBAPUmu3Ki6JFtCIZvngwqt3uwdQInbBYYzWcEOsA
+VvPSO+MVSTZ38lCjggEzMIIBLzAOBgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFK3BP4LN
+ow8/btJRtww9pdkQygqwMB8GA1UdIwQYMBaAFCvQl+QPFeGI+pCIr9+iCtIZcWEd
+MEQGA1UdEQQ9MDuCCG9yZGVyZXIygi9vcmRlcmVyMi5jNzAyMTlhNDZkM2M0YjRh
+YjlkYy51a3NvdXRoLmFrc2FwcC5pbzBqBggqAwQFBgcIAQReeyJhdHRycyI6eyJo
+Zi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyLmNo
+aW50dW9yZG9yZzIiLCJoZi5UeXBlIjoib3JkZXJlciJ9fTAKBggqhkjOPQQDAgNI
+ADBFAiEAqCXxabvtDoKSAi8zYdOSOl/3gh4Aqvs8Jd1Zmth6yMACIDjnZbp2O1ka
+6AZab11U083OELw0tyHIF67valYkIWEW
+-----END CERTIFICATE-----
+]
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] updateStubInMapping -> INFO 08c[0m Allocating a new stub for node 3 with endpoint of orderer3:7050 for channel testchainid
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] updateStubInMapping -> INFO 08d[0m Deactivating node 3 in channel testchainid with endpoint of orderer3:7050 due to TLS certificate change
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] updateStubInMapping -> INFO 08e[0m Allocating a new stub for node 2 with endpoint of orderer2:7050 for channel testchainid
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] updateStubInMapping -> INFO 08f[0m Deactivating node 2 in channel testchainid with endpoint of orderer2:7050 due to TLS certificate change
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 090[0m 3 exists in both old and new membership for channel testchainid , skipping its deactivation
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 091[0m 2 exists in both old and new membership for channel testchainid , skipping its deactivation
+[34m2020-04-17 08:01:55.980 UTC [orderer.common.cluster] Configure -> INFO 092[0m Exiting
+[34m2020-04-17 08:01:55.980 UTC [orderer.consensus.etcdraft] start -> INFO 093[0m Restarting raft node channel=testchainid node=1
+[34m2020-04-17 08:01:55.980 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 094[0m 1 became follower at term 3 channel=testchainid node=1
+[34m2020-04-17 08:01:55.980 UTC [orderer.consensus.etcdraft] newRaft -> INFO 095[0m newRaft 1 [peers: [], term: 3, commit: 17, applied: 0, lastindex: 18, lastterm: 3] channel=testchainid node=1
+[34m2020-04-17 08:01:55.987 UTC [orderer.consensus.etcdraft] apply -> INFO 096[0m Applied config change to add node 1, current nodes in channel: [1] channel=testchainid node=1
+[34m2020-04-17 08:01:55.987 UTC [orderer.consensus.etcdraft] apply -> INFO 097[0m Applied config change to add node 2, current nodes in channel: [1 2] channel=testchainid node=1
+[34m2020-04-17 08:01:55.987 UTC [orderer.consensus.etcdraft] apply -> INFO 098[0m Applied config change to add node 3, current nodes in channel: [1 2 3] channel=testchainid node=1
+[34m2020-04-17 08:01:55.987 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 099[0m Got block [12], expect block [15], this node was forced to catch up channel=testchainid node=1
+[34m2020-04-17 08:02:03.918 UTC [orderer.consensus.etcdraft] Step -> INFO 09a[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:03.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 09b[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:03.918 UTC [orderer.consensus.etcdraft] poll -> INFO 09c[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:03.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 09d[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:03.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 09e[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:05.481 UTC [orderer.consensus.etcdraft] Step -> INFO 09f[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:05.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0a0[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:05.481 UTC [orderer.consensus.etcdraft] poll -> INFO 0a1[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:05.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a2[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:05.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a3[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:11.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0a4[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:11.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0a5[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:11.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0a6[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:11.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a7[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:11.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a8[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:14.981 UTC [orderer.consensus.etcdraft] Step -> INFO 0a9[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:14.981 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0aa[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:14.981 UTC [orderer.consensus.etcdraft] poll -> INFO 0ab[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:14.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ac[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:14.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ad[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:19.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0ae[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:19.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0af[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:19.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0b0[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:19.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b1[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:19.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b2[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:24.481 UTC [orderer.consensus.etcdraft] Step -> INFO 0b3[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:24.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0b4[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:24.481 UTC [orderer.consensus.etcdraft] poll -> INFO 0b5[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:24.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b6[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:24.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b7[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:27.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0b8[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:27.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0b9[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:27.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0ba[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:27.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0bb[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:27.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0bc[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:33.981 UTC [orderer.consensus.etcdraft] Step -> INFO 0bd[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:33.981 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0be[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:33.981 UTC [orderer.consensus.etcdraft] poll -> INFO 0bf[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:33.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c0[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:33.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c1[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:35.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0c2[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:35.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0c3[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:35.919 UTC [orderer.consensus.etcdraft] poll -> INFO 0c4[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:35.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c5[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:35.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c6[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:43.481 UTC [orderer.consensus.etcdraft] Step -> INFO 0c7[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:43.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0c8[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:43.481 UTC [orderer.consensus.etcdraft] poll -> INFO 0c9[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:43.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ca[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:43.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0cb[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:43.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0cc[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:43.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0cd[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:43.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0ce[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:43.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0cf[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:43.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d0[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:51.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0d1[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:51.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0d2[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:51.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0d3[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:51.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d4[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:51.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d5[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:52.981 UTC [orderer.consensus.etcdraft] Step -> INFO 0d6[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:52.981 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0d7[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:52.981 UTC [orderer.consensus.etcdraft] poll -> INFO 0d8[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:52.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d9[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:52.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0da[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:02:59.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0db[0m 1 is starting a new election at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:59.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0dc[0m 1 became pre-candidate at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:59.918 UTC [orderer.consensus.etcdraft] poll -> INFO 0dd[0m 1 received MsgPreVoteResp from 1 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:59.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0de[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:59.918 UTC [orderer.consensus.etcdraft] campaign -> INFO 0df[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 3 channel=mychannel node=1
+[34m2020-04-17 08:02:59.920 UTC [orderer.consensus.etcdraft] Step -> INFO 0e0[0m 1 [term: 3] received a MsgPreVoteResp message with higher term from 3 [term: 4] channel=mychannel node=1
+[34m2020-04-17 08:02:59.920 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 0e1[0m 1 became follower at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:02.481 UTC [orderer.consensus.etcdraft] Step -> INFO 0e2[0m 1 is starting a new election at term 3 channel=testchainid node=1
+[34m2020-04-17 08:03:02.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0e3[0m 1 became pre-candidate at term 3 channel=testchainid node=1
+[34m2020-04-17 08:03:02.481 UTC [orderer.consensus.etcdraft] poll -> INFO 0e4[0m 1 received MsgPreVoteResp from 1 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:03:02.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e5[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:03:02.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e6[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 3 channel=testchainid node=1
+[34m2020-04-17 08:03:02.482 UTC [orderer.consensus.etcdraft] Step -> INFO 0e7[0m 1 [term: 3] received a MsgPreVoteResp message with higher term from 3 [term: 4] channel=testchainid node=1
+[34m2020-04-17 08:03:02.482 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 0e8[0m 1 became follower at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:07.418 UTC [orderer.consensus.etcdraft] Step -> INFO 0e9[0m 1 is starting a new election at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:07.418 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0ea[0m 1 became pre-candidate at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:07.419 UTC [orderer.consensus.etcdraft] poll -> INFO 0eb[0m 1 received MsgPreVoteResp from 1 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:07.419 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ec[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:07.419 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ed[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:08.981 UTC [orderer.consensus.etcdraft] Step -> INFO 0ee[0m 1 is starting a new election at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:08.981 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0ef[0m 1 became pre-candidate at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:08.981 UTC [orderer.consensus.etcdraft] poll -> INFO 0f0[0m 1 received MsgPreVoteResp from 1 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:08.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f1[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:08.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f2[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:14.918 UTC [orderer.consensus.etcdraft] Step -> INFO 0f3[0m 1 is starting a new election at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:14.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0f4[0m 1 became pre-candidate at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:14.919 UTC [orderer.consensus.etcdraft] poll -> INFO 0f5[0m 1 received MsgPreVoteResp from 1 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:14.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f6[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:14.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f7[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:15.481 UTC [orderer.consensus.etcdraft] Step -> INFO 0f8[0m 1 is starting a new election at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:15.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0f9[0m 1 became pre-candidate at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:15.481 UTC [orderer.consensus.etcdraft] poll -> INFO 0fa[0m 1 received MsgPreVoteResp from 1 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:15.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0fb[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:15.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 0fc[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:21.981 UTC [orderer.consensus.etcdraft] Step -> INFO 0fd[0m 1 is starting a new election at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:21.981 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0fe[0m 1 became pre-candidate at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:21.981 UTC [orderer.consensus.etcdraft] poll -> INFO 0ff[0m 1 received MsgPreVoteResp from 1 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:21.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 100[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:21.981 UTC [orderer.consensus.etcdraft] campaign -> INFO 101[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:22.418 UTC [orderer.consensus.etcdraft] Step -> INFO 102[0m 1 is starting a new election at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:22.418 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 103[0m 1 became pre-candidate at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:22.418 UTC [orderer.consensus.etcdraft] poll -> INFO 104[0m 1 received MsgPreVoteResp from 1 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:22.419 UTC [orderer.consensus.etcdraft] campaign -> INFO 105[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:22.419 UTC [orderer.consensus.etcdraft] campaign -> INFO 106[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:28.481 UTC [orderer.consensus.etcdraft] Step -> INFO 107[0m 1 is starting a new election at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:28.481 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 108[0m 1 became pre-candidate at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:28.481 UTC [orderer.consensus.etcdraft] poll -> INFO 109[0m 1 received MsgPreVoteResp from 1 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:28.481 UTC [orderer.consensus.etcdraft] campaign -> INFO 10a[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 2 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:28.482 UTC [orderer.consensus.etcdraft] campaign -> INFO 10b[0m 1 [logterm: 3, index: 18] sent MsgPreVote request to 3 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:29.918 UTC [orderer.consensus.etcdraft] Step -> INFO 10c[0m 1 is starting a new election at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:29.918 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 10d[0m 1 became pre-candidate at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:29.919 UTC [orderer.consensus.etcdraft] poll -> INFO 10e[0m 1 received MsgPreVoteResp from 1 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:29.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 10f[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 2 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:29.919 UTC [orderer.consensus.etcdraft] campaign -> INFO 110[0m 1 [logterm: 3, index: 19] sent MsgPreVote request to 3 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:30.927 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 111[0m 1 became follower at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:30.927 UTC [orderer.consensus.etcdraft] run -> INFO 112[0m raft.node: 1 elected leader 2 at term 4 channel=mychannel node=1
+[34m2020-04-17 08:03:30.928 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 113[0m Raft leader changed: 0 -> 2 channel=mychannel node=1
+[34m2020-04-17 08:03:30.937 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 114[0m Got block [15], expect block [16], this node was forced to catch up channel=mychannel node=1
+[34m2020-04-17 08:03:31.007 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 115[0m 1 became follower at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:31.007 UTC [orderer.consensus.etcdraft] run -> INFO 116[0m raft.node: 1 elected leader 2 at term 4 channel=testchainid node=1
+[34m2020-04-17 08:03:31.008 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 117[0m Raft leader changed: 0 -> 2 channel=testchainid node=1
+[34m2020-04-17 08:03:31.017 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 118[0m Got block [13], expect block [15], this node was forced to catch up channel=testchainid node=1
+[34m2020-04-17 08:03:31.017 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 119[0m Got block [14], expect block [15], this node was forced to catch up channel=testchainid node=1
+[33m2020-04-17 08:08:39.806 UTC [common.deliver] Handle -> WARN 11a[0m Error reading from 10.240.0.39:39108: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:08:39.806 UTC [comm.grpc.server] 1 -> INFO 11b[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:39108 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=7.174553ms
+[34m2020-04-17 08:10:06.914 UTC [orderer.common.msgprocessor] inspect -> INFO 11c[0m [channel: testchainid] maintenance mode: ConsensusType.State about to change from STATE_MAINTENANCE to STATE_NORMAL
+[33m2020-04-17 08:10:06.917 UTC [common.deliver] Handle -> WARN 11d[0m Error reading from 10.240.0.39:40036: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:10:06.917 UTC [comm.grpc.server] 1 -> INFO 11e[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:40036 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=28.571502ms
+[33m2020-04-17 08:10:06.918 UTC [orderer.common.broadcast] Handle -> WARN 11f[0m Error reading from 10.240.0.39:40040: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:10:06.918 UTC [comm.grpc.server] 1 -> INFO 120[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:40040 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=12.088563ms
+[34m2020-04-17 08:10:06.943 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 121[0m Writing block [15] (Raft index: 21) to ledger channel=testchainid node=1
+[33m2020-04-17 08:10:40.489 UTC [common.deliver] Handle -> WARN 122[0m Error reading from 10.240.0.39:40394: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:10:40.489 UTC [comm.grpc.server] 1 -> INFO 123[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:40394 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=7.299761ms
+[34m2020-04-17 08:11:28.568 UTC [orderer.common.msgprocessor] inspect -> INFO 124[0m [channel: mychannel] maintenance mode: ConsensusType.State about to change from STATE_MAINTENANCE to STATE_NORMAL
+[33m2020-04-17 08:11:28.571 UTC [orderer.common.broadcast] Handle -> WARN 125[0m Error reading from 10.240.0.39:40886: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:11:28.571 UTC [comm.grpc.server] 1 -> INFO 126[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:40886 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=9.490699ms
+[33m2020-04-17 08:11:28.572 UTC [common.deliver] Handle -> WARN 127[0m Error reading from 10.240.0.39:40882: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:11:28.572 UTC [comm.grpc.server] 1 -> INFO 128[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:40882 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=30.231707ms
+[34m2020-04-17 08:11:28.587 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 129[0m Writing block [16] (Raft index: 22) to ledger channel=mychannel node=1
+[33m2020-04-17 08:17:05.525 UTC [orderer.common.broadcast] Handle -> WARN 12a[0m Error reading from 10.240.0.39:44418: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:17:05.525 UTC [comm.grpc.server] 1 -> INFO 12b[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:44418 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=160.201706ms
+[34m2020-04-17 08:17:07.392 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 12c[0m Writing block [17] (Raft index: 23) to ledger channel=mychannel node=1
+[33m2020-04-17 08:20:08.425 UTC [orderer.common.broadcast] Handle -> WARN 12d[0m Error reading from 10.240.0.39:46338: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 08:20:08.425 UTC [comm.grpc.server] 1 -> INFO 12e[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:46338 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=155.02478ms
+[34m2020-04-17 08:20:10.298 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 12f[0m Writing block [18] (Raft index: 24) to ledger channel=mychannel node=1
+[33m2020-04-17 09:20:35.808 UTC [orderer.common.broadcast] Handle -> WARN 130[0m Error reading from 10.240.0.39:56090: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 09:20:35.808 UTC [comm.grpc.server] 1 -> INFO 131[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:56090 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=148.503333ms
+[34m2020-04-17 09:20:37.697 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 132[0m Writing block [19] (Raft index: 25) to ledger channel=mychannel node=1
+[33m2020-04-17 09:30:39.146 UTC [orderer.common.broadcast] Handle -> WARN 133[0m Error reading from 10.240.0.39:34180: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 09:30:39.146 UTC [comm.grpc.server] 1 -> INFO 134[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:34180 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=149.107579ms
+[34m2020-04-17 09:30:41.033 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 135[0m Writing block [20] (Raft index: 26) to ledger channel=mychannel node=1
+[33m2020-04-17 10:05:28.066 UTC [common.deliver] Handle -> WARN 136[0m Error reading from 10.240.0.39:56078: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 10:05:28.067 UTC [comm.grpc.server] 1 -> INFO 137[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:56078 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=397.632017ms
+[31m2020-04-17 10:08:39.679 UTC [cauthdsl] deduplicate -> ERRO 138[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:08:39.679 UTC [cauthdsl] deduplicate -> ERRO 139[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:08:39.680 UTC [cauthdsl] deduplicate -> ERRO 13a[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[33m2020-04-17 10:08:39.680 UTC [orderer.common.broadcast] ProcessMessage -> WARN 13b[0m [channel: mychannel] Rejecting broadcast of config message from 10.240.0.39:58102 because of error: config update for existing channel did not pass initial checks: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+[34m2020-04-17 10:08:39.681 UTC [comm.grpc.server] 1 -> INFO 13c[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:58102 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" grpc.code=OK grpc.call_duration=1.541198ms
+[33m2020-04-17 10:08:39.683 UTC [common.deliver] Handle -> WARN 13d[0m Error reading from 10.240.0.39:58098: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 10:08:39.683 UTC [comm.grpc.server] 1 -> INFO 13e[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:58098 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=77.478723ms
+[31m2020-04-17 10:10:55.246 UTC [cauthdsl] deduplicate -> ERRO 13f[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:10:55.246 UTC [cauthdsl] deduplicate -> ERRO 140[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:10:55.246 UTC [cauthdsl] deduplicate -> ERRO 141[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[33m2020-04-17 10:10:55.246 UTC [orderer.common.broadcast] ProcessMessage -> WARN 142[0m [channel: mychannel] Rejecting broadcast of config message from 10.240.0.39:59534 because of error: config update for existing channel did not pass initial checks: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+[34m2020-04-17 10:10:55.246 UTC [comm.grpc.server] 1 -> INFO 143[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:59534 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" grpc.code=OK grpc.call_duration=583.737µs
+[33m2020-04-17 10:10:55.249 UTC [common.deliver] Handle -> WARN 144[0m Error reading from 10.240.0.39:59530: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 10:10:55.253 UTC [comm.grpc.server] 1 -> INFO 145[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:59530 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=71.237125ms
+[31m2020-04-17 10:11:50.312 UTC [cauthdsl] deduplicate -> ERRO 146[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:11:50.312 UTC [cauthdsl] deduplicate -> ERRO 147[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[31m2020-04-17 10:11:50.313 UTC [cauthdsl] deduplicate -> ERRO 148[0m Principal deserialization failure (MSP chintuordorg3 is unknown) for identity 0
+[33m2020-04-17 10:11:50.313 UTC [orderer.common.broadcast] ProcessMessage -> WARN 149[0m [channel: mychannel] Rejecting broadcast of config message from 10.240.0.39:60134 because of error: config update for existing channel did not pass initial checks: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+[34m2020-04-17 10:11:50.313 UTC [comm.grpc.server] 1 -> INFO 14a[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:60134 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" grpc.code=OK grpc.call_duration=1.616802ms
+[33m2020-04-17 10:11:50.316 UTC [common.deliver] Handle -> WARN 14b[0m Error reading from 10.240.0.39:60128: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 10:11:50.316 UTC [comm.grpc.server] 1 -> INFO 14c[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.240.0.39:60128 grpc.peer_subject="CN=admin.tls.chintuordorg2,OU=admin,O=chintuordorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=23.617ms
+[33m2020-04-17 11:58:00.874 UTC [orderer.common.broadcast] Handle -> WARN 14d[0m Error reading from 10.240.0.39:42214: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 11:58:00.875 UTC [comm.grpc.server] 1 -> INFO 14e[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:42214 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=153.146917ms
+[34m2020-04-17 11:58:02.752 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 14f[0m Writing block [21] (Raft index: 27) to ledger channel=mychannel node=1
+[34m2020-04-17 12:00:01.374 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 150[0m Writing block [22] (Raft index: 28) to ledger channel=mychannel node=1
+[34m2020-04-17 12:00:35.128 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 151[0m Writing block [23] (Raft index: 29) to ledger channel=mychannel node=1
+[33m2020-04-17 12:02:42.476 UTC [orderer.common.broadcast] Handle -> WARN 152[0m Error reading from 10.240.0.39:45148: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 12:02:42.476 UTC [comm.grpc.server] 1 -> INFO 153[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:45148 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=158.931483ms
+[34m2020-04-17 12:02:44.351 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 154[0m Writing block [24] (Raft index: 30) to ledger channel=mychannel node=1
+[33m2020-04-17 12:02:47.348 UTC [orderer.common.broadcast] Handle -> WARN 155[0m Error reading from 10.240.0.39:45212: rpc error: code = Canceled desc = context canceled
+[34m2020-04-17 12:02:47.348 UTC [comm.grpc.server] 1 -> INFO 156[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.240.0.39:45212 grpc.peer_subject="CN=admin.tls.chintupeerorg2,OU=admin,O=chintupeerorg2" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=155.12064ms
+[34m2020-04-17 12:02:49.233 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 157[0m Writing block [25] (Raft index: 31) to ledger channel=mychannel node=1

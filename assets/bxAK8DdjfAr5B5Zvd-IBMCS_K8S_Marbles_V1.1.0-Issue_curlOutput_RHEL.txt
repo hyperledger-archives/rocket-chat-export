@@ -1,0 +1,51 @@
+[hlbcadmin@kopernik ~]$ kubectl  get services
+NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                           AGE
+blockchain-ca          NodePort    10.110.170.119   <none>        30054:30054/TCP                   9h
+blockchain-orderer     NodePort    10.103.127.77    <none>        31010:31010/TCP                   9h
+blockchain-org1peer1   NodePort    10.103.45.80     <none>        30110:30110/TCP,30111:30111/TCP   9h
+blockchain-org2peer1   NodePort    10.96.227.46     <none>        30210:30210/TCP,30211:30211/TCP   9h
+kubernetes             ClusterIP   10.96.0.1        <none>        443/TCP                           4d
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:30054/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    19  100    19    0     0   9500      0 --:--:-- --:--:-- --:--:-- 19000
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:31010/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100     9    0     9    0     0   9000      0 --:--:-- --:--:-- --:--:--  9000
+curl: (56) Recv failure: Connection reset by peer
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:30110/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100     9    0     9    0     0   9000      0 --:--:-- --:--:-- --:--:--  9000
+curl: (56) Recv failure: Connection reset by peer
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:30111/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100     9    0     9    0     0   9000      0 --:--:-- --:--:-- --:--:--  9000
+curl: (56) Recv failure: Connection reset by peer
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:30210/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    22    0    22    0     0  11000      0 --:--:-- --:--:-- --:--:-- 11000
+curl: (56) Recv failure: Connection reset by peer
+[hlbcadmin@kopernik ~]$ /var/tmp/curl/src/curl --http2 --output /dev/null http://127.0.0.1:30211/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    22    0    22    0     0  22000      0 --:--:-- --:--:-- --:--:-- 22000
+curl: (56) Recv failure: Connection reset by peer
+[hlbcadmin@kopernik ~]$ kubectl  get pods
+NAME                                    READY     STATUS      RESTARTS   AGE
+blockchain-ca-67b6999494-xkdw2          1/1       Running     0          9h
+blockchain-orderer-cd54fccbc-5lfsh      2/2       Running     0          9h
+blockchain-org1peer1-5447877694-8nkpr   1/1       Running     1          9h
+blockchain-org2peer1-966644b6d-7k696    1/1       Running     0          9h
+busybox                                 1/1       Running     44         4d
+joinchannel                             0/1       Error       0          9h
+utils                                   0/3       Completed   0          9h
+[hlbcadmin@kopernik ~]$ kubectl  get deployments
+NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+blockchain-ca          1         1         1            1           9h
+blockchain-orderer     1         1         1            1           9h
+blockchain-org1peer1   1         1         1            1           9h
+blockchain-org2peer1   1         1         1            1           9h

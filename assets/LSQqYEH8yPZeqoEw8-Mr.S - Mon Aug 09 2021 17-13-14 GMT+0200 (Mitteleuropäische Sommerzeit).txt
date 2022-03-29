@@ -1,0 +1,307 @@
+*1. try*
+In the first attempt I set up the network already described above on the 1st Ubuntu machine, created a channel and installed/deployed my chaincode/smartcontract. At the same time I also generated the "Crypto-Materials" for the second peer via the Fabric-CA server from the organization "Org 1".
+
+Then I copied the previously generated "Crypto-Materials" to the 2nd Ubuntu server. After that, using my docker-compose, I started the second peer. Then I tried to get the peer into the channel using the following commands: 
+
+`joinChannel() {
+    ##### Set environment variables #####
+
+    # ask where the configtx.yaml is located and set the environment variable FABRIC_CFG_PATH
+    #read -p "Where is the core.yaml for the peer to add to the channel: " configtxpath
+
+export CORE_PEER_LOCALMSPID="Org1MSP"
+export CORE_PEER_TLS_ROOTCERT_FILE=$PWD/organizations/peerOrganizations/org1.actiware.com/peers/peer1.org1.actiware.com/tls/ca.cert
+export CORE_PEER_MSPCONFIGPATH=$PWD/organizations/peerOrganizations/org1.actiware.com/users/Admin@org1.actiware.com/msp
+export CORE_PEER_ADDRESS=localhost:8051
+export FABRIC_CFG_PATH=$PWD/newPeer/config
+
+BLOCKFILE=$PWD/channel-artifacts/awchannel.block
+
+echo "channel fetch genesis block"
+peer channel fetch config -o [IP of 1st Ubuntu Machine]:7050 --ordererTLSHostnameOverride orderer.actiware.com -c awchannel --tls --cafile $PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/msp/tlscacerts/tlsca.actiware.com-cert.pem
+
+    DELAY=3
+    MAX_RETRY=5
+    local rc=1
+	local COUNTER=1
+	## Sometimes Join takes time, hence retry
+	while [ $rc -ne 0 -a $COUNTER -lt $MAX_RETRY ]; do
+        sleep $DELAY
+        peer channel join -b $BLOCKFILE
+        res=$?
+		let rc=$res
+		COUNTER=$(expr $COUNTER + 1)
+	done
+}
+
+joinChannel`
+
+*And got the following error after that on orderer docker container:* -> Graphic1: Logs of Orderer Container on 1. Ubuntu Maschine
+
+*And this failur of the peer docker container on the 2. Ubuntu Maschine* -> Graphic2: Logs of Peer Container on 2. Ubuntu Maschine
+
+I did not get this error resolved. I guess because Docker gives the containers their own IP's again, the Docker containers from the orderer on the 1st Ubuntu machine and the peer from the 2nd Ubuntu machine can't communicate directly with each other.
+
+*2. try*
+On the second try I then tried to set it up natively on the servers. 
+Restarted with the 1st Ubuntu machine I then instead of setting the configuration parameters via environment variables.
+I set these directly in the files provided for it (core.yaml, orderer.yaml and config.tx).
+Of course, I only set the ones that were also set as environment variables in the docker-compose files.
+Of course, the same goes for the fabric-ca servers and their respective configuration files.
+Then I started the fabric-ca servers natively and generated the "crypto material" using the registerEnroll.sh script.
+Then I started the orderer and peer using the environment variable FABRIC_CFG_PATH.
+Last but not least, I then wanted to create the channel and install the chaincode as in the Docker attempt.
+I was able to successfully create the channel on the orderer and the peer was able to join it. 
+However, when I tried to install the chaincode via the CLI commands with `peer chaincode lifecycle` I got an error: -> *Graphic3: Error installing Chaincode*.
+
+*3rd try*
+Then in the last attempt I wanted clarity if it wasn't due to some configuration error. So I decided to do everything the same
+as in the fabric-sample only that I don't install it in docker containers but natively again. 
+For this I took all configuration files from the fabric sample and wrote or copy/pasted the following script:
+
+`#!/bin/bash
+#
+
+. utils.sh
+
+export PATH=${PWD}/../bin:$PATH
+export FABRIC_CFG_PATH=${PWD}/config
+export VERBOSE=false
+
+#### Start Fabric-CA ####
+echo "Start CA-Org1"
+set -x
+export FABRIC_CA_HOME=$PWD/organizations/fabric-ca/org1
+export FABRIC_CA_SERVER_CA_NAME=ca-org1
+export FABRIC_CA_SERVER_TLS_ENABLED=true
+export FABRIC_CA_SERVER_PORT=7054
+
+fabric-ca-server start -b admin:adminpw -d & >logs/CaOrg1Logs.txt
+{ set +x; } 2>/dev/null
+
+sleep 10
+
+echo "Start CA-Orderer"
+set -x
+export FABRIC_CA_HOME=$PWD/organizations/fabric-ca/ordererOrg
+export FABRIC_CA_SERVER_CA_NAME=ca-orderer
+export FABRIC_CA_SERVER_TLS_ENABLED=true
+export FABRIC_CA_SERVER_PORT=9054
+
+fabric-ca-server start -b admin:adminpw -d & >logs/CaOrdererlogs.txt
+{ set +x; } 2>/dev/null
+
+sleep 10
+
+echo "Creating Org1 and Orderer Identities"
+
+. organizations/fabric-ca/registerEnroll.sh
+
+createOrg1
+
+createOrderer
+
+echo "Generating CCP files for Org1"
+./organizations/ccp-generate.sh
+
+##### Start Orderer und Peer #####
+echo "Start Orderer and Peer"
+set -x
+export FABRIC_LOGGING_SPEC=INFO
+export ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+export ORDERER_GENERAL_LISTENPORT=7050
+export ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+export ORDERER_GENERAL_LOCALMSPDIR=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/msp
+export ORDERER_GENERAL_TLS_ENABLED=true
+export ORDERER_GENERAL_TLS_PRIVATEKEY=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.key
+export ORDERER_GENERAL_TLS_CERTIFICATE=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt
+export ORDERER_GENERAL_TLS_ROOTCAS=[$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt]
+export ORDERER_KAFKA_TOPIC_REPLICATIONFACTOR=1
+export ORDERER_KAFKA_VERBOSE=true
+export ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt
+export ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.key
+export ORDERER_GENERAL_CLUSTER_ROOTCAS=[$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt]
+export ORDERER_GENERAL_BOOTSTRAPMETHOD=none
+export ORDERER_CHANNELPARTICIPATION_ENABLED=true
+export ORDERER_ADMIN_TLS_ENABLED=true
+export ORDERER_ADMIN_TLS_CERTIFICATE=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt
+export ORDERER_ADMIN_TLS_PRIVATEKEY=$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.key
+export ORDERER_ADMIN_TLS_ROOTCAS=[$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt]
+export ORDERER_ADMIN_TLS_CLIENTROOTCAS=[$PWD/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt]
+export ORDERER_ADMIN_LISTENADDRESS=0.0.0.0:7053
+
+orderer & >logs/ordererlogs.txt
+
+sleep 10
+
+export FABRIC_LOGGING_SPEC=INFO
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_PROFILE_ENABLED=true
+export CORE_PEER_TLS_CERT_FILE=$PWD/organizations/peerOrganizations/org1.actiware.com/peers/peer0.org1.actiware.com/tls/server.crt
+export CORE_PEER_TLS_KEY_FILE=$PWD/organizations/peerOrganizations/org1.actiware.com/peers/peer0.org1.actiware.com/tls/server.key
+export CORE_PEER_TLS_ROOTCERT_FILE=$PWD/organizations/peerOrganizations/org1.actiware.com/peers/peer0.org1.actiware.com/tls/server.crt
+export CORE_PEER_ID=peer0.org1.actiware.com
+export CORE_PEER_ADDRESS=localhost:7051
+export CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+export CORE_PEER_CHAINCODEADDRESS=localhost:7052
+export CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+export CORE_PEER_GOSSIP_BOOTSTRAP=localhost:7051
+export CORE_PEER_GOSSIP_EXTERNALENDPOINT=localhost:7051
+export CORE_PEER_LOCALMSPID=Org1MSP
+
+peer node start & >logs/peer0logs.txt
+{ set +x; } 2>/dev/null
+
+sleep 10
+
+CREATE_CHANNEL=$(getUserInput "Soll ein Channel erstellt werden? (y/n) ")
+
+if [ $CREATE_CHANNEL == "y" ]; then
+    ##### Create Gensisblock, Create and Join Channel #####
+    echo "Start to generate the channel"
+    CHANNEL_NAME="awchannel"
+
+    set -x
+    export FABRIC_CFG_PATH=$PWD/config
+    configtxgen -profile TwoOrgsApplicationGenesis -outputBlock ./channel-artifacts/${CHANNEL_NAME}.block -channelID $CHANNEL_NAME
+
+    export ORDERER_CA=${PWD}/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/msp/tlscacerts/tlsca.actiware.com-cert.pem
+    export PEER0_ORG1_CA=${PWD}/organizations/peerOrganizations/org1.actiware.com/peers/peer0.org1.actiware.com/tls/ca.crt
+    export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.crt
+    export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/ordererOrganizations/actiware.com/orderers/orderer.actiware.com/tls/server.key
+
+    export CORE_PEER_LOCALMSPID="Org1MSP"
+    export CORE_PEER_TLS_ENABLED=true
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.actiware.com/users/Admin@org1.actiware.com/msp
+    export CORE_PEER_ADDRESS=localhost:7051
+
+    osnadmin channel join --channelID $CHANNEL_NAME --config-block ./channel-artifacts/${CHANNEL_NAME}.block -o localhost:7053 --ca-file "$ORDERER_CA" --client-cert "$ORDERER_ADMIN_TLS_SIGN_CERT" --client-key "$ORDERER_ADMIN_TLS_PRIVATE_KEY"
+
+    peer channel join -b ./channel-artifacts/${CHANNEL_NAME}.block
+    { set +x; } 2>/dev/null
+
+    CREATE_ANCHOR_PEERS=$(getUserInput "Sollen die Anchor Peers erstellt werden? (y/n)")
+
+    if [ $CREATE_ANCHOR_PEERS == "y" ]; then
+        #### Set Anchor Peers ####
+        echo "fetch channel config"
+
+        set -x 
+        peer channel fetch config_block.pb -o localhost:7050 --ordererTLSHostnameOverride orderer.actiware.com -c $CHANNEL_NAME --tls --cafile "$ORDERER_CA"
+        { set +x; } 2>/dev/null
+
+        OUTPUT=${CORE_PEER_LOCALMSPID}config.json
+        echo "Decoding config block to json and isolating config to $OUTPUT"
+        set -x
+        configtxlator proto_decode --input config_block.pb --type common.Block | jq .data.data[0].payload.data.config >"${OUTPUT}"
+        { set +x; } 2>/dev/null
+
+        echo "Modify the configuration to append the anchor peer "
+        set -x
+        jq '.channel_group.groups.Application.groups.'${CORE_PEER_LOCALMSPID}'.values += {"AnchorPeers":{"mod_policy": "Admins","value":{"anchor_peers": [{"host": "localhost","port": "7051"}]},"version": "0"}}' ${CORE_PEER_LOCALMSPID}config.json > ${CORE_PEER_LOCALMSPID}modified_config.json
+        { set +x; } 2>/dev/null
+
+        echo "Create Config Update"
+
+        ORIGINAL=${CORE_PEER_LOCALMSPID}config.json
+        MODIFIED=${CORE_PEER_LOCALMSPID}modified_config.json
+        OUTPUT=${CORE_PEER_LOCALMSPID}anchors.tx
+
+        set -x
+        configtxlator proto_encode --input "${ORIGINAL}" --type common.Config >original_config.pb
+        configtxlator proto_encode --input "${MODIFIED}" --type common.Config >modified_config.pb
+        configtxlator compute_update --channel_id "${CHANNEL_NAME}" --original original_config.pb --updated modified_config.pb >config_update.pb
+        configtxlator proto_decode --input config_update.pb --type common.ConfigUpdate >config_update.json
+        echo '{"payload":{"header":{"channel_header":{"channel_id":"'$CHANNEL_NAME'", "type":2}},"data":{"config_update":'$(cat config_update.json)'}}}' | jq . >config_update_in_envelope.json
+        configtxlator proto_encode --input config_update_in_envelope.json --type common.Envelope >"${OUTPUT}"
+        { set +x; } 2>/dev/null
+
+        echo "Update Anchor Peer"
+        peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.actiware.com -c $CHANNEL_NAME -f ${CORE_PEER_LOCALMSPID}anchors.tx --tls --cafile "$ORDERER_CA"
+
+        DEPLOY_CC=$(getUserInput "Soll der Chaincode deployed werden?(y/n)")
+        if [ $DEPLOY_CC == "y" ]; then
+            ##### deploy Chaincode #####
+            echo "deploy chaincode"
+            CC_SRC_PATH=$PWD/StandardContract
+
+            set -x
+            export FABRIC_CFG_PATH=$PWD/config
+
+            pushd $CC_SRC_PATH
+            GO111MODULE=on go mod vendor
+            popd
+
+            peer lifecycle chaincode package packaged_chaincode.tar.gz --path ${CC_SRC_PATH} --lang golang --label ${CHANNEL_NAME}_1.0
+
+            peer lifecycle chaincode install packaged_chaincode.tar.gz
+
+            peer lifecycle chaincode queryinstalled
+        fi
+    fi
+fi`
+
+*utils.sh*:
+`#!/bin/bash
+#
+# Author: Martin Schneider
+# Copyright (c) Actiware Development GmbH
+
+function getUserInput() {
+    read -p "$1" USER_INPUT
+    
+    while [ -z "$USER_INPUT" ] || [ "$USER_INPUT" = "NA" ]
+    do
+        echo "Keine Eingabe erfasst. Bitte versuchen Sie es erneut." >&2
+        read -p "$1" USER_INPUT
+    done
+
+    echo $USER_INPUT
+}
+
+# println echos string
+function println() {
+  echo -e "$1"
+}
+
+# errorln echos i red color
+function errorln() {
+  println "${C_RED}${1}${C_RESET}"
+}
+
+# successln echos in green color
+function successln() {
+  println "${C_GREEN}${1}${C_RESET}"
+}
+
+# infoln echos in blue color
+function infoln() {
+  println "${C_BLUE}${1}${C_RESET}"
+}
+
+# warnln echos in yellow color
+function warnln() {
+  println "${C_YELLOW}${1}${C_RESET}"
+}
+
+# fatalln echos in red color and exits with fail status
+function fatalln() {
+  errorln "$1"
+  exit 1
+}
+
+export -f errorln
+export -f successln
+export -f infoln
+export -f warnln`
+
+The scripts registerEnroll.sh and create-ccp.sh are the same as from the fabric-sample repo.
+
+But I had problems to create the channel on the orderer. I get the error "Bad Certificate". Then I just tried to install the chaincode for fun and it worked... 
+Unfortunately I can not use this as a solution, because I need the channel. But again the question is how is it possible that this is possible?
+
+I am still quite inexperienced with Hyperledger Fabric.... I am already almost sure that I made one or more configuration errors somewhere.
+Unfortunately I've reached a point where I can't get any further. Maybe someone can help me. 
+If you have any questions about one of the above attempts or if you need the configuration files, just let me know.
+Unfortunately I can't upload .zip files here. Otherwise I would have uploaded my configuration files and scripts for the respective attempts.

@@ -1,0 +1,175 @@
+2022-01-03T18:09:15.762Z debug [c-api:contracts-spi/bootstrap.js]                 starting up and reading package.json at %s "/usr/local/src/package.json" 
+2022-01-03T18:09:15.765Z debug [c-api:contracts-spi/bootstrap.js]                 read JSON {"name":"asset-transfer-basic","version":"1.0.0","description":"Asset-Transfer-Basic contract implemented in JavaScript","main":"index.js","engines":{"node":">=12","npm":">=5"},"scripts":{"lint":"eslint .","pretest":"npm run lint","test":"nyc mocha --recursive","start":"fabric-chaincode-node start"},"engineStrict":true,"author":"Hyperledger","license":"Apache-2.0","dependencies":{"fabric-contract-api":"^2.0.0","fabric-shim":"^2.0.0"},"devDependencies":{"chai":"^4.1.2","eslint":"^4.19.1","mocha":"^8.0.1","nyc":"^14.1.1","sinon":"^6.0.0","sinon-chai":"^3.2.0"},"nyc":{"exclude":["coverage/**","test/**","index.js",".eslintrc.js"],"reporter":["text-summary","html"],"all":true,"check-coverage":true,"statements":100,"branches":100,"functions":100,"lines":100}} 
+2022-01-03T18:09:15.795Z debug [c-api:contracts-spi/bootstrap.js]                 Using the main entry %s "index.js" 
+2022-01-03T18:09:15.822Z info [c-api:contracts-spi/bootstrap.js]                  No metadata file supplied in contract, introspection will generate all the data  
+2022-01-03T18:09:15.823Z debug [c-api:contracts-spi/chaincodefromcontract.js]     Using serializers {"transaction":"jsonSerializer","serializers":{}} 
+2022-01-03T18:09:15.824Z debug [c-api:contracts-spi/chaincodefromcontract.js]     Supplied contract classes [null,null] 
+2022-01-03T18:09:15.826Z debug [c-api:contracts-spi/chaincodefromcontract.js]     _augmentMetadataFromCode - Contracts not supplied. Generating default  
+2022-01-03T18:09:15.827Z debug [c-api:contracts-spi/chaincodefromcontract.js]     Transactions for contract AssetTransfer [{"name":"InitLedger","tags":["SUBMIT","submitTx"]},{"name":"CreateAsset","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}},{"name":"arg1","description":"Argument 1","schema":{"type":"string"}},{"name":"arg2","description":"Argument 2","schema":{"type":"string"}},{"name":"arg3","description":"Argument 3","schema":{"type":"string"}},{"name":"arg4","description":"Argument 4","schema":{"type":"string"}}]},{"name":"ReadAsset","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}}]},{"name":"UpdateAsset","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}},{"name":"arg1","description":"Argument 1","schema":{"type":"string"}},{"name":"arg2","description":"Argument 2","schema":{"type":"string"}},{"name":"arg3","description":"Argument 3","schema":{"type":"string"}},{"name":"arg4","description":"Argument 4","schema":{"type":"string"}}]},{"name":"DeleteAsset","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}}]},{"name":"AssetExists","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}}]},{"name":"TransferAsset","tags":["SUBMIT","submitTx"],"parameters":[{"name":"arg0","description":"Argument 0","schema":{"type":"string"}},{"name":"arg1","description":"Argument 1","schema":{"type":"string"}}]},{"name":"GetAllAssets","tags":["SUBMIT","submitTx"]}] 
+2022-01-03T18:09:15.828Z debug [c-api:contracts-spi/chaincodefromcontract.js]     Transactions for contract org.hyperledger.fabric [{"name":"GetMetadata"}] 
+2022-01-03T18:09:15.828Z debug [c-api:contracts-spi/chaincodefromcontract.js]     _augmentMetadataFromCode - Info not supplied. Generating default  
+2022-01-03T18:09:15.828Z debug [c-api:contracts-spi/chaincodefromcontract.js]     _augmentMetadataFromCode - Components not supplied. Generating default  
+2022-01-03T18:09:15.829Z debug [c-api:contracts-spi/datamarshall.js]              New DataMarshaller "jsonSerializer",{},{} 
+2022-01-03T18:09:15.850Z debug [c-api:contracts-spi/datamarshall.js]              New DataMarshaller "jsonSerializer",{},{} 
+2022-01-03T18:09:15.857Z debug [c-api:lib/chaincode.js]                           Starting chaincode using options {"_":["start"],"peer.address":"peer.originator.securitization.com:7052","tlsClientCertPath":"/etc/hyperledger/fabric/client.crt","peerTlsRootcertFile":"/etc/hyperledger/fabric/peer.crt","tlsClientKeyPath":"/etc/hyperledger/fabric/client.key","chaincodeBuildlevel":"2.2.0","tlsClientCertFile":"/etc/hyperledger/fabric/client_pem.crt","chaincodeLoggingLevel":"debug","peerLocalmspid":"originatorMSP","chaincodeIdName":"securitizationcodev1.0:4e8bcc674b2e623f582e17d26f30d30932343fbf6b17bbc83643b95821f9dbeb","chaincodeLoggingFormat":"%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}","chaincodeLoggingShim":"debug","tlsClientKeyFile":"/etc/hyperledger/fabric/client_pem.key","peerTlsEnabled":"true","grpc.max_send_message_length":-1,"grpc.max_receive_message_length":-1,"grpc.keepalive_time_ms":110000,"grpc.http2.min_time_between_pings_ms":110000,"grpc.keepalive_timeout_ms":20000,"grpc.http2.max_pings_without_data":0,"grpc.keepalive_permit_without_calls":1,"module-path":"/usr/local/src","modulePath":"/usr/local/src","chaincode-id-name":"securitizationcodev1.0:4e8bcc674b2e623f582e17d26f30d30932343fbf6b17bbc83643b95821f9dbeb"} 
+2022-01-03T18:09:15.858Z debug [c-api:lib/chaincode.js]                           Peer URL "grpcs://peer.originator.securitization.com:7052" 
+2022-01-03T18:09:15.858Z debug [c-api:lib/chaincode.js]                           TLS enabled  
+2022-01-03T18:09:15.869Z info [c-api:lib/chaincode.js]                            Registering with peer peer.originator.securitization.com:7052 as chaincode "securitizationcodev1.0:4e8bcc674b2e623f582e17d26f30d30932343fbf6b17bbc83643b95821f9dbeb"  
+2022-01-03T18:09:15.874Z debug [c-api:lib/handler.js]                             Sending chat message: %j {"type":1,"payload":{"type":"Buffer","data":[18,87,115,101,99,117,114,105,116,105,122,97,116,105,111,110,99,111,100,101,118,49,46,48,58,52,101,56,98,99,99,54,55,52,98,50,101,54,50,51,102,53,56,50,101,49,55,100,50,54,102,51,48,100,51,48,57,51,50,51,52,51,102,98,102,54,98,49,55,98,98,99,56,51,54,52,51,98,57,53,56,50,49,102,57,100,98,101,98]}} 
+2022-01-03T18:09:15.907Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "","created" 
+2022-01-03T18:09:15.908Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2022-01-03T18:09:15.908Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "","established" 
+2022-01-03T18:09:15.909Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2022-01-03T18:09:56.162Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.163Z debug [c-api:lib/handler.js]                             %s Received %s, invoking transaction on chaincode(state:%s) "[securitization-6afdde06]","TRANSACTION","ready" 
+2022-01-03T18:09:56.169Z debug [c-api:contracts-spi/chaincodefromcontract.js]     [securitization-6afdde06] Invoking AssetTransfer InitLedger  
+2022-01-03T18:09:56.170Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generating client identity  
+2022-01-03T18:09:56.170Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] [normalizeX509] raw cert: -----BEGIN CERTIFICATE-----
+MIIDATCCAqigAwIBAgIUOuM7OVRGw7V2s5sN0xaf6tttVbYwCgYIKoZIzj0EAwIw
+gZsxCzAJBgNVBAYTAlNQMRUwEwYDVQQIEwxvcmlnaW5hdG9yU1QxFDASBgNVBAcT
+C29yaWdpbmF0b3JMMRMwEQYDVQQKEwpvcmlnaW5hdG9yMRswGQYDVQQLExJIeXBl
+cmxlZGdlciBGYWJyaWMxLTArBgNVBAMTJHJvb3RjYS5vcmlnaW5hdG9yLnNlY3Vy
+aXRpemF0aW9uLmNvbTAeFw0yMjAxMDMxNzExMDBaFw0zMjAxMDExNzE2MDBaMGcx
+CzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChML
+SHlwZXJsZWRnZXIxDjAMBgNVBAsTBWFkbWluMRkwFwYDVQQDExBvcmlnaW5hdG9y
+LWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXOwy8QWNu/aoDiSzFo+T
+WNaBc+aZ2ECYEPFjT9wptg+onn21rLVjcN31ziSKOXVy7Tm+73hP48lSAVk5peCU
+PaOB/DCB+TAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+Z38mPJJDWFOsy7hYfXhCG+1J8mIwHwYDVR0jBBgwFoAUEc/wtLIxBo3/UCEK+NL0
+tyLiuCgwNQYDVR0RBC4wLIIJbG9jYWxob3N0gh8qLm9yaWdpbmF0b3Iuc2VjdXJp
+dGl6YXRpb24uY29tMGIGCCoDBAUGBwgBBFZ7ImF0dHJzIjp7ImhmLkFmZmlsaWF0
+aW9uIjoiIiwiaGYuRW5yb2xsbWVudElEIjoib3JpZ2luYXRvci1hZG1pbiIsImhm
+LlR5cGUiOiJhZG1pbiJ9fTAKBggqhkjOPQQDAgNHADBEAiALtUVeg8N2MLGljP4T
+xFOBwBQ4V2dJxMc+IBS+d+EcCQIgBq/DvQ4WwEZOH9AjJo/CBqmktI+mH3Ky5IuB
+2CJWHdY=
+-----END CERTIFICATE-----
+  
+2022-01-03T18:09:56.179Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generated client identity "originatorMSP",{"hf.Affiliation":"","hf.EnrollmentID":"originator-admin","hf.Type":"admin"},"x509::/C=US/ST=North Carolina/O=Hyperledger/OU=admin/CN=originator-admin::/C=SP/ST=originatorST/L=originatorL/O=originator/OU=Hyperledger Fabric/CN=rootca.originator.securitization.com" 
+2022-01-03T18:09:56.182Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.182Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.183Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset1 initialized
+2022-01-03T18:09:56.185Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.185Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.186Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset2 initialized
+2022-01-03T18:09:56.187Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.187Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.187Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset3 initialized
+2022-01-03T18:09:56.188Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.189Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.189Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset4 initialized
+2022-01-03T18:09:56.190Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.190Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.190Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset5 initialized
+2022-01-03T18:09:56.192Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.192Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.192Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset6 initialized
+2022-01-03T18:09:56.193Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Calling chaincode Invoke(), response status: 200  
+2022-01-03T18:09:56.193Z info [c-api:lib/handler.js]                              [securitization-6afdde06] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer  
+2022-01-03T18:09:56.204Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.205Z debug [c-api:lib/handler.js]                             %s Received %s, invoking transaction on chaincode(state:%s) "[securitization-6afdde06]","TRANSACTION","ready" 
+2022-01-03T18:09:56.205Z debug [c-api:contracts-spi/chaincodefromcontract.js]     [securitization-6afdde06] Invoking AssetTransfer InitLedger  
+2022-01-03T18:09:56.205Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generating client identity  
+2022-01-03T18:09:56.206Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] [normalizeX509] raw cert: -----BEGIN CERTIFICATE-----
+MIIDATCCAqigAwIBAgIUOuM7OVRGw7V2s5sN0xaf6tttVbYwCgYIKoZIzj0EAwIw
+gZsxCzAJBgNVBAYTAlNQMRUwEwYDVQQIEwxvcmlnaW5hdG9yU1QxFDASBgNVBAcT
+C29yaWdpbmF0b3JMMRMwEQYDVQQKEwpvcmlnaW5hdG9yMRswGQYDVQQLExJIeXBl
+cmxlZGdlciBGYWJyaWMxLTArBgNVBAMTJHJvb3RjYS5vcmlnaW5hdG9yLnNlY3Vy
+aXRpemF0aW9uLmNvbTAeFw0yMjAxMDMxNzExMDBaFw0zMjAxMDExNzE2MDBaMGcx
+CzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChML
+SHlwZXJsZWRnZXIxDjAMBgNVBAsTBWFkbWluMRkwFwYDVQQDExBvcmlnaW5hdG9y
+LWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXOwy8QWNu/aoDiSzFo+T
+WNaBc+aZ2ECYEPFjT9wptg+onn21rLVjcN31ziSKOXVy7Tm+73hP48lSAVk5peCU
+PaOB/DCB+TAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+Z38mPJJDWFOsy7hYfXhCG+1J8mIwHwYDVR0jBBgwFoAUEc/wtLIxBo3/UCEK+NL0
+tyLiuCgwNQYDVR0RBC4wLIIJbG9jYWxob3N0gh8qLm9yaWdpbmF0b3Iuc2VjdXJp
+dGl6YXRpb24uY29tMGIGCCoDBAUGBwgBBFZ7ImF0dHJzIjp7ImhmLkFmZmlsaWF0
+aW9uIjoiIiwiaGYuRW5yb2xsbWVudElEIjoib3JpZ2luYXRvci1hZG1pbiIsImhm
+LlR5cGUiOiJhZG1pbiJ9fTAKBggqhkjOPQQDAgNHADBEAiALtUVeg8N2MLGljP4T
+xFOBwBQ4V2dJxMc+IBS+d+EcCQIgBq/DvQ4WwEZOH9AjJo/CBqmktI+mH3Ky5IuB
+2CJWHdY=
+-----END CERTIFICATE-----
+  
+2022-01-03T18:09:56.208Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generated client identity "originatorMSP",{"hf.Affiliation":"","hf.EnrollmentID":"originator-admin","hf.Type":"admin"},"x509::/C=US/ST=North Carolina/O=Hyperledger/OU=admin/CN=originator-admin::/C=SP/ST=originatorST/L=originatorL/O=originator/OU=Hyperledger Fabric/CN=rootca.originator.securitization.com" 
+2022-01-03T18:09:56.209Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.210Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.210Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset1 initialized
+2022-01-03T18:09:56.211Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.212Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.212Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset2 initialized
+2022-01-03T18:09:56.213Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.214Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.214Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset3 initialized
+2022-01-03T18:09:56.215Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.216Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.216Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset4 initialized
+2022-01-03T18:09:56.218Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.218Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.218Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset5 initialized
+2022-01-03T18:09:56.220Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.220Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.220Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset6 initialized
+2022-01-03T18:09:56.220Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Calling chaincode Invoke(), response status: 200  
+2022-01-03T18:09:56.221Z info [c-api:lib/handler.js]                              [securitization-6afdde06] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer  
+2022-01-03T18:09:56.228Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.228Z debug [c-api:lib/handler.js]                             %s Received %s, invoking transaction on chaincode(state:%s) "[securitization-6afdde06]","TRANSACTION","ready" 
+2022-01-03T18:09:56.229Z debug [c-api:contracts-spi/chaincodefromcontract.js]     [securitization-6afdde06] Invoking AssetTransfer InitLedger  
+2022-01-03T18:09:56.229Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generating client identity  
+2022-01-03T18:09:56.229Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] [normalizeX509] raw cert: -----BEGIN CERTIFICATE-----
+MIIDATCCAqigAwIBAgIUOuM7OVRGw7V2s5sN0xaf6tttVbYwCgYIKoZIzj0EAwIw
+gZsxCzAJBgNVBAYTAlNQMRUwEwYDVQQIEwxvcmlnaW5hdG9yU1QxFDASBgNVBAcT
+C29yaWdpbmF0b3JMMRMwEQYDVQQKEwpvcmlnaW5hdG9yMRswGQYDVQQLExJIeXBl
+cmxlZGdlciBGYWJyaWMxLTArBgNVBAMTJHJvb3RjYS5vcmlnaW5hdG9yLnNlY3Vy
+aXRpemF0aW9uLmNvbTAeFw0yMjAxMDMxNzExMDBaFw0zMjAxMDExNzE2MDBaMGcx
+CzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChML
+SHlwZXJsZWRnZXIxDjAMBgNVBAsTBWFkbWluMRkwFwYDVQQDExBvcmlnaW5hdG9y
+LWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXOwy8QWNu/aoDiSzFo+T
+WNaBc+aZ2ECYEPFjT9wptg+onn21rLVjcN31ziSKOXVy7Tm+73hP48lSAVk5peCU
+PaOB/DCB+TAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+Z38mPJJDWFOsy7hYfXhCG+1J8mIwHwYDVR0jBBgwFoAUEc/wtLIxBo3/UCEK+NL0
+tyLiuCgwNQYDVR0RBC4wLIIJbG9jYWxob3N0gh8qLm9yaWdpbmF0b3Iuc2VjdXJp
+dGl6YXRpb24uY29tMGIGCCoDBAUGBwgBBFZ7ImF0dHJzIjp7ImhmLkFmZmlsaWF0
+aW9uIjoiIiwiaGYuRW5yb2xsbWVudElEIjoib3JpZ2luYXRvci1hZG1pbiIsImhm
+LlR5cGUiOiJhZG1pbiJ9fTAKBggqhkjOPQQDAgNHADBEAiALtUVeg8N2MLGljP4T
+xFOBwBQ4V2dJxMc+IBS+d+EcCQIgBq/DvQ4WwEZOH9AjJo/CBqmktI+mH3Ky5IuB
+2CJWHdY=
+-----END CERTIFICATE-----
+  
+2022-01-03T18:09:56.232Z debug [c-api:lib/chaincode.js]                           [securitization-6afdde06] Generated client identity "originatorMSP",{"hf.Affiliation":"","hf.EnrollmentID":"originator-admin","hf.Type":"admin"},"x509::/C=US/ST=North Carolina/O=Hyperledger/OU=admin/CN=originator-admin::/C=SP/ST=originatorST/L=originatorL/O=originator/OU=Hyperledger Fabric/CN=rootca.originator.securitization.com" 
+2022-01-03T18:09:56.234Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.234Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.234Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset1 initialized
+2022-01-03T18:09:56.235Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.236Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.236Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset2 initialized
+2022-01-03T18:09:56.237Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.238Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.238Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset3 initialized
+2022-01-03T18:09:56.240Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.240Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.240Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset4 initialized
+2022-01-03T18:09:56.241Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.242Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.242Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset5 initialized
+2022-01-03T18:09:56.243Z debug [c-api:lib/handler.js]                             Received chat message from peer: %s, state: %s "6afdde0671230e9ccfa6de780251bc64b761e0060c959168e40b04d1b13c7649","ready" 
+2022-01-03T18:09:56.243Z debug [c-api:lib/handler.js]                             %s Received %s,  handling good or error response "[securitization-6afdde06]","RESPONSE" 
+2022-01-03T18:09:56.244Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Received PutState() successful response  
+Asset asset6 initialized
+2022-01-03T18:09:56.244Z debug [c-api:lib/handler.js]                             [securitization-6afdde06] Calling chaincode Invoke(), response status: 200  
+2022-01-03T18:09:56.244Z info [c-api:lib/handler.js]                              [securitization-6afdde06] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer  

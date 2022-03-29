@@ -1,0 +1,81 @@
+{
+  "id":"32f54163-7166-48f1-93d8-ff217bdb0653",
+  "submission_requirements":[
+    {
+      "name": "Citizenship Information",
+      "rule": "pick",
+      "count": 1,
+      "from_nested": [
+        {
+          "name": "United States Citizenship Proofs",
+          "purpose": "We need you to prove you are a US citizen.",
+          "rule": "all",
+          "from": "A"
+        },
+        {
+          "name": "European Union Citizenship Proofs",
+          "purpose": "We need you to prove you are a citizen of a EU country.",
+          "rule": "all",
+          "from": "B"
+        }
+      ]
+    }
+  ],
+  "input_descriptors":[
+    {
+      "id":"citizenship_input_1",
+      "name":"EU Driver's License",
+      "group":[
+        "A"
+      ],
+      "schema":[
+        {
+          "uri":"https://www.w3.org/2018/credentials#VerifiableCredential"
+        }
+      ],
+      "constraints":{
+        "fields":[
+          {
+            "path":[
+              "$.issuer.id",
+              "$.issuer",
+              "$.vc.issuer.id"
+            ],
+            "purpose":"The claim must be from one of the specified issuers",
+            "filter":{
+              "type":"string",
+              "enum": ["did:example:489398593"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id":"citizenship_input_2",
+      "name":"US Passport",
+      "group":[
+        "B"
+      ],
+      "schema":[
+        {
+          "uri":"https://www.w3.org/2018/credentials#VerifiableCredential"
+        }
+      ],
+      "constraints":{
+        "fields":[
+          {
+            "path":[
+              "$.issuanceDate",
+              "$.vc.issuanceDate"
+            ],
+            "filter":{
+              "type":"string",
+              "format":"date",
+              "maximum":"2009-5-16"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+
+for line in sys.stdin:
+    if re.search('^integration_test_1.*?BLOCK_ID', line):
+        matches = re.findall('(.*?)(BLOCK_ID\s+)(.*?)(SIGNER.*)', line)
+        print('{}{:.18}{}{:.16}'.format(
+            matches[0][0],
+            matches[0][1],
+            matches[0][2],
+            matches[0][3]))
+    elif re.search('^integration_test_1.*?[a-fA-F0-9]{128}', line):
+        matches = re.findall('(.*?)([a-fA-F0-9]{128})(.*?)([a-fA-F0-9]{66})', line)
+        print('{}{:.8}        {}{:.8}'.format(
+            matches[0][0],
+            matches[0][1],
+            matches[0][2],
+            matches[0][3]))
+    elif re.search('^integration_test_1.*?INFO:test_poet_smoke:Blocks', line):
+        print(line, end='')

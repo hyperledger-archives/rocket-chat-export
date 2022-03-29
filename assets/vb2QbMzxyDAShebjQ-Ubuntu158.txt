@@ -1,0 +1,55 @@
+root@broktest1:/home/zilic# docker ps -a
+CONTAINER ID        IMAGE                                                                                                                                                                     COMMAND                  CREATED             STATUS                    PORTS                                            NAMES
+5b6a30674c8c        dev-peer1.org0.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1-fd15b7ed3daa1ff2755721ec51ed2da0d822e3863cf2c5594be9ae7211f3d0d8   "chaincode -peer.add…"   33 hours ago        Up 33 hours                                                                dev-peer1.org0.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1
+77ed207bce94        dev-peer1.org1.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1-9a341bad4f03e96f644f208e703ee5d95b0f9c4aa49dfe2bdefd3047a808a167   "chaincode -peer.add…"   33 hours ago        Up 33 hours                                                                dev-peer1.org1.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1
+f00e444856c4        dev-peer2.org1.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1-74a637fdd8944efea2a3a30c1ea1eef5cf5e5f4d7d9e35fec30ff32f28c20efe   "chaincode -peer.add…"   33 hours ago        Up 33 hours                                                                dev-peer2.org1.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1
+ed48b1d71594        dev-peer2.org0.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7-13df9d7974ef665f5b7d79fb6ca55df5d75c201b89bcb2a99265c1f392f45253   "/root/chaincode-jav…"   33 hours ago        Up 33 hours                                                                dev-peer2.org0.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7
+da0a54f4b450        dev-peer2.org1.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7-ebc2af3c79f7e45b80eea73d603964313f86a60b504028adfa8c825d1fd1ce29   "/root/chaincode-jav…"   33 hours ago        Up 33 hours                                                                dev-peer2.org1.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7
+5660cfa2f736        dev-peer1.org0.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7-25b3e9db158f8031f09fd038f76865e079b56b2994db17d9c73732d5f22b3d1f   "/root/chaincode-jav…"   33 hours ago        Up 33 hours                                                                dev-peer1.org0.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7
+9f346adc0202        dev-peer1.org1.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7-ecf923f32cf1d029b64b4cce48f322ce4defef17a7913fcafa35d1fe987772c3   "/root/chaincode-jav…"   33 hours ago        Up 33 hours                                                                dev-peer1.org1.example.com-locard_1.2-8d4781bdf8ea17d60de13a9a8e23567d2bb8213bb71384144bfc110d44283cf7
+12ce653715d2        dev-peer2.org0.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1-f8d8deca49e2ef2d7f823139dd8dbddafd080e27770ec36956477b2b20696117   "chaincode -peer.add…"   33 hours ago        Up 33 hours                                                                dev-peer2.org0.example.com-simple_1.0-55fb5d64c7899aa09135d0720f5f775c8a63319ad65ceb97f67da570f60d11b1
+b14c5151b309        hyperledger/fabric-tools:2.2.0                                                                                                                                            "/bin/sh"                33 hours ago        Up 33 hours                                                                ab1d229f5e_cli
+471f79882885        hyperledger/fabric-ca:1.4                                                                                                                                                 "/bin/sh -c 'fabric-…"   33 hours ago        Up 33 hours               0.0.0.0:7001->7054/tcp                           ca1.org1.example.com
+763097810d1b        hyperledger/fabric-ca:1.4                                                                                                                                                 "/bin/sh -c 'fabric-…"   33 hours ago        Up 33 hours               0.0.0.0:7000->7054/tcp                           ca1.org0.example.com
+6e86b4439eca        hyperledger/fabric-orderer:2.2.0                                                                                                                                          "orderer"                33 hours ago        Exited (2) 33 hours ago                                                    orderer3.example.com
+63ae30f445da        hyperledger/fabric-orderer:2.2.0                                                                                                                                          "orderer"                33 hours ago        Exited (2) 33 hours ago                                                    orderer2.example.com
+815adae24e25        hyperledger/fabric-orderer:2.2.0                                                                                                                                          "orderer"                33 hours ago        Exited (2) 33 hours ago                                                    orderer1.example.com
+22c0aee47f0e        hyperledger/fabric-peer:2.2.0                                                                                                                                             "peer node start"        33 hours ago        Up 33 hours               0.0.0.0:7005->7051/tcp, 0.0.0.0:8005->7061/tcp   peer2.org1.example.com
+d3ecec782bf9        hyperledger/fabric-peer:2.2.0                                                                                                                                             "peer node start"        33 hours ago        Up 33 hours               0.0.0.0:7004->7051/tcp, 0.0.0.0:8004->7061/tcp   peer1.org1.example.com
+c6b93296c301        hyperledger/fabric-peer:2.2.0                                                                                                                                             "peer node start"        33 hours ago        Up 33 hours               0.0.0.0:7003->7051/tcp, 0.0.0.0:8003->7061/tcp   peer2.org0.example.com
+79d9120d5472        hyperledger/fabric-peer:2.2.0                                                                                                                                             "peer node start"        33 hours ago        Up 33 hours               0.0.0.0:7002->7051/tcp, 0.0.0.0:8002->7061/tcp   peer1.org0.example.com
+root@broktest1:/home/zilic# nc -zv localhost 8000-8005
+nc: connect to localhost port 8000 (tcp) failed: Connection refused
+nc: connect to localhost port 8001 (tcp) failed: Connection refused
+Connection to localhost 8002 port [tcp/*] succeeded!
+Connection to localhost 8003 port [tcp/*] succeeded!
+Connection to localhost 8004 port [tcp/*] succeeded!
+Connection to localhost 8005 port [tcp/*] succeeded!
+root@broktest1:/home/zilic# nc -zv 160.99.71.158 8000-8005
+nc: connect to 160.99.71.158 port 8000 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 8001 (tcp) failed: Connection refused
+Connection to 160.99.71.158 8002 port [tcp/*] succeeded!
+Connection to 160.99.71.158 8003 port [tcp/*] succeeded!
+Connection to 160.99.71.158 8004 port [tcp/*] succeeded!
+Connection to 160.99.71.158 8005 port [tcp/*] succeeded!
+root@broktest1:/home/zilic# nc -zv 160.99.71.158 7000-7005
+Connection to 160.99.71.158 7000 port [tcp/afs3-fileserver] succeeded!
+Connection to 160.99.71.158 7001 port [tcp/afs3-callback] succeeded!
+Connection to 160.99.71.158 7002 port [tcp/afs3-prserver] succeeded!
+Connection to 160.99.71.158 7003 port [tcp/afs3-vlserver] succeeded!
+Connection to 160.99.71.158 7004 port [tcp/afs3-kaserver] succeeded!
+Connection to 160.99.71.158 7005 port [tcp/afs3-volser] succeeded!
+root@broktest1:/home/zilic# nc -zv 160.99.71.158 7050-7061
+nc: connect to 160.99.71.158 port 7050 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7051 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7052 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7053 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7054 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7055 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7056 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7057 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7058 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7059 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7060 (tcp) failed: Connection refused
+nc: connect to 160.99.71.158 port 7061 (tcp) failed: Connection refused
+root@broktest1:/home/zilic#

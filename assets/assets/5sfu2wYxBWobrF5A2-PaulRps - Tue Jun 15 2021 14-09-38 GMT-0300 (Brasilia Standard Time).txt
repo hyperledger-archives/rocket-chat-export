@@ -1,0 +1,127 @@
+Thanks so much to want help me, @mirgee. I am going to try to show/explain how the issue and proof credential are done - i am using this project https://github.com/hyperledger/aries-framework-dotnet/blob/master. 
+
+1. I registered a custom schema like that (it's done like in method RegisterSchema (on line 65) from https://github.com/hyperledger/aries-framework-dotnet/blob/master/samples/aspnetcore/Controllers/CredentialsController.cs):
+	[HttpGet]
+        public async Task<IActionResult> RegisterSchemaCnh()
+        {
+            var context = await _agentContextProvider.GetContextAsync();
+            var issuer = await _provisionService.GetProvisioningAsync(context.Wallet);
+            var Trustee = await Did.CreateAndStoreMyDidAsync(context.Wallet,
+                new { seed = "000000000000000000000000Steward1" }.ToJson());
+            await Ledger.SignAndSubmitRequestAsync(await context.Pool, context.Wallet, Trustee.Did,
+                await Ledger.BuildNymRequestAsync(Trustee.Did, issuer.IssuerDid, issuer.IssuerVerkey, null, "ENDORSER"));
+
+            var schemaId = await _schemaService.CreateSchemaAsync(
+                context: context,
+                issuerDid: issuer.IssuerDid,
+                name: "cnh-schema",
+                version: "1.0",
+            attributeNames: new[] { "name", "doc_emissor", "cpf", "data_nascimento", "filiacao_pai", "filiacao_mae", "numero_registro", "validade", "primeira_habilitacao", "data_emissao" });
+            await _schemaService.CreateCredentialDefinitionAsync(context, new CredentialDefinitionConfiguration
+            {
+                SchemaId = schemaId,
+                Tag = "default",
+                EnableRevocation = false,
+                RevocationRegistrySize = 0,
+                RevocationRegistryBaseUri = "",
+                RevocationRegistryAutoScale = false,
+                IssuerDid = issuer.IssuerDid
+            });
+
+            return RedirectToAction("CredentialsForm");
+        }
+2. After the connection between android mobile app (holder) and aries agent (issuer) is done, the issuer send a credential offer like that (it's done like in method IssueCredentials (on line 106) from from https://github.com/hyperledger/aries-framework-dotnet/blob/master/samples/aspnetcore/Controllers/CredentialsController.cs):
+
+	[HttpPost]
+        public async Task<IActionResult> IssueCredentials(CredentialOfferModel model)
+        {
+            var context = await _agentContextProvider.GetContextAsync();
+            var issuer = await _provisionService.GetProvisioningAsync(context.Wallet);
+            var connection = await _connectionService.GetAsync(context, model.ConnectionId);
+            var values = JsonConvert.DeserializeObject<List<CredentialPreviewAttribute>>(model.CredentialAttributes);
+            
+
+            var (offer, _) = await _credentialService.CreateOfferAsync(context, new OfferConfiguration
+            {
+                CredentialDefinitionId = model.CredentialDefinitionId,
+                IssuerDid = issuer.IssuerDid,
+                CredentialAttributeValues = values
+            });
+            await _messageService.SendAsync(context, offer, connection);
+
+            return RedirectToAction("Index");
+        }
+3. On holder (android app), due LibVcx.api.vcx_v2_messages_download is used to fetch messages from vcx-agency, 2 messages are got, a offer credential (the holder knows the offer and accept like i said in my last post) and a issue credential. I have saved both invitation and serialized credential in holder wallet using WalletApi.addRecordWallet.
+
+4. On issuer site, i have created a menu (where the user set the connection, schema and credential definition in a form) and proof controller that hit (on form submission) the method bellow:
+
+	[HttpPost]
+        public async Task<IActionResult> CreateProof(CredentialOfferModel model)
+        {
+
+            var context = await _agentContextProvider.GetContextAsync(); //Hyperledger.Aries.Agents.DefaultAgentProvider
+            var schema = await _schemaService.GetCredentialDefinitionAsync(context.Wallet, model.CredentialDefinitionId);//Hyperledger.Aries.Features.IssueCredential.DefaultSchemaService
+
+
+
+            List<DefinitionRecord> definitionRecords0 = await _schemaService.ListCredentialDefinitionsAsync(context.Wallet);
+            DefinitionRecord definitionRecords = definitionRecords0.Find(x => x.SchemaId.Contains("cnh"));
+
+
+            var CredentialDefinitions = await _schemaService.ListCredentialDefinitionsAsync(context.Wallet);
+
+            var result = CredentialDefinitions.Find(x => x.SchemaId.Contains("cnh"));
+
+
+            List<SchemaRecord> schemaRecords3 = await _schemaService.ListSchemasAsync(context.Wallet);
+
+            SchemaRecord schemaRecords = schemaRecords3.Find(x => x.Id.Contains("cnh"));
+
+            CreateProofRequestRequest cred = new CreateProofRequestRequest();
+            cred.ConnectionId = model.ConnectionId;
+
+            if (!string.IsNullOrEmpty(model.CredentialDefinitionId))
+            {
+                Console.WriteLine("Adding All Attributes");
+
+                SchemaRecord schemaRecord = schemaRecords;
+                ProofRequest prood = new ProofRequest();
+                prood.Name = schemaRecord.Name;
+                prood.Version = schemaRecord.Version;
+                cred.ProofRequest = prood;
+                cred.ProofRequest.RequestedAttributes = new Dictionary<string, ProofAttributeInfo>();
+                cred.ProofRequest.RequestedPredicates = new Dictionary<string, ProofPredicateInfo>();
+
+                for (int cont = 0; cont < schemaRecord.AttributeNames.Length; cont++)
+                {
+                    
+                    var restrictions = new List<AttributeFilter>();
+
+                    var attributeFilter = new AttributeFilter();
+
+                    attributeFilter.CredentialDefinitionId = definitionRecords.Id;
+
+                    restrictions.Add(attributeFilter);
+
+                    var proofAttributeInfo = new ProofAttributeInfo()
+                    {
+                        Name = schemaRecord.AttributeNames[cont],
+                        Restrictions = restrictions,
+                    };
+
+
+                    cred.ProofRequest.RequestedAttributes.Add($"attribute_{cont}", proofAttributeInfo);
+
+                }
+
+                Console.WriteLine($"Added:{cred.ProofRequest.RequestedAttributes.Count}");
+                var teste = await _mediator.Send(cred);// IMediator
+
+            }
+            return RedirectToAction("Index");
+        }
+        
+5. On holder, 1 message is got and the user knows there is a proof and accepts to present proof like in vcx-demo-android (https://github.com/sktston/vcx-demo-android/blob/master/README.md) on onPresentProofClicked button. So, exactly in this call DisclosedProofApi.proofRetrieveCredentials(proofHandle), i am getting a json with empty requested attributes value like {"attrs":{"attribute_cpf":[],"attribute_name":[]}}. I can not go further because i can not build selected credentials json argument to call DisclosedProofApi.proofGenerate.
+
+
+Like a said in my last post, i have tested successfuly vcx-demo-android (as a holder) in this enviroment (vcx-agency-node, aries-framework-dotnet, von-network), following almost the same flow, the difference was fetching agency message (LibVcx.api.vcx_v2_messages_download). Due i am lauching libvcx (still in a deprecated way VcxApi.vcxInitCore(config), VcxApi.vcxOpenPool(), VcxApi.vcxOpenWallet()) in background (CoroutineWorker) and running a Timer in viewModelScope.launch(Dispatchers.Main), i think can be a thread context problem (if i have tested successfuly vcx-demo-android doing everything without threads), but i am not sure because i do not know how libvcx manages the wallet handle. If you need more information, let me know. Thank you so much again.

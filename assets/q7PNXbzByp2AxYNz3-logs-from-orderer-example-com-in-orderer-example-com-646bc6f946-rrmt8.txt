@@ -1,0 +1,562 @@
+[34m2021-05-24 06:11:32.036 UTC [localconfig] completeInitialization -> INFO 001[0m Kafka.Version unset, setting to 0.10.2.0
+[34m2021-05-24 06:11:32.036 UTC [orderer.common.server] prettyPrintStruct -> INFO 002[0m Orderer config values:
+	General.ListenAddress = "0.0.0.0"
+	General.ListenPort = 7050
+	General.TLS.Enabled = true
+	General.TLS.PrivateKey = "/etc/hyperledger/fabric/orderer/tls/server.key"
+	General.TLS.Certificate = "/etc/hyperledger/fabric/orderer/tls/server.crt"
+	General.TLS.RootCAs = [/etc/hyperledger/fabric/orderer/tls/ca.crt]
+	General.TLS.ClientAuthRequired = false
+	General.TLS.ClientRootCAs = []
+	General.TLS.TLSHandshakeTimeShift = 0s
+	General.Cluster.ListenAddress = ""
+	General.Cluster.ListenPort = 0
+	General.Cluster.ServerCertificate = ""
+	General.Cluster.ServerPrivateKey = ""
+	General.Cluster.ClientCertificate = "/etc/hyperledger/fabric/orderer/tls/server.crt"
+	General.Cluster.ClientPrivateKey = "/etc/hyperledger/fabric/orderer/tls/server.key"
+	General.Cluster.RootCAs = [/etc/hyperledger/fabric/orderer/tls/ca.crt]
+	General.Cluster.DialTimeout = 5s
+	General.Cluster.RPCTimeout = 7s
+	General.Cluster.ReplicationBufferSize = 20971520
+	General.Cluster.ReplicationPullTimeout = 5s
+	General.Cluster.ReplicationRetryTimeout = 5s
+	General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+	General.Cluster.ReplicationMaxRetries = 12
+	General.Cluster.SendBufferSize = 10
+	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+	General.Cluster.TLSHandshakeTimeShift = 0s
+	General.Keepalive.ServerMinInterval = 1m0s
+	General.Keepalive.ServerInterval = 2h0m0s
+	General.Keepalive.ServerTimeout = 20s
+	General.ConnectionTimeout = 0s
+	General.GenesisMethod = ""
+	General.GenesisFile = ""
+	General.BootstrapMethod = "none"
+	General.BootstrapFile = "/etc/hyperledger/fabric/genesisblock"
+	General.Profile.Enabled = false
+	General.Profile.Address = "0.0.0.0:6060"
+	General.LocalMSPDir = "/etc/hyperledger/fabric/orderer/msp"
+	General.LocalMSPID = "OrdererMSP"
+	General.BCCSP.Default = "SW"
+	General.BCCSP.SW.Security = 256
+	General.BCCSP.SW.Hash = "SHA2"
+	General.BCCSP.SW.FileKeystore.KeyStorePath = ""
+	General.Authentication.TimeWindow = 15m0s
+	General.Authentication.NoExpirationChecks = false
+	FileLedger.Location = "/var/hyperledger/production/orderer"
+	FileLedger.Prefix = ""
+	Kafka.Retry.ShortInterval = 5s
+	Kafka.Retry.ShortTotal = 10m0s
+	Kafka.Retry.LongInterval = 5m0s
+	Kafka.Retry.LongTotal = 12h0m0s
+	Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+	Kafka.Retry.Metadata.RetryMax = 3
+	Kafka.Retry.Metadata.RetryBackoff = 250ms
+	Kafka.Retry.Producer.RetryMax = 3
+	Kafka.Retry.Producer.RetryBackoff = 100ms
+	Kafka.Retry.Consumer.RetryBackoff = 2s
+	Kafka.Verbose = true
+	Kafka.Version = 0.10.2.0
+	Kafka.TLS.Enabled = false
+	Kafka.TLS.PrivateKey = ""
+	Kafka.TLS.Certificate = ""
+	Kafka.TLS.RootCAs = []
+	Kafka.TLS.ClientAuthRequired = false
+	Kafka.TLS.ClientRootCAs = []
+	Kafka.TLS.TLSHandshakeTimeShift = 0s
+	Kafka.SASLPlain.Enabled = false
+	Kafka.SASLPlain.User = ""
+	Kafka.SASLPlain.Password = ""
+	Kafka.Topic.ReplicationFactor = 1
+	Debug.BroadcastTraceDir = ""
+	Debug.DeliverTraceDir = ""
+	Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+	Operations.ListenAddress = "127.0.0.1:8443"
+	Operations.TLS.Enabled = false
+	Operations.TLS.PrivateKey = ""
+	Operations.TLS.Certificate = ""
+	Operations.TLS.RootCAs = []
+	Operations.TLS.ClientAuthRequired = false
+	Operations.TLS.ClientRootCAs = []
+	Operations.TLS.TLSHandshakeTimeShift = 0s
+	Metrics.Provider = "disabled"
+	Metrics.Statsd.Network = "udp"
+	Metrics.Statsd.Address = "127.0.0.1:8125"
+	Metrics.Statsd.WriteInterval = 30s
+	Metrics.Statsd.Prefix = ""
+	ChannelParticipation.Enabled = true
+	ChannelParticipation.MaxRequestBodySize = 1048576
+	Admin.ListenAddress = "0.0.0.0:7053"
+	Admin.TLS.Enabled = true
+	Admin.TLS.PrivateKey = "/etc/hyperledger/fabric/orderer/tls/server.key"
+	Admin.TLS.Certificate = "/etc/hyperledger/fabric/orderer/tls/server.crt"
+	Admin.TLS.RootCAs = [/etc/hyperledger/fabric/orderer/tls/ca.crt]
+	Admin.TLS.ClientAuthRequired = true
+	Admin.TLS.ClientRootCAs = [/etc/hyperledger/fabric/orderer/tls/ca.crt]
+	Admin.TLS.TLSHandshakeTimeShift = 0s
+[34m2021-05-24 06:11:32.088 UTC [orderer.common.server] initializeServerConfig -> INFO 003[0m Starting orderer with TLS enabled
+[34m2021-05-24 06:11:32.866 UTC [orderer.commmon.multichannel] InitJoinBlockFileRepo -> INFO 004[0m Channel Participation API enabled, registrar initializing with file repo /var/hyperledger/production/orderer/pendingops
+[34m2021-05-24 06:11:33.383 UTC [orderer.common.server] Main -> INFO 005[0m Starting without a system channel
+[34m2021-05-24 06:11:33.383 UTC [orderer.common.server] Main -> INFO 006[0m Setting up cluster
+[34m2021-05-24 06:11:33.383 UTC [orderer.common.server] reuseListener -> INFO 007[0m Cluster listener is not configured, defaulting to use the general listener on port 7050
+[34m2021-05-24 06:11:33.386 UTC [orderer.common.server] reuseListener -> INFO 008[0m Cluster listener is not configured, defaulting to use the general listener on port 7050
+[34m2021-05-24 06:11:33.387 UTC [certmonitor] trackCertExpiration -> INFO 009[0m The enrollment certificate will expire on 2022-05-24 06:11:00 +0000 UTC
+[34m2021-05-24 06:11:33.387 UTC [certmonitor] trackCertExpiration -> INFO 00a[0m The server TLS certificate will expire on 2022-05-24 06:11:00 +0000 UTC
+[34m2021-05-24 06:11:33.387 UTC [certmonitor] trackCertExpiration -> INFO 00b[0m The client TLS certificate will expire on 2022-05-24 06:11:00 +0000 UTC
+[34m2021-05-24 06:11:33.387 UTC [orderer.commmon.multichannel] InitJoinBlockFileRepo -> INFO 00c[0m Channel Participation API enabled, registrar initializing with file repo /var/hyperledger/production/orderer/pendingops
+[34m2021-05-24 06:11:34.045 UTC [orderer.commmon.follower] NewChain -> INFO 00d[0m Created with a nil join-block, ledger height: 1 channel=commonchannel
+[34m2021-05-24 06:11:34.045 UTC [orderer.commmon.follower] Start -> INFO 00e[0m Started channel=commonchannel
+[34m2021-05-24 06:11:34.045 UTC [orderer.commmon.multichannel] startChannels -> INFO 00f[0m Registrar initializing without a system channel, number of application channels: 1, with 0 consensus.Chain(s) and 1 follower.Chain(s)
+[34m2021-05-24 06:11:34.050 UTC [orderer.common.server] Main -> INFO 010[0m Starting orderer:
+ Version: 2.3.1
+ Commit SHA: 2f69b42
+ Go version: go1.14.12
+ OS/Arch: linux/amd64
+[34m2021-05-24 06:11:34.051 UTC [orderer.common.server] Main -> INFO 011[0m Beginning to serve requests
+[33m2021-05-24 06:11:34.113 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 012[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 192.168.49.2:30004: connect: connection refused" channel=commonchannel
+[33m2021-05-24 06:11:34.113 UTC [orderer.common.cluster.puller] func1 -> WARN 013[0m Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 192.168.49.2:30004: connect: connection refused"' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:11:34.113 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 014[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:11:34.614 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 015[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 192.168.49.2:30004: connect: connection refused" channel=commonchannel
+[33m2021-05-24 06:11:34.614 UTC [orderer.common.cluster.puller] func1 -> WARN 016[0m Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 192.168.49.2:30004: connect: connection refused"' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:11:34.614 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 017[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:11:40.365 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 018[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:40.365 UTC [orderer.common.cluster.puller] func1 -> WARN 019[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:11:40.365 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 01a[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:11:44.957733 I | http: TLS handshake error from 172.17.0.1:7141: tls: client didn't provide a certificate
+2021-05-24 06:11:45.960000 I | http: TLS handshake error from 172.17.0.1:48665: tls: client didn't provide a certificate
+2021-05-24 06:11:46.120487 I | http: TLS handshake error from 172.17.0.1:31236: tls: client didn't provide a certificate
+[33m2021-05-24 06:11:46.496 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 01b[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:46.496 UTC [orderer.common.cluster.puller] func1 -> WARN 01c[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:11:46.496 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 01d[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:11:47.222637 I | http: TLS handshake error from 172.17.0.1:55509: tls: client didn't provide a certificate
+2021-05-24 06:11:47.347346 I | http: TLS handshake error from 172.17.0.1:19101: tls: client didn't provide a certificate
+2021-05-24 06:11:48.057783 I | http: TLS handshake error from 172.17.0.1:27051: tls: client didn't provide a certificate
+2021-05-24 06:11:48.180245 I | http: TLS handshake error from 172.17.0.1:44259: tls: client didn't provide a certificate
+2021-05-24 06:11:48.326834 I | http: TLS handshake error from 172.17.0.1:26118: tls: client didn't provide a certificate
+2021-05-24 06:11:48.664250 I | http: TLS handshake error from 172.17.0.1:47329: tls: client didn't provide a certificate
+2021-05-24 06:11:49.219121 I | http: TLS handshake error from 172.17.0.1:65469: tls: client didn't provide a certificate
+2021-05-24 06:11:49.330401 I | http: TLS handshake error from 172.17.0.1:39407: tls: client didn't provide a certificate
+2021-05-24 06:11:49.344545 I | http: TLS handshake error from 172.17.0.1:29646: tls: client didn't provide a certificate
+2021-05-24 06:11:50.348651 I | http: TLS handshake error from 172.17.0.1:34598: tls: client didn't provide a certificate
+2021-05-24 06:11:50.496053 I | http: TLS handshake error from 172.17.0.1:40025: tls: client didn't provide a certificate
+2021-05-24 06:11:50.858119 I | http: TLS handshake error from 172.17.0.1:49347: tls: client didn't provide a certificate
+2021-05-24 06:11:51.498693 I | http: TLS handshake error from 172.17.0.1:8915: tls: client didn't provide a certificate
+2021-05-24 06:11:51.499342 I | http: TLS handshake error from 172.17.0.1:61491: tls: client didn't provide a certificate
+2021-05-24 06:11:51.709416 I | http: TLS handshake error from 172.17.0.1:63331: tls: client didn't provide a certificate
+2021-05-24 06:11:52.752862 I | http: TLS handshake error from 172.17.0.1:35559: tls: client didn't provide a certificate
+2021-05-24 06:11:53.042622 I | http: TLS handshake error from 172.17.0.1:43206: tls: client didn't provide a certificate
+[33m2021-05-24 06:11:53.185 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 01e[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:53.185 UTC [orderer.common.cluster.puller] func1 -> WARN 01f[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:11:53.185 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 020[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:11:53.668280 I | http: TLS handshake error from 172.17.0.1:58985: tls: client didn't provide a certificate
+2021-05-24 06:11:54.421559 I | http: TLS handshake error from 172.17.0.1:1832: tls: client didn't provide a certificate
+2021-05-24 06:11:54.672980 I | http: TLS handshake error from 172.17.0.1:63939: tls: client didn't provide a certificate
+2021-05-24 06:11:54.957587 I | http: TLS handshake error from 172.17.0.1:62910: tls: client didn't provide a certificate
+2021-05-24 06:11:55.959756 I | http: TLS handshake error from 172.17.0.1:41583: tls: client didn't provide a certificate
+2021-05-24 06:11:56.525840 I | http: TLS handshake error from 172.17.0.1:53323: tls: client didn't provide a certificate
+2021-05-24 06:11:56.738507 I | http: TLS handshake error from 172.17.0.1:10631: tls: client didn't provide a certificate
+2021-05-24 06:11:57.603129 I | http: TLS handshake error from 172.17.0.1:45500: tls: client didn't provide a certificate
+2021-05-24 06:11:57.741256 I | http: TLS handshake error from 172.17.0.1:13719: tls: client didn't provide a certificate
+2021-05-24 06:11:58.283824 I | http: TLS handshake error from 172.17.0.1:29338: tls: client didn't provide a certificate
+2021-05-24 06:11:58.649352 I | http: TLS handshake error from 172.17.0.1:50640: tls: client didn't provide a certificate
+2021-05-24 06:11:59.083323 I | http: TLS handshake error from 172.17.0.1:7094: tls: client didn't provide a certificate
+2021-05-24 06:11:59.168397 I | http: TLS handshake error from 172.17.0.1:15125: tls: client didn't provide a certificate
+2021-05-24 06:11:59.604430 I | http: TLS handshake error from 172.17.0.1:52925: tls: client didn't provide a certificate
+2021-05-24 06:11:59.985015 I | http: TLS handshake error from 172.17.0.1:47032: tls: client didn't provide a certificate
+2021-05-24 06:12:00.227720 I | http: TLS handshake error from 172.17.0.1:19018: tls: client didn't provide a certificate
+2021-05-24 06:12:00.288734 I | http: TLS handshake error from 172.17.0.1:55607: tls: client didn't provide a certificate
+2021-05-24 06:12:00.652436 I | http: TLS handshake error from 172.17.0.1:11405: tls: client didn't provide a certificate
+[33m2021-05-24 06:12:00.718 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 021[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:00.718 UTC [orderer.common.cluster.puller] func1 -> WARN 022[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:12:00.718 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 023[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:12:00.973606 I | http: TLS handshake error from 172.17.0.1:40909: tls: client didn't provide a certificate
+2021-05-24 06:12:01.086491 I | http: TLS handshake error from 172.17.0.1:60542: tls: client didn't provide a certificate
+2021-05-24 06:12:01.869945 I | http: TLS handshake error from 172.17.0.1:1244: tls: client didn't provide a certificate
+2021-05-24 06:12:02.091528 I | http: TLS handshake error from 172.17.0.1:56510: tls: client didn't provide a certificate
+2021-05-24 06:12:02.873063 I | http: TLS handshake error from 172.17.0.1:29982: tls: client didn't provide a certificate
+2021-05-24 06:12:03.913937 I | http: TLS handshake error from 172.17.0.1:47753: tls: client didn't provide a certificate
+2021-05-24 06:12:04.603034 I | http: TLS handshake error from 172.17.0.1:14707: tls: client didn't provide a certificate
+2021-05-24 06:12:04.677158 I | http: TLS handshake error from 172.17.0.1:63314: tls: client didn't provide a certificate
+2021-05-24 06:12:05.609630 I | http: TLS handshake error from 172.17.0.1:9878: tls: client didn't provide a certificate
+2021-05-24 06:12:05.940125 I | http: TLS handshake error from 172.17.0.1:50987: tls: client didn't provide a certificate
+2021-05-24 06:12:07.228190 I | http: TLS handshake error from 172.17.0.1:55615: tls: client didn't provide a certificate
+2021-05-24 06:12:07.513525 I | http: TLS handshake error from 172.17.0.1:11928: tls: client didn't provide a certificate
+2021-05-24 06:12:08.136519 I | http: TLS handshake error from 172.17.0.1:60227: tls: client didn't provide a certificate
+2021-05-24 06:12:08.775282 I | http: TLS handshake error from 172.17.0.1:22380: tls: client didn't provide a certificate
+2021-05-24 06:12:08.884488 I | http: TLS handshake error from 172.17.0.1:32035: tls: client didn't provide a certificate
+[33m2021-05-24 06:12:09.516 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 024[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:09.516 UTC [orderer.common.cluster.puller] func1 -> WARN 025[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:12:09.516 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 026[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:12:09.853997 I | http: TLS handshake error from 172.17.0.1:7581: tls: client didn't provide a certificate
+2021-05-24 06:12:09.889144 I | http: TLS handshake error from 172.17.0.1:15033: tls: client didn't provide a certificate
+2021-05-24 06:12:11.477448 I | http: TLS handshake error from 172.17.0.1:61997: tls: client didn't provide a certificate
+2021-05-24 06:12:11.744771 I | http: TLS handshake error from 172.17.0.1:53085: tls: client didn't provide a certificate
+2021-05-24 06:12:12.777393 I | http: TLS handshake error from 172.17.0.1:50986: tls: client didn't provide a certificate
+2021-05-24 06:12:13.597001 I | http: TLS handshake error from 172.17.0.1:42230: tls: client didn't provide a certificate
+2021-05-24 06:12:13.780734 I | http: TLS handshake error from 172.17.0.1:41496: tls: client didn't provide a certificate
+2021-05-24 06:12:14.599778 I | http: TLS handshake error from 172.17.0.1:29833: tls: client didn't provide a certificate
+2021-05-24 06:12:15.414453 I | http: TLS handshake error from 172.17.0.1:60554: tls: client didn't provide a certificate
+2021-05-24 06:12:16.346905 I | http: TLS handshake error from 172.17.0.1:10455: tls: client didn't provide a certificate
+2021-05-24 06:12:16.487611 I | http: TLS handshake error from 172.17.0.1:62080: tls: client didn't provide a certificate
+2021-05-24 06:12:17.494578 I | http: TLS handshake error from 172.17.0.1:29418: tls: client didn't provide a certificate
+2021-05-24 06:12:18.570120 I | http: TLS handshake error from 172.17.0.1:49476: tls: client didn't provide a certificate
+2021-05-24 06:12:19.375080 I | http: TLS handshake error from 172.17.0.1:6147: tls: client didn't provide a certificate
+2021-05-24 06:12:19.575209 I | http: TLS handshake error from 172.17.0.1:30242: tls: client didn't provide a certificate
+[33m2021-05-24 06:12:20.214 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 027[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:20.214 UTC [orderer.common.cluster.puller] func1 -> WARN 028[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:12:20.214 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 029[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:12:20.812989 I | http: TLS handshake error from 172.17.0.1:20865: tls: client didn't provide a certificate
+2021-05-24 06:12:21.392280 I | http: TLS handshake error from 172.17.0.1:23357: tls: client didn't provide a certificate
+2021-05-24 06:12:21.818185 I | http: TLS handshake error from 172.17.0.1:9366: tls: client didn't provide a certificate
+2021-05-24 06:12:23.258931 I | http: TLS handshake error from 172.17.0.1:17088: tls: client didn't provide a certificate
+2021-05-24 06:12:24.230776 I | http: TLS handshake error from 172.17.0.1:26935: tls: client didn't provide a certificate
+2021-05-24 06:12:24.804201 I | http: TLS handshake error from 172.17.0.1:22527: tls: client didn't provide a certificate
+2021-05-24 06:12:25.235556 I | http: TLS handshake error from 172.17.0.1:56271: tls: client didn't provide a certificate
+2021-05-24 06:12:25.806518 I | http: TLS handshake error from 172.17.0.1:48616: tls: client didn't provide a certificate
+2021-05-24 06:12:27.673409 I | http: TLS handshake error from 172.17.0.1:13152: tls: client didn't provide a certificate
+2021-05-24 06:12:28.434789 I | http: TLS handshake error from 172.17.0.1:1137: tls: client didn't provide a certificate
+2021-05-24 06:12:29.650991 I | http: TLS handshake error from 172.17.0.1:48434: tls: client didn't provide a certificate
+2021-05-24 06:12:30.654511 I | http: TLS handshake error from 172.17.0.1:42686: tls: client didn't provide a certificate
+2021-05-24 06:12:32.273515 I | http: TLS handshake error from 172.17.0.1:27561: tls: client didn't provide a certificate
+2021-05-24 06:12:32.895943 I | http: TLS handshake error from 172.17.0.1:62512: tls: client didn't provide a certificate
+2021-05-24 06:12:33.276405 I | http: TLS handshake error from 172.17.0.1:54746: tls: client didn't provide a certificate
+[33m2021-05-24 06:12:33.758 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 02a[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:33.758 UTC [orderer.common.cluster.puller] func1 -> WARN 02b[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:12:33.758 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 02c[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:12:35.564537 I | http: TLS handshake error from 172.17.0.1:36620: tls: client didn't provide a certificate
+2021-05-24 06:12:37.881899 I | http: TLS handshake error from 172.17.0.1:14526: tls: client didn't provide a certificate
+2021-05-24 06:12:38.834986 I | http: TLS handshake error from 172.17.0.1:31360: tls: client didn't provide a certificate
+2021-05-24 06:12:38.886524 I | http: TLS handshake error from 172.17.0.1:21598: tls: client didn't provide a certificate
+2021-05-24 06:12:40.729998 I | http: TLS handshake error from 172.17.0.1:62870: tls: client didn't provide a certificate
+2021-05-24 06:12:42.670777 I | http: TLS handshake error from 172.17.0.1:9697: tls: client didn't provide a certificate
+2021-05-24 06:12:43.675023 I | http: TLS handshake error from 172.17.0.1:11549: tls: client didn't provide a certificate
+2021-05-24 06:12:45.386496 I | http: TLS handshake error from 172.17.0.1:49220: tls: client didn't provide a certificate
+2021-05-24 06:12:46.402888 I | http: TLS handshake error from 172.17.0.1:27947: tls: client didn't provide a certificate
+2021-05-24 06:12:47.406433 I | http: TLS handshake error from 172.17.0.1:7209: tls: client didn't provide a certificate
+[33m2021-05-24 06:12:48.760 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 02d[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:48.760 UTC [orderer.common.cluster.puller] func1 -> WARN 02e[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:12:48.760 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 02f[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:12:49.991325 I | http: TLS handshake error from 172.17.0.1:37979: tls: client didn't provide a certificate
+2021-05-24 06:12:51.019404 I | http: TLS handshake error from 172.17.0.1:39075: tls: client didn't provide a certificate
+2021-05-24 06:12:52.930849 I | http: TLS handshake error from 172.17.0.1:38903: tls: client didn't provide a certificate
+2021-05-24 06:12:54.033622 I | http: TLS handshake error from 172.17.0.1:33209: tls: client didn't provide a certificate
+2021-05-24 06:12:55.037581 I | http: TLS handshake error from 172.17.0.1:63077: tls: client didn't provide a certificate
+2021-05-24 06:12:56.445892 I | http: TLS handshake error from 172.17.0.1:44260: tls: client didn't provide a certificate
+2021-05-24 06:12:58.512912 I | http: TLS handshake error from 172.17.0.1:15352: tls: client didn't provide a certificate
+2021-05-24 06:12:59.516098 I | http: TLS handshake error from 172.17.0.1:60138: tls: client didn't provide a certificate
+2021-05-24 06:13:01.174029 I | http: TLS handshake error from 172.17.0.1:58222: tls: client didn't provide a certificate
+[33m2021-05-24 06:13:03.761 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 030[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:03.761 UTC [orderer.common.cluster.puller] func1 -> WARN 031[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:13:03.761 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 032[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:13:05.048705 I | http: TLS handshake error from 172.17.0.1:45718: tls: client didn't provide a certificate
+2021-05-24 06:13:06.054647 I | http: TLS handshake error from 172.17.0.1:45603: tls: client didn't provide a certificate
+2021-05-24 06:13:07.781357 I | http: TLS handshake error from 172.17.0.1:61049: tls: client didn't provide a certificate
+2021-05-24 06:13:08.138905 I | http: TLS handshake error from 172.17.0.1:53604: tls: client didn't provide a certificate
+2021-05-24 06:13:09.143285 I | http: TLS handshake error from 172.17.0.1:64248: tls: client didn't provide a certificate
+2021-05-24 06:13:10.989647 I | http: TLS handshake error from 172.17.0.1:51963: tls: client didn't provide a certificate
+2021-05-24 06:13:17.544087 I | http: TLS handshake error from 172.17.0.1:11204: tls: client didn't provide a certificate
+2021-05-24 06:13:18.547657 I | http: TLS handshake error from 172.17.0.1:5259: tls: client didn't provide a certificate
+[33m2021-05-24 06:13:18.762 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 033[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:18.762 UTC [orderer.common.cluster.puller] func1 -> WARN 034[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:13:18.762 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 035[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:13:19.086556 I | http: TLS handshake error from 172.17.0.1:22831: tls: client didn't provide a certificate
+2021-05-24 06:13:20.090770 I | http: TLS handshake error from 172.17.0.1:6821: tls: client didn't provide a certificate
+2021-05-24 06:13:20.129757 I | http: TLS handshake error from 172.17.0.1:55966: tls: client didn't provide a certificate
+2021-05-24 06:13:29.635195 I | http: TLS handshake error from 172.17.0.1:50242: tls: client didn't provide a certificate
+2021-05-24 06:13:30.637609 I | http: TLS handshake error from 172.17.0.1:44688: tls: client didn't provide a certificate
+2021-05-24 06:13:31.968249 I | http: TLS handshake error from 172.17.0.1:51183: tls: client didn't provide a certificate
+2021-05-24 06:13:31.972134 I | http: TLS handshake error from 172.17.0.1:61784: tls: client didn't provide a certificate
+2021-05-24 06:13:32.974753 I | http: TLS handshake error from 172.17.0.1:13946: tls: client didn't provide a certificate
+[33m2021-05-24 06:13:33.763 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 036[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:33.763 UTC [orderer.common.cluster.puller] func1 -> WARN 037[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:13:33.763 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 038[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:13:34.526797 I | http: TLS handshake error from 172.17.0.1:58008: tls: client didn't provide a certificate
+2021-05-24 06:13:44.080249 I | http: TLS handshake error from 172.17.0.1:37614: tls: client didn't provide a certificate
+2021-05-24 06:13:45.084322 I | http: TLS handshake error from 172.17.0.1:24330: tls: client didn't provide a certificate
+2021-05-24 06:13:46.482628 I | http: TLS handshake error from 172.17.0.1:3227: tls: client didn't provide a certificate
+2021-05-24 06:13:48.709492 I | http: TLS handshake error from 172.17.0.1:7796: tls: client didn't provide a certificate
+[33m2021-05-24 06:13:48.764 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 039[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:48.764 UTC [orderer.common.cluster.puller] func1 -> WARN 03a[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:13:48.764 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 03b[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:14:00.820249 I | http: TLS handshake error from 172.17.0.1:54998: tls: client didn't provide a certificate
+2021-05-24 06:14:01.824131 I | http: TLS handshake error from 172.17.0.1:44798: tls: client didn't provide a certificate
+2021-05-24 06:14:03.339220 I | http: TLS handshake error from 172.17.0.1:33461: tls: client didn't provide a certificate
+[33m2021-05-24 06:14:03.766 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 03c[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:14:03.766 UTC [orderer.common.cluster.puller] func1 -> WARN 03d[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:14:03.766 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 03e[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:14:05.262109 I | http: TLS handshake error from 172.17.0.1:63617: tls: client didn't provide a certificate
+[33m2021-05-24 06:14:18.767 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 03f[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:14:18.767 UTC [orderer.common.cluster.puller] func1 -> WARN 040[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:14:18.767 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 041[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:14:20.317528 I | http: TLS handshake error from 172.17.0.1:32504: tls: client didn't provide a certificate
+2021-05-24 06:14:21.320938 I | http: TLS handshake error from 172.17.0.1:56329: tls: client didn't provide a certificate
+2021-05-24 06:14:25.046088 I | http: TLS handshake error from 172.17.0.1:63428: tls: client didn't provide a certificate
+2021-05-24 06:14:26.149524 I | http: TLS handshake error from 172.17.0.1:34239: tls: client didn't provide a certificate
+2021-05-24 06:14:27.870207 I | http: TLS handshake error from 172.17.0.1:23304: tls: client didn't provide a certificate
+[33m2021-05-24 06:14:33.769 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 042[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:14:33.769 UTC [orderer.common.cluster.puller] func1 -> WARN 043[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:14:33.769 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 044[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:14:41.204085 I | http: TLS handshake error from 172.17.0.1:13995: tls: client didn't provide a certificate
+2021-05-24 06:14:42.209214 I | http: TLS handshake error from 172.17.0.1:37616: tls: client didn't provide a certificate
+2021-05-24 06:14:43.728277 I | http: TLS handshake error from 172.17.0.1:16602: tls: client didn't provide a certificate
+[33m2021-05-24 06:14:48.770 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 045[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:14:48.770 UTC [orderer.common.cluster.puller] func1 -> WARN 046[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:14:48.771 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 047[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:14:51.830326 I | http: TLS handshake error from 172.17.0.1:25377: tls: client didn't provide a certificate
+2021-05-24 06:14:52.835049 I | http: TLS handshake error from 172.17.0.1:61689: tls: client didn't provide a certificate
+2021-05-24 06:14:54.619425 I | http: TLS handshake error from 172.17.0.1:41033: tls: client didn't provide a certificate
+[33m2021-05-24 06:15:03.772 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 048[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:15:03.772 UTC [orderer.common.cluster.puller] func1 -> WARN 049[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:15:03.772 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 04a[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:15:07.931694 I | http: TLS handshake error from 172.17.0.1:5243: tls: client didn't provide a certificate
+[33m2021-05-24 06:15:18.773 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 04b[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:15:18.773 UTC [orderer.common.cluster.puller] func1 -> WARN 04c[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:15:18.773 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 04d[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:15:23.290941 I | http: TLS handshake error from 172.17.0.1:12735: tls: client didn't provide a certificate
+2021-05-24 06:15:24.296022 I | http: TLS handshake error from 172.17.0.1:6544: tls: client didn't provide a certificate
+2021-05-24 06:15:26.103471 I | http: TLS handshake error from 172.17.0.1:4962: tls: client didn't provide a certificate
+[33m2021-05-24 06:15:33.774 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 04e[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:15:33.774 UTC [orderer.common.cluster.puller] func1 -> WARN 04f[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:15:33.774 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 050[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:15:36.501540 I | http: TLS handshake error from 172.17.0.1:8682: tls: client didn't provide a certificate
+2021-05-24 06:15:37.503831 I | http: TLS handshake error from 172.17.0.1:6271: tls: client didn't provide a certificate
+2021-05-24 06:15:39.001802 I | http: TLS handshake error from 172.17.0.1:23937: tls: client didn't provide a certificate
+[33m2021-05-24 06:15:48.776 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 051[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:15:48.776 UTC [orderer.common.cluster.puller] func1 -> WARN 052[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:15:48.776 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 053[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:16:00.454310 I | http: TLS handshake error from 172.17.0.1:35487: tls: client didn't provide a certificate
+2021-05-24 06:16:01.458832 I | http: TLS handshake error from 172.17.0.1:30604: tls: client didn't provide a certificate
+2021-05-24 06:16:03.075010 I | http: TLS handshake error from 172.17.0.1:52977: tls: client didn't provide a certificate
+[33m2021-05-24 06:16:03.778 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 054[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:03.778 UTC [orderer.common.cluster.puller] func1 -> WARN 055[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:16:03.778 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 056[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:16:13.672975 I | http: TLS handshake error from 172.17.0.1:18748: tls: client didn't provide a certificate
+2021-05-24 06:16:14.677237 I | http: TLS handshake error from 172.17.0.1:15679: tls: client didn't provide a certificate
+2021-05-24 06:16:16.157282 I | http: TLS handshake error from 172.17.0.1:17877: tls: client didn't provide a certificate
+[33m2021-05-24 06:16:18.780 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 057[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:18.780 UTC [orderer.common.cluster.puller] func1 -> WARN 058[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:16:18.780 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 059[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:16:33.781 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 05a[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:33.781 UTC [orderer.common.cluster.puller] func1 -> WARN 05b[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:16:33.781 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 05c[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:16:44.471072 I | http: TLS handshake error from 172.17.0.1:17291: tls: client didn't provide a certificate
+2021-05-24 06:16:45.475313 I | http: TLS handshake error from 172.17.0.1:39780: tls: client didn't provide a certificate
+2021-05-24 06:16:46.887258 I | http: TLS handshake error from 172.17.0.1:57491: tls: client didn't provide a certificate
+[33m2021-05-24 06:16:48.783 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 05d[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:48.783 UTC [orderer.common.cluster.puller] func1 -> WARN 05e[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:16:48.783 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 05f[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:16:57.295262 I | http: TLS handshake error from 172.17.0.1:58696: tls: client didn't provide a certificate
+2021-05-24 06:16:58.299549 I | http: TLS handshake error from 172.17.0.1:30554: tls: client didn't provide a certificate
+2021-05-24 06:17:00.072731 I | http: TLS handshake error from 172.17.0.1:55705: tls: client didn't provide a certificate
+[33m2021-05-24 06:17:03.785 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 060[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:17:03.785 UTC [orderer.common.cluster.puller] func1 -> WARN 061[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:17:03.785 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 062[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:17:18.786 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 063[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:17:18.786 UTC [orderer.common.cluster.puller] func1 -> WARN 064[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:17:18.786 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 065[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:17:33.788 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 066[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:17:33.788 UTC [orderer.common.cluster.puller] func1 -> WARN 067[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:17:33.788 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 068[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:17:36.822645 I | http: TLS handshake error from 172.17.0.1:27716: tls: client didn't provide a certificate
+2021-05-24 06:17:37.827291 I | http: TLS handshake error from 172.17.0.1:53636: tls: client didn't provide a certificate
+[33m2021-05-24 06:17:48.790 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 069[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:17:48.790 UTC [orderer.common.cluster.puller] func1 -> WARN 06a[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:17:48.790 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 06b[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:17:49.415527 I | http: TLS handshake error from 172.17.0.1:35021: tls: client didn't provide a certificate
+[33m2021-05-24 06:18:03.792 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 06c[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:18:03.792 UTC [orderer.common.cluster.puller] func1 -> WARN 06d[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:18:03.792 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 06e[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:18:18.794 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 06f[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:18:18.794 UTC [orderer.common.cluster.puller] func1 -> WARN 070[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:18:18.794 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 071[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:18:33.795 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 072[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:18:33.795 UTC [orderer.common.cluster.puller] func1 -> WARN 073[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:18:33.795 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 074[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:18:37.031003 I | http: TLS handshake error from 172.17.0.1:51524: tls: client didn't provide a certificate
+2021-05-24 06:18:48.484969 I | http: TLS handshake error from 172.17.0.1:22716: tls: client didn't provide a certificate
+[33m2021-05-24 06:18:48.797 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 075[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:18:48.797 UTC [orderer.common.cluster.puller] func1 -> WARN 076[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:18:48.797 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 077[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:18:49.524514 I | http: TLS handshake error from 172.17.0.1:51598: tls: client didn't provide a certificate
+2021-05-24 06:18:50.818941 I | http: TLS handshake error from 172.17.0.1:13955: tls: client didn't provide a certificate
+[33m2021-05-24 06:19:03.798 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 078[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:19:03.798 UTC [orderer.common.cluster.puller] func1 -> WARN 079[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:19:03.798 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 07a[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:19:18.800 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 07b[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:19:18.800 UTC [orderer.common.cluster.puller] func1 -> WARN 07c[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:19:18.800 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 07d[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:19:33.802 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 07e[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:19:33.802 UTC [orderer.common.cluster.puller] func1 -> WARN 07f[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:19:33.802 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 080[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:19:47.913965 I | http: TLS handshake error from 172.17.0.1:38416: tls: client didn't provide a certificate
+[33m2021-05-24 06:19:48.803 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 081[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:19:48.803 UTC [orderer.common.cluster.puller] func1 -> WARN 082[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:19:48.803 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 083[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:19:49.016904 I | http: TLS handshake error from 172.17.0.1:29955: tls: client didn't provide a certificate
+2021-05-24 06:19:50.858297 I | http: TLS handshake error from 172.17.0.1:5517: tls: client didn't provide a certificate
+2021-05-24 06:20:02.364808 I | http: TLS handshake error from 172.17.0.1:56217: tls: client didn't provide a certificate
+2021-05-24 06:20:03.370004 I | http: TLS handshake error from 172.17.0.1:21583: tls: client didn't provide a certificate
+[33m2021-05-24 06:20:03.805 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 084[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:20:03.805 UTC [orderer.common.cluster.puller] func1 -> WARN 085[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:20:03.805 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 086[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:20:04.890071 I | http: TLS handshake error from 172.17.0.1:46041: tls: client didn't provide a certificate
+[33m2021-05-24 06:20:18.807 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 087[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:20:18.807 UTC [orderer.common.cluster.puller] func1 -> WARN 088[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:20:18.807 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 089[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:23:41.907 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 08a[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:23:41.907 UTC [orderer.common.cluster.puller] func1 -> WARN 08b[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:23:41.907 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 08c[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:23:56.908 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 08d[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:23:56.908 UTC [orderer.common.cluster.puller] func1 -> WARN 08e[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:23:56.908 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 08f[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:24:11.909 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 090[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:24:11.909 UTC [orderer.common.cluster.puller] func1 -> WARN 091[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:24:11.909 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 092[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:24:22.659334 I | http: TLS handshake error from 172.17.0.1:28001: tls: client didn't provide a certificate
+2021-05-24 06:24:23.664075 I | http: TLS handshake error from 172.17.0.1:38148: tls: client didn't provide a certificate
+2021-05-24 06:24:25.205026 I | http: TLS handshake error from 172.17.0.1:22641: tls: client didn't provide a certificate
+[33m2021-05-24 06:24:26.910 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 093[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:24:26.910 UTC [orderer.common.cluster.puller] func1 -> WARN 094[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:24:26.910 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 095[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 06:24:37.108639 I | http: TLS handshake error from 172.17.0.1:6011: tls: client didn't provide a certificate
+2021-05-24 06:24:38.119328 I | http: TLS handshake error from 172.17.0.1:17155: tls: client didn't provide a certificate
+2021-05-24 06:24:39.506792 I | http: TLS handshake error from 172.17.0.1:50050: tls: client didn't provide a certificate
+[33m2021-05-24 06:24:41.912 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 096[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:24:41.912 UTC [orderer.common.cluster.puller] func1 -> WARN 097[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:24:41.912 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 098[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:24:56.913 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 099[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:24:56.913 UTC [orderer.common.cluster.puller] func1 -> WARN 09a[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:24:56.913 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 09b[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 06:25:11.914 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 09c[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:25:11.914 UTC [orderer.common.cluster.puller] func1 -> WARN 09d[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 06:25:11.914 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 09e[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:16:09.016 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 09f[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:16:09.016 UTC [orderer.common.cluster.puller] func1 -> WARN 0a0[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:16:09.016 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0a1[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:16:24.017 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0a2[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:16:24.017 UTC [orderer.common.cluster.puller] func1 -> WARN 0a3[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:16:24.017 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0a4[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:16:39.019 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0a5[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:16:39.019 UTC [orderer.common.cluster.puller] func1 -> WARN 0a6[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:16:39.019 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0a7[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:16:49.826271 I | http: TLS handshake error from 172.17.0.1:32631: tls: client didn't provide a certificate
+2021-05-24 07:16:50.831373 I | http: TLS handshake error from 172.17.0.1:56561: tls: client didn't provide a certificate
+[33m2021-05-24 07:16:54.020 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0a8[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:16:54.020 UTC [orderer.common.cluster.puller] func1 -> WARN 0a9[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:16:54.020 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0aa[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:17:04.276757 I | http: TLS handshake error from 172.17.0.1:26411: tls: client didn't provide a certificate
+2021-05-24 07:17:05.282242 I | http: TLS handshake error from 172.17.0.1:19625: tls: client didn't provide a certificate
+2021-05-24 07:17:07.079988 I | http: TLS handshake error from 172.17.0.1:49224: tls: client didn't provide a certificate
+[33m2021-05-24 07:17:09.021 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ab[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:17:09.021 UTC [orderer.common.cluster.puller] func1 -> WARN 0ac[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:17:09.021 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0ad[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:17:24.022 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ae[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:17:24.022 UTC [orderer.common.cluster.puller] func1 -> WARN 0af[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:17:24.023 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0b0[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:17:39.024 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0b1[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:17:39.024 UTC [orderer.common.cluster.puller] func1 -> WARN 0b2[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:17:39.024 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0b3[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:17:54.025 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0b4[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:17:54.025 UTC [orderer.common.cluster.puller] func1 -> WARN 0b5[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:17:54.025 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0b6[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:18:09.026 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0b7[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:18:09.026 UTC [orderer.common.cluster.puller] func1 -> WARN 0b8[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:18:09.026 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0b9[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:18:24.027 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ba[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:18:24.027 UTC [orderer.common.cluster.puller] func1 -> WARN 0bb[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:18:24.027 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0bc[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:18:39.028 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0bd[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:18:39.029 UTC [orderer.common.cluster.puller] func1 -> WARN 0be[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:18:39.029 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0bf[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:18:53.316589 I | http: TLS handshake error from 172.17.0.1:52362: tls: client didn't provide a certificate
+[33m2021-05-24 07:18:54.029 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0c0[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:18:54.029 UTC [orderer.common.cluster.puller] func1 -> WARN 0c1[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:18:54.030 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0c2[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:18:54.323985 I | http: TLS handshake error from 172.17.0.1:18489: tls: client didn't provide a certificate
+2021-05-24 07:18:56.215643 I | http: TLS handshake error from 172.17.0.1:20201: tls: client didn't provide a certificate
+[33m2021-05-24 07:19:09.031 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0c3[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:19:09.031 UTC [orderer.common.cluster.puller] func1 -> WARN 0c4[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:19:09.031 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0c5[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:19:09.797687 I | http: TLS handshake error from 172.17.0.1:37866: tls: client didn't provide a certificate
+2021-05-24 07:19:10.803260 I | http: TLS handshake error from 172.17.0.1:34530: tls: client didn't provide a certificate
+2021-05-24 07:19:12.397881 I | http: TLS handshake error from 172.17.0.1:56710: tls: client didn't provide a certificate
+[33m2021-05-24 07:19:24.033 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0c6[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:19:24.033 UTC [orderer.common.cluster.puller] func1 -> WARN 0c7[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:19:24.033 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0c8[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:19:39.034 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0c9[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:19:39.034 UTC [orderer.common.cluster.puller] func1 -> WARN 0ca[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:19:39.034 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0cb[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:19:54.035 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0cc[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:19:54.035 UTC [orderer.common.cluster.puller] func1 -> WARN 0cd[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:19:54.035 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0ce[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:20:09.038 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0cf[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:20:09.038 UTC [orderer.common.cluster.puller] func1 -> WARN 0d0[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:20:09.038 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0d1[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:20:24.039 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0d2[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:20:24.039 UTC [orderer.common.cluster.puller] func1 -> WARN 0d3[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:20:24.039 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0d4[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:20:39.041 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0d5[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:20:39.041 UTC [orderer.common.cluster.puller] func1 -> WARN 0d6[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:20:39.041 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0d7[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:20:54.042 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0d8[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:20:54.043 UTC [orderer.common.cluster.puller] func1 -> WARN 0d9[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:20:54.043 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0da[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:21:09.044 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0db[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:21:09.044 UTC [orderer.common.cluster.puller] func1 -> WARN 0dc[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:21:09.044 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0dd[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:21:23.293983 I | http: TLS handshake error from 172.17.0.1:33635: tls: client didn't provide a certificate
+[33m2021-05-24 07:21:24.046 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0de[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:21:24.046 UTC [orderer.common.cluster.puller] func1 -> WARN 0df[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:21:24.046 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0e0[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:21:24.345310 I | http: TLS handshake error from 172.17.0.1:2755: tls: client didn't provide a certificate
+2021-05-24 07:21:26.074064 I | http: TLS handshake error from 172.17.0.1:32091: tls: client didn't provide a certificate
+[33m2021-05-24 07:21:39.047 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0e1[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:21:39.047 UTC [orderer.common.cluster.puller] func1 -> WARN 0e2[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:21:39.047 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0e3[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:21:39.753282 I | http: TLS handshake error from 172.17.0.1:7467: tls: client didn't provide a certificate
+2021-05-24 07:21:40.757695 I | http: TLS handshake error from 172.17.0.1:47814: tls: client didn't provide a certificate
+[33m2021-05-24 07:21:54.048 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0e4[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:21:54.049 UTC [orderer.common.cluster.puller] func1 -> WARN 0e5[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:21:54.049 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0e6[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:22:09.050 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0e7[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:22:09.051 UTC [orderer.common.cluster.puller] func1 -> WARN 0e8[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:22:09.051 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0e9[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:22:24.052 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ea[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:22:24.052 UTC [orderer.common.cluster.puller] func1 -> WARN 0eb[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:22:24.052 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0ec[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:22:39.054 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ed[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:22:39.054 UTC [orderer.common.cluster.puller] func1 -> WARN 0ee[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:22:39.054 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0ef[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:22:54.055 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0f0[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:22:54.055 UTC [orderer.common.cluster.puller] func1 -> WARN 0f1[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:22:54.055 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0f2[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:23:09.057 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0f3[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:23:09.057 UTC [orderer.common.cluster.puller] func1 -> WARN 0f4[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:23:09.057 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0f5[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:23:24.059 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0f6[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:23:24.059 UTC [orderer.common.cluster.puller] func1 -> WARN 0f7[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:23:24.059 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0f8[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:23:39.060 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0f9[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:23:39.060 UTC [orderer.common.cluster.puller] func1 -> WARN 0fa[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:23:39.060 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0fb[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:23:54.061 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0fc[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:23:54.062 UTC [orderer.common.cluster.puller] func1 -> WARN 0fd[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:23:54.062 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 0fe[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+[33m2021-05-24 07:24:09.063 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 0ff[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:24:09.063 UTC [orderer.common.cluster.puller] func1 -> WARN 100[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:24:09.063 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 101[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:24:22.668390 I | http: TLS handshake error from 172.17.0.1:64782: tls: client didn't provide a certificate
+2021-05-24 07:24:23.670729 I | http: TLS handshake error from 172.17.0.1:3486: tls: client didn't provide a certificate
+[33m2021-05-24 07:24:24.067 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 102[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:24:24.067 UTC [orderer.common.cluster.puller] func1 -> WARN 103[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:24:24.067 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 104[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:24:25.563591 I | http: TLS handshake error from 172.17.0.1:21896: tls: client didn't provide a certificate
+2021-05-24 07:24:37.135801 I | http: TLS handshake error from 172.17.0.1:39133: tls: client didn't provide a certificate
+2021-05-24 07:24:38.138908 I | http: TLS handshake error from 172.17.0.1:21684: tls: client didn't provide a certificate
+[33m2021-05-24 07:24:39.068 UTC [orderer.common.cluster.puller] probeEndpoint -> WARN 105[0m Failed connecting to {"CAs":[{"Expired":false,"Issuer":"self","Subject":"CN=fabric-ca-server,OU=Fabric,O=Hyperledger,ST=North Carolina,C=US"}],"Endpoint":"192.168.49.2.nip.io:30004"}: failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:24:39.068 UTC [orderer.common.cluster.puller] func1 -> WARN 106[0m Received error of type 'failed to create new connection: context deadline exceeded' from 192.168.49.2.nip.io:30004 channel=commonchannel
+[34m2021-05-24 07:24:39.068 UTC [orderer.common.cluster.puller] HeightsByEndpoints -> INFO 107[0m Returning the heights of OSNs mapped by endpoints map[] channel=commonchannel
+2021-05-24 07:24:39.925191 I | http: TLS handshake error from 172.17.0.1:50477: tls: client didn't provide a certificate

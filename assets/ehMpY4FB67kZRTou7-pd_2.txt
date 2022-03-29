@@ -1,0 +1,43 @@
+{
+  "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+  "submission_requirements": [
+    {
+      "name": "Citizenship Information",
+      "rule": "pick",
+      "min": 1,
+      "from": "A"
+    }
+  ],
+  "input_descriptors": [
+    {
+      "id": "citizenship_input_1",
+      "name": "EU Driver's License",
+      "group": [
+        "A"
+      ],
+      "schema": [
+        {
+          "uri": "https://www.w3.org/2018/credentials#VerifiableCredential"
+        }
+      ],
+      "constraints": {
+        "limit_disclosure": "required",
+        "fields": [
+          {
+            "path": [
+              "$.credentialSubject.givenName"
+            ],
+            "purpose": "The claim must be from one of the specified issuers",
+            "filter": {
+              "type": "string",
+              "enum": [
+                "JOHN",
+                "CAI"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

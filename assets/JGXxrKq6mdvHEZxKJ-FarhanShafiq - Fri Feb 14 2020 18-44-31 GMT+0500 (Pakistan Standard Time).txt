@@ -1,0 +1,111 @@
+Hey, I have been running 4 indy node on production using docker and nodes had been shutdown after 2 or 3 month period of time. 
+
+indy_node version : v1.9.2
+indy_plenum : v1.9.2
+
+Node2 log:
+ 2020-02-14 07:16:43,770|NOTIFICATION|looper.py|Signal None received, stopping looper...
+2020-02-14 07:16:43,773|NOTIFICATION|looper.py|Looper shutting down now...
+2020-02-14 07:16:43,773|INFO|motor.py|Node2 changing status from started to stopping
+2020-02-14 07:16:43,774|INFO|node.py|node Node2 current stats
+--------------------------------------------------------
+node inbox size         : 0
+client inbox size       : 0
+age (seconds)           : 6132352.946659327
+next check for reconnect: -0.3417530134320259
+node connections        : {'Node4', 'Node3', 'Node1'}
+f                       : 1
+master instance         : 0
+replicas                : 1
+view no                 : 2
+rank                    : 1
+msgs to replicas        : 0
+msgs to view changer    : 0
+action queue            : 0 140622927937920
+action queue stash      : 5 140622927862176
+2020-02-14 07:16:43,774|INFO|node.py|Node2 reseting...
+2020-02-14 07:16:43,830|NOTIFICATION|zstack.py|stack Node2 closing its listener
+2020-02-14 07:16:43,834|NOTIFICATION|zstack.py|stack Node2 stopped
+2020-02-14 07:16:43,835|NOTIFICATION|zstack.py|stack Node2C closing its listener
+2020-02-14 07:16:43,836|NOTIFICATION|zstack.py|stack Node2C stopped
+2020-02-14 07:16:43,836|INFO|node.py|Node2 closing key-value storages
+2020-02-14 07:16:43,856|INFO|motor.py|Node2 changing status from stopping to stopped
+2020-02-14 07:16:43,856|NOTIFICATION|looper.py|Looper shut down in 0.083 seconds.
+
+Node3 log:
+
+2020-02-14 07:16:43,842|NOTIFICATION|keep_in_touch.py|CONNECTION: Node3 disconnected from Node2
+2020-02-14 07:16:43,842|INFO|motor.py|Node3 changing status from started to started_hungry
+2020-02-14 07:17:08,613|INFO|zstack.py|Node3 reconnecting to Node2:HA(host='192.168.20.28', port=9701)
+2020-02-14 07:17:38,626|INFO|zstack.py|Node3 reconnecting to Node2:HA(host='192.168.20.28', port=9701)
+2020-02-14 07:18:08,643|INFO|zstack.py|Node3 reconnecting to Node2:HA(host='192.168.20.28', port=9701)
+2020-02-14 07:18:36,203|NOTIFICATION|looper.py|Signal None received, stopping looper...
+2020-02-14 07:18:36,211|NOTIFICATION|looper.py|Looper shutting down now...
+2020-02-14 07:18:36,211|INFO|motor.py|Node3 changing status from started_hungry to stopping
+2020-02-14 07:18:36,212|INFO|node.py|node Node3 current stats
+--------------------------------------------------------
+node inbox size         : 0
+client inbox size       : 0
+age (seconds)           : 5159117.217948914
+next check for reconnect: -2.4438231121748686
+node connections        : {'Node4', 'Node1'}
+f                       : 1
+master instance         : 0
+replicas                : 2
+view no                 : 2
+rank                    : 2
+msgs to replicas        : 0
+msgs to view changer    : 0
+action queue            : 0 139926570409496
+action queue stash      : 5 139926570409600
+2020-02-14 07:18:36,212|INFO|node.py|Node3 reseting...
+2020-02-14 07:18:36,247|NOTIFICATION|zstack.py|stack Node3 closing its listener
+2020-02-14 07:18:36,249|NOTIFICATION|zstack.py|stack Node3 stopped
+2020-02-14 07:18:36,249|NOTIFICATION|zstack.py|stack Node3C closing its listener
+2020-02-14 07:18:36,250|NOTIFICATION|zstack.py|stack Node3C stopped
+2020-02-14 07:18:36,250|INFO|node.py|Node3 closing key-value storages
+2020-02-14 07:18:36,266|INFO|motor.py|Node3 changing status from stopping to stopped
+2020-02-14 07:18:36,266|NOTIFICATION|looper.py|Looper shut down in 0.055 seconds.
+
+Node4 log:
+2020-02-14 13:04:28,541|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:29,548|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:30,553|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:31,559|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:32,565|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:33,565|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:34,576|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:35,578|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:36,586|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:37,596|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:38,598|INFO|ordering_service.py|Node4:1 not creating new batch because there already 4 in flight out of 4 allowed
+2020-02-14 13:04:39,224|NOTIFICATION|node.py|Node4 primary has been disconnected for too long
+2020-02-14 13:04:39,225|INFO|node.py|Node4 The node is not ready yet so view change will not be proposed now, but re-scheduled.
+2020-02-14 13:04:39,225|INFO|node.py|Node4 scheduling a view change in 60 sec
+2020-02-14 13:04:39,384|NOTIFICATION|looper.py|Signal None received, stopping looper...
+2020-02-14 13:04:39,393|NOTIFICATION|looper.py|Looper shutting down now...
+2020-02-14 13:04:39,393|INFO|motor.py|Node4 changing status from starting to stopping
+2020-02-14 13:04:39,394|INFO|node.py|node Node4 current stats
+--------------------------------------------------------
+node inbox size         : 0
+client inbox size       : 0
+age (seconds)           : 5179807.031471014
+next check for reconnect: -5.027828115038574
+node connections        : {'Node1'}
+f                       : 1
+master instance         : 0
+replicas                : 2
+view no                 : 2
+rank                    : 3
+msgs to replicas        : 0
+msgs to view changer    : 0
+action queue            : 0 140462017265176
+action queue stash      : 6 140462017265280
+2020-02-14 13:04:39,394|INFO|node.py|Node4 reseting...
+2020-02-14 13:04:39,458|NOTIFICATION|zstack.py|stack Node4 closing its listener
+2020-02-14 13:04:39,461|NOTIFICATION|zstack.py|stack Node4 stopped
+2020-02-14 13:04:39,462|NOTIFICATION|zstack.py|stack Node4C closing its listener
+2020-02-14 13:04:39,463|NOTIFICATION|zstack.py|stack Node4C stopped
+2020-02-14 13:04:39,463|INFO|node.py|Node4 closing key-value storages
+2020-02-14 13:04:39,481|INFO|motor.py|Node4 changing status from stopping to stopped
+2020-02-14 13:04:39,482|NOTIFICATION|looper.py|Looper shut down in 0.089 seconds.

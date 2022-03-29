@@ -1,0 +1,212 @@
+MacBunny-Pro:utility-emissions-channel sichen$ ~/hyperledger/minifabric/minifab install -n emissions -l node -v 1.1
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=utilityemissions
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=node
+    CHAINCODE_NAME=emissions
+    CHAINCODE_VERSION=1.1
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=auditor1.com
+    HOST_ADDRESSES=10.0.0.25
+    WORKING_DIRECTORY: /Users/sichen/hyperledger/blockchain-carbon-accounting/utility-emissions-channel
+...
+# Preparing for the following operations: *********************
+  verify options, cc install
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc install
+.................
+
+# STATS *******************************************************
+minifab: ok=33	failed=0	
+
+real	0m54.805s
+user	0m11.040s
+sys	0m3.659s
+MacBunny-Pro:utility-emissions-channel sichen$ ~/hyperledger/minifabric/minifab approve -n emissions
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=utilityemissions
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=node
+    CHAINCODE_NAME=emissions
+    CHAINCODE_VERSION=1.1
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=auditor1.com
+    HOST_ADDRESSES=10.0.0.25
+    WORKING_DIRECTORY: /Users/sichen/hyperledger/blockchain-carbon-accounting/utility-emissions-channel
+...
+# Preparing for the following operations: *********************
+  verify options, cc approve
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc approve
+......
+
+# STATS *******************************************************
+minifab: ok=21	failed=0	
+
+real	0m10.472s
+user	0m4.871s
+sys	0m1.429s
+MacBunny-Pro:utility-emissions-channel sichen$ ~/hyperledger/minifabric/minifab commit
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=utilityemissions
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=node
+    CHAINCODE_NAME=emissions
+    CHAINCODE_VERSION=1.1
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=auditor1.com
+    HOST_ADDRESSES=10.0.0.25
+    WORKING_DIRECTORY: /Users/sichen/hyperledger/blockchain-carbon-accounting/utility-emissions-channel
+...
+# Preparing for the following operations: *********************
+  verify options, cc commit
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc commit
+......
+
+# STATS *******************************************************
+minifab: ok=21	failed=0	
+
+real	0m7.797s
+user	0m4.643s
+sys	0m1.302s
+MacBunny-Pro:utility-emissions-channel sichen$ docker ps
+CONTAINER ID        IMAGE                                                                                                                                                                 COMMAND                  CREATED             STATUS                   PORTS                    NAMES
+d760d7f5f129        hyperledger/explorer:latest                                                                                                                                           "docker-entrypoint.s…"   7 minutes ago       Up 7 minutes             0.0.0.0:7201->8080/tcp   explorer.c2a8960f56_net
+a3b2c6f2594e        hyperledger/explorer-db:latest                                                                                                                                        "docker-entrypoint.s…"   7 minutes ago       Up 7 minutes (healthy)   5432/tcp                 explorerdb.c2a8960f56_net
+7bcfeeb9fd98        dev-peer1.auditor2.org-simple_1.0-c82db0b56d66da90ef4dcd01c4da7c0afc6f6225867477f7eb0409a022fceeee-57abe1567062ab31b387db884751cf84b6c54bfbe8d972c73db14290a57ce6b1   "chaincode -peer.add…"   26 minutes ago      Up 26 minutes                                     dev-peer1.auditor2.org-simple_1.0-c82db0b56d66da90ef4dcd01c4da7c0afc6f6225867477f7eb0409a022fceeee
+00c69c80beb7        dev-peer1.auditor1.com-simple_1.0-c82db0b56d66da90ef4dcd01c4da7c0afc6f6225867477f7eb0409a022fceeee-9c17a9fb8e887f584cf7afc352855f099a3abf72f44d6a97b5af09017c131086   "chaincode -peer.add…"   26 minutes ago      Up 26 minutes                                     dev-peer1.auditor1.com-simple_1.0-c82db0b56d66da90ef4dcd01c4da7c0afc6f6225867477f7eb0409a022fceeee
+0e322cc2de75        hyperledger/fabric-tools:2.2.0                                                                                                                                        "/bin/sh"                29 minutes ago      Up 29 minutes                                     c2a8960f56_cli
+a697d3a312a0        hyperledger/fabric-ca:1.4                                                                                                                                             "/bin/sh -c 'fabric-…"   29 minutes ago      Up 29 minutes            7054/tcp                 ca1.auditor2.org
+943697bf220b        hyperledger/fabric-ca:1.4                                                                                                                                             "/bin/sh -c 'fabric-…"   29 minutes ago      Up 29 minutes            7054/tcp                 ca1.auditor1.com
+a48ca0ad97ed        hyperledger/fabric-orderer:2.2.0                                                                                                                                      "orderer"                29 minutes ago      Up 29 minutes            7050/tcp                 orderer2.operator.com
+1ea0d13884a0        hyperledger/fabric-orderer:2.2.0                                                                                                                                      "orderer"                29 minutes ago      Up 29 minutes            7050/tcp                 orderer1.operator.com
+5d401ae291ad        hyperledger/fabric-peer:2.2.0                                                                                                                                         "peer node start"        29 minutes ago      Up 29 minutes            7051/tcp                 peer1.auditor2.org
+b42f43634f93        hyperledger/fabric-peer:2.2.0                                                                                                                                         "peer node start"        29 minutes ago      Up 29 minutes            7051/tcp                 peer1.auditor1.com
+MacBunny-Pro:utility-emissions-channel sichen$ ~/hyperledger/minifabric/minifab stats
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=utilityemissions
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=node
+    CHAINCODE_NAME=emissions
+    CHAINCODE_VERSION=1.1
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=auditor1.com
+    HOST_ADDRESSES=10.0.0.25
+    WORKING_DIRECTORY: /Users/sichen/hyperledger/blockchain-carbon-accounting/utility-emissions-channel
+...
+# Preparing for the following operations: *********************
+  verify options, network status
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  network status
+......
+# Docker node status ******************************************
+  dev-peer1.auditor2.org-emissions_1.1-b94e2cac8c709 : Exited (1) 8 minutes ago
+  dev-peer1.auditor1.com-emissions_1.1-b94e2cac8c709 : Exited (1) 8 minutes ago
+  explorer.c2a8960f56_net : Up 15 minutes
+  explorerdb.c2a8960f56_net : Up 15 minutes (healthy)
+  dev-peer1.auditor2.org-simple_1.0-c82db0b56d66da90 : Up 34 minutes
+  dev-peer1.auditor1.com-simple_1.0-c82db0b56d66da90 : Up 34 minutes
+  c2a8960f56_cli : Up 37 minutes
+  ca1.auditor2.org : Up 37 minutes
+  ca1.auditor1.com : Up 37 minutes
+  orderer2.operator.com : Up 37 minutes
+  orderer1.operator.com : Up 37 minutes
+  peer1.auditor2.org : Up 37 minutes
+  peer1.auditor1.com : Up 37 minutes
+
+# Fabric network peer and orderer node health status **********
+    peer1.auditor1.com "OK"
+    peer1.auditor2.org "OK"
+  orderer1.operator.com "OK"
+  orderer2.operator.com "OK"
+
+
+# STATS *******************************************************
+minifab: ok=23	failed=0	
+
+real	0m6.219s
+user	0m5.038s
+sys	0m1.453s
+MacBunny-Pro:utility-emissions-channel sichen$ ~/hyperledger/minifabric/minifab initialize
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=utilityemissions
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=node
+    CHAINCODE_NAME=emissions
+    CHAINCODE_VERSION=1.1
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=auditor1.com
+    HOST_ADDRESSES=10.0.0.25
+    WORKING_DIRECTORY: /Users/sichen/hyperledger/blockchain-carbon-accounting/utility-emissions-channel
+...
+# Preparing for the following operations: *********************
+  verify options, cc initialize
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc initialize
+.....
+# Run the chaincode instantiate script on cli container *******
+  non-zero return code
+  Error: endorsement failure during invoke. response: status:500 message:"error in simulation: failed to execute transaction 9843df7df66774b5780989268c4d8d5acc6eedaf78ebc7e3474757e6ba7d77b6: could not launch chaincode emissions_1.1:b94e2cac8c7098e52fa5545673b5e46bb6f3c0825013fbaeef6cf4e200459b95: chaincode registration failed: container exited with 1"
+
+# STATS *******************************************************
+minifab: ok=20	failed=1	
+
+real	0m7.786s
+user	0m4.220s
+sys	0m1.243s

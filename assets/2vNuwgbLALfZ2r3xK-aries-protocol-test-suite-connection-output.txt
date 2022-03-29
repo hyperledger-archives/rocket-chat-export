@@ -1,0 +1,254 @@
+(env) Shel@Sheldons-MacBook-Pro aries-protocol-test-suite % protocoltest
+
+Attempting to load configuration from file: /Users/Shel/Projects/BC.gov/aries-protocol-test-suite/config.toml
+
+========================================================= test session starts =========================================================
+platform darwin -- Python 3.7.5, pytest-4.6.3, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/Shel/Projects/BC.gov/aries-protocol-test-suite, inifile: pytest.ini
+plugins: asyncio-0.10.0
+collected 17 items / 11 deselected / 6 selected                                                                                       
+
+protocol_tests/connection/test_connection.py FFFFFF                                                                             [100%]
+
+============================================================== FAILURES ===============================================================
+_______________________________________________ test_connection_started_by_tested_agent _______________________________________________
+
+inviter = <async_generator object _inviter at 0x111cc5830>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='inviter', name='can-be-inviter')
+    async def test_connection_started_by_tested_agent(inviter):
+        """Test a connection as started by the agent under test."""
+>       await run(inviter)
+
+protocol_tests/connection/test_connection.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:228: in run
+    async for _event, *_data in generator:
+protocol_tests/connection/test_connection.py:17: in _inviter
+    invite = Invite.parse_url(await backchannel.connections_v1_0_inviter_start())
+default.py:54: in connections_v1_0_inviter_start
+    return input('Enter invitation URL: ')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Generate a new invitation on test subject.
+Enter invitation URL: 
+_______________________________________________________ test_response_valid_pre _______________________________________________________
+
+inviter = <async_generator object _inviter at 0x111c76e60>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='inviter', name='response-pre-sig-verify-valid')
+    async def test_response_valid_pre(inviter):
+        """Response before signature verification is valid."""
+>       _conn, response = await last(interrupt(inviter, on='response'))
+
+protocol_tests/connection/test_connection.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:215: in last
+    async for _event, *data in generator:
+protocol_tests/__init__.py:154: in interrupt
+    async for event, *data in generator:
+protocol_tests/connection/test_connection.py:17: in _inviter
+    invite = Invite.parse_url(await backchannel.connections_v1_0_inviter_start())
+default.py:54: in connections_v1_0_inviter_start
+    return input('Enter invitation URL: ')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Generate a new invitation on test subject.
+Enter invitation URL: 
+______________________________________________________ test_response_valid_post _______________________________________________________
+
+inviter = <async_generator object _inviter at 0x111d03b00>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='inviter', name='response-post-sig-verify-valid')
+    async def test_response_valid_post(inviter):
+        """Response after signature verification is valid."""
+>       _conn, response = await last(interrupt(inviter, on='response_verified'))
+
+protocol_tests/connection/test_connection.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:215: in last
+    async for _event, *data in generator:
+protocol_tests/__init__.py:154: in interrupt
+    async for event, *data in generator:
+protocol_tests/connection/test_connection.py:17: in _inviter
+    invite = Invite.parse_url(await backchannel.connections_v1_0_inviter_start())
+default.py:54: in connections_v1_0_inviter_start
+    return input('Enter invitation URL: ')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Generate a new invitation on test subject.
+Enter invitation URL: 
+_________________________________________________ test_response_thid_matches_request __________________________________________________
+
+inviter = <async_generator object _inviter at 0x111d6e0e0>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='inviter', name='response-thid-matches-request')
+    async def test_response_thid_matches_request(inviter):
+        """Response's thread has thid matching id of request."""
+>       message_map = await event_message_map(inviter)
+
+protocol_tests/connection/test_connection.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:191: in event_message_map
+    async for event, *messages in yield_messages(generator):
+protocol_tests/__init__.py:162: in yield_messages
+    async for event, *data in generator:
+protocol_tests/connection/test_connection.py:17: in _inviter
+    invite = Invite.parse_url(await backchannel.connections_v1_0_inviter_start())
+default.py:54: in connections_v1_0_inviter_start
+    return input('Enter invitation URL: ')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Generate a new invitation on test subject.
+Enter invitation URL: 
+_____________________________________________________ test_finish_with_trust_ping _____________________________________________________
+
+inviter = <async_generator object _inviter at 0x111d6e200>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='inviter', name='responds-to-ping')
+    async def test_finish_with_trust_ping(inviter):
+        """Inviter responds to trust ping after connection protocol completion."""
+>       conn = await last(interrupt(inviter, on='complete'))
+
+protocol_tests/connection/test_connection.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:215: in last
+    async for _event, *data in generator:
+protocol_tests/__init__.py:154: in interrupt
+    async for event, *data in generator:
+protocol_tests/connection/test_connection.py:17: in _inviter
+    invite = Invite.parse_url(await backchannel.connections_v1_0_inviter_start())
+default.py:54: in connections_v1_0_inviter_start
+    return input('Enter invitation URL: ')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Generate a new invitation on test subject.
+Enter invitation URL: 
+__________________________________________________ test_connection_started_by_suite ___________________________________________________
+
+invitee = <async_generator object _invitee at 0x111d6e950>
+
+    @pytest.mark.asyncio
+    @meta(protocol='connections', version='1.0',
+          role='invitee', name='can-be-invitee')
+    async def test_connection_started_by_suite(invitee):
+        """Test a connection as started by the suite."""
+>       await run(invitee)
+
+protocol_tests/connection/test_connection.py:181: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+protocol_tests/__init__.py:228: in run
+    async for _event, *_data in generator:
+protocol_tests/connection/test_connection.py:136: in _invitee
+    await backchannel.connections_v1_0_invitee_start(invite.to_url())
+default.py:59: in connections_v1_0_invitee_start
+    pause()
+default.py:11: in pause
+    input('Press ENTER to continue.')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <_pytest.capture.DontReadFromInput object at 0x110ef24d0>, args = ()
+
+    def read(self, *args):
+>       raise IOError("reading from stdin while output is captured")
+E       OSError: reading from stdin while output is captured
+
+env/lib/python3.7/site-packages/_pytest/capture.py:721: OSError
+-------------------------------------------------------- Captured stdout call ---------------------------------------------------------
+Paste the following invitation into the test subject.
+Generated invitation:  http://localhost:3000?c_i=eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJsYWJlbCI6ICJ0ZXN0LXN1aXRlLWNvbm5lY3Rpb24tc3RhcnRlZC1ieS1zdWl0ZSIsICJyZWNpcGllbnRLZXlzIjogWyJBRzM4VUhFU0t6UnE1azJuelBGVEpoQUg4czQ3S1BEcmpkSGtFTGpIbVlHZSJdLCAic2VydmljZUVuZHBvaW50IjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCIsICJyb3V0aW5nS2V5cyI6IFtdLCAiQGlkIjogIjE3MjllMTU5LWY1YmMtNGJlOC05Yzc5LWFjNjJjYzAwYjRmNSJ9
+Press ENTER to continue.
+
+=========================================================== Interop Profile ===========================================================
+
+{
+  "@type": "Aries Test Suite Interop Profile v1",
+  "suite_version": "0.1.0",
+  "under_test_name": "Alice",
+  "under_test_version": "1.0.0",
+  "test_time": "2020-03-19T15:23:08",
+  "results": [
+    {
+      "name": "connections,1.0,inviter,can-be-inviter",
+      "description": "Test a connection as started by the agent under test.",
+      "pass": false
+    },
+    {
+      "name": "connections,1.0,inviter,response-pre-sig-verify-valid",
+      "description": "Response before signature verification is valid.",
+      "pass": false
+    },
+    {
+      "name": "connections,1.0,inviter,response-post-sig-verify-valid",
+      "description": "Response after signature verification is valid.",
+      "pass": false
+    },
+    {
+      "name": "connections,1.0,inviter,response-thid-matches-request",
+      "description": "Response's thread has thid matching id of request.",
+      "pass": false
+    },
+    {
+      "name": "connections,1.0,inviter,responds-to-ping",
+      "description": "Inviter responds to trust ping after connection protocol completion.",
+      "pass": false
+    },
+    {
+      "name": "connections,1.0,invitee,can-be-invitee",
+      "description": "Test a connection as started by the suite.",
+      "pass": false
+    }
+  ]
+}
+=============================================== 6 failed, 11 deselected in 0.58 seconds ===============================================
+(env) Shel@Sheldons-MacBook-Pro aries-protocol-test-suite % 

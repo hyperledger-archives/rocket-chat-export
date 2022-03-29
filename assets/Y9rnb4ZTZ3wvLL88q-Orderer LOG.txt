@@ -1,0 +1,239 @@
+2017-08-08 14:00:05.880 UTC [orderer/main] main -> INFO 001 Starting orderer:
+ Version: 1.0.0
+ Go version: go1.7.5
+ OS/Arch: linux/amd64
+2017-08-08 14:00:06.016 UTC [orderer/main] initializeSecureServerConfig -> INFO 002 Starting orderer with TLS enabled
+2017-08-08 14:00:06.507 UTC [bccsp_sw] openKeyStore -> DEBU 003 KeyStore opened at [/etc/hyperledger/crypto/orderer/msp/keystore]...done
+2017-08-08 14:00:06.507 UTC [bccsp] initBCCSP -> DEBU 004 Initialize BCCSP [SW]
+2017-08-08 14:00:06.547 UTC [msp] getPemMaterialFromDir -> DEBU 005 Reading directory /etc/hyperledger/crypto/orderer/msp/signcerts
+2017-08-08 14:00:06.585 UTC [msp] getPemMaterialFromDir -> DEBU 006 Inspecting file /etc/hyperledger/crypto/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-08-08 14:00:06.588 UTC [msp] getPemMaterialFromDir -> DEBU 007 Reading directory /etc/hyperledger/crypto/orderer/msp/cacerts
+2017-08-08 14:00:06.595 UTC [msp] getPemMaterialFromDir -> DEBU 008 Inspecting file /etc/hyperledger/crypto/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-08-08 14:00:06.595 UTC [msp] getPemMaterialFromDir -> DEBU 009 Reading directory /etc/hyperledger/crypto/orderer/msp/admincerts
+2017-08-08 14:00:06.602 UTC [msp] getPemMaterialFromDir -> DEBU 00a Inspecting file /etc/hyperledger/crypto/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-08-08 14:00:06.619 UTC [msp] getPemMaterialFromDir -> DEBU 00b Reading directory /etc/hyperledger/crypto/orderer/msp/intermediatecerts
+2017-08-08 14:00:06.619 UTC [msp] getMspConfig -> DEBU 00c Intermediate certs folder not found at [/etc/hyperledger/crypto/orderer/msp/intermediatecerts]. Skipping. [stat /etc/hyperledger/crypto/orderer/msp/intermediatecerts: no such file or directory]
+2017-08-08 14:00:06.619 UTC [msp] getPemMaterialFromDir -> DEBU 00d Reading directory /etc/hyperledger/crypto/orderer/msp/tlscacerts
+2017-08-08 14:00:06.620 UTC [msp] getPemMaterialFromDir -> DEBU 00e Inspecting file /etc/hyperledger/crypto/orderer/msp/tlscacerts/tlsca.example.com-cert.pem
+2017-08-08 14:00:06.622 UTC [msp] getPemMaterialFromDir -> DEBU 00f Reading directory /etc/hyperledger/crypto/orderer/msp/tlsintermediatecerts
+2017-08-08 14:00:06.625 UTC [msp] getMspConfig -> DEBU 010 TLS intermediate certs folder not found at [/etc/hyperledger/crypto/orderer/msp/tlsintermediatecerts]. Skipping. [stat /etc/hyperledger/crypto/orderer/msp/tlsintermediatecerts: no such file or directory]
+2017-08-08 14:00:06.628 UTC [msp] getPemMaterialFromDir -> DEBU 011 Reading directory /etc/hyperledger/crypto/orderer/msp/crls
+2017-08-08 14:00:06.628 UTC [msp] getMspConfig -> DEBU 012 crls folder not found at [/etc/hyperledger/crypto/orderer/msp/crls]. Skipping. [stat /etc/hyperledger/crypto/orderer/msp/crls: no such file or directory]
+2017-08-08 14:00:06.628 UTC [msp] getMspConfig -> DEBU 013 MSP configuration file not found at [/etc/hyperledger/crypto/orderer/msp/config.yaml]: [stat /etc/hyperledger/crypto/orderer/msp/config.yaml: no such file or directory]
+2017-08-08 14:00:06.628 UTC [msp] NewBccspMsp -> DEBU 014 Creating BCCSP-based MSP instance
+2017-08-08 14:00:06.628 UTC [msp] GetLocalMSP -> DEBU 015 Created new local MSP
+2017-08-08 14:00:06.628 UTC [msp] Setup -> DEBU 016 Setting up MSP instance OrdererMSP
+2017-08-08 14:00:06.628 UTC [msp/identity] newIdentity -> DEBU 017 Creating identity instance for ID &{OrdererMSP cbd0ccd5d429a737065e451a12e084fcc879af0ae18543218cd3181a5b4dad4e}
+2017-08-08 14:00:06.629 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP f545398cd82502814cac4ebb86788d19aaa76dbe2651d3d6ce4a1d74ef618beb}
+2017-08-08 14:00:06.629 UTC [msp/identity] newIdentity -> DEBU 019 Creating identity instance for ID &{OrdererMSP f545398cd82502814cac4ebb86788d19aaa76dbe2651d3d6ce4a1d74ef618beb}
+2017-08-08 14:00:06.630 UTC [msp/identity] newIdentity -> DEBU 01a Creating identity instance for ID &{OrdererMSP 3f62ed819c25d1af7969d1d32543ba9722ce7bef9264b0177ae362ae06148fe2}
+2017-08-08 14:00:06.632 UTC [bccsp_sw] loadPrivateKey -> DEBU 01b Loading private key [2fb065725bf1b7e2811c0e8ca8d37f5a951fc4cd1162a47aad8accf9ddd10291] at [/etc/hyperledger/crypto/orderer/msp/keystore/2fb065725bf1b7e2811c0e8ca8d37f5a951fc4cd1162a47aad8accf9ddd10291_sk]...
+2017-08-08 14:00:06.639 UTC [msp/identity] newIdentity -> DEBU 01c Creating identity instance for ID &{OrdererMSP 3f62ed819c25d1af7969d1d32543ba9722ce7bef9264b0177ae362ae06148fe2}
+2017-08-08 14:00:06.640 UTC [msp] Validate -> DEBU 01d MSP OrdererMSP validating identity
+2017-08-08 14:00:06.643 UTC [orderer/main] createLedgerFactory -> DEBU 01e Ledger dir: /var/hyperledger/production/orderer
+2017-08-08 14:00:06.643 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01f CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-08-08 14:00:06.806 UTC [kvledger.util] logDirStatus -> DEBU 020 Before creating dir - [/var/hyperledger/production/orderer/index/] does not exist
+2017-08-08 14:00:06.807 UTC [kvledger.util] logDirStatus -> DEBU 021 After creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-08-08 14:00:06.869 UTC [fsblkstorage] newBlockfileMgr -> DEBU 022 newBlockfileMgr() initializing file-based block storage for ledger: testchainid 
+2017-08-08 14:00:06.881 UTC [kvledger.util] CreateDirIfMissing -> DEBU 023 CreateDirIfMissing [/var/hyperledger/production/orderer/chains/testchainid/]
+2017-08-08 14:00:06.881 UTC [kvledger.util] logDirStatus -> DEBU 024 Before creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] does not exist
+2017-08-08 14:00:06.881 UTC [kvledger.util] logDirStatus -> DEBU 025 After creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] exists
+2017-08-08 14:00:06.887 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 026 Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[0], isChainEmpty=[true], lastBlockNumber=[0]
+2017-08-08 14:00:06.887 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 027 status of file [/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000]: exists=[false], size=[0]
+2017-08-08 14:00:06.887 UTC [fsblkstorage] newBlockIndex -> DEBU 028 newBlockIndex() - indexItems:[[BlockNum]]
+2017-08-08 14:00:06.887 UTC [fsblkstorage] newBlockfileStream -> DEBU 029 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-08-08 14:00:06.887 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02a Finished reading file number [0]
+2017-08-08 14:00:06.887 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02b blockbytes [0] read from file [0]
+2017-08-08 14:00:06.892 UTC [fsblkstorage] indexBlock -> DEBU 02c Indexing block [blockNum=0, blockHash=[]byte{0x1d, 0x9d, 0x64, 0xd7, 0x1, 0xe8, 0xb4, 0x67, 0xb1, 0xc6, 0x9f, 0x6e, 0x2f, 0x9f, 0xda, 0xdb, 0x5c, 0x93, 0x10, 0x8b, 0x79, 0x88, 0xff, 0x2a, 0x12, 0xe2, 0x79, 0x56, 0x6d, 0x22, 0x2, 0x7b} txOffsets=
+txId=632f618f2b3bf2e9d1e684475abefc0e3924050d849f5a1a5bf48cc4fabd4669 locPointer=offset=38, bytesLength=9022
+]
+2017-08-08 14:00:06.893 UTC [fsblkstorage] updateCheckpoint -> DEBU 02d Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[9065], isChainEmpty=[false], lastBlockNumber=[0]
+2017-08-08 14:00:06.909 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 02e retrieveBlockByNumber() - blockNum = [0]
+2017-08-08 14:00:06.909 UTC [fsblkstorage] newBlockfileStream -> DEBU 02f newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-08-08 14:00:06.909 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 030 Remaining bytes=[9065], Going to peek [8] bytes
+2017-08-08 14:00:06.909 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 031 Returning blockbytes - length=[9063], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-08-08 14:00:06.909 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 032 retrieveBlockByNumber() - blockNum = [0]
+2017-08-08 14:00:06.909 UTC [fsblkstorage] newBlockfileStream -> DEBU 033 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-08-08 14:00:06.909 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 034 Remaining bytes=[9065], Going to peek [8] bytes
+2017-08-08 14:00:06.909 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 035 Returning blockbytes - length=[9063], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-08-08 14:00:06.909 UTC [common/config] NewStandardValues -> DEBU 036 Initializing protos for *config.ChannelProtos
+2017-08-08 14:00:06.909 UTC [common/config] initializeProtosStruct -> DEBU 037 Processing field: HashingAlgorithm
+2017-08-08 14:00:06.909 UTC [common/config] initializeProtosStruct -> DEBU 038 Processing field: BlockDataHashingStructure
+2017-08-08 14:00:06.909 UTC [common/config] initializeProtosStruct -> DEBU 039 Processing field: OrdererAddresses
+2017-08-08 14:00:06.909 UTC [common/config] initializeProtosStruct -> DEBU 03a Processing field: Consortium
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 03b Adding to config map: [Groups] /Channel
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 03c Adding to config map: [Groups] /Channel/Consortiums
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 03d Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 03e Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org2MSP
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 03f Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org2MSP/MSP
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 040 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Writers
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 041 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Admins
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 042 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Readers
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 043 Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org1MSP
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 044 Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org1MSP/MSP
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 045 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Readers
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 046 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Writers
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 047 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Admins
+2017-08-08 14:00:06.911 UTC [common/configtx] addToMap -> DEBU 048 Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/ChannelCreationPolicy
+2017-08-08 14:00:06.912 UTC [common/configtx] addToMap -> DEBU 049 Adding to config map: [Policy] /Channel/Consortiums/Admins
+2017-08-08 14:00:06.913 UTC [common/configtx] addToMap -> DEBU 04a Adding to config map: [Groups] /Channel/Orderer
+2017-08-08 14:00:06.913 UTC [common/configtx] addToMap -> DEBU 04b Adding to config map: [Groups] /Channel/Orderer/OrdererMSP
+2017-08-08 14:00:06.913 UTC [common/configtx] addToMap -> DEBU 04c Adding to config map: [Values] /Channel/Orderer/OrdererMSP/MSP
+2017-08-08 14:00:06.913 UTC [common/configtx] addToMap -> DEBU 04d Adding to config map: [Policy] /Channel/Orderer/OrdererMSP/Readers
+2017-08-08 14:00:06.913 UTC [common/configtx] addToMap -> DEBU 04e Adding to config map: [Policy] /Channel/Orderer/OrdererMSP/Writers
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 04f Adding to config map: [Policy] /Channel/Orderer/OrdererMSP/Admins
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 050 Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 051 Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 052 Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 053 Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 054 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 055 Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 056 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-08-08 14:00:06.917 UTC [common/configtx] addToMap -> DEBU 057 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 058 Adding to config map: [Values] /Channel/OrdererAddresses
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 059 Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 05a Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 05b Adding to config map: [Policy] /Channel/Admins
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 05c Adding to config map: [Policy] /Channel/Readers
+2017-08-08 14:00:06.918 UTC [common/configtx] addToMap -> DEBU 05d Adding to config map: [Policy] /Channel/Writers
+2017-08-08 14:00:06.918 UTC [common/configtx] processConfig -> DEBU 05e Beginning new config for channel testchainid
+2017-08-08 14:00:06.918 UTC [common/config] NewStandardValues -> DEBU 05f Initializing protos for *config.ChannelProtos
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 060 Processing field: HashingAlgorithm
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 061 Processing field: BlockDataHashingStructure
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 062 Processing field: OrdererAddresses
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 063 Processing field: Consortium
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 064 Proposed new policy Admins for Channel
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 065 Proposed new policy Readers for Channel
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 066 Proposed new policy Writers for Channel
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 067 Proposed new policy Admins for Consortiums
+2017-08-08 14:00:06.918 UTC [common/config] NewStandardValues -> DEBU 068 Initializing protos for *config.ConsortiumProtos
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 069 Processing field: ChannelCreationPolicy
+2017-08-08 14:00:06.918 UTC [common/config] NewStandardValues -> DEBU 06a Initializing protos for *config.OrganizationProtos
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 06b Processing field: MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 06c Proposed new policy Writers for Org2MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 06d Proposed new policy Admins for Org2MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 06e Proposed new policy Readers for Org2MSP
+2017-08-08 14:00:06.918 UTC [common/config] NewStandardValues -> DEBU 06f Initializing protos for *config.OrganizationProtos
+2017-08-08 14:00:06.918 UTC [common/config] initializeProtosStruct -> DEBU 070 Processing field: MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 071 Proposed new policy Readers for Org1MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 072 Proposed new policy Writers for Org1MSP
+2017-08-08 14:00:06.918 UTC [policies] ProposePolicy -> DEBU 073 Proposed new policy Admins for Org1MSP
+2017-08-08 14:00:06.918 UTC [common/config] NewStandardValues -> DEBU 074 Initializing protos for *config.OrdererProtos
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 075 Processing field: ConsensusType
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 076 Processing field: BatchSize
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 077 Processing field: BatchTimeout
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 078 Processing field: KafkaBrokers
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 079 Processing field: ChannelRestrictions
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 07a Proposed new policy Writers for Orderer
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 07b Proposed new policy Admins for Orderer
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 07c Proposed new policy BlockValidation for Orderer
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 07d Proposed new policy Readers for Orderer
+2017-08-08 14:00:06.925 UTC [common/config] NewStandardValues -> DEBU 07e Initializing protos for *config.OrganizationProtos
+2017-08-08 14:00:06.925 UTC [common/config] initializeProtosStruct -> DEBU 07f Processing field: MSP
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 080 Proposed new policy Readers for OrdererMSP
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 081 Proposed new policy Writers for OrdererMSP
+2017-08-08 14:00:06.925 UTC [policies] ProposePolicy -> DEBU 082 Proposed new policy Admins for OrdererMSP
+2017-08-08 14:00:06.925 UTC [common/config] validateMSP -> DEBU 083 Setting up MSP for org Org2MSP
+2017-08-08 14:00:06.925 UTC [msp] NewBccspMsp -> DEBU 084 Creating BCCSP-based MSP instance
+2017-08-08 14:00:06.925 UTC [msp] Setup -> DEBU 085 Setting up MSP instance Org2MSP
+2017-08-08 14:00:06.925 UTC [msp/identity] newIdentity -> DEBU 086 Creating identity instance for ID &{Org2MSP 81eca3cff4f36971d25fd0f529d547ce3a40f8684e6ba74735457a87627b577d}
+2017-08-08 14:00:06.925 UTC [msp/identity] newIdentity -> DEBU 087 Creating identity instance for ID &{Org2MSP 4fa4ff2929bc92ba1dbdb48e78ba69d66615e1fdc65d9d7650413a4eaae3ca1b}
+2017-08-08 14:00:06.963 UTC [msp/identity] newIdentity -> DEBU 088 Creating identity instance for ID &{Org2MSP 4fa4ff2929bc92ba1dbdb48e78ba69d66615e1fdc65d9d7650413a4eaae3ca1b}
+2017-08-08 14:00:06.964 UTC [msp] Validate -> DEBU 089 MSP Org2MSP validating identity
+2017-08-08 14:00:06.964 UTC [common/config] validateMSP -> DEBU 08a Setting up MSP for org Org1MSP
+2017-08-08 14:00:06.964 UTC [msp] NewBccspMsp -> DEBU 08b Creating BCCSP-based MSP instance
+2017-08-08 14:00:06.964 UTC [msp] Setup -> DEBU 08c Setting up MSP instance Org1MSP
+2017-08-08 14:00:06.964 UTC [msp/identity] newIdentity -> DEBU 08d Creating identity instance for ID &{Org1MSP 05c627d22856ef97320030d720f1c4a3afad852b8b5feb9b12990f6252c1bc29}
+2017-08-08 14:00:06.981 UTC [msp/identity] newIdentity -> DEBU 08e Creating identity instance for ID &{Org1MSP ed2817b918dbc4f74484cbd8e71e3be1b36c2d22adb217bc2e377301518d0ea9}
+2017-08-08 14:00:06.981 UTC [msp/identity] newIdentity -> DEBU 08f Creating identity instance for ID &{Org1MSP ed2817b918dbc4f74484cbd8e71e3be1b36c2d22adb217bc2e377301518d0ea9}
+2017-08-08 14:00:06.987 UTC [msp] Validate -> DEBU 090 MSP Org1MSP validating identity
+2017-08-08 14:00:06.999 UTC [common/config] validateMSP -> DEBU 091 Setting up MSP for org OrdererMSP
+2017-08-08 14:00:07.000 UTC [msp] NewBccspMsp -> DEBU 092 Creating BCCSP-based MSP instance
+2017-08-08 14:00:07.000 UTC [msp] Setup -> DEBU 093 Setting up MSP instance OrdererMSP
+2017-08-08 14:00:07.000 UTC [msp/identity] newIdentity -> DEBU 094 Creating identity instance for ID &{OrdererMSP cbd0ccd5d429a737065e451a12e084fcc879af0ae18543218cd3181a5b4dad4e}
+2017-08-08 14:00:07.000 UTC [msp/identity] newIdentity -> DEBU 095 Creating identity instance for ID &{OrdererMSP f545398cd82502814cac4ebb86788d19aaa76dbe2651d3d6ce4a1d74ef618beb}
+2017-08-08 14:00:07.002 UTC [msp/identity] newIdentity -> DEBU 096 Creating identity instance for ID &{OrdererMSP f545398cd82502814cac4ebb86788d19aaa76dbe2651d3d6ce4a1d74ef618beb}
+2017-08-08 14:00:07.005 UTC [msp] Validate -> DEBU 097 MSP OrdererMSP validating identity
+2017-08-08 14:00:07.015 UTC [msp] Setup -> DEBU 098 Setting up the MSP manager (3 msps)
+2017-08-08 14:00:07.015 UTC [msp] Setup -> DEBU 099 MSP manager setup complete, setup 3 msps
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 09a Returning policy Readers for evaluation
+2017-08-08 14:00:07.015 UTC [policies] CommitProposals -> DEBU 09b In commit adding relative sub-policy Org2MSP/Readers to SampleConsortium
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 09c Returning policy Writers for evaluation
+2017-08-08 14:00:07.015 UTC [policies] CommitProposals -> DEBU 09d In commit adding relative sub-policy Org2MSP/Writers to SampleConsortium
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 09e Returning policy Admins for evaluation
+2017-08-08 14:00:07.015 UTC [policies] CommitProposals -> DEBU 09f In commit adding relative sub-policy Org2MSP/Admins to SampleConsortium
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 0a0 Returning policy Readers for evaluation
+2017-08-08 14:00:07.015 UTC [policies] CommitProposals -> DEBU 0a1 In commit adding relative sub-policy Org1MSP/Readers to SampleConsortium
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 0a2 Returning policy Writers for evaluation
+2017-08-08 14:00:07.015 UTC [policies] CommitProposals -> DEBU 0a3 In commit adding relative sub-policy Org1MSP/Writers to SampleConsortium
+2017-08-08 14:00:07.015 UTC [policies] GetPolicy -> DEBU 0a4 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0a5 In commit adding relative sub-policy Org1MSP/Admins to SampleConsortium
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0a6 Returning policy Org2MSP/Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0a7 In commit adding relative sub-policy SampleConsortium/Org2MSP/Readers to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0a8 Returning policy Org2MSP/Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0a9 In commit adding relative sub-policy SampleConsortium/Org2MSP/Writers to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0aa Returning policy Org2MSP/Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0ab In commit adding relative sub-policy SampleConsortium/Org2MSP/Admins to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0ac Returning policy Org1MSP/Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0ad In commit adding relative sub-policy SampleConsortium/Org1MSP/Readers to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0ae Returning policy Org1MSP/Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0af In commit adding relative sub-policy SampleConsortium/Org1MSP/Writers to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b0 Returning policy Org1MSP/Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0b1 In commit adding relative sub-policy SampleConsortium/Org1MSP/Admins to Consortiums
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b2 Returning policy Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0b3 In commit adding relative sub-policy OrdererMSP/Readers to Orderer
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b4 Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0b5 In commit adding relative sub-policy OrdererMSP/Writers to Orderer
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b6 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0b7 In commit adding relative sub-policy OrdererMSP/Admins to Orderer
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b8 Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0b9 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0ba Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0bb Returning policy Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0bc Returning policy SampleConsortium/Org2MSP/Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0bd In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Admins to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0be Returning policy SampleConsortium/Org1MSP/Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0bf In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Readers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0c0 Returning policy SampleConsortium/Org1MSP/Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0c1 In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Writers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0c2 Returning policy SampleConsortium/Org1MSP/Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0c3 In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Admins to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0c4 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0c5 In commit adding relative sub-policy Consortiums/Admins to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0c6 Returning policy SampleConsortium/Org2MSP/Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0c7 In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Readers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0c8 Returning policy SampleConsortium/Org2MSP/Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0c9 In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Writers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0ca Returning policy OrdererMSP/Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0cb In commit adding relative sub-policy Orderer/OrdererMSP/Admins to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0cc Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0cd In commit adding relative sub-policy Orderer/Writers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0ce Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0cf In commit adding relative sub-policy Orderer/Admins to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d0 Returning policy BlockValidation for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0d1 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d2 Returning policy Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0d3 In commit adding relative sub-policy Orderer/Readers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d4 Returning policy OrdererMSP/Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0d5 In commit adding relative sub-policy Orderer/OrdererMSP/Readers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d6 Returning policy OrdererMSP/Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0d7 In commit adding relative sub-policy Orderer/OrdererMSP/Writers to Channel
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d8 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0d9 Returning policy Admins for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0da Returning dummy reject all policy because Readers could not be found in /Consortiums/Readers
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0db Returning policy Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0dc Returning dummy reject all policy because Writers could not be found in /Consortiums/Writers
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0dd Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0de Returning policy Readers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0df As expected, current configuration has policy '/Channel/Readers'
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0e0 Returning policy Writers for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0e1 As expected, current configuration has policy '/Channel/Writers'
+2017-08-08 14:00:07.016 UTC [policies] GetPolicy -> DEBU 0e2 Returning policy Orderer/BlockValidation for evaluation
+2017-08-08 14:00:07.016 UTC [policies] CommitProposals -> DEBU 0e3 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-08-08 14:00:07.016 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 0e4 retrieveBlockByNumber() - blockNum = [0]
+2017-08-08 14:00:07.016 UTC [fsblkstorage] newBlockfileStream -> DEBU 0e5 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-08-08 14:00:07.016 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0e6 Remaining bytes=[9065], Going to peek [8] bytes
+2017-08-08 14:00:07.016 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0e7 Returning blockbytes - length=[9063], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-08-08 14:00:07.016 UTC [orderer/multichain] newChainSupport -> DEBU 0e8 [channel: testchainid] Retrieved metadata for tip of chain (blockNumber=0, lastConfig=0, lastConfigSeq=0): 
+2017-08-08 14:00:07.016 UTC [orderer/multichain] NewManagerImpl -> INFO 0e9 Starting with system channel testchainid and orderer type solo
+2017-08-08 14:00:07.016 UTC [orderer/main] main -> INFO 0ea Beginning to serve requests

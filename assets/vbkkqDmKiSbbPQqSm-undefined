@@ -1,0 +1,80 @@
+CORE_PEER_GOSSIP_IGNORESECURITY=true CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp/sampleconfig CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050 peer channel create -c myc1
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 001 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/cacerts
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 002 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/peerOrg0.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 003 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/peerOrg1.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 004 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/peerOrg2.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 005 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 006 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer3Signer.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 007 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/admincerts
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 008 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/peerOrg0.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 009 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/peerOrg1.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 00a Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/peerOrg2.pem
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 00b Reading directory /etc/hyperledger/fabric/msp/sampleconfig/keystore
+2017-02-13 09:34:21.914 UTC [msp] getPemMaterialFromDir -> INFO 00c Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/keystore/peer3Signer.pem
+2017-02-13 09:34:21.914 UTC [msp] NewBccspMsp -> INFO 00d Creating BCCSP-based MSP instance
+2017-02-13 09:34:21.914 UTC [peer] GetLocalMSP -> INFO 00e Created new local MSP
+2017-02-13 09:34:21.915 UTC [msp] Setup -> INFO 00f Setting up MSP instance DEFAULT
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 010 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 011 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 012 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 013 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 014 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 015 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.915 UTC [msp] newIdentity -> INFO 016 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.934 UTC [peer] GetManagerForChain -> INFO 017 Created new msp manager for chain testchainid
+2017-02-13 09:34:21.934 UTC [msp] Setup -> INFO 018 Setting up the MSP manager (1 msps)
+2017-02-13 09:34:21.934 UTC [msp] Setup -> INFO 019 Setting up MSP
+2017-02-13 09:34:21.934 UTC [msp] NewBccspMsp -> INFO 01a Creating BCCSP-based MSP instance
+2017-02-13 09:34:21.935 UTC [msp] Setup -> INFO 01b Setting up MSP instance DEFAULT
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 01c Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 01d Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 01e Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 01f Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 020 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.935 UTC [msp] newIdentity -> INFO 021 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.936 UTC [msp] newIdentity -> INFO 022 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-02-13 09:34:21.936 UTC [msp] Setup -> INFO 023 MSP manager setup complete, setup 1 msps
+2017-02-13 09:34:21.936 UTC [logging] InitFromViper -> DEBU 024 Setting default logging level to DEBUG for command 'channel'
+2017-02-13 09:34:21.936 UTC [peer] GetLocalMSP -> INFO 025 Returning existing local MSP
+2017-02-13 09:34:21.936 UTC [msp] GetDefaultSigningIdentity -> INFO 026 Obtaining default signing identity
+Error: Error getting broadcast client: Error connecting to orderer:7050 due to grpc: timed out when dialing
+Usage:
+  peer channel create [flags]
+
+Global Flags:
+  -a, --anchors string             In case of a newChain command, the list of anchor peer files, separated by commas.
+        The files should be in the following format:
+        anchorPeerHost
+        anchorPeerPort
+        PEM encoded certificate.
+
+        In example:
+        1.2.3.4
+        7051
+        -----BEGIN CERTIFICATE-----
+        MIIDXTCCAkWgAwIBAgIJALRf63iSHa0BMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTcwMTI2MjMyMzM1WhcNMTgwMTI2MjMyMzM1WjBF
+        MQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAzbph0SEHYb/tvNYATWfpl7oAFpw3Tcn2s0icJaScqs2RodjosIOBK6AB
+        N6fkgGDHwYhYbMNfJzUYSYgXD4MPjDxzPw+/Hz02bjuxFB8pQnmln6b6pVHz79vL
+        i3UQ8eaCe3zswpX0JJTlOs5wdJGOySNRNatbVKl9HDNWcNl6Ec5MrlK3/v6OGF03
+        0ak7QYDNjyHaz3rMaOzJumRJeOxtjUO/+TbjN+bkcXSgQH9LjoeaZdkV/QWrCA1I
+        qGowBOxYcyiX56bKKFvCZ76ZYA55d3HyI/H7S258CTdE6WUTDXNqmXnX5WbBuUiK
+        dypI+KmGlzrRETahrJSJKdlxxtpPVwIDAQABo1AwTjAdBgNVHQ4EFgQUnK6ITmnz
+        hfNKFr+57Bcayzio47EwHwYDVR0jBBgwFoAUnK6ITmnzhfNKFr+57Bcayzio47Ew
+        DAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAvYFu4xQDE11C8wdK/5LE
+        G61E9yjsDjFlhzgsG8+TqWI6LjHzm3hSNj7VMI7f0ckydxxOSQqKEkkQaL5GNS3B
+        JOwsGtPjgQ2Sxx2KrEyaNozxznm1qZflQCis95NVvjHeiybbLfjQRVKde0+7kSKc
+        cqBBE+IwxNofNyevlRyCBNsH6v2DLJoiFwvE5PqY6XvAcC17va/TKS16TVCqpxX0
+        OrngleEKom1hiU1MzGZ29/nGpwP/oD8Lf+BqxipLf3BdiDR2+n5dbrV/ul1VczwQ
+        F2ht++pZbdiqmv7CRAfvkSzrkwIeL+XfVR6ncFf4Nf92u6DJDnTzc/0K3pLaE+bo
+        JQ==
+        -----END CERTIFICATE-----
+
+  -b, --blockpath string           Path to file containing genesis block
+  -c, --chain string               In case of a newChain command, the chain ID to create. (default "mychain")
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+      --test.coverprofile string   Done (default "coverage.cov")
+  -v, --version                    Display current version of fabric peer server

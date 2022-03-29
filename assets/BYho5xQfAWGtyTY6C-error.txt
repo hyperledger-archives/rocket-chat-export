@@ -1,0 +1,148 @@
+/runApp.sh
+[2018-03-22 11:13:16.246] [INFO] SampleWebApp - ****************** SERVER STARTED ************************
+[2018-03-22 11:13:16.249] [INFO] SampleWebApp - ***************  http://localhost:4000  ******************
+[2018-03-22 11:13:28.760] [DEBUG] SampleWebApp -  ------>>>>>> new request for /users
+[2018-03-22 11:13:28.761] [DEBUG] SampleWebApp - End point : /users
+[2018-03-22 11:13:28.761] [DEBUG] SampleWebApp - User name : Joe
+[2018-03-22 11:13:28.761] [DEBUG] SampleWebApp - Org name  : Org1
+[2018-03-22 11:13:28.765] [DEBUG] Helper - getClientForOrg - ****** START Org1 undefined
+[2018-03-22 11:13:28.777] [DEBUG] Helper - [NetworkConfig101.js]: constructor, network_config: {"name":"smart-property","x-type":"hlfv1","description":"Smart Property Production Pilot","version":"1.0","channels":{"mychannel":{"orderers":["orderer1-org0","orderer2-org0","orderer3-org0","orderer4-org0"],"peers":{"peer1-org1":{"endorsingPeer":true,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":true},"peer2-org1":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer3-org1":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer1-org2":{"endorsingPeer":true,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":true},"peer2-org2":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer3-org2":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false}},"chaincodes":["mycc:v0"]}},"organizations":{"Org1":{"mspid":"Org1MSP","peers":["peer1-org1","peer2-org1","peer3-org1"],"certificateAuthorities":["ica-org1"],"adminPrivateKey":{"path":"artifacts/data/orgs/org1/admin/msp/keystore/d51cefcba2cb48232811ab5b7c44c43b4e2a2f818aabc9796d825c14ecab4987_sk"},"signedCert":{"path":"artifacts/data/orgs/org1/admin/msp/signcerts/cert.pem"}},"Org2":{"mspid":"Org2MSP","peers":["peer1-org2","peer2-org2","peer3-org2"],"certificateAuthorities":["ica-org2"],"adminPrivateKey":{"path":"artifacts/data/orgs/org1/admin/msp/keystore/6000f821fa0517a18b9fe5d55b8a4b58841dba80d960f9ed5eb860daee42135d_sk"},"signedCert":{"path":"artifacts/data/orgs/org2/admin/msp/signcerts/cert.pem"}}},"orderers":{"orderer1-org0":{"url":"grpcs://10.64.37.228:7050","grpcOptions":{"ssl-target-name-override":"orderer1-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer2-org0":{"url":"grpcs://10.64.37.227:7050","grpcOptions":{"ssl-target-name-override":"orderer2-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer3-org0":{"url":"grpcs://10.64.37.218:7050","grpcOptions":{"ssl-target-name-override":"orderer3-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer4-org0":{"url":"grpcs://10.64.37.217:7050","grpcOptions":{"ssl-target-name-override":"orderer4-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}}},"peers":{"peer1-org1":{"url":"grpcs://10.64.37.232:7051","eventUrl":"grpcs://10.64.37.232:7053","grpcOptions":{"ssl-target-name-override":"peer1-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer2-org1":{"url":"grpcs://10.64.37.231:7051","eventUrl":"grpcs://10.64.37.231:7053","grpcOptions":{"ssl-target-name-override":"peer2-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer3-org1":{"url":"grpcs://10.64.37.230:7051","eventUrl":"grpcs://10.64.37.230:7053","grpcOptions":{"ssl-target-name-override":"peer3-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer1-org2":{"url":"grpcs://10.64.37.229:7051","eventUrl":"grpcs://10.64.37.229:7053","grpcOptions":{"ssl-target-name-override":"peer1-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}},"peer2-org2":{"url":"grpcs://10.64.37.222:7051","eventUrl":"grpcs://10.64.37.222:7053","grpcOptions":{"ssl-target-name-override":"peer2-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}},"peer3-org2":{"url":"grpcs://10.64.37.221:7051","eventUrl":"grpcs://10.64.37.221:7053","grpcOptions":{"ssl-target-name-override":"peer3-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}}},"certificateAuthorities":{"ica-org1":{"url":"https://10.64.37.224:7054","httpOptions":{"verify":false},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/cacerts/ica-org1-7054.pem"},"registrar":[{"enrollId":"admin-org1","enrollSecret":"admin-org1pw"}],"caName":"ica-org1"},"ica-org2":{"url":"https://10.64.37.223:7054","httpOptions":{"verify":false},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/cacerts/ica-org2-7054.pem"},"registrar":[{"enrollId":"admin-org2","enrollSecret":"admin-org2pw"}],"caName":"ica-org2"}}}
+[2018-03-22 11:13:28.778] [DEBUG] Helper - [NetworkConfig101.js]: constructor, network_config: {"name":"smart-property-org1","x-type":"hlfv1","description":"Smart Property Production Pilot - client definition for Org1","version":"1.0","client":{"organization":"Org1","credentialStore":{"path":"./fabric-client-kv-org1","cryptoStore":{"path":"/tmp/fabric-client-kv-org1"},"wallet":"wallet-name"}}}
+[2018-03-22 11:13:28.778] [DEBUG] Helper - [NetworkConfig101.js]: mergeSettings - additions start
+[2018-03-22 11:13:28.779] [DEBUG] Helper - [NetworkConfig101.js]: getOrganization - name Org1
+[2018-03-22 11:13:28.779] [DEBUG] Helper - [Organization.js]: Organization.const
+[2018-03-22 11:13:28.780] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer1-org1
+[2018-03-22 11:13:28.782] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer1-org1
+[2018-03-22 11:13:28.783] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer2-org1
+[2018-03-22 11:13:28.784] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer2-org1
+[2018-03-22 11:13:28.785] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer3-org1
+[2018-03-22 11:13:28.786] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer3-org1
+[2018-03-22 11:13:28.786] [DEBUG] Helper - [NetworkConfig101.js]: getCertificateAuthority - name ica-org1
+[2018-03-22 11:13:28.786] [DEBUG] Helper - [CertificateAuthority.js]: CertificateAuthority.const
+[2018-03-22 11:13:28.786] [DEBUG] Helper - [CertificateAuthority.js]: Organization.const
+[2018-03-22 11:13:28.990] [DEBUG] Helper - [crypto_ecdsa_aes]: constructor, keySize: 256
+[2018-03-22 11:13:28.990] [DEBUG] Helper - [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2018-03-22 11:13:29.070] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.074] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.074] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.077] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.079] [DEBUG] Helper - [FileKeyValueStore.js]: constructor { options:
+   { path: '/home/mushu/go/src/github.com/hyperledger/fabricNodeSDK/fabric-client-kv-org1',
+     wallet: 'wallet-name',
+     cryptoStore: { path: '/tmp/fabric-client-kv-org1' } } }
+[2018-03-22 11:13:29.083] [DEBUG] Helper - [crypto_ecdsa_aes]: constructor, keySize: 256
+[2018-03-22 11:13:29.083] [DEBUG] Helper - [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2018-03-22 11:13:29.084] [DEBUG] Helper - [utils.CryptoKeyStore]: CryptoKeyStore, constructor - start
+[2018-03-22 11:13:29.084] [DEBUG] Helper - [utils.CryptoKeyStore]: constructor, no super class specified, using config: fabric-client/lib/impl/FileKeyValueStore.js
+[2018-03-22 11:13:29.084] [DEBUG] Helper - getClientForOrg - ****** END Org1 undefined
+
+
+[2018-03-22 11:13:29.084] [DEBUG] Helper - Successfully initialized the credential stores
+[2018-03-22 11:13:29.085] [DEBUG] Helper - [FileKeyValueStore.js]: getValue { key: 'Joe' }
+[2018-03-22 11:13:29.087] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.089] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.091] [DEBUG] Helper - [utils.CryptoKeyStore]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/tmp/fabric-client-kv-org1"}}
+[2018-03-22 11:13:29.091] [DEBUG] Helper - [FileKeyValueStore.js]: constructor { options: { path: '/tmp/fabric-client-kv-org1' } }
+[2018-03-22 11:13:29.091] [DEBUG] Helper - [utils.CryptoKeyStore]: _getKeyStore returning ks
+[2018-03-22 11:13:29.092] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param X: 43997dd82702c8617983799d94693d5bf2352fbf6e21ec7dae57b96dc991ab25
+[2018-03-22 11:13:29.092] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param Y: 63509ff8753c49f948ea07ea52076cdd34e9dad00ad5712716b7ad71f0876184
+[2018-03-22 11:13:29.104] [DEBUG] Helper - [FileKeyValueStore.js]: setValue { key: 'c34e62eba4716a34745290162a6e031779f9a48aefb6a78760ac9bf8c90916c3-pub' }
+[2018-03-22 11:13:29.107] [DEBUG] Helper - [utils.CryptoKeyStore]: _getKeyStore resolving store
+[2018-03-22 11:13:29.107] [DEBUG] Helper - [FileKeyValueStore.js]: getValue { key: 'c34e62eba4716a34745290162a6e031779f9a48aefb6a78760ac9bf8c90916c3-priv' }
+[2018-03-22 11:13:29.109] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param X: 43997dd82702c8617983799d94693d5bf2352fbf6e21ec7dae57b96dc991ab25
+[2018-03-22 11:13:29.110] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param Y: 63509ff8753c49f948ea07ea52076cdd34e9dad00ad5712716b7ad71f0876184
+[2018-03-22 11:13:29.110] [INFO] Helper - Successfully loaded member from persistence
+[2018-03-22 11:13:29.110] [DEBUG] SampleWebApp - -- returned from registering the username Joe for organization Org1
+[2018-03-22 11:13:29.110] [DEBUG] SampleWebApp - Successfully registered the username Joe for organization Org1
+[2018-03-22 11:13:29.138] [DEBUG] SampleWebApp -  ------>>>>>> new request for /channels/mychannel/chaincodes/mycc
+[2018-03-22 11:13:29.139] [DEBUG] SampleWebApp - Decoded from JWT token: username - Joe, orgname - Org1
+[2018-03-22 11:13:29.139] [DEBUG] SampleWebApp - ==================== INVOKE ON CHAINCODE ==================
+[2018-03-22 11:13:29.140] [DEBUG] SampleWebApp - peers -----------------------------------------------------------------------------------: peer1-org1
+[2018-03-22 11:13:29.140] [DEBUG] SampleWebApp - channelName  : mychannel
+[2018-03-22 11:13:29.140] [DEBUG] SampleWebApp - chaincodeName : mycc
+[2018-03-22 11:13:29.141] [DEBUG] SampleWebApp - fcn  : createProperty
+[2018-03-22 11:13:29.141] [DEBUG] SampleWebApp - args  : Property1,StreetNumber1,StreetName1,City1,State1,County1,ZipCode1,TaxID1,PropertyType1,CreationDate1,CreatingOrganization1,publicKey1
+[2018-03-22 11:13:29.143] [DEBUG] invoke-chaincode -
+============ invoke transaction on channel mychannel ============
+
+[2018-03-22 11:13:29.143] [DEBUG] Helper - getClientForOrg - ****** START Org1 Joe
+[2018-03-22 11:13:29.150] [DEBUG] Helper - [NetworkConfig101.js]: constructor, network_config: {"name":"smart-property","x-type":"hlfv1","description":"Smart Property Production Pilot","version":"1.0","channels":{"mychannel":{"orderers":["orderer1-org0","orderer2-org0","orderer3-org0","orderer4-org0"],"peers":{"peer1-org1":{"endorsingPeer":true,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":true},"peer2-org1":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer3-org1":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer1-org2":{"endorsingPeer":true,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":true},"peer2-org2":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false},"peer3-org2":{"endorsingPeer":false,"chaincodeQuery":true,"ledgerQuery":true,"eventSource":false}},"chaincodes":["mycc:v0"]}},"organizations":{"Org1":{"mspid":"Org1MSP","peers":["peer1-org1","peer2-org1","peer3-org1"],"certificateAuthorities":["ica-org1"],"adminPrivateKey":{"path":"artifacts/data/orgs/org1/admin/msp/keystore/d51cefcba2cb48232811ab5b7c44c43b4e2a2f818aabc9796d825c14ecab4987_sk"},"signedCert":{"path":"artifacts/data/orgs/org1/admin/msp/signcerts/cert.pem"}},"Org2":{"mspid":"Org2MSP","peers":["peer1-org2","peer2-org2","peer3-org2"],"certificateAuthorities":["ica-org2"],"adminPrivateKey":{"path":"artifacts/data/orgs/org1/admin/msp/keystore/6000f821fa0517a18b9fe5d55b8a4b58841dba80d960f9ed5eb860daee42135d_sk"},"signedCert":{"path":"artifacts/data/orgs/org2/admin/msp/signcerts/cert.pem"}}},"orderers":{"orderer1-org0":{"url":"grpcs://10.64.37.228:7050","grpcOptions":{"ssl-target-name-override":"orderer1-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer2-org0":{"url":"grpcs://10.64.37.227:7050","grpcOptions":{"ssl-target-name-override":"orderer2-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer3-org0":{"url":"grpcs://10.64.37.218:7050","grpcOptions":{"ssl-target-name-override":"orderer3-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}},"orderer4-org0":{"url":"grpcs://10.64.37.217:7050","grpcOptions":{"ssl-target-name-override":"orderer4-org0","grpc-max-send-message-length":15},"tlsCACerts":{"path":"artifacts/data/orgs/org0/msp/tlscacerts/ica-org0-7054.pem"}}},"peers":{"peer1-org1":{"url":"grpcs://10.64.37.232:7051","eventUrl":"grpcs://10.64.37.232:7053","grpcOptions":{"ssl-target-name-override":"peer1-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer2-org1":{"url":"grpcs://10.64.37.231:7051","eventUrl":"grpcs://10.64.37.231:7053","grpcOptions":{"ssl-target-name-override":"peer2-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer3-org1":{"url":"grpcs://10.64.37.230:7051","eventUrl":"grpcs://10.64.37.230:7053","grpcOptions":{"ssl-target-name-override":"peer3-org1"},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/tlscacerts/ica-org1-7054.pem"}},"peer1-org2":{"url":"grpcs://10.64.37.229:7051","eventUrl":"grpcs://10.64.37.229:7053","grpcOptions":{"ssl-target-name-override":"peer1-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}},"peer2-org2":{"url":"grpcs://10.64.37.222:7051","eventUrl":"grpcs://10.64.37.222:7053","grpcOptions":{"ssl-target-name-override":"peer2-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}},"peer3-org2":{"url":"grpcs://10.64.37.221:7051","eventUrl":"grpcs://10.64.37.221:7053","grpcOptions":{"ssl-target-name-override":"peer3-org2"},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/tlscacerts/ica-org2-7054.pem"}}},"certificateAuthorities":{"ica-org1":{"url":"https://10.64.37.224:7054","httpOptions":{"verify":false},"tlsCACerts":{"path":"artifacts/data/orgs/org1/msp/cacerts/ica-org1-7054.pem"},"registrar":[{"enrollId":"admin-org1","enrollSecret":"admin-org1pw"}],"caName":"ica-org1"},"ica-org2":{"url":"https://10.64.37.223:7054","httpOptions":{"verify":false},"tlsCACerts":{"path":"artifacts/data/orgs/org2/msp/cacerts/ica-org2-7054.pem"},"registrar":[{"enrollId":"admin-org2","enrollSecret":"admin-org2pw"}],"caName":"ica-org2"}}}
+[2018-03-22 11:13:29.151] [DEBUG] Helper - [NetworkConfig101.js]: constructor, network_config: {"name":"smart-property-org1","x-type":"hlfv1","description":"Smart Property Production Pilot - client definition for Org1","version":"1.0","client":{"organization":"Org1","credentialStore":{"path":"./fabric-client-kv-org1","cryptoStore":{"path":"/tmp/fabric-client-kv-org1"},"wallet":"wallet-name"}}}
+[2018-03-22 11:13:29.151] [DEBUG] Helper - [NetworkConfig101.js]: mergeSettings - additions start
+[2018-03-22 11:13:29.152] [DEBUG] Helper - [NetworkConfig101.js]: getOrganization - name Org1
+[2018-03-22 11:13:29.152] [DEBUG] Helper - [Organization.js]: Organization.const
+[2018-03-22 11:13:29.152] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer1-org1
+[2018-03-22 11:13:29.152] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer1-org1
+[2018-03-22 11:13:29.153] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer2-org1
+[2018-03-22 11:13:29.153] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer2-org1
+[2018-03-22 11:13:29.154] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer3-org1
+[2018-03-22 11:13:29.154] [DEBUG] Helper - [NetworkConfig101.js]: getEventHub - name peer3-org1
+[2018-03-22 11:13:29.154] [DEBUG] Helper - [NetworkConfig101.js]: getCertificateAuthority - name ica-org1
+[2018-03-22 11:13:29.155] [DEBUG] Helper - [CertificateAuthority.js]: CertificateAuthority.const
+[2018-03-22 11:13:29.155] [DEBUG] Helper - [CertificateAuthority.js]: Organization.const
+[2018-03-22 11:13:29.155] [DEBUG] Helper - [crypto_ecdsa_aes]: constructor, keySize: 256
+[2018-03-22 11:13:29.156] [DEBUG] Helper - [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2018-03-22 11:13:29.156] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.156] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.156] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.158] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.158] [DEBUG] Helper - [FileKeyValueStore.js]: constructor { options:
+   { path: '/home/mushu/go/src/github.com/hyperledger/fabricNodeSDK/fabric-client-kv-org1',
+     wallet: 'wallet-name',
+     cryptoStore: { path: '/tmp/fabric-client-kv-org1' } } }
+[2018-03-22 11:13:29.159] [DEBUG] Helper - [crypto_ecdsa_aes]: constructor, keySize: 256
+[2018-03-22 11:13:29.159] [DEBUG] Helper - [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2018-03-22 11:13:29.159] [DEBUG] Helper - [utils.CryptoKeyStore]: CryptoKeyStore, constructor - start
+[2018-03-22 11:13:29.160] [DEBUG] Helper - [utils.CryptoKeyStore]: constructor, no super class specified, using config: fabric-client/lib/impl/FileKeyValueStore.js
+[2018-03-22 11:13:29.160] [DEBUG] Helper - [FileKeyValueStore.js]: getValue { key: 'Joe' }
+[2018-03-22 11:13:29.160] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - start
+[2018-03-22 11:13:29.162] [DEBUG] Helper - [crypto_ecdsa_aes]: importKey - have the key [Circular]
+[2018-03-22 11:13:29.163] [DEBUG] Helper - [utils.CryptoKeyStore]: This class requires a CryptoKeyStore to save keys, using the store: {"opts":{"path":"/tmp/fabric-client-kv-org1"}}
+[2018-03-22 11:13:29.163] [DEBUG] Helper - [FileKeyValueStore.js]: constructor { options: { path: '/tmp/fabric-client-kv-org1' } }
+[2018-03-22 11:13:29.163] [DEBUG] Helper - [utils.CryptoKeyStore]: _getKeyStore returning ks
+[2018-03-22 11:13:29.164] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param X: 43997dd82702c8617983799d94693d5bf2352fbf6e21ec7dae57b96dc991ab25
+[2018-03-22 11:13:29.164] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param Y: 63509ff8753c49f948ea07ea52076cdd34e9dad00ad5712716b7ad71f0876184
+[2018-03-22 11:13:29.164] [DEBUG] Helper - [FileKeyValueStore.js]: setValue { key: 'c34e62eba4716a34745290162a6e031779f9a48aefb6a78760ac9bf8c90916c3-pub' }
+[2018-03-22 11:13:29.165] [DEBUG] Helper - [utils.CryptoKeyStore]: _getKeyStore resolving store
+[2018-03-22 11:13:29.165] [DEBUG] Helper - [FileKeyValueStore.js]: getValue { key: 'c34e62eba4716a34745290162a6e031779f9a48aefb6a78760ac9bf8c90916c3-priv' }
+[2018-03-22 11:13:29.166] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param X: 43997dd82702c8617983799d94693d5bf2352fbf6e21ec7dae57b96dc991ab25
+[2018-03-22 11:13:29.166] [DEBUG] Helper - [ecdsa/key.js]: ECDSA curve param Y: 63509ff8753c49f948ea07ea52076cdd34e9dad00ad5712716b7ad71f0876184
+[2018-03-22 11:13:29.166] [DEBUG] Helper - User Joe was found to be registered and enrolled
+[2018-03-22 11:13:29.167] [DEBUG] Helper - getClientForOrg - ****** END Org1 Joe
+
+
+[2018-03-22 11:13:29.167] [DEBUG] invoke-chaincode - Successfully got the fabric client for the organization "Org1"
+[2018-03-22 11:13:29.167] [DEBUG] Helper - [NetworkConfig101.js]: getChannel - name mychannel
+[2018-03-22 11:13:29.168] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer1-org1
+[2018-03-22 11:13:29.168] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer2-org1
+[2018-03-22 11:13:29.169] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer3-org1
+[2018-03-22 11:13:29.169] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer1-org2
+[2018-03-22 11:13:29.170] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer2-org2
+[2018-03-22 11:13:29.170] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer3-org2
+[2018-03-22 11:13:29.171] [DEBUG] Helper - [NetworkConfig101.js]: getOrderer - name orderer1-org0
+[2018-03-22 11:13:29.172] [DEBUG] Helper - [NetworkConfig101.js]: getOrderer - name orderer2-org0
+[2018-03-22 11:13:29.172] [DEBUG] Helper - [NetworkConfig101.js]: getOrderer - name orderer3-org0
+[2018-03-22 11:13:29.173] [DEBUG] Helper - [NetworkConfig101.js]: getOrderer - name orderer4-org0
+[2018-03-22 11:13:29.177] [DEBUG] invoke-chaincode - peerName----peer1-org1
+[2018-03-22 11:13:29.177] [DEBUG] invoke-chaincode - request--------{"targets":"peer1-org1","chaincodeId":"mycc","fcn":"createProperty","args":["Property1","StreetNumber1","StreetName1","City1","State1","County1","ZipCode1","TaxID1","PropertyType1","CreationDate1","CreatingOrganization1","publicKey1"],"chainId":"mychannel","txId":{"_nonce":{"type":"Buffer","data":[253,253,159,148,147,229,70,106,143,147,248,90,65,31,203,149,54,13,110,145,36,45,42,130]},"_transaction_id":"f478219032d931068b8d7bf18524429e05e55b15ba877fb2d54aedfaa1c02afe","_admin":false}}
+[2018-03-22 11:13:29.178] [DEBUG] Helper - [NetworkConfig101.js]: getPeer - name peer1-org1
+[2018-03-22 11:13:29.197] [DEBUG] Helper - [crypto_ecdsa_aes]: ecdsa signature:  Signature {
+  r: <BN: 2ac2224153a191960a6f78b45694fff1752056b5268b7f824fe12be14fdd5964>,
+  s: <BN: 38acc80a538d6c5c2a3e9f2b0b0d3eb54111034b9519435a271227b3c25219c5>,
+  recoveryParam: 1 }
+E0322 11:13:29.216728100   53686 ssl_transport_security.cc:989] Handshake failed with fatal error SSL_ERROR_SSL: error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed.
+error: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: 14 UNAVAILABLE: Connect Failed
+    at new createStatusError (/home/mushu/go/src/github.com/hyperledger/fabricNodeSDK/node_modules/grpc/src/client.js:64:15)
+    at /home/mushu/go/src/github.com/hyperledger/fabricNodeSDK/node_modules/grpc/src/client.js:583:15
+[2018-03-22 11:13:29.222] [DEBUG] invoke-chaincode - proposal--------.protos.Proposal--------response-------Error: 14 UNAVAILABLE: Connect Failed
+[2018-03-22 11:13:29.222] [ERROR] invoke-chaincode - invoke chaincode proposal was bad
+[2018-03-22 11:13:29.222] [DEBUG] invoke-chaincode - Failed to send Proposal and receive all good ProposalResponse
+[2018-03-22 11:13:29.222] [ERROR] invoke-chaincode - Failed to invoke chaincode. cause:Failed to send Proposal and receive all good ProposalResponse
+(node:53686) UnhandledPromiseRejectionWarning: Error: Failed to invoke chaincode. cause:Failed to send Proposal and receive all good ProposalResponse
+    at Object.invokeChaincode (/home/mushu/go/src/github.com/hyperledger/fabricNodeSDK/app/invoke-transaction.js:182:9)
+    at <anonymous>
+(node:53686) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:53686) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+E0322 11:13:30.207490900   53686 ssl_transport_security.cc:989] Handshake failed with fatal error SSL_ERROR_SSL: error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed.
+E0322 11:13:32.034965200   53686 ssl_transport_security.cc:989] Handshake failed with fatal error SSL_ERROR_SSL: error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed.
+E0322 11:13:34.771358100   53686 ssl_transport_security.cc:989] Handshake failed with fatal error SSL_ERROR_SSL: error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed.

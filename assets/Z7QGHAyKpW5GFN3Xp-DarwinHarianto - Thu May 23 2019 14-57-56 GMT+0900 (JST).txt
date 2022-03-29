@@ -1,0 +1,185 @@
+this is my docker-compose file for orderer.
+compose-base
+```
+orderer:
+    image: hyperledger/fabric-orderer:1.4
+    environment:
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${CORE_PEER_NETWORKID}_behave
+      - ORDERER_HOME=/var/hyperledger/orderer
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/msp
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_LISTENPORT=7050
+      - ORDERER_GENERAL_LEDGERTYPE=ram
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/configs/orderer.block
+      - CONFIGTX_ORDERER_ORDERERTYPE=solo
+      - CONFIGTX_ORDERER_BATCHSIZE_MAXMESSAGECOUNT=${CONFIGTX_ORDERER_BATCHSIZE_MAXMESSAGECOUNT}
+      - CONFIGTX_ORDERER_BATCHTIMEOUT=${CONFIGTX_ORDERER_BATCHTIMEOUT}
+      - CONFIGTX_ORDERER_ADDRESS=[127.0.0.1:7050]
+      # TLS settings
+      - ORDERER_GENERAL_TLS_ENABLED=${ORDERER_GENERAL_TLS_ENABLED}
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=${ORDERER_GENERAL_TLS_PRIVATEKEY}
+      - ORDERER_GENERAL_TLS_CERTIFICATE-${ORDERER_GENERAL_TLS_CERTIFICATE}
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/tls/ca.crt]
+      - ORDERER_TLS_CLIENTAUTHREQUIRED=${ORDERER_TLS_CLIENTAUTHREQUIRED}
+      - ORDERER_TLS_CLIENTROOTCAS_FILES=/var/hyperledger/users/Admin@ttp.com/tls/ca.crt
+      - ORDERER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@ttp.com/tls/client.crt
+      - ORDERER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@ttp.com/tls/client.key
+    volumes:
+      - ../network-config/:/var/hyperledger/configs
+      - ../crypto-config/ordererOrganizations/ttp.com/users:/var/hyperledger/users
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+      - '7050'
+
+```
+
+docker-compose
+```
+  orderer.ttp.com:
+    extends:
+      file: docker-compose-base.yml
+      service: orderer
+    container_name: orderer.ttp.com
+    environment:
+      - ORDERER_HOST=orderer.ttp.com
+      - CONFIGTX_ORDERER_ORDERERTYPE=etcdraft
+      - ORDERER_ABSOLUTEMAXBYTES=${ORDERER_ABSOLUTEMAXBYTES}
+      - ORDERER_PREFERREDMAXBYTES=${ORDERER_PREFERREDMAXBYTES}
+    volumes:
+      - ../crypto-config/ordererOrganizations/ttp.com/orderers/orderer.ttp.com/msp:/var/hyperledger/msp
+      - ../crypto-config/ordererOrganizations/ttp.com/orderers/orderer.ttp.com/tls:/var/hyperledger/tls
+      - ../network-config/:/var/hyperledger/configs
+    networks:
+      behave:
+        aliases:
+          - ${CORE_PEER_NETWORKID}
+    ports:
+      - 7050:7050
+```
+
+when I see container logs, it gave me this
+
+```
+2019-05-23 05:54:59.359 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+2019-05-23 05:54:59.398 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+	General.LedgerType = "ram"
+	General.ListenAddress = "0.0.0.0"
+	General.ListenPort = 7050
+	General.TLS.Enabled = false
+	General.TLS.PrivateKey = "/var/hyperledger/tls/server.key"
+	General.TLS.Certificate = "/etc/hyperledger/fabric/tls/server.crt"
+	General.TLS.RootCAs = [/var/hyperledger/tls/ca.crt]
+	General.TLS.ClientAuthRequired = false
+	General.TLS.ClientRootCAs = []
+	General.Cluster.ListenAddress = ""
+	General.Cluster.ListenPort = 0
+	General.Cluster.ServerCertificate = ""
+	General.Cluster.ServerPrivateKey = ""
+	General.Cluster.ClientCertificate = ""
+	General.Cluster.ClientPrivateKey = ""
+	General.Cluster.RootCAs = []
+	General.Cluster.DialTimeout = 5s
+	General.Cluster.RPCTimeout = 7s
+	General.Cluster.ReplicationBufferSize = 20971520
+	General.Cluster.ReplicationPullTimeout = 5s
+	General.Cluster.ReplicationRetryTimeout = 5s
+	General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+	General.Cluster.ReplicationMaxRetries = 12
+	General.Cluster.SendBufferSize = 10
+	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+	General.Keepalive.ServerMinInterval = 1m0s
+	General.Keepalive.ServerInterval = 2h0m0s
+	General.Keepalive.ServerTimeout = 20s
+	General.GenesisMethod = "file"
+	General.GenesisProfile = "SampleInsecureSolo"
+	General.SystemChannel = "test-system-channel-name"
+	General.GenesisFile = "/var/hyperledger/configs/orderer.block"
+	General.Profile.Enabled = false
+	General.Profile.Address = "0.0.0.0:6060"
+	General.LocalMSPDir = "/var/hyperledger/msp"
+	General.LocalMSPID = "OrdererMSP"
+	General.BCCSP.ProviderName = "SW"
+	General.BCCSP.SwOpts.SecLevel = 256
+	General.BCCSP.SwOpts.HashFamily = "SHA2"
+	General.BCCSP.SwOpts.Ephemeral = false
+	General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/msp/keystore"
+	General.BCCSP.SwOpts.DummyKeystore =
+	General.BCCSP.SwOpts.InmemKeystore =
+	General.BCCSP.PluginOpts =
+	General.Authentication.TimeWindow = 15m0s
+	FileLedger.Location = "/var/hyperledger/production/orderer"
+	FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+	RAMLedger.HistorySize = 1000
+	Kafka.Retry.ShortInterval = 5s
+	Kafka.Retry.ShortTotal = 10m0s
+	Kafka.Retry.LongInterval = 5m0s
+	Kafka.Retry.LongTotal = 12h0m0s
+	Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+	Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+	Kafka.Retry.Metadata.RetryMax = 3
+	Kafka.Retry.Metadata.RetryBackoff = 250ms
+	Kafka.Retry.Producer.RetryMax = 3
+	Kafka.Retry.Producer.RetryBackoff = 100ms
+	Kafka.Retry.Consumer.RetryBackoff = 2s
+	Kafka.Verbose = false
+	Kafka.Version = 0.10.2.0
+	Kafka.TLS.Enabled = false
+	Kafka.TLS.PrivateKey = ""
+	Kafka.TLS.Certificate = ""
+	Kafka.TLS.RootCAs = []
+	Kafka.TLS.ClientAuthRequired = false
+	Kafka.TLS.ClientRootCAs = []
+	Kafka.SASLPlain.Enabled = false
+	Kafka.SASLPlain.User = ""
+	Kafka.SASLPlain.Password = ""
+	Kafka.Topic.ReplicationFactor = 3
+	Debug.BroadcastTraceDir = ""
+	Debug.DeliverTraceDir = ""
+	Consensus = map[WALDir:/var/hyperledger/production/orderer/etcdraft/wal SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot]
+	Operations.ListenAddress = "127.0.0.1:8443"
+	Operations.TLS.Enabled = false
+	Operations.TLS.PrivateKey = ""
+	Operations.TLS.Certificate = ""
+	Operations.TLS.RootCAs = []
+	Operations.TLS.ClientAuthRequired = false
+	Operations.TLS.ClientRootCAs = []
+	Metrics.Provider = "disabled"
+	Metrics.Statsd.Network = "udp"
+	Metrics.Statsd.Address = "127.0.0.1:8125"
+	Metrics.Statsd.WriteInterval = 30s
+	Metrics.Statsd.Prefix = ""
+2019-05-23 05:54:59.414 UTC [orderer.common.server] configureClusterListener -> INFO 003 Cluster listener is not configured, defaulting to use the general listener on port 7050
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0xacb884]
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/comm.(*GRPCServer).SetClientRootCAs(0xc0001d80e0, 0xc0002a12c0, 0x2, 0x2, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/comm/server.go:326 +0x1b4
+github.com/hyperledger/fabric/orderer/common/server.updateTrustedRoots(0xc0002e03c0, 0x1156380, 0xc000328280, 0xc0000aa7e8, 0x1, 0x1)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:752 +0x159a
+github.com/hyperledger/fabric/orderer/common/server.Start.func1(0xc000328280)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:151 +0xf4
+github.com/hyperledger/fabric/common/channelconfig.(*BundleSource).Update(0xc0002a1290, 0xc000328280)
+	/opt/gopath/src/github.com/hyperledger/fabric/common/channelconfig/bundlesource.go:46 +0x7c
+github.com/hyperledger/fabric/common/channelconfig.NewBundleSource(0xc000328280, 0xc0000aa7f0, 0x1, 0x1, 0xc000076240)
+	/opt/gopath/src/github.com/hyperledger/fabric/common/channelconfig/bundlesource.go:38 +0x72
+github.com/hyperledger/fabric/orderer/common/multichannel.(*Registrar).newLedgerResources(0xc0002e6240, 0xc0003a7450, 0xc0003a7450)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/multichannel/registrar.go:354 +0x379
+github.com/hyperledger/fabric/orderer/common/multichannel.(*Registrar).Initialize(0xc0002e6240, 0xc0003463c0)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/multichannel/registrar.go:158 +0x242
+github.com/hyperledger/fabric/orderer/common/server.initializeMultichannelRegistrar(0xc000077f80, 0xc0000ad920, 0xc000095cf0, 0x0, 0xc0002e62d0, 0x1b25180, 0xc000095e50, 0x2, 0x2, 0xc000095e60, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:585 +0x315
+github.com/hyperledger/fabric/orderer/common/server.Start(0x1013e09, 0x5, 0xc0002f5200)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:158 +0x7a3
+github.com/hyperledger/fabric/orderer/common/server.Main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:91 +0x1ce
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:15 +0x20
+```
+
+I don't understand why it is pointing to kafka.

@@ -1,0 +1,264 @@
+a606529@vc2coma2286956n:~/fabric-tools/fabric-scripts/hlfv1/composer$ docker -H tcp://HyperledgerFabricNode5.fmr.com:3376 logs orderer
+2017-10-23 19:04:27.353 UTC [orderer/main] main -> INFO 001 Starting orderer:
+ Version: 1.0.1
+ Go version: go1.7.5
+ OS/Arch: linux/amd64
+2017-10-23 19:04:27.357 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/etc/hyperledger/orderer/msp/keystore]...done
+2017-10-23 19:04:27.357 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-10-23 19:04:27.357 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /etc/hyperledger/orderer/msp/signcerts
+2017-10-23 19:04:27.357 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /etc/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-10-23 19:04:27.357 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /etc/hyperledger/orderer/msp/cacerts
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /etc/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /etc/hyperledger/orderer/msp/admincerts
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /etc/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /etc/hyperledger/orderer/msp/intermediatecerts
+2017-10-23 19:04:27.358 UTC [msp] getMspConfig -> DEBU 00b Intermediate certs folder not found at [/etc/hyperledger/orderer/msp/intermediatecerts]. Skipping. [stat /etc/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /etc/hyperledger/orderer/msp/tlscacerts
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 00d Inspecting file /etc/hyperledger/orderer/msp/tlscacerts/tlsca.example.com-cert.pem
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /etc/hyperledger/orderer/msp/tlsintermediatecerts
+2017-10-23 19:04:27.358 UTC [msp] getMspConfig -> DEBU 00f TLS intermediate certs folder not found at [/etc/hyperledger/orderer/msp/tlsintermediatecerts]. Skipping. [stat /etc/hyperledger/orderer/msp/tlsintermediatecerts: no such file or directory]
+2017-10-23 19:04:27.358 UTC [msp] getPemMaterialFromDir -> DEBU 010 Reading directory /etc/hyperledger/orderer/msp/crls
+2017-10-23 19:04:27.358 UTC [msp] getMspConfig -> DEBU 011 crls folder not found at [/etc/hyperledger/orderer/msp/crls]. Skipping. [stat /etc/hyperledger/orderer/msp/crls: no such file or directory]
+2017-10-23 19:04:27.358 UTC [msp] getMspConfig -> DEBU 012 MSP configuration file not found at [/etc/hyperledger/orderer/msp/config.yaml]: [stat /etc/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-10-23 19:04:27.358 UTC [msp] NewBccspMsp -> DEBU 013 Creating BCCSP-based MSP instance
+2017-10-23 19:04:27.358 UTC [msp] GetLocalMSP -> DEBU 014 Created new local MSP
+2017-10-23 19:04:27.358 UTC [msp] Setup -> DEBU 015 Setting up MSP instance OrdererMSP
+2017-10-23 19:04:27.359 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 25f8a152972438bb6e22c2bccf6863b3c48ff279e48cbe4df905c9a4e7f077b5}
+2017-10-23 19:04:27.378 UTC [msp/identity] newIdentity -> DEBU 017 Creating identity instance for ID &{OrdererMSP 1470b6440591c5d7723dea352bdb3165f9aea35c1491db6b58b845de8c78962a}
+2017-10-23 19:04:27.378 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 1470b6440591c5d7723dea352bdb3165f9aea35c1491db6b58b845de8c78962a}
+2017-10-23 19:04:27.378 UTC [msp/identity] newIdentity -> DEBU 019 Creating identity instance for ID &{OrdererMSP b7059d429820caa83dbe1a145f22e444f1300505f78e60d0f19cfd3b9177d81a}
+2017-10-23 19:04:27.379 UTC [bccsp_sw] loadPrivateKey -> DEBU 01a Loading private key [cfdc2c5cb0f39aa70cc547c033b6f94dc34c05c6840429cfbbc614cbd66e12ea] at [/etc/hyperledger/orderer/msp/keystore/cfdc2c5cb0f39aa70cc547c033b6f94dc34c05c6840429cfbbc614cbd66e12ea_sk]...
+2017-10-23 19:04:27.379 UTC [msp/identity] newIdentity -> DEBU 01b Creating identity instance for ID &{OrdererMSP b7059d429820caa83dbe1a145f22e444f1300505f78e60d0f19cfd3b9177d81a}
+2017-10-23 19:04:27.379 UTC [msp] Validate -> DEBU 01c MSP OrdererMSP validating identity
+2017-10-23 19:04:27.379 UTC [orderer/main] createLedgerFactory -> DEBU 01d Ledger dir: /var/hyperledger/production/orderer
+2017-10-23 19:04:27.379 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01e CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-10-23 19:04:27.380 UTC [kvledger.util] logDirStatus -> DEBU 01f Before creating dir - [/var/hyperledger/production/orderer/index/] does not exist
+2017-10-23 19:04:27.380 UTC [kvledger.util] logDirStatus -> DEBU 020 After creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-10-23 19:04:27.396 UTC [fsblkstorage] newBlockfileMgr -> DEBU 021 newBlockfileMgr() initializing file-based block storage for ledger: testchainid
+2017-10-23 19:04:27.396 UTC [kvledger.util] CreateDirIfMissing -> DEBU 022 CreateDirIfMissing [/var/hyperledger/production/orderer/chains/testchainid/]
+2017-10-23 19:04:27.396 UTC [kvledger.util] logDirStatus -> DEBU 023 Before creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] does not exist
+2017-10-23 19:04:27.396 UTC [kvledger.util] logDirStatus -> DEBU 024 After creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] exists
+2017-10-23 19:04:27.401 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 025 Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[0], isChainEmpty=[true], lastBlockNumber=[0]
+2017-10-23 19:04:27.401 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 026 status of file [/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000]: exists=[false], size=[0]
+2017-10-23 19:04:27.401 UTC [fsblkstorage] newBlockIndex -> DEBU 027 newBlockIndex() - indexItems:[[BlockNum]]
+2017-10-23 19:04:27.402 UTC [fsblkstorage] newBlockfileStream -> DEBU 028 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-10-23 19:04:27.402 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 029 Finished reading file number [0]
+2017-10-23 19:04:27.402 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02a blockbytes [0] read from file [0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] indexBlock -> DEBU 02b Indexing block [blockNum=0, blockHash=[]byte{0x18, 0x63, 0x65, 0xae, 0xd0, 0x11, 0x15, 0xd4, 0x19, 0x17, 0xa9, 0xa3, 0xe3, 0x41, 0xa4, 0x21, 0x3, 0x43, 0xf5, 0xb, 0x13, 0x63, 0xed, 0x1b, 0x5c, 0xcf, 0x66, 0x25, 0x1c, 0x54, 0x4f, 0x23} txOffsets=
+txId=a952897126b1adc8a4aec0bab746c0a9dd00b76c7eeacd2515715280566074a2 locPointer=offset=38, bytesLength=6406
+]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] updateCheckpoint -> DEBU 02c Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[6449], isChainEmpty=[false], lastBlockNumber=[0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 02d retrieveBlockByNumber() - blockNum = [0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] newBlockfileStream -> DEBU 02e newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02f Remaining bytes=[6449], Going to peek [8] bytes
+2017-10-23 19:04:27.408 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 030 Returning blockbytes - length=[6447], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-10-23 19:04:27.408 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 031 retrieveBlockByNumber() - blockNum = [0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] newBlockfileStream -> DEBU 032 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-10-23 19:04:27.408 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 033 Remaining bytes=[6449], Going to peek [8] bytes
+2017-10-23 19:04:27.408 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 034 Returning blockbytes - length=[6447], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-10-23 19:04:27.408 UTC [common/config] NewStandardValues -> DEBU 035 Initializing protos for *config.ChannelProtos
+2017-10-23 19:04:27.408 UTC [common/config] initializeProtosStruct -> DEBU 036 Processing field: HashingAlgorithm
+2017-10-23 19:04:27.408 UTC [common/config] initializeProtosStruct -> DEBU 037 Processing field: BlockDataHashingStructure
+2017-10-23 19:04:27.408 UTC [common/config] initializeProtosStruct -> DEBU 038 Processing field: OrdererAddresses
+2017-10-23 19:04:27.408 UTC [common/config] initializeProtosStruct -> DEBU 039 Processing field: Consortium
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03a Adding to config map: [Groups] /Channel
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03b Adding to config map: [Groups] /Channel/Consortiums
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03c Adding to config map: [Groups] /Channel/Consortiums/ComposerConsortium
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03d Adding to config map: [Groups] /Channel/Consortiums/ComposerConsortium/Org1
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03e Adding to config map: [Values] /Channel/Consortiums/ComposerConsortium/Org1/MSP
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 03f Adding to config map: [Policy] /Channel/Consortiums/ComposerConsortium/Org1/Admins
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 040 Adding to config map: [Policy] /Channel/Consortiums/ComposerConsortium/Org1/Readers
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 041 Adding to config map: [Policy] /Channel/Consortiums/ComposerConsortium/Org1/Writers
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 042 Adding to config map: [Values] /Channel/Consortiums/ComposerConsortium/ChannelCreationPolicy
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 043 Adding to config map: [Policy] /Channel/Consortiums/Admins
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 044 Adding to config map: [Groups] /Channel/Orderer
+2017-10-23 19:04:27.409 UTC [common/configtx] addToMap -> DEBU 045 Adding to config map: [Groups] /Channel/Orderer/OrdererOrg
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 046 Adding to config map: [Values] /Channel/Orderer/OrdererOrg/MSP
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 047 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Writers
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 048 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Admins
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 049 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Readers
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04a Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04b Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04c Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04d Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04e Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-10-23 19:04:27.410 UTC [common/configtx] addToMap -> DEBU 04f Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 050 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 051 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 052 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 053 Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 054 Adding to config map: [Values] /Channel/OrdererAddresses
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 055 Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 056 Adding to config map: [Policy] /Channel/Writers
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 057 Adding to config map: [Policy] /Channel/Admins
+2017-10-23 19:04:27.411 UTC [common/configtx] addToMap -> DEBU 058 Adding to config map: [Policy] /Channel/Readers
+2017-10-23 19:04:27.411 UTC [common/configtx] processConfig -> DEBU 059 Beginning new config for channel testchainid
+2017-10-23 19:04:27.411 UTC [common/config] NewStandardValues -> DEBU 05a Initializing protos for *config.ChannelProtos
+2017-10-23 19:04:27.411 UTC [common/config] initializeProtosStruct -> DEBU 05b Processing field: HashingAlgorithm
+2017-10-23 19:04:27.411 UTC [common/config] initializeProtosStruct -> DEBU 05c Processing field: BlockDataHashingStructure
+2017-10-23 19:04:27.411 UTC [common/config] initializeProtosStruct -> DEBU 05d Processing field: OrdererAddresses
+2017-10-23 19:04:27.411 UTC [common/config] initializeProtosStruct -> DEBU 05e Processing field: Consortium
+2017-10-23 19:04:27.411 UTC [policies] ProposePolicy -> DEBU 05f Proposed new policy Readers for Channel
+2017-10-23 19:04:27.411 UTC [policies] ProposePolicy -> DEBU 060 Proposed new policy Writers for Channel
+2017-10-23 19:04:27.411 UTC [policies] ProposePolicy -> DEBU 061 Proposed new policy Admins for Channel
+2017-10-23 19:04:27.411 UTC [policies] ProposePolicy -> DEBU 062 Proposed new policy Admins for Consortiums
+2017-10-23 19:04:27.411 UTC [common/config] NewStandardValues -> DEBU 063 Initializing protos for *config.ConsortiumProtos
+2017-10-23 19:04:27.411 UTC [common/config] initializeProtosStruct -> DEBU 064 Processing field: ChannelCreationPolicy
+2017-10-23 19:04:27.411 UTC [common/config] NewStandardValues -> DEBU 065 Initializing protos for *config.OrganizationProtos
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 066 Processing field: MSP
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 067 Proposed new policy Admins for Org1
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 068 Proposed new policy Readers for Org1
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 069 Proposed new policy Writers for Org1
+2017-10-23 19:04:27.412 UTC [common/config] NewStandardValues -> DEBU 06a Initializing protos for *config.OrdererProtos
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 06b Processing field: ConsensusType
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 06c Processing field: BatchSize
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 06d Processing field: BatchTimeout
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 06e Processing field: KafkaBrokers
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 06f Processing field: ChannelRestrictions
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 070 Proposed new policy Readers for Orderer
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 071 Proposed new policy Writers for Orderer
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 072 Proposed new policy Admins for Orderer
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 073 Proposed new policy BlockValidation for Orderer
+2017-10-23 19:04:27.412 UTC [common/config] NewStandardValues -> DEBU 074 Initializing protos for *config.OrganizationProtos
+2017-10-23 19:04:27.412 UTC [common/config] initializeProtosStruct -> DEBU 075 Processing field: MSP
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 076 Proposed new policy Readers for OrdererOrg
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 077 Proposed new policy Writers for OrdererOrg
+2017-10-23 19:04:27.412 UTC [policies] ProposePolicy -> DEBU 078 Proposed new policy Admins for OrdererOrg
+2017-10-23 19:04:27.412 UTC [common/config] validateMSP -> DEBU 079 Setting up MSP for org Org1
+2017-10-23 19:04:27.412 UTC [msp] NewBccspMsp -> DEBU 07a Creating BCCSP-based MSP instance
+2017-10-23 19:04:27.412 UTC [msp] Setup -> DEBU 07b Setting up MSP instance Org1MSP
+2017-10-23 19:04:27.413 UTC [msp/identity] newIdentity -> DEBU 07c Creating identity instance for ID &{Org1MSP c0e4cac6863e81c6b6cd2d3a8e0eaba7e221cc62107df8ed32499ee4fac0473b}
+2017-10-23 19:04:27.413 UTC [msp/identity] newIdentity -> DEBU 07d Creating identity instance for ID &{Org1MSP 6b5f891548a80a66360a0796e3ae7696fe9566a57c4ca213eec79bb30a62698f}
+2017-10-23 19:04:27.413 UTC [msp/identity] newIdentity -> DEBU 07e Creating identity instance for ID &{Org1MSP 6b5f891548a80a66360a0796e3ae7696fe9566a57c4ca213eec79bb30a62698f}
+2017-10-23 19:04:27.414 UTC [msp] Validate -> DEBU 07f MSP Org1MSP validating identity
+2017-10-23 19:04:27.414 UTC [common/config] validateMSP -> DEBU 080 Setting up MSP for org OrdererOrg
+2017-10-23 19:04:27.414 UTC [msp] NewBccspMsp -> DEBU 081 Creating BCCSP-based MSP instance
+2017-10-23 19:04:27.414 UTC [msp] Setup -> DEBU 082 Setting up MSP instance OrdererMSP
+2017-10-23 19:04:27.414 UTC [msp/identity] newIdentity -> DEBU 083 Creating identity instance for ID &{OrdererMSP 25f8a152972438bb6e22c2bccf6863b3c48ff279e48cbe4df905c9a4e7f077b5}
+2017-10-23 19:04:27.415 UTC [msp/identity] newIdentity -> DEBU 084 Creating identity instance for ID &{OrdererMSP 1470b6440591c5d7723dea352bdb3165f9aea35c1491db6b58b845de8c78962a}
+2017-10-23 19:04:27.415 UTC [msp/identity] newIdentity -> DEBU 085 Creating identity instance for ID &{OrdererMSP 1470b6440591c5d7723dea352bdb3165f9aea35c1491db6b58b845de8c78962a}
+2017-10-23 19:04:27.415 UTC [msp] Validate -> DEBU 086 MSP OrdererMSP validating identity
+2017-10-23 19:04:27.416 UTC [msp] Setup -> DEBU 087 Setting up the MSP manager (2 msps)
+2017-10-23 19:04:27.416 UTC [msp] Setup -> DEBU 088 MSP manager setup complete, setup 2 msps
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 089 Returning policy Writers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 08a In commit adding relative sub-policy Org1/Writers to ComposerConsortium
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 08b Returning policy Admins for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 08c In commit adding relative sub-policy Org1/Admins to ComposerConsortium
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 08d Returning policy Readers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 08e In commit adding relative sub-policy Org1/Readers to ComposerConsortium
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 08f Returning policy Org1/Writers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 090 In commit adding relative sub-policy ComposerConsortium/Org1/Writers to Consortiums
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 091 Returning policy Org1/Admins for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 092 In commit adding relative sub-policy ComposerConsortium/Org1/Admins to Consortiums
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 093 Returning policy Org1/Readers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 094 In commit adding relative sub-policy ComposerConsortium/Org1/Readers to Consortiums
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 095 Returning policy Writers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 096 In commit adding relative sub-policy OrdererOrg/Writers to Orderer
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 097 Returning policy Admins for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 098 In commit adding relative sub-policy OrdererOrg/Admins to Orderer
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 099 Returning policy Readers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 09a In commit adding relative sub-policy OrdererOrg/Readers to Orderer
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 09b Returning policy Readers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 09c Returning policy Writers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 09d Returning policy Admins for evaluation
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 09e Returning policy Writers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] GetPolicy -> DEBU 09f Returning policy ComposerConsortium/Org1/Readers for evaluation
+2017-10-23 19:04:27.416 UTC [policies] CommitProposals -> DEBU 0a0 In commit adding relative sub-policy Consortiums/ComposerConsortium/Org1/Readers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0a1 Returning policy Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0a2 In commit adding relative sub-policy Consortiums/Admins to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0a3 Returning policy ComposerConsortium/Org1/Writers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0a4 In commit adding relative sub-policy Consortiums/ComposerConsortium/Org1/Writers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0a5 Returning policy ComposerConsortium/Org1/Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0a6 In commit adding relative sub-policy Consortiums/ComposerConsortium/Org1/Admins to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0a7 Returning policy BlockValidation for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0a8 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0a9 Returning policy OrdererOrg/Writers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0aa In commit adding relative sub-policy Orderer/OrdererOrg/Writers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0ab Returning policy OrdererOrg/Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0ac In commit adding relative sub-policy Orderer/OrdererOrg/Admins to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0ad Returning policy OrdererOrg/Readers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0ae In commit adding relative sub-policy Orderer/OrdererOrg/Readers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0af Returning policy Readers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0b0 In commit adding relative sub-policy Orderer/Readers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b1 Returning policy Writers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0b2 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b3 Returning policy Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0b4 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b5 Returning dummy reject all policy because Readers could not be found in /Consortiums/Readers
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b6 Returning policy Readers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b7 Returning dummy reject all policy because Writers could not be found in /Consortiums/Writers
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b8 Returning policy Writers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0b9 Returning policy Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0ba Returning policy Admins for evaluation
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0bb Returning policy Readers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0bc As expected, current configuration has policy '/Channel/Readers'
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0bd Returning policy Writers for evaluation
+2017-10-23 19:04:27.417 UTC [policies] CommitProposals -> DEBU 0be As expected, current configuration has policy '/Channel/Writers'
+2017-10-23 19:04:27.417 UTC [policies] GetPolicy -> DEBU 0bf Returning policy Orderer/BlockValidation for evaluation
+2017-10-23 19:04:27.418 UTC [policies] CommitProposals -> DEBU 0c0 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-10-23 19:04:27.418 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 0c1 retrieveBlockByNumber() - blockNum = [0]
+2017-10-23 19:04:27.418 UTC [fsblkstorage] newBlockfileStream -> DEBU 0c2 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-10-23 19:04:27.418 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0c3 Remaining bytes=[6449], Going to peek [8] bytes
+2017-10-23 19:04:27.418 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0c4 Returning blockbytes - length=[6447], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-10-23 19:04:27.418 UTC [orderer/multichain] newChainSupport -> DEBU 0c5 [channel: testchainid] Retrieved metadata for tip of chain (blockNumber=0, lastConfig=0, lastConfigSeq=0):
+2017-10-23 19:04:27.418 UTC [orderer/kafka] newChain -> INFO 0c6 [channel: testchainid] Starting chain with last persisted offset -3 and last recorded block 0
+2017-10-23 19:04:27.418 UTC [orderer/multichain] NewManagerImpl -> INFO 0c7 Starting with system channel testchainid and orderer type kafka
+2017-10-23 19:04:27.418 UTC [orderer/main] main -> INFO 0c8 Beginning to serve requests
+2017-10-23 19:04:27.418 UTC [orderer/kafka] setupProducerForChannel -> INFO 0c9 [channel: testchainid] Setting up the producer for this channel...
+2017-10-23 19:04:27.418 UTC [orderer/kafka] try -> DEBU 0ca [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/10/23 19:04:27.418579 client.go:110: Initializing new client
+[sarama] 2017/10/23 19:04:27.418589 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/10/23 19:04:27.418678 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/10/23 19:04:27.418703 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/10/23 19:04:27.419864 broker.go:146: Connected to broker at kafka2:9092 (unregistered)
+[sarama] 2017/10/23 19:04:27.431204 client.go:397: client/brokers registered new broker #0 at kafka0:9092
+[sarama] 2017/10/23 19:04:27.431243 client.go:397: client/brokers registered new broker #1 at kafka1:9092
+[sarama] 2017/10/23 19:04:27.431260 client.go:397: client/brokers registered new broker #2 at kafka2:9092
+[sarama] 2017/10/23 19:04:27.431280 client.go:397: client/brokers registered new broker #3 at kafka3:9092
+[sarama] 2017/10/23 19:04:27.431307 client.go:154: Successfully initialized new client
+2017-10-23 19:04:27.431 UTC [orderer/kafka] try -> DEBU 0cb [channel: testchainid] Error is nil, breaking the retry loop
+2017-10-23 19:04:27.431 UTC [orderer/kafka] startThread -> INFO 0cc [channel: testchainid] Producer set up successfully
+2017-10-23 19:04:27.431 UTC [orderer/kafka] sendConnectMessage -> INFO 0cd [channel: testchainid] About to post the CONNECT message...
+2017-10-23 19:04:27.431 UTC [orderer/kafka] try -> DEBU 0ce [channel: testchainid] Attempting to post the CONNECT message...
+[sarama] 2017/10/23 19:04:27.431580 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/10/23 19:04:27.467086 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/10/23 19:04:27.467117 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/10/23 19:04:27.717304 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/10/23 19:04:27.723958 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/10/23 19:04:27.724199 async_producer.go:584: producer/broker/3 starting up
+[sarama] 2017/10/23 19:04:27.724214 async_producer.go:596: producer/broker/3 state change to [open] on testchainid/0
+[sarama] 2017/10/23 19:04:27.724787 broker.go:144: Connected to broker at kafka3:9092 (registered as #3)
+[sarama] 2017/10/23 19:04:27.737568 async_producer.go:744: producer/broker/3 state change to [retrying] on testchainid/0 because kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date.
+[sarama] 2017/10/23 19:04:27.737613 async_producer.go:458: producer/leader/testchainid/0 state change to [retrying-1]
+[sarama] 2017/10/23 19:04:27.737648 async_producer.go:468: producer/leader/testchainid/0 abandoning broker 3
+[sarama] 2017/10/23 19:04:27.737677 async_producer.go:612: producer/broker/3 state change to [closed] on testchainid/0
+[sarama] 2017/10/23 19:04:27.737699 async_producer.go:663: producer/broker/3 shut down
+[sarama] 2017/10/23 19:04:27.837902 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/10/23 19:04:27.840748 async_producer.go:584: producer/broker/3 starting up
+[sarama] 2017/10/23 19:04:27.840765 async_producer.go:596: producer/broker/3 state change to [open] on testchainid/0
+[sarama] 2017/10/23 19:04:27.840815 async_producer.go:446: producer/leader/testchainid/0 selected broker 3
+[sarama] 2017/10/23 19:04:27.840830 async_producer.go:474: producer/leader/testchainid/0 state change to [flushing-1]
+[sarama] 2017/10/23 19:04:27.840835 async_producer.go:496: producer/leader/testchainid/0 state change to [normal]
+[sarama] 2017/10/23 19:04:27.842655 async_producer.go:744: producer/broker/3 state change to [retrying] on testchainid/0 because kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date.
+[sarama] 2017/10/23 19:04:27.842704 async_producer.go:458: producer/leader/testchainid/0 state change to [retrying-2]
+[sarama] 2017/10/23 19:04:27.842720 async_producer.go:468: producer/leader/testchainid/0 abandoning broker 3
+[sarama] 2017/10/23 19:04:27.842742 async_producer.go:612: producer/broker/3 state change to [closed] on testchainid/0
+[sarama] 2017/10/23 19:04:27.842756 async_producer.go:663: producer/broker/3 shut down
+[sarama] 2017/10/23 19:04:27.942866 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/10/23 19:04:27.944732 async_producer.go:584: producer/broker/3 starting up
+[sarama] 2017/10/23 19:04:27.944786 async_producer.go:596: producer/broker/3 state change to [open] on testchainid/0
+[sarama] 2017/10/23 19:04:27.944816 async_producer.go:446: producer/leader/testchainid/0 selected broker 3
+[sarama] 2017/10/23 19:04:27.944846 async_producer.go:474: producer/leader/testchainid/0 state change to [flushing-2]
+[sarama] 2017/10/23 19:04:27.944876 async_producer.go:496: producer/leader/testchainid/0 state change to [normal]
+[sarama] 2017/10/23 19:04:27.946514 async_producer.go:744: producer/broker/3 state change to [retrying] on testchainid/0 because kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date.
+[sarama] 2017/10/23 19:04:27.946542 async_producer.go:458: producer/leader/testchainid/0 state change to [retrying-3]
+[sarama] 2017/10/23 19:04:27.946571 async_producer.go:468: producer/leader/testchainid/0 abandoning broker 3
+[sarama] 2017/10/23 19:04:27.946610 async_producer.go:612: producer/broker/3 state change to [closed] on testchainid/0
+[sarama] 2017/10/23 19:04:27.946625 async_producer.go:663: producer/broker/3 shut down
+[sarama] 2017/10/23 19:04:28.046774 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/10/23 19:04:28.048628 async_producer.go:584: producer/broker/3 starting up
+[sarama] 2017/10/23 19:04:28.048654 async_producer.go:596: producer/broker/3 state change to [open] on testchainid/0
+[sarama] 2017/10/23 19:04:28.048671 async_producer.go:446: producer/leader/testchainid/0 selected broker 3
+[sarama] 2017/10/23 19:04:28.048681 async_producer.go:474: producer/leader/testchainid/0 state change to [flushing-3]
+[sarama] 2017/10/23 19:04:28.048686 async_producer.go:496: producer/leader/testchainid/0 state change to [normal]
+[sarama] 2017/10/23 19:04:28.051168 async_producer.go:744: producer/broker/3 state change to [retrying] on testchainid/0 because kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date.

@@ -1,0 +1,985 @@
+user@ubuntu:~/cello-0.9.0$ docker logs cello-watchdog
+[2019-08-17 14:53:40,499] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:53:48,693] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:53:55,371] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:53:59,964] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:54:04,237] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:54:09,444] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:54:16,184] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:54:26,068] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:54:42,309] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:55:11,514] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:56:06,116] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:57:09,629] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:58:13,174] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 14:59:16,616] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:00:20,118] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:01:23,627] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:02:27,091] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:03:30,620] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:04:35,660] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:05:38,588] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:06:42,133] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:07:45,696] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:08:49,085] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object
+[2019-08-17 15:09:52,286] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+Traceback (most recent call last):
+  File "watchdog.py", line 134, in <module>
+    watch_run(PERIOD_TIME)
+  File "watchdog.py", line 124, in watch_run
+    hosts = list(host_handler.list())
+  File "/app/modules/host.py", line 252, in list
+    return self._schema(hosts, many=True)
+  File "/app/modules/host.py", line 466, in _schema
+    return host_schema.dump(doc).data
+  File "/usr/local/lib/python3.6/site-packages/marshmallow/schema.py", line 481, in dump
+    obj = list(obj)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 101, in __iter__
+    return iter(self._fetch())
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 129, in _fetch
+    self._result_cache = self._manager._fetch(**options)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/query.py", line 46, in _fetch
+    return [klass(**it) for it in klass.GET(uri, **kw).get('results')]
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 157, in GET
+    return cls.execute(uri, 'GET', **kw)
+  File "/usr/local/lib/python3.6/site-packages/parse_client/connection.py", line 143, in execute
+    response = urlopen(request, timeout=CONNECTION_TIMEOUT)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/local/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.6/http/client.py", line 1280, in _send_request
+    self.putheader(hdr, value)
+  File "/usr/local/lib/python3.6/http/client.py", line 1216, in putheader
+    if _is_illegal_header_value(values[i]):
+TypeError: expected string or bytes-like object

@@ -1,0 +1,128 @@
+[
+    {
+        "ID": "icmmlqakq48s063u4heu6urtr",
+        "Version": {
+            "Index": 60
+        },
+        "CreatedAt": "2017-05-24T04:38:33.605805302Z",
+        "UpdatedAt": "2017-05-24T04:38:33.625531632Z",
+        "Spec": {
+            "Name": "orderer",
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "hyperledger/fabric-orderer:x86_64-1.0.0-alpha2@sha256:565c1adb8bede29dbb5222aa4abbf04b5426068db2369d08bb3c5bdba13ff230",
+                    "Args": [
+                        "orderer"
+                    ],
+                    "Env": [
+                        "ORDERER_GENERAL_LOGLEVEL=debug",
+                        "ORDERER_GENERAL_LISTENADDRESS=0.0.0.0",
+                        "ORDERER_GENERAL_GENESISMETHOD=file",
+                        "ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block",
+                        "ORDERER_GENERAL_LOCALMSPID=OrdererMSP",
+                        "ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp",
+                        "ORDERER_GENERAL_TLS_ENABLED=true",
+                        "ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key",
+                        "ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt",
+                        "ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]"
+                    ],
+                    "Dir": "/opt/gopath/src/github.com/hyperledger/fabric",
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/home/xxx/fabric/examples/e2e_cli/release/channel-artifacts/orderer.genesis.block",
+                            "Target": "/var/hyperledger/orderer/orderer.genesis.block"
+                        },
+                        {
+                            "Type": "bind",
+                            "Source": "/home/xxx/fabric/examples/e2e_cli/release/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp",
+                            "Target": "/var/hyperledger/orderer/msp"
+                        },
+                        {
+                            "Type": "bind",
+                            "Source": "/home/xxx/fabric/examples/e2e_cli/release/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls",
+                            "Target": "/var/hyperledger/orderer/tls"
+                        }
+                    ],
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "none",
+                    "MaxAttempts": 0
+                },
+                "Placement": {},
+                "Networks": [
+                    {
+                        "Target": "jmndy5j1cn2veu1gk96b1eugr"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "MaxFailureRatio": 0
+            },
+            "Networks": [
+                {
+                    "Target": "mynetwork"
+                }
+            ],
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 7050,
+                        "PublishedPort": 7050,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 7050,
+                        "PublishedPort": 7050,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 7050,
+                    "PublishedPort": 7050,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "zo9fj6n6bufd6pdzwj4ub9ed4",
+                    "Addr": "10.255.0.5/16"
+                },
+                {
+                    "NetworkID": "jmndy5j1cn2veu1gk96b1eugr",
+                    "Addr": "10.0.0.2/24"
+                }
+            ]
+        },
+        "UpdateStatus": {
+            "StartedAt": "0001-01-01T00:00:00Z",
+            "CompletedAt": "0001-01-01T00:00:00Z"
+        }
+    }
+]

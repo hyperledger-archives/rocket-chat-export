@@ -1,0 +1,50 @@
+2019-01-18 18:46:41.096 UTC [endorser] callChaincode -> INFO 020 [][4d13a8d4] Entry chaincode: name:"cscc" 
+2019-01-18 18:46:41.096 UTC [endorser] call64 -> INFO 021 [][4d13a8d4] Exit chaincode: name:"cscc"  (1ms)
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x60 pc=0x1366077]
+
+goroutine 105 [running]:
+github.com/hyperledger/fabric/core/scc/lscc.(*LifeCycleSysCC).ChaincodeContainerInfo(0xc0001c3f90, 0xc000432ec8, 0x4, 0x0, 0x0, 0x18a16f4, 0x5, 0xc0004330b4)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/scc/lscc/lscc.go:165 +0x37
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch(0xc0001823f0, 0x0, 0x0, 0xc000432ec8, 0x4, 0x18a16f4, 0x5, 0x0, 0x0, 0x30, ...)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:141 +0x117
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Invoke(0xc0001823f0, 0xc0001459d0, 0xc000336c08, 0xc000127e80, 0x16f1720, 0xc000336b01, 0xc000326900)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:284 +0x103
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute(0xc0001823f0, 0xc0001459d0, 0xc000336c08, 0xc000127e80, 0x0, 0xc000127e80, 0x0, 0x0)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:238 +0x50
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute(0xc000413aa0, 0xc0001459d0, 0x0, 0x0, 0xc000432ec8, 0x4, 0x18a16f4, 0x5, 0xc00030cf80, 0x40, ...)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/endorser/support.go:147 +0x1a9
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode(0xc000366400, 0xc0001459d0, 0x18a16f4, 0x5, 0xc000127e80, 0xc0002f7db0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/endorser/endorser.go:146 +0x264
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal(0xc000366400, 0xc0001459d0, 0xc0002f7db0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/endorser/endorser.go:247 +0x384
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal(0xc000366400, 0x18ca960, 0xc000326540, 0xc0002f7130, 0x0, 0x0, 0x0)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/endorser/endorser.go:500 +0x3c9
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler.func1(0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0x0, 0xc0002c5318, 0xa18712, 0xc000000008)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:169 +0x86
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1(0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0x0, 0x18, 0xc0000d6700, 0xc0000d6700)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:31 +0x118
+github.com/hyperledger/fabric/core/comm.(*Throttle).UnaryServerIntercptor(0xc000375700, 0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0xc000309ac0, 0xc0002f7270, 0x0, 0x0, 0x0, ...)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/core/comm/throttle.go:54 +0xd3
+github.com/hyperledger/fabric/core/comm.(*Throttle).UnaryServerIntercptor-fm(0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0xc000309ac0, 0xc0002f7270, 0xc00031c3c0, 0xc0003265fe, 0x1769c0b, 0x16)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/peer/node/start.go:224 +0x73
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1(0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0x0, 0x18ca9fe, 0xc000326540, 0x0)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:34 +0x9f
+github.com/hyperledger/fabric/common/grpclogging.UnaryServerInterceptor.func1(0x18ca960, 0xc000326540, 0x16bace0, 0xc0002f7130, 0xc000309ac0, 0xc0002f7270, 0xc0002c5980, 0xa8c826, 0x5c421f11, 0x59be830)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/common/grpclogging/server.go:91 +0x256
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1(0x18ca960, 0xc000326390, 0x16bace0, 0xc0002f7130, 0x18b5560, 0x2496128, 0x16b6be0, 0xc000300101)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:34 +0x9f
+github.com/hyperledger/fabric/common/grpcmetrics.UnaryServerInterceptor.func1(0x18ca960, 0xc000326390, 0x16bace0, 0xc0002f7130, 0xc000309ac0, 0xc0002f7270, 0x15b30c0, 0x2496128, 0xc0002c5ae8, 0x9f9ac8)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/common/grpcmetrics/interceptor.go:30 +0x1d6
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1(0x18ca960, 0xc000326390, 0x16bace0, 0xc0002f7130, 0xc000309ac0, 0xc000309ae0, 0x15b30c0, 0x2496128, 0x1723920, 0xc00048e200)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:39 +0x153
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler(0x166eb60, 0xc000366400, 0x18ca960, 0xc000326390, 0xc00016b180, 0xc000204ab0, 0x0, 0x0, 0xc00048e200, 0xc00004c000)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:171 +0x158
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC(0xc0001bd800, 0x18d2360, 0xc0002a8a80, 0xc00048e200, 0xc00049bd40, 0x237f770, 0xc000326330, 0x0, 0x0)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:982 +0x4cd
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream(0xc0001bd800, 0x18d2360, 0xc0002a8a80, 0xc00048e200, 0xc000326330)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1208 +0x1311
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1(0xc000432c60, 0xc0001bd800, 0x18d2360, 0xc0002a8a80, 0xc00048e200)
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:686 +0x9f
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1
+	/usr/local/go/bin/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:684 +0xa1

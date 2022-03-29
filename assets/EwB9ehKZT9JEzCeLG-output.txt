@@ -1,0 +1,53 @@
+Creating network "artforgery_multicanetwork" with the default driver
+Creating fabriccarootserver ...
+Creating fabriccarootserver ... done
+Creating fabricca-client ...
+Creating fabricca1server ...
+Creating fabricca1server
+Creating fabricca1server ... done
+Creating fabricca1-client ...
+Creating fabricca1-client ... done
+Attaching to fabriccarootserver, fabricca-client, fabricca1server, fabricca1-client
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Configuration file location: /etc/hyperledger/fabric-ca-server/f                          abric-ca-server-config.yaml
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Starting server in home directory: /etc/hyperledger/fabric-ca-se                          rver
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Loading CA from /etc/hyperledger/fabric-ca-server/ca/ca1/fabric-                          ca-config.yaml
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The CA key and certificate already exist
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The key is stored by BCCSP provider 'SW'
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The certificate is at: /etc/hyperledger/fabric-ca-server/ca/ca1/                          ca-cert.pem
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-serve                          r/ca/ca1/fabric-ca-server.db
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Loading CA from /etc/hyperledger/fabric-ca-server/ca/ca2/fabric-                          ca-config.yaml
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The CA key and certificate already exist
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The key is stored by BCCSP provider 'SW'
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The certificate is at: /etc/hyperledger/fabric-ca-server/ca/ca2/                          ca-cert.pem
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-serve                          r/ca/ca2/fabric-ca-server.db
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The CA key and certificate already exist
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The key is stored by BCCSP provider 'SW'
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] The certificate is at: /etc/hyperledger/fabric-ca-server/ca-cert                          .pem
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-serve                          r/fabric-ca-server.db
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Home directory for default CA: /etc/hyperledger/fabric-ca-server
+fabriccarootserver    | 2017/10/26 20:01:59 [INFO] Listening on http://0.0.0.0:7054
+fabricca-client       | 2017/10/26 20:02:10 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client/fab                          ric-ca-client-config.yaml
+fabricca-client       | 2017/10/26 20:02:10 [INFO] generating key: &{A:ecdsa S:256}
+fabricca-client       | 2017/10/26 20:02:10 [INFO] encoded CSR
+fabriccarootserver    | 2017/10/26 20:02:10 [INFO] signed certificate with serial number 21257526564858455842969408                          5354608374491006241973
+fabriccarootserver    | 2017/10/26 20:02:10 [INFO] 172.18.0.3:38692 - "POST /enroll" 200
+fabricca-client       | 2017/10/26 20:02:10 [INFO] Stored client certificate at /etc/hyperledger/fabric-ca-client/m                          sp/signcerts/cert.pem
+fabricca-client       | 2017/10/26 20:02:10 [INFO] Stored CA certificate chain at /etc/hyperledger/fabric-ca-client                          /msp/cacerts/fabriccarootserver-7054.pem
+fabricca1server       | 2017/10/26 20:02:11 [INFO] Configuration file location: /etc/hyperledger/fabric-ca-server/f                          abric-ca-server-config.yaml
+fabricca1server       | 2017/10/26 20:02:11 [INFO] Starting server in home directory: /etc/hyperledger/fabric-ca-se                          rver
+fabricca1server       | 2017/10/26 20:02:11 [INFO] The CA key and certificate already exist
+fabricca1server       | 2017/10/26 20:02:11 [INFO] The key is stored by BCCSP provider 'SW'
+fabricca1server       | 2017/10/26 20:02:11 [INFO] The certificate is at: /etc/hyperledger/fabric-ca-server/ca-cert                          .pem
+fabricca1server       | 2017/10/26 20:02:11 [INFO] Initialized sqlite3 database at /etc/hyperledger/fabric-ca-serve                          r/fabric-ca-server.db
+fabricca1server       | 2017/10/26 20:02:11 [INFO] Home directory for default CA: /etc/hyperledger/fabric-ca-server
+fabricca1server       | 2017/10/26 20:02:11 [INFO] Listening on http://0.0.0.0:7054
+fabricca1-client      | 2017/10/26 20:02:12 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client/fab                          ric-ca-client-config.yaml
+fabricca1-client      | 2017/10/26 20:02:12 [INFO] generating key: &{A:ecdsa S:256}
+fabricca1-client      | 2017/10/26 20:02:12 [INFO] encoded CSR
+fabricca1-client      | Error: POST failure [Post http://fabricca1server:8054/enroll: dial tcp 172.18.0.4:8054: get                          sockopt: connection refused]; not sending
+fabricca1-client      | POST http://fabricca1server:8054/enroll
+fabricca1-client      | Authorization: Basic YWRtaW46YWRtaW5wdw==
+fabricca1-client      | {"hosts":["e05bab70505d"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQ                          jCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaW                          MxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcc09ZhYcWgiHIgyj\nuLX57DZAvXA2voyzR/O93+beYM3E10YK5e/Pg                          nRYoqLUSrqYIuWyaqTJJmrqLGHR\n+77gNaAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMZTA1YmFiNzA1MDVk\nMAoGCCqGSM49BAMCA0gA                          MEUCIQD0pbgTPxCZCdn/ov5fxcozXiVaTfOOSc38LpzG\nViKDsgIgVK/hH+aWFxzLHBDGrg4cNSlQ5e6s3E72eNyNTxm97Fg=\n-----END CERTIF                          ICATE REQUEST-----\n","profile":"","crl_override":"","label":"","CAName":""}
+fabricca1server       | 2017/10/26 20:04:26 [INFO] signed certificate with serial number 471423335441911424948826857852147213356147642529
+fabricca1server       | 2017/10/26 20:04:26 [ERROR] Enrollment failure: Chain file does not exist at /etc/hyperledger/fabric-ca-server/ca-chain.pem
+fabricca1server       | 2017/10/26 20:04:26 [INFO] 172.18.0.5:42412 - "POST /enroll" 0

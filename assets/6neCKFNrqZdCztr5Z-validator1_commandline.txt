@@ -1,0 +1,185 @@
+$ sudo -u sawtooth sawtooth-validator -vv --bind component:tcp://127.0.0.1:4004 --bind network:tcp://10.0.2.15:8800 --endpoint tcp://10.0.2.15:8800 --peers tcp://10.0.2.16:8800
+[sudo] password for rortman1: 
+[2019-02-05 10:32:57.081 WARNING  (unknown file)] [src/pylogger.rs: 40] Started logger at level DEBUG
+[2019-02-05 10:32:57.450 DEBUG    ffi] loading library libsawtooth_validator.so
+[2019-02-05 10:32:57.453 DEBUG    ffi] loading library libsawtooth_validator.so
+[2019-02-05 10:32:57.904 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2019-02-05 10:32:57.904 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+[2019-02-05 10:32:57.904 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2019-02-05 10:32:57.907 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[2019-02-05 10:32:57.908 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[2019-02-05 10:32:57.908 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[2019-02-05 10:32:57.910 DEBUG    state_verifier] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[2019-02-05 10:32:57.911 DEBUG    state_verifier] block store file is /var/lib/sawtooth/block-00.lmdb
+[2019-02-05 10:32:57.912 INFO     state_verifier] Skipping state verification: chain head's state root is present
+[2019-02-05 10:32:57.912 INFO     cli] Starting validator with serial scheduler
+[2019-02-05 10:32:57.912 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[2019-02-05 10:32:57.913 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[2019-02-05 10:32:57.913 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+[2019-02-05 10:32:57.913 DEBUG    threadpool] Creating thread pool executor Component
+[2019-02-05 10:32:57.914 DEBUG    threadpool] Creating thread pool executor Network
+[2019-02-05 10:32:57.916 DEBUG    threadpool] Creating thread pool executor Client
+[2019-02-05 10:32:57.916 DEBUG    threadpool] Creating thread pool executor Signature
+[2019-02-05 10:32:57.922 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:32:57.923 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:32:57.927 DEBUG    threadpool] Creating thread pool executor Executing
+[2019-02-05 10:32:57.927 DEBUG    threadpool] Creating thread pool executor Consensus
+[2019-02-05 10:32:57.928 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:32:57.935 DEBUG    threadpool] Creating thread pool executor Instrumented
+[2019-02-05 10:32:57.946 INFO     ffi] [src/journal/chain.rs: 785] Chain controller initialized with chain head: Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:32:57.957 INFO     ffi] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:32:57.983 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:32:57.986 INFO     interconnect] Listening on tcp://127.0.0.1:4004
+[2019-02-05 10:32:57.987 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:32:57.987 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:32:57.988 DEBUG    genesis] genesis_batch_file: not found
+[2019-02-05 10:32:57.988 DEBUG    genesis] chain_head: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19 (block_num:1, state:248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id:1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:32:57.990 DEBUG    genesis] block_chain_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836
+[2019-02-05 10:32:57.992 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:32:57.994 INFO     interconnect] Listening on tcp://127.0.0.1:5050
+[2019-02-05 10:32:57.994 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:32:57.994 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:32:58.009 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:32:58.010 INFO     interconnect] Listening on tcp://10.0.2.15:8800
+[2019-02-05 10:32:58.011 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:32:58.014 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:32:58.029 DEBUG    gossip] Endpoint has not completed authorization in 10 seconds: tcp://10.0.2.16:8800
+[2019-02-05 10:32:58.029 DEBUG    gossip] attempting to peer with tcp://10.0.2.16:8800
+[2019-02-05 10:32:58.029 DEBUG    interconnect] Adding connection to tcp://10.0.2.16:8800
+[2019-02-05 10:32:58.030 INFO     ffi] [src/journal/chain.rs: 785] Chain controller initialized with chain head: Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:32:58.041 INFO     ffi] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:32:58.051 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:32:58.052 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:32:58.057 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:32:58.076 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 157ad3c82b18559a5e8b79b7a188f845e55634904d575438999f4e98c47547d6858554977991db9154fabc711781bb663346bdf2ec0d800dc80778c841e8363a. Using default max occupancy: 10
+[2019-02-05 10:32:58.078 INFO     processor_handlers] registered transaction processor: connection_id=157ad3c82b18559a5e8b79b7a188f845e55634904d575438999f4e98c47547d6858554977991db9154fabc711781bb663346bdf2ec0d800dc80778c841e8363a, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[2019-02-05 10:32:58.078 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: bf0b9cc2e3cfd64dc11b2b8da0ad15afd7ddd8e4f36b6a7c84718cb4c92de251b79b4c029ce848753f04fb0d5fdc5c8715e5ddb3bd40ed1f63f5931f41ccfa67. Using default max occupancy: 10
+[2019-02-05 10:32:58.079 INFO     processor_handlers] registered transaction processor: connection_id=bf0b9cc2e3cfd64dc11b2b8da0ad15afd7ddd8e4f36b6a7c84718cb4c92de251b79b4c029ce848753f04fb0d5fdc5c8715e5ddb3bd40ed1f63f5931f41ccfa67, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[2019-02-05 10:32:58.085 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 0fbe111455bdb887e6b50aead13eca0ae908adecf5543ab80f3e5ca3eca4ac911726040f596ff7a0ad2a31482230533bf0805475d95fce996b3ec0f9d65791a2. Using default max occupancy: 10
+[2019-02-05 10:32:58.089 INFO     processor_handlers] registered transaction processor: connection_id=0fbe111455bdb887e6b50aead13eca0ae908adecf5543ab80f3e5ca3eca4ac911726040f596ff7a0ad2a31482230533bf0805475d95fce996b3ec0f9d65791a2, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[2019-02-05 10:32:58.104 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: bf0b9cc2e3cfd64dc11b2b8da0ad15afd7ddd8e4f36b6a7c84718cb4c92de251b79b4c029ce848753f04fb0d5fdc5c8715e5ddb3bd40ed1f63f5931f41ccfa67. Using default max occupancy: 10
+[2019-02-05 10:32:58.105 INFO     processor_handlers] registered transaction processor: connection_id=bf0b9cc2e3cfd64dc11b2b8da0ad15afd7ddd8e4f36b6a7c84718cb4c92de251b79b4c029ce848753f04fb0d5fdc5c8715e5ddb3bd40ed1f63f5931f41ccfa67, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[2019-02-05 10:32:58.111 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 0fbe111455bdb887e6b50aead13eca0ae908adecf5543ab80f3e5ca3eca4ac911726040f596ff7a0ad2a31482230533bf0805475d95fce996b3ec0f9d65791a2. Using default max occupancy: 10
+[2019-02-05 10:32:58.114 INFO     processor_handlers] registered transaction processor: connection_id=0fbe111455bdb887e6b50aead13eca0ae908adecf5543ab80f3e5ca3eca4ac911726040f596ff7a0ad2a31482230533bf0805475d95fce996b3ec0f9d65791a2, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[2019-02-05 10:33:15.069 INFO     handlers] Consensus engine registered: PoET 0.1
+[2019-02-05 10:33:18.082 DEBUG    gossip] Endpoint has not completed authorization in 20 seconds: tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.082 DEBUG    interconnect] Removing connection: 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b
+[2019-02-05 10:33:18.082 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.082 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.082 DEBUG    gossip] attempting to peer with tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.083 DEBUG    interconnect] Adding connection to tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.083 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:18.084 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:18.084 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:28.078 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:28.079 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:31.208 DEBUG    handlers] got connect message from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16. sending ack
+[2019-02-05 10:33:31.209 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.16:8800
+[2019-02-05 10:33:31.209 DEBUG    interconnect] Determining whether inbound connection should be allowed. num connections: 2 max 100
+[2019-02-05 10:33:31.209 DEBUG    handlers] Allowing incoming connection: 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16
+[2019-02-05 10:33:31.214 DEBUG    handlers] Connection: 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 is approved
+[2019-02-05 10:33:31.232 DEBUG    gossip_handlers] Got peer register message from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 (tcp://10.0.2.16:8800, protocol v1)
+[2019-02-05 10:33:31.243 DEBUG    gossip] Added connection_id 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 with endpoint tcp://10.0.2.16:8800, connected identities are now {'3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16': 'tcp://10.0.2.16:8800'}
+[2019-02-05 10:33:31.265 DEBUG    interconnect] Connection to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b was acknowledged
+[2019-02-05 10:33:31.270 DEBUG    handlers] got connect message from 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b. sending ack
+[2019-02-05 10:33:31.270 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.16:8800
+[2019-02-05 10:33:31.270 WARNING  dispatch] Can't send message AUTHORIZATION_CONNECTION_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:33:31.286 DEBUG    responder] Responding to block requests: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19
+[2019-02-05 10:33:31.378 DEBUG    responder] Responding to block requests: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836
+[2019-02-05 10:33:51.203 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:33:51.711 DEBUG    block_validator] Adding block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f for processing
+[2019-02-05 10:33:51.761 INFO     block_validator] Block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f (block_num:2, state:9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id:0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19) passed validation
+[2019-02-05 10:33:51.767 DEBUG    block_validator] Removing block from processing 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f
+[2019-02-05 10:33:51.897 INFO     (unknown file)] [src/journal/chain.rs: 258] Building fork resolution for chain head 'Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)' against new block 'Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)'
+[2019-02-05 10:33:51.903 INFO     (unknown file)] [src/journal/chain.rs: 634] Chain head updated to Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[2019-02-05 10:33:51.904 INFO     (unknown file)] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[2019-02-05 10:33:58.041 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.625813961029053 seconds - beginning heartbeat pings.
+[2019-02-05 10:33:58.143 DEBUG    gossip] Endpoint has not completed authorization in 40 seconds: tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.143 DEBUG    interconnect] Removing connection: 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b
+[2019-02-05 10:33:58.143 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_message function was registered
+[2019-02-05 10:33:58.143 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_last_message function was registered
+[2019-02-05 10:33:58.143 DEBUG    gossip] attempting to peer with tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.143 DEBUG    interconnect] Adding connection to tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.144 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:58.144 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.145 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.157 DEBUG    interconnect] Connection to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b was acknowledged
+[2019-02-05 10:33:58.161 DEBUG    handlers] got connect message from 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b. sending ack
+[2019-02-05 10:33:58.161 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.16:8800
+[2019-02-05 10:33:58.168 DEBUG    gossip] Endpoint has completed authorization: tcp://10.0.2.16:8800 (id: 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b)
+[2019-02-05 10:33:58.168 DEBUG    gossip] Connection to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b succeeded
+[2019-02-05 10:33:58.169 DEBUG    handlers] Connection: 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b is approved
+[2019-02-05 10:33:58.208 DEBUG    gossip] Peering request to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b was successful
+[2019-02-05 10:33:58.208 DEBUG    gossip] Added connection_id 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b with endpoint tcp://10.0.2.16:8800, connected identities are now {'2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b': 'tcp://10.0.2.16:8800', '3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16': 'tcp://10.0.2.16:8800'}
+[2019-02-05 10:34:01.205 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:34:01.205 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800
+[2019-02-05 10:34:08.046 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.002856731414795 seconds - beginning heartbeat pings.
+[2019-02-05 10:34:11.215 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:34:18.055 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.006383657455444 seconds - beginning heartbeat pings.
+[2019-02-05 10:34:21.222 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:34:28.059 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.002363204956055 seconds - beginning heartbeat pings.
+[2019-02-05 10:34:31.225 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:34:38.069 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.00725245475769 seconds - beginning heartbeat pings.
+[2019-02-05 10:34:41.235 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:34:58.083 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 14.01027536392212 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:01.256 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:35:08.086 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.001239776611328 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:11.261 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:35:18.095 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.006428241729736 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:21.264 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:35:28.104 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007184505462646 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:48.121 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 18.161495208740234 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:51.269 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:35:58.131 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007068395614624 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:01.279 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:08.142 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.00809359550476 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:11.288 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:18.152 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.008312940597534 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:21.294 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:28.164 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.008580684661865 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:31.295 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:38.175 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.006922483444214 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:41.305 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:48.179 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.001893043518066 seconds - beginning heartbeat pings.
+[2019-02-05 10:36:51.313 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:36:58.191 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.009408473968506 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:01.323 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:37:08.202 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.008840084075928 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:11.330 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:37:18.213 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007679224014282 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:21.341 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:37:28.224 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.008366584777832 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:31.347 WARNING  dispatch] Can't send message PING_RESPONSE back to 2515dcce8649a2e664fc9cb445c637ed57c652d29ff265e5f625b54877a7a69ae7947f1c9792ec3b6206d0094b41a5f3c64d85c8dd6b6a99769636864d4d935b because connection OutboundConnectionThread-tcp://10.0.2.16:8800 not in dispatcher
+[2019-02-05 10:37:38.231 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.005293607711792 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:48.241 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007726669311523 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:58.252 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.008028507232666 seconds - beginning heartbeat pings.
+[2019-02-05 10:38:08.263 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007972240447998 seconds - beginning heartbeat pings.
+[2019-02-05 10:38:18.273 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007869720458984 seconds - beginning heartbeat pings.
+[2019-02-05 10:38:28.282 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.007260799407959 seconds - beginning heartbeat pings.
+[2019-02-05 10:38:38.285 DEBUG    interconnect] No response from 3f93e1b53a82508ccfb787fc611a6c8fcd03fa80f5aa75b4b2f13d96db24c59f253e8def1423f2996442f85342142128822e507f29e405a8dfb984cdf6955e16 in 10.000215291976929 seconds - beginning heartbeat pings.
+^C[2019-02-05 10:38:40.261 INFO     cli] Initiating graceful shutdown (press Ctrl+C again to force)
+[2019-02-05 10:38:40.262 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:40.262 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:40.263 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_message function was registered
+[2019-02-05 10:38:40.263 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_last_message function was registered
+[2019-02-05 10:38:40.264 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_message function was registered
+[2019-02-05 10:38:40.264 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.16:8800, but no send_last_message function was registered
+[2019-02-05 10:38:40.266 WARNING  dispatch] Attempted to remove send_message function for connection ServerThread, but no send_message function was registered
+[2019-02-05 10:38:40.266 WARNING  dispatch] Attempted to remove send_last_message function for connection ServerThread, but no send_last_message function was registered
+[2019-02-05 10:38:40.266 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:40.267 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:40.269 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:40.269 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:40.277 ERROR    (unknown file)] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 488, in stop
+    if not t.is_alive():
+  File "/usr/lib/python3.5/threading.py", line 1113, in is_alive
+    self._wait_for_tstate_lock(False)
+  File "/usr/lib/python3.5/threading.py", line 1069, in _wait_for_tstate_lock
+    assert self._is_stopped
+AssertionError
+[2019-02-05 10:38:40.285 WARNING  (unknown file)] [src/journal/publisher.rs: 564] PublisherThread exiting
+

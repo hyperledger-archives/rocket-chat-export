@@ -1,0 +1,391 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Mon, 18 Jan 2021 17:14:39 GMT):<br/>
+swcurran
+</p>
+<p><strong>rjones</strong> (Mon, 18 Jan 2021 17:14:50 GMT):<br/>
+Can't use `+` in a channel name, sorry.
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:38:29 GMT):<br/>
+No problem -- thanks!
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_1</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_2</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_3</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_4</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_5</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_6</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_7</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_8</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_9</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>swcurran</strong> (Mon, 18 Jan 2021 18:45:48 GMT):<br/>
+<i>User <em>User_10</em> added by <em>swcurran</em>.</i>
+</p>
+<p><strong>rjones</strong> (Mon, 18 Jan 2021 19:43:50 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 18 Jan 2021 20:28:38 GMT):<br/>
+Hey everyone! I'm super excited to announce that for a Code With Us opportunity from BCGov, we at Animo will be adding W3C Standard Verifiable Credential support to ACA-Py. 
+
+A lot needs to happen, and we won't be doing all the work, but the overall goal is to support both ZKP/Selective Disclosure VCs using BBS+ Signatures and non-ZKP VCs, the V2 exchange protocols and the new Presentation Exchange format. Aries Agent Test Harness will also be updated to support the new credential formats so we can automatically test interoperability with AFGO.
+
+Mattr / Aries Framework Go team as you already tackled a lot of these problems, If it's okay, I'll be reaching out to make sure everything works together and we're on the right track. We can use this channel for general coordination and discussion.
+</p>
+<p><strong>george.aristy</strong> (Tue, 19 Jan 2021 20:44:03 GMT):<br/>
+<i>User <em>User_11</em> added by <em>george.aristy</em>.</i>
+</p>
+<p><strong>brentzundel</strong> (Tue, 19 Jan 2021 23:49:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>esplinr</strong> (Wed, 20 Jan 2021 18:36:42 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ajayjadhav</strong> (Thu, 21 Jan 2021 12:03:38 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>troyronda</strong> (Thu, 21 Jan 2021 16:10:11 GMT):<br/>
+https://chat.hyperledger.org/channel/aries-go?msg=heuk2LZAx7CBqDyGm
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 18:39:25 GMT):<br/>
+PSA:
+
+Support for P-E is dependent on support for crypto suites. Let's keep this in mind when we talk about interop.
+</p>
+<p><strong>swcurran</strong> (Thu, 21 Jan 2021 18:48:55 GMT):<br/>
+How does that dependency manifest?
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:02:59 GMT):<br/>
+One of the values for the P-E `predicate` attribute defined in this section is dependent on the underlying crypto: https://identity.foundation/presentation-exchange/#input-descriptor-objects
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:03:52 GMT):<br/>
+There is currently no way using BBS+ to issue a credential with `predicate: required` with the Issuer offline.
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:03:52 GMT):<br/>
+There is currently no way using BBS+ to present a proof when the P-E request has `predicate: required` and the Issuer offline.
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:03:52 GMT):<br/>
+There is currently no way using BBS+ to present a proof when the P-E request has `predicate: required` and the Issuer is offline.
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:05:16 GMT):<br/>
+(and the issued credential does not happen to have a boolean claim already included, eg: "ageOver18: true"
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:05:16 GMT):<br/>
+(and the issued credential does not happen to have a boolean claim already included, eg: "ageOver18: true")
+</p>
+<p><strong>george.aristy</strong> (Thu, 21 Jan 2021 19:06:43 GMT):<br/>
+Note that to support `predicate: required` you would need a suite not currently registered in the LD Crypto Suite Registry: https://w3c-ccg.github.io/ld-cryptosuite-registry/ (if you are using JSONLD proofs)
+</p>
+<p><strong>swcurran</strong> (Thu, 21 Jan 2021 20:15:22 GMT):<br/>
+We don't expect to support predicates in BBS+ AFAIK -- we think it is (minimally) sufficient that the verifier include predicates in the PD so that the prover knows if their credentials will meet the business need.  We would love to see BBS+ ZKP extended to at least include date predicates, but not a focus right now.
+
+I can't imagine will do anything about contacting the issuer during a presentation.  That is an anti-pattern that we want to avoid.
+</p>
+<p><strong>swcurran</strong> (Thu, 21 Jan 2021 20:15:22 GMT):<br/>
+We don't expect to support predicates in BBS+ AFAIK -- we think it is (minimally) sufficient that the verifier include predicates in the PD so that the prover knows if their credentials will meet the business need.  We would love to see BBS+ ZKP extended to at least include date predicates, but not a focus right now.
+
+I can't imagine we will do anything about contacting the issuer during a presentation.  That is an anti-pattern that we want to avoid.
+</p>
+<p><strong>kdenhartog</strong> (Sun, 24 Jan 2021 22:21:21 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>pfeairheller</strong> (Mon, 25 Jan 2021 18:38:02 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shaangill025</strong> (Wed, 03 Feb 2021 20:01:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shaanjot.gill</strong> (Wed, 03 Feb 2021 20:12:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>troyronda</strong> (Wed, 24 Feb 2021 18:17:56 GMT):<br/>
+FYI: aries-framework-go has been updated to use the new JSON-LD context for BBS+: https://w3id.org/security/bbs/v1
+</p>
+<p><strong>TimoGlastra</strong> (Wed, 24 Feb 2021 18:59:03 GMT):<br/>
+Cool! We'll use that from the start for ACA-Py
+</p>
+<p><strong>george.aristy</strong> (Wed, 24 Feb 2021 22:13:50 GMT):<br/>
+@swcurran does this still hold true?
+</p>
+<p><strong>george.aristy</strong> (Wed, 24 Feb 2021 22:13:59 GMT):<br/>
+"we don't expect to support predicates in BBS+"
+</p>
+<p><strong>george.aristy</strong> (Wed, 24 Feb 2021 22:23:49 GMT):<br/>
+Also - date predicates are possible, but only if the dates are in numeric form.
+</p>
+<p><strong>swcurran</strong> (Wed, 24 Feb 2021 23:04:39 GMT):<br/>
+We'd love to but that would be dependent on what's ine BBS+ library.
+
+Nice to have the data predicates at least.  Even better to have it so that the date was in ISO format, and converted to epoch in a known way.  But a numeric date would be OK as well.
+</p>
+<p><strong>george.aristy</strong> (Wed, 24 Feb 2021 23:06:44 GMT):<br/>
+what BBS+ library are you guys planning on using?
+</p>
+<p><strong>swcurran</strong> (Wed, 24 Feb 2021 23:48:26 GMT):<br/>
+Have to check with @TimoGlastra and @andrew.whitehead --- I assume Mattr's, but I'm not keeping my pulse on that.
+</p>
+<p><strong>TimoGlastra</strong> (Thu, 25 Feb 2021 15:30:02 GMT):<br/>
+We intend to use the FFI repo from Mattr and add a Python wrapper to it (https://github.com/mattrglobal/ffi-bbs-signatures). AFAIK Mattr hasn't implemented predicates yet and it's not high priority ATM. But I would need to check with them for exact details
+</p>
+<p><strong>swcurran</strong> (Thu, 25 Feb 2021 15:34:57 GMT):<br/>
+Much more interesting in how we can do revocation than predicates.  Or both, of course :-)
+</p>
+<p><strong>kukgini</strong> (Tue, 02 Mar 2021 23:53:30 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kdenhartog</strong> (Wed, 03 Mar 2021 01:24:04 GMT):<br/>
+Nice! I want to abandon the usage of security-v3 old github.io context  and deprecate it
+</p>
+<p><strong>kdenhartog</strong> (Wed, 03 Mar 2021 01:24:37 GMT):<br/>
+I'm pushing for contexts to be more discrete like is done with bbs/v1 to prevent confusing jsonld issues based on bad contexts
+</p>
+<p><strong>c2bo</strong> (Wed, 03 Mar 2021 10:52:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rpobulic</strong> (Sun, 07 Mar 2021 05:14:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>lmtriet</strong> (Mon, 08 Mar 2021 20:46:01 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:54:56 GMT):<br/>
+We had to add support for transforming JSON-LD blank node identifiers to aries-framework-go when creating and verifying derived credentials.
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:55:22 GMT):<br/>
+When creating a derived credential: https://github.com/hyperledger/aries-framework-go/blob/main/pkg/doc/signature/jsonld/processor.go#L451-L452
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:55:22 GMT):<br/>
+When creating a derived credential: https://github.com/hyperledger/aries-framework-go/blob/d83e137/pkg/doc/signature/jsonld/processor.go#L451-L452
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:56:11 GMT):<br/>
+When verifying a derived credential: https://github.com/hyperledger/aries-framework-go/blob/b1b076db898fe8c922c6dc093d3fa52d448f0c30/pkg/doc/signature/verifier/public_key_verifier.go#L434
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 21:58:17 GMT):<br/>
+Love the idea to use BBS+ signatures in Aries. Is there an existing RFC folks are working from?
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:58:32 GMT):<br/>
+Using: https://github.com/w3c-ccg/ldp-bbs2020
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:58:32 GMT):<br/>
+Using: https://w3c-ccg.github.io/ldp-bbs2020
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 21:58:40 GMT):<br/>
+on top of verifiable credentials.
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 22:01:16 GMT):<br/>
+I'm familiar with the draft BBS+ LD-Proofs proposal, and very familiar with W3C verifiable credentials. Seems to me there may be some additional nuances that ought to be stated explicitly in order tfor every Aries implementation to successfully interoperate.
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:03:31 GMT):<br/>
+btw - so far we have tests of the AFG implementation against the Mattr library (https://github.com/hyperledger/aries-framework-go/blob/main/test/bbs/test/bbs.js) including the derivation case.
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:03:31 GMT):<br/>
+btw - so far we have some tests of the AFG implementation against the Mattr library (https://github.com/hyperledger/aries-framework-go/blob/main/test/bbs/test/bbs.js) including the derivation case. we will want to add more, but it's a start.
+</p>
+<p><strong>swcurran</strong> (Mon, 08 Mar 2021 22:03:51 GMT):<br/>
+FYI Brent, if you weren't aware -- we're adding DIF Presentation Exchange, JSON-LD VCs (LD-Signatures?) and BBS+ Signatures JSON-LD to ACA-Py.  Had a first demo of the Presentation Exchange stuff today and it was pretty cool to see.
+</p>
+<p><strong>swcurran</strong> (Mon, 08 Mar 2021 22:04:29 GMT):<br/>
+There is an RFC being added about JSON-LD and BBS+ Signatures.  Hey, and Timo is typing -- he knows WAY more.
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:05:21 GMT):<br/>
+Seems like this is the same the json-ld bbs library from MATTR is doing. https://github.com/mattrglobal/jsonld-signatures-bbs/blob/01000b4bf48932a47d7c8c889d2201f8e8085d46/src/BbsBlsSignatureProof2020.ts#L116-L132 and https://github.com/mattrglobal/jsonld-signatures-bbs/blob/01000b4bf48932a47d7c8c889d2201f8e8085d46/src/BbsBlsSignatureProof2020.ts#L254-L267. Is that correct, or is there something else that needs to be done?
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:06:13 GMT):<br/>
+Correct @TimoGlastra
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:07:13 GMT):<br/>
+Also this AFG/Mattr interop test includes blank identifiers: https://github.com/hyperledger/aries-framework-go/blob/main/test/bbs/test/bbs.js#L133-L162 @TimoGlastra
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 22:09:23 GMT):<br/>
+Like I said, LOVE the interop around BBS+, but imo there really really needs to be an RFC, even if all it does is point to other documents.
+@swcurran did you say there is one in progress?
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:09:40 GMT):<br/>
+Ah cool thanks @troyronda, will definitely use those as input for our tests
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:10:14 GMT):<br/>
+For BBS+ I don't see a lot that has to be explicitly covered in an RFC at the moment. Most is covered by the specs. Maybe if bound signatures, revocation or other special features are introduced.
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:10:30 GMT):<br/>
+But if you want an RFC just as a pointer that's definitely possible
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:10:48 GMT):<br/>
+The RFC is mostly focussing on JSON-LD based credential exchange. Not so much on BBS+
+</p>
+<p><strong>swcurran</strong> (Mon, 08 Mar 2021 22:11:42 GMT):<br/>
+That's the one that I meant -- does it have a number/PR?  We were going to get that one done and then do a BBS+ specific one that built off it.
+</p>
+<p><strong>swcurran</strong> (Mon, 08 Mar 2021 22:12:09 GMT):<br/>
+For BBS+, there is still no revocation.
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:13:04 GMT):<br/>
+https://github.com/hyperledger/aries-rfcs/pull/593/files
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 22:20:06 GMT):<br/>
+awesome, that's the information I'm looking for. 
+So, someone is already working on a BBS+ specific one, or that will come once 593 is in?
+(Also agree that revocation should be a separate RFC from signature type)
+</p>
+<p><strong>swcurran</strong> (Mon, 08 Mar 2021 22:29:07 GMT):<br/>
+Once 593 is done, we'll look at what is BBS+ specific on it and then adjust it or more likely, add a new one that references 593 for commonalities and is specific to BBS+.
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 22:31:18 GMT):<br/>
+Thanks, good to know the plan.
+I recognize this is the wrong channel to get details about it, but is there a similar effort going on for a BBS+ Indy HIPE?
+</p>
+<p><strong>andrew.whitehead</strong> (Mon, 08 Mar 2021 22:31:44 GMT):<br/>
+I don't think there's any active efforts there but I'd like to see it
+</p>
+<p><strong>andrew.whitehead</strong> (Mon, 08 Mar 2021 22:38:14 GMT):<br/>
+Unless I'm reading it wrong that TransformBlankNode method looks like it would transform `_:c14n` anywhere in the RDF statement, including in the value (although it's unlikely to show up there)
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:42:30 GMT):<br/>
+I think the MATTR implementation does the same. https://github.com/mattrglobal/jsonld-signatures-bbs/blob/01000b4bf48932a47d7c8c889d2201f8e8085d46/src/BbsBlsSignatureProof2020.ts#L254-L267
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:42:58 GMT):<br/>
+Not saying that means it's okay, just that it's at least consistent
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 22:53:25 GMT):<br/>
+what are folks using to do the RDF Canonicalization?
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:54:28 GMT):<br/>
+Yeh could improve it a bit. The first goal was to get things working such that we could show interop on the libraries.
+</p>
+<p><strong>TimoGlastra</strong> (Mon, 08 Mar 2021 22:56:30 GMT):<br/>
+I think most of the json-ld libraries support canonicalization. For ACA-Py we use pyld.
+</p>
+<p><strong>troyronda</strong> (Mon, 08 Mar 2021 22:56:46 GMT):<br/>
+We use the json-gold library.
+</p>
+<p><strong>brentzundel</strong> (Mon, 08 Mar 2021 23:00:58 GMT):<br/>
+last I looked JSON-LD support in rust was pretty sparse.
+</p>
+<p><strong>kdenhartog</strong> (Tue, 09 Mar 2021 11:37:14 GMT):<br/>
+My understanding is the LD Signature suite is supposed to be normatively defining the canonicalisation algorithm in use. So for compliant with BbsBlsSignature2020 and BbsBlsSignatureProof2020 URDNA2015 has to be used. In terms of the rust take a look at spruceId's implementation. I've not worked with it, but it looks pretty good: https://github.com/spruceid/ssi/blob/main/src/jsonld.rs
+</p>
+<p><strong>wip-abramson</strong> (Tue, 09 Mar 2021 16:20:07 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>brentzundel</strong> (Tue, 09 Mar 2021 16:21:14 GMT):<br/>
+thank you!
+</p>
+<p><strong>HighBrow</strong> (Sun, 14 Mar 2021 08:15:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Audrius</strong> (Sat, 20 Mar 2021 05:06:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Baha-sk</strong> (Thu, 25 Mar 2021 13:41:23 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>echsecutor</strong> (Sat, 03 Apr 2021 19:44:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>domwoe</strong> (Mon, 12 Apr 2021 17:47:22 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MichaelSchaefer</strong> (Tue, 13 Apr 2021 15:40:14 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jkrstic</strong> (Sat, 22 May 2021 18:12:13 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>timbl</strong> (Fri, 04 Jun 2021 19:03:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>da3v21</strong> (Wed, 09 Jun 2021 04:35:19 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>justinmason</strong> (Wed, 07 Jul 2021 20:12:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TimoGlastra</strong> (Wed, 07 Jul 2021 20:12:56 GMT):<br/>
+<i>User <em>User_12</em> added by <em>TimoGlastra</em>.</i>
+</p>
+<p><strong>DirkT</strong> (Mon, 26 Jul 2021 08:48:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>smithbk</strong> (Tue, 17 Aug 2021 20:17:15 GMT):<br/>
+I have a question regarding adding BBS+ verification support ...
+Are there any libraries or documentation for converting from a DIF presentation definition to a JSON-LD frame?  The Mattr BBS+ library requires a `revealDocument` at https://github.com/mattrglobal/jsonld-signatures-bbs/blob/master/sample/ts-node/src/demo_single.ts#L91 which is a JSON-LD frame.
+Thanks
+</p>
+<p><strong>TimoGlastra</strong> (Tue, 17 Aug 2021 20:18:43 GMT):<br/>
+ACA-Py does it: https://github.com/hyperledger/aries-cloudagent-python/blob/34c554440c6eb05c671ffa827b3a72075486e0ae/aries_cloudagent/protocols/present_proof/dif/pres_exch_handler.py#L504
+</p>
+<p><strong>TimoGlastra</strong> (Tue, 17 Aug 2021 20:19:29 GMT):<br/>
+This thread may also be of interest to you: https://github.com/decentralized-identity/waci-presentation-exchange/issues/6
+</p>
+<p><strong>smithbk</strong> (Tue, 17 Aug 2021 20:19:47 GMT):<br/>
+Thanks Timo
+</p>
+<p><strong>kdenhartog</strong> (Tue, 17 Aug 2021 22:47:59 GMT):<br/>
+In the case where you're trying to build a frame, it follows the Frame API as defined by the spec here: https://json-ld.org/spec/latest/json-ld-framing/
+
+In my experience there's still some rough edges around how frames should look to make sure that a proper VC is being outputted from that call so you'll want to be a bit careful with it.
+</p>
+<p><strong>kdenhartog</strong> (Tue, 17 Aug 2021 22:49:34 GMT):<br/>
+I suggest when you're looking to build a frame API to first drop your credential in the https://json-ld.org/playground and use the frame tab to figure out how the frame behaves with that specific credential.
+</p>
+<p><strong>kdenhartog</strong> (Tue, 17 Aug 2021 22:52:25 GMT):<br/>
+Here's an example with data loaded in from the BBS library tests to show what I mean: https://tinyurl.com/d9nza4ke
+</p>
+<p><strong>smithbk</strong> (Wed, 18 Aug 2021 17:54:46 GMT):<br/>
+@TimoGlastra Hi Timo, it looks like the following should be "path" instead of "paths" at https://github.com/hyperledger/aries-cloudagent-python/blob/34c554440c6eb05c671ffa827b3a72075486e0ae/aries_cloudagent/protocols/present_proof/dif/pres_exch_handler.py#L516 according to the DIF spec at https://identity.foundation/presentation-exchange/#input-descriptor-object
+</p>
+<p><strong>TimoGlastra</strong> (Wed, 18 Aug 2021 19:10:24 GMT):<br/>
+I haven’t written this code, but it seems this is mapped from the json field ‘path’ to paths: https://github.com/hyperledger/aries-cloudagent-python/blob/34c554440c6eb05c671ffa827b3a72075486e0ae/aries_cloudagent/protocols/present_proof/dif/pres_exch.py#L411
+</p>
+<p><strong>amitpadmani-awts</strong> (Wed, 25 Aug 2021 14:47:24 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>moisesjaramillo</strong> (Wed, 15 Sep 2021 16:40:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>IgorSim</strong> (Wed, 22 Sep 2021 08:22:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nbAmit</strong> (Wed, 20 Oct 2021 04:53:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>aso</strong> (Tue, 23 Nov 2021 11:17:24 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>aso</strong> (Tue, 23 Nov 2021 11:18:33 GMT):<br/>
+Hi folks, I have seen different BBS implementations here and there but none seem to implement the complete suite describe in
+https://github.com/hyperledger/ursa-docs/tree/main/specs/anoncreds2
+Is that a correct statement? If not, I'd be grateful if anyone could point me the right way. Thx in advance!
+</p>
+<p><strong>swcurran</strong> (Tue, 23 Nov 2021 18:28:17 GMT):<br/>
+That's correct.  The only privacy related feature in BBS+ is selective disclosure that can be used with JSON-LD in most use cases (some JSON-LD structures don't work).  There is no "link secret"-type feature to bind a credential with to an entity without correlation, there is no support for predicates ("I'm older than 21" without exposing Date of Birth) and there is no revocation scheme.
+</p>
+<p><strong>swcurran</strong> (Tue, 23 Nov 2021 18:28:17 GMT):<br/>
+That's correct.  The only privacy related feature in BBS+ is selective disclosure that can be used with JSON-LD in most use cases (some JSON-LD structures don't work).  There is no "link secret"-type feature to bind a credential with to an entity without correlation, there is no support for predicates ("I'm older than 21" without exposing Date of Birth) and there is no revocation scheme that prevents holder coorelation.
+</p>
+<p><strong>aso</strong> (Tue, 23 Nov 2021 20:05:34 GMT):<br/>
+gotcha, thanks @swcurran!
+</p>
+<p><strong>kalyankonda</strong> (Thu, 10 Feb 2022 07:15:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 11 Feb 2022 20:13:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 11 Feb 2022 20:13:32 GMT):<br/>
+chat has moved to: https://discord.gg/hyperledger
+</p>

@@ -1,0 +1,76 @@
+TASK [setup/flux : Check if Flux is running] **********************************************************************************************************************************************************
+task path: /home/blockchainuser/baf/blockchain-automation-framework/platforms/shared/configuration/roles/setup/flux/tasks/main.yaml:2
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: blockchainuser
+<localhost> EXEC /bin/sh -c 'echo ~blockchainuser && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/blockchainuser/.ansible/tmp `"&& mkdir "` echo /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976 `" && echo ansible-tmp-1606833561.18-1747844-266703384881976="` echo /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976 `" ) && sleep 0'
+Using module file /usr/lib/python2.7/dist-packages/ansible/modules/clustering/k8s/k8s_info.py
+<localhost> PUT /home/blockchainuser/.ansible/tmp/ansible-local-1746648R9ThOb/tmpGBBCzn TO /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/ /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/python /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/ > /dev/null 2>&1 && sleep 0'
+The full traceback is:
+Traceback (most recent call last):
+  File "/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py", line 102, in <module>
+    _ansiballz_main()
+  File "/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py", line 94, in _ansiballz_main
+    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)
+  File "/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py", line 40, in invoke_module
+    runpy.run_module(mod_name='ansible.modules.clustering.k8s.k8s_info', init_globals=None, run_name='__main__', alter_sys=True)
+  File "/usr/lib/python2.7/runpy.py", line 188, in run_module
+    fname, loader, pkg_name)
+  File "/usr/lib/python2.7/runpy.py", line 82, in _run_module_code
+    mod_name, mod_fname, mod_loader, pkg_name)
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py", line 179, in <module>
+  File "/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py", line 175, in main
+  File "/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py", line 148, in execute_module
+  File "/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/module_utils/k8s/common.py", line 200, in get_api_client
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py", line 71, in __init__
+    self.__discoverer = discoverer(self, cache_file)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py", line 259, in __init__
+    Discoverer.__init__(self, client, cache_file)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py", line 31, in __init__
+    self.__init_cache()
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py", line 78, in __init_cache
+    self._load_server_info()
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py", line 158, in _load_server_info
+    'kubernetes': self.client.request('get', '/version', serializer=just_json)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py", line 42, in inner
+    resp = func(self, *args, **kwargs)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py", line 247, in request
+    _return_http_data_only=params.get('_return_http_data_only', True)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py", line 353, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py", line 184, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py", line 377, in request
+    headers=headers)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/rest.py", line 243, in GET
+    query_params=query_params)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/rest.py", line 216, in request
+    headers=headers)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/request.py", line 75, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/request.py", line 96, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/poolmanager.py", line 375, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py", line 796, in urlopen
+    **response_kw
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py", line 796, in urlopen
+    **response_kw
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py", line 796, in urlopen
+    **response_kw
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py", line 756, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/util/retry.py", line 573, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4226c3d750>: Failed to establish a new connection: [Errno 111] Connection refused',))
+fatal: [localhost]: FAILED! => {
+    "changed": false,
+    "module_stderr": "Traceback (most recent call last):\n  File \"/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py\", line 102, in <module>\n    _ansiballz_main()\n  File \"/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py\", line 94, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/home/blockchainuser/.ansible/tmp/ansible-tmp-1606833561.18-1747844-266703384881976/AnsiballZ_k8s_info.py\", line 40, in invoke_module\n    runpy.run_module(mod_name='ansible.modules.clustering.k8s.k8s_info', init_globals=None, run_name='__main__', alter_sys=True)\n  File \"/usr/lib/python2.7/runpy.py\", line 188, in run_module\n    fname, loader, pkg_name)\n  File \"/usr/lib/python2.7/runpy.py\", line 82, in _run_module_code\n    mod_name, mod_fname, mod_loader, pkg_name)\n  File \"/usr/lib/python2.7/runpy.py\", line 72, in _run_code\n    exec code in run_globals\n  File \"/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py\", line 179, in <module>\n  File \"/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py\", line 175, in main\n  File \"/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/modules/clustering/k8s/k8s_info.py\", line 148, in execute_module\n  File \"/tmp/ansible_k8s_info_payload_xgiHRD/ansible_k8s_info_payload.zip/ansible/module_utils/k8s/common.py\", line 200, in get_api_client\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py\", line 71, in __init__\n    self.__discoverer = discoverer(self, cache_file)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py\", line 259, in __init__\n    Discoverer.__init__(self, client, cache_file)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py\", line 31, in __init__\n    self.__init_cache()\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py\", line 78, in __init_cache\n    self._load_server_info()\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/discovery.py\", line 158, in _load_server_info\n    'kubernetes': self.client.request('get', '/version', serializer=just_json)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py\", line 42, in inner\n    resp = func(self, *args, **kwargs)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/openshift/dynamic/client.py\", line 247, in request\n    _return_http_data_only=params.get('_return_http_data_only', True)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py\", line 353, in call_api\n    _preload_content, _request_timeout, _host)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py\", line 184, in __call_api\n    _request_timeout=_request_timeout)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/api_client.py\", line 377, in request\n    headers=headers)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/rest.py\", line 243, in GET\n    query_params=query_params)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/kubernetes/client/rest.py\", line 216, in request\n    headers=headers)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/request.py\", line 75, in request\n    method, url, fields=fields, headers=headers, **urlopen_kw\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/request.py\", line 96, in request_encode_url\n    return self.urlopen(method, url, **extra_kw)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/poolmanager.py\", line 375, in urlopen\n    response = conn.urlopen(method, u.request_uri, **kw)\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py\", line 796, in urlopen\n    **response_kw\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py\", line 796, in urlopen\n    **response_kw\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py\", line 796, in urlopen\n    **response_kw\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/connectionpool.py\", line 756, in urlopen\n    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]\n  File \"/home/blockchainuser/.local/lib/python2.7/site-packages/urllib3/util/retry.py\", line 573, in increment\n    raise MaxRetryError(_pool, url, error or ResponseError(cause))\nurllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4226c3d750>: Failed to establish a new connection: [Errno 111] Connection refused',))\n",
+    "module_stdout": "",
+    "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
+    "rc": 1
+}

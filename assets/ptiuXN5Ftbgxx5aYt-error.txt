@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Successfully built 3d30df29baa5\
+Successfully tagged aries-cloudagent-run:latest\
+\
+2021-02-18 22:15:32,287 aries_cloudagent.commands.start ERROR Exception during startup:\
+Traceback (most recent call last):\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 936, in _wrap_create_connection\
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore  # noqa\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/base_events.py", line 794, in create_connection\
+    raise exceptions[0]\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/base_events.py", line 781, in create_connection\
+    yield from self.sock_connect(sock, address)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/selector_events.py", line 439, in sock_connect\
+    return (yield from fut)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/selector_events.py", line 444, in _sock_connect\
+    sock.connect(address)\
+OSError: [Errno 99] Cannot assign requested address\
+\
+The above exception was the direct cause of the following exception:\
+\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/utils/http.py", line 102, in fetch\
+    response: ClientResponse = await session.get(url, headers=headers)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/client.py", line 483, in _request\
+    timeout=real_timeout\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 523, in connect\
+    proto = await self._create_connection(req, traces, timeout)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 859, in _create_connection\
+    req, traces, timeout)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 1004, in _create_direct_connection\
+    raise last_exc\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 986, in _create_direct_connection\
+    req=req, client_error=client_error)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/connector.py", line 943, in _wrap_create_connection\
+    raise client_error(req.connection_key, exc) from exc\
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:9000 ssl:default [Cannot assign requested address]\
+\
+The above exception was the direct cause of the following exception:\
+\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/config/ledger.py", line 32, in fetch_genesis_transactions\
+    return await fetch(genesis_url, headers=headers)\
+  File "/home/indy/aries_cloudagent/utils/http.py", line 111, in fetch\
+    raise FetchError("Exceeded maximum fetch attempts") from e\
+aries_cloudagent.utils.http.FetchError: Exceeded maximum fetch attempts\
+\
+The above exception was the direct cause of the following exception:\
+\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/commands/start.py", line 71, in init\
+    await startup\
+  File "/home/indy/aries_cloudagent/commands/start.py", line 27, in start_app\
+    await conductor.setup()\
+  File "/home/indy/aries_cloudagent/core/conductor.py", line 88, in setup\
+    await get_genesis_transactions(context.settings)\
+  File "/home/indy/aries_cloudagent/config/ledger.py", line 43, in get_genesis_transactions\
+    txns = await fetch_genesis_transactions(settings["ledger.genesis_url"])\
+  File "/home/indy/aries_cloudagent/config/ledger.py", line 34, in fetch_genesis_transactions\
+    raise ConfigError("Error retrieving ledger genesis transactions") from e\
+aries_cloudagent.config.base.ConfigError: Error retrieving ledger genesis transactions\
+\
+Shutting down\
+2021-02-18 22:15:32,290 asyncio ERROR Task exception was never retrieved\
+future: <Task finished coro=<run_loop.<locals>.done() done, defined at /home/indy/aries_cloudagent/commands/start.py:76> exception=AttributeError("'NoneType' object has no attribute 'context'",)>\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/commands/start.py", line 78, in done\
+    await shutdown\
+  File "/home/indy/aries_cloudagent/commands/start.py", line 34, in shutdown_app\
+    await conductor.stop()\
+  File "/home/indy/aries_cloudagent/core/conductor.py", line 354, in stop\
+    multitenant_mgr = self.context.inject(MultitenantManager, required=False)\
+  File "/home/indy/aries_cloudagent/core/conductor.py", line 80, in context\
+    return self.root_profile.context\
+AttributeError: 'NoneType' object has no attribute 'context'}

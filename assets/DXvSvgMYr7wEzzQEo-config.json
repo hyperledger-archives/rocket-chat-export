@@ -1,0 +1,168 @@
+{
+  "network-configs": {
+    "network-1": {
+      "version": "1.0",
+      "clients": {
+        "client-1": {
+          "tlsEnable": false,
+          "organization": "IDPMSP",
+          "channel": "mychannel",
+          "credentialStore": {
+            "path": "./tmp/NtnxBlockchainChannel/credential",
+            "cryptoStore": {
+              "path": "./tmp/NtnxBlockchainChannel/crypto"
+            }
+          }
+        },
+        "client-2": {
+          "tlsEnable": false,
+          "organization": "CalmMSP",
+          "channel": "mychannel",
+          "credentialStore": {
+            "path": "./tmp/NtnxBlockchainChannel/credential",
+            "cryptoStore": {
+              "path": "./tmp/NtnxBlockchainChannel/crypto"
+            }
+          }
+        },
+        "client-3": {
+          "tlsEnable": false,
+          "organization": "BeamMSP",
+          "channel": "mychannel",
+          "credentialStore": {
+            "path": "./tmp/NtnxBlockchainChannel/credential",
+            "cryptoStore": {
+              "path": "./tmp/NtnxBlockchainChannel/crypto"
+            }
+          }
+        },
+        "client-4": {
+          "tlsEnable": false,
+          "organization": "XiMSP",
+          "channel": "mychannel",
+          "credentialStore": {
+            "path": "./tmp/NtnxBlockchainChannel/credential",
+            "cryptoStore": {
+              "path": "./tmp/NtnxBlockchainChannel/crypto"
+            }
+          }
+        }
+      },
+      "channels": {
+        "mychannel": {
+          "peers": {
+            "peer0.idp.nutanix.com": {},
+            "peer0.calm.nutanix.com": {},
+            "peer0.beam.nutanix.com": {},
+            "peer0.xi.nutanix.com": {}
+          },
+          "connection": {
+            "timeout": {
+              "peer": {
+                "endorser": "6000",
+                "eventHub": "6000",
+                "eventReg": "6000"
+              }
+            }
+          }
+        }
+      },
+      "organizations": {
+        "IDPMSP": {
+          "mspid": "IDPMSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/idp.nutanix.com/users/Admin@idp.nutanix.com/msp/keystore"
+          },
+          "signedCert": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/idp.nutanix.com/users/Admin@idp.nutanix.com/msp/signcerts"
+          }
+        },
+        "CalmMSP": {
+          "mspid": "CalmMSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/calm.nutanix.com/users/Admin@calm.nutanix.com/msp/keystore"
+          },
+          "signedCert": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/calm.nutanix.com/users/Admin@calm.nutanix.com/msp/signcerts"
+          }
+        },
+        "BeamMSP": {
+          "mspid": "BeamMSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/beam.nutanix.com/users/Admin@beam.nutanix.com/msp/keystore"
+          },
+          "signedCert": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/beam.nutanix.com/users/Admin@beam.nutanix.com/msp/signcerts"
+          }
+        },
+        "XiMSP": {
+          "mspid": "XiMSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/xi.nutanix.com/users/Admin@xi.nutanix.com/msp/keystore"
+          },
+          "signedCert": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/peerOrganizations/xi.nutanix.com/users/Admin@xi.nutanix.com/msp/signcerts"
+          }
+        },
+        "OrdererMSP": {
+          "mspid": "OrdererMSP",
+          "adminPrivateKey": {
+            "path":
+            "~/trusted-id/blockchain-application-using-fabric-java-sdk/network_resources/crypto-config/ordererOrganizations/nutanix.com/users/Admin@nuatnix.com/msp/keystore"
+          }
+        }
+      },
+      "peers": {
+        "peer0.idp.nutanix.com": {
+          "url": "grpc://10.142.0.8:7051",
+          "eventUrl": "grpc://10.142.0.8:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.idp.nutanix.com"
+          }
+        },
+        "peer0.calm.nutanix.com": {
+          "url": "grpc://10.142.0.9:7051",
+          "eventUrl": "grpc://10.142.0.9:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.calm.nutanix.com"
+          }
+        },
+        "peer0.beam.nutanix.com": {
+          "url": "grpc://10.142.0.10:7051",
+          "eventUrl": "grpc://10.142.0.10:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.beam.nutanix.com"
+          }
+        },
+        "peer0.xi.nutanix.com": {
+          "url": "grpc://10.142.0.11:7051",
+          "eventUrl": "grpc://10.142.0.11:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.xi.nutanix.com"
+          }
+        }
+      },
+      "orderers": {
+        "orderer.nutanix.com": {
+          "url": "grpc://10.142.0.12:7050"
+        }
+      }
+    }
+  },
+  "configtxgenToolPath": "~/fabric-samples/bin",
+  "license": "Apache-2.0"
+}
+
+

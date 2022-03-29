@@ -1,0 +1,164 @@
+jimzhang:fixtures jimzhang$ docker-compose up orderer
+WARNING: The CORE_PEER_NETWORKID variable is not set. Defaulting to a blank string.
+Starting fixtures_orderer_1
+Attaching to fixtures_orderer_1
+orderer_1  | 2017-02-19 20:09:27.065 UTC [viperutil] EnhancedExactUnmarshal -> INFO 001 map[kafka:map[TLS:map[Enabled:false PrivateKey:<nil> Certificate:<nil> RootCAs:<nil>] Retry:map[Stop:60s Period:3s] Verbose:false] sbftlocal:map[CertFile:sbft/testdata/cert1.pem KeyFile:sbft/testdata/key.pem DataDir:/tmp PeerCommAddr::6101] genesis:map[DeprecatedBatchSize:99 MB SbftShared:map[N:1 F:0 RequestTimeoutNsec:1000000000 Peers:map[:6101:sbft/testdata/cert1.pem]] DeprecatedBatchTimeout:10s] general:map[QueueSize:10 LocalMSPDir:/etc/hyperledger/fabric/msp/sampleconfig GenesisMethod:provisional LedgerType:ram GenesisProfile:SampleInsecureSolo Profile:map[Enabled:false Address:0.0.0.0:6060] ListenPort:7050 LocalMSPID:DEFAULT MaxWindowSize:1000 ListenAddress:0.0.0.0 GenesisFile:./genesisblock TLS:map[Certificate:<nil> RootCAs:<nil> ClientAuthEnabled:false ClientRootCAs:<nil> Enabled:false PrivateKey:<nil>] LogLevel:debug] ramledger:map[HistorySize:1000] fileledger:map[Prefix:hyperledger-fabric-ordererledger Location:<nil>]]
+orderer_1  | 2017-02-19 20:09:27.065 UTC [orderer/config] completeInitialization -> INFO 002 Validated configuration to: &{General:{LedgerType:ram QueueSize:10 MaxWindowSize:1000 ListenAddress:0.0.0.0 ListenPort:7050 TLS:{Enabled:false PrivateKey: Certificate: RootCAs:[] ClientAuthEnabled:false ClientRootCAs:[]} GenesisMethod:provisional GenesisProfile:SampleInsecureSolo GenesisFile:./genesisblock Profile:{Enabled:false Address:0.0.0.0:6060} LogLevel:debug LocalMSPDir:/etc/hyperledger/fabric/msp/sampleconfig LocalMSPID:DEFAULT} RAMLedger:{HistorySize:1000} FileLedger:{Location: Prefix:hyperledger-fabric-ordererledger} Kafka:{Retry:{Period:3s Stop:1m0s} Verbose:false Version:{version:[0 9 0 1]} TLS:{Enabled:false PrivateKey: Certificate: RootCAs:[] ClientAuthEnabled:false ClientRootCAs:[]}} Genesis:{DeprecatedBatchTimeout:10s DeprecatedBatchSize:103809024 SbftShared:{N:1 F:0 RequestTimeoutNsec:1000000000 Peers:map[:6101:sbft/testdata/cert1.pem]}} SbftLocal:{PeerCommAddr::6101 CertFile:sbft/testdata/cert1.pem KeyFile:sbft/testdata/key.pem DataDir:/tmp}}
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 003 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/cacerts
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 004 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/cacert.pem
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 005 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 006 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer.pem
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 007 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/admincerts
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 008 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/admincert.pem
+orderer_1  | 2017-02-19 20:09:27.066 UTC [msp] getPemMaterialFromDir -> DEBU 009 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/keystore
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] getPemMaterialFromDir -> DEBU 00a Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/keystore/key.pem
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] getPemMaterialFromDir -> DEBU 00b Reading directory /etc/hyperledger/fabric/msp/sampleconfig/intermediatecerts
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] NewBccspMsp -> DEBU 00c Creating BCCSP-based MSP instance
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] GetLocalMSP -> DEBU 00d Created new local MSP
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] Setup -> DEBU 00e Setting up MSP instance DEFAULT
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] newIdentity -> DEBU 00f Creating identity instance for ID &{DEFAULT IDENTITY}
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] newIdentity -> DEBU 010 Creating identity instance for ID &{DEFAULT IDENTITY}
+orderer_1  | 2017-02-19 20:09:27.067 UTC [msp] newIdentity -> DEBU 011 Creating identity instance for ID &{DEFAULT IDENTITY}
+orderer_1  | 2017-02-19 20:09:27.083 UTC [configtx/tool/localconfig] Load -> INFO 012 Checking for configtx.yaml at: /etc/hyperledger/fabric
+orderer_1  | 2017-02-19 20:09:27.083 UTC [configtx/tool/localconfig] Load -> INFO 013 Checking for configtx.yaml at: 
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] unmarshalJSON -> DEBU 014 Unmarshal JSON: value is not a string: [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 015 Found real value for organizations setting to []interface {} [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 016 Found map[interface{}]interface{} value for orderer
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 017 Found map[string]interface{} value for orderer.Kafka
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] unmarshalJSON -> DEBU 018 Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 019 Found real value for orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] unmarshalJSON -> DEBU 01a Unmarshal JSON: value is not a string: <nil>
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 01b Found real value for orderer.Organizations setting to <nil> <nil>
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] unmarshalJSON -> DEBU 01c Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 01d Found real value for orderer.OrdererType setting to string solo
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] unmarshalJSON -> DEBU 01e Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.084 UTC [viperutil] getKeysRecursively -> DEBU 01f Found real value for orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] unmarshalJSON -> DEBU 020 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 021 Found real value for orderer.BatchTimeout setting to string 10s
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 022 Found map[string]interface{} value for orderer.BatchSize
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] unmarshalJSON -> DEBU 023 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 024 Found real value for orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] unmarshalJSON -> DEBU 025 Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 026 Found real value for orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] unmarshalJSON -> DEBU 027 Unmarshal JSON: value is not a string: 10
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 028 Found real value for orderer.BatchSize.MaxMessageCount setting to int 10
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 029 Found map[interface{}]interface{} value for application
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] unmarshalJSON -> DEBU 02a Unmarshal JSON: value is not a string: <nil>
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 02b Found real value for application.Organizations setting to <nil> <nil>
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 02c Found map[interface{}]interface{} value for profiles
+orderer_1  | 2017-02-19 20:09:27.085 UTC [viperutil] getKeysRecursively -> DEBU 02d Found map[string]interface{} value for profiles.SampleInsecureSolo
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] getKeysRecursively -> DEBU 02e Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] getKeysRecursively -> DEBU 02f Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer.BatchSize
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] unmarshalJSON -> DEBU 030 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] getKeysRecursively -> DEBU 031 Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] unmarshalJSON -> DEBU 032 Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] getKeysRecursively -> DEBU 033 Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+orderer_1  | 2017-02-19 20:09:27.086 UTC [viperutil] unmarshalJSON -> DEBU 034 Unmarshal JSON: value is not a string: 10
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] getKeysRecursively -> DEBU 035 Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.MaxMessageCount setting to int 10
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] getKeysRecursively -> DEBU 036 Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer.Kafka
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] unmarshalJSON -> DEBU 037 Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] getKeysRecursively -> DEBU 038 Found real value for profiles.SampleInsecureSolo.Orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] unmarshalJSON -> DEBU 039 Unmarshal JSON: value is not a string: <nil>
+orderer_1  | 2017-02-19 20:09:27.087 UTC [viperutil] getKeysRecursively -> DEBU 03a Found real value for profiles.SampleInsecureSolo.Orderer.Organizations setting to <nil> <nil>
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] unmarshalJSON -> DEBU 03b Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] getKeysRecursively -> DEBU 03c Found real value for profiles.SampleInsecureSolo.Orderer.OrdererType setting to string solo
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] unmarshalJSON -> DEBU 03d Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] getKeysRecursively -> DEBU 03e Found real value for profiles.SampleInsecureSolo.Orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] unmarshalJSON -> DEBU 03f Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] getKeysRecursively -> DEBU 040 Found real value for profiles.SampleInsecureSolo.Orderer.BatchTimeout setting to string 10s
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] getKeysRecursively -> DEBU 041 Found map[string]interface{} value for profiles.SampleInsecureSolo.Application
+orderer_1  | 2017-02-19 20:09:27.088 UTC [viperutil] unmarshalJSON -> DEBU 042 Unmarshal JSON: value is not a string: <nil>
+orderer_1  | 2017-02-19 20:09:27.089 UTC [viperutil] getKeysRecursively -> DEBU 043 Found real value for profiles.SampleInsecureSolo.Application.Organizations setting to <nil> <nil>
+orderer_1  | 2017-02-19 20:09:27.089 UTC [viperutil] getKeysRecursively -> DEBU 044 Found map[string]interface{} value for profiles.SampleSingleMSPSolo
+orderer_1  | 2017-02-19 20:09:27.089 UTC [viperutil] getKeysRecursively -> DEBU 045 Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer
+orderer_1  | 2017-02-19 20:09:27.089 UTC [viperutil] getKeysRecursively -> DEBU 046 Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer.BatchSize
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] unmarshalJSON -> DEBU 047 Unmarshal JSON: value is not a string: 10
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] getKeysRecursively -> DEBU 048 Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.MaxMessageCount setting to int 10
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] unmarshalJSON -> DEBU 049 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] getKeysRecursively -> DEBU 04a Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] unmarshalJSON -> DEBU 04b Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+orderer_1  | 2017-02-19 20:09:27.090 UTC [viperutil] getKeysRecursively -> DEBU 04c Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+orderer_1  | 2017-02-19 20:09:27.091 UTC [viperutil] getKeysRecursively -> DEBU 04d Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer.Kafka
+orderer_1  | 2017-02-19 20:09:27.091 UTC [viperutil] unmarshalJSON -> DEBU 04e Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.091 UTC [viperutil] getKeysRecursively -> DEBU 04f Found real value for profiles.SampleSingleMSPSolo.Orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+orderer_1  | 2017-02-19 20:09:27.091 UTC [viperutil] unmarshalJSON -> DEBU 050 Unmarshal JSON: value is not a string: [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+orderer_1  | 2017-02-19 20:09:27.091 UTC [viperutil] getKeysRecursively -> DEBU 051 Found real value for profiles.SampleSingleMSPSolo.Orderer.Organizations setting to []interface {} [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+orderer_1  | 2017-02-19 20:09:27.092 UTC [viperutil] unmarshalJSON -> DEBU 052 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+orderer_1  | 2017-02-19 20:09:27.092 UTC [viperutil] getKeysRecursively -> DEBU 053 Found real value for profiles.SampleSingleMSPSolo.Orderer.OrdererType setting to string solo
+orderer_1  | 2017-02-19 20:09:27.092 UTC [viperutil] unmarshalJSON -> DEBU 054 Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.092 UTC [viperutil] getKeysRecursively -> DEBU 055 Found real value for profiles.SampleSingleMSPSolo.Orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] unmarshalJSON -> DEBU 056 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] getKeysRecursively -> DEBU 057 Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchTimeout setting to string 10s
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] getKeysRecursively -> DEBU 058 Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Application
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] unmarshalJSON -> DEBU 059 Unmarshal JSON: value is not a string: [map[ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg]]
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] getKeysRecursively -> DEBU 05a Found real value for profiles.SampleSingleMSPSolo.Application.Organizations setting to []interface {} [map[MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT]]
+orderer_1  | 2017-02-19 20:09:27.093 UTC [viperutil] EnhancedExactUnmarshal -> INFO 05b map[organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]] orderer:map[Addresses:[127.0.0.1:7050] BatchTimeout:10s BatchSize:map[PreferredMaxBytes:512 KB MaxMessageCount:10 AbsoluteMaxBytes:99 MB] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:<nil> OrdererType:solo] application:map[Organizations:<nil>] profiles:map[SampleInsecureSolo:map[Application:map[Organizations:<nil>] Orderer:map[OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:10s BatchSize:map[AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB MaxMessageCount:10] Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:<nil>]] SampleSingleMSPSolo:map[Orderer:map[Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]] OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:10s BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB]] Application:map[Organizations:[map[ID:DEFAULT MSPDir:msp/sampleconfig AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg]]]]]]
+orderer_1  | 2017-02-19 20:09:27.095 UTC [ordererledger/ramledger] appendBlock -> DEBU 05c Sending signal that block 18446744073709551615 has a successor
+orderer_1  | 2017-02-19 20:09:27.095 UTC [ordererledger/ramledger] Iterator -> DEBU 05d Attempting to return block 0
+orderer_1  | 2017-02-19 20:09:27.095 UTC [ordererledger/ramledger] Iterator -> DEBU 05e Attempting to return block 0
+orderer_1  | 2017-02-19 20:09:27.095 UTC [common/configtx] addToMap -> DEBU 05f Adding to config map: [Groups] /Channel
+orderer_1  | 2017-02-19 20:09:27.095 UTC [common/configtx] addToMap -> DEBU 060 Adding to config map: [Groups] /Channel/Application
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 061 Adding to config map: [Policy] /Channel/Application/Writers
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 062 Adding to config map: [Policy] /Channel/Application/Admins
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 063 Adding to config map: [Policy] /Channel/Application/Readers
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 064 Adding to config map: [Groups] /Channel/Orderer
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 065 Adding to config map: [Values] /Channel/Orderer/IngressPolicyNames
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 066 Adding to config map: [Values] /Channel/Orderer/ChainCreationPolicyNames
+orderer_1  | 2017-02-19 20:09:27.096 UTC [common/configtx] addToMap -> DEBU 067 Adding to config map: [Values] /Channel/Orderer/EgressPolicyNames
+orderer_1  | 2017-02-19 20:09:27.097 UTC [common/configtx] addToMap -> DEBU 068 Adding to config map: [Values] /Channel/Orderer/ConsensusType
+orderer_1  | 2017-02-19 20:09:27.097 UTC [common/configtx] addToMap -> DEBU 069 Adding to config map: [Values] /Channel/Orderer/BatchSize
+orderer_1  | 2017-02-19 20:09:27.097 UTC [common/configtx] addToMap -> DEBU 06a Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+orderer_1  | 2017-02-19 20:09:27.097 UTC [common/configtx] addToMap -> DEBU 06b Adding to config map: [Policy] /Channel/Orderer/Readers
+orderer_1  | 2017-02-19 20:09:27.097 UTC [common/configtx] addToMap -> DEBU 06c Adding to config map: [Policy] /Channel/Orderer/Writers
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 06d Adding to config map: [Policy] /Channel/Orderer/Admins
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 06e Adding to config map: [Values] /Channel/HashingAlgorithm
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 06f Adding to config map: [Values] /Channel/BlockDataHashingStructure
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 070 Adding to config map: [Values] /Channel/OrdererAddresses
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 071 Adding to config map: [Policy] /Channel/Admins
+orderer_1  | 2017-02-19 20:09:27.098 UTC [common/configtx] addToMap -> DEBU 072 Adding to config map: [Policy] /Channel/AcceptAllPolicy
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] addToMap -> DEBU 073 Adding to config map: [Policy] /Channel/Readers
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] addToMap -> DEBU 074 Adding to config map: [Policy] /Channel/Writers
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] proposeGroup -> DEBU 075 Beginning new config for channel testchainid and group 
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] BeginValueProposals -> DEBU 076 Calling begin for MSP manager
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] proposeGroup -> DEBU 077 Beginning new config for channel testchainid and group /Channel
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] proposeGroup -> DEBU 078 Beginning new config for channel testchainid and group /Channel/Application
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx/handlers/application] BeginValueProposals -> DEBU 079 Beginning a possible new peer shared config
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 07a Proposed new policy Writers for Application
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 07b Proposed new policy Admins for Application
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 07c Proposed new policy Readers for Application
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx] proposeGroup -> DEBU 07d Beginning new config for channel testchainid and group /Channel/Orderer
+orderer_1  | 2017-02-19 20:09:27.099 UTC [configtx/handlers/orderer] BeginValueProposals -> DEBU 07e Beginning a possible new orderer shared config
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 07f Proposed new policy Readers for Orderer
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 080 Proposed new policy Writers for Orderer
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 081 Proposed new policy Admins for Orderer
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 082 Proposed new policy AcceptAllPolicy for Channel
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 083 Proposed new policy Readers for Channel
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 084 Proposed new policy Writers for Channel
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] ProposePolicy -> DEBU 085 Proposed new policy Admins for Channel
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/configtx/handlers/application] CommitProposals -> DEBU 086 Committing new peer shared config
+orderer_1  | 2017-02-19 20:09:27.099 UTC [configtx/handlers/orderer] CommitProposals -> DEBU 087 Adopting new orderer shared config: &{consensusType:solo batchSize:0xc4204d69b0 batchTimeout:10000000000 chainCreationPolicyNames:[AcceptAllPolicy] kafkaBrokers:[] ingressPolicyNames:[AcceptAllPolicy] egressPolicyNames:[AcceptAllPolicy] orgs:map[]}
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] GetPolicy -> DEBU 088 Returning policy Writers for evaluation
+orderer_1  | 2017-02-19 20:09:27.099 UTC [common/policies] CommitProposals -> DEBU 089 In commit adding relative sub-policy Application/Writers to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 08a Returning policy Admins for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] CommitProposals -> DEBU 08b In commit adding relative sub-policy Application/Admins to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 08c Returning policy Readers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] CommitProposals -> DEBU 08d In commit adding relative sub-policy Application/Readers to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 08e Returning policy Readers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] CommitProposals -> DEBU 08f In commit adding relative sub-policy Orderer/Readers to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 090 Returning policy Writers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] CommitProposals -> DEBU 091 In commit adding relative sub-policy Orderer/Writers to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 092 Returning policy Admins for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] CommitProposals -> DEBU 093 In commit adding relative sub-policy Orderer/Admins to Channel
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 094 Returning policy Readers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 095 Returning policy Readers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 096 Returning policy Writers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 097 Returning policy Writers for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 098 Returning policy Admins for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/policies] GetPolicy -> DEBU 099 Returning policy Admins for evaluation
+orderer_1  | 2017-02-19 20:09:27.100 UTC [common/configtx] CommitProposals -> DEBU 09a Calling commit for MSP manager
+orderer_1  | 2017-02-19 20:09:27.100 UTC [ordererledger/ramledger] Iterator -> DEBU 09b Attempting to return block 0
+orderer_1  | 2017-02-19 20:09:27.100 UTC [orderer/multichain] newChainSupport -> DEBU 09c Retrieved metadata for tip of chain (block #0): 
+orderer_1  | 2017-02-19 20:09:27.100 UTC [orderer/multichain] NewManagerImpl -> INFO 09d Starting with system channel: testchainid and orderer type solo
+orderer_1  | 2017-02-19 20:09:27.100 UTC [orderer/main] NewServer -> INFO 09e Starting orderer
+orderer_1  | 2017-02-19 20:09:27.100 UTC [orderer/main] main -> INFO 09f Beginning to serve requests
+

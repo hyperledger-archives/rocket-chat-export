@@ -1,0 +1,39 @@
+Hi, this issue still happen when I use the core sample project, for the first time I create a new credential, there is one ledger message error, but I think this operation should not interact with ledger, and the strange thing is when I back to the creation page and submit again, then it went well, so not sure why this error happen, anyone have an idea?
+
+I am using a VON test network.
+
+```
+AriesFrameworkException: Failed to send A2A message with an HTTP status code of InternalServerError and content Hyperledger.Indy.LedgerApi.InvalidLedgerTransactionException: The ledger message is unknown or malformed. at Hyperledger.Aries.Ledger.DefaultLedgerService.<>c__DisplayClass2_0.<<LookupDefinitionAsync>g__LookupDefinition|0>d.MoveNext() in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Ledger\DefaultLedgerService.cs:line 45 --- End of stack trace from previous location where exception was thrown --- at Polly.NoOp.NoOpEngine.ImplementationAsync[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext) at Polly.AsyncPolicy`1.ExecuteAsync(Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext) at Hyperledger.Aries.Ledger.DefaultLedgerService.LookupDefinitionAsync(IAgentContext agentContext, String definitionId) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Ledger\DefaultLedgerService.cs:line 48 at Hyperledger.Aries.Features.IssueCredential.DefaultCredentialService.CreateRequestAsync(IAgentContext agentContext, String credentialId) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Features\IssueCredential\DefaultCredentialService.cs:line 329 at Hyperledger.Aries.Features.IssueCredential.DefaultCredentialHandler.ProcessAsync(IAgentContext agentContext, UnpackedMessageContext messageContext) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Features\IssueCredential\DefaultCredentialHandler.cs:line 75 at Hyperledger.Aries.Agents.AgentBase.ProcessMessage(IAgentContext agentContext, MessageContext messageContext) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Agents\AgentBase.cs:line 143 at Hyperledger.Aries.Agents.AgentBase.ProcessAsync(IAgentContext context, MessageContext messageContext) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries\Agents\AgentBase.cs:line 113 at Hyperledger.Aries.AspNetCore.AgentMiddleware.Invoke(HttpContext httpContext, IAgentProvider agentProvider) in C:\Git\AriesDotNetFramework\MyFork\aries-framework-dotnet - Copy\src\Hyperledger.Aries.AspNetCore\AgentMiddleware.cs:line 48 at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) HEADERS ======= Content-Type: application/ssi-agent-wire Host: localhost:5001 Request-Id: |3d3fbbc2-4e568520bd7edd21.1. Content-Length: 15409
+Hyperledger.Aries.Agents.HttpMessageDispatcher.DispatchAsync(Uri endpointUri, PackedMessageContext message) in HttpMessageDispatcher.cs
++
+            if (response.Content?.Headers.ContentType?.Equals(agentContentType) ?? false)
+Hyperledger.Aries.Agents.DefaultMessageService.SendAsync(Wallet wallet, AgentMessage message, string recipientKey, string endpointUri, string[] routingKeys, string senderKey) in DefaultMessageService.cs
++
+            await dispatcher.DispatchAsync(uri, new PackedMessageContext(wireMsg));
+Hyperledger.Aries.Agents.MessageServiceExtensions.SendAsync(IMessageService service, Wallet wallet, AgentMessage message, ConnectionRecord connection) in MessageServiceExtensions.cs
++
+            await service.SendAsync(wallet, message, recipientKey, connection.Endpoint.Uri, routingKeys, connection.MyVk);
+WebAgent.Controllers.CredentialsController.IssueCredentials(CredentialOfferModel model) in CredentialsController.cs
++
+            await _messageService.SendAsync(context.Wallet, offer, connection);
+Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor+TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, object controller, object[] arguments)
+System.Threading.Tasks.ValueTask<TResult>.get_Result()
+System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask<IActionResult> actionResultValueTask)
+Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, object state, bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(ref State next, ref Scope scope, ref object state, ref bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, object state, bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, object state, bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(ref State next, ref Scope scope, ref object state, ref bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, object state, bool isCompleted)
+Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+Hyperledger.Aries.AspNetCore.AgentMiddleware.Invoke(HttpContext httpContext, IAgentProvider agentProvider) in AgentMiddleware.cs
++
+                await _next(httpContext);
+Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+```

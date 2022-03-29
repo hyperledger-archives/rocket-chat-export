@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs30 \cf2 \CocoaLigature0 2021-02-25 14:56:28,650 aries_cloudagent.core.dispatcher ERROR Handler error: credential_exchange_issue\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/protocols/issue_credential/v2_0/routes.py", line 1061, in credential_exchange_issue\
+    body = await request.json()\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_request.py", line 584, in json\
+    return loads(body)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/__init__.py", line 354, in loads\
+    return _default_decoder.decode(s)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 339, in decode\
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 357, in raw_decode\
+    raise JSONDecodeError("Expecting value", s, err.value) from None\
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\
+2021-02-25 14:56:28,651 aries_cloudagent.admin.server ERROR Handler error with exception: Expecting value: line 1 column 1 (char 0)\
+\
+=================\
+Traceback (most recent call last):\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 164, in ready_middleware\
+    return await handler(request)\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 201, in debug_middleware\
+    return await handler(request)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware\
+    return await handler(request)\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 362, in setup_context\
+    return await task\
+  File "/home/indy/aries_cloudagent/protocols/issue_credential/v2_0/routes.py", line 1061, in credential_exchange_issue\
+    body = await request.json()\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_request.py", line 584, in json\
+    return loads(body)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/__init__.py", line 354, in loads\
+    return _default_decoder.decode(s)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 339, in decode\
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 357, in raw_decode\
+    raise JSONDecodeError("Expecting value", s, err.value) from None\
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\
+2021-02-25 14:56:28,656 aiohttp.server ERROR Error handling request\
+Traceback (most recent call last):\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start\
+    resp = await task\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle\
+    resp = await handler(request)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_middlewares.py", line 119, in impl\
+    return await handler(request)\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 164, in ready_middleware\
+    return await handler(request)\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 201, in debug_middleware\
+    return await handler(request)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware\
+    return await handler(request)\
+  File "/home/indy/aries_cloudagent/admin/server.py", line 362, in setup_context\
+    return await task\
+  File "/home/indy/aries_cloudagent/protocols/issue_credential/v2_0/routes.py", line 1061, in credential_exchange_issue\
+    body = await request.json()\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_request.py", line 584, in json\
+    return loads(body)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/__init__.py", line 354, in loads\
+    return _default_decoder.decode(s)\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 339, in decode\
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/json/decoder.py", line 357, in raw_decode\
+    raise JSONDecodeError("Expecting value", s, err.value) from None\
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)}

@@ -1,0 +1,174 @@
+> hyperledger-explorer@1.1.3 app-start /opt/explorer
+> ./start.sh
+
+************************************************************************************
+**************************** Hyperledger Explorer **********************************
+************************************************************************************
+2020-10-29T16:18:37.899Z - debug: Successfully constructed a winston logger with configurations debug=console, info=console
+2020-10-29T16:18:38.092Z - debug: [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2020-10-29T16:18:38.507] [DEBUG] main - false 'ssl-certs' '/opt/explorer/app/ssl-certs'
+[2020-10-29T16:18:38.527] [INFO] PgService - SSL to Postgresql disabled
+[2020-10-29T16:18:38.527] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@explorerdb.mynetwork.com:5432/fabricexplorer
+[2020-10-29T16:18:38.600] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-10-29T16:18:38.600] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'tt-network':
+   { name: 'tt-network',
+     profile: './connection-profile/tt-network.json' } }
+[2020-10-29T16:18:38.601] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-10-29T16:18:38.601] [INFO] Platform -  network_config.id  tt-network  network_config.profile  ./connection-profile/tt-network.json
+[2020-10-29T16:18:38.601] [DEBUG] Platform - Creating network client [tt-network] >>  { name: 'tt-network',
+  profile: './connection-profile/tt-network.json' }
+[2020-10-29T16:18:38.602] [INFO] Platform - Disabled authentication
+[2020-10-29T16:18:38.602] [DEBUG] FabricUtils - ************ Initializing fabric client for [tt-network]************
+[2020-10-29T16:18:38.603] [DEBUG] FabricClient - Client configuration [tt-network]  ...
+2020-10-29T16:18:38.603Z - debug: [Gateway]: in Gateway constructor
+[2020-10-29T16:18:38.604] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-10-29T16:18:38.604] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-10-29T16:18:38.604] [INFO] FabricConfig - FabricConfig, this.config.channels  channelall
+[2020-10-29T16:18:38.617] [INFO] FabricGateway - enrollUserIdentity: userName : exploreradmin
+2020-10-29T16:18:38.620Z - debug: [Gateway]: connect - start
+2020-10-29T16:18:38.621Z - debug: [Gateway]: connection options: {"identity":"exploreradmin","wallet":{"providerRegistry":{"providers":{}},"store":{"storePath":"/opt/explorer/wallet/tt-network"}},"discovery":{"enabled":true,"asLocalhost":false},"clientTlsIdentity":""}
+2020-10-29T16:18:38.621Z - debug: [Client]: Client.constructor[gateway client] - start 
+2020-10-29T16:18:38.621Z - debug: [Gateway]: connect - setting identity from wallet
+2020-10-29T16:18:38.622Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - start
+2020-10-29T16:18:38.626Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - have the key [Circular]
+2020-10-29T16:18:38.626Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - start
+2020-10-29T16:18:38.628Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - have the key [Circular]
+2020-10-29T16:18:38.629Z - debug: [Gateway]: connect - using self signed setting for tls
+2020-10-29T16:18:38.629Z - debug: [Client]: setTlsClientCertAndKey: gateway client - start
+2020-10-29T16:18:38.629Z - debug: [Client]: setTlsClientCertAndKey: gateway client - generating self-signed TLS client certificate
+2020-10-29T16:18:38.629Z - debug: [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+2020-10-29T16:18:38.806Z - debug: [Gateway]: connect - NetworkConfig loading client from ccp
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: loadFromConfig - start
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: buildPeer - start - peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: findPeerMspid - start for peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: findPeerMspid - checking peer peer0.manufacturer.tracktrace.com in org ManufacturerMSP
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: findPeerMspid - found mspid ManufacturerMSP for peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.807Z - debug: [NetworkConfig]: buildOptions - start
+2020-10-29T16:18:38.811Z - debug: [Client]: newEndpoint: gateway client - start
+2020-10-29T16:18:38.811Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-10-29T16:18:38.811Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-10-29T16:18:38.812Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.812Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-10-29T16:18:38.813Z - debug: [Client]: new endpoint url: grpcs://peer0.manufacturer.tracktrace.com:7051
+2020-10-29T16:18:38.814Z - debug: [NetworkConfig]: buildPeer - about to connect to endorser peer0.manufacturer.tracktrace.com url:grpcs://peer0.manufacturer.tracktrace.com:7051 mspid:ManufacturerMSP
+2020-10-29T16:18:38.814Z - debug: [Client]: getEndorser: gateway client start name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.814Z - debug: [Client]: getEndorser: gateway client create endorser name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.814Z - debug: [Endorser]: Endorser.constructor[peer0.manufacturer.tracktrace.com] - start 
+2020-10-29T16:18:38.814Z - debug: [Client]: getEndorser: gateway client return endorser name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.814Z - debug: [ServiceEndpoint]: connect[Endorser-peer0.manufacturer.tracktrace.com] - start 
+2020-10-29T16:18:38.814Z - debug: [ServiceEndpoint]: connect[Endorser-peer0.manufacturer.tracktrace.com] - create the grpc service for peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:38.817Z - debug: [ServiceEndpoint]: waitForReady - start Endorser-peer0.manufacturer.tracktrace.com - grpcs://peer0.manufacturer.tracktrace.com:7051
+2020-10-29T16:18:38.817Z - debug: [ServiceEndpoint]: waitForReady - promise running peer0.manufacturer.tracktrace.com - grpcs://peer0.manufacturer.tracktrace.com:7051
+2020-10-29T16:18:41.818Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Endorser- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:41.818Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Endorser- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:41.818Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server peer0.manufacturer.tracktrace.com url:grpcs://peer0.manufacturer.tracktrace.com:7051 timeout:3000
+2020-10-29T16:18:41.818Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server peer0.manufacturer.tracktrace.com url:grpcs://peer0.manufacturer.tracktrace.com:7051 timeout:3000
+2020-10-29T16:18:41.819Z - error: [NetworkConfig]: buildPeer - Unable to connect to the endorser peer0.manufacturer.tracktrace.com due to Error: Failed to connect before the deadline on Endorser- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:41.819Z - error: [NetworkConfig]: buildPeer - Unable to connect to the endorser peer0.manufacturer.tracktrace.com due to Error: Failed to connect before the deadline on Endorser- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:41.819Z - debug: [NetworkConfig]: buildChannel - start - channelall
+2020-10-29T16:18:41.819Z - debug: [Client]: getChannel: gateway client start name:channelall
+2020-10-29T16:18:41.819Z - debug: [Client]: getChannel: gateway client create channel name:channelall
+2020-10-29T16:18:41.819Z - debug: [Channel]: Channel.constructor[channelall] - start
+2020-10-29T16:18:41.820Z - debug: [Channel]: Channel.constructor[channelall] - channel name is good channelall
+2020-10-29T16:18:41.820Z - debug: [Channel]: Constructed Channel instance: name - channelall
+2020-10-29T16:18:41.820Z - debug: [Client]: getChannel: gateway client return channel name:channelall
+2020-10-29T16:18:41.820Z - debug: [Client]: getEndorser: gateway client start name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.820Z - debug: [Client]: getEndorser: gateway client existing endorser name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.820Z - debug: [Client]: getEndorser: gateway client return endorser name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.820Z - debug: [Channel]: addEndorser[channelall] - start
+2020-10-29T16:18:41.820Z - debug: [ServiceEndpoint]: isConnectable[Endorser-peer0.manufacturer.tracktrace.com] - start 
+2020-10-29T16:18:41.820Z - debug: [ServiceEndpoint]: isConnectable[Endorser-peer0.manufacturer.tracktrace.com] - this service endpoint has been assigned an endpoint, connect may be run
+2020-10-29T16:18:41.821Z - debug: [Channel]: addEndorser[channelall] - adding a new Endorser  --name: peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.821Z - debug: [NetworkConfig]: buildChannel - added endorsing peer :: peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.821Z - debug: [NetworkConfig]: buildChannel - no orderers in config
+2020-10-29T16:18:41.821Z - debug: [NetworkConfig]: loadFromConfig - end
+2020-10-29T16:18:41.821Z - debug: [Gateway]: connect - end
+2020-10-29T16:18:41.821Z - debug: [Gateway]: getNetwork - start
+2020-10-29T16:18:41.821Z - debug: [Gateway]: getNetwork - create network object and initialize
+2020-10-29T16:18:41.821Z - debug: [Client]: getChannel: gateway client start name:channelall
+2020-10-29T16:18:41.821Z - debug: [Client]: getChannel: gateway client existing channel name:channelall
+2020-10-29T16:18:41.821Z - debug: [Client]: getChannel: gateway client return channel name:channelall
+2020-10-29T16:18:41.822Z - debug: [Network]: constructor - start
+2020-10-29T16:18:41.822Z - debug: [Network]: _initialize - start
+2020-10-29T16:18:41.822Z - debug: [Network]: _initializeInternalChannel - start
+2020-10-29T16:18:41.823Z - debug: [Network]: _initializeInternalChannel - initialize with discovery
+2020-10-29T16:18:41.823Z - debug: [Network]: _initializeInternalChannel - user has not specified discovery targets, check channel and client
+2020-10-29T16:18:41.823Z - debug: [Channel]: getEndorsers[channelall] - start
+2020-10-29T16:18:41.823Z - debug: [Channel]: _getServiceEndpoints - start - ManufacturerMSP
+2020-10-29T16:18:41.823Z - debug: [Channel]: _getServiceEndpoints - Endorser mspid matched, added peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.823Z - debug: [Network]: _initializeInternalChannel - using channel/client targets
+2020-10-29T16:18:41.823Z - debug: [Client]: newDiscoverer: gateway client start name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.823Z - debug: [Discoverer]: Discoverer.constructor[peer0.manufacturer.tracktrace.com] - start 
+2020-10-29T16:18:41.824Z - debug: [Client]: newDiscoverer: gateway client return new Discoverer name:peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.824Z - debug: [ServiceEndpoint]: connect[Discoverer-peer0.manufacturer.tracktrace.com] - start 
+2020-10-29T16:18:41.824Z - debug: [ServiceEndpoint]: connect[Discoverer-peer0.manufacturer.tracktrace.com] - create the grpc service for peer0.manufacturer.tracktrace.com
+2020-10-29T16:18:41.824Z - debug: [ServiceEndpoint]: waitForReady - start Discoverer-peer0.manufacturer.tracktrace.com - grpcs://peer0.manufacturer.tracktrace.com:7051
+2020-10-29T16:18:41.824Z - debug: [ServiceEndpoint]: waitForReady - promise running peer0.manufacturer.tracktrace.com - grpcs://peer0.manufacturer.tracktrace.com:7051
+2020-10-29T16:18:44.825Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Discoverer- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:44.825Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Discoverer- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+2020-10-29T16:18:44.825Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server peer0.manufacturer.tracktrace.com url:grpcs://peer0.manufacturer.tracktrace.com:7051 timeout:3000
+2020-10-29T16:18:44.826Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server peer0.manufacturer.tracktrace.com url:grpcs://peer0.manufacturer.tracktrace.com:7051 timeout:3000
+[2020-10-29T16:18:44.826] [ERROR] FabricClient - { Error: Failed to connect before the deadline on Discoverer- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+    at checkState (/opt/explorer/node_modules/@grpc/grpc-js/build/src/client.js:69:26)
+    at Timeout.watcherObject.timer.setTimeout [as _onTimeout] (/opt/explorer/node_modules/@grpc/grpc-js/build/src/channel.js:292:17)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10) connectFailed: true }
+[2020-10-29T16:18:44.826] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-10-29T16:18:44.827] [DEBUG] FabricClient - initializeDetachClient tt-network
+[2020-10-29T16:18:44.827] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-29T16:18:44.828] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-10-29T16:18:44.828] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-10-29T16:18:44.828] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-10-29T16:18:44.828] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-10-29T16:18:44.832] [INFO] Platform - initializeListener, network_id, network_client  tt-network { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-29T16:18:44.833] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-10-29T16:18:44.834] [INFO] main - pid is 19
+[2020-10-29T16:18:44.835] [DEBUG] PgService -  the getRowsBySQlNoCondition  select c.id as id,c.name as channelName,c.blocks as blocks ,c.channel_genesis_hash as channel_genesis_hash,c.trans as transactions,c.createdt as createdat,c.channel_hash as channel_hash from channel c,
+        peer_ref_channel pc where c.channel_genesis_hash = pc.channelid and c.network_name = 'tt-network' group by c.id ,c.name ,c.blocks  ,c.trans ,c.createdt ,c.channel_hash,c.channel_genesis_hash order by c.name 
+[2020-10-29T16:18:44.836] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-10-29T16:18:44.836] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]
+[2020-10-29T16:18:46.836] [INFO] main - Received kill signal, shutting down gracefully
+[2020-10-29T16:18:46.837] [INFO] Platform - <<<<<<<<<<<<<<<<<<<<<<<<<< Closing explorer  >>>>>>>>>>>>>>>>>>>>>
+[2020-10-29T16:18:46.837] [INFO] main - Closed out connections

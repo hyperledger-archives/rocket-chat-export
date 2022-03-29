@@ -1,0 +1,52 @@
+
+running 1 test
+test medium_cases::indy_agent_connect::indy_agent_connect_works_for_expired_key_in_ledger ... FAILED
+
+failures:
+
+---- medium_cases::indy_agent_connect::indy_agent_connect_works_for_expired_key_in_ledger stdout ----
+	thread 'medium_cases::indy_agent_connect::indy_agent_connect_works_for_expired_key_in_ledger' panicked at 'called `Result::unwrap()` on an `Err` value: Timeout', /checkout/src/libcore/result.rs:860
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+stack backtrace:
+   0: std::sys::imp::backtrace::tracing::imp::unwind_backtrace
+             at /checkout/src/libstd/sys/unix/backtrace/tracing/gcc_s.rs:49
+   1: std::sys_common::backtrace::_print
+             at /checkout/src/libstd/sys_common/backtrace.rs:71
+   2: std::panicking::default_hook::{{closure}}
+             at /checkout/src/libstd/sys_common/backtrace.rs:60
+             at /checkout/src/libstd/panicking.rs:355
+   3: std::panicking::default_hook
+             at /checkout/src/libstd/panicking.rs:365
+   4: std::panicking::rust_panic_with_hook
+             at /checkout/src/libstd/panicking.rs:549
+   5: std::panicking::begin_panic
+             at /checkout/src/libstd/panicking.rs:511
+   6: std::panicking::begin_panic_fmt
+             at /checkout/src/libstd/panicking.rs:495
+   7: rust_begin_unwind
+             at /checkout/src/libstd/panicking.rs:471
+   8: core::panicking::panic_fmt
+             at /checkout/src/libcore/panicking.rs:69
+   9: core::result::unwrap_failed
+             at /checkout/src/libcore/macros.rs:29
+  10: <core::result::Result<T, E>>::unwrap
+             at /checkout/src/libcore/result.rs:738
+  11: agent::utils::pool::PoolUtils::open_pool_ledger
+             at tests/utils/pool.rs:163
+  12: agent::utils::pool::PoolUtils::create_and_open_pool_ledger
+             at tests/utils/pool.rs:176
+  13: agent::medium_cases::indy_agent_connect::indy_agent_connect_works_for_expired_key_in_ledger
+             at tests/agent.rs:626
+  14: <F as test::FnBox<T>>::call_box
+             at /checkout/src/libtest/lib.rs:1451
+             at /checkout/src/libcore/ops.rs:2683
+             at /checkout/src/libtest/lib.rs:140
+  15: __rust_maybe_catch_panic
+             at /checkout/src/libpanic_unwind/lib.rs:98
+
+
+failures:
+    medium_cases::indy_agent_connect::indy_agent_connect_works_for_expired_key_in_ledger
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 56 filtered out
+

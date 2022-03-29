@@ -1,0 +1,1107 @@
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev# peer chaincode install -l java -n myjavacc -p /opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/ -v 2
+2018-12-13 09:12:55.121 UTC [viperutil] getKeysRecursively -> DEBU 001 Found map[string]interface{} value for peer.BCCSP
+2018-12-13 09:12:55.121 UTC [viperutil] unmarshalJSON -> DEBU 002 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:12:55.121 UTC [viperutil] getKeysRecursively -> DEBU 003 Found real value for peer.BCCSP.Default setting to string SW
+2018-12-13 09:12:55.122 UTC [viperutil] getKeysRecursively -> DEBU 004 Found map[string]interface{} value for peer.BCCSP.SW
+2018-12-13 09:12:55.123 UTC [viperutil] unmarshalJSON -> DEBU 005 Unmarshal JSON: value is not a string: 256
+2018-12-13 09:12:55.123 UTC [viperutil] getKeysRecursively -> DEBU 006 Found real value for peer.BCCSP.SW.Security setting to int 256
+2018-12-13 09:12:55.124 UTC [viperutil] getKeysRecursively -> DEBU 007 Found map[string]interface{} value for peer.BCCSP.SW.FileKeyStore
+2018-12-13 09:12:55.124 UTC [viperutil] unmarshalJSON -> DEBU 008 Unmarshal JSON: value cannot be unmarshalled: unexpected end of JSON input
+2018-12-13 09:12:55.124 UTC [viperutil] getKeysRecursively -> DEBU 009 Found real value for peer.BCCSP.SW.FileKeyStore.KeyStore setting to string
+2018-12-13 09:12:55.125 UTC [viperutil] unmarshalJSON -> DEBU 00a Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:12:55.125 UTC [viperutil] getKeysRecursively -> DEBU 00b Found real value for peer.BCCSP.SW.Hash setting to string SHA2
+2018-12-13 09:12:55.126 UTC [viperutil] getKeysRecursively -> DEBU 00c Found map[string]interface{} value for peer.BCCSP.PKCS11
+2018-12-13 09:12:55.126 UTC [viperutil] getKeysRecursively -> DEBU 00d Found map[string]interface{} value for peer.BCCSP.PKCS11.FileKeyStore
+2018-12-13 09:12:55.126 UTC [viperutil] unmarshalJSON -> DEBU 00e Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.127 UTC [viperutil] getKeysRecursively -> DEBU 00f Found real value for peer.BCCSP.PKCS11.FileKeyStore.KeyStore setting to <nil> <nil>
+2018-12-13 09:12:55.128 UTC [viperutil] unmarshalJSON -> DEBU 010 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.128 UTC [viperutil] getKeysRecursively -> DEBU 011 Found real value for peer.BCCSP.PKCS11.Library setting to <nil> <nil>
+2018-12-13 09:12:55.128 UTC [viperutil] unmarshalJSON -> DEBU 012 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.129 UTC [viperutil] getKeysRecursively -> DEBU 013 Found real value for peer.BCCSP.PKCS11.Label setting to <nil> <nil>
+2018-12-13 09:12:55.129 UTC [viperutil] unmarshalJSON -> DEBU 014 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.130 UTC [viperutil] getKeysRecursively -> DEBU 015 Found real value for peer.BCCSP.PKCS11.Pin setting to <nil> <nil>
+2018-12-13 09:12:55.130 UTC [viperutil] unmarshalJSON -> DEBU 016 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.130 UTC [viperutil] getKeysRecursively -> DEBU 017 Found real value for peer.BCCSP.PKCS11.Hash setting to <nil> <nil>
+2018-12-13 09:12:55.131 UTC [viperutil] unmarshalJSON -> DEBU 018 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:12:55.133 UTC [viperutil] getKeysRecursively -> DEBU 019 Found real value for peer.BCCSP.PKCS11.Security setting to <nil> <nil>
+2018-12-13 09:12:55.133 UTC [viperutil] EnhancedExactUnmarshalKey -> DEBU 01a map[peer.BCCSP:map[Default:SW SW:map[Security:256 FileKeyStore:map[KeyStore:] Hash:SHA2] P
+KCS11:map[FileKeyStore:map[KeyStore:<nil>] Library:<nil> Label:<nil> Pin:<nil> Hash:<nil> Security:<nil>]]]
+2018-12-13 09:12:55.137 UTC [bccsp_sw] openKeyStore -> DEBU 01b KeyStore opened at [/etc/hyperledger/msp/keystore]...done
+2018-12-13 09:12:55.138 UTC [bccsp] initBCCSP -> DEBU 01c Initialize BCCSP [SW]
+2018-12-13 09:12:55.138 UTC [msp] getPemMaterialFromDir -> DEBU 01d Reading directory /etc/hyperledger/msp/signcerts
+2018-12-13 09:12:55.142 UTC [msp] getPemMaterialFromDir -> DEBU 01e Inspecting file /etc/hyperledger/msp/signcerts/peer.pem
+2018-12-13 09:12:55.145 UTC [msp] getPemMaterialFromDir -> DEBU 01f Reading directory /etc/hyperledger/msp/cacerts
+2018-12-13 09:12:55.148 UTC [msp] getPemMaterialFromDir -> DEBU 020 Inspecting file /etc/hyperledger/msp/cacerts/cacert.pem
+2018-12-13 09:12:55.151 UTC [msp] getPemMaterialFromDir -> DEBU 021 Reading directory /etc/hyperledger/msp/admincerts
+2018-12-13 09:12:55.155 UTC [msp] getPemMaterialFromDir -> DEBU 022 Inspecting file /etc/hyperledger/msp/admincerts/admincert.pem
+2018-12-13 09:12:55.158 UTC [msp] getPemMaterialFromDir -> DEBU 023 Reading directory /etc/hyperledger/msp/intermediatecerts
+2018-12-13 09:12:55.161 UTC [msp] getMspConfig -> DEBU 024 Intermediate certs folder not found at [/etc/hyperledger/msp/intermediatecerts]. Skipping. [stat /etc/hyperle
+dger/msp/intermediatecerts: no such file or directory]
+2018-12-13 09:12:55.161 UTC [msp] getPemMaterialFromDir -> DEBU 025 Reading directory /etc/hyperledger/msp/tlscacerts
+2018-12-13 09:12:55.172 UTC [msp] getPemMaterialFromDir -> DEBU 026 Inspecting file /etc/hyperledger/msp/tlscacerts/tlsroot.pem
+2018-12-13 09:12:55.176 UTC [msp] getPemMaterialFromDir -> DEBU 027 Reading directory /etc/hyperledger/msp/tlsintermediatecerts
+2018-12-13 09:12:55.187 UTC [msp] getPemMaterialFromDir -> DEBU 028 Inspecting file /etc/hyperledger/msp/tlsintermediatecerts/tlsintermediate.pem
+2018-12-13 09:12:55.191 UTC [msp] getPemMaterialFromDir -> DEBU 029 Reading directory /etc/hyperledger/msp/crls
+2018-12-13 09:12:55.192 UTC [msp] getMspConfig -> DEBU 02a crls folder not found at [/etc/hyperledger/msp/crls]. Skipping. [stat /etc/hyperledger/msp/crls: no such file
+ or directory]
+2018-12-13 09:12:55.193 UTC [msp] getMspConfig -> DEBU 02b MSP configuration file not found at [/etc/hyperledger/msp/config.yaml]: [stat /etc/hyperledger/msp/config.yam
+l: no such file or directory]
+2018-12-13 09:12:55.194 UTC [msp] newBccspMsp -> DEBU 02c Creating BCCSP-based MSP instance
+2018-12-13 09:12:55.194 UTC [msp] New -> DEBU 02d Creating Cache-MSP instance
+2018-12-13 09:12:55.194 UTC [msp] loadLocaMSP -> DEBU 02e Created new local MSP
+2018-12-13 09:12:55.194 UTC [msp] Setup -> DEBU 02f Setting up MSP instance DEFAULT
+2018-12-13 09:12:55.194 UTC [msp/identity] newIdentity -> DEBU 030 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:12:55.194 UTC [msp/identity] newIdentity -> DEBU 031 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:12:55.215 UTC [msp/identity] newIdentity -> DEBU 032 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:12:55.223 UTC [msp/identity] newIdentity -> DEBU 033 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:12:55.224 UTC [msp] setupSigningIdentity -> DEBU 034 Signing identity expires at 2027-11-10 13:41:11 +0000 UTC
+2018-12-13 09:12:55.225 UTC [msp] Validate -> DEBU 035 MSP DEFAULT validating identity
+2018-12-13 09:12:55.229 UTC [grpc] DialContext -> DEBU 036 parsed scheme: ""
+2018-12-13 09:12:55.229 UTC [grpc] DialContext -> DEBU 037 scheme "" not registered, fallback to default scheme
+2018-12-13 09:12:55.233 UTC [grpc] watcher -> DEBU 038 ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:12:55.233 UTC [grpc] switchBalancer -> DEBU 039 ClientConn switching balancer to "pick_first"
+2018-12-13 09:12:55.233 UTC [grpc] HandleSubConnStateChange -> DEBU 03a pickfirstBalancer: HandleSubConnStateChange: 0xc4205ccf30, CONNECTING
+2018-12-13 09:12:55.235 UTC [grpc] HandleSubConnStateChange -> DEBU 03b pickfirstBalancer: HandleSubConnStateChange: 0xc4205ccf30, READY
+2018-12-13 09:12:55.236 UTC [grpc] DialContext -> DEBU 03c parsed scheme: ""
+2018-12-13 09:12:55.236 UTC [grpc] DialContext -> DEBU 03d scheme "" not registered, fallback to default scheme
+2018-12-13 09:12:55.236 UTC [grpc] watcher -> DEBU 03e ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:12:55.236 UTC [grpc] switchBalancer -> DEBU 03f ClientConn switching balancer to "pick_first"
+2018-12-13 09:12:55.236 UTC [grpc] HandleSubConnStateChange -> DEBU 040 pickfirstBalancer: HandleSubConnStateChange: 0xc4202ee1d0, CONNECTING
+2018-12-13 09:12:55.238 UTC [grpc] HandleSubConnStateChange -> DEBU 041 pickfirstBalancer: HandleSubConnStateChange: 0xc4202ee1d0, READY
+2018-12-13 09:12:55.240 UTC [msp] GetDefaultSigningIdentity -> DEBU 042 Obtaining default signing identity
+2018-12-13 09:12:55.243 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 043 Using default escc
+2018-12-13 09:12:55.243 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 044 Using default vscc
+2018-12-13 09:12:55.244 UTC [java-platform] GetDeploymentPayload -> DEBU 045 Packaging java project from path /opt/gopath/src/chaincodedev/chaincode/prashant-hyperledge
+r/
+2018-12-13 09:12:55.244 UTC [container] WriteJavaProjectToPackage -> DEBU 046 Packaging Java project from path /opt/gopath/src/chaincodedev/chaincode/prashant-hyperledg
+er
+2018-12-13 09:12:55.244 UTC [container] WriteFolderToTarPackage -> DEBU 047 rootDirectory = /opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger
+2018-12-13 09:12:55.251 UTC [container] WriteFileToPackage -> DEBU 048 Writing file to tarball: src/.classpath
+2018-12-13 09:12:55.255 UTC [container] WriteFileToPackage -> DEBU 049 Writing file to tarball: src/.project
+2018-12-13 09:12:55.259 UTC [container] WriteFileToPackage -> DEBU 04a Writing file to tarball: src/.settings/org.eclipse.core.resources.prefs
+2018-12-13 09:12:55.263 UTC [container] WriteFileToPackage -> DEBU 04b Writing file to tarball: src/.settings/org.eclipse.jdt.core.prefs
+2018-12-13 09:12:55.265 UTC [container] WriteFileToPackage -> DEBU 04c Writing file to tarball: src/.settings/org.eclipse.m2e.core.prefs
+2018-12-13 09:12:55.266 UTC [container] WriteFileToPackage -> DEBU 04d Writing file to tarball: src/dependency-reduced-pom.xml
+2018-12-13 09:12:55.271 UTC [container] WriteFileToPackage -> DEBU 04e Writing file to tarball: src/pom.xml
+2018-12-13 09:12:55.299 UTC [container] WriteFileToPackage -> DEBU 04f Writing file to tarball: src/src/main/java/in/prashant/hyperledger/prashant_hyperledger/Car.java
+2018-12-13 09:12:55.312 UTC [container] WriteFileToPackage -> DEBU 050 Writing file to tarball: src/src/main/java/in/prashant/hyperledger/prashant_hyperledger/FabCarCha
+inCode.java
+2018-12-13 09:12:55.327 UTC [container] WriteFileToPackage -> DEBU 051 Writing file to tarball: src/src/test/java/in/prashant/hyperledger/prashant_hyperledger/FabCarCha
+inCodeTest.java
+2018-12-13 09:12:55.412 UTC [msp/identity] Sign -> DEBU 052 Sign: plaintext: 0AC4070A5C08031A0C0897C5C8E00510...B2E3FF030000FFFFF2FBE1F800580000
+2018-12-13 09:12:55.412 UTC [msp/identity] Sign -> DEBU 053 Sign: digest: B698915BAE8BCFB4359704A6F3EA5BD85EC7E3698E3F213BC5232CA131F6775F
+2018-12-13 09:12:55.422 UTC [chaincodeCmd] install -> INFO 054 Installed remotely response:<status:200 payload:"OK" >
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev# peer chaincode instantiate -n myjavacc -v 2 -c '{"Args":["a", "b", "c"]}' -C myc
+2018-12-13 09:13:03.404 UTC [viperutil] getKeysRecursively -> DEBU 001 Found map[string]interface{} value for peer.BCCSP
+2018-12-13 09:13:03.405 UTC [viperutil] getKeysRecursively -> DEBU 002 Found map[string]interface{} value for peer.BCCSP.SW
+2018-12-13 09:13:03.405 UTC [viperutil] unmarshalJSON -> DEBU 003 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:13:03.405 UTC [viperutil] getKeysRecursively -> DEBU 004 Found real value for peer.BCCSP.SW.Hash setting to string SHA2
+2018-12-13 09:13:03.406 UTC [viperutil] unmarshalJSON -> DEBU 005 Unmarshal JSON: value is not a string: 256
+2018-12-13 09:13:03.406 UTC [viperutil] getKeysRecursively -> DEBU 006 Found real value for peer.BCCSP.SW.Security setting to int 256
+2018-12-13 09:13:03.407 UTC [viperutil] getKeysRecursively -> DEBU 007 Found map[string]interface{} value for peer.BCCSP.SW.FileKeyStore
+2018-12-13 09:13:03.407 UTC [viperutil] unmarshalJSON -> DEBU 008 Unmarshal JSON: value cannot be unmarshalled: unexpected end of JSON input
+2018-12-13 09:13:03.407 UTC [viperutil] getKeysRecursively -> DEBU 009 Found real value for peer.BCCSP.SW.FileKeyStore.KeyStore setting to string
+2018-12-13 09:13:03.408 UTC [viperutil] getKeysRecursively -> DEBU 00a Found map[string]interface{} value for peer.BCCSP.PKCS11
+2018-12-13 09:13:03.408 UTC [viperutil] unmarshalJSON -> DEBU 00b Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.409 UTC [viperutil] getKeysRecursively -> DEBU 00c Found real value for peer.BCCSP.PKCS11.Pin setting to <nil> <nil>
+2018-12-13 09:13:03.409 UTC [viperutil] unmarshalJSON -> DEBU 00d Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.410 UTC [viperutil] getKeysRecursively -> DEBU 00e Found real value for peer.BCCSP.PKCS11.Hash setting to <nil> <nil>
+2018-12-13 09:13:03.410 UTC [viperutil] unmarshalJSON -> DEBU 00f Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.410 UTC [viperutil] getKeysRecursively -> DEBU 010 Found real value for peer.BCCSP.PKCS11.Security setting to <nil> <nil>
+2018-12-13 09:13:03.412 UTC [viperutil] getKeysRecursively -> DEBU 011 Found map[string]interface{} value for peer.BCCSP.PKCS11.FileKeyStore
+2018-12-13 09:13:03.413 UTC [viperutil] unmarshalJSON -> DEBU 012 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.413 UTC [viperutil] getKeysRecursively -> DEBU 013 Found real value for peer.BCCSP.PKCS11.FileKeyStore.KeyStore setting to <nil> <nil>
+2018-12-13 09:13:03.414 UTC [viperutil] unmarshalJSON -> DEBU 014 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.415 UTC [viperutil] getKeysRecursively -> DEBU 015 Found real value for peer.BCCSP.PKCS11.Library setting to <nil> <nil>
+2018-12-13 09:13:03.419 UTC [viperutil] unmarshalJSON -> DEBU 016 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:13:03.422 UTC [viperutil] getKeysRecursively -> DEBU 017 Found real value for peer.BCCSP.PKCS11.Label setting to <nil> <nil>
+2018-12-13 09:13:03.423 UTC [viperutil] unmarshalJSON -> DEBU 018 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:13:03.423 UTC [viperutil] getKeysRecursively -> DEBU 019 Found real value for peer.BCCSP.Default setting to string SW
+2018-12-13 09:13:03.424 UTC [viperutil] EnhancedExactUnmarshalKey -> DEBU 01a map[peer.BCCSP:map[SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:]] PKCS11:map[H
+ash:<nil> Security:<nil> FileKeyStore:map[KeyStore:<nil>] Library:<nil> Label:<nil> Pin:<nil>] Default:SW]]
+2018-12-13 09:13:03.430 UTC [bccsp_sw] openKeyStore -> DEBU 01b KeyStore opened at [/etc/hyperledger/msp/keystore]...done
+2018-12-13 09:13:03.430 UTC [bccsp] initBCCSP -> DEBU 01c Initialize BCCSP [SW]
+2018-12-13 09:13:03.431 UTC [msp] getPemMaterialFromDir -> DEBU 01d Reading directory /etc/hyperledger/msp/signcerts
+2018-12-13 09:13:03.438 UTC [msp] getPemMaterialFromDir -> DEBU 01e Inspecting file /etc/hyperledger/msp/signcerts/peer.pem
+2018-12-13 09:13:03.441 UTC [msp] getPemMaterialFromDir -> DEBU 01f Reading directory /etc/hyperledger/msp/cacerts
+2018-12-13 09:13:03.454 UTC [msp] getPemMaterialFromDir -> DEBU 020 Inspecting file /etc/hyperledger/msp/cacerts/cacert.pem
+2018-12-13 09:13:03.465 UTC [msp] getPemMaterialFromDir -> DEBU 021 Reading directory /etc/hyperledger/msp/admincerts
+2018-12-13 09:13:03.483 UTC [msp] getPemMaterialFromDir -> DEBU 022 Inspecting file /etc/hyperledger/msp/admincerts/admincert.pem
+2018-12-13 09:13:03.488 UTC [msp] getPemMaterialFromDir -> DEBU 023 Reading directory /etc/hyperledger/msp/intermediatecerts
+2018-12-13 09:13:03.489 UTC [msp] getMspConfig -> DEBU 024 Intermediate certs folder not found at [/etc/hyperledger/msp/intermediatecerts]. Skipping. [stat /etc/hyperle
+dger/msp/intermediatecerts: no such file or directory]
+2018-12-13 09:13:03.490 UTC [msp] getPemMaterialFromDir -> DEBU 025 Reading directory /etc/hyperledger/msp/tlscacerts
+2018-12-13 09:13:03.503 UTC [msp] getPemMaterialFromDir -> DEBU 026 Inspecting file /etc/hyperledger/msp/tlscacerts/tlsroot.pem
+2018-12-13 09:13:03.508 UTC [msp] getPemMaterialFromDir -> DEBU 027 Reading directory /etc/hyperledger/msp/tlsintermediatecerts
+2018-12-13 09:13:03.520 UTC [msp] getPemMaterialFromDir -> DEBU 028 Inspecting file /etc/hyperledger/msp/tlsintermediatecerts/tlsintermediate.pem
+2018-12-13 09:13:03.531 UTC [msp] getPemMaterialFromDir -> DEBU 029 Reading directory /etc/hyperledger/msp/crls
+2018-12-13 09:13:03.532 UTC [msp] getMspConfig -> DEBU 02a crls folder not found at [/etc/hyperledger/msp/crls]. Skipping. [stat /etc/hyperledger/msp/crls: no such file
+ or directory]
+2018-12-13 09:13:03.532 UTC [msp] getMspConfig -> DEBU 02b MSP configuration file not found at [/etc/hyperledger/msp/config.yaml]: [stat /etc/hyperledger/msp/config.yam
+l: no such file or directory]
+2018-12-13 09:13:03.533 UTC [msp] newBccspMsp -> DEBU 02c Creating BCCSP-based MSP instance
+2018-12-13 09:13:03.533 UTC [msp] New -> DEBU 02d Creating Cache-MSP instance
+2018-12-13 09:13:03.533 UTC [msp] loadLocaMSP -> DEBU 02e Created new local MSP
+2018-12-13 09:13:03.533 UTC [msp] Setup -> DEBU 02f Setting up MSP instance DEFAULT
+2018-12-13 09:13:03.533 UTC [msp/identity] newIdentity -> DEBU 030 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.533 UTC [msp/identity] newIdentity -> DEBU 031 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.563 UTC [msp/identity] newIdentity -> DEBU 032 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.575 UTC [msp/identity] newIdentity -> DEBU 033 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.576 UTC [msp] setupSigningIdentity -> DEBU 034 Signing identity expires at 2027-11-10 13:41:11 +0000 UTC
+2018-12-13 09:13:03.577 UTC [msp] Validate -> DEBU 035 MSP DEFAULT validating identity
+2018-12-13 09:13:03.578 UTC [grpc] DialContext -> DEBU 036 parsed scheme: ""
+2018-12-13 09:13:03.578 UTC [grpc] DialContext -> DEBU 037 scheme "" not registered, fallback to default scheme
+2018-12-13 09:13:03.578 UTC [grpc] watcher -> DEBU 038 ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:13:03.578 UTC [grpc] switchBalancer -> DEBU 039 ClientConn switching balancer to "pick_first"
+2018-12-13 09:13:03.578 UTC [grpc] HandleSubConnStateChange -> DEBU 03a pickfirstBalancer: HandleSubConnStateChange: 0xc42010f010, CONNECTING
+2018-12-13 09:13:03.586 UTC [grpc] HandleSubConnStateChange -> DEBU 03b pickfirstBalancer: HandleSubConnStateChange: 0xc42010f010, READY
+2018-12-13 09:13:03.586 UTC [grpc] DialContext -> DEBU 03c parsed scheme: ""
+2018-12-13 09:13:03.586 UTC [grpc] DialContext -> DEBU 03d scheme "" not registered, fallback to default scheme
+2018-12-13 09:13:03.587 UTC [grpc] watcher -> DEBU 03e ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:13:03.587 UTC [grpc] switchBalancer -> DEBU 03f ClientConn switching balancer to "pick_first"
+2018-12-13 09:13:03.587 UTC [grpc] HandleSubConnStateChange -> DEBU 040 pickfirstBalancer: HandleSubConnStateChange: 0xc420516360, CONNECTING
+2018-12-13 09:13:03.588 UTC [grpc] HandleSubConnStateChange -> DEBU 041 pickfirstBalancer: HandleSubConnStateChange: 0xc420516360, READY
+2018-12-13 09:13:03.588 UTC [msp] GetDefaultSigningIdentity -> DEBU 042 Obtaining default signing identity
+2018-12-13 09:13:03.589 UTC [msp/identity] Sign -> DEBU 043 Sign: plaintext: 0AC4070A5C08011A0C089FC5C8E00510...436F6E666967426C6F636B0A036D7963
+2018-12-13 09:13:03.589 UTC [msp/identity] Sign -> DEBU 044 Sign: digest: CCEB834610946E7D26EC80890F2F7B5C26587FFAF54A683DEB51501E9BED3B8C
+2018-12-13 09:13:03.593 UTC [common/channelconfig] NewStandardValues -> DEBU 045 Initializing protos for *channelconfig.ChannelProtos
+2018-12-13 09:13:03.593 UTC [common/channelconfig] initializeProtosStruct -> DEBU 046 Processing field: HashingAlgorithm
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 047 Processing field: BlockDataHashingStructure
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 048 Processing field: OrdererAddresses
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 049 Processing field: Consortium
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04a Processing field: Capabilities
+2018-12-13 09:13:03.594 UTC [common/channelconfig] NewStandardValues -> DEBU 04b Initializing protos for *channelconfig.OrdererProtos
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04c Processing field: ConsensusType
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04d Processing field: BatchSize
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04e Processing field: BatchTimeout
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04f Processing field: KafkaBrokers
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 050 Processing field: ChannelRestrictions
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 051 Processing field: Capabilities
+2018-12-13 09:13:03.594 UTC [common/channelconfig] NewStandardValues -> DEBU 052 Initializing protos for *channelconfig.OrganizationProtos
+2018-12-13 09:13:03.594 UTC [common/channelconfig] initializeProtosStruct -> DEBU 053 Processing field: MSP
+2018-12-13 09:13:03.594 UTC [common/channelconfig] validateMSP -> DEBU 054 Setting up MSP for org SampleOrg
+2018-12-13 09:13:03.594 UTC [msp] newBccspMsp -> DEBU 055 Creating BCCSP-based MSP instance
+2018-12-13 09:13:03.594 UTC [msp] New -> DEBU 056 Creating Cache-MSP instance
+2018-12-13 09:13:03.594 UTC [msp] Setup -> DEBU 057 Setting up MSP instance DEFAULT
+2018-12-13 09:13:03.600 UTC [msp/identity] newIdentity -> DEBU 058 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.601 UTC [msp/identity] newIdentity -> DEBU 059 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.602 UTC [msp] Validate -> DEBU 05a MSP DEFAULT validating identity
+2018-12-13 09:13:03.602 UTC [common/channelconfig] NewStandardValues -> DEBU 05b Initializing protos for *channelconfig.ApplicationProtos
+2018-12-13 09:13:03.602 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05c Processing field: ACLs
+2018-12-13 09:13:03.602 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05d Processing field: Capabilities
+2018-12-13 09:13:03.602 UTC [common/channelconfig] NewStandardValues -> DEBU 05e Initializing protos for *channelconfig.ApplicationOrgProtos
+2018-12-13 09:13:03.602 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05f Processing field: AnchorPeers
+2018-12-13 09:13:03.602 UTC [common/channelconfig] NewStandardValues -> DEBU 060 Initializing protos for *channelconfig.OrganizationProtos
+2018-12-13 09:13:03.602 UTC [common/channelconfig] initializeProtosStruct -> DEBU 061 Processing field: MSP
+2018-12-13 09:13:03.603 UTC [common/channelconfig] Validate -> DEBU 062 Anchor peers for org SampleOrg are
+2018-12-13 09:13:03.603 UTC [common/channelconfig] validateMSP -> DEBU 063 Setting up MSP for org SampleOrg
+2018-12-13 09:13:03.603 UTC [msp] newBccspMsp -> DEBU 064 Creating BCCSP-based MSP instance
+2018-12-13 09:13:03.603 UTC [msp] New -> DEBU 065 Creating Cache-MSP instance
+2018-12-13 09:13:03.603 UTC [msp] Setup -> DEBU 066 Setting up MSP instance DEFAULT
+2018-12-13 09:13:03.603 UTC [msp/identity] newIdentity -> DEBU 067 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.607 UTC [msp/identity] newIdentity -> DEBU 068 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:13:03.613 UTC [msp] Validate -> DEBU 069 MSP DEFAULT validating identity
+2018-12-13 09:13:03.615 UTC [msp] Setup -> DEBU 06a Setting up the MSP manager (1 msps)
+2018-12-13 09:13:03.616 UTC [msp] Setup -> DEBU 06b MSP manager setup complete, setup 1 msps
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 06c Proposed new policy Admins for Channel/Application/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 06d Proposed new policy Readers for Channel/Application/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 06e Proposed new policy Writers for Channel/Application/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 06f Proposed new policy Readers for Channel/Application
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 070 Proposed new policy Writers for Channel/Application
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 071 Proposed new policy Admins for Channel/Application
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 072 Proposed new policy Admins for Channel/Orderer/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 073 Proposed new policy Readers for Channel/Orderer/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 074 Proposed new policy Writers for Channel/Orderer/SampleOrg
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 075 Proposed new policy Writers for Channel/Orderer
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 076 Proposed new policy BlockValidation for Channel/Orderer
+2018-12-13 09:13:03.617 UTC [policies] NewManagerImpl -> DEBU 077 Proposed new policy Admins for Channel/Orderer
+2018-12-13 09:13:03.618 UTC [policies] NewManagerImpl -> DEBU 078 Proposed new policy Readers for Channel/Orderer
+2018-12-13 09:13:03.618 UTC [policies] NewManagerImpl -> DEBU 079 Proposed new policy Admins for Channel
+2018-12-13 09:13:03.618 UTC [policies] NewManagerImpl -> DEBU 07a Proposed new policy Readers for Channel
+2018-12-13 09:13:03.618 UTC [policies] NewManagerImpl -> DEBU 07b Proposed new policy Writers for Channel
+2018-12-13 09:13:03.618 UTC [common/configtx] addToMap -> DEBU 07c Adding to config map: [Group]  /Channel
+2018-12-13 09:13:03.618 UTC [common/configtx] addToMap -> DEBU 07d Adding to config map: [Group]  /Channel/Application
+2018-12-13 09:13:03.618 UTC [common/configtx] addToMap -> DEBU 07e Adding to config map: [Group]  /Channel/Application/SampleOrg
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 07f Adding to config map: [Value]  /Channel/Application/SampleOrg/MSP
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 080 Adding to config map: [Policy] /Channel/Application/SampleOrg/Admins
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 081 Adding to config map: [Policy] /Channel/Application/SampleOrg/Readers
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 082 Adding to config map: [Policy] /Channel/Application/SampleOrg/Writers
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 083 Adding to config map: [Policy] /Channel/Application/Readers
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 084 Adding to config map: [Policy] /Channel/Application/Writers
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 085 Adding to config map: [Policy] /Channel/Application/Admins
+2018-12-13 09:13:03.620 UTC [common/configtx] addToMap -> DEBU 086 Adding to config map: [Group]  /Channel/Orderer
+2018-12-13 09:13:03.621 UTC [common/configtx] addToMap -> DEBU 087 Adding to config map: [Group]  /Channel/Orderer/SampleOrg
+2018-12-13 09:13:03.621 UTC [common/configtx] addToMap -> DEBU 088 Adding to config map: [Value]  /Channel/Orderer/SampleOrg/MSP
+2018-12-13 09:13:03.622 UTC [common/configtx] addToMap -> DEBU 089 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Admins
+2018-12-13 09:13:03.622 UTC [common/configtx] addToMap -> DEBU 08a Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Readers
+2018-12-13 09:13:03.623 UTC [common/configtx] addToMap -> DEBU 08b Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Writers
+2018-12-13 09:13:03.623 UTC [common/configtx] addToMap -> DEBU 08c Adding to config map: [Value]  /Channel/Orderer/BatchTimeout
+2018-12-13 09:13:03.631 UTC [common/configtx] addToMap -> DEBU 08d Adding to config map: [Value]  /Channel/Orderer/ChannelRestrictions
+2018-12-13 09:13:03.631 UTC [common/configtx] addToMap -> DEBU 08e Adding to config map: [Value]  /Channel/Orderer/ConsensusType
+2018-12-13 09:13:03.632 UTC [common/configtx] addToMap -> DEBU 08f Adding to config map: [Value]  /Channel/Orderer/BatchSize
+2018-12-13 09:13:03.632 UTC [common/configtx] addToMap -> DEBU 090 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2018-12-13 09:13:03.632 UTC [common/configtx] addToMap -> DEBU 091 Adding to config map: [Policy] /Channel/Orderer/Admins
+2018-12-13 09:13:03.632 UTC [common/configtx] addToMap -> DEBU 092 Adding to config map: [Policy] /Channel/Orderer/Readers
+2018-12-13 09:13:03.632 UTC [common/configtx] addToMap -> DEBU 093 Adding to config map: [Policy] /Channel/Orderer/Writers
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 094 Adding to config map: [Value]  /Channel/BlockDataHashingStructure
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 095 Adding to config map: [Value]  /Channel/OrdererAddresses
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 096 Adding to config map: [Value]  /Channel/HashingAlgorithm
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 097 Adding to config map: [Value]  /Channel/Consortium
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 098 Adding to config map: [Policy] /Channel/Writers
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 099 Adding to config map: [Policy] /Channel/Admins
+2018-12-13 09:13:03.633 UTC [common/configtx] addToMap -> DEBU 09a Adding to config map: [Policy] /Channel/Readers
+2018-12-13 09:13:03.634 UTC [chaincodeCmd] InitCmdFactory -> INFO 09b Retrieved channel (myc) orderer endpoint: orderer:7050
+2018-12-13 09:13:03.634 UTC [grpc] DialContext -> DEBU 09c parsed scheme: ""
+2018-12-13 09:13:03.634 UTC [grpc] DialContext -> DEBU 09d scheme "" not registered, fallback to default scheme
+2018-12-13 09:13:03.634 UTC [grpc] watcher -> DEBU 09e ccResolverWrapper: sending new addresses to cc: [{orderer:7050 0  <nil>}]
+2018-12-13 09:13:03.634 UTC [grpc] switchBalancer -> DEBU 09f ClientConn switching balancer to "pick_first"
+2018-12-13 09:13:03.634 UTC [grpc] HandleSubConnStateChange -> DEBU 0a0 pickfirstBalancer: HandleSubConnStateChange: 0xc4203b70e0, CONNECTING
+2018-12-13 09:13:03.636 UTC [grpc] HandleSubConnStateChange -> DEBU 0a1 pickfirstBalancer: HandleSubConnStateChange: 0xc4203b70e0, READY
+2018-12-13 09:13:03.637 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 0a2 Using default escc
+2018-12-13 09:13:03.638 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 0a3 Using default vscc
+2018-12-13 09:13:03.639 UTC [msp/identity] Sign -> DEBU 0a4 Sign: plaintext: 0AC9070A6108031A0C089FC5C8E00510...01630A000A04657363630A0476736363
+2018-12-13 09:13:03.639 UTC [msp/identity] Sign -> DEBU 0a5 Sign: digest: DBE8C2BF3892C512F56E9273FD806DBD82A252D9DE9588E9474795C9859A4AF3
+Error: could not assemble transaction, err proposal response was not successful, error code 500, msg error starting container: error starting container: Failed to gener
+ate platform-specific docker build: Error returned from build: 1 "Maven build
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building prashant-hyperledger 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom (9.3 kB at 7.8 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom (11 kB at 31 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom (44 kB at 85 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom (17 kB at 50 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar (114 kB at 224 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/io/grpc/grpc-core/maven-metadata.xml
+Downloaded: https://repo.maven.apache.org/maven2/io/grpc/grpc-core/maven-metadata.xml (1.8 kB at 5.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml
+Downloaded: https://repo.maven.apache.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml (2.0 kB at 5.9 kB/s)
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ chaincode ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /chaincode/input/src/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ chaincode ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ chaincode ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /chaincode/input/src/target/test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ chaincode ---
+[INFO] Surefire report directory: /chaincode/input/src/target/surefire-reports
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.pom (1.7 kB at 5.1 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (2.3 kB at 7.1 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.jar (26 kB at 77 kB/s)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running in.prashant.hyperledger.prashant_hyperledger.FabCarChainCodeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ chaincode ---
+[INFO] Building jar: /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- maven-shade-plugin:3.2.1:shade (default) @ chaincode ---
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom (770 B at 2.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom (5.0 kB at 15 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom (4.7 kB at 13 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom (12 kB at 33 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom (5.1 kB at 15 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom (43 kB at 119 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom (15 kB at 43 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom
+Downloaded: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom (14 kB at 41 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom (2.9 kB at 8.0 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5/ow2-1.5.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5/ow2-1.5.pom (11 kB at 32 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom (3.7 kB at 10 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom (3.1 kB at 9.5 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom (3.2 kB at 9.5 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom (4.6 kB at 13 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom (7.5 kB at 23 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom (11 kB at 33 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom
+Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom (14 kB at 43 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom (2.9 kB at 8.9 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom (3.2 kB at 9.5 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom (3.1 kB at 9.1 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom (3.7 kB at 11 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom (3.7 kB at 11 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar
+Downloading: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar (4.3 kB at 13 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar (80 kB at 94 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar (128 kB at 106 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar (114 kB at 93 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar (50 kB at 41 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar (262 kB at 181 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar (335 kB at 215 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar (33 kB at 22 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar (37 kB at 24 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar (81 kB at 43 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar (186 kB at 98 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar (305 kB at 136 kB/s)
+[INFO] Including org.hyperledger.fabric-chaincode-java:fabric-chaincode-shim:jar:1.3.0 in the shaded jar.
+[INFO] Including commons-cli:commons-cli:jar:1.4 in the shaded jar.
+[INFO] Including commons-logging:commons-logging:jar:1.2 in the shaded jar.
+[INFO] Including org.hyperledger.fabric-chaincode-java:fabric-chaincode-protos:jar:1.3.0 in the shaded jar.
+[INFO] Including com.google.protobuf:protobuf-java:jar:3.5.1 in the shaded jar.
+[INFO] Including com.google.protobuf:protobuf-java-util:jar:3.5.1 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:19.0 in the shaded jar.
+[INFO] Including com.google.code.gson:gson:jar:2.7 in the shaded jar.
+[INFO] Including io.grpc:grpc-netty:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-core:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-context:jar:1.9.0 in the shaded jar.
+[INFO] Including com.google.errorprone:error_prone_annotations:jar:2.1.2 in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.0 in the shaded jar.
+[INFO] Including com.google.instrumentation:instrumentation-api:jar:0.4.3 in the shaded jar.
+[INFO] Including io.opencensus:opencensus-api:jar:0.10.0 in the shaded jar.
+[INFO] Including io.opencensus:opencensus-contrib-grpc-metrics:jar:0.10.0 in the shaded jar.
+[INFO] Including io.netty:netty-codec-http2:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec-http:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-buffer:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-common:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler-proxy:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-resolver:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec-socks:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.grpc:grpc-protobuf:jar:1.9.0 in the shaded jar.
+[INFO] Including com.google.api.grpc:proto-google-common-protos:jar:1.0.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-protobuf-lite:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-stub:jar:1.9.0 in the shaded jar.
+[INFO] Including io.netty:netty-tcnative-boringssl-static:jar:2.0.7.Final in the shaded jar.
+[INFO] Including org.bouncycastle:bcpkix-jdk15on:jar:1.59 in the shaded jar.
+[INFO] Including org.bouncycastle:bcprov-jdk15on:jar:1.59 in the shaded jar.
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT.jar with /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /chaincode/input/src/dependency-reduced-pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.573 s
+[INFO] Finished at: 2018-12-13T09:13:28Z
+[INFO] Final Memory: 32M/199M
+[INFO] ------------------------------------------------------------------------
+cp: cannot stat 'target/chaincode.jar': No such file or directory
+"
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev#
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev#
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev#
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev# ls -l
+total 57
+-rwxr-xr-x 1 root root  5270 Dec 10 05:34 README.rst
+drwxrwxrwx 2 root root  4096 Dec 12 09:42 chaincode
+-rwxr-xr-x 1 root root  2702 Dec 10 05:34 docker-compose-simple.yaml
+-rwxr-xr-x 1 root root 12970 Dec 13 07:47 log.tx
+drwxrwxrwx 2 root root     0 Dec 10 05:34 msp
+-rwxr-xr-x 1 root root 10877 Dec 13 07:38 myc.block
+-rwxr-xr-x 1 root root   274 Dec 10 05:34 myc.tx
+-rwxr-xr-x 1 root root  7902 Dec 10 05:34 orderer.block
+-rwxr-xr-x 1 root root  1019 Dec 10 05:34 script.sh
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev# cd chaincode/
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode# cd prashant-hyperledger/target/
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/target# ls -l
+total 16760
+-rwxr-xr-x 1 root root 17150918 Dec 13 09:12 chaincode-0.0.1-SNAPSHOT.jar
+drwxrwxrwx 2 root root        0 Dec 13 09:12 classes
+drwxrwxrwx 2 root root        0 Dec 13 09:12 generated-sources
+drwxrwxrwx 2 root root        0 Dec 13 09:12 generated-test-sources
+drwxrwxrwx 2 root root        0 Dec 13 09:12 maven-archiver
+drwxrwxrwx 2 root root        0 Dec 13 09:12 maven-status
+-rwxr-xr-x 1 root root     7021 Dec 13 09:12 original-chaincode-0.0.1-SNAPSHOT.jar
+drwxrwxrwx 2 root root        0 Dec 13 09:12 surefire-reports
+drwxrwxrwx 2 root root        0 Dec 13 09:12 test-classes
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/target# mv c
+chaincode-0.0.1-SNAPSHOT.jar  classes/
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/target# mv chaincode-0.0.1-SNAPSHOT.jar chaincode.jar
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/target# ls -l
+total 16760
+-rwxr-xr-x 1 root root 17150918 Dec 13 09:12 chaincode.jar
+drwxrwxrwx 2 root root        0 Dec 13 09:12 classes
+drwxrwxrwx 2 root root        0 Dec 13 09:12 generated-sources
+drwxrwxrwx 2 root root        0 Dec 13 09:12 generated-test-sources
+drwxrwxrwx 2 root root        0 Dec 13 09:12 maven-archiver
+drwxrwxrwx 2 root root        0 Dec 13 09:12 maven-status
+-rwxr-xr-x 1 root root     7021 Dec 13 09:12 original-chaincode-0.0.1-SNAPSHOT.jar
+drwxrwxrwx 2 root root        0 Dec 13 09:12 surefire-reports
+drwxrwxrwx 2 root root        0 Dec 13 09:12 test-classes
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger/target# cd ..
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger# cd .
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode/prashant-hyperledger# cd ..
+root@5d72f81d5bcb:/opt/gopath/src/chaincodedev/chaincode# peer chaincode instantiate -n myjavacc -v 2 -c '{"Args":["a", "b", "c"]}' -C myc
+2018-12-13 09:17:05.065 UTC [viperutil] getKeysRecursively -> DEBU 001 Found map[string]interface{} value for peer.BCCSP
+2018-12-13 09:17:05.066 UTC [viperutil] unmarshalJSON -> DEBU 002 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:17:05.066 UTC [viperutil] getKeysRecursively -> DEBU 003 Found real value for peer.BCCSP.Default setting to string SW
+2018-12-13 09:17:05.067 UTC [viperutil] getKeysRecursively -> DEBU 004 Found map[string]interface{} value for peer.BCCSP.SW
+2018-12-13 09:17:05.069 UTC [viperutil] unmarshalJSON -> DEBU 005 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2018-12-13 09:17:05.069 UTC [viperutil] getKeysRecursively -> DEBU 006 Found real value for peer.BCCSP.SW.Hash setting to string SHA2
+2018-12-13 09:17:05.070 UTC [viperutil] unmarshalJSON -> DEBU 007 Unmarshal JSON: value is not a string: 256
+2018-12-13 09:17:05.070 UTC [viperutil] getKeysRecursively -> DEBU 008 Found real value for peer.BCCSP.SW.Security setting to int 256
+2018-12-13 09:17:05.071 UTC [viperutil] getKeysRecursively -> DEBU 009 Found map[string]interface{} value for peer.BCCSP.SW.FileKeyStore
+2018-12-13 09:17:05.072 UTC [viperutil] unmarshalJSON -> DEBU 00a Unmarshal JSON: value cannot be unmarshalled: unexpected end of JSON input
+2018-12-13 09:17:05.072 UTC [viperutil] getKeysRecursively -> DEBU 00b Found real value for peer.BCCSP.SW.FileKeyStore.KeyStore setting to string
+2018-12-13 09:17:05.073 UTC [viperutil] getKeysRecursively -> DEBU 00c Found map[string]interface{} value for peer.BCCSP.PKCS11
+2018-12-13 09:17:05.073 UTC [viperutil] unmarshalJSON -> DEBU 00d Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.075 UTC [viperutil] getKeysRecursively -> DEBU 00e Found real value for peer.BCCSP.PKCS11.Pin setting to <nil> <nil>
+2018-12-13 09:17:05.077 UTC [viperutil] unmarshalJSON -> DEBU 00f Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.077 UTC [viperutil] getKeysRecursively -> DEBU 010 Found real value for peer.BCCSP.PKCS11.Hash setting to <nil> <nil>
+2018-12-13 09:17:05.078 UTC [viperutil] unmarshalJSON -> DEBU 011 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.078 UTC [viperutil] getKeysRecursively -> DEBU 012 Found real value for peer.BCCSP.PKCS11.Security setting to <nil> <nil>
+2018-12-13 09:17:05.079 UTC [viperutil] getKeysRecursively -> DEBU 013 Found map[string]interface{} value for peer.BCCSP.PKCS11.FileKeyStore
+2018-12-13 09:17:05.079 UTC [viperutil] unmarshalJSON -> DEBU 014 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.079 UTC [viperutil] getKeysRecursively -> DEBU 015 Found real value for peer.BCCSP.PKCS11.FileKeyStore.KeyStore setting to <nil> <nil>
+2018-12-13 09:17:05.080 UTC [viperutil] unmarshalJSON -> DEBU 016 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.084 UTC [viperutil] getKeysRecursively -> DEBU 017 Found real value for peer.BCCSP.PKCS11.Library setting to <nil> <nil>
+2018-12-13 09:17:05.085 UTC [viperutil] unmarshalJSON -> DEBU 018 Unmarshal JSON: value is not a string: <nil>
+2018-12-13 09:17:05.085 UTC [viperutil] getKeysRecursively -> DEBU 019 Found real value for peer.BCCSP.PKCS11.Label setting to <nil> <nil>
+2018-12-13 09:17:05.085 UTC [viperutil] EnhancedExactUnmarshalKey -> DEBU 01a map[peer.BCCSP:map[Default:SW SW:map[FileKeyStore:map[KeyStore:] Hash:SHA2 Security:256] P
+KCS11:map[Pin:<nil> Hash:<nil> Security:<nil> FileKeyStore:map[KeyStore:<nil>] Library:<nil> Label:<nil>]]]
+2018-12-13 09:17:05.089 UTC [bccsp_sw] openKeyStore -> DEBU 01b KeyStore opened at [/etc/hyperledger/msp/keystore]...done
+2018-12-13 09:17:05.090 UTC [bccsp] initBCCSP -> DEBU 01c Initialize BCCSP [SW]
+2018-12-13 09:17:05.090 UTC [msp] getPemMaterialFromDir -> DEBU 01d Reading directory /etc/hyperledger/msp/signcerts
+2018-12-13 09:17:05.094 UTC [msp] getPemMaterialFromDir -> DEBU 01e Inspecting file /etc/hyperledger/msp/signcerts/peer.pem
+2018-12-13 09:17:05.096 UTC [msp] getPemMaterialFromDir -> DEBU 01f Reading directory /etc/hyperledger/msp/cacerts
+2018-12-13 09:17:05.100 UTC [msp] getPemMaterialFromDir -> DEBU 020 Inspecting file /etc/hyperledger/msp/cacerts/cacert.pem
+2018-12-13 09:17:05.102 UTC [msp] getPemMaterialFromDir -> DEBU 021 Reading directory /etc/hyperledger/msp/admincerts
+2018-12-13 09:17:05.106 UTC [msp] getPemMaterialFromDir -> DEBU 022 Inspecting file /etc/hyperledger/msp/admincerts/admincert.pem
+2018-12-13 09:17:05.108 UTC [msp] getPemMaterialFromDir -> DEBU 023 Reading directory /etc/hyperledger/msp/intermediatecerts
+2018-12-13 09:17:05.109 UTC [msp] getMspConfig -> DEBU 024 Intermediate certs folder not found at [/etc/hyperledger/msp/intermediatecerts]. Skipping. [stat /etc/hyperle
+dger/msp/intermediatecerts: no such file or directory]
+2018-12-13 09:17:05.109 UTC [msp] getPemMaterialFromDir -> DEBU 025 Reading directory /etc/hyperledger/msp/tlscacerts
+2018-12-13 09:17:05.113 UTC [msp] getPemMaterialFromDir -> DEBU 026 Inspecting file /etc/hyperledger/msp/tlscacerts/tlsroot.pem
+2018-12-13 09:17:05.119 UTC [msp] getPemMaterialFromDir -> DEBU 027 Reading directory /etc/hyperledger/msp/tlsintermediatecerts
+2018-12-13 09:17:05.122 UTC [msp] getPemMaterialFromDir -> DEBU 028 Inspecting file /etc/hyperledger/msp/tlsintermediatecerts/tlsintermediate.pem
+2018-12-13 09:17:05.131 UTC [msp] getPemMaterialFromDir -> DEBU 029 Reading directory /etc/hyperledger/msp/crls
+2018-12-13 09:17:05.131 UTC [msp] getMspConfig -> DEBU 02a crls folder not found at [/etc/hyperledger/msp/crls]. Skipping. [stat /etc/hyperledger/msp/crls: no such file
+ or directory]
+2018-12-13 09:17:05.132 UTC [msp] getMspConfig -> DEBU 02b MSP configuration file not found at [/etc/hyperledger/msp/config.yaml]: [stat /etc/hyperledger/msp/config.yam
+l: no such file or directory]
+2018-12-13 09:17:05.133 UTC [msp] newBccspMsp -> DEBU 02c Creating BCCSP-based MSP instance
+2018-12-13 09:17:05.133 UTC [msp] New -> DEBU 02d Creating Cache-MSP instance
+2018-12-13 09:17:05.133 UTC [msp] loadLocaMSP -> DEBU 02e Created new local MSP
+2018-12-13 09:17:05.133 UTC [msp] Setup -> DEBU 02f Setting up MSP instance DEFAULT
+2018-12-13 09:17:05.133 UTC [msp/identity] newIdentity -> DEBU 030 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.134 UTC [msp/identity] newIdentity -> DEBU 031 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.153 UTC [msp/identity] newIdentity -> DEBU 032 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.160 UTC [msp/identity] newIdentity -> DEBU 033 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.160 UTC [msp] setupSigningIdentity -> DEBU 034 Signing identity expires at 2027-11-10 13:41:11 +0000 UTC
+2018-12-13 09:17:05.161 UTC [msp] Validate -> DEBU 035 MSP DEFAULT validating identity
+2018-12-13 09:17:05.163 UTC [grpc] DialContext -> DEBU 036 parsed scheme: ""
+2018-12-13 09:17:05.163 UTC [grpc] DialContext -> DEBU 037 scheme "" not registered, fallback to default scheme
+2018-12-13 09:17:05.163 UTC [grpc] watcher -> DEBU 038 ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:17:05.164 UTC [grpc] switchBalancer -> DEBU 039 ClientConn switching balancer to "pick_first"
+2018-12-13 09:17:05.164 UTC [grpc] HandleSubConnStateChange -> DEBU 03a pickfirstBalancer: HandleSubConnStateChange: 0xc4205a5550, CONNECTING
+2018-12-13 09:17:05.174 UTC [grpc] HandleSubConnStateChange -> DEBU 03b pickfirstBalancer: HandleSubConnStateChange: 0xc4205a5550, READY
+2018-12-13 09:17:05.176 UTC [grpc] DialContext -> DEBU 03c parsed scheme: ""
+2018-12-13 09:17:05.177 UTC [grpc] DialContext -> DEBU 03d scheme "" not registered, fallback to default scheme
+2018-12-13 09:17:05.178 UTC [grpc] watcher -> DEBU 03e ccResolverWrapper: sending new addresses to cc: [{peer:7051 0  <nil>}]
+2018-12-13 09:17:05.178 UTC [grpc] switchBalancer -> DEBU 03f ClientConn switching balancer to "pick_first"
+2018-12-13 09:17:05.179 UTC [grpc] HandleSubConnStateChange -> DEBU 040 pickfirstBalancer: HandleSubConnStateChange: 0xc4206f2e20, CONNECTING
+2018-12-13 09:17:05.182 UTC [grpc] HandleSubConnStateChange -> DEBU 041 pickfirstBalancer: HandleSubConnStateChange: 0xc4206f2e20, READY
+2018-12-13 09:17:05.183 UTC [msp] GetDefaultSigningIdentity -> DEBU 042 Obtaining default signing identity
+2018-12-13 09:17:05.187 UTC [msp/identity] Sign -> DEBU 043 Sign: plaintext: 0AC3070A5B08011A0B0891C7C8E00510...436F6E666967426C6F636B0A036D7963
+2018-12-13 09:17:05.187 UTC [msp/identity] Sign -> DEBU 044 Sign: digest: 480A2589ED9914C8AB2751B25332D529FB0BF9C7C5162439BBC73023CB0AEBED
+2018-12-13 09:17:05.189 UTC [common/channelconfig] NewStandardValues -> DEBU 045 Initializing protos for *channelconfig.ChannelProtos
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 046 Processing field: HashingAlgorithm
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 047 Processing field: BlockDataHashingStructure
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 048 Processing field: OrdererAddresses
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 049 Processing field: Consortium
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04a Processing field: Capabilities
+2018-12-13 09:17:05.189 UTC [common/channelconfig] NewStandardValues -> DEBU 04b Initializing protos for *channelconfig.OrdererProtos
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04c Processing field: ConsensusType
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04d Processing field: BatchSize
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04e Processing field: BatchTimeout
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 04f Processing field: KafkaBrokers
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 050 Processing field: ChannelRestrictions
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 051 Processing field: Capabilities
+2018-12-13 09:17:05.189 UTC [common/channelconfig] NewStandardValues -> DEBU 052 Initializing protos for *channelconfig.OrganizationProtos
+2018-12-13 09:17:05.189 UTC [common/channelconfig] initializeProtosStruct -> DEBU 053 Processing field: MSP
+2018-12-13 09:17:05.189 UTC [common/channelconfig] validateMSP -> DEBU 054 Setting up MSP for org SampleOrg
+2018-12-13 09:17:05.189 UTC [msp] newBccspMsp -> DEBU 055 Creating BCCSP-based MSP instance
+2018-12-13 09:17:05.189 UTC [msp] New -> DEBU 056 Creating Cache-MSP instance
+2018-12-13 09:17:05.189 UTC [msp] Setup -> DEBU 057 Setting up MSP instance DEFAULT
+2018-12-13 09:17:05.190 UTC [msp/identity] newIdentity -> DEBU 058 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.190 UTC [msp/identity] newIdentity -> DEBU 059 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.190 UTC [msp] Validate -> DEBU 05a MSP DEFAULT validating identity
+2018-12-13 09:17:05.190 UTC [common/channelconfig] NewStandardValues -> DEBU 05b Initializing protos for *channelconfig.ApplicationProtos
+2018-12-13 09:17:05.190 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05c Processing field: ACLs
+2018-12-13 09:17:05.190 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05d Processing field: Capabilities
+2018-12-13 09:17:05.190 UTC [common/channelconfig] NewStandardValues -> DEBU 05e Initializing protos for *channelconfig.ApplicationOrgProtos
+2018-12-13 09:17:05.190 UTC [common/channelconfig] initializeProtosStruct -> DEBU 05f Processing field: AnchorPeers
+2018-12-13 09:17:05.190 UTC [common/channelconfig] NewStandardValues -> DEBU 060 Initializing protos for *channelconfig.OrganizationProtos
+2018-12-13 09:17:05.190 UTC [common/channelconfig] initializeProtosStruct -> DEBU 061 Processing field: MSP
+2018-12-13 09:17:05.190 UTC [common/channelconfig] Validate -> DEBU 062 Anchor peers for org SampleOrg are
+2018-12-13 09:17:05.190 UTC [common/channelconfig] validateMSP -> DEBU 063 Setting up MSP for org SampleOrg
+2018-12-13 09:17:05.190 UTC [msp] newBccspMsp -> DEBU 064 Creating BCCSP-based MSP instance
+2018-12-13 09:17:05.190 UTC [msp] New -> DEBU 065 Creating Cache-MSP instance
+2018-12-13 09:17:05.191 UTC [msp] Setup -> DEBU 066 Setting up MSP instance DEFAULT
+2018-12-13 09:17:05.191 UTC [msp/identity] newIdentity -> DEBU 067 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICYjCCAgigAwIBAgIRAL1fEAnz5zp4moJ8MdSb/lYwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjCBgTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlm
+b3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhh
+bXBsZS5jb20xDDAKBgNVBAsTA0NPUDEcMBoGA1UEAxMTY2Eub3JnMS5leGFtcGxl
+LmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGrsQ6oJpk6hDWf63HU3OSNd
+bou9KNw/VIee1IngPDI4YJU7O+Xa/XLJuwnFv7BpR8Ytl3f+njC8i/RZP2/svO+j
+XzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQF
+MAMBAf8wKQYDVR0OBCIEIIpzkSIZzxBWVIV5unlgZJuyu2XPEeP8+y1uB6LLA5Qr
+MAoGCCqGSM49BAMCA0gAMEUCIQDUh/+CC2dAICnYtACXspwUaaEbiyZxYIx+XDvW
+o8VVcgIgGz5S4iC5+xkxgeaISPfxKTTVy6yzTdYGzCw1vPppjzo=
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.191 UTC [msp/identity] newIdentity -> DEBU 068 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICNjCCAd2gAwIBAgIRAMnf9/dmV9RvCCVw9pZQUfUwCgYIKoZIzj0EAwIwgYEx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4g
+RnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMQwwCgYDVQQLEwND
+T1AxHDAaBgNVBAMTE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMTcxMTEyMTM0MTEx
+WhcNMjcxMTEwMTM0MTExWjBpMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZv
+cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEMMAoGA1UECxMDQ09QMR8wHQYD
+VQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+AQcDQgAEZ8S4V71OBJpyMIVZdwYdFXAckItrpvSrCf0HQg40WW9XSoOOO76I+Umf
+EkmTlIJXP7/AyRRSRU38oI8Ivtu4M6NNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1Ud
+EwEB/wQCMAAwKwYDVR0jBCQwIoAginORIhnPEFZUhXm6eWBkm7K7Zc8R4/z7LW4H
+ossDlCswCgYIKoZIzj0EAwIDRwAwRAIgVikIUZzgfuFsGLQHWJUVJCU7pDaETkaz
+PzFgsCiLxUACICgzJYlW7nvZxP7b6tbeu3t8mrhMXQs956mD4+BoKuNI
+-----END CERTIFICATE-----
+2018-12-13 09:17:05.191 UTC [msp] Validate -> DEBU 069 MSP DEFAULT validating identity
+2018-12-13 09:17:05.191 UTC [msp] Setup -> DEBU 06a Setting up the MSP manager (1 msps)
+2018-12-13 09:17:05.191 UTC [msp] Setup -> DEBU 06b MSP manager setup complete, setup 1 msps
+2018-12-13 09:17:05.191 UTC [policies] NewManagerImpl -> DEBU 06c Proposed new policy Readers for Channel/Orderer/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 06d Proposed new policy Writers for Channel/Orderer/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 06e Proposed new policy Admins for Channel/Orderer/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 06f Proposed new policy BlockValidation for Channel/Orderer
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 070 Proposed new policy Admins for Channel/Orderer
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 071 Proposed new policy Readers for Channel/Orderer
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 072 Proposed new policy Writers for Channel/Orderer
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 073 Proposed new policy Readers for Channel/Application/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 074 Proposed new policy Writers for Channel/Application/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 075 Proposed new policy Admins for Channel/Application/SampleOrg
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 076 Proposed new policy Readers for Channel/Application
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 077 Proposed new policy Writers for Channel/Application
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 078 Proposed new policy Admins for Channel/Application
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 079 Proposed new policy Writers for Channel
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 07a Proposed new policy Admins for Channel
+2018-12-13 09:17:05.192 UTC [policies] NewManagerImpl -> DEBU 07b Proposed new policy Readers for Channel
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 07c Adding to config map: [Group]  /Channel
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 07d Adding to config map: [Group]  /Channel/Orderer
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 07e Adding to config map: [Group]  /Channel/Orderer/SampleOrg
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 07f Adding to config map: [Value]  /Channel/Orderer/SampleOrg/MSP
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 080 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Readers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 081 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Writers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 082 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Admins
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 083 Adding to config map: [Value]  /Channel/Orderer/BatchSize
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 084 Adding to config map: [Value]  /Channel/Orderer/BatchTimeout
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 085 Adding to config map: [Value]  /Channel/Orderer/ChannelRestrictions
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 086 Adding to config map: [Value]  /Channel/Orderer/ConsensusType
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 087 Adding to config map: [Policy] /Channel/Orderer/Admins
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 088 Adding to config map: [Policy] /Channel/Orderer/Readers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 089 Adding to config map: [Policy] /Channel/Orderer/Writers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08a Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08b Adding to config map: [Group]  /Channel/Application
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08c Adding to config map: [Group]  /Channel/Application/SampleOrg
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08d Adding to config map: [Value]  /Channel/Application/SampleOrg/MSP
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08e Adding to config map: [Policy] /Channel/Application/SampleOrg/Admins
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 08f Adding to config map: [Policy] /Channel/Application/SampleOrg/Readers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 090 Adding to config map: [Policy] /Channel/Application/SampleOrg/Writers
+2018-12-13 09:17:05.192 UTC [common/configtx] addToMap -> DEBU 091 Adding to config map: [Policy] /Channel/Application/Readers
+2018-12-13 09:17:05.196 UTC [common/configtx] addToMap -> DEBU 092 Adding to config map: [Policy] /Channel/Application/Writers
+2018-12-13 09:17:05.196 UTC [common/configtx] addToMap -> DEBU 093 Adding to config map: [Policy] /Channel/Application/Admins
+2018-12-13 09:17:05.196 UTC [common/configtx] addToMap -> DEBU 094 Adding to config map: [Value]  /Channel/BlockDataHashingStructure
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 095 Adding to config map: [Value]  /Channel/OrdererAddresses
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 096 Adding to config map: [Value]  /Channel/HashingAlgorithm
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 097 Adding to config map: [Value]  /Channel/Consortium
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 098 Adding to config map: [Policy] /Channel/Admins
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 099 Adding to config map: [Policy] /Channel/Readers
+2018-12-13 09:17:05.197 UTC [common/configtx] addToMap -> DEBU 09a Adding to config map: [Policy] /Channel/Writers
+2018-12-13 09:17:05.197 UTC [chaincodeCmd] InitCmdFactory -> INFO 09b Retrieved channel (myc) orderer endpoint: orderer:7050
+2018-12-13 09:17:05.200 UTC [grpc] DialContext -> DEBU 09c parsed scheme: ""
+2018-12-13 09:17:05.200 UTC [grpc] DialContext -> DEBU 09d scheme "" not registered, fallback to default scheme
+2018-12-13 09:17:05.200 UTC [grpc] watcher -> DEBU 09e ccResolverWrapper: sending new addresses to cc: [{orderer:7050 0  <nil>}]
+2018-12-13 09:17:05.200 UTC [grpc] switchBalancer -> DEBU 09f ClientConn switching balancer to "pick_first"
+2018-12-13 09:17:05.200 UTC [grpc] HandleSubConnStateChange -> DEBU 0a0 pickfirstBalancer: HandleSubConnStateChange: 0xc4205863f0, CONNECTING
+2018-12-13 09:17:05.204 UTC [grpc] HandleSubConnStateChange -> DEBU 0a1 pickfirstBalancer: HandleSubConnStateChange: 0xc4205863f0, READY
+2018-12-13 09:17:05.204 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 0a2 Using default escc
+2018-12-13 09:17:05.204 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 0a3 Using default vscc
+2018-12-13 09:17:05.205 UTC [msp/identity] Sign -> DEBU 0a4 Sign: plaintext: 0AC8070A6008031A0B0891C7C8E00510...01630A000A04657363630A0476736363
+2018-12-13 09:17:05.205 UTC [msp/identity] Sign -> DEBU 0a5 Sign: digest: D09E733FFC98ADAF50F2D4956C79B2F37FB51AF19433B69F630C698DBC750A05
+Error: could not assemble transaction, err proposal response was not successful, error code 500, msg error starting container: error starting container: Failed to gener
+ate platform-specific docker build: Error returned from build: 1 "Maven build
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building prashant-hyperledger 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom (9.3 kB at 7.2 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom (11 kB at 31 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom (44 kB at 83 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom (17 kB at 50 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar (114 kB at 214 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/io/grpc/grpc-core/maven-metadata.xml
+Downloaded: https://repo.maven.apache.org/maven2/io/grpc/grpc-core/maven-metadata.xml (1.8 kB at 5.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml
+Downloaded: https://repo.maven.apache.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml (2.0 kB at 6.0 kB/s)
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ chaincode ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /chaincode/input/src/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ chaincode ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ chaincode ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /chaincode/input/src/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ chaincode ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /chaincode/input/src/target/test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ chaincode ---
+[INFO] Surefire report directory: /chaincode/input/src/target/surefire-reports
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.pom (1.7 kB at 4.7 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (2.3 kB at 6.8 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit3/2.12.4/surefire-junit3-2.12.4.jar (26 kB at 75 kB/s)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running in.prashant.hyperledger.prashant_hyperledger.FabCarChainCodeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ chaincode ---
+[INFO] Building jar: /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- maven-shade-plugin:3.2.1:shade (default) @ chaincode ---
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom (770 B at 2.2 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom (5.0 kB at 15 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom (4.7 kB at 14 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom (12 kB at 34 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom (5.1 kB at 14 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/31/maven-parent-31.pom (43 kB at 123 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/19/apache-19.pom (15 kB at 45 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom
+Downloaded: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom (14 kB at 40 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom (2.9 kB at 8.6 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5/ow2-1.5.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5/ow2-1.5.pom (11 kB at 32 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom (3.7 kB at 11 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom (3.1 kB at 9.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom (3.2 kB at 9.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom (4.6 kB at 14 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom (7.5 kB at 22 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom (11 kB at 33 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom
+Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom (14 kB at 43 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom (2.9 kB at 8.8 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom (3.2 kB at 9.1 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom (3.1 kB at 8.7 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom (3.7 kB at 11 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom (3.7 kB at 11 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar
+Downloading: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar (4.3 kB at 6.3 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar (262 kB at 252 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar (114 kB at 96 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar (128 kB at 104 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar (80 kB at 59 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar (50 kB at 36 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar (33 kB at 22 kB/s)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar
+Downloaded: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar (335 kB at 211 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar (37 kB at 22 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar (186 kB at 97 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar (81 kB at 40 kB/s)
+Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar (305 kB at 145 kB/s)
+[INFO] Including org.hyperledger.fabric-chaincode-java:fabric-chaincode-shim:jar:1.3.0 in the shaded jar.
+[INFO] Including commons-cli:commons-cli:jar:1.4 in the shaded jar.
+[INFO] Including commons-logging:commons-logging:jar:1.2 in the shaded jar.
+[INFO] Including org.hyperledger.fabric-chaincode-java:fabric-chaincode-protos:jar:1.3.0 in the shaded jar.
+[INFO] Including com.google.protobuf:protobuf-java:jar:3.5.1 in the shaded jar.
+[INFO] Including com.google.protobuf:protobuf-java-util:jar:3.5.1 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:19.0 in the shaded jar.
+[INFO] Including com.google.code.gson:gson:jar:2.7 in the shaded jar.
+[INFO] Including io.grpc:grpc-netty:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-core:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-context:jar:1.9.0 in the shaded jar.
+[INFO] Including com.google.errorprone:error_prone_annotations:jar:2.1.2 in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.0 in the shaded jar.
+[INFO] Including com.google.instrumentation:instrumentation-api:jar:0.4.3 in the shaded jar.
+[INFO] Including io.opencensus:opencensus-api:jar:0.10.0 in the shaded jar.
+[INFO] Including io.opencensus:opencensus-contrib-grpc-metrics:jar:0.10.0 in the shaded jar.
+[INFO] Including io.netty:netty-codec-http2:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec-http:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-buffer:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-common:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler-proxy:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-resolver:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec-socks:jar:4.1.17.Final in the shaded jar.
+[INFO] Including io.grpc:grpc-protobuf:jar:1.9.0 in the shaded jar.
+[INFO] Including com.google.api.grpc:proto-google-common-protos:jar:1.0.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-protobuf-lite:jar:1.9.0 in the shaded jar.
+[INFO] Including io.grpc:grpc-stub:jar:1.9.0 in the shaded jar.
+[INFO] Including io.netty:netty-tcnative-boringssl-static:jar:2.0.7.Final in the shaded jar.
+[INFO] Including org.bouncycastle:bcpkix-jdk15on:jar:1.59 in the shaded jar.
+[INFO] Including org.bouncycastle:bcprov-jdk15on:jar:1.59 in the shaded jar.
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT.jar with /chaincode/input/src/target/chaincode-0.0.1-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /chaincode/input/src/dependency-reduced-pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.396 s
+[INFO] Finished at: 2018-12-13T09:17:29Z
+[INFO] Final Memory: 34M/200M
+[INFO] ------------------------------------------------------------------------
+cp: cannot stat 'target/chaincode.jar': No such file or directory

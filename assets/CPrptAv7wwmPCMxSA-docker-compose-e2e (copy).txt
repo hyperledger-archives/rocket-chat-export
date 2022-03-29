@@ -1,0 +1,161 @@
+version: '2'
+
+services:
+  orderer:
+    container_name: orderer
+    image: hyperledger/fabric-orderer
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=orderer
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=DemandResponseOrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp
+      - GRPC_TRACE=all=true
+      - GRPC_VERBOSITY=debug
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+      - ./crypto-config/ordererOrganizations/demandresponse.com/orderers/orderer.demandresponse.com/msp:/etc/hyperledger/msp
+      - ./channel-artifacts/genesis.block:/etc/hyperledger/fabric/genesis.block
+    ports:
+      - 7050:7050
+
+  peer0.utilityorg.demandresponse.com:
+    container_name: peer0.utilityorg.demandresponse.com
+    image: hyperledger/fabric-peer
+    environment:
+      - CORE_PEER_ID=peer0.utilityorg.demandresponse.com
+      - CORE_PEER_ADDRESS=peer0.utilityorg.demandresponse.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.utilityorg.demandresponse.com:7051
+      - CORE_PEER_LOCALMSPID=UtilityOrgMSP
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/utilityorg.demandresponse.com/peers/peer0.utilityorg.demandresponse.com/msp:/etc/hyperledger/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start --peer-chaincodedev=true -o orderer:7050
+    ports:
+      - 7051:7051
+      - 7053:7053
+    depends_on:
+      - orderer
+
+
+  cli.utilityorg.demandresponse.com:
+    container_name: cli.utilityorg.demandresponse.com
+    image: hyperledger/fabric-tools
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_ID=peer0.utilityorg.demandresponse.com
+      - CORE_PEER_ADDRESS=peer0.utilityorg.demandresponse.com:7051
+      - CORE_PEER_LOCALMSPID=UtilityOrgMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+    working_dir: /opt/gopath/src/chaincodedev
+    command: /bin/bash -c '/opt/trade/setupChannel.sh'
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/utilityorg.demandresponse.com/users/Admin@utilityorg.demandresponse.com/msp:/etc/hyperledger/msp
+        - ./../../chaincode/src:/opt/gopath/src/chaincodedev/chaincode
+        - ./:/opt/demandresponse
+    depends_on:
+      - orderer
+      - peer0.utilityorg.demandresponse.com
+
+
+  chaincode.utilityorg.demandresponse.com:
+      container_name: chaincode.utilityorg.demandresponse.com
+      image: hyperledger/fabric-ccenv
+      tty: true
+      environment:
+        - GOPATH=/opt/gopath
+        - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+        - CORE_LOGGING_LEVEL=DEBUG
+        - CORE_PEER_ID=peer0.utilityorg.demandresponse.com
+        - CORE_PEER_ADDRESS=peer:7051
+        - CORE_PEER_LOCALMSPID=UtilityOrgMSP
+        - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+      working_dir: /opt/gopath/src/chaincode
+      command: /bin/bash -c 'sleep 600000'
+      volumes:
+          - /var/run/:/host/var/run/
+          - ./crypto-config/peerOrganizations/utilityorg.demandresponse.com/peers/peer0.utilityorg.demandresponse.com/msp:/etc/hyperledger/msp
+          - ./../../chaincode/src:/opt/gopath/src/chaincode
+
+      depends_on:
+        - orderer
+        - peer0.utilityorg.demandresponse.com
+
+
+  peer0.consumerorg.demandresponse.com:
+    container_name: peer0.consumerorg.demandresponse.com
+    image: hyperledger/fabric-peer
+    environment:
+      - CORE_PEER_ID=peer0.consumerorg.demandresponse.com
+      - CORE_PEER_ADDRESS=peer0.consumerorg.demandresponse.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.consumerorg.demandresponse.com:7051
+      - CORE_PEER_LOCALMSPID=ConsumerOrgMSP
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/consumerorg.demandresponse.com/peers/peer0.consumerorg.demandresponse.com/msp:/etc/hyperledger/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start --peer-chaincodedev=true -o orderer:7050
+    ports:
+      - 7051:8051
+      - 7053:8053
+    depends_on:
+      - orderer
+
+  cli.consumerorg.demandresponse.com:
+    container_name: cli.consumerorg.demandresponse.com
+    image: hyperledger/fabric-tools
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_ID=peer0.consumerorg.demandresponse.com
+      - CORE_PEER_ADDRESS=peer0.consumerorg.demandresponse.com:7051
+      - CORE_PEER_LOCALMSPID=ConsumerOrgMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+    working_dir: /opt/gopath/src/chaincodedev
+    command: /bin/bash -c '/opt/trade/setupChannel.sh'
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/consumerorg.demandresponse.com/users/Admin@consumerorg.demandresponse.com/msp:/etc/hyperledger/msp
+        - ./../../chaincode/src:/opt/gopath/src/chaincodedev/chaincode
+        - ./:/opt/demandresponse
+    depends_on:
+      - orderer
+      - peer0.consumerorg.demandresponse.com
+
+  chaincode.consumerorg.demandresponse.com:
+    container_name: chaincode.consumerorg.demandresponse.com
+    image: hyperledger/fabric-ccenv
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_ID=peer0.consumerorg.demandresponse.com
+      - CORE_PEER_ADDRESS=peer:7051
+      - CORE_PEER_LOCALMSPID=ConsumerOrgMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
+    working_dir: /opt/gopath/src/chaincode
+    command: /bin/bash -c 'sleep 600000'
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/consumerorg.demandresponse.com/peers/peer0.consumerorg.demandresponse.com/msp:/etc/hyperledger/msp
+        - ./../../chaincode/src:/opt/gopath/src/chaincode
+
+    depends_on:
+      - orderer
+      - peer0.consumerorg.demandresponse.com

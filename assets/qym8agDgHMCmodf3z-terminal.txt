@@ -1,0 +1,186 @@
+pd@pd-X570-UD:~/caliper-workspace$ npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/ibm_netconfig.yaml --caliper-benchconfig benchmarks/ibm_bc_benchmark.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled
+2021.02.03-19:10:34.697 info  [caliper] [cli-launch-manager]    Set workspace path: /home/pd/caliper-workspace
+2021.02.03-19:10:34.698 info  [caliper] [cli-launch-manager]    Set benchmark configuration path: /home/pd/caliper-workspace/benchmarks/ibm_bc_benchmark.yaml
+2021.02.03-19:10:34.698 info  [caliper] [cli-launch-manager]    Set network configuration path: /home/pd/caliper-workspace/networks/ibm_netconfig.yaml
+2021.02.03-19:10:34.698 info  [caliper] [cli-launch-manager]    Set SUT type: fabric
+2021.02.03-19:10:34.866 info  [caliper] [benchmark-validator]   No observer specified, will default to `none`
+2021.02.03-19:10:34.866 info  [caliper] [caliper-engine]        Starting benchmark flow
+2021.02.03-19:10:36.757 info  [caliper] [fabric-connector]      Initializing gateway connector compatible with installed SDK: 2.2.3
+2021.02.03-19:10:36.891 info  [caliper] [IdentityManager]       Adding adm (admin=true) as adm for organization org1msp
+2021.02.03-19:10:36.893 info  [caliper] [caliper-engine]        Skipping start commands due to benchmark flow conditioning
+2021.02.03-19:10:36.893 info  [caliper] [caliper-engine]        Skipping initialization phase due to benchmark flow conditioning
+2021.02.03-19:10:36.893 info  [caliper] [caliper-engine]        Skipping install smart contract phase due to benchmark flow conditioning
+2021.02.03-19:10:36.907 info  [caliper] [monitor.js]    No resource monitors specified
+2021.02.03-19:10:36.909 info  [caliper] [default-observer]      Observer interval set to 5000 seconds
+2021.02.03-19:10:36.911 info  [caliper] [round-orchestrator]    Preparing worker connections
+2021.02.03-19:10:36.912 info  [caliper] [worker-orchestrator]   Launching worker 1 of 1
+2021.02.03-19:10:36.917 info  [caliper] [worker-orchestrator]   Messenger not configured, entering configure phase...
+2021.02.03-19:10:36.918 info  [caliper] [worker-orchestrator]   No existing workers detected, entering worker launch phase...
+2021.02.03-19:10:36.918 info  [caliper] [worker-orchestrator]   Waiting for 1 workers to be connected...
+2021.02.03-19:10:37.126 info  [caliper] [cli-launch-worker]     Set workspace path: /home/pd/caliper-workspace
+2021.02.03-19:10:37.127 info  [caliper] [cli-launch-worker]     Set benchmark configuration path: /home/pd/caliper-workspace/benchmarks/ibm_bc_benchmark.yaml
+2021.02.03-19:10:37.127 info  [caliper] [cli-launch-worker]     Set network configuration path: /home/pd/caliper-workspace/networks/ibm_netconfig.yaml
+2021.02.03-19:10:37.127 info  [caliper] [cli-launch-worker]     Set SUT type: fabric
+2021.02.03-19:10:37.171 info  [caliper] [worker-orchestrator]   1 workers connected, progressing to worker assignment phase.
+2021.02.03-19:10:37.171 info  [caliper] [worker-orchestrator]   Workers currently unassigned, awaiting index assignment...
+2021.02.03-19:10:37.171 info  [caliper] [worker-orchestrator]   Waiting for 1 workers to be assigned...
+2021.02.03-19:10:37.205 info  [caliper] [worker-orchestrator]   1 workers assigned, progressing to worker initialization phase.
+2021.02.03-19:10:37.205 info  [caliper] [worker-orchestrator]   Waiting for 1 workers to be ready...
+2021.02.03-19:10:37.688 info  [caliper] [worker-message-handler]        Initializing Worker#0...
+2021.02.03-19:10:37.688 info  [caliper] [fabric-connector]      Initializing gateway connector compatible with installed SDK: 2.2.3
+2021.02.03-19:10:37.690 info  [caliper] [IdentityManager]       Adding adm (admin=true) as adm for organization org1msp
+2021.02.03-19:10:37.692 info  [caliper] [worker-message-handler]        Worker#0 initialized
+2021.02.03-19:10:37.694 info  [caliper] [worker-orchestrator]   1 workers ready, progressing to test preparation phase.
+2021.02.03-19:10:37.694 info  [caliper] [round-orchestrator]    Started round 1 (readAsset)
+2021.02.03-19:10:37.695 info  [caliper] [worker-message-handler]        Preparing Worker#0 for Round#0
+2021.02.03-19:10:37.731 info  [caliper] [connectors/v2/FabricGateway]   Connecting user with identity adm to a Network Gateway
+(node:3499) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future version.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+2021.02.03-19:10:38.292 info  [caliper] [connectors/v2/FabricGateway]   Successfully connected user with identity adm to a Network Gateway
+2021.02.03-19:10:38.293 info  [caliper] [connectors/v2/FabricGateway]   Generating contract map for user adm
+2021-02-03T17:10:41.783Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: 169.57.50.19:32396, url:grpcs://localhost:32396, connected:false, connectAttempted:true
+2021-02-03T17:10:41.784Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server 169.57.50.19:32396 url:grpcs://localhost:32396 timeout:3000
+2021-02-03T17:10:41.784Z - error: [DiscoveryService]: _buildOrderer[channel1] - Unable to connect to the discovered orderer 169.57.50.19:32396 due to Error: Failed to connect before the deadline on Committer- name: 169.57.50.19:32396, url:grpcs://localhost:32396, connected:false, connectAttempted:true
+2021-02-03T17:10:44.788Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021-02-03T17:10:44.788Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server 169.57.50.19:31996 url:grpcs://localhost:31996 timeout:3000
+2021-02-03T17:10:44.788Z - error: [DiscoveryService]: _buildPeer[channel1] - Unable to connect to the discovered peer 169.57.50.19:31996 due to Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021.02.03-19:10:44.790 info  [caliper] [caliper-worker]        Info: worker 0 prepare test phase for round 0 is starting...
+Worker 0: Creating asset 0_0
+2021-02-03T17:10:47.982Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: 169.57.50.19:32396, url:grpcs://localhost:32396, connected:false, connectAttempted:true
+2021-02-03T17:10:47.982Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server 169.57.50.19:32396 url:grpcs://localhost:32396 timeout:3000
+2021-02-03T17:10:47.982Z - error: [DiscoveryService]: _buildOrderer[demo-contract] - Unable to connect to the discovered orderer 169.57.50.19:32396 due to Error: Failed to connect before the deadline on Committer- name: 169.57.50.19:32396, url:grpcs://localhost:32396, connected:false, connectAttempted:true
+2021-02-03T17:10:50.988Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021-02-03T17:10:50.988Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server 169.57.50.19:31996 url:grpcs://localhost:31996 timeout:3000
+2021-02-03T17:10:50.988Z - error: [DiscoveryService]: _buildPeer[demo-contract] - Unable to connect to the discovered peer 169.57.50.19:31996 due to Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021-02-03T17:10:53.992Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021-02-03T17:10:53.992Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server 169.57.50.19:31996 url:grpcs://localhost:31996 timeout:3000
+2021-02-03T17:10:53.992Z - error: [DiscoveryService]: _buildPeer[demo-contract] - Unable to connect to the discovered peer 169.57.50.19:31996 due to Error: Failed to connect before the deadline on Endorser- name: 169.57.50.19:31996, url:grpcs://localhost:31996, connected:false, connectAttempted:true
+2021-02-03T17:10:53.995Z - error: [DiscoveryHandler]: _build_endorse_group_member >> G0:0 - returning an error endorsement, no endorsement made
+2021-02-03T17:10:53.996Z - error: [Transaction]: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+2021.02.03-19:10:53.996 error [caliper] [connectors/v2/FabricGateway]   Failed to perform submit transaction [createAssetX] using arguments [0_0,50],  with error: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+    at newEndorsementError (/home/pd/node_modules/fabric-network/lib/transaction.js:49:12)
+    at getResponsePayload (/home/pd/node_modules/fabric-network/lib/transaction.js:17:23)
+    at Transaction.submit (/home/pd/node_modules/fabric-network/lib/transaction.js:212:28)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:376:26)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.initializeWorkloadModule (/home/pd/caliper-workspace/workload/readAsset.js:23:13)
+    at async CaliperWorker.prepareTest (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/caliper-worker.js:160:13)
+    at async WorkerMessageHandler._handlePrepareMessage (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:210:13)
+Worker 0: Creating asset 0_1
+2021-02-03T17:10:54.006Z - error: [DiscoveryHandler]: _build_endorse_group_member >> G0:0 - returning an error endorsement, no endorsement made
+2021-02-03T17:10:54.007Z - error: [Transaction]: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+2021.02.03-19:10:54.007 error [caliper] [connectors/v2/FabricGateway]   Failed to perform submit transaction [createAssetX] using arguments [0_1,50],  with error: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+    at newEndorsementError (/home/pd/node_modules/fabric-network/lib/transaction.js:49:12)
+    at getResponsePayload (/home/pd/node_modules/fabric-network/lib/transaction.js:17:23)
+    at Transaction.submit (/home/pd/node_modules/fabric-network/lib/transaction.js:212:28)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:376:26)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.initializeWorkloadModule (/home/pd/caliper-workspace/workload/readAsset.js:23:13)
+    at async CaliperWorker.prepareTest (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/caliper-worker.js:160:13)
+    at async WorkerMessageHandler._handlePrepareMessage (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:210:13)
+2021.02.03-19:10:54.007 info  [caliper] [caliper-worker]        Info: worker 0 prepare test phase for round 0 is completed
+2021.02.03-19:10:54.007 info  [caliper] [worker-message-handler]        Worker#0 prepared for Round#0
+2021.02.03-19:10:54.009 info  [caliper] [worker-orchestrator]   1 workers prepared, progressing to test phase.
+2021.02.03-19:10:54.009 info  [caliper] [round-orchestrator]    Monitors successfully started
+2021.02.03-19:10:54.010 info  [caliper] [worker-message-handler]        Worker#0 is starting Round#0
+2021.02.03-19:10:54.025 info  [caliper] [caliper-worker]        Worker #0 starting workload loop
+2021-02-03T17:10:54.233Z - error: [RoundRobinQueryHandler]: evaluate: message=Query failed. Errors: [], stack=FabricError: Query failed. Errors: []
+    at RoundRobinQueryHandler.evaluate (/home/pd/node_modules/fabric-network/lib/impl/query/roundrobinqueryhandler.js:46:23)
+    at Transaction.evaluate (/home/pd/node_modules/fabric-network/lib/transaction.js:276:49)
+    at V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:385:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.submitTransaction (/home/pd/caliper-workspace/workload/readAsset.js:37:9), name=FabricError
+2021.02.03-19:10:54.234 error [caliper] [connectors/v2/FabricGateway]   Failed to perform query transaction [readAssetX] using arguments [0_0],  with error: FabricError: Query failed. Errors: []
+    at RoundRobinQueryHandler.evaluate (/home/pd/node_modules/fabric-network/lib/impl/query/roundrobinqueryhandler.js:46:23)
+    at Transaction.evaluate (/home/pd/node_modules/fabric-network/lib/transaction.js:276:49)
+    at V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:385:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.submitTransaction (/home/pd/caliper-workspace/workload/readAsset.js:37:9)
+2021-02-03T17:10:54.441Z - error: [RoundRobinQueryHandler]: evaluate: message=Query failed. Errors: [], stack=FabricError: Query failed. Errors: []
+    at RoundRobinQueryHandler.evaluate (/home/pd/node_modules/fabric-network/lib/impl/query/roundrobinqueryhandler.js:46:23)
+    at Transaction.evaluate (/home/pd/node_modules/fabric-network/lib/transaction.js:276:49)
+    at V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:385:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.submitTransaction (/home/pd/caliper-workspace/workload/readAsset.js:37:9), name=FabricError
+2021.02.03-19:10:54.441 error [caliper] [connectors/v2/FabricGateway]   Failed to perform query transaction [readAssetX] using arguments [0_1],  with error: FabricError: Query failed. Errors: []
+    at RoundRobinQueryHandler.evaluate (/home/pd/node_modules/fabric-network/lib/impl/query/roundrobinqueryhandler.js:46:23)
+    at Transaction.evaluate (/home/pd/node_modules/fabric-network/lib/transaction.js:276:49)
+    at V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:385:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.submitTransaction (/home/pd/caliper-workspace/workload/readAsset.js:37:9)
+Worker 0: Deleting asset 0_0
+2021-02-03T17:10:55.553Z - error: [DiscoveryHandler]: _build_endorse_group_member >> G0:0 - returning an error endorsement, no endorsement made
+2021-02-03T17:10:55.553Z - error: [Transaction]: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+2021.02.03-19:10:55.553 error [caliper] [connectors/v2/FabricGateway]   Failed to perform submit transaction [deleteAssetX] using arguments [0_0],  with error: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+    at newEndorsementError (/home/pd/node_modules/fabric-network/lib/transaction.js:49:12)
+    at getResponsePayload (/home/pd/node_modules/fabric-network/lib/transaction.js:17:23)
+    at Transaction.submit (/home/pd/node_modules/fabric-network/lib/transaction.js:212:28)
+    at async V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:376:26)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.cleanupWorkloadModule (/home/pd/caliper-workspace/workload/readAsset.js:53:13)
+    at async CaliperWorker.executeRound (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/caliper-worker.js:214:13)
+    at async WorkerMessageHandler._handleTestMessage (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:235:22)
+    at async ProcessMessenger.<anonymous> (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:93:13)
+Worker 0: Deleting asset 0_1
+2021-02-03T17:10:55.557Z - error: [DiscoveryHandler]: _build_endorse_group_member >> G0:0 - returning an error endorsement, no endorsement made
+2021-02-03T17:10:55.557Z - error: [Transaction]: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+2021.02.03-19:10:55.557 error [caliper] [connectors/v2/FabricGateway]   Failed to perform submit transaction [deleteAssetX] using arguments [0_1],  with error: Error: No valid responses from any peers. Errors:
+    peer=undefined, status=grpc, message=Endorsement has failed
+    at newEndorsementError (/home/pd/node_modules/fabric-network/lib/transaction.js:49:12)
+    at getResponsePayload (/home/pd/node_modules/fabric-network/lib/transaction.js:17:23)
+    at Transaction.submit (/home/pd/node_modules/fabric-network/lib/transaction.js:212:28)
+    at async V2FabricGateway._submitOrEvaluateTransaction (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:376:26)
+    at async V2FabricGateway._sendSingleRequest (/home/pd/node_modules/@hyperledger/caliper-fabric/lib/connector-versions/v2/FabricGateway.js:170:16)
+    at async V2FabricGateway.sendRequests (/home/pd/node_modules/@hyperledger/caliper-core/lib/common/core/connector-base.js:78:28)
+    at async MyWorkload.cleanupWorkloadModule (/home/pd/caliper-workspace/workload/readAsset.js:53:13)
+    at async CaliperWorker.executeRound (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/caliper-worker.js:214:13)
+    at async WorkerMessageHandler._handleTestMessage (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:235:22)
+    at async ProcessMessenger.<anonymous> (/home/pd/node_modules/@hyperledger/caliper-core/lib/worker/worker-message-handler.js:93:13)
+2021.02.03-19:10:55.557 info  [caliper] [connectors/v2/FabricGateway]   disconnecting gateway for user adm
+2021.02.03-19:10:55.557 info  [caliper] [worker-message-handler]        Worker#0 finished Round#0
+2021.02.03-19:11:00.575 info  [caliper] [default-observer]      Resetting txCount indicator count
+2021.02.03-19:11:00.575 info  [caliper] [report-builder]        ### Test result ###
+2021.02.03-19:11:00.580 info  [caliper] [report-builder] 
++-----------+------+------+-----------------+-----------------+------------------+-----------------+------------------+
+| Name      | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s)  | Avg Latency (s) | Throughput (TPS) |
+|-----------|------|------|-----------------|-----------------|------------------|-----------------|------------------|
+| readAsset | 0    | 2    | 9.6             | 0.00            | 9007199254740.99 | -               | 9.3              |
++-----------+------+------+-----------------+-----------------+------------------+-----------------+------------------+
+
+2021.02.03-19:11:00.580 info  [caliper] [round-orchestrator]    Finished round 1 (readAsset) in 0.53 seconds
+2021.02.03-19:11:00.581 info  [caliper] [monitor.js]    Stopping all monitors
+2021.02.03-19:11:00.581 info  [caliper] [report-builder]        ### All test results ###
+2021.02.03-19:11:00.582 info  [caliper] [report-builder] 
++-----------+------+------+-----------------+-----------------+------------------+-----------------+------------------+
+| Name      | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s)  | Avg Latency (s) | Throughput (TPS) |
+|-----------|------|------|-----------------|-----------------|------------------|-----------------|------------------|
+| readAsset | 0    | 2    | 9.6             | 0.00            | 9007199254740.99 | -               | 9.3              |
++-----------+------+------+-----------------+-----------------+------------------+-----------------+------------------+
+
+2021.02.03-19:11:00.613 info  [caliper] [report-builder]        Generated report with path /home/pd/caliper-workspace/report.html
+2021.02.03-19:11:00.613 info  [caliper] [monitor.js]    Stopping all monitors
+2021.02.03-19:11:00.613 info  [caliper] [worker-orchestrator]   Sending exit message to connected workers
+2021.02.03-19:11:00.614 info  [caliper] [round-orchestrator]    Benchmark finished in 22.92 seconds. Total rounds: 1. Successful rounds: 1. Failed rounds: 0.
+2021.02.03-19:11:00.614 info  [caliper] [caliper-engine]        Skipping end command due to benchmark flow conditioning
+2021.02.03-19:11:00.614 info  [caliper] [cli-launch-manager]    Benchmark successfully finished
+2021.02.03-19:11:00.614 info  [caliper] [worker-message-handler]        Worker#0 is exiting

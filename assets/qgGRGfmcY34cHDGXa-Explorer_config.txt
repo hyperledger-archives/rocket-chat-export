@@ -1,0 +1,103 @@
+{
+        "name": "first-network",
+        "version": "1.0.0",
+        "license": "Apache-2.0",
+        "client": {
+                "tlsEnable": true,
+                "adminUser": "admin",
+                "adminPassword": "adminpw",
+                "enableAuthentication": false,
+                "organization": "Org1",
+                "connection": {
+                        "timeout": {
+                                "peer": {
+                                        "endorser": "300"
+                                },
+                                "orderer": "300"
+                        }
+                }
+        },
+        "channels": {
+                "mychannel": {
+                        "peers": {
+                                "peer0.org1.example.com": {},
+                                                                "peer1.org1.example.com": {},
+                                                                "peer0.org2.example.com": {},
+                                                                "peer1.org2.example.com": {}
+                        },
+                        "connection": {
+                                "timeout": {
+                                        "peer": {
+                                                "endorser": "6000",
+                                                "eventHub": "6000",
+                                                "eventReg": "6000"
+                                        }
+                                }
+                        }
+                }
+        },
+        "organizations": {
+                "Org1MSP": {
+                        "mspid": "Org1MSP",
+                        "fullpath": true,
+                        "adminPrivateKey": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/c6c5ed1c23e2e5323440846c470c3dbb18a644dfd1bfa7e2219fea706b0b7e62_sk"
+                        },
+                        "signedCert": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+                        }
+                },
+                                "Org2MSP": {
+                        "mspid": "Org1MSP",
+                        "fullpath": true,
+                        "adminPrivateKey": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/bffadf7fd6c556a56b6266cd4921e3c778a4d3d2f2afb2ed22873dca7bb3421b_sk"
+                        },
+                        "signedCert": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem"
+                        }
+                }
+        },
+        "peers": {
+                "peer0.org1.example.com": {
+                        "tlsCACerts": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+                        },
+                        "url": "grpcs://localhost:7051",
+                        "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+                                "ssl-target-name-override": "peer0.org1.example.com"
+                        }
+                },
+                                "peer1.org1.example.com": {
+                        "tlsCACerts": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
+                        },
+                        "url": "grpcs://localhost:8051",
+                        "eventUrl": "grpcs://localhost:8053",
+                        "grpcOptions": {
+                                "ssl-target-name-override": "peer1.org1.example.com"
+                        }
+                },
+                                "peer0.org2.example.com": {
+                        "tlsCACerts": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
+                        },
+                        "url": "grpcs://localhost:9051",
+                        "eventUrl": "grpcs://localhost:9053",
+                        "grpcOptions": {
+                                "ssl-target-name-override": "peer0.org2.example.com"
+                        }
+                },
+                                "peer1.org2.example.com": {
+                        "tlsCACerts": {
+                                "path": "/home/ubuntu/fabric-samples/first-network/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
+                        },
+                        "url": "grpcs://localhost:10051",
+                        "eventUrl": "grpcs://localhost:10053",
+                        "grpcOptions": {
+                                "ssl-target-name-override": "peer1.org2.example.com"
+                        }
+                }
+        }
+}

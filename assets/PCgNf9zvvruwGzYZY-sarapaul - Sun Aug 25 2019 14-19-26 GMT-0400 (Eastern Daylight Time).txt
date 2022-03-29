@@ -1,0 +1,245 @@
+francois@francois-Inspiron-N5110:~/fabric-samples/fabcar$ docker inspect ca.example.com
+[
+    {
+        "Id": "d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac",
+        "Created": "2019-08-25T00:27:22.566141214Z",
+        "Path": "sh",
+        "Args": [
+            "-c",
+            "fabric-ca-server start -b admin:adminpw"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 255,
+            "Error": "",
+            "StartedAt": "2019-08-25T00:27:28.782886571Z",
+            "FinishedAt": "2019-08-25T10:02:58.220475149-04:00"
+        },
+        "Image": "sha256:5c6b20ba944f31419cf0b35cb95942346d929555cb648ef39e051fc7d461a38c",
+        "ResolvConfPath": "/var/lib/docker/containers/d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac/hostname",
+        "HostsPath": "/var/lib/docker/containers/d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac/hosts",
+        "LogPath": "/var/lib/docker/containers/d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac/d1e1fcd1c934556f7b2ec2a624007d77d14c452f69ae6d9ab89b38dfedca60ac-json.log",
+        "Name": "/ca.example.com",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/francois/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca:/etc/hyperledger/fabric-ca-server-config:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "net_basic",
+            "PortBindings": {
+                "7054/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "7054"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": [],
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/39f3b44a41c8c14caedddfa136816ef0d46c4abd390ba6cfb785c072b4c44600-init/diff:/var/lib/docker/overlay2/34094ab7a3351ea44f152daf9debf34ed736fc404b90f9d77288d0e9ac3dc4cd/diff:/var/lib/docker/overlay2/8918f44c6daa11bba8eebc3b511f861a15d4f40c1bd1742f38e528ae3009ed1a/diff:/var/lib/docker/overlay2/3aa6e11f30ead85fff07b2d1d6c1601951dcac73b316ad4c297c474ddf471685/diff:/var/lib/docker/overlay2/4a434e834ea764b0eddf629da78812707b8a3948162648d1609c7ccadcb19626/diff:/var/lib/docker/overlay2/30d59f85872db001b603faf521d9ec27cabdfb870a8ed9c12978e6978e4c80c5/diff:/var/lib/docker/overlay2/6fe75916d574916f93600059ab6e0b458f5ab98ad19fccb5fad7f99abb5e3086/diff:/var/lib/docker/overlay2/08cb3d656d61174306de3b5361e5c9a637daebcb04196ac4b5d0ea425bb98e10/diff:/var/lib/docker/overlay2/abc9a403ad5705dbb9104d17c302e71f663c92efdaebb128804ddcffbb5813e8/diff:/var/lib/docker/overlay2/9e5df29a3eabc52f1473863a0d09f8050a867afc9a3281416ccbf789ba0433a7/diff:/var/lib/docker/overlay2/fc6c9846cfaf0a93a98a6a19f083071da4ed0832898c6435958bcb14bc06517f/diff:/var/lib/docker/overlay2/c641012b1e0bfa1e87420cf8cf46b7dafe417507a9c2b42654c946f6f3131df1/diff:/var/lib/docker/overlay2/f6dc8408ac8e23882517ddc4b1285e79fec34f0c58f35fd545602180be9c18ec/diff:/var/lib/docker/overlay2/675b3760694b891ab2bfacb7dabfb06c796618479cf1447ad83652323eb8ff60/diff:/var/lib/docker/overlay2/23a2cbe2513ad001fd446f25be2841c618eb77053fa06b9f0d90a382e8b50810/diff",
+                "MergedDir": "/var/lib/docker/overlay2/39f3b44a41c8c14caedddfa136816ef0d46c4abd390ba6cfb785c072b4c44600/merged",
+                "UpperDir": "/var/lib/docker/overlay2/39f3b44a41c8c14caedddfa136816ef0d46c4abd390ba6cfb785c072b4c44600/diff",
+                "WorkDir": "/var/lib/docker/overlay2/39f3b44a41c8c14caedddfa136816ef0d46c4abd390ba6cfb785c072b4c44600/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/francois/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca",
+                "Destination": "/etc/hyperledger/fabric-ca-server-config",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "d1e1fcd1c934",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "7054/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server",
+                "FABRIC_CA_SERVER_CA_NAME=ca.example.com",
+                "FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem",
+                "FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "sh",
+                "-c",
+                "fabric-ca-server start -b admin:adminpw"
+            ],
+            "Image": "hyperledger/fabric-ca",
+            "Volumes": {
+                "/etc/hyperledger/fabric-ca-server-config": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "2d621757b2384e006febbc6664a2238e409419fb7a9251f75f2f499dd6863023",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "net",
+                "com.docker.compose.service": "ca.example.com",
+                "com.docker.compose.version": "1.23.2"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "097214b35683fa0e8950cbee5d79adf2c1da188f101487bf31ec216d87c93706",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "7054/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "7054"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/097214b35683",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "net_basic": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "ca.example.com",
+                        "d1e1fcd1c934"
+                    ],
+                    "NetworkID": "cce2cbd96355852bd8e7fff0133b2db0ff51076c3988a016248e8dc40c455033",
+                    "EndpointID": "74caf681688d596db3b7024101a0484784ff94c80639f29da3e2fc4ba46ab88d",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+francois@francois-Inspiron-N5110:~/fabric-samples/fabcar$ 

@@ -1,0 +1,446 @@
+BEFORE
+======
+
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/test/fixtures/testdata/src$ go test ./github.com/securekey/ex
+ample_cc/
+ok      github.com/securekey/fabric-examples/test/cc/github.com/securekey/example_cc    0.032s
+
+BEFORE
+======
+
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ export GO111MODULE=on                                                                                                                                                       [343/343]
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannel.tx --config ../../test/fixtures/config/config_test_loc
+al.yaml
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannelOrg1MSPanchors.tx --config ../../test/fixtures/config/c
+onfig_test_local.yaml --orgid org1
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannelOrg2MSPanchors.tx --config ../../test/fixtures/config/c
+onfig_test_local.yaml --orgid org2
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel join --cid orgchannel --config ../../test/fixtures/config/config_test_local.yaml
+Attempting to join channel: orgchannel
+Joining channel orgchannel on org[org2] peers:
+-- localhost:8051
+-- localhost:9051
+==========> JOIN ORG: org2
+Channel orgchannel joined!
+Joining channel orgchannel on org[org1] peers:
+-- localhost:7051
+-- localhost:7151
+==========> JOIN ORG: org1
+Channel orgchannel joined!
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode install --ccp=github.com/securekey/example_cc --ccid=ExampleCC --v v0 --gopath ../../test/fixtures/testdata --config ../../test/fixtures/config/config
+_test_local.yaml
+Installing chaincode ExampleCC on org[org1] peers:
+-- localhost:7051
+-- localhost:7151
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:7051.
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:7151.
+Installing chaincode ExampleCC on org[org2] peers:
+-- localhost:8051
+-- localhost:9051
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:9051.
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:8051.
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp=github.com/securekey/example_cc --ccid ExampleCC --v v0 --args '{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.
+member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
+...successfuly instantiated chaincode ExampleCC on channel orgchannel.
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode query --cid orgchannel --ccid ExampleCC --args '{"Func":"query","Args":["A"]}' --peer localhost:7051,localhost:8051 --payload --config ../../test/fixt
+ures/config/config_test_local.yaml
+*** 0 successfull query(s) out of 1
+*** 0 successfull query(s) out of 1
+*** 0 successfull query(s) out of 1
+*** 0 successfull query(s) out of 1
+****************************************************************************************************
+***** |  Response[0]:
+***** |  |  Payload: 1
+***** |  Response[1]:
+***** |  |  Payload: 1
+****************************************************************************************************
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode invoke --cid orgchannel --ccid=ExampleCC --args '{"Func":"move","Args":["A","B","1"]}' --peer localhost:7051,localhost:8051 --base64 --config ../../te
+st/fixtures/config/config_test_local.yaml
+****************************************************************************************************
+***** |  Response[0]:
+***** |  |  Endorser: localhost:7051
+***** |  |  Status: 200
+***** |  |  ProposalResponse:
+***** |  |  |  Response:
+***** |  |  |  |  Message:
+***** |  |  |  |  Status: 200
+***** |  |  |  |  Payload:
+***** |  |  |  Payload: CiALnpbsKfeSWcjzDK27vkHq-ZUiiYnPeMm7qxiN_YJ6yhLMAQpMEi8KCUV4YW1wbGVDQxIiCgcKAUESAggDCgcKAUISAggDGgYKAUEaATAaBgoBQhoBMxIZCgRsc2NjEhEKDwoJRXhhbXBsZUNDEgIIAxJmCglFeGFtcGxlQ0MSQDY2MzM2MmU2Mzc0OTIwMWYwMzg5YzZiYjU2YTk3NTNkMDA3ODUwMjNhMWM0N2I4YWY2MjNhMjY
+xMGIxODZhZmIaCXRlc3RFdmVudCIMVGVzdCBQYXlsb2FkGgMIyAEiDxIJRXhhbXBsZUNDGgJ2MA
+***** |  |  |  ProposalResponsePayload:
+***** |  |  |  |  ProposalHash: C56W7Cn3klnI8wytu75B6vmVIomJz3jJu6sYjf2Ceso
+***** |  |  |  |  Extension:
+***** |  |  |  |  |  Response:
+***** |  |  |  |  |  |  Message:
+***** |  |  |  |  |  |  Status: 200
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:06 16-Jun-19
+***** |  |  |  |  |  |  Message:                                                                                                                                                                                                                                      [274/343]
+***** |  |  |  |  |  |  Status: 200
+***** |  |  |  |  |  |  Payload:
+***** |  |  |  |  |  Results:
+***** |  |  |  |  |  |  NsRWs:
+***** |  |  |  |  |  |  |  TxRwSet[0]:
+***** |  |  |  |  |  |  |  |  NameSpace: ExampleCC
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  |  Read[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  |  Write[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: MA
+***** |  |  |  |  |  |  |  |  |  |  Write[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: Mw
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  TxRwSet[1]:
+***** |  |  |  |  |  |  |  |  NameSpace: lscc
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: ExampleCC
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  Events:
+***** |  |  |  |  |  |  ChaincodeId: ExampleCC
+***** |  |  |  |  |  |  EventName: testEvent
+***** |  |  |  |  |  |  TxID: 663362e63749201f0389c6bb56a9753d00785023a1c47b8af623a2610b186afb
+***** |  |  |  |  |  |  Payload: VGVzdCBQYXlsb2Fk
+***** |  |  |  Endorsement:
+***** |  |  |  |  Endorser: CgdPcmcxTVNQEpYGLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHVENDQWNDZ0F3SUJBZ0lSQUxQQkVNTUhRTFg1TkttdXVLRnplbHN3Q2dZSUtvWkl6ajBFQXdJd2N6RUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHh
+HVEFYQmdOVkJBb1RFRzl5WnpFdVpYaGhiWEJzWlM1amIyMHhIREFhQmdOVkJBTVRFMk5oCkxtOXlaekV1WlhoaGJYQnNaUzVqYjIwd0hoY05NVGt3TmpFMk1UUXpPREF3V2hjTk1qa3dOakV6TVRRek9EQXcKV2pCYk1Rc3dDUVlEVlFRR0V3SlZVekVUTUJFR0ExVUVDQk1LUTJGc2FXWnZjbTVwWVRFV01CUUdBMVVFQnhNTgpVMkZ1SUVaeVlXNWphWE5qYnpFZk
+1CMEdBMVVFQXhNV2NHVmxjakF1YjNKbk1TNWxlR0Z0Y0d4bExtTnZiVEJaCk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQkhqR2E2dkhnQUJraUhJMnl5UzNZci9TSFZ4NWNwT3gKSDdZWDNQREovVjRZMFJqZmhJRWZ2Zyt4QTI3R2F2eldEbjBmV1RTaGR1Rks3dFp2MmVlelp0K2pUVEJMTUE0RwpBMVVkRHdFQi93UUVBd0lIZ0RBTUJnTlZIUk1CQ
+WY4RUFqQUFNQ3NHQTFVZEl3UWtNQ0tBSUpUZSswQ09aa0RtCkRFR3BEbXQ0RitpbzVVbS9tRitjSVYwVlBhUWJhYlMvTUFvR0NDcUdTTTQ5QkFNQ0EwY0FNRVFDSUI1SS9aSk4KakFuc3M1NGs2SmtPMGlOaFg4NllWbWNURGx2aCthZS9GL1l0QWlCM2NMN25TQVMxTEMvNVNzcUdCTkVUQ3YvcQpQSi9mVnZOb1NQK2Fycy94a0E9PQotLS0tLUVORCBDRVJUSUZJ
+Q0FURS0tLS0tCg
+***** |  |  |  |  Signature: MEQCIE8yrysWLBAoADdfpWNyQkW0NCZIkVzCdyMTtuY_qetjAiBdKzcp-30nkP9ELIt_PH1pUhrZiPS7R5TBbd_bR21PBQ
+***** |  Response[1]:
+***** |  |  Endorser: localhost:8051
+***** |  |  Status: 200
+***** |  |  ProposalResponse:
+***** |  |  |  Response:
+***** |  |  |  |  Message:
+***** |  |  |  |  Status: 200
+***** |  |  |  |  Payload:
+***** |  |  |  Payload: CiALnpbsKfeSWcjzDK27vkHq-ZUiiYnPeMm7qxiN_YJ6yhLMAQpMEi8KCUV4YW1wbGVDQxIiCgcKAUESAggDCgcKAUISAggDGgYKAUEaATAaBgoBQhoBMxIZCgRsc2NjEhEKDwoJRXhhbXBsZUNDEgIIAxJmCglFeGFtcGxlQ0MSQDY2MzM2MmU2Mzc0OTIwMWYwMzg5YzZiYjU2YTk3NTNkMDA3ODUwMjNhMWM0N2I4YWY2MjNhMjY
+xMGIxODZhZmIaCXRlc3RFdmVudCIMVGVzdCBQYXlsb2FkGgMIyAEiDxIJRXhhbXBsZUNDGgJ2MA
+***** |  |  |  ProposalResponsePayload:
+***** |  |  |  |  ProposalHash: C56W7Cn3klnI8wytu75B6vmVIomJz3jJu6sYjf2Ceso
+***** |  |  |  |  Extension:
+***** |  |  |  |  |  Response:
+***** |  |  |  |  |  |  Message:
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:06 16-Jun-19
+***** |  |  |  |  |  Response:                                                                                                                                                                                                                                        [205/343]
+***** |  |  |  |  |  |  Message:
+***** |  |  |  |  |  |  Status: 200
+***** |  |  |  |  |  |  Payload:
+***** |  |  |  |  |  Results:
+***** |  |  |  |  |  |  NsRWs:
+***** |  |  |  |  |  |  |  TxRwSet[0]:
+***** |  |  |  |  |  |  |  |  NameSpace: ExampleCC
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  |  Read[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  |  Write[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: MA
+***** |  |  |  |  |  |  |  |  |  |  Write[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: Mw
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  TxRwSet[1]:
+***** |  |  |  |  |  |  |  |  NameSpace: lscc
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: ExampleCC
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  Events:
+***** |  |  |  |  |  |  ChaincodeId: ExampleCC
+***** |  |  |  |  |  |  EventName: testEvent
+***** |  |  |  |  |  |  TxID: 663362e63749201f0389c6bb56a9753d00785023a1c47b8af623a2610b186afb
+***** |  |  |  |  |  |  Payload: VGVzdCBQYXlsb2Fk
+***** |  |  |  Endorsement:
+***** |  |  |  |  Endorser: CgdPcmcyTVNQEpIGLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHRENDQWIrZ0F3SUJBZ0lRR0dLTXA4c2J1b0psVGF0TUJxWDd4VEFLQmdncWhrak9QUVFEQWpCek1Rc3cKQ1FZRFZRUUdFd0pWVXpFVE1CRUdBMVVFQ0JNS1EyRnNhV1p2Y201cFlURVdNQlFHQTFVRUJ4TU5VMkZ1SUVaeQpZVzVqYVhOamJ6RVp
+NQmNHQTFVRUNoTVFiM0puTWk1bGVHRnRjR3hsTG1OdmJURWNNQm9HQTFVRUF4TVRZMkV1CmIzSm5NaTVsZUdGdGNHeGxMbU52YlRBZUZ3MHhPVEEyTVRZeE5ETTRNREJhRncweU9UQTJNVE14TkRNNE1EQmEKTUZzeEN6QUpCZ05WQkFZVEFsVlRNUk13RVFZRFZRUUlFd3BEWVd4cFptOXlibWxoTVJZd0ZBWURWUVFIRXcxVApZVzRnUm5KaGJtTnBjMk52TVI4d0
+hRWURWUVFERXhad1pXVnlNQzV2Y21jeUxtVjRZVzF3YkdVdVkyOXRNRmt3CkV3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFamxmd0ErTG53bzM2ZG1aNVdpNzQ3SlV3RTZENk1pQzQKOFh4YWRhdi9VTkQxR3F4cWVBNmRPcXM3ZVZuakg0N0lLdWhoZ0wrVE5QbEFJV090REgvWG9hTk5NRXN3RGdZRApWUjBQQVFIL0JBUURBZ2VBTUF3R0ExVWRFd0VCL
+3dRQ01BQXdLd1lEVlIwakJDUXdJb0FnZHZEMFBGYmcxOGVTCk5LbTFZMW82TWVtcUUvU0ZzZlJsVGpiY3JaRWhrWkl3Q2dZSUtvWkl6ajBFQXdJRFJ3QXdSQUlnWnpEeFlGR1QKUzhucmpTaXhsZENPOVM2QlNhZlRoNmVUT1FZRGQ4VXMwaFVDSUVhc24rSmhmTU9TbzEySnNFeEtxU3JmRUlFbwpMUEFkN0I2QXNOSWtDbXV3Ci0tLS0tRU5EIENFUlRJRklDQVRF
+LS0tLS0K
+***** |  |  |  |  Signature: MEUCIQDrZKlfOrgKpGBQg-YuhCb8Z5hP3kmfT8QRZC-3vdjMcgIgQGHImJ9O76ezTDzol0RRggu7xnm6ik1-vhNyMJCUWtI
+****************************************************************************************************
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode query --cid orgchannel --ccid ExampleCC --args '{"Func":"query","Args":["A"]}' --peer localhost:7051,localhost:8051 --payload --config ../../test/fixt
+ures/config/config_test_local.yaml
+****************************************************************************************************
+***** |  Response[0]:
+***** |  |  Payload: 0
+***** |  Response[1]:
+***** |  |  Payload: 0
+****************************************************************************************************
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode invoke --cid orgchannel --ccid=ExampleCC --args '{"Func":"move","Args":["A","B","-1"]}' --peer localhost:7051,localhost:8051 --base64 --config ../../
+test/fixtures/config/config_test_local.yaml
+****************************************************************************************************
+***** |  Response[0]:
+***** |  |  Endorser: localhost:8051
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:07 16-Jun-19
+***** |  Response[0]:                                                                                                                                                                                                                                                 [136/343]
+***** |  |  Endorser: localhost:8051
+***** |  |  Status: 200
+***** |  |  ProposalResponse:
+***** |  |  |  Response:
+***** |  |  |  |  Message:
+***** |  |  |  |  Status: 200
+***** |  |  |  |  Payload:
+***** |  |  |  Payload: CiDfJqlf_6ghyOx7ueDCDbAP9o0X4-K44iZIhwcjPblDjxLMAQpMEi8KCUV4YW1wbGVDQxIiCgcKAUESAggECgcKAUISAggEGgYKAUEaATEaBgoBQhoBMhIZCgRsc2NjEhEKDwoJRXhhbXBsZUNDEgIIAxJmCglFeGFtcGxlQ0MSQDc1ZGE0NmZmYTZkZWUxYzQxMzA1YjFlZTM4ZmZkY2RkY2JiNDIyZWU2YTE4NDQ5NGZkNDFlZjM
+2NWEyOTM2NWQaCXRlc3RFdmVudCIMVGVzdCBQYXlsb2FkGgMIyAEiDxIJRXhhbXBsZUNDGgJ2MA
+***** |  |  |  ProposalResponsePayload:
+***** |  |  |  |  ProposalHash: 3yapX_-oIcjse7ngwg2wD_aNF-PiuOImSIcHIz25Q48
+***** |  |  |  |  Extension:
+***** |  |  |  |  |  Response:
+***** |  |  |  |  |  |  Message:
+***** |  |  |  |  |  |  Status: 200
+***** |  |  |  |  |  |  Payload:
+***** |  |  |  |  |  Results:
+***** |  |  |  |  |  |  NsRWs:
+***** |  |  |  |  |  |  |  TxRwSet[0]:
+***** |  |  |  |  |  |  |  |  NameSpace: ExampleCC
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 4
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  |  Read[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 4
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  |  Write[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: MQ
+***** |  |  |  |  |  |  |  |  |  |  Write[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: Mg
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  TxRwSet[1]:
+***** |  |  |  |  |  |  |  |  NameSpace: lscc
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: ExampleCC
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  Events:
+***** |  |  |  |  |  |  ChaincodeId: ExampleCC
+***** |  |  |  |  |  |  EventName: testEvent
+***** |  |  |  |  |  |  TxID: 75da46ffa6dee1c41305b1ee38ffdcddcbb422ee6a184494fd41ef365a29365d
+***** |  |  |  |  |  |  Payload: VGVzdCBQYXlsb2Fk
+***** |  |  |  Endorsement:
+***** |  |  |  |  Endorser: CgdPcmcyTVNQEpIGLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHRENDQWIrZ0F3SUJBZ0lRR0dLTXA4c2J1b0psVGF0TUJxWDd4VEFLQmdncWhrak9QUVFEQWpCek1Rc3cKQ1FZRFZRUUdFd0pWVXpFVE1CRUdBMVVFQ0JNS1EyRnNhV1p2Y201cFlURVdNQlFHQTFVRUJ4TU5VMkZ1SUVaeQpZVzVqYVhOamJ6RVp
+NQmNHQTFVRUNoTVFiM0puTWk1bGVHRnRjR3hsTG1OdmJURWNNQm9HQTFVRUF4TVRZMkV1CmIzSm5NaTVsZUdGdGNHeGxMbU52YlRBZUZ3MHhPVEEyTVRZeE5ETTRNREJhRncweU9UQTJNVE14TkRNNE1EQmEKTUZzeEN6QUpCZ05WQkFZVEFsVlRNUk13RVFZRFZRUUlFd3BEWVd4cFptOXlibWxoTVJZd0ZBWURWUVFIRXcxVApZVzRnUm5KaGJtTnBjMk52TVI4d0
+hRWURWUVFERXhad1pXVnlNQzV2Y21jeUxtVjRZVzF3YkdVdVkyOXRNRmt3CkV3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFamxmd0ErTG53bzM2ZG1aNVdpNzQ3SlV3RTZENk1pQzQKOFh4YWRhdi9VTkQxR3F4cWVBNmRPcXM3ZVZuakg0N0lLdWhoZ0wrVE5QbEFJV090REgvWG9hTk5NRXN3RGdZRApWUjBQQVFIL0JBUURBZ2VBTUF3R0ExVWRFd0VCL
+3dRQ01BQXdLd1lEVlIwakJDUXdJb0FnZHZEMFBGYmcxOGVTCk5LbTFZMW82TWVtcUUvU0ZzZlJsVGpiY3JaRWhrWkl3Q2dZSUtvWkl6ajBFQXdJRFJ3QXdSQUlnWnpEeFlGR1QKUzhucmpTaXhsZENPOVM2QlNhZlRoNmVUT1FZRGQ4VXMwaFVDSUVhc24rSmhmTU9TbzEySnNFeEtxU3JmRUlFbwpMUEFkN0I2QXNOSWtDbXV3Ci0tLS0tRU5EIENFUlRJRklDQVRF
+LS0tLS0K
+***** |  |  |  |  Signature: MEQCIFOhxb0delAKEbwNiBhcVfhW2-9OVueNVKaEk1dNcbH7AiAhSjosKwjmsfY7k5KGD4zsgwhiniMOq1q6nWZzHgYPBQ
+***** |  Response[1]:
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:07 16-Jun-19
+***** |  |  |  |  Signature: MEQCIFOhxb0delAKEbwNiBhcVfhW2-9OVueNVKaEk1dNcbH7AiAhSjosKwjmsfY7k5KGD4zsgwhiniMOq1q6nWZzHgYPBQ                                                                                                                                            [67/343]
+***** |  Response[1]:
+***** |  |  Endorser: localhost:7051
+***** |  |  Status: 200
+***** |  |  ProposalResponse:
+***** |  |  |  Response:
+***** |  |  |  |  Message:
+***** |  |  |  |  Status: 200
+***** |  |  |  |  Payload:
+***** |  |  |  Payload: CiDfJqlf_6ghyOx7ueDCDbAP9o0X4-K44iZIhwcjPblDjxLMAQpMEi8KCUV4YW1wbGVDQxIiCgcKAUESAggECgcKAUISAggEGgYKAUEaATEaBgoBQhoBMhIZCgRsc2NjEhEKDwoJRXhhbXBsZUNDEgIIAxJmCglFeGFtcGxlQ0MSQDc1ZGE0NmZmYTZkZWUxYzQxMzA1YjFlZTM4ZmZkY2RkY2JiNDIyZWU2YTE4NDQ5NGZkNDFlZjM
+2NWEyOTM2NWQaCXRlc3RFdmVudCIMVGVzdCBQYXlsb2FkGgMIyAEiDxIJRXhhbXBsZUNDGgJ2MA
+***** |  |  |  ProposalResponsePayload:
+***** |  |  |  |  ProposalHash: 3yapX_-oIcjse7ngwg2wD_aNF-PiuOImSIcHIz25Q48
+***** |  |  |  |  Extension:
+***** |  |  |  |  |  Response:
+***** |  |  |  |  |  |  Message:
+***** |  |  |  |  |  |  Status: 200
+***** |  |  |  |  |  |  Payload:
+***** |  |  |  |  |  Results:
+***** |  |  |  |  |  |  NsRWs:
+***** |  |  |  |  |  |  |  TxRwSet[0]:
+***** |  |  |  |  |  |  |  |  NameSpace: ExampleCC
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 4
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  |  Read[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 4
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  |  Write[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: A
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: MQ
+***** |  |  |  |  |  |  |  |  |  |  Write[1]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: B
+***** |  |  |  |  |  |  |  |  |  |  |  IsDelete: false
+***** |  |  |  |  |  |  |  |  |  |  |  Value: Mg
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  TxRwSet[1]:
+***** |  |  |  |  |  |  |  |  NameSpace: lscc
+***** |  |  |  |  |  |  |  |  KvRwSet:
+***** |  |  |  |  |  |  |  |  |  Reads:
+***** |  |  |  |  |  |  |  |  |  |  Read[0]:
+***** |  |  |  |  |  |  |  |  |  |  |  Key: ExampleCC
+***** |  |  |  |  |  |  |  |  |  |  |  Version:
+***** |  |  |  |  |  |  |  |  |  |  |  |  BlockNum: 3
+***** |  |  |  |  |  |  |  |  |  |  |  |  TxNum: 0
+***** |  |  |  |  |  |  |  |  |  Writes:
+***** |  |  |  |  |  |  |  |  |  RangeQueriesInfo:
+***** |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  |  |  |  |  CollHashedRwSets:
+***** |  |  |  |  |  Events:
+***** |  |  |  |  |  |  ChaincodeId: ExampleCC
+***** |  |  |  |  |  |  EventName: testEvent
+***** |  |  |  |  |  |  TxID: 75da46ffa6dee1c41305b1ee38ffdcddcbb422ee6a184494fd41ef365a29365d
+***** |  |  |  |  |  |  Payload: VGVzdCBQYXlsb2Fk
+***** |  |  |  Endorsement:
+***** |  |  |  |  Endorser: CgdPcmcxTVNQEpYGLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNHVENDQWNDZ0F3SUJBZ0lSQUxQQkVNTUhRTFg1TkttdXVLRnplbHN3Q2dZSUtvWkl6ajBFQXdJd2N6RUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHh
+HVEFYQmdOVkJBb1RFRzl5WnpFdVpYaGhiWEJzWlM1amIyMHhIREFhQmdOVkJBTVRFMk5oCkxtOXlaekV1WlhoaGJYQnNaUzVqYjIwd0hoY05NVGt3TmpFMk1UUXpPREF3V2hjTk1qa3dOakV6TVRRek9EQXcKV2pCYk1Rc3dDUVlEVlFRR0V3SlZVekVUTUJFR0ExVUVDQk1LUTJGc2FXWnZjbTVwWVRFV01CUUdBMVVFQnhNTgpVMkZ1SUVaeVlXNWphWE5qYnpFZk
+1CMEdBMVVFQXhNV2NHVmxjakF1YjNKbk1TNWxlR0Z0Y0d4bExtTnZiVEJaCk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQkhqR2E2dkhnQUJraUhJMnl5UzNZci9TSFZ4NWNwT3gKSDdZWDNQREovVjRZMFJqZmhJRWZ2Zyt4QTI3R2F2eldEbjBmV1RTaGR1Rks3dFp2MmVlelp0K2pUVEJMTUE0RwpBMVVkRHdFQi93UUVBd0lIZ0RBTUJnTlZIUk1CQ
+WY4RUFqQUFNQ3NHQTFVZEl3UWtNQ0tBSUpUZSswQ09aa0RtCkRFR3BEbXQ0RitpbzVVbS9tRitjSVYwVlBhUWJhYlMvTUFvR0NDcUdTTTQ5QkFNQ0EwY0FNRVFDSUI1SS9aSk4KakFuc3M1NGs2SmtPMGlOaFg4NllWbWNURGx2aCthZS9GL1l0QWlCM2NMN25TQVMxTEMvNVNzcUdCTkVUQ3YvcQpQSi9mVnZOb1NQK2Fycy94a0E9PQotLS0tLUVORCBDRVJUSUZJ
+Q0FURS0tLS0tCg
+***** |  |  |  |  Signature: MEQCIBpB-VozvZHJCrxeBUH2SbYaKuAFJOdjWaZRqtvCL6GPAiAYRk2qh13TR2moN5E0A74lzovW2WJqLTl7gHX3vF1MUA
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:07 16-Jun-19
+1CMEdBMVVFQXhNV2NHVmxjakF1YjNKbk1TNWxlR0Z0Y0d4bExtTnZiVEJaCk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQkhqR2E2dkhnQUJraUhJMnl5UzNZci9TSFZ4NWNwT3gKSDdZWDNQREovVjRZMFJqZmhJRWZ2Zyt4QTI3R2F2eldEbjBmV1RTaGR1Rks3dFp2MmVlelp0K2pUVEJMTUE0RwpBMVVkRHdFQi93UUVBd0lIZ0RBTUJnTl[0/343]
+WY4RUFqQUFNQ3NHQTFVZEl3UWtNQ0tBSUpUZSswQ09aa0RtCkRFR3BEbXQ0RitpbzVVbS9tRitjSVYwVlBhUWJhYlMvTUFvR0NDcUdTTTQ5QkFNQ0EwY0FNRVFDSUI1SS9aSk4KakFuc3M1NGs2SmtPMGlOaFg4NllWbWNURGx2aCthZS9GL1l0QWlCM2NMN25TQVMxTEMvNVNzcUdCTkVUQ3YvcQpQSi9mVnZOb1NQK2Fycy94a0E9PQotLS0tLUVORCBDRVJUSUZJ
+Q0FURS0tLS0tCg
+***** |  |  |  |  Signature: MEQCIBpB-VozvZHJCrxeBUH2SbYaKuAFJOdjWaZRqtvCL6GPAiAYRk2qh13TR2moN5E0A74lzovW2WJqLTl7gHX3vF1MUA
+****************************************************************************************************
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode query --cid orgchannel --ccid ExampleCC --args '{"Func":"query","Args":["A"]}' --peer localhost:7051,localhost:8051 --payload --config ../../test/fixt
+ures/config/config_test_local.yaml
+****************************************************************************************************
+***** |  Response[0]:
+***** |  |  Payload: 1
+***** |  Response[1]:
+***** |  |  Payload: 1
+****************************************************************************************************
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ clear
+
+AFTER
+=====
+
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannel.tx --config ../../test/fixtures/config/config_test_loc
+al.yaml
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannelOrg1MSPanchors.tx --config ../../test/fixtures/config/c
+onfig_test_local.yaml --orgid org1
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel create --cid orgchannel --txfile ../../fabric-sdk-go/test/fixtures/fabric/v1.4/channel/orgchannelOrg2MSPanchors.tx --config ../../test/fixtures/config/c
+onfig_test_local.yaml --orgid org2
+Attempting to create/update channel: orgchannel
+Channel created/updated: orgchannel
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go channel join --cid orgchannel --config ../../test/fixtures/config/config_test_local.yaml
+Attempting to join channel: orgchannel
+Joining channel orgchannel on org[org2] peers:
+-- localhost:8051
+-- localhost:9051
+==========> JOIN ORG: org2
+Channel orgchannel joined!
+Joining channel orgchannel on org[org1] peers:
+-- localhost:7051
+-- localhost:7151
+==========> JOIN ORG: org1
+Channel orgchannel joined!
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode install --ccp=github.com/securekey/example_cc --ccid=ExampleCC --v v0 --gopath ../../test/fixtures/testdata --config ../../test/fixtures/config/config
+_test_local.yaml
+Installing chaincode ExampleCC on org[org1] peers:
+-- localhost:7051
+-- localhost:7151
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:7151.
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:7051.
+Installing chaincode ExampleCC on org[org2] peers:
+-- localhost:8051
+-- localhost:9051
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:9051.
+...successfuly installed chaincode ExampleCC.v0 on peer localhost:8051.
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$ go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp=github.com/securekey/example_cc --ccid ExampleCC --v v0 --args '{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.
+member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
+ [fabriccli] 2019/06/16 14:53:08 UTC - chaincode.glob..func4 -> ERRO Error while running instantiateAction: error instantiating chaincode: sending deploy transaction proposal failed: Transaction processing for endorser [localhost:7051]: Chaincode status Code: (500) UNKNO
+WN. Description: error starting container: error starting container: Failed to generate platform-specific docker build: Error returned from build: 1 "chaincode/input/src/github.com/securekey/example_cc/example_cc.go:11:5: cannot find package "github.com/prometheus/client
+_golang/prometheus" in any of:
+        /opt/go/src/github.com/prometheus/client_golang/prometheus (from $GOROOT)
+        /chaincode/input/src/github.com/prometheus/client_golang/prometheus (from $GOPATH)
+        /opt/gopath/src/github.com/prometheus/client_golang/prometheus
+chaincode/input/src/github.com/securekey/example_cc/example_cc.go:13:2: cannot find package "github.com/prometheus/client_golang/prometheus/promauto" in any of:
+        /opt/go/src/github.com/prometheus/client_golang/prometheus/promauto (from $GOROOT)
+        /chaincode/input/src/github.com/prometheus/client_golang/prometheus/promauto (from $GOPATH)
+        /opt/gopath/src/github.com/prometheus/client_golang/prometheus/promauto
+chaincode/input/src/github.com/securekey/example_cc/example_cc.go:12:5: cannot find package "github.com/prometheus/client_golang/prometheus/promhttp" in any of:
+        /opt/go/src/github.com/prometheus/client_golang/prometheus/promhttp (from $GOROOT)
+        /chaincode/input/src/github.com/prometheus/client_golang/prometheus/promhttp (from $GOPATH)
+        /opt/gopath/src/github.com/prometheus/client_golang/prometheus/promhttp
+"
+hlbcadmin@ubuntu:~/go/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli$
+
+
+
+[0] 0:[tmux]*Z                                                                                                                                                                                                                                 "ubuntu.ibm.com" 15:07 16-Jun-19

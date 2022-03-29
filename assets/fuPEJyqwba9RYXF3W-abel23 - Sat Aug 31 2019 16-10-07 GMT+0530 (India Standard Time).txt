@@ -1,0 +1,115 @@
+uvionics@uvionics-Lenovo-ideapad-320-15IKB:~$ docker exec -it cli_p1org2 bash
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel fetch newest -c mychannel -o orderer.example.com:7050 --tls --cafile $PWD/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem 
+2019-08-31 09:40:23.027 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2019-08-31 09:40:23.066 UTC [cli.common] readBlock -> INFO 002 Received block: 0
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# ls
+channel-artifacts  crypto  mychannel_newest.block  scripts
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b mychannel_newest.block 
+2019-08-31 09:40:34.306 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2019-08-31 09:40:35.849 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n fabcarcc -v 1.0 -p github.com/chaincode/fabcar/
+2019-08-31 09:51:37.485 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+2019-08-31 09:51:37.485 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+2019-08-31 09:51:38.073 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+[]
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n fabcarcc -C mychannel -c '{"Args":["initLedger"]}'
+2019-08-31 10:02:26.737 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.example.com:7050
+Error: error sending transaction for invoke: could not send: EOF - proposal response: version:1 response:<status:200 > payload:"\n \004\005\333\000\203D\246\240\272j\332\0309\262\346\233\224\004F\242\3245\256`\t\346r\373\255ux\037\022\275\006\n\244\006\022\207\006\n\010fabcarcc\022\372\005\032J\n\004CAR0\032B{\"make\":\"Toyota\",\"model\":\"Prius\",\"colour\":\"blue\",\"owner\":\"Tomoko\"}\032G\n\004CAR1\032?{\"make\":\"Ford\",\"model\":\"Mustang\",\"colour\":\"red\",\"owner\":\"Brad\"}\032N\n\004CAR2\032F{\"make\":\"Hyundai\",\"model\":\"Tucson\",\"colour\":\"green\",\"owner\":\"Jin Soo\"}\032N\n\004CAR3\032F{\"make\":\"Volkswagen\",\"model\":\"Passat\",\"colour\":\"yellow\",\"owner\":\"Max\"}\032G\n\004CAR4\032?{\"make\":\"Tesla\",\"model\":\"S\",\"colour\":\"black\",\"owner\":\"Adriana\"}\032K\n\004CAR5\032C{\"make\":\"Peugeot\",\"model\":\"205\",\"colour\":\"purple\",\"owner\":\"Michel\"}\032H\n\004CAR6\032@{\"make\":\"Chery\",\"model\":\"S22L\",\"colour\":\"white\",\"owner\":\"Aarav\"}\032H\n\004CAR7\032@{\"make\":\"Fiat\",\"model\":\"Punto\",\"colour\":\"violet\",\"owner\":\"Pari\"}\032J\n\004CAR8\032B{\"make\":\"Tata\",\"model\":\"Nano\",\"colour\":\"indigo\",\"owner\":\"Valeria\"}\032M\n\004CAR9\032E{\"make\":\"Holden\",\"model\":\"Barina\",\"colour\":\"brown\",\"owner\":\"Shotaro\"}\022\030\n\004lscc\022\020\n\016\n\010fabcarcc\022\002\010\003\032\003\010\310\001\"\017\022\010fabcarcc\032\0031.0" endorsement:<endorser:"\n\007Org2MSP\022\252\006-----BEGIN CERTIFICATE-----\nMIICKDCCAc+gAwIBAgIRAOAeWDUygpLiV0M9FqHYVokwCgYIKoZIzj0EAwIwczEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xGTAXBgNVBAoTEG9yZzIuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh\nLm9yZzIuZXhhbXBsZS5jb20wHhcNMTkwODMxMDg0OTAwWhcNMjkwODI4MDg0OTAw\nWjBqMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzENMAsGA1UECxMEcGVlcjEfMB0GA1UEAxMWcGVlcjEub3Jn\nMi5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBrHfmeyNdgJ\n6aJ23aLg+DzOaGL/m1Md6AwPFJqwdkd175oyRqunBSWIk1VCCuJ9siXDINi29+vs\n4LUFWMtSJGmjTTBLMA4GA1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAAMCsGA1Ud\nIwQkMCKAICkGohre3b42m93PGGt4xzPNUAcDyDO1FdKZVkzNLEvwMAoGCCqGSM49\nBAMCA0cAMEQCIG9vkeET79JD+V/3795HiHo+SiyvabMe4u3fwmTNYLmuAiBCDoUR\nX1gEk3LFEqUMFhs3SJFXp9MEsWoRMXlwEXyG1Q==\n-----END CERTIFICATE-----\n" signature:"0E\002!\000\373\323\267\273:\030\347\321\276Q\036SDa#\177\021\351\036k\3475\363I\306\377u\"\013*$\340\002 b\231\346\371\352\373\000{ \316\026\"{\003`\344\215\204\re\003c\201\242\000\206\370\357G\314\036\357" > 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n fabcarcc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"Args":["initLedger"]}'
+2019-08-31 10:06:54.483 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 001 Chaincode invoke successful. result: status:200 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error getting endorser client for query: endorser client failed to connect to peer1.org2.example.com:10051: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup peer1.org2.example.com on 127.0.0.11:53: no such host"
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error getting endorser client for query: endorser client failed to connect to peer1.org2.example.com:10051: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup peer1.org2.example.com on 127.0.0.11:53: no such host"
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error getting endorser client for query: endorser client failed to connect to peer1.org2.example.com:10051: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup peer1.org2.example.com on 127.0.0.11:53: no such host"
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -n fabcarcc -C mychannel -c '{"Args":["queryAllCars"]}'
+Error: error endorsing query: rpc error: code = Unknown desc = access denied: channel [mychannel] creator org [Org2MSP] - proposal response: <nil>
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list                                                           
+2019-08-31 10:20:09.614 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list          
+2019-08-31 10:23:41.366 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b mychannel_newest.block 
+2019-08-31 10:23:51.413 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Error: proposal failed (err: bad proposal response 500: cannot create ledger from genesis block: LedgerID already exists)
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel fetch newest -c mychannel -o orderer.example.com:7050 --tls --cafile $PWD/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem 
+2019-08-31 10:24:13.334 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+2019-08-31 10:24:13.347 UTC [cli.common] readBlock -> INFO 002 Received block: 5
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# ls
+channel-artifacts  crypto  mychannel_newest.block  scripts
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# ls
+channel-artifacts  crypto  mychannel_newest.block  scripts
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b mychannel_newest.block 
+2019-08-31 10:24:25.155 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Error: proposal failed (err: bad proposal response 500: "JoinChain" for chainID = mychannel failed because of validation of configuration block, because of Bad configuration envelope: invalid type ENDORSER_TRANSACTION, expected CONFIG)
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b mychannel_newest.block 
+2019-08-31 10:24:30.904 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Error: proposal failed (err: bad proposal response 500: "JoinChain" for chainID = mychannel failed because of validation of configuration block, because of Bad configuration envelope: invalid type ENDORSER_TRANSACTION, expected CONFIG)
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:24:35.285 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:08.012 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b mychannel_newest.block 
+2019-08-31 10:27:11.480 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Error: proposal failed (err: bad proposal response 500: "JoinChain" for chainID = mychannel failed because of validation of configuration block, because of Bad configuration envelope: invalid type ENDORSER_TRANSACTION, expected CONFIG)
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:13.968 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:17.381 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:40.752 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:42.704 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:43.708 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:44.491 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:45.360 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:27:46.169 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# uvionics@uvionics-Lenovo-ideapad-320-15IKB:~$ peer channel list
+
+Command 'peer' not found, did you mean:
+
+  command 'seer' from deb seer
+  command 'beer' from deb gerstensaft
+  command 'pee' from deb moreutils
+  command 'pear' from deb php-pear
+  command 'peet' from deb pipexec
+
+Try: sudo apt install <deb name>
+
+uvionics@uvionics-Lenovo-ideapad-320-15IKB:~$ docker exec -it cli_p1org2 bash
+root@7f202ded764b:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+2019-08-31 10:33:15.995 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+Channels peers has joined: 

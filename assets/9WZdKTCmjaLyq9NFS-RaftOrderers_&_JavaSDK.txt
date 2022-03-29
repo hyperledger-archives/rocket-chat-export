@@ -1,0 +1,92 @@
+Hi! I've set up a local network with 5 orderers in Raft mode following BYFN. If I invoke chaincode from the cli to update the ledger i have no problem, but when it comes to Java SDK troubles begin.
+(I've already asked in the fabric-sdk-java channel)
+First of all my `configtx.yaml` is the same as the BYFN for the raft part, same story with the `docker-compose.yaml`.
+
+In the SDK I use the service  discovery to send transaction to the orderers, and the service shows all peers and 5 orderers of the channel correctly. When I send a trasaction, the following exception is thrown:
+
+```
+2019 9:36:02 AM io.grpc.internal.ManagedChannelImpl$NameResolverListenerImpl onError
+WARNING: [io.grpc.internal.ManagedChannelImpl-25] Failed to resolve name. status=Status{code=UNAVAILABLE, description=Unable to resolve host orderer.mydomain.com, cause=java.lang.RuntimeException: java.net.UnknownHostException: orderer.mydomain.com: Name or service not known
+	at io.grpc.internal.DnsNameResolver.resolveAll(DnsNameResolver.java:399)
+	at io.grpc.internal.DnsNameResolver$Resolve.resolveInternal(DnsNameResolver.java:269)
+	at io.grpc.internal.DnsNameResolver$Resolve.run(DnsNameResolver.java:225)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.UnknownHostException: orderer.mydomain.com: Name or service not known
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:929)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1515)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1505)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1364)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1298)
+	at io.grpc.internal.DnsNameResolver$JdkAddressResolver.resolveAddress(DnsNameResolver.java:624)
+	at io.grpc.internal.DnsNameResolver.resolveAll(DnsNameResolver.java:367)
+	... 5 more
+}
+2019-07-10 07:36:02,638 grpc-default-executor-0 ERROR OrdererClient:199 - OrdererClient{id: 23, channel: mychannel, name: orderer.mydomain.com:7050, url: grpcs://orderer.mydomain.com:7050}  managed channel isTerminated: false, isShutdown: false, state: TRANSIENT_FAILURE
+2019-07-10 07:36:02,642 grpc-default-executor-0 ERROR OrdererClient:203 - Received error org.hyperledger.fabric.sdk.OrdererClient$1@42f21aaa  UNAVAILABLE: Unable to resolve host orderer.mydomain.com
+io.grpc.StatusRuntimeException: UNAVAILABLE: Unable to resolve host orderer.mydomain.com
+```
+
+I think that the service discovery returns the peers'url in the docker container context, so i proceed to map these urls with `127.0.0.1` in `/etc/hosts` file, and the error became:
+
+```
+2019-07-10 07:56:50,921 grpc-default-executor-1 ERROR OrdererClient:199 - OrdererClient{id: 23, channel: mychannel, name: orderer2.mydomain.com:7050, url: grpcs://orderer2.mydomain.com:7050}  managed channel isTerminated: false, isShutdown: false, state: TRANSIENT_FAILURE
+2019-07-10 07:56:50,927 grpc-default-executor-1 ERROR OrdererClient:203 - Received error org.hyperledger.fabric.sdk.OrdererClient$1@24245d63  UNAVAILABLE: io exception
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:530)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:434)
+	at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+	at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+	at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+	at io.grpc.internal.CensusStatsModule$StatsClientInterceptor$1$1.onClose(CensusStatsModule.java:694)
+	at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+	at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+	at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+	at io.grpc.internal.CensusTracingModule$TracingClientInterceptor$1$1.onClose(CensusTracingModule.java:397)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:459)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:63)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.close(ClientCallImpl.java:546)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.access$600(ClientCallImpl.java:467)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:584)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: javax.net.ssl.SSLHandshakeException: General OpenSslEngine problem
+	at io.netty.handler.ssl.ReferenceCountedOpenSslContext$AbstractCertificateVerifier.verify(ReferenceCountedOpenSslContext.java:629)
+	at io.netty.internal.tcnative.SSL.readFromSSL(Native Method)
+	at io.netty.handler.ssl.ReferenceCountedOpenSslEngine.readPlaintextData(ReferenceCountedOpenSslEngine.java:511)
+	at io.netty.handler.ssl.ReferenceCountedOpenSslEngine.unwrap(ReferenceCountedOpenSslEngine.java:1060)
+	at io.netty.handler.ssl.ReferenceCountedOpenSslEngine.unwrap(ReferenceCountedOpenSslEngine.java:1169)
+	at io.netty.handler.ssl.ReferenceCountedOpenSslEngine.unwrap(ReferenceCountedOpenSslEngine.java:1212)
+	at io.netty.handler.ssl.SslHandler$SslEngineType$1.unwrap(SslHandler.java:216)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1297)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1199)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1243)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:502)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:441)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:278)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1434)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:965)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:644)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:579)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:496)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:458)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:897)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 more
+Caused by: java.security.cert.CertificateException: No subject alternative DNS name matching orderer2.mydomain.com found.
+```
+In `orderer.mydomain.com` logs I see several TLS handshake errors, but i don't understand how is that possible. Furthermore, if `orderer.mydomain.com` is up and running the transaction is commited both in peer and orderes ledger, it seems that the SDK can only resolve `orederer.mydomain.com`, maybe the port set in `docker-compose.yaml` and `configtx.yaml` are incorrect, but they're the same ase BYFN and all online guide i've checked. 
+
+If someone can help me, I'd really appreciate that. Thanks in advance! 

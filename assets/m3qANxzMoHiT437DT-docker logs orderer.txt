@@ -1,0 +1,298 @@
+docker logs orderer.example.com
+2017-05-27 12:47:59.810 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 12:47:59.826 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 12:47:59.826 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 12:47:59.826 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:47:59.826 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 12:47:59.827 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 12:47:59.827 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 12:47:59.827 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 12:47:59.827 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 12:47:59.827 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 12:47:59.827 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 12:47:59.827 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 12:47:59.827 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 12:47:59.827 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 12:47:59.828 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:47:59.828 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 12:47:59.828 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:47:59.828 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 12:47:59.828 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 12:47:59.828 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] does not exist
+2017-05-27 12:47:59.828 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc420358450)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc420358430, 0xc420358430)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 12:48:19.356 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 12:48:19.373 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 12:48:19.373 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 12:48:19.373 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 12:48:19.373 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 12:48:19.373 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 12:48:19.373 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 12:48:19.373 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 12:48:19.373 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 12:48:19.373 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 12:48:19.373 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 12:48:19.374 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 12:48:19.374 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:48:19.374 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 12:48:19.374 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:48:19.374 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 12:48:19.374 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 12:48:19.374 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 12:48:19.374 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc4202ac370)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc4202ac340, 0xc42001010c)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 12:53:02.800 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 12:53:02.816 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 12:53:02.816 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 12:53:02.816 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 12:53:02.817 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 12:53:02.817 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 12:53:02.817 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 12:53:02.817 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 12:53:02.817 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 12:53:02.817 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 12:53:02.817 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 12:53:02.817 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 12:53:02.817 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 12:53:02.817 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 12:53:02.817 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:53:02.817 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 12:53:02.818 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:53:02.818 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 12:53:02.818 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 12:53:02.818 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 12:53:02.818 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc420348130)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc420348070, 0xc420348070)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 12:53:50.537 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 12:53:50.553 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 12:53:50.553 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 12:53:50.553 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 12:53:50.553 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 12:53:50.553 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 12:53:50.553 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 12:53:50.553 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 12:53:50.553 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 12:53:50.553 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 12:53:50.554 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 12:53:50.554 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 12:53:50.554 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:53:50.554 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 12:53:50.554 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 12:53:50.555 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 12:53:50.555 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 12:53:50.555 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 12:53:50.555 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc4203443b0)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc420344390, 0xc420344390)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 13:03:15.845 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 13:03:15.862 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 13:03:15.862 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 13:03:15.862 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 13:03:15.862 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 13:03:15.862 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 13:03:15.862 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 13:03:15.862 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 13:03:15.862 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 13:03:15.862 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 13:03:15.862 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 13:03:15.862 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 13:03:15.863 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:03:15.863 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 13:03:15.863 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:03:15.863 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 13:03:15.863 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 13:03:15.863 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 13:03:15.863 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc420272060)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc420272040, 0xc420272040)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 13:05:54.167 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 13:05:54.184 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 13:05:54.184 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 13:05:54.184 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 13:05:54.184 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 13:05:54.184 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 13:05:54.184 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 13:05:54.184 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 13:05:54.184 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 13:05:54.184 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 13:05:54.184 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 13:05:54.185 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 13:05:54.185 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:05:54.185 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 13:05:54.185 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:05:54.185 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 13:05:54.185 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 13:05:54.185 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 13:05:54.185 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc420340470)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc420340450, 0xc420340450)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 13:10:12.764 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 13:10:12.780 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 13:10:12.780 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 13:10:12.780 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 13:10:12.780 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 13:10:12.780 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 13:10:12.781 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 13:10:12.781 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 13:10:12.781 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 13:10:12.781 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 13:10:12.781 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 13:10:12.781 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 13:10:12.781 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:10:12.782 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 13:10:12.782 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 13:10:12.782 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 13:10:12.782 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 13:10:12.782 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 13:10:12.782 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc42034c3e0)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc42034c3c0, 0xc42034c3c0)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+2017-05-27 14:42:04.904 UTC [orderer/main] main -> INFO 001 Starting orderer with TLS enabled
+2017-05-27 14:42:04.921 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-05-27 14:42:04.921 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 00b Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-05-27 14:42:04.921 UTC [msp] getMspConfig -> INFO 00d intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-05-27 14:42:04.921 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/crls
+2017-05-27 14:42:04.921 UTC [msp] getMspConfig -> INFO 00f crls folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping.: [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-05-27 14:42:04.921 UTC [msp] getMspConfig -> INFO 010 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-05-27 14:42:04.921 UTC [msp] NewBccspMsp -> DEBU 011 Creating BCCSP-based MSP instance
+2017-05-27 14:42:04.921 UTC [msp] GetLocalMSP -> DEBU 012 Created new local MSP
+2017-05-27 14:42:04.921 UTC [msp] Setup -> DEBU 013 Setting up MSP instance OrdererMSP
+2017-05-27 14:42:04.921 UTC [msp/identity] newIdentity -> DEBU 014 Creating identity instance for ID &{OrdererMSP 471bf81f6eddb47620daa528577d87aecb38340d9ed6fbec2bcac7ada9984ec3}
+2017-05-27 14:42:04.921 UTC [msp/identity] newIdentity -> DEBU 015 Creating identity instance for ID &{OrdererMSP 05b14183c4600b020c6671b4fca4a1379c239d78a0e54135c2f5e5d90b01888d}
+2017-05-27 14:42:04.922 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 14:42:04.922 UTC [bccsp_sw] loadPrivateKey -> DEBU 017 Loading private key [62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a] at [/var/hyperledger/orderer/msp/keystore/62b84cdbcdbb42940afdd6c3c9646f02e46574e44cf2b58ad33cc4e99afa779a_sk]...
+2017-05-27 14:42:04.922 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID &{OrdererMSP 037aad82afcb774dd480b7735155ec3b4333cff6878b8e1459c66006a4f95ad6}
+2017-05-27 14:42:04.922 UTC [orderer/main] createLedgerFactory -> DEBU 019 Ledger dir: /var/hyperledger/production/orderer
+2017-05-27 14:42:04.922 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01a CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-05-27 14:42:04.922 UTC [kvledger.util] logDirStatus -> DEBU 01b Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-05-27 14:42:04.922 UTC [kvledger.util] logDirStatus -> DEBU 01c After creating dir - [/var/hyperledger/production/orderer/index/] exists
+panic: Unable to bootstrap orderer. Error reading genesis block file: read /var/hyperledger/orderer/orderer.genesis.block: is a directory
+
+goroutine 1 [running]:
+panic(0xb2f060, 0xc42034a590)
+	/opt/go/src/runtime/panic.go:500 +0x1a1
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc42034a570, 0xc42001010c)
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:44 +0x233
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:142 +0x1d4c
+

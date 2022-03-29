@@ -1,0 +1,143 @@
+Hi All, I'm trying to setup Quorum on AKS. Tessera is failing with the below error.
+```
+2020-10-08T08:08:16.689572246Z + java -Xms128M -Xmx128M -cp /etc/quorum/qdata/mysql-connector-java-8.0.15.jar:/tessera/tessera-app.jar:. com.quorum.tessera.launcher.Main -configfile /etc/quorum/qdata/tm/tessera-config-with-hosts.json --jdbc.password password
+2020-10-08T08:08:18.643864790Z 2020-10-08 08:08:18.639 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.grpc.api.Q2TGrpcApp@22ffa91a
+2020-10-08T08:08:18.644556090Z 2020-10-08 08:08:18.644 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.grpc.p2p.P2PGrpcApp@10ded6a9
+2020-10-08T08:08:18.645328090Z 2020-10-08 08:08:18.645 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.admin.AdminRestApp@373ebf74
+2020-10-08T08:08:19.824998381Z 2020-10-08 08:08:19.824 [main] WARN  c.q.t.c.util.EncryptedStringResolver - Some sensitive values are being given as unencrypted plain text in config. Please note this is NOT recommended for production environment.
+2020-10-08T08:08:20.032288697Z 2020-10-08 08:08:20.032 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'tessera'
+2020-10-08T08:08:20.245403614Z 2020-10-08 08:08:20.245 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Starting P2pClientPartyInfoPoller
+2020-10-08T08:08:20.246637014Z 2020-10-08 08:08:20.246 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Started P2pClientPartyInfoPoller
+2020-10-08T08:08:20.248557515Z 2020-10-08 08:08:20.248 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Starting EnclaveKeySynchroniser
+2020-10-08T08:08:20.249500115Z 2020-10-08 08:08:20.249 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Started EnclaveKeySynchroniser
+2020-10-08T08:08:20.302634319Z 2020-10-08 08:08:20.301 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.p2p.P2PRestApp@622fdb81
+2020-10-08T08:08:20.302940619Z 2020-10-08 08:08:20.302 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.q2t.Q2TRestApp@15b82644
+2020-10-08T08:08:20.303350419Z 2020-10-08 08:08:20.303 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.thirdparty.ThirdPartyRestApp@45c2e0a6
+2020-10-08T08:08:20.303779919Z 2020-10-08 08:08:20.303 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.sync.PartyInfoEndpointAdapter@1bc776b7
+2020-10-08T08:08:20.304081319Z 2020-10-08 08:08:20.303 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Creating application type THIRD_PARTY for REST
+2020-10-08T08:08:20.372948525Z 2020-10-08 08:08:20.372 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Creating application type Q2T for REST
+2020-10-08T08:08:20.374009625Z 2020-10-08 08:08:20.373 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Creating application type P2P for REST
+2020-10-08T08:08:20.407095327Z 2020-10-08 08:08:20.406 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @3713ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-10-08T08:08:20.480126633Z 2020-10-08 08:08:20.477 [main] INFO  c.quorum.tessera.server.JerseyServer - Starting http://carrier:9080
+2020-10-08T08:08:20.480149033Z 2020-10-08 08:08:20.479 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.20.v20190813; built: 2019-08-13T21:28:18.144Z; git: 84700530e645e812b336747464d6fbbf370c9a20; jvm 1.8.0_212-b04
+2020-10-08T08:08:20.932937669Z 2020-10-08 08:08:20.932 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.quorum.tessera.thirdparty.RawTransactionResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.quorum.tessera.thirdparty.RawTransactionResource will be ignored. 
+2020-10-08T08:08:21.149429887Z 2020-10-08 08:08:21.149 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6ecc02bb{/,null,AVAILABLE}
+2020-10-08T08:08:21.169656489Z 2020-10-08 08:08:21.169 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@1a4d1ab7{HTTP/1.1,[http/1.1]}{0.0.0.0:9080}
+2020-10-08T08:08:21.169801589Z 2020-10-08 08:08:21.169 [main] INFO  org.eclipse.jetty.server.Server - Started @4476ms
+2020-10-08T08:08:21.169879489Z 2020-10-08 08:08:21.169 [main] INFO  c.quorum.tessera.server.JerseyServer - Started http://carrier:9080
+2020-10-08T08:08:21.169911489Z 2020-10-08 08:08:21.169 [main] INFO  c.quorum.tessera.server.JerseyServer - WADL http://carrier:9080/application.wadl
+2020-10-08T08:08:21.179533390Z 2020-10-08 08:08:21.179 [main] INFO  c.quorum.tessera.server.JerseyServer - Starting unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:08:21.179608390Z 2020-10-08 08:08:21.179 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.20.v20190813; built: 2019-08-13T21:28:18.144Z; git: 84700530e645e812b336747464d6fbbf370c9a20; jvm 1.8.0_212-b04
+2020-10-08T08:08:21.261607196Z 2020-10-08 08:08:21.261 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.quorum.tessera.q2t.TransactionResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.quorum.tessera.q2t.TransactionResource will be ignored. 
+2020-10-08T08:08:21.459798013Z 2020-10-08 08:08:21.459 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3bb9ca38{/,null,AVAILABLE}
+2020-10-08T08:08:21.806200141Z 2020-10-08 08:08:21.805 [main] WARN  o.e.j.unixsocket.UnixSocketConnector - cannot bind /etc/quorum/qdata/tm/tm.ipc exists=false writable=false
+2020-10-08T08:08:21.807039541Z Operation not permitted
+2020-10-08T08:08:21.807758941Z 2020-10-08 08:08:21.807 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at http://carrier:9080
+2020-10-08T08:08:21.814603342Z 2020-10-08 08:08:21.812 [Thread-1] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@1a4d1ab7{HTTP/1.1,[http/1.1]}{0.0.0.0:9080}
+2020-10-08T08:08:21.853934345Z 2020-10-08 08:08:21.853 [Thread-1] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6ecc02bb{/,null,UNAVAILABLE}
+2020-10-08T08:08:21.857327746Z 2020-10-08 08:08:21.857 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at http://carrier:9080
+2020-10-08T08:08:21.857473046Z 2020-10-08 08:08:21.857 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:08:21.857836846Z 2020-10-08 08:08:21.857 [Thread-1] INFO  o.e.jetty.server.AbstractConnector - Stopped UnixSocketConnector@602f8f94{HTTP/1.1,[http/1.1]}{/etc/quorum/qdata/tm/tm.ipc}
+2020-10-08T08:08:21.874294947Z 2020-10-08 08:08:21.874 [Thread-1] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3bb9ca38{/,null,UNAVAILABLE}
+2020-10-08T08:08:21.875187547Z 2020-10-08 08:08:21.875 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:08:21.875228447Z 2020-10-08 08:08:21.875 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at http://carrier.test.quorum.blockchaincloudpoc.com:8443
+2020-10-08T08:08:21.875233647Z 2020-10-08 08:08:21.875 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at http://carrier.test.quorum.blockchaincloudpoc.com:8443
+2020-10-08T08:13:22.714240211Z + chmod 600 /etc/quorum/qdata/crypto/keys/tm.key
+2020-10-08T08:13:22.715218511Z + mkdir -p /etc/quorum/qdata/logs
+2020-10-08T08:13:22.727205618Z + mkdir -p /etc/quorum/qdata/tm
+2020-10-08T08:13:22.738253525Z + DDIR=/etc/quorum/qdata/tm
+2020-10-08T08:13:22.738511925Z + cat /etc/quorum/qdata/crypto/keys/password
+2020-10-08T08:13:22.739146525Z + PASSWORD=password
+2020-10-08T08:13:22.739156425Z + printenv
+2020-10-08T08:13:22.739723226Z + wget -q http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.15.tar.gz
+2020-10-08T08:13:22.739769526Z KUBERNETES_PORT=tcp://10.32.0.1:443
+2020-10-08T08:13:22.739774326Z KUBERNETES_SERVICE_PORT=443
+2020-10-08T08:13:22.739777426Z JAVA_ALPINE_VERSION=8.212.04-r0
+2020-10-08T08:13:22.739780726Z HOSTNAME=carrier-0
+2020-10-08T08:13:22.739783626Z SHLVL=1
+2020-10-08T08:13:22.739786626Z HOME=/root
+2020-10-08T08:13:22.739789726Z CARRIER_PORT_3306_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739792726Z CARRIER_SERVICE_PORT_MYSQL_DB=3306
+2020-10-08T08:13:22.739795726Z CARRIER_PORT_21000_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739798726Z JAVA_VERSION=8u212
+2020-10-08T08:13:22.739801626Z CARRIER_PORT_3306_TCP_PORT=3306
+2020-10-08T08:13:22.739804526Z CARRIER_PORT_21000_TCP_PORT=21000
+2020-10-08T08:13:22.739807526Z CARRIER_PORT_21000_TCP_PROTO=tcp
+2020-10-08T08:13:22.739810626Z CARRIER_SERVICE_HOST=10.32.6.171
+2020-10-08T08:13:22.739813526Z CARRIER_PORT_3306_TCP_PROTO=tcp
+2020-10-08T08:13:22.739816426Z CARRIER_PORT_9080_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739819326Z CARRIER_SERVICE_PORT_WSRPC_LISTENER=8546
+2020-10-08T08:13:22.739822226Z CARRIER_PORT_50401_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739825126Z KUBERNETES_PORT_443_TCP_ADDR=10.32.0.1
+2020-10-08T08:13:22.739828226Z CARRIER_PORT_8443_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739831226Z CARRIER_PORT_9080_TCP_PORT=9080
+2020-10-08T08:13:22.739834226Z PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+2020-10-08T08:13:22.739837326Z CARRIER_PORT_9080_TCP_PROTO=tcp
+2020-10-08T08:13:22.739840326Z CARRIER_PORT_50401_TCP_PORT=50401
+2020-10-08T08:13:22.739843226Z CARRIER_PORT_8443_TCP_PORT=8443
+2020-10-08T08:13:22.739846026Z KUBERNETES_PORT_443_TCP_PORT=443
+2020-10-08T08:13:22.739848926Z CARRIER_PORT_50401_TCP_PROTO=tcp
+2020-10-08T08:13:22.739851826Z CARRIER_SERVICE_PORT_TM_MANAGER=8443
+2020-10-08T08:13:22.739854726Z CARRIER_PORT=tcp://10.32.6.171:8546
+2020-10-08T08:13:22.739857626Z KUBERNETES_PORT_443_TCP_PROTO=tcp
+2020-10-08T08:13:22.739860526Z CARRIER_SERVICE_PORT=8546
+2020-10-08T08:13:22.739870926Z CARRIER_PORT_8546_TCP_ADDR=10.32.6.171
+2020-10-08T08:13:22.739874226Z CARRIER_PORT_8443_TCP_PROTO=tcp
+2020-10-08T08:13:22.739877226Z CARRIER_PORT_21000_TCP=tcp://10.32.6.171:21000
+2020-10-08T08:13:22.739880126Z CARRIER_PORT_3306_TCP=tcp://10.32.6.171:3306
+2020-10-08T08:13:22.739883026Z LANG=C.UTF-8
+2020-10-08T08:13:22.739885926Z CARRIER_PORT_8546_TCP_PORT=8546
+2020-10-08T08:13:22.739888826Z CARRIER_PORT_8546_TCP_PROTO=tcp
+2020-10-08T08:13:22.739891726Z CARRIER_SERVICE_PORT_RAFT=50401
+2020-10-08T08:13:22.739894626Z CARRIER_SERVICE_PORT_QUORUM_LISTENER=21000
+2020-10-08T08:13:22.739897526Z CARRIER_PORT_9080_TCP=tcp://10.32.6.171:9080
+2020-10-08T08:13:22.739900426Z CARRIER_PORT_50401_TCP=tcp://10.32.6.171:50401
+2020-10-08T08:13:22.739903326Z KUBERNETES_PORT_443_TCP=tcp://10.32.0.1:443
+2020-10-08T08:13:22.739906326Z KUBERNETES_SERVICE_PORT_HTTPS=443
+2020-10-08T08:13:22.739909226Z CARRIER_PORT_8443_TCP=tcp://10.32.6.171:8443
+2020-10-08T08:13:22.739912126Z QUORUM_HOME=/etc/quorum/qdata
+2020-10-08T08:13:22.739915026Z KUBERNETES_SERVICE_HOST=10.32.0.1
+2020-10-08T08:13:22.739917926Z JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre
+2020-10-08T08:13:22.739920926Z PWD=/
+2020-10-08T08:13:22.739923826Z CARRIER_SERVICE_PORT_TM_TESSERA_THIRD_PART=9080
+2020-10-08T08:13:22.739927926Z CARRIER_PORT_8546_TCP=tcp://10.32.6.171:8546
+2020-10-08T08:13:22.739930926Z QHOME=/etc/quorum/qdata
+2020-10-08T08:13:24.879689409Z + tar -xf mysql-connector-java-8.0.15.tar.gz
+2020-10-08T08:13:25.078840429Z + cp /mysql-connector-java-8.0.15/mysql-connector-java-8.0.15.jar /etc/quorum/qdata
+2020-10-08T08:13:25.173379085Z + SQL_JAR=/etc/quorum/qdata/mysql-connector-java-8.0.15.jar
+2020-10-08T08:13:25.173857386Z + unzip -p /tessera/tessera-app.jar META-INF/MANIFEST.MF
+2020-10-08T08:13:25.174396386Z + cut '-d ' -f2
+2020-10-08T08:13:25.174730486Z + grep Tessera-Version
+2020-10-08T08:13:27.631689868Z 2020-10-08 08:13:27.624 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.grpc.api.Q2TGrpcApp@22ffa91a
+2020-10-08T08:13:27.632725968Z 2020-10-08 08:13:27.632 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.grpc.p2p.P2PGrpcApp@10ded6a9
+2020-10-08T08:13:27.633438269Z 2020-10-08 08:13:27.633 [main] INFO  c.q.t.config.apps.TesseraAppFactory - Loaded app com.quorum.tessera.admin.AdminRestApp@373ebf74
+2020-10-08T08:13:28.934739756Z 2020-10-08 08:13:28.934 [main] WARN  c.q.t.c.util.EncryptedStringResolver - Some sensitive values are being given as unencrypted plain text in config. Please note this is NOT recommended for production environment.
+2020-10-08T08:13:29.169315798Z 2020-10-08 08:13:29.169 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'tessera'
+2020-10-08T08:13:29.365501517Z 2020-10-08 08:13:29.365 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Starting P2pClientPartyInfoPoller
+2020-10-08T08:13:29.366355018Z 2020-10-08 08:13:29.366 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Started P2pClientPartyInfoPoller
+2020-10-08T08:13:29.369450420Z 2020-10-08 08:13:29.368 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Starting EnclaveKeySynchroniser
+2020-10-08T08:13:29.370670921Z 2020-10-08 08:13:29.370 [main] INFO  c.q.t.t.TesseraScheduledExecutor - Started EnclaveKeySynchroniser
+2020-10-08T08:13:30.068548944Z 2020-10-08 08:13:30.068 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.quorum.tessera.thirdparty.RawTransactionResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.quorum.tessera.thirdparty.RawTransactionResource will be ignored. 
+2020-10-08T08:13:30.393496142Z 2020-10-08 08:13:30.393 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6ecc02bb{/,null,AVAILABLE}
+2020-10-08T08:13:30.427963963Z 2020-10-08 08:13:30.427 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@1a4d1ab7{HTTP/1.1,[http/1.1]}{0.0.0.0:9080}
+2020-10-08T08:13:30.428090963Z 2020-10-08 08:13:30.427 [main] INFO  org.eclipse.jetty.server.Server - Started @4878ms
+2020-10-08T08:13:30.428274163Z 2020-10-08 08:13:30.428 [main] INFO  c.quorum.tessera.server.JerseyServer - Started http://carrier:9080
+2020-10-08T08:13:30.428282863Z 2020-10-08 08:13:30.428 [main] INFO  c.quorum.tessera.server.JerseyServer - WADL http://carrier:9080/application.wadl
+2020-10-08T08:13:30.451459977Z 2020-10-08 08:13:30.451 [main] INFO  c.quorum.tessera.server.JerseyServer - Starting unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:13:30.451582377Z 2020-10-08 08:13:30.451 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.20.v20190813; built: 2019-08-13T21:28:18.144Z; git: 84700530e645e812b336747464d6fbbf370c9a20; jvm 1.8.0_212-b04
+2020-10-08T08:13:30.610518574Z 2020-10-08 08:13:30.610 [main] WARN  o.g.jersey.internal.inject.Providers - A provider com.quorum.tessera.q2t.TransactionResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.quorum.tessera.q2t.TransactionResource will be ignored. 
+2020-10-08T08:13:30.781868478Z 2020-10-08 08:13:30.781 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3bb9ca38{/,null,AVAILABLE}
+2020-10-08T08:13:31.169156613Z 2020-10-08 08:13:31.168 [main] WARN  o.e.j.unixsocket.UnixSocketConnector - cannot bind /etc/quorum/qdata/tm/tm.ipc exists=false writable=false
+2020-10-08T08:13:31.169936414Z Operation not permitted
+2020-10-08T08:13:31.170671314Z 2020-10-08 08:13:31.170 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at http://carrier:9080
+2020-10-08T08:13:31.179851820Z 2020-10-08 08:13:31.178 [Thread-1] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@1a4d1ab7{HTTP/1.1,[http/1.1]}{0.0.0.0:9080}
+2020-10-08T08:13:31.218631743Z 2020-10-08 08:13:31.218 [Thread-1] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6ecc02bb{/,null,UNAVAILABLE}
+2020-10-08T08:13:31.221441245Z 2020-10-08 08:13:31.221 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at http://carrier:9080
+2020-10-08T08:13:31.221471845Z 2020-10-08 08:13:31.221 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:13:31.221708045Z 2020-10-08 08:13:31.221 [Thread-1] INFO  o.e.jetty.server.AbstractConnector - Stopped UnixSocketConnector@602f8f94{HTTP/1.1,[http/1.1]}{/etc/quorum/qdata/tm/tm.ipc}
+2020-10-08T08:13:31.237263355Z 2020-10-08 08:13:31.237 [Thread-1] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3bb9ca38{/,null,UNAVAILABLE}
+2020-10-08T08:13:31.240026357Z 2020-10-08 08:13:31.239 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at unix:/etc/quorum/qdata/tm/tm.ipc
+2020-10-08T08:13:31.240093857Z 2020-10-08 08:13:31.239 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopping Jersey server at http://carrier.test.quorum.blockchaincloudpoc.com:8443
+2020-10-08T08:13:31.240258357Z 2020-10-08 08:13:31.240 [Thread-1] INFO  c.quorum.tessera.server.JerseyServer - Stopped Jersey server at http://carrier.test.quorum.blockchaincloudpoc.com:8443
+
+```

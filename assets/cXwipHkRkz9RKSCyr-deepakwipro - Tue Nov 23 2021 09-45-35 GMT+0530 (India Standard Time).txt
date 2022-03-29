@@ -1,0 +1,147 @@
+`const {ChainCodeProgrammingLanguage,PluginLedgerConnectorFabric,DefaultEventHandlerStrategy} = require("@hyperledger/cactus-plugin-ledger-connector-fabric");
+const { PluginRegistry } = require("@hyperledger/cactus-core");
+const { PluginKeychainMemory } = require("@hyperledger/cactus-plugin-keychain-memory");
+const uuidv4 = require("uuid").v4;
+const fs = require('fs');
+const path = require("path");
+const deployChaincode = async function deployChaincode(){
+
+
+const keychainInstanceId = uuidv4();
+const keychainId = uuidv4();
+const keychainEntryKey = "appUser";
+const keychainEntryValue = JSON.parse(fs.readFileSync("/home/ubuntu/fabric-samples/asset-transfer-basic/application-javascript/wallet/appUser.id").toString());
+const keychainPlugin = new PluginKeychainMemory({
+  instanceId: keychainInstanceId,
+  keychainId,
+  backend: new Map([
+    [keychainEntryKey, keychainEntryValue],
+    ["some-other-entry-key", "some-other-entry-value"],
+  ]),
+});
+
+const connectionProfile = JSON.parse(fs.readFileSync("/home/ubuntu/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.json").toString());
+const pluginRegistry = new PluginRegistry({ plugins: [keychainPlugin] });
+
+const orgCfgDir = "/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/";
+  // these below mirror how the fabric-samples sets up the configuration
+  const org1Env = {
+    CORE_LOGGING_LEVEL: "debug",
+    FABRIC_LOGGING_SPEC: "debug",
+    CORE_PEER_LOCALMSPID: "Org1MSP",
+
+    ORDERER_CA: `${orgCfgDir}ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`,
+
+    FABRIC_CFG_PATH: "/etc/hyperledger/fabric",
+    CORE_PEER_TLS_ENABLED: "true",
+    CORE_PEER_TLS_ROOTCERT_FILE: `${orgCfgDir}peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt`,
+    CORE_PEER_MSPCONFIGPATH: `${orgCfgDir}peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp`,
+    CORE_PEER_ADDRESS: "peer0.org1.example.com:7051",
+    ORDERER_TLS_ROOTCERT_FILE: `${orgCfgDir}ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`,
+  };
+
+  // these below mirror how the fabric-samples sets up the configuration
+  const org2Env = {
+    CORE_LOGGING_LEVEL: "debug",
+    FABRIC_LOGGING_SPEC: "debug",
+    CORE_PEER_LOCALMSPID: "Org2MSP",
+
+    FABRIC_CFG_PATH: "/etc/hyperledger/fabric",
+    CORE_PEER_TLS_ENABLED: "true",
+    ORDERER_CA: `${orgCfgDir}ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`,
+
+    CORE_PEER_ADDRESS: "peer0.org2.example.com:9051",
+    CORE_PEER_MSPCONFIGPATH: `${orgCfgDir}peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp`,
+    CORE_PEER_TLS_ROOTCERT_FILE: `${orgCfgDir}peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt`,
+    ORDERER_TLS_ROOTCERT_FILE: `${orgCfgDir}ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`,
+  };
+
+  const discoveryOptions = {
+    enabled: true,
+    asLocalhost: true,
+  };
+const pluginOptions = {
+    instanceId: uuidv4(),
+    dockerBinary: "/usr/local/bin/docker",
+    peerBinary: "/home/ubuntu/fabric-samples/bin/peer",
+    goBinary: "/usr/local/go/bin/go",
+    pluginRegistry,
+    cliContainerEnv: org1Env,
+    connectionProfile,
+    discoveryOptions,
+    sshConfig: {
+      host: "localhost",
+      username: "ubuntu",
+      password: "ubuntu",
+      port: 22
+    },
+    logLevel: "DEBUG",
+
+    eventHandlerOptions: {
+      strategy: DefaultEventHandlerStrategy.NetworkScopeAllfortx,
+      commitTimeout: 300,
+    },
+  };
+const connector = new PluginLedgerConnectorFabric(pluginOptions);
+
+
+
+const channelId = "mychannel";
+const contractName = "fabcar";
+
+const smartContractGoPath = "/home/ubuntu/fabric-samples/chaincode/fabcar/go/fabcar.go";
+
+const smartContractGoBuf = fs.readFileSync(smartContractGoPath);
+const smartContractGo = {
+  body: smartContractGoBuf.toString("base64"),
+  filename: "fabcar.go",
+};
+
+// const assetTransferGoPath = "/home/ubuntu/cactus/packages/cactus-plugin-ledger-connector-fabric/src/test/typescript/fixtures/go/basic-asset-transfer/chaincode-go/assetTransfer.go"
+// const assetTransferGoBuf = fs.readFileSync(assetTransferGoPath);
+// const assetTransferGo = {
+//   body: assetTransferGoBuf.toString("base64"),
+//   filename: `${contractName}.go`,
+// };
+
+const goModPath = "/home/ubuntu/fabric-samples/chaincode/fabcar/go/go.mod"
+const goModBuf = fs.readFileSync(goModPath);
+const goMod = {
+  body: goModBuf.toString("base64"),
+  filename: "go.mod",
+};
+
+const goSumPath = "/home/ubuntu/fabric-samples/chaincode/fabcar/go/go.sum"
+const goSumBuf = fs.readFileSync(goSumPath);
+const goSum = {
+  body: goSumBuf.toString("base64"),
+  filename: "go.sum",
+};
+
+
+
+
+  try {
+    console.log("Inside deploy");
+		const res = await connector.deployContract({
+      channelId,
+      ccVersion: "1.0.0",
+      // constructorArgs: { Args: ["john", "99"] },
+      sourceFiles: [smartContractGo, goMod, goSum],
+      ccName: contractName,
+      targetOrganizations: [org1Env, org2Env],
+      caFile: `${orgCfgDir}ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`,
+      ccLabel: "fabcar_1.0.0",
+      ccLang: ChainCodeProgrammingLanguage.Golang,
+      ccSequence: 1,
+      orderer: "orderer.example.com:7050",
+      ordererTLSHostnameOverride: "orderer.example.com",
+      connTimeout: 60,
+    });
+		console.log("Response:-",res);
+	} catch (err) {
+		console.log("Failed to deploy contract to fabric network: %o", err);
+		throw err;
+	}
+}
+deployChaincode();`

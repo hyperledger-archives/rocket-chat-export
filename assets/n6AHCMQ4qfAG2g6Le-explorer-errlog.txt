@@ -1,0 +1,42 @@
+[2020-05-25T17:27:31.711] [INFO] PgService - SSL to Postgresql disabled
+[2020-05-25T17:27:31.711] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@explorerdb.example.com:5432/fabricexplorer
+[2020-05-25T17:27:32.508] [INFO] Platform -  client_configs.name  first-network  client_configs.profile  ./connection-profile/first-network.json
+[2020-05-25T17:27:32.508] [INFO] Platform - FabricUtils.createFabricClient
+[2020-05-25T17:27:32.510] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-05-25T17:27:32.510] [INFO] FabricGateway - peer0.org1.example.com
+[2020-05-25T17:27:32.511] [INFO] FabricGateway - /tmp/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+adminPrivateKeyPath  /tmp/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/128a53abcce3dcf5bae35e36584dd05b8e1814567eee972e00eccd5f8a340e17_sk
+[2020-05-25T17:27:32.511] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-05-25T17:27:32.552] [INFO] FabricGateway - true ' caURL[0] ' [ 'https://localhost:7054' ]
+2020-05-25T17:27:32.849Z - error: [FabricCAClientService.js]: Failed to enroll admin, error:%o message=Calling enrollment endpoint failed with error [Error: connect ECONNREFUSED 127.0.0.1:7054], stack=Error: Calling enrollment endpoint failed with error [Error: connect ECONNREFUSED 127.0.0.1:7054]
+    at ClientRequest.request.on (/opt/explorer/node_modules/fabric-ca-client/lib/FabricCAClient.js:487:12)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at TLSSocket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+[2020-05-25T17:27:32.850] [ERROR] FabricGateway - Error instantiating FabricCAServices  Error: Calling enrollment endpoint failed with error [Error: connect ECONNREFUSED 127.0.0.1:7054]
+    at ClientRequest.request.on (/opt/explorer/node_modules/fabric-ca-client/lib/FabricCAClient.js:487:12)
+    at emitOne (events.js:116:13)
+    at ClientRequest.emit (events.js:211:7)
+    at TLSSocket.socketErrorListener (_http_client.js:401:9)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:66:8)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+2020-05-25T17:27:32.861Z - error: [BaseWallet]: setUserContext: identity 'admin' isn't enrolled, or loaded
+[2020-05-25T17:27:32.862] [ERROR] FabricGateway -  Error: identity 'admin' isn't enrolled, or loaded
+[2020-05-25T17:27:32.862] [ERROR] FabricClient - { ExplorerError: [ 'Failed to create wallet, please check the configuration, and valid file paths' ]
+    at FabricGateway.initialize (/opt/explorer/app/platform/fabric/gateway/FabricGateway.js:146:10)
+    at <anonymous>
+  name: 'ExplorerError',
+  message: '[ \'Failed to create wallet, please check the configuration, and valid file paths\' ]' }
+[2020-05-25T17:27:32.862] [ERROR] FabricClient - TypeError: Cannot read property 'queryChannels' of null
+    at FabricClient.initialize (/opt/explorer/app/platform/fabric/FabricClient.js:122:37)
+    at <anonymous>
+[2020-05-25T17:27:32.862] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-05-25T17:27:32.863] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'first-network',

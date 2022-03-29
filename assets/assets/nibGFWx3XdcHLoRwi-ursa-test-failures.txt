@@ -1,0 +1,121 @@
+failures:
+
+---- cl::prover::tests::test_update_proof stdout ----
+Update Proof test -> start
+Create RevocationRegistry Time: Duration { secs: 18, nanos: 972463000 }
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: UrsaCryptoError { inner: 
+
+Invalid Signature correctness proof q != q'
+
+Invalid structure }', src/libcore/result.rs:1188:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+
+---- cl::test::credential_with_negative_attribute_and_empty_proof_works stdout ----
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: UrsaCryptoError { inner: 
+
+Invalid Signature correctness proof q != q'
+
+Invalid structure }', src/libcore/result.rs:1188:5
+
+---- cl::test::demo stdout ----
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: UrsaCryptoError { inner: 
+
+Invalid Signature correctness proof q != q'
+
+Invalid structure }', src/libcore/result.rs:1188:5
+
+---- cl::test::demo_revocation stdout ----
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: UrsaCryptoError { inner: 
+
+Invalid Signature correctness proof q != q'
+
+Invalid structure }', src/libcore/result.rs:1188:5
+
+---- cl::test::multiple_predicates stdout ----
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: UrsaCryptoError { inner: 
+
+Invalid Signature correctness proof q != q'
+
+Invalid structure }', src/libcore/result.rs:1188:5
+
+---- ffi::cl::prover::tests::ursa_cl_proof_free_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::prover::tests::ursa_cl_proof_from_json_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::prover::tests::ursa_cl_proof_to_json_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::prover::tests::ursa_cl_prover_process_credential_signature_signature_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:1824:9
+
+---- ffi::cl::prover::tests::ursa_cl_prover_proof_builder_add_common_attribute_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::prover::tests::ursa_cl_prover_proof_builder_add_sub_proof_request_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::prover::tests::ursa_cl_prover_proof_builder_finalize_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::verifier::tests::ursa_cl_proof_verifier_add_common_attribute_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::verifier::tests::ursa_cl_proof_verifier_add_sub_proof_request_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::verifier::tests::ursa_cl_proof_verifier_verify_works_for_primary_proof stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::verifier::tests::ursa_cl_proof_verifier_verify_works_for_revocation_proof stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+---- ffi::cl::verifier::tests::ursa_cl_verifier_new_proof_verifier_works stdout ----
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `CommonInvalidStructure`,
+ right: `Success`', libursa/src/ffi/cl/prover.rs:2299:9
+
+
+failures:
+    cl::prover::tests::test_update_proof
+    cl::test::credential_with_negative_attribute_and_empty_proof_works
+    cl::test::demo
+    cl::test::demo_revocation
+    cl::test::multiple_predicates
+    ffi::cl::prover::tests::ursa_cl_proof_free_works
+    ffi::cl::prover::tests::ursa_cl_proof_from_json_works
+    ffi::cl::prover::tests::ursa_cl_proof_to_json_works
+    ffi::cl::prover::tests::ursa_cl_prover_process_credential_signature_signature_works
+    ffi::cl::prover::tests::ursa_cl_prover_proof_builder_add_common_attribute_works
+    ffi::cl::prover::tests::ursa_cl_prover_proof_builder_add_sub_proof_request_works
+    ffi::cl::prover::tests::ursa_cl_prover_proof_builder_finalize_works
+    ffi::cl::verifier::tests::ursa_cl_proof_verifier_add_common_attribute_works
+    ffi::cl::verifier::tests::ursa_cl_proof_verifier_add_sub_proof_request_works
+    ffi::cl::verifier::tests::ursa_cl_proof_verifier_verify_works_for_primary_proof
+    ffi::cl::verifier::tests::ursa_cl_proof_verifier_verify_works_for_revocation_proof
+    ffi::cl::verifier::tests::ursa_cl_verifier_new_proof_verifier_works
+
+test result: FAILED. 235 passed; 17 failed; 6 ignored; 0 measured; 0 filtered out

@@ -1,0 +1,117 @@
+[node1] (local) root@10.1.34.4 ~/aries-cloudagent-python/demo
+$ LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber
+Preparing agent image...
+sha256:c40eeb8ac0fb60c7ae038132b550ce45c02592edb0a1f30426596359e3c3b7d8
+ip10-1-34-4-bombildm4dlga5djnttg-{PORT}.direct.play-with-von.vonx.io
+Starting faber...
+
+#1 Provision an agent and wallet, get back configuration details
+Faber      | Registering Faber Agent with seed d_000000000000000000000000571985
+Faber      | Got DID: L5BebtFy22bpeA4cKPv68A
+Faber      | 
+Faber      | ::::::::::::::::::::::::::::::::::::::::::::::
+Faber      | :: Faber Agent                              ::
+Faber      | ::                                          ::
+Faber      | ::                                          ::
+Faber      | :: Inbound Transports:                      ::
+Faber      | ::                                          ::
+Faber      | ::   - http://0.0.0.0:8020                  ::
+Faber      | ::                                          ::
+Faber      | :: Outbound Transports:                     ::
+Faber      | ::                                          ::
+Faber      | ::   - http                                 ::
+Faber      | ::   - https                                ::
+Faber      | ::                                          ::
+Faber      | :: Public DID Information:                  ::
+Faber      | ::                                          ::
+Faber      | ::   - DID: L5BebtFy22bpeA4cKPv68A          ::
+Faber      | ::                                          ::
+Faber      | :: Administration API:                      ::
+Faber      | ::                                          ::
+Faber      | ::   - http://0.0.0.0:8021                  ::
+Faber      | ::                                          ::
+Faber      | ::                               ver: 0.4.0 ::
+Faber      | ::::::::::::::::::::::::::::::::::::::::::::::
+Faber      | 
+Faber      | Listening...
+Faber      | 
+Startup duration: 6.04s
+Admin url is at: http://127.0.0.1:8021
+Endpoint url is at: http://ip10-1-34-4-bombildm4dlga5djnttg-8020.direct.play-with-von.vonx.io
+
+#3/4 Create a new schema/cred def on the ledger
+Schema ID: L5BebtFy22bpeA4cKPv68A:2:degree schema:16.76.57
+Faber      | 2020-01-25 21:57:22,571 aries_cloudagent.core.dispatcher ERROR Handler error: credential_definitions_send_credential_definition
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 493, in cred_def_in_wallet
+Faber      | Error during POST /credential-definitions: 500, message='Internal Server Error'
+Faber      |     cred_def_id
+Faber      | 
+Faber      | Shutting down
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/anoncreds.py", line 400, in issuer_create_credential_offer
+Faber      |     issuer_create_credential_offer.cb)
+Faber      | indy.error.WalletItemNotFound
+Faber      | 
+Faber      | The above exception was the direct cause of the following exception:
+Faber      | 
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/messaging/credential_definitions/routes.py", line 115, in credential_definitions_send_credential_definition
+Faber      |     ledger.send_credential_definition(schema_id, tag)
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 535, in send_credential_definition
+Faber      |     if await cred_def_in_wallet(self.wallet.handle, credential_definition_id):
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 498, in cred_def_in_wallet
+Faber      |     raise IndyErrorHandler.wrap_error(error) from error
+Faber      | aries_cloudagent.ledger.error.LedgerError: Exception while performing ledger operation: Error: Wallet item not found
+Faber      |   Caused by: Item not found
+Faber      |   Caused by: Query returned no rows
+Faber      | 
+Faber      | 2020-01-25 21:57:22,580 aiohttp.server ERROR Error handling request
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 493, in cred_def_in_wallet
+Faber      |     cred_def_id
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/anoncreds.py", line 400, in issuer_create_credential_offer
+Faber      |     issuer_create_credential_offer.cb)
+Faber      | indy.error.WalletItemNotFound
+Faber      | 
+Faber      | The above exception was the direct cause of the following exception:
+Faber      | 
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+Faber      |     resp = await task
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+Faber      |     resp = await handler(request)
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_middlewares.py", line 119, in impl
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 187, in apply_limiter
+Faber      | Exited with return code 0
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+Faber      |     return await task
+Faber      |   File "/home/indy/aries_cloudagent/messaging/credential_definitions/routes.py", line 115, in credential_definitions_send_credential_definition
+Faber      |     ledger.send_credential_definition(schema_id, tag)
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 535, in send_credential_definition
+Faber      |     if await cred_def_in_wallet(self.wallet.handle, credential_definition_id):
+Faber      |   File "/home/indy/aries_cloudagent/ledger/indy.py", line 498, in cred_def_in_wallet
+Faber      |     raise IndyErrorHandler.wrap_error(error) from error
+Faber      | aries_cloudagent.ledger.error.LedgerError: Exception while performing ledger operation: Error: Wallet item not found
+Faber      |   Caused by: Item not found
+Faber      |   Caused by: Query returned no rows
+Faber      | 
+    "__main__", mod_spec)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/indy/demo/runners/faber.py", line 293, in <module>
+    asyncio.get_event_loop().run_until_complete(main(args.port, args.timing))
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/base_events.py", line 484, in run_until_complete
+    return future.result()
+  File "/home/indy/demo/runners/faber.py", line 154, in main
+    "degree schema", version, ["name", "date", "degree", "age"]
+  File "/home/indy/demo/runners/support/agent.py", line 151, in register_schema_and_creddef
+    "/credential-definitions", credential_definition_body
+  File "/home/indy/demo/runners/support/agent.py", line 370, in admin_POST
+    return await self.admin_request("POST", path, data, text, params)
+  File "/home/indy/demo/runners/support/agent.py", line 348, in admin_request
+    resp.raise_for_status()
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/client_reqrep.py", line 942, in raise_for_status
+    headers=self.headers)
+aiohttp.client_exceptions.ClientResponseError: 500, message='Internal Server Error'

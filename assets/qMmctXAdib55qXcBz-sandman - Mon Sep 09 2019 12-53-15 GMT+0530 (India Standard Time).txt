@@ -1,0 +1,76 @@
+Invoking peer channel create on buyer's peer fails:- ```
+2019-09-09 05:24:54.268 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:24:54.273 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:24:54.284 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+Error: got unexpected status: SERVICE_UNAVAILABLE -- no Raft leader
+
+```
+
+
+But succeds on Other org's peer (lenders peer cusing orderer of lender ):-```
+2019-09-09 05:25:22.832 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:25:22.837 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:25:22.853 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+2019-09-09 05:25:22.881 UTC [cli.common] readBlock -> INFO 004 Got status: &{NOT_FOUND}
+2019-09-09 05:25:22.889 UTC [channelCmd] InitCmdFactory -> INFO 005 Endorser and orderer connections initialized
+2019-09-09 05:25:24.016 UTC [cli.common] readBlock -> INFO 006 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:24.029 UTC [channelCmd] InitCmdFactory -> INFO 007 Endorser and orderer connections initialized
+2019-09-09 05:25:24.230 UTC [cli.common] readBlock -> INFO 008 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:24.237 UTC [channelCmd] InitCmdFactory -> INFO 009 Endorser and orderer connections initialized
+2019-09-09 05:25:24.438 UTC [cli.common] readBlock -> INFO 00a Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:24.445 UTC [channelCmd] InitCmdFactory -> INFO 00b Endorser and orderer connections initialized
+2019-09-09 05:25:24.647 UTC [cli.common] readBlock -> INFO 00c Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:24.654 UTC [channelCmd] InitCmdFactory -> INFO 00d Endorser and orderer connections initialized
+2019-09-09 05:25:24.856 UTC [cli.common] readBlock -> INFO 00e Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:24.864 UTC [channelCmd] InitCmdFactory -> INFO 00f Endorser and orderer connections initialized
+2019-09-09 05:25:25.066 UTC [cli.common] readBlock -> INFO 010 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:25.073 UTC [channelCmd] InitCmdFactory -> INFO 011 Endorser and orderer connections initialized
+2019-09-09 05:25:25.275 UTC [cli.common] readBlock -> INFO 012 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:25.283 UTC [channelCmd] InitCmdFactory -> INFO 013 Endorser and orderer connections initialized
+2019-09-09 05:25:25.485 UTC [cli.common] readBlock -> INFO 014 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:25.491 UTC [channelCmd] InitCmdFactory -> INFO 015 Endorser and orderer connections initialized
+2019-09-09 05:25:25.693 UTC [cli.common] readBlock -> INFO 016 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:25.700 UTC [channelCmd] InitCmdFactory -> INFO 017 Endorser and orderer connections initialized
+2019-09-09 05:25:25.902 UTC [cli.common] readBlock -> INFO 018 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:25.908 UTC [channelCmd] InitCmdFactory -> INFO 019 Endorser and orderer connections initialized
+2019-09-09 05:25:26.111 UTC [cli.common] readBlock -> INFO 01a Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:26.119 UTC [channelCmd] InitCmdFactory -> INFO 01b Endorser and orderer connections initialized
+2019-09-09 05:25:26.321 UTC [cli.common] readBlock -> INFO 01c Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:26.327 UTC [channelCmd] InitCmdFactory -> INFO 01d Endorser and orderer connections initialized
+2019-09-09 05:25:26.530 UTC [cli.common] readBlock -> INFO 01e Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:26.540 UTC [channelCmd] InitCmdFactory -> INFO 01f Endorser and orderer connections initialized
+2019-09-09 05:25:26.742 UTC [cli.common] readBlock -> INFO 020 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:26.753 UTC [channelCmd] InitCmdFactory -> INFO 021 Endorser and orderer connections initialized
+2019-09-09 05:25:26.955 UTC [cli.common] readBlock -> INFO 022 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:26.963 UTC [channelCmd] InitCmdFactory -> INFO 023 Endorser and orderer connections initialized
+2019-09-09 05:25:27.165 UTC [cli.common] readBlock -> INFO 024 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:27.173 UTC [channelCmd] InitCmdFactory -> INFO 025 Endorser and orderer connections initialized
+2019-09-09 05:25:27.375 UTC [cli.common] readBlock -> INFO 026 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:27.382 UTC [channelCmd] InitCmdFactory -> INFO 027 Endorser and orderer connections initialized
+2019-09-09 05:25:27.585 UTC [cli.common] readBlock -> INFO 028 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:27.592 UTC [channelCmd] InitCmdFactory -> INFO 029 Endorser and orderer connections initialized
+2019-09-09 05:25:27.794 UTC [cli.common] readBlock -> INFO 02a Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:27.803 UTC [channelCmd] InitCmdFactory -> INFO 02b Endorser and orderer connections initialized
+2019-09-09 05:25:28.004 UTC [cli.common] readBlock -> INFO 02c Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:28.011 UTC [channelCmd] InitCmdFactory -> INFO 02d Endorser and orderer connections initialized
+2019-09-09 05:25:28.213 UTC [cli.common] readBlock -> INFO 02e Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:28.219 UTC [channelCmd] InitCmdFactory -> INFO 02f Endorser and orderer connections initialized
+2019-09-09 05:25:28.422 UTC [cli.common] readBlock -> INFO 030 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:28.433 UTC [channelCmd] InitCmdFactory -> INFO 031 Endorser and orderer connections initialized
+2019-09-09 05:25:28.635 UTC [cli.common] readBlock -> INFO 032 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:28.643 UTC [channelCmd] InitCmdFactory -> INFO 033 Endorser and orderer connections initialized
+2019-09-09 05:25:28.845 UTC [cli.common] readBlock -> INFO 034 Got status: &{SERVICE_UNAVAILABLE}
+2019-09-09 05:25:28.852 UTC [channelCmd] InitCmdFactory -> INFO 035 Endorser and orderer connections initialized
+2019-09-09 05:25:29.055 UTC [cli.common] readBlock -> INFO 036 Received block: 0
+
+```
+
+channel fetch and joins works like a charm on this peer. But attempting to fetch channel on buyer's peer still fails:-
+```
+2019-09-09 05:44:08.552 UTC [main] InitCmd -> WARN 001 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:44:08.557 UTC [main] SetOrdererEnv -> WARN 002 CORE_LOGGING_LEVEL is no longer supported, please use the FABRIC_LOGGING_SPEC environment variable
+2019-09-09 05:44:08.566 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+2019-09-09 05:44:08.567 UTC [cli.common] readBlock -> INFO 004 Got status: &{NOT_FOUND}
+Error: can't read the block: &{NOT_FOUND}
+command terminated with exit code 1
+```

@@ -1,0 +1,71 @@
+Simplest non-docker end-to-end from CLI using SSL
+=================================================
+Create a channel, install and run a chaincode on it with CLI, Peer and Orderer
+configured for SSL.
+
+The setup uses key and certs from msp/sampleconfig.
+
+Setup
+=====
+Edit /etc/hosts to add the following entry (SAN from msp/sampleconfig/signcerts/peer.pem)
+    127.0.0.1 myhost.com
+
+Above needed for host verification part of TLS.
+
+Rest of the instructions from fabric/ folder and can be pretty much made a script out of.
+
+#build the peer
+make peer
+
+
+#build the orderer
+make orderer
+
+window-1 start orderer
+======================
+#setup TLS env vars for orderer
+export ORDERER_GENERAL_TLS_ENABLED=true
+export ORDERER_GENERAL_TLS_PRIVATEKEY=msp/sampleconfig/keystore/key.pem
+export ORDERER_GENERAL_TLS_CERTIFICATE=msp/sampleconfig/signcerts/peer.pem
+export ORDERER_GENERAL_TLS_ROOTCAS=[msp/sampleconfig/cacerts/cacert.pem]
+
+#start orderer
+orderer
+
+window-2 start peer
+===================
+#setup TLS env vars for peer
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_MSPCONFIGPATH=msp/sampleconfig
+export CORE_PEER_ADDRESS=myhost.com:7051
+export CORE_PEER_TLS_ROOTCERT_FILE=msp/sampleconfig/cacerts/cacert.pem
+export CORE_PEER_TLS_KEY_FILE=msp/sampleconfig/keystore/key.pem
+export CORE_PEER_TLS_CERT_FILE=msp/sampleconfig/signcerts/peer.pem
+
+#start peer
+peer node start --peer-defaultchain=false
+
+window-3 CLI window
+===================
+#setup TLS env vars for CLI
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_MSPCONFIGPATH=msp/sampleconfig
+export CORE_PEER_ADDRESS=myhost.com:7051
+export CORE_PEER_TLS_ROOTCERT_FILE=msp/sampleconfig/cacerts/cacert.pem
+export CORE_PEER_TLS_KEY_FILE=msp/sampleconfig/keystore/key.pem
+export CORE_PEER_TLS_CERT_FILE=msp/sampleconfig/signcerts/peer.pem
+
+#create channel (--tls and --cafile are for tls communication with orderer)
+peer channel create -c mychannel -o myhost.com:7050 --tls --cafile msp/sampleconfig/cacerts/cacert.pem
+
+#join channel (does not communicate with orderer)
+peer channel join -b mychannel.block
+
+#install chaincode
+peer chaincode install -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -v 0
+
+#instantiate chaincode (--tls and --cafile are for tls communication with orderer)
+peer chaincode instantiate -n mycc  -v 0 -c '{"Args":["init","a","100","b","200"]}' -C mychannel -o myhost.com:7050 --tls --cafile msp/sampleconfig/cacerts/cacert.pem
+
+#query chaincode
+peer chaincode query -n mycc  -v 0 -c '{"Args":["query","a"]}' -C mychannel

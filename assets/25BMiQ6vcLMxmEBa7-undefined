@@ -1,0 +1,1377 @@
+Last login: Mon Apr  3 12:35:38 on ttys002
+Mahdis-MacBook-Pro:~ mercedesk$ cd $GOPATH/src/github.com/hyperledger/fabric/devenv
+Mahdis-MacBook-Pro:devenv mercedesk$ vagrant ssh
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-59-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Mon Apr  3 16:58:32 2017 from 10.0.2.2
+vagrant@hyperledger-devenv:v0.3.0-d778d0a:/opt/gopath/src/github.com/hyperledger/fabric$ cd examples/e2e_cli
+vagrant@hyperledger-devenv:v0.3.0-d778d0a:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ ./generateCfgTrx.sh mskcc
+Channel name - mskcc
+
+Building configtxgen
+build/bin/configtxgen
+CGO_CFLAGS=" " GOBIN=/opt/gopath/src/github.com/hyperledger/fabric/build/bin go install -tags "nopkcs11" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-d778d0a -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+Binary available as build/bin/configtxgen
+Generating genesis block
+2017/04/03 17:40:22 Loading configuration
+2017/04/03 17:40:22 Looking for configtx.yaml in: /opt/gopath/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/03 17:40:22 Found configtx.yaml there
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Generating genesis block
+2017/04/03 17:40:22 Writing genesis block
+Generating channel configuration transaction
+2017/04/03 17:40:22 Loading configuration
+2017/04/03 17:40:22 Looking for configtx.yaml in: /opt/gopath/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/03 17:40:22 Found configtx.yaml there
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Checking for MSPDir at: .
+2017/04/03 17:40:22 Generating new channel configtx
+2017/04/03 17:40:22 Creating no-op MSP instance
+2017/04/03 17:40:22 Obtaining default signing identity
+2017/04/03 17:40:22 Creating no-op signing identity instance
+2017/04/03 17:40:22 Serialinzing identity
+2017/04/03 17:40:22 signing message
+2017/04/03 17:40:22 signing message
+2017/04/03 17:40:22 Writing new channel tx
+vagrant@hyperledger-devenv:v0.3.0-d778d0a:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ ./network_setup.sh up mskcc
+Channel name - mskcc
+
+Building configtxgen
+build/bin/configtxgen
+CGO_CFLAGS=" " GOBIN=/opt/gopath/src/github.com/hyperledger/fabric/build/bin go install -tags "nopkcs11" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-d778d0a -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+Binary available as build/bin/configtxgen
+Generating genesis block
+2017/04/03 17:40:46 Loading configuration
+2017/04/03 17:40:46 Looking for configtx.yaml in: /opt/gopath/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/03 17:40:46 Found configtx.yaml there
+2017/04/03 17:40:46 Checking for MSPDir at: .
+2017/04/03 17:40:46 Checking for MSPDir at: .
+2017/04/03 17:40:46 Checking for MSPDir at: .
+2017/04/03 17:40:46 Generating genesis block
+2017/04/03 17:40:46 Writing genesis block
+Generating channel configuration transaction
+2017/04/03 17:40:46 Loading configuration
+2017/04/03 17:40:46 Looking for configtx.yaml in: /opt/gopath/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/03 17:40:46 Found configtx.yaml there
+2017/04/03 17:40:46 Checking for MSPDir at: .
+2017/04/03 17:40:47 Checking for MSPDir at: .
+2017/04/03 17:40:47 Checking for MSPDir at: .
+2017/04/03 17:40:47 Generating new channel configtx
+2017/04/03 17:40:47 Creating no-op MSP instance
+2017/04/03 17:40:47 Obtaining default signing identity
+2017/04/03 17:40:47 Creating no-op signing identity instance
+2017/04/03 17:40:47 Serialinzing identity
+2017/04/03 17:40:47 signing message
+2017/04/03 17:40:47 signing message
+2017/04/03 17:40:47 Writing new channel tx
+orderer0 is up-to-date
+couchdb1 is up-to-date
+couchdb2 is up-to-date
+couchdb3 is up-to-date
+couchdb0 is up-to-date
+peer0 is up-to-date
+peer1 is up-to-date
+peer2 is up-to-date
+peer3 is up-to-date
+cli is up-to-date
+2017-04-03 17:22:07.532 UTC [ledgermgmt] initialize -> INFO 001 Initializing ledger mgmt
+2017-04-03 17:22:07.532 UTC [kvledger] NewProvider -> INFO 002 Initializing ledger provider
+2017-04-03 17:22:07.532 UTC [kvledger.util] CreateDirIfMissing -> DEBU 003 CreateDirIfMissing [/var/hyperledger/production/ledgersData/ledgerProvider/]
+2017-04-03 17:22:07.533 UTC [kvledger.util] logDirStatus -> DEBU 004 Before creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] does not exist
+2017-04-03 17:22:07.533 UTC [kvledger.util] logDirStatus -> DEBU 005 After creating dir - [/var/hyperledger/production/ledgersData/ledgerProvider/] exists
+2017-04-03 17:22:07.539 UTC [kvledger.util] CreateDirIfMissing -> DEBU 006 CreateDirIfMissing [/var/hyperledger/production/ledgersData/chains/index/]
+2017-04-03 17:22:07.539 UTC [kvledger.util] logDirStatus -> DEBU 007 Before creating dir - [/var/hyperledger/production/ledgersData/chains/index/] does not exist
+2017-04-03 17:22:07.539 UTC [kvledger.util] logDirStatus -> DEBU 008 After creating dir - [/var/hyperledger/production/ledgersData/chains/index/] exists
+2017-04-03 17:22:07.545 UTC [kvledger] NewProvider -> DEBU 009 Constructing leveldb VersionedDBProvider
+2017-04-03 17:22:07.546 UTC [stateleveldb] NewVersionedDBProvider -> DEBU 00a constructing VersionedDBProvider dbPath=/var/hyperledger/production/ledgersData/stateLeveldb
+2017-04-03 17:22:07.546 UTC [kvledger.util] CreateDirIfMissing -> DEBU 00b CreateDirIfMissing [/var/hyperledger/production/ledgersData/stateLeveldb/]
+2017-04-03 17:22:07.547 UTC [kvledger.util] logDirStatus -> DEBU 00c Before creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] does not exist
+2017-04-03 17:22:07.547 UTC [kvledger.util] logDirStatus -> DEBU 00d After creating dir - [/var/hyperledger/production/ledgersData/stateLeveldb/] exists
+2017-04-03 17:22:07.552 UTC [historyleveldb] NewHistoryDBProvider -> DEBU 00e constructing HistoryDBProvider dbPath=/var/hyperledger/production/ledgersData/historyLeveldb
+2017-04-03 17:22:07.552 UTC [kvledger.util] CreateDirIfMissing -> DEBU 00f CreateDirIfMissing [/var/hyperledger/production/ledgersData/historyLeveldb/]
+2017-04-03 17:22:07.552 UTC [kvledger.util] logDirStatus -> DEBU 010 Before creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] does not exist
+2017-04-03 17:22:07.555 UTC [kvledger.util] logDirStatus -> DEBU 011 After creating dir - [/var/hyperledger/production/ledgersData/historyLeveldb/] exists
+2017-04-03 17:22:07.558 UTC [kvledger] NewProvider -> INFO 012 ledger provider Initialized
+2017-04-03 17:22:07.558 UTC [kvledger] recoverUnderConstructionLedger -> DEBU 013 Recovering under construction ledger
+2017-04-03 17:22:07.559 UTC [kvledger] recoverUnderConstructionLedger -> DEBU 014 No under construction ledger found. Quitting recovery
+2017-04-03 17:22:07.559 UTC [ledgermgmt] initialize -> INFO 015 ledger mgmt initialized
+2017-04-03 17:22:07.559 UTC [peer] func1 -> INFO 016 Auto detected peer address: 172.18.0.11:7051
+2017-04-03 17:22:07.559 UTC [peer] func1 -> INFO 017 Auto detected peer address: 172.18.0.11:7051
+2017-04-03 17:22:07.564 UTC [nodeCmd] serve -> INFO 018 Starting peer with TLS enabled
+2017-04-03 17:22:07.565 UTC [eventhub_producer] AddEventType -> DEBU 019 registering BLOCK
+2017-04-03 17:22:07.565 UTC [eventhub_producer] AddEventType -> DEBU 01a registering CHAINCODE
+2017-04-03 17:22:07.565 UTC [eventhub_producer] AddEventType -> DEBU 01b registering REJECTION
+2017-04-03 17:22:07.566 UTC [eventhub_producer] AddEventType -> DEBU 01c registering REGISTER
+2017-04-03 17:22:07.566 UTC [chaincode] NewChaincodeSupport -> INFO 01d Chaincode support using peerAddress: 172.18.0.11:7051
+2017-04-03 17:22:07.567 UTC [chaincode] NewChaincodeSupport -> DEBU 01e Turn off keepalive(value 0)
+2017-04-03 17:22:07.567 UTC [chaincode] NewChaincodeSupport -> DEBU 01f Setting execute timeout value to 30000 ms
+2017-04-03 17:22:07.569 UTC [sysccapi] RegisterSysCC -> INFO 020 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+2017-04-03 17:22:07.569 UTC [sysccapi] RegisterSysCC -> INFO 021 system chaincode lccc(github.com/hyperledger/fabric/core/scc/lccc) registered
+2017-04-03 17:22:07.570 UTC [eventhub_producer] start -> INFO 022 event processor started
+2017-04-03 17:22:07.571 UTC [sysccapi] RegisterSysCC -> INFO 023 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+2017-04-03 17:22:07.572 UTC [sysccapi] RegisterSysCC -> INFO 024 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+2017-04-03 17:22:07.572 UTC [sysccapi] RegisterSysCC -> INFO 025 system chaincode qscc(github.com/hyperledger/fabric/core/chaincode/qscc) registered
+2017-04-03 17:22:07.572 UTC [nodeCmd] serve -> DEBU 026 Running peer
+2017-04-03 17:22:07.572 UTC [msp] GetLocalMSP -> DEBU 027 Returning existing local MSP
+2017-04-03 17:22:07.572 UTC [msp] GetDefaultSigningIdentity -> DEBU 028 Obtaining default signing identity
+2017-04-03 17:22:07.572 UTC [gossip/service] func1 -> INFO 029 Initialize gossip with endpoint 172.18.0.11:7051 and bootstrap set [127.0.0.1:7051]
+2017-04-03 17:22:07.577 UTC [msp] GetLocalMSP -> DEBU 02a Returning existing local MSP
+2017-04-03 17:22:07.577 UTC [msp] DeserializeIdentity -> INFO 02b Obtaining identity
+2017-04-03 17:22:07.577 UTC [msp] newIdentity -> DEBU 02c Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.577 UTC [msp] GetLocalMSP -> DEBU 02d Returning existing local MSP
+2017-04-03 17:22:07.577 UTC [msp] Validate -> DEBU 02e MSP Org0MSP validating identity
+2017-04-03 17:22:07.584 UTC [msp] GetLocalMSP -> DEBU 02f Returning existing local MSP
+2017-04-03 17:22:07.585 UTC [msp] DeserializeIdentity -> INFO 030 Obtaining identity
+2017-04-03 17:22:07.586 UTC [msp] newIdentity -> DEBU 031 Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.587 UTC [msp] GetLocalMSP -> DEBU 032 Returning existing local MSP
+2017-04-03 17:22:07.587 UTC [msp] Validate -> DEBU 033 MSP Org0MSP validating identity
+2017-04-03 17:22:07.589 UTC [msp] GetLocalMSP -> DEBU 034 Returning existing local MSP
+2017-04-03 17:22:07.590 UTC [msp] DeserializeIdentity -> INFO 035 Obtaining identity
+2017-04-03 17:22:07.591 UTC [msp] newIdentity -> DEBU 036 Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.591 UTC [gossip/discovery#172.18.0.11:7051] NewDiscoveryService -> INFO 037 Started { [] [63 59 141 175 35 93 196 235 73 110 50 138 97 20 187 49 1 85 185 50 14 201 201 248 23 221 205 174 224 120 125 238] 172.18.0.11:7051} incTime is 1491240127591447906
+2017-04-03 17:22:07.596 UTC [gossip/gossip#172.18.0.11:7051] NewGossipService -> INFO 03a Creating gossip service with self membership of { [] [63 59 141 175 35 93 196 235 73 110 50 138 97 20 187 49 1 85 185 50 14 201 201 248 23 221 205 174 224 120 125 238] 172.18.0.11:7051}
+2017-04-03 17:22:07.592 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 038 Sleeping 5s
+2017-04-03 17:22:07.596 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 039 Sleeping 25s
+2017-04-03 17:22:07.597 UTC [gossip/discovery#172.18.0.11:7051] connect2BootstrapPeers -> INFO 03b Entering: [127.0.0.1:7051]
+2017-04-03 17:22:07.601 UTC [gossip/discovery#172.18.0.11:7051] connect2BootstrapPeers -> INFO 03c Exiting
+2017-04-03 17:22:07.601 UTC [msp] GetLocalMSP -> DEBU 03d Returning existing local MSP
+2017-04-03 17:22:07.601 UTC [msp] DeserializeIdentity -> INFO 03e Obtaining identity
+2017-04-03 17:22:07.601 UTC [msp] newIdentity -> DEBU 03f Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.602 UTC [msp] GetLocalMSP -> DEBU 040 Returning existing local MSP
+2017-04-03 17:22:07.602 UTC [msp] Validate -> DEBU 041 MSP Org0MSP validating identity
+2017-04-03 17:22:07.602 UTC [msp] GetLocalMSP -> DEBU 042 Returning existing local MSP
+2017-04-03 17:22:07.603 UTC [msp] DeserializeIdentity -> INFO 043 Obtaining identity
+2017-04-03 17:22:07.603 UTC [msp] newIdentity -> DEBU 044 Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.603 UTC [msp] GetLocalMSP -> DEBU 045 Returning existing local MSP
+2017-04-03 17:22:07.604 UTC [msp] Validate -> DEBU 046 MSP Org0MSP validating identity
+2017-04-03 17:22:07.604 UTC [msp] GetLocalMSP -> DEBU 047 Returning existing local MSP
+2017-04-03 17:22:07.607 UTC [msp] GetDefaultSigningIdentity -> DEBU 048 Obtaining default signing identity
+2017-04-03 17:22:07.607 UTC [msp] Sign -> DEBU 049 Sign: plaintext: 1801AA01B9040A203F3B8DAF235DC4EB...0A2D2D2D2D2D454E44202D2D2D2D2D0A 
+2017-04-03 17:22:07.607 UTC [msp] Sign -> DEBU 04a Sign: digest: AC8B8A31BD8D2D5D879E2A93E67B5C0E4B1638CB5EAAFC51F3EE5F1F16476397 
+2017-04-03 17:22:07.607 UTC [gossip/gossip#172.18.0.11:7051] NewGossipService -> WARN 04b External endpoint is empty, peer will not be accessible outside of its organization
+2017-04-03 17:22:07.607 UTC [ccprovider] NewCCContext -> DEBU 04c NewCCCC (chain=,chaincode=cscc,version=1.0.0-snapshot-d778d0a,txid=59233f2a-679e-42f8-9600-306069f59ce6,syscc=true,proposal=0x0,canname=cscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.607 UTC [chaincode] getArgsAndEnv -> DEBU 04f Executable is chaincode
+2017-04-03 17:22:07.607 UTC [chaincode] getArgsAndEnv -> DEBU 050 Args [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.607 UTC [chaincode] launchAndWaitForRegister -> DEBU 051 start container: cscc:1.0.0-snapshot-d778d0a(networkid:dev,peerid:cli)
+2017-04-03 17:22:07.607 UTC [chaincode] launchAndWaitForRegister -> DEBU 052 start container with args: chaincode -peer.address=172.18.0.11:7051
+2017-04-03 17:22:07.608 UTC [chaincode] launchAndWaitForRegister -> DEBU 053 start container with env:
+	CORE_CHAINCODE_ID_NAME=cscc:1.0.0-snapshot-d778d0a
+	CORE_PEER_TLS_ENABLED=true
+	CORE_CHAINCODE_LOGLEVEL=WARNING
+	CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-04-03 17:22:07.608 UTC [container] lockContainer -> DEBU 054 waiting for container(cscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.608 UTC [container] lockContainer -> DEBU 055 got container (cscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.608 UTC [inproccontroller] getInstance -> DEBU 056 chaincode instance created for cscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.607 UTC [gossip/gossip#172.18.0.11:7051] syncDiscovery -> DEBU 04e Entering discovery sync with interval 4s
+2017-04-03 17:22:07.609 UTC [msp] GetLocalMSP -> DEBU 057 Returning existing local MSP
+2017-04-03 17:22:07.609 UTC [msp] GetDefaultSigningIdentity -> DEBU 058 Obtaining default signing identity
+2017-04-03 17:22:07.609 UTC [msp] Sign -> DEBU 059 Sign: plaintext: 18012AC9040A221A203F3B8DAF235DC4...0A2D2D2D2D2D454E44202D2D2D2D2D0A 
+2017-04-03 17:22:07.609 UTC [msp] Sign -> DEBU 05a Sign: digest: 5BE630036FF501E41F7E456A66A3259E60540D329CDCB6DC1CD76BF48C004156 
+2017-04-03 17:22:07.609 UTC [msp] GetLocalMSP -> DEBU 05b Returning existing local MSP
+2017-04-03 17:22:07.609 UTC [msp] GetDefaultSigningIdentity -> DEBU 05c Obtaining default signing identity
+2017-04-03 17:22:07.609 UTC [msp] Sign -> DEBU 05d Sign: plaintext: 0A103137322E31382E302E31313A37303531 
+2017-04-03 17:22:07.609 UTC [msp] Sign -> DEBU 05e Sign: digest: 7E1058FDB0C7EF482C7B73B58B261B09893D4A437FB8C0091E61C92BD8DFA247 
+2017-04-03 17:22:07.607 UTC [gossip/gossip#172.18.0.11:7051] start -> INFO 04d Gossip instance 172.18.0.11:7051 started
+2017-04-03 17:22:07.610 UTC [container] unlockContainer -> DEBU 05f container lock deleted(cscc-1.0.0-snapshot-d778d0a)
+2017-04-03 17:22:07.610 UTC [inproccontroller] func2 -> DEBU 060 chaincode-support started for  cscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.610 UTC [chaincode] HandleChaincodeStream -> DEBU 062 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-04-03 17:22:07.610 UTC [inproccontroller] func1 -> DEBU 061 chaincode started for cscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.610 UTC [shim] StartInProc -> DEBU 063 in proc [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.610 UTC [shim] StartInProc -> DEBU 064 starting chat with peer using name=cscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.610 UTC [shim] chatWithPeer -> DEBU 065 Registering.. sending REGISTER
+2017-04-03 17:22:07.610 UTC [chaincode] processStream -> DEBU 066 []Received message REGISTER from shim
+2017-04-03 17:22:07.610 UTC [chaincode] HandleMessage -> DEBU 067 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-04-03 17:22:07.610 UTC [chaincode] beforeRegisterEvent -> DEBU 068 Received REGISTER in state created
+2017-04-03 17:22:07.610 UTC [chaincode] registerHandler -> DEBU 069 registered handler complete for chaincode cscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.611 UTC [chaincode] beforeRegisterEvent -> DEBU 06a Got REGISTER for chaincodeID = name:"cscc:1.0.0-snapshot-d778d0a" , sending back REGISTERED
+2017-04-03 17:22:07.611 UTC [chaincode] notifyDuringStartup -> DEBU 06b Notifying during startup
+2017-04-03 17:22:07.611 UTC [shim] func1 -> DEBU 06c []Received message REGISTERED from shim
+2017-04-03 17:22:07.611 UTC [shim] handleMessage -> DEBU 06d []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-04-03 17:22:07.611 UTC [chaincode] ready -> DEBU 06f sending READY
+2017-04-03 17:22:07.611 UTC [chaincode] setChaincodeProposal -> DEBU 070 Setting chaincode proposal context...
+2017-04-03 17:22:07.611 UTC [chaincode] processStream -> DEBU 071 [59233f2a]Move state message READY
+2017-04-03 17:22:07.611 UTC [chaincode] HandleMessage -> DEBU 072 [59233f2a]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-04-03 17:22:07.611 UTC [chaincode] enterReadyState -> DEBU 073 [59233f2a]Entered state ready
+2017-04-03 17:22:07.611 UTC [chaincode] notify -> DEBU 074 notifying Txid:59233f2a-679e-42f8-9600-306069f59ce6
+2017-04-03 17:22:07.611 UTC [chaincode] processStream -> DEBU 075 [59233f2a]sending state message READY
+2017-04-03 17:22:07.611 UTC [chaincode] Launch -> DEBU 076 sending init completed
+2017-04-03 17:22:07.612 UTC [chaincode] Launch -> DEBU 077 LaunchChaincode complete
+2017-04-03 17:22:07.612 UTC [chaincode] sendExecuteMessage -> DEBU 078 [59233f2a]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:07.612 UTC [chaincode] setChaincodeProposal -> DEBU 079 Setting chaincode proposal context...
+2017-04-03 17:22:07.612 UTC [chaincode] sendExecuteMessage -> DEBU 07a [59233f2a]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:07.611 UTC [shim] beforeRegistered -> DEBU 06e Received REGISTERED, ready for invocations
+2017-04-03 17:22:07.612 UTC [shim] func1 -> DEBU 07b [59233f2a]Received message READY from shim
+2017-04-03 17:22:07.612 UTC [chaincode] processStream -> DEBU 07d [59233f2a]Move state message INIT
+2017-04-03 17:22:07.612 UTC [chaincode] HandleMessage -> DEBU 07e [59233f2a]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:07.612 UTC [chaincode] filterError -> DEBU 07f Ignoring NoTransitionError: no transition
+2017-04-03 17:22:07.612 UTC [chaincode] processStream -> DEBU 080 [59233f2a]sending state message INIT
+2017-04-03 17:22:07.612 UTC [shim] handleMessage -> DEBU 07c [59233f2a]Handling ChaincodeMessage of type: READY(state:established)
+2017-04-03 17:22:07.613 UTC [shim] func1 -> DEBU 081 [59233f2a]Received message INIT from shim
+2017-04-03 17:22:07.613 UTC [shim] handleMessage -> DEBU 082 [59233f2a]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:07.613 UTC [shim] beforeInit -> DEBU 083 Entered state ready
+2017-04-03 17:22:07.613 UTC [shim] beforeInit -> DEBU 084 [59233f2a]Received INIT, initializing chaincode
+2017-04-03 17:22:07.613 UTC [chaincode] Init -> INFO 085 Init CSCC
+2017-04-03 17:22:07.614 UTC [shim] func1 -> DEBU 086 [59233f2a]Init get response status: 200
+2017-04-03 17:22:07.614 UTC [shim] func1 -> DEBU 087 [59233f2a]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:07.614 UTC [shim] func1 -> DEBU 088 [59233f2a]Move state message COMPLETED
+2017-04-03 17:22:07.614 UTC [shim] handleMessage -> DEBU 089 [59233f2a]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:07.614 UTC [shim] func1 -> DEBU 08a [59233f2a]send state message COMPLETED
+2017-04-03 17:22:07.614 UTC [chaincode] processStream -> DEBU 08b [59233f2a]Received message COMPLETED from shim
+2017-04-03 17:22:07.614 UTC [chaincode] HandleMessage -> DEBU 08c [59233f2a]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:07.614 UTC [chaincode] HandleMessage -> DEBU 08d [59233f2a-679e-42f8-9600-306069f59ce6]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:07.614 UTC [chaincode] notify -> DEBU 08e notifying Txid:59233f2a-679e-42f8-9600-306069f59ce6
+2017-04-03 17:22:07.617 UTC [sysccapi] deploySysCC -> INFO 08f system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2017-04-03 17:22:07.620 UTC [ccprovider] NewCCContext -> DEBU 090 NewCCCC (chain=,chaincode=lccc,version=1.0.0-snapshot-d778d0a,txid=a0ba61b7-18cd-4ebb-89a7-26b0f7eed4df,syscc=true,proposal=0x0,canname=lccc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.620 UTC [chaincode] getArgsAndEnv -> DEBU 091 Executable is chaincode
+2017-04-03 17:22:07.620 UTC [chaincode] getArgsAndEnv -> DEBU 092 Args [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.620 UTC [chaincode] launchAndWaitForRegister -> DEBU 093 start container: lccc:1.0.0-snapshot-d778d0a(networkid:dev,peerid:cli)
+2017-04-03 17:22:07.620 UTC [chaincode] launchAndWaitForRegister -> DEBU 094 start container with args: chaincode -peer.address=172.18.0.11:7051
+2017-04-03 17:22:07.620 UTC [chaincode] launchAndWaitForRegister -> DEBU 095 start container with env:
+	CORE_CHAINCODE_ID_NAME=lccc:1.0.0-snapshot-d778d0a
+	CORE_PEER_TLS_ENABLED=true
+	CORE_CHAINCODE_LOGLEVEL=WARNING
+	CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-04-03 17:22:07.620 UTC [container] lockContainer -> DEBU 096 waiting for container(lccc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.622 UTC [container] lockContainer -> DEBU 097 got container (lccc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.622 UTC [inproccontroller] getInstance -> DEBU 098 chaincode instance created for lccc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.623 UTC [container] unlockContainer -> DEBU 099 container lock deleted(lccc-1.0.0-snapshot-d778d0a)
+2017-04-03 17:22:07.623 UTC [inproccontroller] func2 -> DEBU 09a chaincode-support started for  lccc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.627 UTC [chaincode] HandleChaincodeStream -> DEBU 09b Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-04-03 17:22:07.627 UTC [inproccontroller] func1 -> DEBU 09c chaincode started for lccc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.628 UTC [shim] StartInProc -> DEBU 09d in proc [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.628 UTC [shim] StartInProc -> DEBU 09e starting chat with peer using name=lccc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.628 UTC [shim] chatWithPeer -> DEBU 09f Registering.. sending REGISTER
+2017-04-03 17:22:07.628 UTC [chaincode] processStream -> DEBU 0a0 []Received message REGISTER from shim
+2017-04-03 17:22:07.628 UTC [chaincode] HandleMessage -> DEBU 0a1 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-04-03 17:22:07.628 UTC [chaincode] beforeRegisterEvent -> DEBU 0a2 Received REGISTER in state created
+2017-04-03 17:22:07.628 UTC [chaincode] registerHandler -> DEBU 0a3 registered handler complete for chaincode lccc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.628 UTC [chaincode] beforeRegisterEvent -> DEBU 0a4 Got REGISTER for chaincodeID = name:"lccc:1.0.0-snapshot-d778d0a" , sending back REGISTERED
+2017-04-03 17:22:07.628 UTC [chaincode] notifyDuringStartup -> DEBU 0a5 Notifying during startup
+2017-04-03 17:22:07.628 UTC [shim] func1 -> DEBU 0a6 []Received message REGISTERED from shim
+2017-04-03 17:22:07.628 UTC [shim] handleMessage -> DEBU 0a7 []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-04-03 17:22:07.628 UTC [shim] beforeRegistered -> DEBU 0a8 Received REGISTERED, ready for invocations
+2017-04-03 17:22:07.628 UTC [chaincode] ready -> DEBU 0a9 sending READY
+2017-04-03 17:22:07.628 UTC [chaincode] setChaincodeProposal -> DEBU 0aa Setting chaincode proposal context...
+2017-04-03 17:22:07.629 UTC [chaincode] processStream -> DEBU 0ab [a0ba61b7]Move state message READY
+2017-04-03 17:22:07.630 UTC [chaincode] HandleMessage -> DEBU 0ac [a0ba61b7]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-04-03 17:22:07.630 UTC [chaincode] enterReadyState -> DEBU 0ad [a0ba61b7]Entered state ready
+2017-04-03 17:22:07.630 UTC [chaincode] notify -> DEBU 0ae notifying Txid:a0ba61b7-18cd-4ebb-89a7-26b0f7eed4df
+2017-04-03 17:22:07.630 UTC [chaincode] processStream -> DEBU 0af [a0ba61b7]sending state message READY
+2017-04-03 17:22:07.630 UTC [shim] func1 -> DEBU 0b0 [a0ba61b7]Received message READY from shim
+2017-04-03 17:22:07.630 UTC [shim] handleMessage -> DEBU 0b1 [a0ba61b7]Handling ChaincodeMessage of type: READY(state:established)
+2017-04-03 17:22:07.630 UTC [chaincode] Launch -> DEBU 0b2 sending init completed
+2017-04-03 17:22:07.630 UTC [chaincode] Launch -> DEBU 0b3 LaunchChaincode complete
+2017-04-03 17:22:07.630 UTC [chaincode] sendExecuteMessage -> DEBU 0b4 [a0ba61b7]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:07.630 UTC [chaincode] setChaincodeProposal -> DEBU 0b5 Setting chaincode proposal context...
+2017-04-03 17:22:07.630 UTC [chaincode] sendExecuteMessage -> DEBU 0b6 [a0ba61b7]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:07.635 UTC [chaincode] processStream -> DEBU 0b7 [a0ba61b7]Move state message INIT
+2017-04-03 17:22:07.635 UTC [chaincode] HandleMessage -> DEBU 0b8 [a0ba61b7]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:07.635 UTC [chaincode] filterError -> DEBU 0b9 Ignoring NoTransitionError: no transition
+2017-04-03 17:22:07.635 UTC [chaincode] processStream -> DEBU 0ba [a0ba61b7]sending state message INIT
+2017-04-03 17:22:07.635 UTC [shim] func1 -> DEBU 0bb [a0ba61b7]Received message INIT from shim
+2017-04-03 17:22:07.636 UTC [shim] handleMessage -> DEBU 0bc [a0ba61b7]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:07.637 UTC [shim] beforeInit -> DEBU 0bd Entered state ready
+2017-04-03 17:22:07.637 UTC [shim] beforeInit -> DEBU 0be [a0ba61b7]Received INIT, initializing chaincode
+2017-04-03 17:22:07.637 UTC [shim] func1 -> DEBU 0bf [a0ba61b7]Init get response status: 200
+2017-04-03 17:22:07.637 UTC [shim] func1 -> DEBU 0c0 [a0ba61b7]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:07.637 UTC [shim] func1 -> DEBU 0c1 [a0ba61b7]Move state message COMPLETED
+2017-04-03 17:22:07.637 UTC [shim] handleMessage -> DEBU 0c2 [a0ba61b7]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:07.637 UTC [shim] func1 -> DEBU 0c3 [a0ba61b7]send state message COMPLETED
+2017-04-03 17:22:07.638 UTC [chaincode] processStream -> DEBU 0c4 [a0ba61b7]Received message COMPLETED from shim
+2017-04-03 17:22:07.638 UTC [chaincode] HandleMessage -> DEBU 0c5 [a0ba61b7]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:07.638 UTC [chaincode] HandleMessage -> DEBU 0c6 [a0ba61b7-18cd-4ebb-89a7-26b0f7eed4df]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:07.638 UTC [chaincode] notify -> DEBU 0c7 notifying Txid:a0ba61b7-18cd-4ebb-89a7-26b0f7eed4df
+2017-04-03 17:22:07.638 UTC [sysccapi] deploySysCC -> INFO 0c8 system chaincode lccc/(github.com/hyperledger/fabric/core/scc/lccc) deployed
+2017-04-03 17:22:07.638 UTC [ccprovider] NewCCContext -> DEBU 0c9 NewCCCC (chain=,chaincode=escc,version=1.0.0-snapshot-d778d0a,txid=a5a1c21b-d9ef-4b8a-8dd8-9203868af9c1,syscc=true,proposal=0x0,canname=escc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.638 UTC [chaincode] getArgsAndEnv -> DEBU 0ca Executable is chaincode
+2017-04-03 17:22:07.639 UTC [chaincode] getArgsAndEnv -> DEBU 0cb Args [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.639 UTC [chaincode] launchAndWaitForRegister -> DEBU 0cc start container: escc:1.0.0-snapshot-d778d0a(networkid:dev,peerid:cli)
+2017-04-03 17:22:07.639 UTC [chaincode] launchAndWaitForRegister -> DEBU 0cd start container with args: chaincode -peer.address=172.18.0.11:7051
+2017-04-03 17:22:07.639 UTC [chaincode] launchAndWaitForRegister -> DEBU 0ce start container with env:
+	CORE_CHAINCODE_ID_NAME=escc:1.0.0-snapshot-d778d0a
+	CORE_PEER_TLS_ENABLED=true
+	CORE_CHAINCODE_LOGLEVEL=WARNING
+	CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-04-03 17:22:07.640 UTC [container] lockContainer -> DEBU 0cf waiting for container(escc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.640 UTC [container] lockContainer -> DEBU 0d0 got container (escc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.640 UTC [inproccontroller] getInstance -> DEBU 0d1 chaincode instance created for escc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.640 UTC [container] unlockContainer -> DEBU 0d2 container lock deleted(escc-1.0.0-snapshot-d778d0a)
+2017-04-03 17:22:07.640 UTC [inproccontroller] func2 -> DEBU 0d3 chaincode-support started for  escc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.640 UTC [chaincode] HandleChaincodeStream -> DEBU 0d4 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-04-03 17:22:07.640 UTC [inproccontroller] func1 -> DEBU 0d5 chaincode started for escc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.640 UTC [shim] StartInProc -> DEBU 0d6 in proc [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.640 UTC [shim] StartInProc -> DEBU 0d7 starting chat with peer using name=escc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.640 UTC [shim] chatWithPeer -> DEBU 0d8 Registering.. sending REGISTER
+2017-04-03 17:22:07.641 UTC [chaincode] processStream -> DEBU 0d9 []Received message REGISTER from shim
+2017-04-03 17:22:07.642 UTC [chaincode] HandleMessage -> DEBU 0da []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-04-03 17:22:07.642 UTC [chaincode] beforeRegisterEvent -> DEBU 0db Received REGISTER in state created
+2017-04-03 17:22:07.642 UTC [chaincode] registerHandler -> DEBU 0dc registered handler complete for chaincode escc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.642 UTC [chaincode] beforeRegisterEvent -> DEBU 0dd Got REGISTER for chaincodeID = name:"escc:1.0.0-snapshot-d778d0a" , sending back REGISTERED
+2017-04-03 17:22:07.642 UTC [chaincode] notifyDuringStartup -> DEBU 0de Notifying during startup
+2017-04-03 17:22:07.642 UTC [chaincode] ready -> DEBU 0df sending READY
+2017-04-03 17:22:07.642 UTC [chaincode] setChaincodeProposal -> DEBU 0e0 Setting chaincode proposal context...
+2017-04-03 17:22:07.643 UTC [chaincode] processStream -> DEBU 0e1 [a5a1c21b]Move state message READY
+2017-04-03 17:22:07.643 UTC [chaincode] HandleMessage -> DEBU 0e2 [a5a1c21b]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-04-03 17:22:07.643 UTC [chaincode] enterReadyState -> DEBU 0e3 [a5a1c21b]Entered state ready
+2017-04-03 17:22:07.643 UTC [chaincode] notify -> DEBU 0e4 notifying Txid:a5a1c21b-d9ef-4b8a-8dd8-9203868af9c1
+2017-04-03 17:22:07.643 UTC [chaincode] processStream -> DEBU 0e5 [a5a1c21b]sending state message READY
+2017-04-03 17:22:07.643 UTC [chaincode] Launch -> DEBU 0e6 sending init completed
+2017-04-03 17:22:07.643 UTC [chaincode] Launch -> DEBU 0e7 LaunchChaincode complete
+2017-04-03 17:22:07.643 UTC [chaincode] sendExecuteMessage -> DEBU 0e8 [a5a1c21b]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:07.643 UTC [chaincode] setChaincodeProposal -> DEBU 0e9 Setting chaincode proposal context...
+2017-04-03 17:22:07.643 UTC [chaincode] sendExecuteMessage -> DEBU 0ea [a5a1c21b]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:07.644 UTC [shim] func1 -> DEBU 0eb []Received message REGISTERED from shim
+2017-04-03 17:22:07.644 UTC [shim] handleMessage -> DEBU 0ec []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-04-03 17:22:07.644 UTC [shim] beforeRegistered -> DEBU 0ed Received REGISTERED, ready for invocations
+2017-04-03 17:22:07.645 UTC [shim] func1 -> DEBU 0ee [a5a1c21b]Received message READY from shim
+2017-04-03 17:22:07.645 UTC [shim] handleMessage -> DEBU 0ef [a5a1c21b]Handling ChaincodeMessage of type: READY(state:established)
+2017-04-03 17:22:07.645 UTC [chaincode] processStream -> DEBU 0f0 [a5a1c21b]Move state message INIT
+2017-04-03 17:22:07.645 UTC [chaincode] HandleMessage -> DEBU 0f1 [a5a1c21b]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:07.645 UTC [chaincode] filterError -> DEBU 0f2 Ignoring NoTransitionError: no transition
+2017-04-03 17:22:07.646 UTC [chaincode] processStream -> DEBU 0f3 [a5a1c21b]sending state message INIT
+2017-04-03 17:22:07.646 UTC [shim] func1 -> DEBU 0f4 [a5a1c21b]Received message INIT from shim
+2017-04-03 17:22:07.646 UTC [shim] handleMessage -> DEBU 0f5 [a5a1c21b]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:07.646 UTC [shim] beforeInit -> DEBU 0f6 Entered state ready
+2017-04-03 17:22:07.646 UTC [shim] beforeInit -> DEBU 0f7 [a5a1c21b]Received INIT, initializing chaincode
+2017-04-03 17:22:07.647 UTC [escc] Init -> INFO 0f8 Successfully initialized ESCC
+2017-04-03 17:22:07.647 UTC [shim] func1 -> DEBU 0f9 [a5a1c21b]Init get response status: 200
+2017-04-03 17:22:07.647 UTC [shim] func1 -> DEBU 0fa [a5a1c21b]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:07.648 UTC [shim] func1 -> DEBU 0fb [a5a1c21b]Move state message COMPLETED
+2017-04-03 17:22:07.648 UTC [shim] handleMessage -> DEBU 0fc [a5a1c21b]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:07.648 UTC [shim] func1 -> DEBU 0fd [a5a1c21b]send state message COMPLETED
+2017-04-03 17:22:07.648 UTC [chaincode] processStream -> DEBU 0fe [a5a1c21b]Received message COMPLETED from shim
+2017-04-03 17:22:07.648 UTC [chaincode] HandleMessage -> DEBU 0ff [a5a1c21b]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:07.648 UTC [chaincode] HandleMessage -> DEBU 100 [a5a1c21b-d9ef-4b8a-8dd8-9203868af9c1]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:07.648 UTC [chaincode] notify -> DEBU 101 notifying Txid:a5a1c21b-d9ef-4b8a-8dd8-9203868af9c1
+2017-04-03 17:22:07.648 UTC [sysccapi] deploySysCC -> INFO 102 system chaincode escc/(github.com/hyperledger/fabric/core/scc/escc) deployed
+2017-04-03 17:22:07.649 UTC [ccprovider] NewCCContext -> DEBU 103 NewCCCC (chain=,chaincode=vscc,version=1.0.0-snapshot-d778d0a,txid=8044918c-0f3d-4888-81fa-ec9370bc4ddc,syscc=true,proposal=0x0,canname=vscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.650 UTC [chaincode] getArgsAndEnv -> DEBU 104 Executable is chaincode
+2017-04-03 17:22:07.650 UTC [chaincode] getArgsAndEnv -> DEBU 105 Args [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.650 UTC [chaincode] launchAndWaitForRegister -> DEBU 106 start container: vscc:1.0.0-snapshot-d778d0a(networkid:dev,peerid:cli)
+2017-04-03 17:22:07.650 UTC [chaincode] launchAndWaitForRegister -> DEBU 107 start container with args: chaincode -peer.address=172.18.0.11:7051
+2017-04-03 17:22:07.650 UTC [chaincode] launchAndWaitForRegister -> DEBU 108 start container with env:
+	CORE_CHAINCODE_ID_NAME=vscc:1.0.0-snapshot-d778d0a
+	CORE_PEER_TLS_ENABLED=true
+	CORE_CHAINCODE_LOGLEVEL=WARNING
+	CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-04-03 17:22:07.650 UTC [container] lockContainer -> DEBU 109 waiting for container(vscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.651 UTC [container] lockContainer -> DEBU 10a got container (vscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.651 UTC [inproccontroller] getInstance -> DEBU 10b chaincode instance created for vscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.652 UTC [container] unlockContainer -> DEBU 10c container lock deleted(vscc-1.0.0-snapshot-d778d0a)
+2017-04-03 17:22:07.652 UTC [inproccontroller] func2 -> DEBU 10d chaincode-support started for  vscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.652 UTC [chaincode] HandleChaincodeStream -> DEBU 10e Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-04-03 17:22:07.652 UTC [inproccontroller] func1 -> DEBU 10f chaincode started for vscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.652 UTC [shim] StartInProc -> DEBU 110 in proc [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.652 UTC [shim] StartInProc -> DEBU 111 starting chat with peer using name=vscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.653 UTC [shim] chatWithPeer -> DEBU 112 Registering.. sending REGISTER
+2017-04-03 17:22:07.653 UTC [chaincode] processStream -> DEBU 113 []Received message REGISTER from shim
+2017-04-03 17:22:07.653 UTC [chaincode] HandleMessage -> DEBU 114 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-04-03 17:22:07.654 UTC [chaincode] beforeRegisterEvent -> DEBU 115 Received REGISTER in state created
+2017-04-03 17:22:07.654 UTC [chaincode] registerHandler -> DEBU 116 registered handler complete for chaincode vscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.654 UTC [chaincode] beforeRegisterEvent -> DEBU 117 Got REGISTER for chaincodeID = name:"vscc:1.0.0-snapshot-d778d0a" , sending back REGISTERED
+2017-04-03 17:22:07.654 UTC [chaincode] notifyDuringStartup -> DEBU 118 Notifying during startup
+2017-04-03 17:22:07.654 UTC [shim] func1 -> DEBU 119 []Received message REGISTERED from shim
+2017-04-03 17:22:07.654 UTC [shim] handleMessage -> DEBU 11a []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-04-03 17:22:07.654 UTC [shim] beforeRegistered -> DEBU 11b Received REGISTERED, ready for invocations
+2017-04-03 17:22:07.654 UTC [chaincode] ready -> DEBU 11c sending READY
+2017-04-03 17:22:07.654 UTC [chaincode] setChaincodeProposal -> DEBU 11d Setting chaincode proposal context...
+2017-04-03 17:22:07.654 UTC [chaincode] processStream -> DEBU 11e [8044918c]Move state message READY
+2017-04-03 17:22:07.654 UTC [chaincode] HandleMessage -> DEBU 11f [8044918c]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-04-03 17:22:07.656 UTC [chaincode] enterReadyState -> DEBU 120 [8044918c]Entered state ready
+2017-04-03 17:22:07.656 UTC [chaincode] notify -> DEBU 121 notifying Txid:8044918c-0f3d-4888-81fa-ec9370bc4ddc
+2017-04-03 17:22:07.656 UTC [chaincode] processStream -> DEBU 122 [8044918c]sending state message READY
+2017-04-03 17:22:07.656 UTC [shim] func1 -> DEBU 123 [8044918c]Received message READY from shim
+2017-04-03 17:22:07.656 UTC [shim] handleMessage -> DEBU 125 [8044918c]Handling ChaincodeMessage of type: READY(state:established)
+2017-04-03 17:22:07.656 UTC [chaincode] Launch -> DEBU 124 sending init completed
+2017-04-03 17:22:07.657 UTC [chaincode] Launch -> DEBU 126 LaunchChaincode complete
+2017-04-03 17:22:07.657 UTC [chaincode] sendExecuteMessage -> DEBU 127 [8044918c]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:07.657 UTC [chaincode] setChaincodeProposal -> DEBU 128 Setting chaincode proposal context...
+2017-04-03 17:22:07.657 UTC [chaincode] sendExecuteMessage -> DEBU 129 [8044918c]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:07.657 UTC [chaincode] processStream -> DEBU 12a [8044918c]Move state message INIT
+2017-04-03 17:22:07.658 UTC [chaincode] HandleMessage -> DEBU 12b [8044918c]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:07.658 UTC [chaincode] filterError -> DEBU 12c Ignoring NoTransitionError: no transition
+2017-04-03 17:22:07.658 UTC [chaincode] processStream -> DEBU 12d [8044918c]sending state message INIT
+2017-04-03 17:22:07.658 UTC [shim] func1 -> DEBU 12e [8044918c]Received message INIT from shim
+2017-04-03 17:22:07.659 UTC [shim] handleMessage -> DEBU 12f [8044918c]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:07.659 UTC [shim] beforeInit -> DEBU 130 Entered state ready
+2017-04-03 17:22:07.659 UTC [shim] beforeInit -> DEBU 131 [8044918c]Received INIT, initializing chaincode
+2017-04-03 17:22:07.659 UTC [shim] func1 -> DEBU 132 [8044918c]Init get response status: 200
+2017-04-03 17:22:07.659 UTC [shim] func1 -> DEBU 133 [8044918c]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:07.659 UTC [shim] func1 -> DEBU 134 [8044918c]Move state message COMPLETED
+2017-04-03 17:22:07.660 UTC [shim] handleMessage -> DEBU 135 [8044918c]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:07.660 UTC [shim] func1 -> DEBU 136 [8044918c]send state message COMPLETED
+2017-04-03 17:22:07.660 UTC [chaincode] processStream -> DEBU 137 [8044918c]Received message COMPLETED from shim
+2017-04-03 17:22:07.660 UTC [chaincode] HandleMessage -> DEBU 138 [8044918c]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:07.661 UTC [chaincode] HandleMessage -> DEBU 139 [8044918c-0f3d-4888-81fa-ec9370bc4ddc]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:07.661 UTC [chaincode] notify -> DEBU 13a notifying Txid:8044918c-0f3d-4888-81fa-ec9370bc4ddc
+2017-04-03 17:22:07.661 UTC [sysccapi] deploySysCC -> INFO 13b system chaincode vscc/(github.com/hyperledger/fabric/core/scc/vscc) deployed
+2017-04-03 17:22:07.661 UTC [ccprovider] NewCCContext -> DEBU 13c NewCCCC (chain=,chaincode=qscc,version=1.0.0-snapshot-d778d0a,txid=d9cf12a7-6024-45b1-adda-8961f3a55aa0,syscc=true,proposal=0x0,canname=qscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.661 UTC [chaincode] getArgsAndEnv -> DEBU 13d Executable is chaincode
+2017-04-03 17:22:07.661 UTC [chaincode] getArgsAndEnv -> DEBU 13e Args [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.662 UTC [chaincode] launchAndWaitForRegister -> DEBU 13f start container: qscc:1.0.0-snapshot-d778d0a(networkid:dev,peerid:cli)
+2017-04-03 17:22:07.662 UTC [chaincode] launchAndWaitForRegister -> DEBU 140 start container with args: chaincode -peer.address=172.18.0.11:7051
+2017-04-03 17:22:07.662 UTC [chaincode] launchAndWaitForRegister -> DEBU 141 start container with env:
+	CORE_CHAINCODE_ID_NAME=qscc:1.0.0-snapshot-d778d0a
+	CORE_PEER_TLS_ENABLED=true
+	CORE_CHAINCODE_LOGLEVEL=WARNING
+	CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-04-03 17:22:07.662 UTC [container] lockContainer -> DEBU 142 waiting for container(qscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.662 UTC [container] lockContainer -> DEBU 143 got container (qscc-1.0.0-snapshot-d778d0a) lock
+2017-04-03 17:22:07.662 UTC [inproccontroller] getInstance -> DEBU 144 chaincode instance created for qscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.663 UTC [container] unlockContainer -> DEBU 145 container lock deleted(qscc-1.0.0-snapshot-d778d0a)
+2017-04-03 17:22:07.663 UTC [inproccontroller] func2 -> DEBU 146 chaincode-support started for  qscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.663 UTC [chaincode] HandleChaincodeStream -> DEBU 147 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-04-03 17:22:07.663 UTC [inproccontroller] func1 -> DEBU 148 chaincode started for qscc-1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.663 UTC [shim] StartInProc -> DEBU 149 in proc [chaincode -peer.address=172.18.0.11:7051]
+2017-04-03 17:22:07.663 UTC [shim] StartInProc -> DEBU 14a starting chat with peer using name=qscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.663 UTC [shim] chatWithPeer -> DEBU 14b Registering.. sending REGISTER
+2017-04-03 17:22:07.664 UTC [chaincode] processStream -> DEBU 14c []Received message REGISTER from shim
+2017-04-03 17:22:07.664 UTC [chaincode] HandleMessage -> DEBU 14d []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-04-03 17:22:07.664 UTC [chaincode] beforeRegisterEvent -> DEBU 14e Received REGISTER in state created
+2017-04-03 17:22:07.664 UTC [chaincode] registerHandler -> DEBU 14f registered handler complete for chaincode qscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:07.664 UTC [chaincode] beforeRegisterEvent -> DEBU 150 Got REGISTER for chaincodeID = name:"qscc:1.0.0-snapshot-d778d0a" , sending back REGISTERED
+2017-04-03 17:22:07.665 UTC [shim] func1 -> DEBU 152 []Received message REGISTERED from shim
+2017-04-03 17:22:07.665 UTC [shim] handleMessage -> DEBU 153 []Handling ChaincodeMessage of type: REGISTERED(state:created)
+2017-04-03 17:22:07.665 UTC [shim] beforeRegistered -> DEBU 154 Received REGISTERED, ready for invocations
+2017-04-03 17:22:07.664 UTC [chaincode] notifyDuringStartup -> DEBU 151 Notifying during startup
+2017-04-03 17:22:07.665 UTC [chaincode] ready -> DEBU 155 sending READY
+2017-04-03 17:22:07.665 UTC [chaincode] setChaincodeProposal -> DEBU 156 Setting chaincode proposal context...
+2017-04-03 17:22:07.665 UTC [chaincode] processStream -> DEBU 157 [d9cf12a7]Move state message READY
+2017-04-03 17:22:07.665 UTC [chaincode] HandleMessage -> DEBU 158 [d9cf12a7]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-04-03 17:22:07.665 UTC [chaincode] enterReadyState -> DEBU 159 [d9cf12a7]Entered state ready
+2017-04-03 17:22:07.665 UTC [chaincode] notify -> DEBU 15a notifying Txid:d9cf12a7-6024-45b1-adda-8961f3a55aa0
+2017-04-03 17:22:07.666 UTC [chaincode] processStream -> DEBU 15b [d9cf12a7]sending state message READY
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 15c [d9cf12a7]Received message READY from shim
+2017-04-03 17:22:07.666 UTC [shim] handleMessage -> DEBU 15d [d9cf12a7]Handling ChaincodeMessage of type: READY(state:established)
+2017-04-03 17:22:07.666 UTC [chaincode] Launch -> DEBU 15e sending init completed
+2017-04-03 17:22:07.666 UTC [chaincode] Launch -> DEBU 15f LaunchChaincode complete
+2017-04-03 17:22:07.666 UTC [chaincode] sendExecuteMessage -> DEBU 160 [d9cf12a7]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:07.666 UTC [chaincode] setChaincodeProposal -> DEBU 161 Setting chaincode proposal context...
+2017-04-03 17:22:07.666 UTC [chaincode] sendExecuteMessage -> DEBU 162 [d9cf12a7]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:07.666 UTC [chaincode] processStream -> DEBU 163 [d9cf12a7]Move state message INIT
+2017-04-03 17:22:07.666 UTC [chaincode] HandleMessage -> DEBU 164 [d9cf12a7]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:07.666 UTC [chaincode] filterError -> DEBU 165 Ignoring NoTransitionError: no transition
+2017-04-03 17:22:07.666 UTC [chaincode] processStream -> DEBU 166 [d9cf12a7]sending state message INIT
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 167 [d9cf12a7]Received message INIT from shim
+2017-04-03 17:22:07.666 UTC [shim] handleMessage -> DEBU 168 [d9cf12a7]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:07.666 UTC [shim] beforeInit -> DEBU 169 Entered state ready
+2017-04-03 17:22:07.666 UTC [shim] beforeInit -> DEBU 16a [d9cf12a7]Received INIT, initializing chaincode
+2017-04-03 17:22:07.666 UTC [qscc] Init -> INFO 16b Init QSCC
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 16c [d9cf12a7]Init get response status: 200
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 16d [d9cf12a7]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 16e [d9cf12a7]Move state message COMPLETED
+2017-04-03 17:22:07.666 UTC [shim] handleMessage -> DEBU 16f [d9cf12a7]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:07.666 UTC [shim] func1 -> DEBU 170 [d9cf12a7]send state message COMPLETED
+2017-04-03 17:22:07.666 UTC [chaincode] processStream -> DEBU 171 [d9cf12a7]Received message COMPLETED from shim
+2017-04-03 17:22:07.666 UTC [chaincode] HandleMessage -> DEBU 172 [d9cf12a7]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:07.666 UTC [chaincode] HandleMessage -> DEBU 173 [d9cf12a7-6024-45b1-adda-8961f3a55aa0]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:07.666 UTC [chaincode] notify -> DEBU 174 notifying Txid:d9cf12a7-6024-45b1-adda-8961f3a55aa0
+2017-04-03 17:22:07.666 UTC [sysccapi] deploySysCC -> INFO 175 system chaincode qscc/(github.com/hyperledger/fabric/core/chaincode/qscc) deployed
+2017-04-03 17:22:07.668 UTC [nodeCmd] initSysCCs -> INFO 176 Deployed system chaincodess
+2017-04-03 17:22:07.668 UTC [configtx/tool/localconfig] Load -> INFO 177 Looking for configtx.yaml in: /etc/hyperledger/fabric
+2017-04-03 17:22:07.670 UTC [configtx/tool/localconfig] Load -> INFO 178 Found configtx.yaml there
+2017-04-03 17:22:07.671 UTC [viperutil] unmarshalJSON -> DEBU 179 Unmarshal JSON: value is not a string: [map[AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]]]]
+2017-04-03 17:22:07.671 UTC [viperutil] getKeysRecursively -> DEBU 17a Found real value for organizations setting to []interface {} [map[AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]] Default:SW]]]
+2017-04-03 17:22:07.671 UTC [viperutil] getKeysRecursively -> DEBU 17b Found map[interface{}]interface{} value for orderer
+2017-04-03 17:22:07.671 UTC [viperutil] unmarshalJSON -> DEBU 17c Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+2017-04-03 17:22:07.672 UTC [viperutil] getKeysRecursively -> DEBU 17d Found real value for orderer.OrdererType setting to string solo
+2017-04-03 17:22:07.673 UTC [viperutil] unmarshalJSON -> DEBU 17e Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+2017-04-03 17:22:07.673 UTC [viperutil] getKeysRecursively -> DEBU 17f Found real value for orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+2017-04-03 17:22:07.673 UTC [viperutil] unmarshalJSON -> DEBU 180 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+2017-04-03 17:22:07.673 UTC [viperutil] getKeysRecursively -> DEBU 181 Found real value for orderer.BatchTimeout setting to string 2s
+2017-04-03 17:22:07.673 UTC [viperutil] getKeysRecursively -> DEBU 182 Found map[string]interface{} value for orderer.BatchSize
+2017-04-03 17:22:07.673 UTC [viperutil] unmarshalJSON -> DEBU 183 Unmarshal JSON: value is not a string: 10
+2017-04-03 17:22:07.673 UTC [viperutil] getKeysRecursively -> DEBU 184 Found real value for orderer.BatchSize.MaxMessageCount setting to int 10
+2017-04-03 17:22:07.673 UTC [viperutil] unmarshalJSON -> DEBU 185 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+2017-04-03 17:22:07.673 UTC [viperutil] getKeysRecursively -> DEBU 186 Found real value for orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+2017-04-03 17:22:07.674 UTC [viperutil] unmarshalJSON -> DEBU 187 Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 188 Found real value for orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+2017-04-03 17:22:07.674 UTC [viperutil] unmarshalJSON -> DEBU 189 Unmarshal JSON: value is not a string: 0
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 18a Found real value for orderer.MaxChannels setting to int 0
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 18b Found map[string]interface{} value for orderer.Kafka
+2017-04-03 17:22:07.674 UTC [viperutil] unmarshalJSON -> DEBU 18c Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 18d Found real value for orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+2017-04-03 17:22:07.674 UTC [viperutil] unmarshalJSON -> DEBU 18e Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 18f Found real value for orderer.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.674 UTC [viperutil] getKeysRecursively -> DEBU 190 Found map[interface{}]interface{} value for application
+2017-04-03 17:22:07.674 UTC [viperutil] unmarshalJSON -> DEBU 191 Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.675 UTC [viperutil] getKeysRecursively -> DEBU 192 Found real value for application.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.675 UTC [viperutil] getKeysRecursively -> DEBU 193 Found map[interface{}]interface{} value for profiles
+2017-04-03 17:22:07.679 UTC [viperutil] getKeysRecursively -> DEBU 194 Found map[string]interface{} value for profiles.SampleInsecureSolo
+2017-04-03 17:22:07.679 UTC [viperutil] getKeysRecursively -> DEBU 195 Found map[string]interface{} value for profiles.SampleInsecureSolo.Application
+2017-04-03 17:22:07.679 UTC [viperutil] unmarshalJSON -> DEBU 196 Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.679 UTC [viperutil] getKeysRecursively -> DEBU 197 Found real value for profiles.SampleInsecureSolo.Application.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.680 UTC [viperutil] getKeysRecursively -> DEBU 198 Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer
+2017-04-03 17:22:07.680 UTC [viperutil] unmarshalJSON -> DEBU 199 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+2017-04-03 17:22:07.680 UTC [viperutil] getKeysRecursively -> DEBU 19a Found real value for profiles.SampleInsecureSolo.Orderer.BatchTimeout setting to string 2s
+2017-04-03 17:22:07.681 UTC [viperutil] getKeysRecursively -> DEBU 19b Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer.BatchSize
+2017-04-03 17:22:07.681 UTC [viperutil] unmarshalJSON -> DEBU 19c Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+2017-04-03 17:22:07.681 UTC [viperutil] getKeysRecursively -> DEBU 19d Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+2017-04-03 17:22:07.682 UTC [viperutil] unmarshalJSON -> DEBU 19e Unmarshal JSON: value is not a string: 10
+2017-04-03 17:22:07.682 UTC [viperutil] getKeysRecursively -> DEBU 19f Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.MaxMessageCount setting to int 10
+2017-04-03 17:22:07.682 UTC [viperutil] unmarshalJSON -> DEBU 1a0 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+2017-04-03 17:22:07.682 UTC [viperutil] getKeysRecursively -> DEBU 1a1 Found real value for profiles.SampleInsecureSolo.Orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+2017-04-03 17:22:07.683 UTC [viperutil] unmarshalJSON -> DEBU 1a2 Unmarshal JSON: value is not a string: 0
+2017-04-03 17:22:07.683 UTC [viperutil] getKeysRecursively -> DEBU 1a3 Found real value for profiles.SampleInsecureSolo.Orderer.MaxChannels setting to int 0
+2017-04-03 17:22:07.683 UTC [viperutil] getKeysRecursively -> DEBU 1a4 Found map[string]interface{} value for profiles.SampleInsecureSolo.Orderer.Kafka
+2017-04-03 17:22:07.684 UTC [viperutil] unmarshalJSON -> DEBU 1a5 Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+2017-04-03 17:22:07.684 UTC [viperutil] getKeysRecursively -> DEBU 1a6 Found real value for profiles.SampleInsecureSolo.Orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+2017-04-03 17:22:07.685 UTC [viperutil] unmarshalJSON -> DEBU 1a7 Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.685 UTC [viperutil] getKeysRecursively -> DEBU 1a8 Found real value for profiles.SampleInsecureSolo.Orderer.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.685 UTC [viperutil] unmarshalJSON -> DEBU 1a9 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+2017-04-03 17:22:07.685 UTC [viperutil] getKeysRecursively -> DEBU 1aa Found real value for profiles.SampleInsecureSolo.Orderer.OrdererType setting to string solo
+2017-04-03 17:22:07.685 UTC [viperutil] unmarshalJSON -> DEBU 1ab Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+2017-04-03 17:22:07.685 UTC [viperutil] getKeysRecursively -> DEBU 1ac Found real value for profiles.SampleInsecureSolo.Orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+2017-04-03 17:22:07.685 UTC [viperutil] getKeysRecursively -> DEBU 1ad Found map[string]interface{} value for profiles.SampleInsecureKafka
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1ae Found map[string]interface{} value for profiles.SampleInsecureKafka.Orderer
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1af Found map[string]interface{} value for profiles.SampleInsecureKafka.Orderer.BatchSize
+2017-04-03 17:22:07.686 UTC [viperutil] unmarshalJSON -> DEBU 1b0 Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1b1 Found real value for profiles.SampleInsecureKafka.Orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+2017-04-03 17:22:07.686 UTC [viperutil] unmarshalJSON -> DEBU 1b2 Unmarshal JSON: value is not a string: 10
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1b3 Found real value for profiles.SampleInsecureKafka.Orderer.BatchSize.MaxMessageCount setting to int 10
+2017-04-03 17:22:07.686 UTC [viperutil] unmarshalJSON -> DEBU 1b4 Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1b5 Found real value for profiles.SampleInsecureKafka.Orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+2017-04-03 17:22:07.686 UTC [viperutil] unmarshalJSON -> DEBU 1b6 Unmarshal JSON: value is not a string: 0
+2017-04-03 17:22:07.686 UTC [viperutil] getKeysRecursively -> DEBU 1b7 Found real value for profiles.SampleInsecureKafka.Orderer.MaxChannels setting to int 0
+2017-04-03 17:22:07.687 UTC [viperutil] getKeysRecursively -> DEBU 1b8 Found map[string]interface{} value for profiles.SampleInsecureKafka.Orderer.Kafka
+2017-04-03 17:22:07.687 UTC [viperutil] unmarshalJSON -> DEBU 1b9 Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+2017-04-03 17:22:07.687 UTC [viperutil] getKeysRecursively -> DEBU 1ba Found real value for profiles.SampleInsecureKafka.Orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+2017-04-03 17:22:07.688 UTC [viperutil] unmarshalJSON -> DEBU 1bb Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1bc Found real value for profiles.SampleInsecureKafka.Orderer.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.688 UTC [viperutil] unmarshalJSON -> DEBU 1bd Unmarshal JSON: value cannot be unmarshalled: invalid character 'k' looking for beginning of value
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1be Found real value for profiles.SampleInsecureKafka.Orderer.OrdererType setting to string kafka
+2017-04-03 17:22:07.688 UTC [viperutil] unmarshalJSON -> DEBU 1bf Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1c0 Found real value for profiles.SampleInsecureKafka.Orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+2017-04-03 17:22:07.688 UTC [viperutil] unmarshalJSON -> DEBU 1c1 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1c2 Found real value for profiles.SampleInsecureKafka.Orderer.BatchTimeout setting to string 2s
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1c3 Found map[string]interface{} value for profiles.SampleInsecureKafka.Application
+2017-04-03 17:22:07.688 UTC [viperutil] unmarshalJSON -> DEBU 1c4 Unmarshal JSON: value is not a string: <nil>
+2017-04-03 17:22:07.688 UTC [viperutil] getKeysRecursively -> DEBU 1c5 Found real value for profiles.SampleInsecureKafka.Application.Organizations setting to <nil> <nil>
+2017-04-03 17:22:07.689 UTC [viperutil] getKeysRecursively -> DEBU 1c6 Found map[string]interface{} value for profiles.SampleSingleMSPSolo
+2017-04-03 17:22:07.689 UTC [viperutil] getKeysRecursively -> DEBU 1c7 Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Application
+2017-04-03 17:22:07.689 UTC [viperutil] unmarshalJSON -> DEBU 1c8 Unmarshal JSON: value is not a string: [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+2017-04-03 17:22:07.689 UTC [viperutil] getKeysRecursively -> DEBU 1c9 Found real value for profiles.SampleSingleMSPSolo.Application.Organizations setting to []interface {} [map[BCCSP:map[SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]] Default:SW] AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig]]
+2017-04-03 17:22:07.690 UTC [viperutil] getKeysRecursively -> DEBU 1ca Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer
+2017-04-03 17:22:07.691 UTC [viperutil] unmarshalJSON -> DEBU 1cb Unmarshal JSON: value is not a string: 0
+2017-04-03 17:22:07.691 UTC [viperutil] getKeysRecursively -> DEBU 1cc Found real value for profiles.SampleSingleMSPSolo.Orderer.MaxChannels setting to int 0
+2017-04-03 17:22:07.691 UTC [viperutil] getKeysRecursively -> DEBU 1cd Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer.Kafka
+2017-04-03 17:22:07.692 UTC [viperutil] unmarshalJSON -> DEBU 1ce Unmarshal JSON: value is not a string: [127.0.0.1:9092]
+2017-04-03 17:22:07.692 UTC [viperutil] getKeysRecursively -> DEBU 1cf Found real value for profiles.SampleSingleMSPSolo.Orderer.Kafka.Brokers setting to []interface {} [127.0.0.1:9092]
+2017-04-03 17:22:07.692 UTC [viperutil] unmarshalJSON -> DEBU 1d0 Unmarshal JSON: value is not a string: [map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]]
+2017-04-03 17:22:07.693 UTC [viperutil] getKeysRecursively -> DEBU 1d1 Found real value for profiles.SampleSingleMSPSolo.Orderer.Organizations setting to []interface {} [map[MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT]]
+2017-04-03 17:22:07.693 UTC [viperutil] unmarshalJSON -> DEBU 1d2 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' looking for beginning of value
+2017-04-03 17:22:07.694 UTC [viperutil] getKeysRecursively -> DEBU 1d3 Found real value for profiles.SampleSingleMSPSolo.Orderer.OrdererType setting to string solo
+2017-04-03 17:22:07.694 UTC [viperutil] unmarshalJSON -> DEBU 1d4 Unmarshal JSON: value is not a string: [127.0.0.1:7050]
+2017-04-03 17:22:07.694 UTC [viperutil] getKeysRecursively -> DEBU 1d5 Found real value for profiles.SampleSingleMSPSolo.Orderer.Addresses setting to []interface {} [127.0.0.1:7050]
+2017-04-03 17:22:07.695 UTC [viperutil] unmarshalJSON -> DEBU 1d6 Unmarshal JSON: value cannot be unmarshalled: invalid character 's' after top-level value
+2017-04-03 17:22:07.695 UTC [viperutil] getKeysRecursively -> DEBU 1d7 Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchTimeout setting to string 2s
+2017-04-03 17:22:07.695 UTC [viperutil] getKeysRecursively -> DEBU 1d8 Found map[string]interface{} value for profiles.SampleSingleMSPSolo.Orderer.BatchSize
+2017-04-03 17:22:07.697 UTC [viperutil] unmarshalJSON -> DEBU 1d9 Unmarshal JSON: value is not a string: 10
+2017-04-03 17:22:07.697 UTC [viperutil] getKeysRecursively -> DEBU 1da Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.MaxMessageCount setting to int 10
+2017-04-03 17:22:07.697 UTC [viperutil] unmarshalJSON -> DEBU 1db Unmarshal JSON: value cannot be unmarshalled: invalid character 'M' after top-level value
+2017-04-03 17:22:07.698 UTC [viperutil] getKeysRecursively -> DEBU 1dc Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.AbsoluteMaxBytes setting to string 99 MB
+2017-04-03 17:22:07.698 UTC [viperutil] unmarshalJSON -> DEBU 1dd Unmarshal JSON: value cannot be unmarshalled: invalid character 'K' after top-level value
+2017-04-03 17:22:07.698 UTC [viperutil] getKeysRecursively -> DEBU 1de Found real value for profiles.SampleSingleMSPSolo.Orderer.BatchSize.PreferredMaxBytes setting to string 512 KB
+2017-04-03 17:22:07.698 UTC [viperutil] EnhancedExactUnmarshal -> DEBU 1df map[organizations:[map[ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg]] orderer:map[MaxChannels:0 Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:<nil> OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:2s BatchSize:map[AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB MaxMessageCount:10]] application:map[Organizations:<nil>] profiles:map[SampleSingleMSPSolo:map[Application:map[Organizations:[map[BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]] Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig]]] Orderer:map[BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB] MaxChannels:0 Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:[map[Name:SampleOrg ID:DEFAULT MSPDir:msp/sampleconfig BCCSP:map[Default:SW SW:map[Hash:SHA2 Security:256 FileKeyStore:map[KeyStore:<nil>]]] AnchorPeers:[map[Host:127.0.0.1 Port:7051]]]] OrdererType:solo Addresses:[127.0.0.1:7050] BatchTimeout:2s]] SampleInsecureSolo:map[Application:map[Organizations:<nil>] Orderer:map[BatchTimeout:2s BatchSize:map[PreferredMaxBytes:512 KB MaxMessageCount:10 AbsoluteMaxBytes:99 MB] MaxChannels:0 Kafka:map[Brokers:[127.0.0.1:9092]] Organizations:<nil> OrdererType:solo Addresses:[127.0.0.1:7050]]] SampleInsecureKafka:map[Orderer:map[Organizations:<nil> OrdererType:kafka Addresses:[127.0.0.1:7050] BatchTimeout:2s BatchSize:map[MaxMessageCount:10 AbsoluteMaxBytes:99 MB PreferredMaxBytes:512 KB] MaxChannels:0 Kafka:map[Brokers:[127.0.0.1:9092]]] Application:map[Organizations:<nil>]]]]
+2017-04-03 17:22:07.703 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1e0 Checking for MSPDir at: .
+2017-04-03 17:22:07.703 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1e1 Checking for MSPDir at: 
+2017-04-03 17:22:07.703 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1e2 Checking for MSPDir at: /etc/hyperledger/fabric
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e3 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/cacerts
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e4 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/cacert.pem
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e5 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e6 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer.pem
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e7 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/admincerts
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e8 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/admincert.pem
+2017-04-03 17:22:07.703 UTC [msp] getPemMaterialFromDir -> DEBU 1e9 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/intermediatecerts
+2017-04-03 17:22:07.704 UTC [msp] NewBccspMsp -> DEBU 1ea Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.704 UTC [msp] Setup -> DEBU 1eb Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.704 UTC [msp] newIdentity -> DEBU 1ec Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.705 UTC [msp] newIdentity -> DEBU 1ed Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.705 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1ee Checking for MSPDir at: .
+2017-04-03 17:22:07.705 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1ef Checking for MSPDir at: 
+2017-04-03 17:22:07.705 UTC [common/configtx/tool/provisional] resolveMSPDir -> INFO 1f0 Checking for MSPDir at: /etc/hyperledger/fabric
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f1 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/cacerts
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f2 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/cacerts/cacert.pem
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f3 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/signcerts
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f4 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/signcerts/peer.pem
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f5 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/admincerts
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f6 Inspecting file /etc/hyperledger/fabric/msp/sampleconfig/admincerts/admincert.pem
+2017-04-03 17:22:07.705 UTC [msp] getPemMaterialFromDir -> DEBU 1f7 Reading directory /etc/hyperledger/fabric/msp/sampleconfig/intermediatecerts
+2017-04-03 17:22:07.705 UTC [msp] NewBccspMsp -> DEBU 1f8 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.705 UTC [msp] Setup -> DEBU 1f9 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.706 UTC [msp] newIdentity -> DEBU 1fa Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.706 UTC [msp] newIdentity -> DEBU 1fb Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.709 UTC [ledgermgmt] CreateLedger -> INFO 1fc Creating ledger with id = testchainid
+2017-04-03 17:22:07.709 UTC [kvledger] newBlockfileMgr -> DEBU 1fd newBlockfileMgr() initializing file-based block storage for ledger: testchainid 
+2017-04-03 17:22:07.709 UTC [kvledger.util] CreateDirIfMissing -> DEBU 1fe CreateDirIfMissing [/var/hyperledger/production/ledgersData/chains/chains/testchainid/]
+2017-04-03 17:22:07.709 UTC [kvledger.util] logDirStatus -> DEBU 1ff Before creating dir - [/var/hyperledger/production/ledgersData/chains/chains/testchainid/] does not exist
+2017-04-03 17:22:07.709 UTC [kvledger.util] logDirStatus -> DEBU 200 After creating dir - [/var/hyperledger/production/ledgersData/chains/chains/testchainid/] exists
+2017-04-03 17:22:07.712 UTC [kvledger] syncCPInfoFromFS -> DEBU 201 Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[0], isChainEmpty=[true], lastBlockNumber=[0]
+2017-04-03 17:22:07.713 UTC [kvledger] syncCPInfoFromFS -> DEBU 202 status of file [/var/hyperledger/production/ledgersData/chains/chains/testchainid/blockfile_000000]: exists=[false], size=[0]
+2017-04-03 17:22:07.713 UTC [kvledger] newBlockIndex -> DEBU 203 newBlockIndex() - indexItems:[[BlockHash BlockNum TxID BlockNumTranNum BlockTxID TxValidationCode]]
+2017-04-03 17:22:07.714 UTC [kvledger] newBlockfileStream -> DEBU 204 newBlockfileStream(): filePath=[/var/hyperledger/production/ledgersData/chains/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-04-03 17:22:07.714 UTC [kvledger] nextBlockBytesAndPlacementInfo -> DEBU 205 Finished reading file number [0]
+2017-04-03 17:22:07.714 UTC [kvledger] nextBlockBytesAndPlacementInfo -> DEBU 206 blockbytes [0] read from file [0]
+2017-04-03 17:22:07.714 UTC [kvledger] newKVLedger -> DEBU 207 Creating KVLedger ledgerID=testchainid: 
+2017-04-03 17:22:07.714 UTC [kvledger] recoverDBs -> DEBU 208 Entering recoverDB()
+2017-04-03 17:22:07.714 UTC [kvledger] recoverDBs -> DEBU 209 Block storage is empty.
+2017-04-03 17:22:07.716 UTC [ledgermgmt] CreateLedger -> INFO 20a Created ledger with id = testchainid
+2017-04-03 17:22:07.716 UTC [kvledger] Commit -> DEBU 20b Channel [testchainid]: Validating block [0]
+2017-04-03 17:22:07.716 UTC [lockbasedtxmgr] ValidateAndPrepare -> DEBU 20c Validating new block with num trans = [1]
+2017-04-03 17:22:07.716 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 20d New block arrived for validation:&common.Block{Header:(*common.BlockHeader)(0xc42021e6c0), Data:(*common.BlockData)(0xc4213e9580), Metadata:(*common.BlockMetadata)(0xc4213e9560)}, doMVCCValidation=true
+2017-04-03 17:22:07.716 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 20e Validating a block with [1] transactions
+2017-04-03 17:22:07.716 UTC [statevalidator] ValidateAndPrepareBatch -> DEBU 20f Block [0] Transaction index [0] TxId [] marked as valid by state validator
+2017-04-03 17:22:07.716 UTC [kvledger] Commit -> DEBU 210 Channel [testchainid]: Committing block [0] to storage
+2017-04-03 17:22:07.719 UTC [kvledger] indexBlock -> DEBU 211 Indexing block [blockNum=0, blockHash=[]byte{0xfd, 0x38, 0x76, 0x71, 0x1e, 0x10, 0x73, 0x9c, 0x1f, 0x47, 0x73, 0x53, 0x10, 0xc5, 0x79, 0x73, 0x6d, 0x19, 0x7c, 0x54, 0x3d, 0x2, 0x1e, 0xe2, 0x67, 0x5c, 0x5c, 0x85, 0x2, 0x5e, 0x56, 0x53} txOffsets=
+txId= locPointer=offset=38, bytesLength=4997
+]
+2017-04-03 17:22:07.719 UTC [kvledger] indexBlock -> DEBU 212 Adding txLoc [fileSuffixNum=0, offset=38, bytesLength=4997] for tx ID: [] to index
+2017-04-03 17:22:07.719 UTC [kvledger] indexBlock -> DEBU 213 Adding txLoc [fileSuffixNum=0, offset=38, bytesLength=4997] for tx number:[1] ID: [] to blockNumTranNum index
+2017-04-03 17:22:07.719 UTC [kvledger] updateCheckpoint -> DEBU 214 Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[5041], isChainEmpty=[false], lastBlockNumber=[0]
+2017-04-03 17:22:07.719 UTC [kvledger] Commit -> INFO 215 Channel [testchainid]: Created block [0] with 1 transaction(s)
+2017-04-03 17:22:07.719 UTC [kvledger] Commit -> DEBU 216 Channel [testchainid]: Committing block [0] transactions to state database
+2017-04-03 17:22:07.721 UTC [lockbasedtxmgr] Commit -> DEBU 217 Committing updates to state database
+2017-04-03 17:22:07.721 UTC [lockbasedtxmgr] Commit -> DEBU 218 Write lock aquired for committing updates to state database
+2017-04-03 17:22:07.723 UTC [lockbasedtxmgr] Commit -> DEBU 219 Updates committed to state database
+2017-04-03 17:22:07.723 UTC [kvledger] Commit -> DEBU 21a Channel [testchainid]: Committing block [0] transactions to history database
+2017-04-03 17:22:07.723 UTC [historyleveldb] Commit -> DEBU 21b Channel [testchainid]: Updating history database for blockNo [0] with [1] transactions
+2017-04-03 17:22:07.723 UTC [historyleveldb] Commit -> DEBU 21c Skipping transaction [1] since it is not an endorsement transaction
+2017-04-03 17:22:07.725 UTC [historyleveldb] Commit -> DEBU 21d Channel [testchainid]: Updates committed to history database for blockNo [0]
+2017-04-03 17:22:07.725 UTC [common/config] NewStandardValues -> DEBU 21e Initializing protos for *config.ChannelProtos
+2017-04-03 17:22:07.725 UTC [common/config] initializeProtosStruct -> DEBU 21f Processing field: HashingAlgorithm
+2017-04-03 17:22:07.725 UTC [common/config] initializeProtosStruct -> DEBU 220 Processing field: BlockDataHashingStructure
+2017-04-03 17:22:07.725 UTC [common/config] initializeProtosStruct -> DEBU 221 Processing field: OrdererAddresses
+2017-04-03 17:22:07.725 UTC [common/configtx] addToMap -> DEBU 222 Adding to config map: [Groups] /Channel
+2017-04-03 17:22:07.725 UTC [common/configtx] addToMap -> DEBU 223 Adding to config map: [Groups] /Channel/Orderer
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 224 Adding to config map: [Groups] /Channel/Orderer/SampleOrg
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 225 Adding to config map: [Values] /Channel/Orderer/SampleOrg/MSP
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 226 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Readers
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 227 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Writers
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 228 Adding to config map: [Policy] /Channel/Orderer/SampleOrg/Admins
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 229 Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 22a Adding to config map: [Values] /Channel/Orderer/ChainCreationPolicyNames
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 22b Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 22c Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-04-03 17:22:07.726 UTC [common/configtx] addToMap -> DEBU 22d Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 22e Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 22f Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 230 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 231 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 232 Adding to config map: [Groups] /Channel/Application
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 233 Adding to config map: [Groups] /Channel/Application/DEFAULT
+2017-04-03 17:22:07.727 UTC [common/configtx] addToMap -> DEBU 234 Adding to config map: [Values] /Channel/Application/DEFAULT/MSP
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 235 Adding to config map: [Values] /Channel/Application/DEFAULT/AnchorPeers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 236 Adding to config map: [Policy] /Channel/Application/DEFAULT/Readers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 237 Adding to config map: [Policy] /Channel/Application/DEFAULT/Writers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 238 Adding to config map: [Policy] /Channel/Application/DEFAULT/Admins
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 239 Adding to config map: [Policy] /Channel/Application/Admins
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23a Adding to config map: [Policy] /Channel/Application/Readers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23b Adding to config map: [Policy] /Channel/Application/Writers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23c Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23d Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23e Adding to config map: [Values] /Channel/OrdererAddresses
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 23f Adding to config map: [Policy] /Channel/AcceptAllPolicy
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 240 Adding to config map: [Policy] /Channel/Readers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 241 Adding to config map: [Policy] /Channel/Writers
+2017-04-03 17:22:07.728 UTC [common/configtx] addToMap -> DEBU 242 Adding to config map: [Policy] /Channel/Admins
+2017-04-03 17:22:07.728 UTC [common/configtx] processConfig -> DEBU 243 Beginning new config for channel testchainid
+2017-04-03 17:22:07.728 UTC [common/config] NewStandardValues -> DEBU 244 Initializing protos for *config.ChannelProtos
+2017-04-03 17:22:07.728 UTC [common/config] initializeProtosStruct -> DEBU 245 Processing field: HashingAlgorithm
+2017-04-03 17:22:07.728 UTC [common/config] initializeProtosStruct -> DEBU 246 Processing field: BlockDataHashingStructure
+2017-04-03 17:22:07.728 UTC [common/config] initializeProtosStruct -> DEBU 247 Processing field: OrdererAddresses
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 248 Proposed new policy Writers for Channel
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 249 Proposed new policy Admins for Channel
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 24a Proposed new policy AcceptAllPolicy for Channel
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 24b Proposed new policy Readers for Channel
+2017-04-03 17:22:07.728 UTC [common/config] NewStandardValues -> DEBU 24c Initializing protos for *struct {}
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 24d Proposed new policy Readers for Application
+2017-04-03 17:22:07.728 UTC [common/policies] ProposePolicy -> DEBU 24e Proposed new policy Writers for Application
+2017-04-03 17:22:07.729 UTC [common/policies] ProposePolicy -> DEBU 24f Proposed new policy Admins for Application
+2017-04-03 17:22:07.729 UTC [common/config] NewStandardValues -> DEBU 250 Initializing protos for *config.OrganizationProtos
+2017-04-03 17:22:07.729 UTC [common/config] initializeProtosStruct -> DEBU 251 Processing field: MSP
+2017-04-03 17:22:07.729 UTC [common/config] NewStandardValues -> DEBU 252 Initializing protos for *config.ApplicationOrgProtos
+2017-04-03 17:22:07.729 UTC [common/config] initializeProtosStruct -> DEBU 253 Processing field: AnchorPeers
+2017-04-03 17:22:07.729 UTC [common/config] NewStandardValues -> DEBU 254 Initializing protos for *config.OrganizationProtos
+2017-04-03 17:22:07.729 UTC [common/config] initializeProtosStruct -> DEBU 255 Processing field: MSP
+2017-04-03 17:22:07.729 UTC [common/policies] ProposePolicy -> DEBU 256 Proposed new policy Readers for DEFAULT
+2017-04-03 17:22:07.731 UTC [common/policies] ProposePolicy -> DEBU 257 Proposed new policy Writers for DEFAULT
+2017-04-03 17:22:07.731 UTC [common/policies] ProposePolicy -> DEBU 258 Proposed new policy Admins for DEFAULT
+2017-04-03 17:22:07.731 UTC [common/config] Validate -> DEBU 259 Anchor peers for org DEFAULT are anchor_peers:<host:"127.0.0.1" port:7051 > 
+2017-04-03 17:22:07.731 UTC [common/config] validateMSP -> DEBU 25a Setting up MSP for org DEFAULT
+2017-04-03 17:22:07.731 UTC [msp] NewBccspMsp -> DEBU 25b Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.731 UTC [msp] Setup -> DEBU 25c Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.731 UTC [msp] newIdentity -> DEBU 25d Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.731 UTC [msp] newIdentity -> DEBU 25e Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.731 UTC [common/config] Validate -> DEBU 25f Anchor peers for org DEFAULT are anchor_peers:<host:"127.0.0.1" port:7051 > 
+2017-04-03 17:22:07.731 UTC [common/config] validateMSP -> DEBU 260 Setting up MSP for org DEFAULT
+2017-04-03 17:22:07.731 UTC [msp] NewBccspMsp -> DEBU 261 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.731 UTC [msp] Setup -> DEBU 262 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.731 UTC [msp] newIdentity -> DEBU 263 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.732 UTC [msp] newIdentity -> DEBU 264 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.732 UTC [common/config] NewStandardValues -> DEBU 265 Initializing protos for *config.OrdererProtos
+2017-04-03 17:22:07.732 UTC [common/config] initializeProtosStruct -> DEBU 266 Processing field: ConsensusType
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 267 Processing field: BatchSize
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 268 Processing field: BatchTimeout
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 269 Processing field: ChainCreationPolicyNames
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 26a Processing field: KafkaBrokers
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 26b Processing field: CreationPolicy
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 26c Processing field: ChannelRestrictions
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 26d Proposed new policy Writers for Orderer
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 26e Proposed new policy Admins for Orderer
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 26f Proposed new policy BlockValidation for Orderer
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 270 Proposed new policy Readers for Orderer
+2017-04-03 17:22:07.735 UTC [common/config] NewStandardValues -> DEBU 271 Initializing protos for *config.OrganizationProtos
+2017-04-03 17:22:07.735 UTC [common/config] initializeProtosStruct -> DEBU 272 Processing field: MSP
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 273 Proposed new policy Readers for SampleOrg
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 274 Proposed new policy Writers for SampleOrg
+2017-04-03 17:22:07.735 UTC [common/policies] ProposePolicy -> DEBU 275 Proposed new policy Admins for SampleOrg
+2017-04-03 17:22:07.736 UTC [common/config] validateMSP -> DEBU 276 Setting up MSP for org SampleOrg
+2017-04-03 17:22:07.737 UTC [msp] NewBccspMsp -> DEBU 277 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.738 UTC [msp] Setup -> DEBU 278 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.739 UTC [msp] newIdentity -> DEBU 279 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.739 UTC [msp] newIdentity -> DEBU 27a Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.739 UTC [common/config] validateMSP -> DEBU 27b Setting up MSP for org SampleOrg
+2017-04-03 17:22:07.739 UTC [msp] NewBccspMsp -> DEBU 27c Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.739 UTC [msp] Setup -> DEBU 27d Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.739 UTC [msp] newIdentity -> DEBU 27e Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.739 UTC [msp] newIdentity -> DEBU 27f Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.739 UTC [common/config] Validate -> DEBU 280 Anchor peers for org DEFAULT are anchor_peers:<host:"127.0.0.1" port:7051 > 
+2017-04-03 17:22:07.739 UTC [common/config] validateMSP -> DEBU 281 Setting up MSP for org DEFAULT
+2017-04-03 17:22:07.739 UTC [msp] NewBccspMsp -> DEBU 282 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.739 UTC [msp] Setup -> DEBU 283 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.739 UTC [msp] newIdentity -> DEBU 284 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.740 UTC [msp] newIdentity -> DEBU 285 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.740 UTC [common/config] validateMSP -> DEBU 286 Setting up MSP for org SampleOrg
+2017-04-03 17:22:07.740 UTC [msp] NewBccspMsp -> DEBU 287 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.740 UTC [msp] Setup -> DEBU 288 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.740 UTC [msp] newIdentity -> DEBU 289 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.740 UTC [msp] newIdentity -> DEBU 28a Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.740 UTC [common/config] Validate -> DEBU 28b Anchor peers for org DEFAULT are anchor_peers:<host:"127.0.0.1" port:7051 > 
+2017-04-03 17:22:07.741 UTC [common/config] validateMSP -> DEBU 28c Setting up MSP for org DEFAULT
+2017-04-03 17:22:07.741 UTC [msp] NewBccspMsp -> DEBU 28d Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.741 UTC [msp] Setup -> DEBU 28e Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.741 UTC [msp] newIdentity -> DEBU 28f Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.742 UTC [msp] newIdentity -> DEBU 290 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.743 UTC [common/config] validateMSP -> DEBU 291 Setting up MSP for org SampleOrg
+2017-04-03 17:22:07.743 UTC [msp] NewBccspMsp -> DEBU 292 Creating BCCSP-based MSP instance
+2017-04-03 17:22:07.743 UTC [msp] Setup -> DEBU 293 Setting up MSP instance DEFAULT
+2017-04-03 17:22:07.743 UTC [msp] newIdentity -> DEBU 294 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.743 UTC [msp] newIdentity -> DEBU 295 Creating identity instance for ID &{DEFAULT IDENTITY}
+2017-04-03 17:22:07.743 UTC [msp] Setup -> DEBU 296 Setting up the MSP manager (1 msps)
+2017-04-03 17:22:07.744 UTC [msp] Setup -> DEBU 297 MSP manager setup complete, setup 1 msps
+2017-04-03 17:22:07.744 UTC [common/policies] GetPolicy -> DEBU 298 Returning policy Readers for evaluation
+2017-04-03 17:22:07.744 UTC [common/policies] CommitProposals -> DEBU 299 In commit adding relative sub-policy DEFAULT/Readers to Application
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 29a Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 29b In commit adding relative sub-policy DEFAULT/Writers to Application
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 29c Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 29d In commit adding relative sub-policy DEFAULT/Admins to Application
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 29e Returning policy Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 29f Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a0 Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a1 Returning policy Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2a2 In commit adding relative sub-policy SampleOrg/Readers to Orderer
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a3 Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2a4 In commit adding relative sub-policy SampleOrg/Writers to Orderer
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a5 Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2a6 In commit adding relative sub-policy SampleOrg/Admins to Orderer
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a7 Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a8 Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2a9 Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2aa Returning policy Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2ab Returning policy Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2ac In commit adding relative sub-policy Application/Readers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2ad Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2ae In commit adding relative sub-policy Application/Writers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2af Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2b0 In commit adding relative sub-policy Application/Admins to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2b1 Returning policy DEFAULT/Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2b2 In commit adding relative sub-policy Application/DEFAULT/Readers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2b3 Returning policy DEFAULT/Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2b4 In commit adding relative sub-policy Application/DEFAULT/Writers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2b5 Returning policy DEFAULT/Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2b6 In commit adding relative sub-policy Application/DEFAULT/Admins to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2b7 Returning policy Writers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2b8 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2b9 Returning policy Admins for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2ba In commit adding relative sub-policy Orderer/Admins to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2bb Returning policy BlockValidation for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2bc In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2bd Returning policy Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2be In commit adding relative sub-policy Orderer/Readers to Channel
+2017-04-03 17:22:07.745 UTC [common/policies] GetPolicy -> DEBU 2bf Returning policy SampleOrg/Readers for evaluation
+2017-04-03 17:22:07.745 UTC [common/policies] CommitProposals -> DEBU 2c0 In commit adding relative sub-policy Orderer/SampleOrg/Readers to Channel
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c1 Returning policy SampleOrg/Writers for evaluation
+2017-04-03 17:22:07.746 UTC [common/policies] CommitProposals -> DEBU 2c2 In commit adding relative sub-policy Orderer/SampleOrg/Writers to Channel
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c3 Returning policy SampleOrg/Admins for evaluation
+2017-04-03 17:22:07.746 UTC [common/policies] CommitProposals -> DEBU 2c4 In commit adding relative sub-policy Orderer/SampleOrg/Admins to Channel
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c5 Returning policy Writers for evaluation
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c6 Returning policy Writers for evaluation
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c7 Returning policy Admins for evaluation
+2017-04-03 17:22:07.746 UTC [common/policies] GetPolicy -> DEBU 2c8 Returning policy Admins for evaluation
+2017-04-03 17:22:07.747 UTC [common/policies] GetPolicy -> DEBU 2c9 Returning policy Readers for evaluation
+2017-04-03 17:22:07.747 UTC [common/policies] GetPolicy -> DEBU 2ca Returning policy Readers for evaluation
+2017-04-03 17:22:07.747 UTC [common/policies] GetPolicy -> DEBU 2cb Returning policy Readers for evaluation
+2017-04-03 17:22:07.747 UTC [common/policies] CommitProposals -> DEBU 2cc As expected, current configuration has policy '/Channel/Readers'
+2017-04-03 17:22:07.748 UTC [common/policies] GetPolicy -> DEBU 2cd Returning policy Writers for evaluation
+2017-04-03 17:22:07.748 UTC [common/policies] CommitProposals -> DEBU 2ce As expected, current configuration has policy '/Channel/Writers'
+2017-04-03 17:22:07.748 UTC [common/policies] GetPolicy -> DEBU 2cf Returning policy Application/Readers for evaluation
+2017-04-03 17:22:07.748 UTC [common/policies] CommitProposals -> DEBU 2d0 As expected, current configuration has policy '/Channel/Application/Readers'
+2017-04-03 17:22:07.748 UTC [common/policies] GetPolicy -> DEBU 2d1 Returning policy Application/Writers for evaluation
+2017-04-03 17:22:07.748 UTC [common/policies] CommitProposals -> DEBU 2d2 As expected, current configuration has policy '/Channel/Application/Writers'
+2017-04-03 17:22:07.748 UTC [common/policies] GetPolicy -> DEBU 2d3 Returning policy Application/Admins for evaluation
+2017-04-03 17:22:07.748 UTC [common/policies] CommitProposals -> DEBU 2d4 As expected, current configuration has policy '/Channel/Application/Admins'
+2017-04-03 17:22:07.748 UTC [common/policies] GetPolicy -> DEBU 2d5 Returning policy Orderer/BlockValidation for evaluation
+2017-04-03 17:22:07.748 UTC [common/policies] CommitProposals -> DEBU 2d6 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-04-03 17:22:07.748 UTC [gossip/service] ProcessConfigUpdate -> DEBU 2d7 Processing new config for channel testchainid
+2017-04-03 17:22:07.748 UTC [gossip/service] ProcessConfigUpdate -> DEBU 2d8 Calling out because config was updated for channel testchainid
+2017-04-03 17:22:07.748 UTC [msp] GetLocalMSP -> DEBU 2d9 Returning existing local MSP
+2017-04-03 17:22:07.748 UTC [msp] DeserializeIdentity -> INFO 2da Obtaining identity
+2017-04-03 17:22:07.748 UTC [msp] newIdentity -> DEBU 2db Creating identity instance for ID &{Org0MSP DEFAULT}
+2017-04-03 17:22:07.748 UTC [gossip/service] configUpdated -> ERRO 2dc Tried joining channel testchainid but our org( Org0MSP ), isn't among the orgs of the channel: [DEFAULT] , aborting.
+2017-04-03 17:22:07.748 UTC [peer] updateTrustedRoots -> DEBU 2dd Updating trusted root authorities for channel testchainid
+2017-04-03 17:22:07.765 UTC [gossip/service] InitializeChannel -> DEBU 2de Creating state provider for chainID testchainid
+2017-04-03 17:22:07.765 UTC [gossip/state] NewGossipStateProvider -> INFO 2df Updating node metadata information, current ledger sequence is at = 0, next expected block is = 1
+2017-04-03 17:22:07.765 UTC [gossip/state] NewGossipStateProvider -> DEBU 2e0 Updating gossip metadate state &{0}
+2017-04-03 17:22:07.765 UTC [gossip/gossip#172.18.0.11:7051] UpdateChannelMetadata -> DEBU 2e1 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:22:07.765 UTC [deliveryClient] NewDeliverService -> INFO 2e2 Creating delivery service to get blocks from the ordering service, orderer:7050
+2017-04-03 17:22:10.767 UTC [deliveryClient] NewDeliverService -> ERRO 2e3 Cannot dial to orderer:7050, because of grpc: timed out when dialing
+2017-04-03 17:22:10.767 UTC [gossip/service] InitializeChannel -> WARN 2e4 Cannot create delivery client, due to Wasn't able to connect to any of ordering service endpoints [orderer:7050]
+2017-04-03 17:22:10.767 UTC [gossip/service] InitializeChannel -> WARN 2e5 Delivery client is down won't be able to pull blocks for chain testchainid
+create chain [testchainid]2017-04-03 17:22:10.767 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 2e6 constructing new tx simulator
+2017-04-03 17:22:10.768 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 2e7 constructing new tx simulator [64b9116e-7141-4867-a8e9-3443cd995608]
+2017-04-03 17:22:10.768 UTC [ccprovider] NewCCContext -> DEBU 2e8 NewCCCC (chain=testchainid,chaincode=cscc,version=1.0.0-snapshot-d778d0a,txid=f7df77f9-8ca0-4592-88e9-752bf70ec863,syscc=true,proposal=0x0,canname=cscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.768 UTC [chaincode] Launch -> DEBU 2e9 chaincode is running(no need to launch) : cscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.768 UTC [chaincode] sendExecuteMessage -> DEBU 2ea [f7df77f9]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:10.768 UTC [chaincode] setChaincodeProposal -> DEBU 2eb Setting chaincode proposal context...
+2017-04-03 17:22:10.768 UTC [chaincode] sendExecuteMessage -> DEBU 2ec [f7df77f9]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:10.768 UTC [chaincode] processStream -> DEBU 2ed [f7df77f9]Move state message INIT
+2017-04-03 17:22:10.768 UTC [chaincode] HandleMessage -> DEBU 2ee [f7df77f9]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:10.768 UTC [chaincode] filterError -> DEBU 2ef Ignoring NoTransitionError: no transition
+2017-04-03 17:22:10.768 UTC [chaincode] processStream -> DEBU 2f0 [f7df77f9]sending state message INIT
+2017-04-03 17:22:10.768 UTC [shim] func1 -> DEBU 2f1 [f7df77f9]Received message INIT from shim
+2017-04-03 17:22:10.768 UTC [shim] handleMessage -> DEBU 2f2 [f7df77f9]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:10.768 UTC [shim] beforeInit -> DEBU 2f3 Entered state ready
+2017-04-03 17:22:10.768 UTC [shim] beforeInit -> DEBU 2f4 [f7df77f9]Received INIT, initializing chaincode
+2017-04-03 17:22:10.768 UTC [chaincode] Init -> INFO 2f5 Init CSCC
+2017-04-03 17:22:10.768 UTC [shim] func1 -> DEBU 2f6 [f7df77f9]Init get response status: 200
+2017-04-03 17:22:10.768 UTC [shim] func1 -> DEBU 2f7 [f7df77f9]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:10.768 UTC [shim] func1 -> DEBU 2f8 [f7df77f9]Move state message COMPLETED
+2017-04-03 17:22:10.768 UTC [shim] handleMessage -> DEBU 2f9 [f7df77f9]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:10.768 UTC [shim] func1 -> DEBU 2fa [f7df77f9]send state message COMPLETED
+2017-04-03 17:22:10.768 UTC [chaincode] processStream -> DEBU 2fb [f7df77f9]Received message COMPLETED from shim
+2017-04-03 17:22:10.768 UTC [chaincode] HandleMessage -> DEBU 2fc [f7df77f9]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:10.768 UTC [chaincode] HandleMessage -> DEBU 2fd [f7df77f9-8ca0-4592-88e9-752bf70ec863]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:10.768 UTC [chaincode] notify -> DEBU 2fe notifying Txid:f7df77f9-8ca0-4592-88e9-752bf70ec863
+2017-04-03 17:22:10.768 UTC [sysccapi] deploySysCC -> INFO 2ff system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2017-04-03 17:22:10.768 UTC [lockbasedtxmgr] Done -> DEBU 300 Done with transaction simulation / query execution [64b9116e-7141-4867-a8e9-3443cd995608]
+2017-04-03 17:22:10.768 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 301 constructing new tx simulator
+2017-04-03 17:22:10.768 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 302 constructing new tx simulator [68891f95-b6a9-41cc-9093-a1b445592880]
+2017-04-03 17:22:10.768 UTC [ccprovider] NewCCContext -> DEBU 303 NewCCCC (chain=testchainid,chaincode=lccc,version=1.0.0-snapshot-d778d0a,txid=a2cf6703-d162-40d5-8ecf-9f68b35cb35f,syscc=true,proposal=0x0,canname=lccc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.768 UTC [chaincode] Launch -> DEBU 304 chaincode is running(no need to launch) : lccc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.768 UTC [chaincode] sendExecuteMessage -> DEBU 305 [a2cf6703]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:10.768 UTC [chaincode] setChaincodeProposal -> DEBU 306 Setting chaincode proposal context...
+2017-04-03 17:22:10.768 UTC [chaincode] sendExecuteMessage -> DEBU 307 [a2cf6703]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:10.768 UTC [chaincode] processStream -> DEBU 308 [a2cf6703]Move state message INIT
+2017-04-03 17:22:10.768 UTC [chaincode] HandleMessage -> DEBU 309 [a2cf6703]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:10.768 UTC [chaincode] filterError -> DEBU 30a Ignoring NoTransitionError: no transition
+2017-04-03 17:22:10.768 UTC [chaincode] processStream -> DEBU 30b [a2cf6703]sending state message INIT
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 30c [a2cf6703]Received message INIT from shim
+2017-04-03 17:22:10.769 UTC [shim] handleMessage -> DEBU 30d [a2cf6703]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:10.769 UTC [shim] beforeInit -> DEBU 30e Entered state ready
+2017-04-03 17:22:10.769 UTC [shim] beforeInit -> DEBU 30f [a2cf6703]Received INIT, initializing chaincode
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 310 [a2cf6703]Init get response status: 200
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 311 [a2cf6703]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 312 [a2cf6703]Move state message COMPLETED
+2017-04-03 17:22:10.769 UTC [shim] handleMessage -> DEBU 313 [a2cf6703]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 314 [a2cf6703]send state message COMPLETED
+2017-04-03 17:22:10.769 UTC [chaincode] processStream -> DEBU 315 [a2cf6703]Received message COMPLETED from shim
+2017-04-03 17:22:10.769 UTC [chaincode] HandleMessage -> DEBU 316 [a2cf6703]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:10.769 UTC [chaincode] HandleMessage -> DEBU 317 [a2cf6703-d162-40d5-8ecf-9f68b35cb35f]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:10.769 UTC [chaincode] notify -> DEBU 318 notifying Txid:a2cf6703-d162-40d5-8ecf-9f68b35cb35f
+2017-04-03 17:22:10.769 UTC [sysccapi] deploySysCC -> INFO 319 system chaincode lccc/testchainid(github.com/hyperledger/fabric/core/scc/lccc) deployed
+2017-04-03 17:22:10.769 UTC [lockbasedtxmgr] Done -> DEBU 31a Done with transaction simulation / query execution [68891f95-b6a9-41cc-9093-a1b445592880]
+2017-04-03 17:22:10.769 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 31b constructing new tx simulator
+2017-04-03 17:22:10.769 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 31c constructing new tx simulator [84743eda-dbc1-4f11-84a4-8ebd71cd4b4d]
+2017-04-03 17:22:10.769 UTC [ccprovider] NewCCContext -> DEBU 31d NewCCCC (chain=testchainid,chaincode=escc,version=1.0.0-snapshot-d778d0a,txid=88db5fc8-d1f5-45c3-804a-c4040739a060,syscc=true,proposal=0x0,canname=escc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.769 UTC [chaincode] Launch -> DEBU 31e chaincode is running(no need to launch) : escc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.769 UTC [chaincode] sendExecuteMessage -> DEBU 31f [88db5fc8]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:10.769 UTC [chaincode] setChaincodeProposal -> DEBU 320 Setting chaincode proposal context...
+2017-04-03 17:22:10.769 UTC [chaincode] sendExecuteMessage -> DEBU 321 [88db5fc8]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:10.769 UTC [chaincode] processStream -> DEBU 322 [88db5fc8]Move state message INIT
+2017-04-03 17:22:10.769 UTC [chaincode] HandleMessage -> DEBU 323 [88db5fc8]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:10.769 UTC [chaincode] filterError -> DEBU 324 Ignoring NoTransitionError: no transition
+2017-04-03 17:22:10.769 UTC [chaincode] processStream -> DEBU 325 [88db5fc8]sending state message INIT
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 326 [88db5fc8]Received message INIT from shim
+2017-04-03 17:22:10.769 UTC [shim] handleMessage -> DEBU 327 [88db5fc8]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:10.769 UTC [shim] beforeInit -> DEBU 328 Entered state ready
+2017-04-03 17:22:10.769 UTC [shim] beforeInit -> DEBU 329 [88db5fc8]Received INIT, initializing chaincode
+2017-04-03 17:22:10.769 UTC [escc] Init -> INFO 32a Successfully initialized ESCC
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 32b [88db5fc8]Init get response status: 200
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 32c [88db5fc8]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 32d [88db5fc8]Move state message COMPLETED
+2017-04-03 17:22:10.769 UTC [shim] handleMessage -> DEBU 32e [88db5fc8]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:10.769 UTC [shim] func1 -> DEBU 32f [88db5fc8]send state message COMPLETED
+2017-04-03 17:22:10.769 UTC [chaincode] processStream -> DEBU 330 [88db5fc8]Received message COMPLETED from shim
+2017-04-03 17:22:10.769 UTC [chaincode] HandleMessage -> DEBU 331 [88db5fc8]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:10.769 UTC [chaincode] HandleMessage -> DEBU 332 [88db5fc8-d1f5-45c3-804a-c4040739a060]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:10.769 UTC [chaincode] notify -> DEBU 333 notifying Txid:88db5fc8-d1f5-45c3-804a-c4040739a060
+2017-04-03 17:22:10.770 UTC [sysccapi] deploySysCC -> INFO 334 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+2017-04-03 17:22:10.770 UTC [lockbasedtxmgr] Done -> DEBU 335 Done with transaction simulation / query execution [84743eda-dbc1-4f11-84a4-8ebd71cd4b4d]
+2017-04-03 17:22:10.770 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 336 constructing new tx simulator
+2017-04-03 17:22:10.770 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 337 constructing new tx simulator [b43b21af-d3c5-4328-b070-c312f892a120]
+2017-04-03 17:22:10.770 UTC [ccprovider] NewCCContext -> DEBU 338 NewCCCC (chain=testchainid,chaincode=vscc,version=1.0.0-snapshot-d778d0a,txid=f0657665-d6c2-4e74-873d-4f0308db9e8e,syscc=true,proposal=0x0,canname=vscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.770 UTC [chaincode] Launch -> DEBU 339 chaincode is running(no need to launch) : vscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.770 UTC [chaincode] sendExecuteMessage -> DEBU 33a [f0657665]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:10.770 UTC [chaincode] setChaincodeProposal -> DEBU 33b Setting chaincode proposal context...
+2017-04-03 17:22:10.770 UTC [chaincode] sendExecuteMessage -> DEBU 33c [f0657665]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:10.770 UTC [chaincode] processStream -> DEBU 33d [f0657665]Move state message INIT
+2017-04-03 17:22:10.770 UTC [chaincode] HandleMessage -> DEBU 33e [f0657665]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:10.770 UTC [chaincode] filterError -> DEBU 33f Ignoring NoTransitionError: no transition
+2017-04-03 17:22:10.770 UTC [chaincode] processStream -> DEBU 340 [f0657665]sending state message INIT
+2017-04-03 17:22:10.770 UTC [shim] func1 -> DEBU 341 [f0657665]Received message INIT from shim
+2017-04-03 17:22:10.770 UTC [shim] handleMessage -> DEBU 342 [f0657665]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:10.770 UTC [shim] beforeInit -> DEBU 343 Entered state ready
+2017-04-03 17:22:10.770 UTC [shim] beforeInit -> DEBU 344 [f0657665]Received INIT, initializing chaincode
+2017-04-03 17:22:10.770 UTC [shim] func1 -> DEBU 345 [f0657665]Init get response status: 200
+2017-04-03 17:22:10.770 UTC [shim] func1 -> DEBU 346 [f0657665]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:10.770 UTC [shim] func1 -> DEBU 347 [f0657665]Move state message COMPLETED
+2017-04-03 17:22:10.770 UTC [shim] handleMessage -> DEBU 348 [f0657665]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:10.770 UTC [shim] func1 -> DEBU 349 [f0657665]send state message COMPLETED
+2017-04-03 17:22:10.770 UTC [chaincode] processStream -> DEBU 34a [f0657665]Received message COMPLETED from shim
+2017-04-03 17:22:10.770 UTC [chaincode] HandleMessage -> DEBU 34b [f0657665]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:10.770 UTC [chaincode] HandleMessage -> DEBU 34c [f0657665-d6c2-4e74-873d-4f0308db9e8e]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:10.770 UTC [chaincode] notify -> DEBU 34d notifying Txid:f0657665-d6c2-4e74-873d-4f0308db9e8e
+2017-04-03 17:22:10.770 UTC [sysccapi] deploySysCC -> INFO 34e system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+2017-04-03 17:22:10.770 UTC [lockbasedtxmgr] Done -> DEBU 34f Done with transaction simulation / query execution [b43b21af-d3c5-4328-b070-c312f892a120]
+2017-04-03 17:22:10.770 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 350 constructing new tx simulator
+2017-04-03 17:22:10.771 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 351 constructing new tx simulator [e0ee418f-1c16-4a14-9cf9-d391ab7857a5]
+2017-04-03 17:22:10.771 UTC [ccprovider] NewCCContext -> DEBU 352 NewCCCC (chain=testchainid,chaincode=qscc,version=1.0.0-snapshot-d778d0a,txid=cb441c8b-ba66-4e2a-ada4-daab4a767849,syscc=true,proposal=0x0,canname=qscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.771 UTC [chaincode] Launch -> DEBU 353 chaincode is running(no need to launch) : qscc:1.0.0-snapshot-d778d0a
+2017-04-03 17:22:10.771 UTC [chaincode] sendExecuteMessage -> DEBU 354 [cb441c8b]Inside sendExecuteMessage. Message INIT
+2017-04-03 17:22:10.771 UTC [chaincode] setChaincodeProposal -> DEBU 355 Setting chaincode proposal context...
+2017-04-03 17:22:10.771 UTC [chaincode] sendExecuteMessage -> DEBU 356 [cb441c8b]sendExecuteMsg trigger event INIT
+2017-04-03 17:22:10.771 UTC [chaincode] processStream -> DEBU 357 [cb441c8b]Move state message INIT
+2017-04-03 17:22:10.771 UTC [chaincode] HandleMessage -> DEBU 358 [cb441c8b]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-04-03 17:22:10.771 UTC [chaincode] filterError -> DEBU 359 Ignoring NoTransitionError: no transition
+2017-04-03 17:22:10.771 UTC [chaincode] processStream -> DEBU 35a [cb441c8b]sending state message INIT
+2017-04-03 17:22:10.771 UTC [shim] func1 -> DEBU 35b [cb441c8b]Received message INIT from shim
+2017-04-03 17:22:10.771 UTC [shim] handleMessage -> DEBU 35c [cb441c8b]Handling ChaincodeMessage of type: INIT(state:ready)
+2017-04-03 17:22:10.771 UTC [shim] beforeInit -> DEBU 35d Entered state ready
+2017-04-03 17:22:10.771 UTC [shim] beforeInit -> DEBU 35e [cb441c8b]Received INIT, initializing chaincode
+2017-04-03 17:22:10.771 UTC [qscc] Init -> INFO 35f Init QSCC
+2017-04-03 17:22:10.771 UTC [shim] func1 -> DEBU 360 [cb441c8b]Init get response status: 200
+2017-04-03 17:22:10.771 UTC [shim] func1 -> DEBU 361 [cb441c8b]Init invoke succeeded. Sending COMPLETED
+2017-04-03 17:22:10.771 UTC [shim] func1 -> DEBU 362 [cb441c8b]Move state message COMPLETED
+2017-04-03 17:22:10.771 UTC [shim] handleMessage -> DEBU 363 [cb441c8b]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-04-03 17:22:10.771 UTC [shim] func1 -> DEBU 364 [cb441c8b]send state message COMPLETED
+2017-04-03 17:22:10.771 UTC [chaincode] processStream -> DEBU 365 [cb441c8b]Received message COMPLETED from shim
+2017-04-03 17:22:10.771 UTC [chaincode] HandleMessage -> DEBU 366 [cb441c8b]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-04-03 17:22:10.771 UTC [chaincode] HandleMessage -> DEBU 367 [cb441c8b-ba66-4e2a-ada4-daab4a767849]HandleMessage- COMPLETED. Notify
+2017-04-03 17:22:10.771 UTC [chaincode] notify -> DEBU 368 notifying Txid:cb441c8b-ba66-4e2a-ada4-daab4a767849
+2017-04-03 17:22:10.771 UTC [sysccapi] deploySysCC -> INFO 369 system chaincode qscc/testchainid(github.com/hyperledger/fabric/core/chaincode/qscc) deployed
+2017-04-03 17:22:10.771 UTC [lockbasedtxmgr] Done -> DEBU 36a Done with transaction simulation / query execution [e0ee418f-1c16-4a14-9cf9-d391ab7857a5]
+2017-04-03 17:22:10.771 UTC [nodeCmd] serve -> INFO 36b Deployed system chaincodes on testchainid
+2017-04-03 17:22:10.771 UTC [peer] Initialize -> INFO 36c Loading chain testchainid
+2017-04-03 17:22:10.771 UTC [ledgermgmt] OpenLedger -> INFO 36d Opening ledger with id = testchainid
+2017-04-03 17:22:10.771 UTC [peer] Initialize -> WARN 36e Failed to load ledger testchainid(Ledger already opened)
+2017-04-03 17:22:10.771 UTC [peer] Initialize -> DEBU 36f Error while loading ledger testchainid with message Ledger already opened. We continue to the next ledger rather than abort.
+2017-04-03 17:22:10.771 UTC [nodeCmd] serve -> INFO 370 Starting peer with ID=[name:"cli" ], network ID=[dev], address=[172.18.0.11:7051]
+2017-04-03 17:22:10.780 UTC [nodeCmd] serve -> INFO 371 Started peer with ID=[name:"cli" ], network ID=[dev], address=[172.18.0.11:7051]
+2017-04-03 17:22:10.780 UTC [flogging] SetModuleLevel -> DEBU 372 Module 'error' logger enabled for log level 'WARNING'
+2017-04-03 17:22:10.780 UTC [flogging] SetModuleLevel -> DEBU 373 Module 'msp' logger enabled for log level 'WARNING'
+2017-04-03 17:22:12.602 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 374 Sleeping 5s
+2017-04-03 17:22:17.604 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 375 Sleeping 5s
+2017-04-03 17:22:17.879 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 376 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:22:22.612 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 377 Sleeping 5s
+2017-04-03 17:22:27.614 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 378 Sleeping 5s
+2017-04-03 17:22:27.951 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 379 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:22:32.603 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 37a Sleeping 25s
+2017-04-03 17:22:32.627 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 37b Sleeping 5s
+2017-04-03 17:22:37.628 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 37c Sleeping 5s
+2017-04-03 17:22:38.038 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 37d No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:22:42.630 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 37e Sleeping 5s
+2017-04-03 17:22:47.635 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 37f Sleeping 5s
+2017-04-03 17:22:48.135 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 380 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:22:52.637 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 381 Sleeping 5s
+2017-04-03 17:22:57.606 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 382 Sleeping 25s
+2017-04-03 17:22:57.639 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 383 Sleeping 5s
+2017-04-03 17:22:58.208 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 384 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:02.641 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 385 Sleeping 5s
+2017-04-03 17:23:07.645 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 386 Sleeping 5s
+2017-04-03 17:23:08.291 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 387 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:12.646 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 388 Sleeping 5s
+2017-04-03 17:23:17.648 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 389 Sleeping 5s
+2017-04-03 17:23:18.374 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 38a No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:22.609 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 38b Sleeping 25s
+2017-04-03 17:23:22.652 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 38c Sleeping 5s
+2017-04-03 17:23:27.677 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 38d Sleeping 5s
+2017-04-03 17:23:28.482 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 38e No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:32.680 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 38f Sleeping 5s
+2017-04-03 17:23:37.682 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 390 Sleeping 5s
+2017-04-03 17:23:38.547 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 391 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:42.683 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 392 Sleeping 5s
+2017-04-03 17:23:47.613 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 393 Sleeping 25s
+2017-04-03 17:23:47.685 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 394 Sleeping 5s
+2017-04-03 17:23:48.613 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 395 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:23:52.688 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 396 Sleeping 5s
+2017-04-03 17:23:57.692 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 397 Sleeping 5s
+2017-04-03 17:23:58.697 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 398 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:02.695 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 399 Sleeping 5s
+2017-04-03 17:24:07.696 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 39a Sleeping 5s
+2017-04-03 17:24:08.775 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 39b No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:12.616 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 39c Sleeping 25s
+2017-04-03 17:24:12.697 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 39d Sleeping 5s
+2017-04-03 17:24:17.699 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 39e Sleeping 5s
+2017-04-03 17:24:18.850 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 39f No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:22.700 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a0 Sleeping 5s
+2017-04-03 17:24:27.701 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a1 Sleeping 5s
+2017-04-03 17:24:28.970 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3a2 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:32.703 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a3 Sleeping 5s
+2017-04-03 17:24:37.620 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3a4 Sleeping 25s
+2017-04-03 17:24:37.705 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a5 Sleeping 5s
+2017-04-03 17:24:39.057 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3a6 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:42.708 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a7 Sleeping 5s
+2017-04-03 17:24:47.709 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3a8 Sleeping 5s
+2017-04-03 17:24:49.097 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3a9 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:24:52.711 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3aa Sleeping 5s
+2017-04-03 17:24:57.712 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ab Sleeping 5s
+2017-04-03 17:24:59.185 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3ac No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:02.620 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3ad Sleeping 25s
+2017-04-03 17:25:02.714 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ae Sleeping 5s
+2017-04-03 17:25:07.714 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3af Sleeping 5s
+2017-04-03 17:25:09.263 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3b0 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:12.718 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b1 Sleeping 5s
+2017-04-03 17:25:17.719 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b2 Sleeping 5s
+2017-04-03 17:25:19.330 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3b3 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:22.721 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b4 Sleeping 5s
+2017-04-03 17:25:27.622 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3b5 Sleeping 25s
+2017-04-03 17:25:27.723 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b6 Sleeping 5s
+2017-04-03 17:25:29.395 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3b7 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:32.724 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b8 Sleeping 5s
+2017-04-03 17:25:37.726 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3b9 Sleeping 5s
+2017-04-03 17:25:39.474 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3ba No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:42.727 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3bb Sleeping 5s
+2017-04-03 17:25:47.732 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3bc Sleeping 5s
+2017-04-03 17:25:49.539 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3bd No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:25:52.625 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3be Sleeping 25s
+2017-04-03 17:25:52.734 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3bf Sleeping 5s
+2017-04-03 17:25:57.736 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c0 Sleeping 5s
+2017-04-03 17:25:59.639 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3c1 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:02.737 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c2 Sleeping 5s
+2017-04-03 17:26:07.744 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c3 Sleeping 5s
+2017-04-03 17:26:09.725 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3c4 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:12.745 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c5 Sleeping 5s
+2017-04-03 17:26:17.627 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3c6 Sleeping 25s
+2017-04-03 17:26:17.748 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c7 Sleeping 5s
+2017-04-03 17:26:19.817 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3c8 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:22.749 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3c9 Sleeping 5s
+2017-04-03 17:26:27.751 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ca Sleeping 5s
+2017-04-03 17:26:29.902 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3cb No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:32.752 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3cc Sleeping 5s
+2017-04-03 17:26:37.753 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3cd Sleeping 5s
+2017-04-03 17:26:39.958 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3ce No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:42.632 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3cf Sleeping 25s
+2017-04-03 17:26:42.755 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d0 Sleeping 5s
+2017-04-03 17:26:47.756 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d1 Sleeping 5s
+2017-04-03 17:26:50.023 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3d2 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:26:52.757 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d3 Sleeping 5s
+2017-04-03 17:26:57.759 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d4 Sleeping 5s
+2017-04-03 17:27:00.119 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3d5 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:02.761 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d6 Sleeping 5s
+2017-04-03 17:27:07.647 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3d7 Sleeping 25s
+2017-04-03 17:27:07.763 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3d8 Sleeping 5s
+2017-04-03 17:27:10.177 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3d9 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:12.767 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3da Sleeping 5s
+2017-04-03 17:27:17.768 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3db Sleeping 5s
+2017-04-03 17:27:20.262 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3dc No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:22.769 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3dd Sleeping 5s
+2017-04-03 17:27:27.771 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3de Sleeping 5s
+2017-04-03 17:27:30.326 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3df No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:32.651 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3e0 Sleeping 25s
+2017-04-03 17:27:32.772 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e1 Sleeping 5s
+2017-04-03 17:27:37.774 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e2 Sleeping 5s
+2017-04-03 17:27:40.407 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3e3 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:42.775 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e4 Sleeping 5s
+2017-04-03 17:27:47.776 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e5 Sleeping 5s
+2017-04-03 17:27:50.476 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3e6 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:27:52.777 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e7 Sleeping 5s
+2017-04-03 17:27:57.654 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3e8 Sleeping 25s
+2017-04-03 17:27:57.778 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3e9 Sleeping 5s
+2017-04-03 17:28:00.550 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3ea No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:02.779 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3eb Sleeping 5s
+2017-04-03 17:28:07.781 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ec Sleeping 5s
+2017-04-03 17:28:10.616 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3ed No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:12.783 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ee Sleeping 5s
+2017-04-03 17:28:17.785 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ef Sleeping 5s
+2017-04-03 17:28:20.683 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3f0 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:22.656 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3f1 Sleeping 25s
+2017-04-03 17:28:22.787 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3f2 Sleeping 5s
+2017-04-03 17:28:27.788 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3f3 Sleeping 5s
+2017-04-03 17:28:30.763 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3f4 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:32.789 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3f5 Sleeping 5s
+2017-04-03 17:28:37.791 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3f6 Sleeping 5s
+2017-04-03 17:28:40.843 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3f7 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:42.793 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3f8 Sleeping 5s
+2017-04-03 17:28:47.659 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 3f9 Sleeping 25s
+2017-04-03 17:28:47.794 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3fa Sleeping 5s
+2017-04-03 17:28:50.937 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3fb No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:28:52.800 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3fc Sleeping 5s
+2017-04-03 17:28:57.802 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3fd Sleeping 5s
+2017-04-03 17:29:00.998 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 3fe No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:02.803 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 3ff Sleeping 5s
+2017-04-03 17:29:07.805 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 400 Sleeping 5s
+2017-04-03 17:29:11.074 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 401 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:12.664 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 402 Sleeping 25s
+2017-04-03 17:29:12.806 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 403 Sleeping 5s
+2017-04-03 17:29:17.808 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 404 Sleeping 5s
+2017-04-03 17:29:21.131 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 405 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:22.811 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 406 Sleeping 5s
+2017-04-03 17:29:27.812 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 407 Sleeping 5s
+2017-04-03 17:29:31.199 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 408 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:32.813 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 409 Sleeping 5s
+2017-04-03 17:29:37.668 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 40a Sleeping 25s
+2017-04-03 17:29:37.817 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 40b Sleeping 5s
+2017-04-03 17:29:41.274 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 40c No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:42.818 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 40d Sleeping 5s
+2017-04-03 17:29:47.820 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 40e Sleeping 5s
+2017-04-03 17:29:51.377 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 40f No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:29:52.825 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 410 Sleeping 5s
+2017-04-03 17:29:57.826 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 411 Sleeping 5s
+2017-04-03 17:30:01.462 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 412 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:02.670 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 413 Sleeping 25s
+2017-04-03 17:30:02.828 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 414 Sleeping 5s
+2017-04-03 17:30:07.831 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 415 Sleeping 5s
+2017-04-03 17:30:11.533 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 416 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:12.833 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 417 Sleeping 5s
+2017-04-03 17:30:17.835 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 418 Sleeping 5s
+2017-04-03 17:30:21.590 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 419 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:22.836 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 41a Sleeping 5s
+2017-04-03 17:30:27.673 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 41b Sleeping 25s
+2017-04-03 17:30:27.837 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 41c Sleeping 5s
+2017-04-03 17:30:31.650 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 41d No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:32.839 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 41e Sleeping 5s
+2017-04-03 17:30:37.839 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 41f Sleeping 5s
+2017-04-03 17:30:41.719 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 420 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:42.841 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 421 Sleeping 5s
+2017-04-03 17:30:47.842 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 422 Sleeping 5s
+2017-04-03 17:30:51.795 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 423 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:30:52.674 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 424 Sleeping 25s
+2017-04-03 17:30:52.843 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 425 Sleeping 5s
+2017-04-03 17:30:57.845 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 426 Sleeping 5s
+2017-04-03 17:31:01.887 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 427 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:02.847 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 428 Sleeping 5s
+2017-04-03 17:31:07.848 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 429 Sleeping 5s
+2017-04-03 17:31:11.966 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 42a No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:12.850 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 42b Sleeping 5s
+2017-04-03 17:31:17.677 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 42c Sleeping 25s
+2017-04-03 17:31:17.851 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 42d Sleeping 5s
+2017-04-03 17:31:21.990 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 42e No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:22.856 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 42f Sleeping 5s
+2017-04-03 17:31:27.857 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 430 Sleeping 5s
+2017-04-03 17:31:32.055 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 431 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:32.860 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 432 Sleeping 5s
+2017-04-03 17:31:37.862 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 433 Sleeping 5s
+2017-04-03 17:31:42.123 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 434 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:42.679 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 435 Sleeping 25s
+2017-04-03 17:31:42.863 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 436 Sleeping 5s
+2017-04-03 17:31:47.864 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 437 Sleeping 5s
+2017-04-03 17:31:52.225 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 438 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:31:52.865 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 439 Sleeping 5s
+2017-04-03 17:31:57.866 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 43a Sleeping 5s
+2017-04-03 17:32:02.300 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 43b No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:02.867 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 43c Sleeping 5s
+2017-04-03 17:32:07.682 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 43d Sleeping 25s
+2017-04-03 17:32:07.869 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 43e Sleeping 5s
+2017-04-03 17:32:12.369 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 43f No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:12.872 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 440 Sleeping 5s
+2017-04-03 17:32:17.873 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 441 Sleeping 5s
+2017-04-03 17:32:22.496 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 442 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:22.875 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 443 Sleeping 5s
+2017-04-03 17:32:27.876 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 444 Sleeping 5s
+2017-04-03 17:32:32.567 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 445 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:32.683 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 446 Sleeping 25s
+2017-04-03 17:32:32.877 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 447 Sleeping 5s
+2017-04-03 17:32:37.878 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 448 Sleeping 5s
+2017-04-03 17:32:42.658 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 449 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:42.881 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 44a Sleeping 5s
+2017-04-03 17:32:47.882 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 44b Sleeping 5s
+2017-04-03 17:32:52.796 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 44c No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:32:52.885 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 44d Sleeping 5s
+2017-04-03 17:32:57.685 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 44e Sleeping 25s
+2017-04-03 17:32:57.886 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 44f Sleeping 5s
+2017-04-03 17:33:02.885 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 450 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:02.887 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 451 Sleeping 5s
+2017-04-03 17:33:07.893 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 452 Sleeping 5s
+2017-04-03 17:33:12.901 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 453 Sleeping 5s
+2017-04-03 17:33:12.935 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 454 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:17.902 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 455 Sleeping 5s
+2017-04-03 17:33:22.687 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 456 Sleeping 25s
+2017-04-03 17:33:22.903 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 457 Sleeping 5s
+2017-04-03 17:33:23.039 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 458 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:27.905 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 459 Sleeping 5s
+2017-04-03 17:33:32.907 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 45a Sleeping 5s
+2017-04-03 17:33:33.133 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 45b No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:37.915 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 45c Sleeping 5s
+2017-04-03 17:33:42.916 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 45d Sleeping 5s
+2017-04-03 17:33:43.223 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 45e No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:47.689 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 45f Sleeping 25s
+2017-04-03 17:33:47.919 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 460 Sleeping 5s
+2017-04-03 17:33:52.920 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 461 Sleeping 5s
+2017-04-03 17:33:53.290 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 462 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:33:57.922 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 463 Sleeping 5s
+2017-04-03 17:34:02.923 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 464 Sleeping 5s
+2017-04-03 17:34:03.372 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 465 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:07.925 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 466 Sleeping 5s
+2017-04-03 17:34:12.692 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 467 Sleeping 25s
+2017-04-03 17:34:12.927 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 468 Sleeping 5s
+2017-04-03 17:34:13.443 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 469 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:17.931 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 46a Sleeping 5s
+2017-04-03 17:34:22.933 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 46b Sleeping 5s
+2017-04-03 17:34:23.510 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 46c No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:27.934 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 46d Sleeping 5s
+2017-04-03 17:34:32.936 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 46e Sleeping 5s
+2017-04-03 17:34:33.582 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 46f No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:37.693 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 470 Sleeping 25s
+2017-04-03 17:34:37.938 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 471 Sleeping 5s
+2017-04-03 17:34:42.939 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 472 Sleeping 5s
+2017-04-03 17:34:43.653 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 473 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:47.942 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 474 Sleeping 5s
+2017-04-03 17:34:52.948 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 475 Sleeping 5s
+2017-04-03 17:34:53.722 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 476 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:34:57.951 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 477 Sleeping 5s
+2017-04-03 17:35:02.696 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 478 Sleeping 25s
+2017-04-03 17:35:02.953 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 479 Sleeping 5s
+2017-04-03 17:35:03.825 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 47a No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:07.955 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 47b Sleeping 5s
+2017-04-03 17:35:12.958 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 47c Sleeping 5s
+2017-04-03 17:35:13.896 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 47d No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:17.962 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 47e Sleeping 5s
+2017-04-03 17:35:22.963 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 47f Sleeping 5s
+2017-04-03 17:35:23.973 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 480 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:27.699 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 481 Sleeping 25s
+2017-04-03 17:35:27.964 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 482 Sleeping 5s
+2017-04-03 17:35:32.965 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 483 Sleeping 5s
+2017-04-03 17:35:34.054 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 484 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:37.966 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 485 Sleeping 5s
+2017-04-03 17:35:42.968 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 486 Sleeping 5s
+2017-04-03 17:35:44.130 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 487 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:47.969 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 488 Sleeping 5s
+2017-04-03 17:35:52.701 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 489 Sleeping 25s
+2017-04-03 17:35:52.971 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 48a Sleeping 5s
+2017-04-03 17:35:54.201 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 48b No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:35:57.975 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 48c Sleeping 5s
+2017-04-03 17:36:02.977 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 48d Sleeping 5s
+2017-04-03 17:36:04.276 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 48e No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:07.978 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 48f Sleeping 5s
+2017-04-03 17:36:12.980 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 490 Sleeping 5s
+2017-04-03 17:36:14.362 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 491 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:17.708 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 492 Sleeping 25s
+2017-04-03 17:36:17.982 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 493 Sleeping 5s
+2017-04-03 17:36:22.984 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 494 Sleeping 5s
+2017-04-03 17:36:24.474 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 495 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:27.985 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 496 Sleeping 5s
+2017-04-03 17:36:32.991 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 497 Sleeping 5s
+2017-04-03 17:36:34.591 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 498 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:37.993 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 499 Sleeping 5s
+2017-04-03 17:36:42.727 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 49a Sleeping 25s
+2017-04-03 17:36:42.994 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 49b Sleeping 5s
+2017-04-03 17:36:44.670 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 49c No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:47.995 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 49d Sleeping 5s
+2017-04-03 17:36:52.998 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 49e Sleeping 5s
+2017-04-03 17:36:54.742 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 49f No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:36:58.000 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a0 Sleeping 5s
+2017-04-03 17:37:03.001 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a1 Sleeping 5s
+2017-04-03 17:37:04.790 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4a2 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:07.729 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4a3 Sleeping 25s
+2017-04-03 17:37:08.003 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a4 Sleeping 5s
+2017-04-03 17:37:13.004 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a5 Sleeping 5s
+2017-04-03 17:37:14.845 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4a6 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:18.007 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a7 Sleeping 5s
+2017-04-03 17:37:23.008 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4a8 Sleeping 5s
+2017-04-03 17:37:24.921 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4a9 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:28.009 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4aa Sleeping 5s
+2017-04-03 17:37:32.731 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4ab Sleeping 25s
+2017-04-03 17:37:33.012 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ac Sleeping 5s
+2017-04-03 17:37:35.024 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4ad No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:38.015 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ae Sleeping 5s
+2017-04-03 17:37:43.019 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4af Sleeping 5s
+2017-04-03 17:37:45.148 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4b0 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:48.020 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b1 Sleeping 5s
+2017-04-03 17:37:53.021 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b2 Sleeping 5s
+2017-04-03 17:37:55.233 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4b3 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:37:57.733 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4b4 Sleeping 25s
+2017-04-03 17:37:58.023 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b5 Sleeping 5s
+2017-04-03 17:38:03.024 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b6 Sleeping 5s
+2017-04-03 17:38:05.294 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4b7 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:08.025 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b8 Sleeping 5s
+2017-04-03 17:38:13.026 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4b9 Sleeping 5s
+2017-04-03 17:38:15.376 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4ba No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:18.027 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4bb Sleeping 5s
+2017-04-03 17:38:22.735 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4bc Sleeping 25s
+2017-04-03 17:38:23.028 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4bd Sleeping 5s
+2017-04-03 17:38:25.427 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4be No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:28.030 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4bf Sleeping 5s
+2017-04-03 17:38:33.031 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c0 Sleeping 5s
+2017-04-03 17:38:35.496 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4c1 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:38.033 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c2 Sleeping 5s
+2017-04-03 17:38:43.035 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c3 Sleeping 5s
+2017-04-03 17:38:45.564 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4c4 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:47.736 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4c5 Sleeping 25s
+2017-04-03 17:38:48.036 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c6 Sleeping 5s
+2017-04-03 17:38:53.037 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c7 Sleeping 5s
+2017-04-03 17:38:55.697 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4c8 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:38:58.038 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4c9 Sleeping 5s
+2017-04-03 17:39:03.040 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ca Sleeping 5s
+2017-04-03 17:39:05.774 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4cb No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:08.041 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4cc Sleeping 5s
+2017-04-03 17:39:12.738 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4cd Sleeping 25s
+2017-04-03 17:39:13.044 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ce Sleeping 5s
+2017-04-03 17:39:15.864 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4cf No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:18.045 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d0 Sleeping 5s
+2017-04-03 17:39:23.048 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d1 Sleeping 5s
+2017-04-03 17:39:25.940 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4d2 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:28.050 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d3 Sleeping 5s
+2017-04-03 17:39:33.051 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d4 Sleeping 5s
+2017-04-03 17:39:36.005 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4d5 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:37.743 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4d6 Sleeping 25s
+2017-04-03 17:39:38.053 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d7 Sleeping 5s
+2017-04-03 17:39:43.053 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4d8 Sleeping 5s
+2017-04-03 17:39:46.104 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4d9 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:48.054 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4da Sleeping 5s
+2017-04-03 17:39:53.055 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4db Sleeping 5s
+2017-04-03 17:39:56.171 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4dc No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:39:58.056 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4dd Sleeping 5s
+2017-04-03 17:40:02.745 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4de Sleeping 25s
+2017-04-03 17:40:03.057 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4df Sleeping 5s
+2017-04-03 17:40:06.244 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4e0 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:08.059 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e1 Sleeping 5s
+2017-04-03 17:40:13.061 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e2 Sleeping 5s
+2017-04-03 17:40:16.318 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4e3 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:18.062 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e4 Sleeping 5s
+2017-04-03 17:40:23.064 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e5 Sleeping 5s
+2017-04-03 17:40:26.354 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4e6 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:27.747 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4e7 Sleeping 25s
+2017-04-03 17:40:28.065 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e8 Sleeping 5s
+2017-04-03 17:40:33.073 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4e9 Sleeping 5s
+2017-04-03 17:40:36.526 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4ea No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:38.079 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4eb Sleeping 5s
+2017-04-03 17:40:43.080 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ec Sleeping 5s
+2017-04-03 17:40:46.587 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4ed No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:48.082 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4ee Sleeping 5s
+2017-04-03 17:40:52.753 UTC [gossip/discovery#172.18.0.11:7051] periodicalReconnectToDead -> DEBU 4ef Sleeping 25s
+2017-04-03 17:40:53.083 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4f0 Sleeping 5s
+2017-04-03 17:40:56.664 UTC [gossip/gossip#172.18.0.11:7051] PeersOfChannel -> DEBU 4f1 No such channel [116 101 115 116 99 104 97 105 110 105 100]
+2017-04-03 17:40:58.084 UTC [gossip/discovery#172.18.0.11:7051] periodicalSendAlive -> DEBU 4f2 Sleeping 5s
+^C
+vagrant@hyperledger-devenv:v0.3.0-d778d0a:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ 

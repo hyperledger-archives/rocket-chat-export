@@ -1,0 +1,819 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Mon, 22 Jun 2020 17:25:54 GMT):<br/>
+WadeBarnes
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 17:27:02 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 17:27:02 GMT):<br/>
+development for Raspberry Pi, other μ platforms
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 17:27:25 GMT):<br/>
+@WadeBarnes this work?
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 17:27:39 GMT):<br/>
+@rjones, perfect!
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 17:29:02 GMT):<br/>
+:h-aries:
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 17:29:20 GMT):<br/>
+development of :h-aries: for Raspberry Pi, other μ platforms
+</p>
+<p><strong>andrew.whitehead</strong> (Mon, 22 Jun 2020 17:37:57 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>HLFPOC</strong> (Mon, 22 Jun 2020 17:42:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 18:01:37 GMT):<br/>
+Here are some resources people have been using/following:
+- [Collaboration: Raspberry Pi Indy Agent](https://wiki.hyperledger.org/display/INTERN/Collaboration%3A+Raspberry+Pi+Indy+Agent)
+- Zeng Zixuan's related code can be found here; [Raspberry Pi Indy Agent Internship](https://github.com/zzx02/Raspberry-Pi-Indy-Agent)
+
+People have been having trouble standing up agents on bare metal.  For example; https://github.com/hyperledger/aries-cloudagent-python/issues/88
+
+Needless to say getting this all running on a bare metal embedded system can be a challenge.  For the Raspberry Pi (at least) I've been working with a fellow on a containerized solution.  I'm hoping to drag him over here to share the experiences and progress.  That way others can benefit and collaborate.
+</p>
+<p><strong>haniavis</strong> (Mon, 22 Jun 2020 20:36:15 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 20:50:15 GMT):<br/>
+Thanks for joining @haniavis
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 20:52:34 GMT):<br/>
+I'm hoping Oliver Bünting (eorituz) ends up joining here too.  It's the issues around running on bare metal we're hoping to address for people here.
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 20:53:58 GMT):<br/>
+Do you have an material you could share that would help others joining the channel to follow along with you containerized environment path?
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 22 Jun 2020 20:53:58 GMT):<br/>
+Do you have any material you could share that would help others joining the channel to follow along with you containerized environment path?
+</p>
+<p><strong>rjones</strong> (Mon, 22 Jun 2020 20:54:08 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>haniavis</strong> (Mon, 22 Jun 2020 21:56:54 GMT):<br/>
+Yes I will try to summarize my efforts until now towards running the aca-py in the Rpi and share it here.
+</p>
+<p><strong>haniavis</strong> (Mon, 22 Jun 2020 21:57:57 GMT):<br/>
+thanks for the group @WadeBarnes I hope others can share their experiences on rpi + aca-py
+</p>
+<p><strong>Audrius</strong> (Tue, 23 Jun 2020 07:51:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>wip-abramson</strong> (Tue, 23 Jun 2020 13:43:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:11:42 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:12:00 GMT):<br/>
+@WadeBarnes Hey!
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:13:25 GMT):<br/>
+Hey
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:13:25 GMT):<br/>
+Hey, welcome.
+</p>
+<p><strong>Baha-sk</strong> (Tue, 23 Jun 2020 15:19:57 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:23:27 GMT):<br/>
+Here is what I tried so far:
+- The tutorial of the Zeng is kind of outdated so I didn't bother following it step by step all the way thorugh (there are new versions of libsodium, indy-sdk, indysdk-python and rust) <-- using the old indy versions require a downgrade of rust....
+- I went with the BC guys and build the aries-cloud-agent docker image for armv7 (but an old version as it wasn't very clear to me how to build the lastest version) - https://hub.docker.com/repository/docker/eorituz/aries-cloudagent
+---> Building worked fine, however running my docker-compose setup that works on AMD64 gave me a segmentation fault... 
+---> By running the container manually I got the same error as mentioned by zzx02 and arner here https://github.com/hyperledger/aries-cloudagent-python/issues/88
+I wasn't able to figure out what causes the crash so I compiled and installed all the requirements on the pi directly which led to the same error.
+```
+      | SOME_TIME:10:29,630 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:461 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner:
+      |
+      | timestamp and version cannot be specified together.
+      |
+      | Invalid structure })
+```
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:23:27 GMT):<br/>
+Here is what I tried so far:
+- The tutorial of the Zeng is kind of outdated so I didn't bother following it step by step all the way thorugh (there are new versions of libsodium, indy-sdk, indysdk-python and rust) <-- using the old indy versions require a downgrade of rust....
+- I went with the BC guys (https://github.com/bcgov/aries-cloudagent-container) and build the aries-cloud-agent docker container for armv7 (but an old version as it wasn't very clear to me how to build the lastest version) - https://hub.docker.com/repository/docker/eorituz/aries-cloudagent
+---> Building worked fine, however running my docker-compose setup that works on AMD64 gave me a segmentation fault... 
+---> By running the container manually I got the same error as mentioned by zzx02 and arner here https://github.com/hyperledger/aries-cloudagent-python/issues/88
+I wasn't able to figure out what causes the crash so I compiled and installed all the requirements on the pi directly which led to the same error.
+```
+      | SOME_TIME:10:29,630 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:461 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner:
+      |
+      | timestamp and version cannot be specified together.
+      |
+      | Invalid structure })
+```
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:23:27 GMT):<br/>
+Here is what I tried so far:
+- The tutorial of the Zeng is kind of outdated so I didn't bother following it step by step all the way thorugh (there are new versions of libsodium, indy-sdk, indysdk-python and rust) <-- using the old indy versions even require a downgrade of rust....
+- I went with the BC guys (https://github.com/bcgov/aries-cloudagent-container) and build the aries-cloud-agent docker container for armv7 (but an old version as it wasn't very clear to me how to build the lastest version) - https://hub.docker.com/repository/docker/eorituz/aries-cloudagent
+---> Building worked fine, however running my docker-compose setup that works on AMD64 gave me a segmentation fault... 
+---> By running the container manually I got the same error as mentioned by zzx02 and arner here https://github.com/hyperledger/aries-cloudagent-python/issues/88
+I wasn't able to figure out what causes the crash so I compiled and installed all the requirements on the pi directly which led to the same error.
+```
+      | SOME_TIME:10:29,630 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:461 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner:
+      |
+      | timestamp and version cannot be specified together.
+      |
+      | Invalid structure })
+```
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:26:09 GMT):<br/>
+@haniavis, have you been able to get further with your containerized environment.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:27:35 GMT):<br/>
+@eorituz, yes, and unfortunately the solution was never really documented for that issue.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:27:54 GMT):<br/>
+@andrew.whitehead ?
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:27:59 GMT):<br/>
+I think that error suggests a mismatch between the indy-sdk version and aca-py
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:29:36 GMT):<br/>
+My `python3-indy` version matched the indy-sdk release. Can it be that there should be an offset in versions?
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:29:36 GMT):<br/>
+My `python3-indy` version matched the `indy-sdk` release. Can it be that there should be an offset in versions?
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:30:12 GMT):<br/>
+How is the arm image being built?
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:30:55 GMT):<br/>
+For the container images, there are 2 levels:
+- [PSPC-SPAC-buyandsell/von-image](https://github.com/PSPC-SPAC-buyandsell/von-image), which builds all of the indy dependancies.
+- [bcgov/aries-cloudagent-container](https://github.com/bcgov/aries-cloudagent-container), which adds aca-py.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:31:34 GMT):<br/>
+The first will give you a guide on the versions of all of the dependancies.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:31:34 GMT):<br/>
+The first will give you a guide on the versions of all of the dependencies.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:32:55 GMT):<br/>
+I think collaborating on ARM builds would be the first logical step.
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 15:32:55 GMT):<br/>
+I think collaborating on ARM builds would be the first logical step.
+Then we could get those published.
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:33:20 GMT):<br/>
+unfortunately happens with manual installation as well.
+I built the bcgov von image on the pi: https://github.com/PSPC-SPAC-buyandsell/von-image
+And afterwards the matching bcgov aries: https://github.com/bcgov/aries-cloudagent-container
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:33:20 GMT):<br/>
+unfortunately happens with manual installation as well.
+I built the bcgov von image on the pi: https://github.com/PSPC-SPAC-buyandsell/von-image
+And afterwards the matching bcgov aries: https://github.com/bcgov/aries-cloudagent-container
+Both builds directly on the pi
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:33:20 GMT):<br/>
+unfortunately happens with manual installation as well.
+I built the ~bcgov~ von image on the pi: https://github.com/PSPC-SPAC-buyandsell/von-image
+And afterwards the matching bcgov aries: https://github.com/bcgov/aries-cloudagent-container
+Both builds directly on the pi
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:33:45 GMT):<br/>
+Right but how did you built it
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:33:45 GMT):<br/>
+Right but how did you build it
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:34:27 GMT):<br/>
+There's a make_image script which sets variables to specify the dependency versions
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:35:40 GMT):<br/>
+yep, I posted a brief how-to on my dockerhub: https://hub.docker.com/repository/docker/eorituz/von-image
+Not sure if that satisfies you... I didn't intend to show it to anyone else :D
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:35:40 GMT):<br/>
+yep, I posted a brief how-to on my dockerhub: https://hub.docker.com/repository/docker/eorituz/von-image + https://hub.docker.com/repository/docker/eorituz/von-image
+Not sure if that satisfies you... I didn't intend to show it to anyone else :D
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:38:15 GMT):<br/>
+That helps, thanks. So looks like you were basing it on 1.14.1 which should be right I think
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:38:23 GMT):<br/>
+What's the aca-py version?
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:39:07 GMT):<br/>
+`py36-1.14-0_0.4.2`
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:40:34 GMT):<br/>
+Mhhh I think you're on to somehting there my conatiner names state that I build on `py36-1.14-0` not sure if that's the issue
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:40:37 GMT):<br/>
+I'd try updating the aca-py dependency to 0.5.1
+</p>
+<p><strong>eorituz</strong> (Tue, 23 Jun 2020 15:44:16 GMT):<br/>
+Ok, thanks. That's my next step. (However, I ran in the same issue when installing & compiling everything for `aca-py==0.5.1` on the pi directly)
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 15:46:12 GMT):<br/>
+The von-image build creates the python3-indy python package from the same repository as the indy-sdk build, so it's important not to install the one from pypi as well
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 23 Jun 2020 16:01:04 GMT):<br/>
+@eorituz, @haniavis, I'd recommend working on forks of [PSPC-SPAC-buyandsell/von-image](https://github.com/PSPC-SPAC-buyandsell/von-image), and [bcgov/aries-cloudagent-container](https://github.com/bcgov/aries-cloudagent-container) so you can contribute the results back to these repos for the benefit of all.  Then we can look at publishing the ARM images with the rest of the images.
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:09:44 GMT):<br/>
+Until now I have managed to build the aries-cloudagent image for the aca-py 0.3.5 (py36-1.11-1_0.3.5). I already had a controller for this version, so I needed to use v0.3.5. Unfortunately my code was based on the demo examples and I didn't manage to use the py36-1.11-1_0.3.5 image with my demo-based code, so I am now trying to port to a "proper" controller code like [this one](https://github.com/bcgov/aries-vcr-issuer-controller) (sent by @WadeBarnes ). Also I am not sure if the py36-1.11-1_0.3.5 image I have satisfies all the dependencies, since I commented out some of them that I believe I don't need e.g. the indy-cli in the von-image. Here is how I did it:
+- First used [this repo]() to build the von-image. Here I couldn
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:09:44 GMT):<br/>
+Until now I have managed to build the aries-cloudagent image for the aca-py 0.3.5 (py36-1.11-1_0.3.5). I already had a controller for this version, so I needed to use v0.3.5. Unfortunately my code was based on the demo examples and I didn't manage to use the py36-1.11-1_0.3.5 image with my demo-based code, so I am now trying to port to a "proper" controller code like [this one](https://github.com/bcgov/aries-vcr-issuer-controller) (sent by @WadeBarnes ). Also I am not sure if the py36-1.11-1_0.3.5 image I have satisfies all the dependencies, since I commented out some of them that I believe I don't need e.g. the indy-cli in the von-image. Here is how I did it:
+- First used [this repo](https://github.com/PSPC-SPAC-buyandsell/von-image) to build the von-image. Here I couldn't build the indy-sdk from source, so I used the packages found [here](https://repo.sovrin.org/android/libindy/stable/)
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:14:30 GMT):<br/>
+I also commented out the indy-cli, I don't need it since I am running the ledger on another machine. And the postgres_storage, for which I am not sure if I need it.
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:15:48 GMT):<br/>
+- And then I used [this repo](https://github.com/bcgov/aries-vcr-issuer-controller) to add the aries-cloudagent package on the von-image.
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:15:48 GMT):<br/>
+- And then I used this repo https://github.com/bcgov/aries-cloudagent-container to add the aries-cloudagent package on the von-image.
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:17:42 GMT):<br/>
+for the von-image I did `python make_image.py --py36 --release 1.11.1`  and for the aries-cloudagent I did `python make_image.py 0.3.5 python`
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 16:27:29 GMT):<br/>
+What is the error and when is it showing up?
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:30:47 GMT):<br/>
+You mean for the indy-sdk?
+</p>
+<p><strong>andrew.whitehead</strong> (Tue, 23 Jun 2020 16:31:15 GMT):<br/>
+Whatever error you are experiencing, or is it working for you?
+</p>
+<p><strong>haniavis</strong> (Tue, 23 Jun 2020 16:31:46 GMT):<br/>
+I will try to reproduce the errors and send here, I didn't keep logs
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 23 Jun 2020 23:38:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>domwoe</strong> (Wed, 24 Jun 2020 12:30:56 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>c2bo</strong> (Thu, 25 Jun 2020 08:11:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>haniavis</strong> (Fri, 26 Jun 2020 01:18:14 GMT):<br/>
+So I looked at it again and realized that the error was an "out of memory error" during the make_image.py of the von-image. This wasn't fixed even when I increased my swap memory, but it was fixed when I disabled the experimental features of my docker. Now the indy sdk and the indy-cli are built successfully and I get the error that @eorituz describes in his dockerhub.
+</p>
+<p><strong>haniavis</strong> (Fri, 26 Jun 2020 01:18:14 GMT):<br/>
+So I looked at it again and realized that the error was an "out of memory error" during the make_image.py of the von-image. This wasn't fixed even when I increased my swap memory, but it was fixed when I disabled the experimental features of my docker. Now the indy sdk and the indy-cli are built successfully and I get the error that @eorituz describes in his dockerhub about the postgres_storage.
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:30:33 GMT):<br/>
+@haniavis The postgres issue can also be "fixed" with replacing the trouble making `i8` types with `libc::c_char` (however I have no clue about rust and only figured out by googleing that there are some flaws with `i8` and some arm architectures... The build accepts this fix but I don't know if it breaks something later on)
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:30:33 GMT):<br/>
+@haniavis I'm on a RPi 4 (so i guess that helps with the out of memory issues)... The postgres issue can also be "fixed" with replacing the trouble making `i8` types with `libc::c_char` (however I have no clue about rust and only figured out by googleing that there are some flaws with `i8` and some arm architectures... The build accepts this fix but I don't know if it breaks something later on)
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:30:33 GMT):<br/>
+@haniavis I'm on a RPi 4 (so i guess that helps with the out of memory issues)... The postgres issue can also be "fixed" with replacing the trouble making `i8` types with `libc::c_char` (however I have no clue about rust and only figured out by googleing that there are some flaws with `i8` and some arm architectures... The build accepts this fix but I don't know if it breaks something later on)
+
+Feel free to try and run my latest aca-py image from dockerhub and have a look if you run in the same issues (https://hub.docker.com/repository/docker/eorituz/aries-cloudagent version py36-1.14-1_0.5.1
+)
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:36:40 GMT):<br/>
+@andrew.whitehead I built the latest version of aca-py with the coressponding von-image. However, I'm still stuck with the same error message: https://github.com/hyperledger/aries-cloudagent-python/issues/88
+```
+pi@raspberrypi:~ $ docker run eorituz/aries-cloudagent:py36-1.14-1_0.5.1 start --admin '0.0.0.0' 5020 -e 10.1.7.64:10000 --wallet-type indy --genesis-url http://test.bcovrin.vonx.io/genesis --label 'seller Agent' --auto-accept-invites --auto-accept-requests --admin-insecure-mode --log-level INFO --genesis-url http://test.bcovrin.vonx.io/genesis -it http '0.0.0.0' 10000 -ot http
+2020-06-26 08:31:43,294 aries_cloudagent.wallet.provider INFO Opening wallet type: indy
+2020-06-26 08:31:43,474 indy.libindy.native.command_executor INFO 	src/commands/mod.rs:101 | Worker thread started
+2020-06-26 08:31:43,512 indy.libindy WARNING _indy_loop_callback: Function returned error 
+2020-06-26 08:31:53,487 aries_cloudagent.wallet.indy INFO Creating master secret...
+2020-06-26 08:31:53,533 aries_cloudagent.config.ledger INFO Fetching genesis transactions from: http://test.bcovrin.vonx.io/genesis
+2020-06-26 08:31:54,988 indy.libindy.native.indy.commands.pool INFO 	src/commands/pool.rs:75 | OpenAck handle 4, pool_id 4, result Ok(())
+2020-06-26 08:31:54,996 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:449 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner: 
+
+timestamp and version cannot be specified together.
+
+Invalid structure })
+```
+@zzx02 could you point out how resolved that issue?
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:36:40 GMT):<br/>
+@andrew.whitehead I built the latest version of aca-py with the coressponding von-image. However, I'm still stuck with the same error message: https://github.com/hyperledger/aries-cloudagent-python/issues/88
+```
+pi@raspberrypi:~ $ docker run eorituz/aries-cloudagent:py36-1.14-1_0.5.1 start --admin '0.0.0.0' 5020 -e 10.1.7.64:10000 --wallet-type indy --genesis-url http://test.bcovrin.vonx.io/genesis --label 'seller Agent' --auto-accept-invites --auto-accept-requests --admin-insecure-mode --log-level INFO --genesis-url http://test.bcovrin.vonx.io/genesis -it http '0.0.0.0' 10000 -ot http
+2020-06-26 08:31:43,294 aries_cloudagent.wallet.provider INFO Opening wallet type: indy
+2020-06-26 08:31:43,474 indy.libindy.native.command_executor INFO 	src/commands/mod.rs:101 | Worker thread started
+2020-06-26 08:31:43,512 indy.libindy WARNING _indy_loop_callback: Function returned error 
+2020-06-26 08:31:53,487 aries_cloudagent.wallet.indy INFO Creating master secret...
+2020-06-26 08:31:53,533 aries_cloudagent.config.ledger INFO Fetching genesis transactions from: http://test.bcovrin.vonx.io/genesis
+2020-06-26 08:31:54,988 indy.libindy.native.indy.commands.pool INFO 	src/commands/pool.rs:75 | OpenAck handle 4, pool_id 4, result Ok(())
+2020-06-26 08:31:54,996 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:449 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner: 
+
+timestamp and version cannot be specified together.
+
+Invalid structure })
+```
+Debug logs: https://gist.github.com/eorituz/0862e2b78b598667b76f1389d1e819b1
+
+@zzx02 could you point out how resolved that issue?
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 08:36:40 GMT):<br/>
+@andrew.whitehead I built the latest version of aca-py with the corresponding von-image. However, I'm still stuck with the same error message: https://github.com/hyperledger/aries-cloudagent-python/issues/88
+```
+pi@raspberrypi:~ $ docker run eorituz/aries-cloudagent:py36-1.14-1_0.5.1 start --admin '0.0.0.0' 5020 -e 10.1.7.64:10000 --wallet-type indy --genesis-url http://test.bcovrin.vonx.io/genesis --label 'seller Agent' --auto-accept-invites --auto-accept-requests --admin-insecure-mode --log-level INFO --genesis-url http://test.bcovrin.vonx.io/genesis -it http '0.0.0.0' 10000 -ot http
+2020-06-26 08:31:43,294 aries_cloudagent.wallet.provider INFO Opening wallet type: indy
+2020-06-26 08:31:43,474 indy.libindy.native.command_executor INFO 	src/commands/mod.rs:101 | Worker thread started
+2020-06-26 08:31:43,512 indy.libindy WARNING _indy_loop_callback: Function returned error 
+2020-06-26 08:31:53,487 aries_cloudagent.wallet.indy INFO Creating master secret...
+2020-06-26 08:31:53,533 aries_cloudagent.config.ledger INFO Fetching genesis transactions from: http://test.bcovrin.vonx.io/genesis
+2020-06-26 08:31:54,988 indy.libindy.native.indy.commands.pool INFO 	src/commands/pool.rs:75 | OpenAck handle 4, pool_id 4, result Ok(())
+2020-06-26 08:31:54,996 indy.libindy.native.indy.services.ledger INFO 	src/services/ledger/mod.rs:449 | build_get_acceptance_mechanisms_request() => Err(IndyError { inner: 
+
+timestamp and version cannot be specified together.
+
+Invalid structure })
+```
+Debug logs: https://gist.github.com/eorituz/0862e2b78b598667b76f1389d1e819b1
+
+@zzx02 could you point out how resolved that issue?
+</p>
+<p><strong>zzx02</strong> (Fri, 26 Jun 2020 08:36:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:28:39 GMT):<br/>
+@eorituz, Would you be able to increase the log level to DEBUG and see if we can get more details from the logs?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:30:10 GMT):<br/>
+I'm getting things setup on my end to replicate these issues.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:30:10 GMT):<br/>
+I'm getting things setup on my end to try to replicate these issues.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:36:55 GMT):<br/>
+@eorituz, How are you specifying the seed `--seed` for your agent and have you pre-registered it on the `http://test.bcovrin.vonx.io` ledger?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:36:55 GMT):<br/>
+@eorituz, How are you specifying the seed `--seed` for your agent and have you pre-registered your agent on the `http://test.bcovrin.vonx.io` ledger?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:39:14 GMT):<br/>
+Is this it? http://test.bcovrin.vonx.io/browse/domain?page=1&query=seller%20Agent&txn_type=
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:39:35 GMT):<br/>
+
+<br/><a href="./assets/S8ar6KuZRwGBfQhy9-Clipboard - June 26, 2020 5:39 AM">Clipboard - June 26, 2020 5:39 AM</a>
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:43:48 GMT):<br/>
+If so it looks like it's spinning up enough to be able to write it's endpoint to the ledger.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:43:50 GMT):<br/>
+http://test.bcovrin.vonx.io/browse/domain?page=1&query=EscDtHeS2mhVZLFEMQmkU8&txn_type=
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:44:03 GMT):<br/>
+
+<br/><a href="./assets/pRnbfgy77gBQ8FwFB-Clipboard - June 26, 2020 5:44 AM">Clipboard - June 26, 2020 5:44 AM</a>
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:44:55 GMT):<br/>
+However that endpoint will need to be publicly accessible, currently it is not.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:44:55 GMT):<br/>
+However that endpoint will need to be publicly accessible (in order to communicate with other agents), currently it is not.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 12:46:08 GMT):<br/>
+That's easy to change.  When you update the endpoint on the agent side it will detect the change and write the new endpoint to the ledger.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 13:03:30 GMT):<br/>
+The fact that the message is logged at `INFO` level makes me wonder if that's even an issue.  There are many messages from indy (even ones logged at `ERROR` level) that can be ignored.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 13:03:30 GMT):<br/>
+The fact that the message is logged at `INFO` level makes me wonder if that's even an issue.  There are many messages from indy (even ones logged at `ERROR` level) that can be safely ignored.
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:28:45 GMT):<br/>
+The DEBUG logs are in the gist I posted above (https://gist.github.com/eorituz/0862e2b78b598667b76f1389d1e819b1)
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:32:15 GMT):<br/>
+I suspect the error is something to do with the FFI and/or python wrapper for FFI. It passes in the timestamp as a c_int64
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:32:52 GMT):<br/>
+c_timestamp = c_int64(timestamp) if timestamp is not None else c_int(-1)  <-- but why revert to c_int for the default value
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:33:40 GMT):<br/>
+Thank you for pointing it out. The issue we're facing atm happens before we run into trouble with seeds and 
+not registered/ publicly available endpoints.
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:34:12 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/blob/2c84988e72723610b9c302a6807b0f480cbe3276/wrappers/python/indy/ledger.py#L1722
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:36:56 GMT):<br/>
+So yes, I will need to specify a seed an register it (I also tried to run my container with doing all of that, but ran into the same issue)
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:36:59 GMT):<br/>
+It does the same in build_txn_author_agreement_request a couple times
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 15:38:16 GMT):<br/>
+So the registrations above are not from you agent?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 15:38:16 GMT):<br/>
+So the registrations above are not from your agent?
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:39:43 GMT):<br/>
+Nope at least it's not from the RPi I guess it is from the run I made on my local machine to test my docker-compose setup
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:40:51 GMT):<br/>
+Good point @andrew.whitehead Do you have a direct channel to the indy devs? Or should you or me open an Issue?
+I'm fine with doing it but since you found it the honor is yours :D
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:41:40 GMT):<br/>
+For this I'd probably just open a PR :)
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:41:55 GMT):<br/>
+Maybe you can test out the change though
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:42:54 GMT):<br/>
+I will. So your best guess is that `c_int64` should be the right?
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 26 Jun 2020 15:44:09 GMT):<br/>
+Yep. I would try this to avoid the issue: c_int64(-1 if timestamp is None else timestamp)
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 15:54:51 GMT):<br/>
+Ok, building it atm. I'll let you guys know on monday. (I'm in CEST --> I'll call it a day now)
+</p>
+<p><strong>eorituz</strong> (Fri, 26 Jun 2020 18:23:50 GMT):<br/>
+Ok, it seems to work now. @andrew.whitehead Thank you for you help. You can open the PR.
+@WadeBarnes @haniavis  feel free to download and test the aries-cloudagent for armv7 - https://hub.docker.com/layers/eorituz/aries-cloudagent/py36-1.14-1_0.5.1/images/sha256-a80415814edafeaff4a9b9074f46c4d8177cf9c233d58364f99669efb3289159?context=repo
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:27:31 GMT):<br/>
+@eorituz, That's awesome news.  You already provided links to your docker files and process correct?  Are you able to submit PRs to the main `von-image` and `aries-cloudagent-container` repositories with any changes and documentation?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:27:31 GMT):<br/>
+@eorituz, That's awesome news.  You already provided links to your docker files and the steps you followed; correct?  Are you able to submit PRs to the main `von-image` and `aries-cloudagent-container` repositories with any changes and documentation?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:27:31 GMT):<br/>
+@eorituz, That's awesome news.  You already provided links to your docker files and the steps you followed; correct?  Are you able to submit PRs to the main `von-image` and `aries-cloudagent-container` repositories with any changes and some documentation?
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:29:17 GMT):<br/>
+Then we can look into incorporating the images into the regular release and docker hub repos.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:30:47 GMT):<br/>
+and adding some documentation to the `aries-cloudagent-python` regarding the process.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 26 Jun 2020 18:30:47 GMT):<br/>
+and adding some documentation to the `aries-cloudagent-python` regarding the process of getting the agents running on a Pi.
+</p>
+<p><strong>haniavis</strong> (Sun, 28 Jun 2020 02:22:46 GMT):<br/>
+Hi, I am trying to build the von-image for the 1.11.1 sdk (agent 0.3.5), I fixed the postgres issue with the i8 but now I have another error when compiling ursa, see below. Any ideas?
+`   Compiling ursa v0.1.1
+error[E0277]: the trait bound `rand_chacha::ChaChaRng: rand_core::CryptoRng` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:27:21
+   |
+27 |                     Keypair::generate(&mut rng)
+   |                     ^^^^^^^^^^^^^^^^^ the trait `rand_core::CryptoRng` is not implemented for `rand_chacha::ChaChaRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand_chacha::ChaChaRng: rand_core::RngCore` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:27:21
+   |
+27 |                     Keypair::generate(&mut rng)
+   |                     ^^^^^^^^^^^^^^^^^ the trait `rand_core::RngCore` is not implemented for `rand_chacha::ChaChaRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand::rngs::OsRng: rand_core::CryptoRng` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:35:17
+   |
+35 |                 Keypair::generate(&mut rng)
+   |                 ^^^^^^^^^^^^^^^^^ the trait `rand_core::CryptoRng` is not implemented for `rand::rngs::OsRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand::rngs::OsRng: rand_core::RngCore` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:35:17
+   |
+35 |                 Keypair::generate(&mut rng)
+   |                 ^^^^^^^^^^^^^^^^^ the trait `rand_core::RngCore` is not implemented for `rand::rngs::OsRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error: aborting due to 4 previous errors
+
+For more information about this error, try `rustc --explain E0277`.
+error: Could not compile `ursa`.`
+</p>
+<p><strong>haniavis</strong> (Sun, 28 Jun 2020 02:22:46 GMT):<br/>
+Hi, I am trying to build the von-image for the 1.11.1 sdk (agent 0.3.5), I fixed the postgres issue with the i8 but now I have another error when compiling ursa, see below. Any ideas?
+
+ Compiling ursa v0.1.1
+error[E0277]: the trait bound `rand_chacha::ChaChaRng: rand_core::CryptoRng` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:27:21
+   |
+27 |                     Keypair::generate(&mut rng)
+   |                     ^^^^^^^^^^^^^^^^^ the trait `rand_core::CryptoRng` is not implemented for `rand_chacha::ChaChaRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand_chacha::ChaChaRng: rand_core::RngCore` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:27:21
+   |
+27 |                     Keypair::generate(&mut rng)
+   |                     ^^^^^^^^^^^^^^^^^ the trait `rand_core::RngCore` is not implemented for `rand_chacha::ChaChaRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand::rngs::OsRng: rand_core::CryptoRng` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:35:17
+   |
+35 |                 Keypair::generate(&mut rng)
+   |                 ^^^^^^^^^^^^^^^^^ the trait `rand_core::CryptoRng` is not implemented for `rand::rngs::OsRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error[E0277]: the trait bound `rand::rngs::OsRng: rand_core::RngCore` is not satisfied
+  --> /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/ursa-0.1.1/src/signatures/ed25519.rs:35:17
+   |
+35 |                 Keypair::generate(&mut rng)
+   |                 ^^^^^^^^^^^^^^^^^ the trait `rand_core::RngCore` is not implemented for `rand::rngs::OsRng`
+   |
+   = note: required by `ed25519_dalek::Keypair::generate`
+
+error: aborting due to 4 previous errors
+
+For more information about this error, try `rustc --explain E0277`.
+error: Could not compile `ursa`.
+</p>
+<p><strong>andrew.whitehead</strong> (Sun, 28 Jun 2020 02:33:50 GMT):<br/>
+Why are you building such an old version? In any case, I think that requires a very specific version of ed25519_dalek, like alpha 2 instead of alpha 3
+</p>
+<p><strong>haniavis</strong> (Sun, 28 Jun 2020 02:36:30 GMT):<br/>
+because I have controllers which are based on this version of the agent
+</p>
+<p><strong>WadeBarnes</strong> (Sun, 28 Jun 2020 14:57:20 GMT):<br/>
+@haniavis, Would it be easier to upgrade the controllers to the latest version of `aca-py`?
+</p>
+<p><strong>haniavis</strong> (Fri, 03 Jul 2020 05:16:50 GMT):<br/>
+Yes, I will try to port the controllers code to the latest version of aca-py. @eorituz did you face any other issue when building the von-image except from the const i8 in postgres_storage?
+</p>
+<p><strong>eorituz</strong> (Fri, 03 Jul 2020 09:47:32 GMT):<br/>
+@haniavis Yes there is the issue with the buggy python wrapper (https://github.com/hyperledger/indy-sdk/pull/2210) just manually add that pr to your indy fork (justl ike the i8 thing)
+You can checkout all my changes in my dockerhub readmes:
+von:  https://hub.docker.com/repository/docker/eorituz/von-image
+aries: https://hub.docker.com/repository/docker/eorituz/aries-cloudagent
+</p>
+<p><strong>eorituz</strong> (Fri, 03 Jul 2020 09:47:32 GMT):<br/>
+@haniavis Yes there is the issue with the buggy python wrapper (https://github.com/hyperledger/indy-sdk/pull/2210) just manually add that pr to your indy fork 
+You can checkout all my changes in my dockerhub readmes:
+von:  https://hub.docker.com/repository/docker/eorituz/von-image
+aries: https://hub.docker.com/repository/docker/eorituz/aries-cloudagent
+</p>
+<p><strong>eorituz</strong> (Fri, 03 Jul 2020 09:49:02 GMT):<br/>
+The aries container could use some optimization as I just blindly added a random USER and installed the missing dependencies (I didn't spend much time thinking about why that doesn't work out of the box on the pi).
+Also i used a RPi4 with 2GB ram and the von-images took 1h, aries 10minutes.
+Just that you know: on a pi zero it will take ages :D
+</p>
+<p><strong>haniavis</strong> (Fri, 03 Jul 2020 16:03:22 GMT):<br/>
+I know, I use a RPi3B+, the von-image takes 1 and a half hour to build so I have to spend a lot of time to fix any issues. I probably have to buy the model 4. Thanks for the info!
+</p>
+<p><strong>andrew.whitehead</strong> (Fri, 03 Jul 2020 16:28:52 GMT):<br/>
+It sounds easier to just install the dependencies without using docker
+</p>
+<p><strong>arner</strong> (Sun, 05 Jul 2020 15:03:01 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kole.barnes</strong> (Mon, 06 Jul 2020 20:55:07 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>severus-sn4pe</strong> (Tue, 07 Jul 2020 11:54:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>helengarneau</strong> (Tue, 07 Jul 2020 17:58:02 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mxs1491</strong> (Thu, 09 Jul 2020 05:53:02 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>JelleFm</strong> (Fri, 10 Jul 2020 11:35:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TimoGlastra</strong> (Fri, 10 Jul 2020 11:40:59 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MichaelSchaefer</strong> (Tue, 14 Jul 2020 06:50:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>swcurran</strong> (Thu, 30 Jul 2020 20:00:18 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MartinWainstein</strong> (Thu, 30 Jul 2020 20:00:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>matgnt</strong> (Fri, 11 Sep 2020 15:00:42 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>AngelPalomares</strong> (Fri, 18 Sep 2020 09:48:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>prakharsr</strong> (Mon, 26 Oct 2020 17:23:42 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>WadeBarnes</strong> (Mon, 26 Oct 2020 17:27:32 GMT):<br/>
+@prakharsr, The work @eorituz did is likely the most relevant to your situation.
+</p>
+<p><strong>lmtriet</strong> (Mon, 26 Oct 2020 18:16:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>pixelschnitzel</strong> (Tue, 27 Oct 2020 14:05:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>HansHuber080883</strong> (Tue, 27 Oct 2020 14:07:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rileyphughes</strong> (Tue, 27 Oct 2020 14:38:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>andrewtan</strong> (Wed, 28 Oct 2020 00:18:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shonjs</strong> (Tue, 17 Nov 2020 09:07:43 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>marc0olo</strong> (Mon, 30 Nov 2020 04:50:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7) for both von-network and aca-py, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. ```
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l
+```
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7) for both von-network and aca-py, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7l) for both von-network and aca-py in beaglebone black, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7l) for both von-network and aca-py in beaglebone black, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l (von-image:py36-1.15-0 armhf)
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l (aries-cloudagent:latest_0.5.6 py36-1.15-0 armhf)
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7l) for both von-network and aca-py in beaglebone black, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l ( von-image:py36-1.15-0 armhf)
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l (aries-cloudagent:latest_0.5.6 py36-1.15-0 armhf)
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7l) for both von-network and aca-py in beaglebone black, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l ( 'von-image:py36-1.15-0 armhf' )
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l (aries-cloudagent:latest_0.5.6 py36-1.15-0 armhf)
+</p>
+<p><strong>prakharsr</strong> (Tue, 01 Dec 2020 07:57:39 GMT):<br/>
+Hi all, I built latest images (armv7l) for both von-network and aca-py in beaglebone black, so if anybody wants to use the latest versions, I'm posting the links over here so other people don't have to spend time and effor to build those images. 
+Von-network - https://hub.docker.com/repository/docker/prakharsr/von-image-armv7l (von-image:py36-1.15-0 armhf)
+Aca-py - https://hub.docker.com/repository/docker/prakharsr/aca-py-armv7l (aries-cloudagent:latest_0.5.6 py36-1.15-0 armhf)
+</p>
+<p><strong>WadeBarnes</strong> (Tue, 01 Dec 2020 15:59:57 GMT):<br/>
+Thanks @prakharsr
+</p>
+<p><strong>chakshujain</strong> (Tue, 08 Dec 2020 05:03:52 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>arner</strong> (Wed, 23 Dec 2020 14:02:37 GMT):<br/>
+Hi all, has anyone here considered implementing the bare minimum for DID and DIDComm on an ESP8266 or ESP32 device? It would be interesting to see how much we can squeeze out of those, as a prototype for IoT
+</p>
+<p><strong>vosrey</strong> (Sun, 03 Jan 2021 03:16:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ajayjadhav</strong> (Thu, 21 Jan 2021 12:08:43 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sairanjit</strong> (Fri, 05 Mar 2021 06:02:01 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rpobulic</strong> (Sun, 07 Mar 2021 05:15:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jabuaasnez</strong> (Sun, 28 Mar 2021 14:01:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>deas</strong> (Thu, 01 Jul 2021 14:11:04 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mateussousa</strong> (Thu, 01 Jul 2021 14:11:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>l-wegner</strong> (Thu, 05 Aug 2021 07:27:54 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:43:14 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:49:47 GMT):<br/>
+I am able to build libindy.so file and run the ACA-Py agents on the Raspberry Pi 3 with Raspbian 32-bit OS. Use the following link to build libindyl library https://wiki.hyperledger.org/display/INTERN/Collaboration%3A+Raspberry+Pi+Indy+Agent.
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:51:40 GMT):<br/>
+Then add the path of libindy library to ~/.bashrc file. export LD_LIBRARY_PATH= $LD_LIBRARY_PATH:path to your lib file
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:54:05 GMT):<br/>
+Create a Python3 Virtual environment```
+cd ~```
+mkdir python_virtual_env```
+cd python_virtuak_env```
+python3 -m venv hlenv```
+source hlenv/bin/activate```
+
+``` 
+``` 
+``` 
+``` 
+``` 
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:58:46 GMT):<br/>
+Install Aries Cloud Agent```
+cd aries-cloudagent-python```
+pip install aris-cloudagent
+``` 
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 04:59:58 GMT):<br/>
+Running Alice and Faber Demo:```
+pip3 install prompt-toolkit pygments python3-indy```[Install it to python virtual environment]
+
+``` 
+``` 
+```
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 05:00:26 GMT):<br/>
+pip3 install -r demo/requirements.txt
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 05:05:07 GMT):<br/>
+Run Alice and Faber Agents```
+LEDGER_URL="http://172.16,58.67:9000" python -m runners.alice -p 8030```
+LEDGER_URL="http://172.16,58.67:9000" python -m runners.faber -p 802```
+Note : I am running the Von-network on the desktop not on the Pi 3
+``` 0``
+``` 
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 05:05:40 GMT):<br/>
+```
+LEDGER_URL="http://172.16,58.67:9000" python -m runners.faber -p 8020
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 05:08:23 GMT):<br/>
+Run Alice and Faber Agents```
+LEDGER_URL="http://172.16.58.67:9000" python -m runners.alice -p 8030```
+LEDGER_URL="http://172.16.58.67:9000" python -m runners.faber -p 8020``````
+Note : Kindly run your von-network on desktop/workstation not on Pi 3
+``` 
+``` 
+```
+```
+</p>
+<p><strong>ManojTaleka</strong> (Thu, 02 Sep 2021 05:13:44 GMT):<br/>
+Following changes need to be incorporated in Agent.py file of Raspberry Pi 3 if you are exchanging the credentials and messages between desktop and Pi agent```
+import socket```
+ip_address = ' '```
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)```
+s.connect("8.8.8.8",80)```
+ip_address = s.getsockname()[0]```
+s.close()```
+change self.admin_url = f "http://{ip_address}:{admin_port}"```
+self.endpoint= f "http://{ip_address}:{http_port}"
+``` 
+``` 
+``` 
+``` 
+``` 
+``` 
+``` 
+```
+</p>
+<p><strong>swcurran</strong> (Thu, 02 Sep 2021 23:26:55 GMT):<br/>
+Nice work -- very cool.  @WadeBarnes -- FYI.
+</p>
+<p><strong>swcurran</strong> (Thu, 02 Sep 2021 23:26:55 GMT):<br/>
+Nice work -- very cool.  @WadeBarnes -- FYI. ^^^
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 03 Sep 2021 12:56:37 GMT):<br/>
+I let the IoT working group know about this on the call yesterday.
+</p>
+<p><strong>WadeBarnes</strong> (Fri, 03 Sep 2021 12:56:47 GMT):<br/>
+@mxs1491
+</p>
+<p><strong>matejstern</strong> (Tue, 07 Dec 2021 13:53:30 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Tue, 22 Mar 2022 19:54:10 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:22:41 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:22:41 GMT):<br/>
+
+</p>

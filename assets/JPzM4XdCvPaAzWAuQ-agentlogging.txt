@@ -1,0 +1,41 @@
+=================
+Traceback (most recent call last):
+  File "/home/indy/aries_cloudagent/protocols/present_proof/v1_0/routes.py", line 823, in presentation_exchange_verify_presentation
+    connection_record = await ConnRecord.retrieve_by_id(session, connection_id)
+  File "/home/indy/aries_cloudagent/messaging/models/base_record.py", line 230, in retrieve_by_id
+    cls.RECORD_TYPE, record_id, {"retrieveTags": False}
+  File "/home/indy/aries_cloudagent/storage/indy.py", line 93, in get_record
+    raise StorageError("Record ID not provided")
+aries_cloudagent.storage.error.StorageError: Record ID not providedThe above exception was the direct cause of the following exception:Traceback (most recent call last):
+  File "/home/indy/aries_cloudagent/admin/server.py", line 162, in ready_middleware
+    return await handler(request)
+  File "/home/indy/aries_cloudagent/admin/server.py", line 199, in debug_middleware
+    return await handler(request)
+  File "/home/indy/.pyenv/versions/3.6.13/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/indy/aries_cloudagent/admin/server.py", line 366, in setup_context
+    return await task
+  File "/home/indy/aries_cloudagent/protocols/present_proof/v1_0/routes.py", line 825, in presentation_exchange_verify_presentation
+    raise web.HTTPBadRequest(reason=err.roll_up) from err
+aiohttp.web_exceptions.HTTPBadRequest: Record ID not provided.
+2021-08-11 14:03:50,217 aries_cloudagent.admin.server ERROR Handler error with exception: Record ID not provided.=================
+Traceback (most recent call last):
+  File "/home/indy/aries_cloudagent/protocols/present_proof/v1_0/routes.py", line 823, in presentation_exchange_verify_presentation
+    connection_record = await ConnRecord.retrieve_by_id(session, connection_id)
+  File "/home/indy/aries_cloudagent/messaging/models/base_record.py", line 230, in retrieve_by_id
+    cls.RECORD_TYPE, record_id, {"retrieveTags": False}
+  File "/home/indy/aries_cloudagent/storage/indy.py", line 93, in get_record
+    raise StorageError("Record ID not provided")
+aries_cloudagent.storage.error.StorageError: Record ID not providedThe above exception was the direct cause of the following exception:Traceback (most recent call last):
+  File "/home/indy/aries_cloudagent/admin/server.py", line 162, in ready_middleware
+    return await handler(request)
+  File "/home/indy/aries_cloudagent/admin/server.py", line 199, in debug_middleware
+    return await handler(request)
+  File "/home/indy/.pyenv/versions/3.6.13/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/indy/aries_cloudagent/admin/server.py", line 366, in setup_context
+    return await task
+  File "/home/indy/aries_cloudagent/protocols/present_proof/v1_0/routes.py", line 825, in presentation_exchange_verify_presentation
+    raise web.HTTPBadRequest(reason=err.roll_up) from err
+aiohttp.web_exceptions.HTTPBadRequest: Record ID not provided.
+

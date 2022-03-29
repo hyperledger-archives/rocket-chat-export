@@ -1,0 +1,73 @@
+---
+
+name: "test"
+description: "test system Network"
+version: "1.0"
+
+channels:
+  mainchannel:
+    orderers:
+      - wadaorderer.example.com
+    peers:
+      peer0.wada.example.com:      
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.wada.example.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+organizations:
+  WADA:
+    mspid: WADAMSP
+
+    peers:
+      - peer0.wada.example.com
+    certificateAuthorities:
+      - ca-wada
+    adminPrivateKey:
+      path: fabric-network-config/crypto-config/peerOrganizations/wada.example.com/users/Admin@wada.example.com/msp/keystore/411e2c72d9c3ed62ea232df1f5b1ae603b8613399ab31ebb17c7b0b8f49ede2f_sk
+    signedCert:
+      path: fabric-network-config/crypto-config/peerOrganizations/wada.example.com/users/Admin@wada.example.com/msp/signcerts/Admin@wada.example.com-cert.pem
+
+orderers:
+  wadaorderer.example.com:
+    url: grpcs://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: wadaorderer.example.com
+    tlsCACerts:
+      path: fabric-network-config/crypto-config/ordererOrganizations/example.com/orderers/wadaorderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem      
+  
+peers:
+  peer0.wada.example.com:    
+    url: grpcs://localhost:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.wada.example.com
+    tlsCACerts:
+      path: fabric-network-config/crypto-config/peerOrganizations/wada.example.com/peers/peer0.wada.example.com/msp/tlscacerts/tlsca.wada.example.com-cert.pem
+
+  peer1.wada.example.com:
+    url: grpcs://localhost:7056
+    eventUrl: grpcs://localhost:7056
+    grpcOptions:
+      ssl-target-name-override: peer1.wada.example.com
+    tlsCACerts:
+      path: fabric-network-config/crypto-config/peerOrganizations/wada.example.com/peers/peer1.wada.example.com/msp/tlscacerts/tlsca.wada.example.com-cert.pem
+
+  
+certificateAuthorities:
+  ca-wada:
+    url: https://localhost:7054    
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: fabric-network-config/crypto-config/peerOrganizations/wada.example.com/ca/ca.wada.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    # [Optional] The optional name of the CA.
+    caName: ca-wada
+

@@ -1,0 +1,239 @@
+/**
+  * A business network for shipping perishable goods
+  * The cargo is temperature controlled and contracts 
+  * can be negociated based on the temperature
+  * readings received for the cargo
+  */
+
+namespace org.acme.trade
+
+
+
+/**
+ * The status of a shipment
+ */
+enum ShipmentStatus {
+  o CREATED
+  o AT_PORT_AUTH_OF_ORIGIN
+  o AT_PORT_AUTH_OF_DEST
+  o AT_CUSTOM_INSPECTION
+  o CUSTOM_FAILED
+  o CUSTOM_PASSED
+  o IN_TRANSIT
+  o ARRIVED
+}
+
+/**
+ * The status of a shipment
+ */
+enum ContractStatus {
+  o CREATED
+  o LOC_ISSUED
+  o LOC_ACCEPTED
+  o LOC_APPROVED
+  o BOL_ISSUED
+  o SHIPPED
+  o IN_TRANSIT
+  o ARRIVED
+  o PAYMENT_ISSUED
+  o CLOSED
+}
+
+/**
+ * An abstract transaction that is related to a Shipment
+ */
+abstract transaction TradeTransaction identified by transactionId {
+    o String transactionId
+    --> Contract contract
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction IssueLetterOfCredit extends TradeTransaction {
+  o String locDocumentId
+  o String locDocumentLoc
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction ApproveLetterOfCredit extends IssueLetterOfCredit {
+  
+}
+
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction IssueBillOfLading extends TradeTransaction {
+  
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction ConfirmShipmentAtPortOfLoading extends TradeTransaction {
+  
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction ConfirmShipmentAtPortOfEntry extends TradeTransaction {
+  
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction CustomInspection extends TradeTransaction {
+  
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction ReleasePaymentToExporter extends TradeTransaction {
+  
+}
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction ShipmentAcceptanceByImporter extends TradeTransaction {
+  
+}
+
+
+/**
+ * An temperature reading for a shipment. E.g. received from a
+ * device within a temperature controlled shipping container
+ */
+transaction Ship extends TradeTransaction {
+  
+}
+
+/**
+ * A notification that a shipment has been received by the
+ * importer and that funds should be transferred from the importer
+ * to the grower to pay for the shipment.
+ */
+transaction ShipmentReceived extends TradeTransaction {
+}
+
+/**
+ * A shipment being tracked as an asset on the ledger
+ */
+asset Shipment identified by shipmentId {
+  o String shipmentId
+  o ShipmentStatus status
+  o Long unitCount
+  --> Contract contract
+}
+
+/**
+ * Defines a contract between a Grower and an Importer to ship using
+ * a Shipper, paying a set unit price. The unit price is multiplied by 
+ * a penality factor proportional to the deviation from the min and max
+ * negociated temperatures for the shipment.
+ */
+asset Contract identified by contractId {
+  o String contractId
+  --> Exporter exporter
+  --> ExporterBank 	   billOfLadingBank 
+  --> Shipper  shippingCompany
+  --> PortOfLoading		portOfLoading
+    
+  --> Importer importer
+  --> ImporterBank	letterOfCreditBank
+  --> CustomAuthority customAuthority
+  --> PortOfEntry	portOfEntry
+  
+  o Double unitPrice
+  o String goodsDescription
+  o ContractStatus status optional
+  
+}
+
+/**
+ * A concept for a simple street address
+ */
+concept Address {
+  o String city optional
+  o String country
+  o String street optional
+  o String zip optional
+}
+
+/**
+ * An abstract participant type in this business network
+ */
+abstract participant Business identified by email {
+  o String email
+  o Address address
+  o Double accountBalance
+}
+
+/**
+ * A Grower is a type of participant in the network
+ */
+participant CustomAuthority identified by name{
+  o String name
+  o Address address
+}
+
+/**
+ * An abstract participant type in this business network
+ */
+abstract participant Port identified by name {
+  o String name
+  o Address address
+}
+
+/**
+ * A Grower is a type of participant in the network
+ */
+participant PortOfLoading extends Port {
+}
+/**
+ * A Grower is a type of participant in the network
+ */
+participant PortOfEntry extends Port {
+}
+/**
+ * A Grower is a type of participant in the network
+ */
+participant ExporterBank extends Business {
+}
+
+/**
+ * A Grower is a type of participant in the network
+ */
+participant ImporterBank extends Business {
+}
+/**
+ * A Grower is a type of participant in the network
+ */
+participant Exporter extends Business {
+}
+
+/**
+ * A Shipper is a type of participant in the network
+ */
+participant Shipper extends Business {
+}
+
+/**
+ * An Importer is a type of participant in the network
+ */
+participant Importer extends Business {
+}

@@ -1,0 +1,157 @@
+Name:         ca-b584766b5-ndh7m
+Namespace:    bfs-net
+Priority:     0
+Node:         ip-192-168-94-106.us-west-2.compute.internal/192.168.94.106
+Start Time:   Tue, 29 Dec 2020 09:51:59 +0200
+Labels:       app.kubernetes.io/instance=bfs-net-ca
+              app.kubernetes.io/managed-by=Helm
+              app.kubernetes.io/name=ca
+              helm.sh/chart=ca-0.2.0
+              name=ca
+              pod-template-hash=b584766b5
+Annotations:  kubernetes.io/psp: eks.privileged
+Status:       Pending
+IP:           192.168.77.76
+IPs:
+  IP:           192.168.77.76
+Controlled By:  ReplicaSet/ca-b584766b5
+Init Containers:
+  ca-certs-init:
+    Container ID:  docker://9a7456cc38f07029978e33490729697266fcf4ca280920c3227fe3b2d43c8590
+    Image:         index.docker.io/wmcgroup777/alpine-utils:1.0
+    Image ID:      docker-pullable://wmcgroup777/alpine-utils@sha256:c12107f53f7e5f1a0003b71257112b142fddc5eb151b499c706ae02b7749c558
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+    Args:
+      #!/usr/bin/env sh
+      validateVaultResponse () {
+      if echo ${2} | grep "errors"; then
+       echo "ERROR: unable to retrieve ${1}: ${2}"
+       exit 1
+       fi
+      }
+      
+      KUBE_SA_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+      echo "Getting secrets from Vault Server: ${VAULT_ADDR}"
+      # Login to Vault and so I can get an approle token
+      VAULT_CLIENT_TOKEN=$(curl -sS --request POST ${VAULT_ADDR}/v1/auth/${KUBERNETES_AUTH_PATH}/login \
+        -H "Content-Type: application/json" \
+        -d '{"role":"'"${VAULT_APP_ROLE}"'","jwt":"'"${KUBE_SA_TOKEN}"'"}' | \
+        jq -r 'if .errors then . else .auth.client_token end')
+      validateVaultResponse 'vault login token' "${VAULT_CLIENT_TOKEN}"
+      
+      SECRET_CERT=secret/crypto/ordererOrganizations/bfs-net/ca?ca.bfs-net-cert.pem
+      vault_secret_key=$(echo ${SECRET_CERT} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_CERT} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+          ${VAULT_ADDR}/v1/${vault_secret_key} | \
+          jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/server.crt
+      
+      SECRET_KEY=secret/crypto/ordererOrganizations/bfs-net/ca?bfs-net-CA.key
+      vault_secret_key=$(echo ${SECRET_KEY} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_KEY} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+          ${VAULT_ADDR}/v1/${vault_secret_key} | \
+          jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/server.key
+      
+      
+      SECRET_ADMIN_PASS=secret/credentials/bfs-net/ca/bfs?user
+      vault_secret_key=$(echo ${SECRET_ADMIN_PASS} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_ADMIN_PASS} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+      ${VAULT_ADDR}/v1/${vault_secret_key} | jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/user_cred
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 29 Dec 2020 09:57:39 +0200
+      Finished:     Tue, 29 Dec 2020 09:57:39 +0200
+    Ready:          False
+    Restart Count:  6
+    Environment:
+      VAULT_ADDR:            https://vault.bfs-network.name:8200
+      KUBERNETES_AUTH_PATH:  bfs-net-auth
+      VAULT_APP_ROLE:        vault-role
+      MOUNT_PATH:            /secret
+    Mounts:
+      /secret from certificates (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from vault-auth-token-d5lhq (ro)
+Containers:
+  ca:
+    Container ID:  
+    Image:         hyperledger/fabric-ca:1.4.8
+    Image ID:      
+    Port:          7054/TCP
+    Host Port:     0/TCP
+    Command:
+      sh
+      -c
+      sleep 1 && fabric-ca-server start -b bfs-admin:`cat /etc/hyperledger/fabric-ca-server-config/user_cred` -d
+    State:          Waiting
+      Reason:       PodInitializing
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      FABRIC_CA_HOME:                  /etc/hyperledger/fabric-ca-server
+      FABRIC_CA_SERVER_CA_NAME:        ca.bfs-net
+      FABRIC_CA_SERVER_CA_CERTFILE:    /etc/hyperledger/fabric-ca-server-config/server.crt
+      FABRIC_CA_SERVER_CA_KEYFILE:     /etc/hyperledger/fabric-ca-server-config/server.key
+      FABRIC_CA_SERVER_TLS_ENABLED:    true
+      FABRIC_CA_SERVER_DEBUG:          true
+      FABRIC_CA_SERVER_TLS_CERTFILE:   /etc/hyperledger/fabric-ca-server-config/server.crt
+      FABRIC_CA_SERVER_TLS_KEYFILE:    /etc/hyperledger/fabric-ca-server-config/server.key
+      FABRIC_CA_SERVER_DB_DATASOURCE:  /var/hyperledger/fabric-ca-server/db/fabric-ca-server.db
+    Mounts:
+      /etc/hyperledger/fabric-ca-server-config from certificates (ro)
+      /var/hyperledger/fabric-ca-server/db/ from ca-server-db (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from vault-auth-token-d5lhq (ro)
+Conditions:
+  Type              Status
+  Initialized       False 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  ca-server-db:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  ca-server-db-pvc
+    ReadOnly:   false
+  certificates:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  vault-auth-token-d5lhq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  vault-auth-token-d5lhq
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason                  Age                     From                                                   Message
+  ----     ------                  ----                    ----                                                   -------
+  Warning  FailedScheduling        9m32s (x3 over 9m38s)   default-scheduler                                      pod has unbound immediate PersistentVolumeClaims (repeated 2 times)
+  Normal   Scheduled               9m27s                   default-scheduler                                      Successfully assigned bfs-net/ca-b584766b5-ndh7m to ip-192-168-94-106.us-west-2.compute.internal
+  Normal   SuccessfulAttachVolume  9m25s                   attachdetach-controller                                AttachVolume.Attach succeeded for volume "pvc-bc1ba821-81d3-4a78-8d27-29248c3c26c3"
+  Normal   Created                 8m37s (x4 over 9m21s)   kubelet, ip-192-168-94-106.us-west-2.compute.internal  Created container ca-certs-init
+  Normal   Started                 8m37s (x4 over 9m21s)   kubelet, ip-192-168-94-106.us-west-2.compute.internal  Started container ca-certs-init
+  Normal   Pulling                 7m55s (x5 over 9m22s)   kubelet, ip-192-168-94-106.us-west-2.compute.internal  Pulling image "index.docker.io/wmcgroup777/alpine-utils:1.0"
+  Normal   Pulled                  7m54s (x5 over 9m21s)   kubelet, ip-192-168-94-106.us-west-2.compute.internal  Successfully pulled image "index.docker.io/wmcgroup777/alpine-utils:1.0"
+  Warning  BackOff                 4m15s (x26 over 9m18s)  kubelet, ip-192-168-94-106.us-west-2.compute.internal  Back-off restarting failed container

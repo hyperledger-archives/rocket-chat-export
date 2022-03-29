@@ -1,0 +1,11 @@
+CONTAINER ID        IMAGE                                  COMMAND                   CREATED             STATUS              PORTS                                                         NAMES
+87d816f6704a        hyperledger/sawtooth-shell:1.0         "bash -c '\n  if [ ! …"   2 minutes ago       Up 2 minutes        4004/tcp, 8008/tcp                                            sawtooth-shell
+8707797db4b3        market-sawbuck-app                     "httpd-foreground"        2 minutes ago       Up 2 minutes        0.0.0.0:8041->80/tcp                                          market-sawbuck-app
+cf6741b53860        market-rest-api                        "bash -c '\n  sleep 3…"   2 minutes ago       Up 32 seconds       0.0.0.0:8040->8000/tcp                                        market-rest-api
+4ec65ac14d0e        market-ledger-sync                     "bash -c '\n  sleep 1…"   2 minutes ago       Up 2 minutes                                                                      market-ledger-sync
+98c1c98cbff8        market-tp                              "bash -c '\n  sleep 1…"   2 minutes ago       Up 2 minutes                                                                      market-processor
+78e108921471        hyperledger/sawtooth-rest-api:1.0      "sawtooth-rest-api -…"    2 minutes ago       Up 2 minutes        4004/tcp, 0.0.0.0:8043->8008/tcp                              sawtooth-rest-api
+40082bb46e0e        hyperledger/sawtooth-settings-tp:1.0   "settings-tp -vv --c…"    2 minutes ago       Up 2 minutes        4004/tcp                                                      sawtooth-settings-tp
+7443fe1a99ab        rethinkdb:2.3                          "rethinkdb --bind all"    2 minutes ago       Up 2 minutes        29015/tcp, 0.0.0.0:8042->8080/tcp, 0.0.0.0:28042->28015/tcp   rethink-db
+9f7ca3127f69        hyperledger/sawtooth-validator:1.0     "bash -c '\n  if [ ! …"   2 minutes ago       Up 2 minutes        0.0.0.0:4040->4004/tcp                                        sawtooth-validator
+088686bf3617        market-dev-env                         "bash -c '\n  market-…"   2 minutes ago       Up 2 minutes                                                                      market-shell

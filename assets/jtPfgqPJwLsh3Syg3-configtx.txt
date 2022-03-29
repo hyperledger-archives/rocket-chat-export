@@ -1,0 +1,174 @@
+# This file is auto-generated
+
+
+---
+################################################################################
+#
+#   SECTION: Orderer
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for orderer related parameters
+#
+##############################################################################
+
+Orderer: &Orderer
+
+    # Orderer Type: The orderer implementation to start
+    # Available types are "solo" and "kafka"
+    OrdererType: solo
+
+
+    # Batch Timeout: The amount of time to wait before creating a batch
+    BatchTimeout: 2s
+
+    # Batch Size: Controls the number of messages batched into a block
+    BatchSize:
+
+        # Max Message Count: The maximum number of messages to permit in a batch
+        MaxMessageCount: 10
+
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed for
+        # the serialized messages in a batch.
+        AbsoluteMaxBytes: 98 MB
+
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed for
+        # the serialized messages in a batch. A message larger than the preferred
+        # max bytes will result in a batch larger than preferred max bytes.
+        PreferredMaxBytes: 512 KB
+
+    # Addresses of the orderers
+    Addresses:
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the orderer side of the network
+    Organizations:
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+
+    - &Org4
+      Name: Org4
+      # ID to load the MSP definition as
+      # ID must match ID given in docker file
+      ID: org4-com-MSP
+      MSPDir: ../crypto-config/org4.com/msp
+
+    - &Org1
+      Name: Org1
+      # ID to load the MSP definition as
+      # ID must match ID given in docker file
+      ID: org1-com-MSP
+      MSPDir: ../crypto-config/org1.com/msp
+      AnchorPeers:
+        # AnchorPeers defines the location of peers which can be used
+        # for cross org gossip communication.  Note, this value is only
+        # encoded in the genesis block in the Application section context
+        - Host: epeer1.org1.com
+          Port: 7051
+
+    - &Org3
+      Name: Org3
+      # ID to load the MSP definition as
+      # ID must match ID given in docker file
+      ID: org3-com-MSP
+      MSPDir: ../crypto-config/org3.com/msp
+      AnchorPeers:
+        # AnchorPeers defines the location of peers which can be used
+        # for cross org gossip communication.  Note, this value is only
+        # encoded in the genesis block in the Application section context
+        - Host: epeer1.org3.com
+          Port: 7051
+
+    - &Org2
+      Name: Org2
+      # ID to load the MSP definition as
+      # ID must match ID given in docker file
+      ID: org2-com-MSP
+      MSPDir: ../crypto-config/org2.com/msp
+      AnchorPeers:
+        # AnchorPeers defines the location of peers which can be used
+        # for cross org gossip communication.  Note, this value is only
+        # encoded in the genesis block in the Application section context
+        - Host: epeer1.org2.com
+          Port: 7051
+
+################################################################################
+#
+#   Profile
+#
+#   - Different configuration profiles may be encoded here to be specified
+#   as parameters to the configtxgen tool
+#
+################################################################################
+
+
+# Organizations inside a consortium are the owners of the orderer. They can do administration tasks.
+
+Profiles:
+
+    publicchannel:
+      Consortium: Consortium1
+      Application:
+        <<: *ApplicationDefaults
+        Organizations:
+          - *Org2
+          - *Org4
+          - *Org1
+          - *Org3
+
+    privatechannel:
+      Consortium: Consortium2
+      Application:
+        <<: *ApplicationDefaults
+        Organizations:
+          - *Org3
+          - *Org4
+
+    ordererorg1genesis:
+      Orderer:
+        <<: *Orderer
+        Addresses:
+          - orderer.org1.com:7050
+        Organizations:
+          - *Org2
+      Consortiums:
+        Consortium1:
+          Organizations:
+            - *Org2
+            - *Org4
+            - *Org1
+            - *Org3
+
+    orderergrorg3genesis:
+      Orderer:
+        <<: *Orderer
+        Addresses:
+          - orderer.org3.com:7050
+        Organizations:
+          - *Org3
+      Consortiums:
+        Consortium2:
+          Organizations:
+            - *Org3
+            - *Org4

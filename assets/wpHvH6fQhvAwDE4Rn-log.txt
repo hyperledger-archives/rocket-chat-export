@@ -1,0 +1,305 @@
+docker-compose up
+Creating network "sawtoothsupplychainmaster_default" with the default driver
+Creating supply-rethink
+Creating supply-validator
+Creating supply-settings-tp
+Creating supply-rest-api
+Creating supply-ledger-sync
+Creating supply-shell
+Creating supply-server
+Creating supply-tp
+Creating supply-asset-client
+Creating supply-fish-client
+Attaching to supply-validator, supply-rethink, supply-settings-tp, supply-rest-api, supply-ledger-sync, supply-shell, supply-tp, supply-server, supply-fish-client, supply-asset-client
+supply-validator | writing file: /etc/sawtooth/keys/validator.priv
+supply-validator | writing file: /etc/sawtooth/keys/validator.pub
+supply-settings-tp | [2018-04-11 20:08:33.847 INFO     core] register attempt: OK
+supply-rethink  | Recursively removing directory /data/rethinkdb_data/tmp
+supply-rest-api | [2018-04-11 20:08:34.178 INFO     messaging] Connecting to tcp://validator:4004
+supply-rest-api | [2018-04-11 20:08:34.179 INFO     rest_api] Creating handlers for validator at tcp://validator:4004
+supply-validator | creating key directory: /root/.sawtooth/keys
+supply-settings-tp | [2018-04-11 20:08:33.848 DEBUG    core] received message of type: TP_PROCESS_REQUEST
+supply-validator | writing file: /root/.sawtooth/keys/my_key.priv
+supply-rethink  | Initializing directory /data/rethinkdb_data
+supply-rest-api | [2018-04-11 20:08:34.181 INFO     rest_api] Starting REST API on rest-api:8008
+supply-ledger-sync | Could not connect to rethink:28015.
+supply-validator | writing file: /root/.sawtooth/keys/my_key.pub
+supply-rethink  | Running rethinkdb 2.3.6~0jessie (GCC 4.9.2)...
+supply-shell    |
+supply-ledger-sync | connect ECONNREFUSED 172.18.0.2:28015
+supply-settings-tp | [2018-04-11 20:08:33.869 INFO     handler] Setting setting sawtooth.settings.vote.authorized_keys changed from None to 0390effcc4dc8af4096cff2c19e3a82b9472455d67c7b581130b21cbe6c4156734
+supply-shell    | > asset_track@0.0.0 build /sawtooth-supply-chain/asset_client
+supply-tp       | [2018-04-11 20:08:50 DEBUG   selector_events] Using selector: ZMQSelector
+supply-validator | Generated config-genesis.batch
+supply-rethink  | Running on Linux 4.9.27-moby x86_64
+supply-shell    | > npm run generate-proto-files && webpack --env production
+supply-rethink  | Loading data from directory /data/rethinkdb_data
+supply-tp       | [2018-04-11 20:08:50 INFO    core] register attempt: OK
+supply-fish-client | [Wed Apr 11 20:08:56.226789 2018] [mpm_event:notice] [pid 1:tid 139928047748992] AH00489: Apache/2.4.33 (Unix) configured -- resuming normal operations
+supply-shell    |
+supply-server   | WARNING! No signing key provided. Batch signing will be insecure!
+supply-validator | Processing config-genesis.batch...
+supply-fish-client | [Wed Apr 11 20:08:56.226909 2018] [core:notice] [pid 1:tid 139928047748992] AH00094: Command line: 'httpd -D FOREGROUND'
+supply-asset-client | [Wed Apr 11 20:08:57.312756 2018] [mpm_event:notice] [pid 1:tid 140101318354816] AH00489: Apache/2.4.33 (Unix) configured -- resuming normal operations
+supply-rethink  | Listening for intracluster connections on port 29015
+supply-shell    |
+supply-validator | Generating /var/lib/sawtooth/genesis.batch
+supply-server   | Set "PRIVATE_KEY" as an environment variable or in "config.json" file.
+supply-shell    | > asset_track@0.0.0 generate-proto-files /sawtooth-supply-chain/asset_client
+supply-asset-client | [Wed Apr 11 20:08:57.313017 2018] [core:notice] [pid 1:tid 140101318354816] AH00094: Command line: 'httpd -D FOREGROUND'
+supply-rethink  | Listening for client driver connections on port 28015
+supply-shell    | > node scripts/generate_proto_json.js > src/generated_protos.json
+supply-validator | [2018-04-11 20:08:33.595 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+supply-rethink  | Listening for administrative HTTP connections on port 8080
+supply-shell    |
+supply-server   | WARNING! No secret provided. JWT authorization tokens will be insecure!
+supply-server   | Set "JWT_SECRET" as an environment variable or in "config.json" file.
+supply-validator | [2018-04-11 20:08:33.596 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+supply-ledger-sync exited with code 0
+supply-rethink  | Listening on cluster addresses: 127.0.0.1, 172.18.0.2, ::1, fe80::42:acff:fe12:2%310
+supply-validator | [2018-04-11 20:08:33.596 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+supply-shell    | Hash: 6325a28391bf3c78effb
+supply-server   | Batch signer initialized with public key: 034f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa
+supply-shell    | Version: webpack 3.11.0
+supply-rethink  | Listening on driver addresses: 127.0.0.1, 172.18.0.2, ::1, fe80::42:acff:fe12:2%310
+supply-validator | [2018-04-11 20:08:33.602 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.0.2
+supply-server   | Database not initialized: supply_chain
+supply-shell    | Time: 5571ms
+supply-rethink  | Listening on http addresses: 127.0.0.1, 172.18.0.2, ::1, fe80::42:acff:fe12:2%310
+supply-shell    |     Asset     Size  Chunks                    Chunk Names
+supply-server   | Retrying database in 5 seconds...
+supply-validator | [2018-04-11 20:08:33.603 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+supply-shell    | bundle.js  3.51 MB       0  [emitted]  [big]  main
+supply-rethink  | Server ready, "7cb9be51ebff_ddd" a429a6d7-275f-46c6-b01c-2f2fbe95fc0c
+supply-shell    |   [10] (webpack)/buildin/global.js 509 bytes {0} [built]
+supply-server   | Connected to tcp://validator:4004
+supply-shell    |   [12] ./src/services/api.js 2.9 kB {0} [built]
+supply-validator | [2018-04-11 20:08:33.604 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+supply-shell    |   [24] ./src/services/transactions.js 5.27 kB {0} [built]
+supply-shell    |  [293] ./src/main.js 3.65 kB {0} [built]
+supply-shell    |  [296] ./styles/main.scss 1.29 kB {0} [built]
+supply-shell    |  [297] ./node_modules/css-loader!./node_modules/postcss-loader/lib??ref--0-2!./node_modules/sass-loader/lib/loader.js!./styles/main.scss 193 kB {0} [built]
+supply-shell    |  [417] ./src/views/add_asset_form.js 6.45 kB {0} [built]
+supply-validator | [2018-04-11 20:08:33.604 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+supply-shell    |  [423] ./src/views/agent_detail.js 4.92 kB {0} [built]
+supply-shell    |  [424] ./src/views/list_agents.js 3.4 kB {0} [built]
+supply-shell    |  [532] ./src/views/list_assets.js 4.07 kB {0} [built]
+supply-shell    |  [533] ./src/views/asset_detail.js 20.3 kB {0} [built]
+supply-shell    |  [534] ./src/views/dashboard.js 2.77 kB {0} [built]
+supply-shell    |  [535] ./src/views/login_form.js 2.15 kB {0} [built]
+supply-shell    |  [536] ./src/views/property_detail.js 5.83 kB {0} [built]
+supply-shell    |  [585] ./src/views/signup_form.js 3.42 kB {0} [built]
+supply-shell    |     + 571 hidden modules
+supply-validator | [2018-04-11 20:08:33.605 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+supply-validator | [2018-04-11 20:08:33.605 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+supply-shell    | /sawtooth-supply-chain
+supply-shell    |
+supply-shell    | > fish_net@0.0.0 build /sawtooth-supply-chain/fish_client
+supply-shell    | > npm run generate-proto-files && webpack --env production
+supply-shell    |
+supply-validator | [2018-04-11 20:08:33.606 DEBUG    threadpool] Creating thread pool executor Component
+supply-validator | [2018-04-11 20:08:33.606 DEBUG    threadpool] Creating thread pool executor Network
+supply-shell    |
+supply-validator | [2018-04-11 20:08:33.606 DEBUG    threadpool] Creating thread pool executor Client
+supply-shell    | > fish_net@0.0.0 generate-proto-files /sawtooth-supply-chain/fish_client
+supply-validator | [2018-04-11 20:08:33.607 DEBUG    threadpool] Creating thread pool executor Signature
+supply-shell    | > node scripts/generate_proto_json.js > src/generated_protos.json
+supply-shell    |
+supply-validator | [2018-04-11 20:08:33.607 DEBUG    threadpool] Creating thread pool executor FutureCallback
+supply-validator | [2018-04-11 20:08:33.607 DEBUG    threadpool] Creating thread pool executor FutureCallback
+supply-validator | [2018-04-11 20:08:33.610 DEBUG    threadpool] Creating thread pool executor Waiting
+supply-validator | [2018-04-11 20:08:33.610 DEBUG    threadpool] Creating thread pool executor Executing
+supply-validator | [2018-04-11 20:08:33.611 DEBUG    threadpool] Creating thread pool executor Instrumented
+supply-validator | [2018-04-11 20:08:33.612 DEBUG    selector_events] Using selector: ZMQSelector
+supply-validator | [2018-04-11 20:08:33.635 INFO     interconnect] Listening on tcp://eth0:4004
+supply-validator | [2018-04-11 20:08:33.635 DEBUG    dispatch] Added send_message function for connection ServerThread
+supply-validator | [2018-04-11 20:08:33.635 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+supply-validator | [2018-04-11 20:08:33.636 DEBUG    genesis] genesis_batch_file: /var/lib/sawtooth/genesis.batch
+supply-validator | [2018-04-11 20:08:33.636 DEBUG    genesis] block_chain_id: not yet specified
+supply-validator | [2018-04-11 20:08:33.637 INFO     genesis] Producing genesis block from /var/lib/sawtooth/genesis.batch
+supply-validator | [2018-04-11 20:08:33.637 DEBUG    genesis] Adding 1 batches
+supply-validator | [2018-04-11 20:08:33.638 DEBUG    executor] no transaction processors registered for processor type sawtooth_settings: 1.0
+supply-validator | [2018-04-11 20:08:33.641 INFO     executor] Waiting for transaction processor (sawtooth_settings, 1.0)
+supply-validator | [2018-04-11 20:08:33.844 INFO     processor_handlers] registered transaction processor: connection_id=a4e4a825b30f15abe1f08bad708ad8dc48b2b4734a3c789f62de1a454cfdcccc73391d1251e8a31232812d335983e64718b3682c94ab74f7e83ec73eb7168331, family=sawtooth_settings, version=1.0, namespaces=['000000']
+supply-validator | [2018-04-11 20:08:33.874 DEBUG    genesis] Produced state hash 629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857 for genesis block.
+supply-validator | [2018-04-11 20:08:33.879 INFO     genesis] Genesis block created: df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245 (block_num:0, state:629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857, previous_block_id:0000000000000000)
+supply-validator | [2018-04-11 20:08:33.880 DEBUG    chain_id_manager] writing block chain id
+supply-validator | [2018-04-11 20:08:33.880 DEBUG    genesis] Deleting genesis data.
+supply-validator | [2018-04-11 20:08:33.881 DEBUG    selector_events] Using selector: ZMQSelector
+supply-validator | [2018-04-11 20:08:33.881 INFO     interconnect] Listening on tcp://eth0:8800
+supply-validator | [2018-04-11 20:08:33.882 DEBUG    dispatch] Added send_message function for connection ServerThread
+supply-validator | [2018-04-11 20:08:33.882 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+supply-validator | [2018-04-11 20:08:33.883 INFO     chain] Chain controller initialized with chain head: df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245 (block_num:0, state:629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857, previous_block_id:0000000000000000)
+supply-validator | [2018-04-11 20:08:33.883 INFO     publisher] Now building on top of block: df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245 (block_num:0, state:629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857, previous_block_id:0000000000000000)
+supply-validator | [2018-04-11 20:08:50.441 INFO     processor_handlers] registered transaction processor: connection_id=0452dd82c27c781a99b21d4521923848d8556d33d9793dc1d6c7f89ea0bfad8f6c26d2ef1e4d23a75afa3bce8637a209ac5da5a7ccf3ae3a127794e63b829159, family=supply_chain, version=1.0, namespaces=['3400de']
+supply-shell    | Hash: 24403e76c2c536caeb1f
+supply-shell    | Version: webpack 3.11.0
+supply-shell    | Time: 4556ms
+supply-shell    |     Asset     Size  Chunks                    Chunk Names
+supply-shell    | bundle.js  3.52 MB       0  [emitted]  [big]  main
+supply-shell    |   [10] (webpack)/buildin/global.js 509 bytes {0} [built]
+supply-shell    |   [12] ./src/services/api.js 2.9 kB {0} [built]
+supply-shell    |   [24] ./src/services/transactions.js 5.26 kB {0} [built]
+supply-shell    |  [293] ./src/main.js 3.64 kB {0} [built]
+supply-shell    |  [296] ./styles/main.scss 1.29 kB {0} [built]
+supply-shell    |  [297] ./node_modules/css-loader!./node_modules/postcss-loader/lib??ref--0-2!./node_modules/sass-loader/lib/loader.js!./styles/main.scss 193 kB {0} [built]
+supply-shell    |  [417] ./src/views/add_fish_form.js 7.91 kB {0} [built]
+supply-shell    |  [423] ./src/views/agent_detail.js 4.92 kB {0} [built]
+supply-shell    |  [424] ./src/views/list_agents.js 3.4 kB {0} [built]
+supply-shell    |  [532] ./src/views/list_fish.js 4.07 kB {0} [built]
+supply-shell    |  [533] ./src/views/fish_detail.js 22.7 kB {0} [built]
+supply-shell    |  [534] ./src/views/dashboard.js 2.69 kB {0} [built]
+supply-shell    |  [535] ./src/views/login_form.js 2.15 kB {0} [built]
+supply-shell    |  [536] ./src/views/property_detail.js 7.19 kB {0} [built]
+supply-shell    |  [585] ./src/views/signup_form.js 3.42 kB {0} [built]
+supply-shell    |     + 571 hidden modules
+supply-shell    | /sawtooth-supply-chain
+supply-shell    | creating key directory: /root/.sawtooth/keys
+supply-shell    | writing file: /root/.sawtooth/keys/root.priv
+supply-shell    | writing file: /root/.sawtooth/keys/root.pub
+supply-shell    |
+supply-shell    | > supply_chain_server@0.0.0 init /sawtooth-supply-chain/server
+supply-shell    | > node ./scripts/bootstrap_database.js
+supply-shell    |
+supply-server   | Database not initialized: supply_chain
+supply-server   | Retrying database in 5 seconds...
+supply-shell    | WARNING! No signing key provided. Batch signing will be insecure!
+supply-shell    | Set "PRIVATE_KEY" as an environment variable or in "config.json" file.
+supply-shell    | WARNING! No secret provided. JWT authorization tokens will be insecure!
+supply-shell    | Set "JWT_SECRET" as an environment variable or in "config.json" file.
+supply-shell    | Creating "supply_chain" database...
+supply-shell    | Creating "users" table...
+supply-shell    | Creating "usernames" table...
+supply-shell    | Creating "agents" table...
+supply-shell    | Creating "records" table...
+supply-server   | Database not initialized: supply_chain
+supply-server   | Retrying database in 5 seconds...
+supply-shell    | Creating "recordTypes" table...
+supply-shell    | Creating "properties" table...
+supply-shell    | Creating "propertyPages" table...
+supply-server   | Database not initialized: supply_chain
+supply-server   | Retrying database in 5 seconds...
+supply-shell    | Creating "proposals" table...
+supply-shell    | Creating "blocks" table...
+supply-server   | Supply Chain Server listening on port 3000
+supply-shell    | Bootstrapping complete, closing connection.
+supply-shell    |
+supply-shell    | > supply_chain_server@0.0.0 make-asset /sawtooth-supply-chain/server
+supply-shell    | > DATA="../../asset_client/sample_data/core_types.json" node ./scripts/seed_core_types.js
+supply-shell    |
+supply-server   | Received GET request for /info from ::ffff:172.18.0.6
+supply-server   | Received POST request for /transactions?wait from ::ffff:172.18.0.6
+supply-tp       | [2018-04-11 20:09:16 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:16 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:16.669 INFO     publisher] Claimed Block: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-validator | [2018-04-11 20:09:16.670 INFO     publisher] Block publishing is suspended until new chain head arrives.
+supply-validator | [2018-04-11 20:09:16.671 DEBUG    chain] Block received: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-validator | [2018-04-11 20:09:16.672 INFO     block_validator] Starting block validation of : d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-tp       | [2018-04-11 20:09:16 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:16 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:16.698 INFO     block_validator] Comparing current chain head 'df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245 (block_num:0, state:629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857, previous_block_id:0000000000000000)' against new block 'df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245 (block_num:0, state:629a61ae24ba8e73a755ad43ba8deb621db0806a50caadb4305320ed75c5b857, previous_block_id:0000000000000000)'
+supply-validator | [2018-04-11 20:09:16.698 INFO     block_validator] Fork comparison at height 1 is between - and d688769b
+supply-validator | [2018-04-11 20:09:16.699 INFO     dev_mode_consensus] Choose new fork d688769b: New fork head switches consensus to DevMode
+supply-validator | [2018-04-11 20:09:16.700 INFO     chain] Chain head updated to: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-validator | [2018-04-11 20:09:16.700 INFO     publisher] Now building on top of block: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-validator | [2018-04-11 20:09:16.702 DEBUG    chain] Verify descendant blocks: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245) ([])
+supply-validator | [2018-04-11 20:09:16.703 INFO     block_validator] Finished block validation of: d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)
+supply-shell    | Types submitted:
+supply-shell    |  { batch: '4c64bdcd1fb0711512177ae855ae4700e3e3c065e6df41671b77a124205a5858551d450722abc79e42e76f8d62970b45f4a10f562590619dc66699977c2d4d1a' }
+supply-shell    |
+supply-shell    | > supply_chain_server@0.0.0 make-fish /sawtooth-supply-chain/server
+supply-shell    | > DATA="../../fish_client/sample_data/core_types.json" node ./scripts/seed_core_types.js
+supply-shell    |
+supply-server   | Received GET request for /info from ::ffff:172.18.0.6
+supply-server   | Received POST request for /transactions?wait from ::ffff:172.18.0.6
+supply-tp       | [2018-04-11 20:09:18 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:18 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:18.549 INFO     publisher] Claimed Block: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-validator | [2018-04-11 20:09:18.550 INFO     publisher] Block publishing is suspended until new chain head arrives.
+supply-validator | [2018-04-11 20:09:18.551 DEBUG    chain] Block received: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-validator | [2018-04-11 20:09:18.552 INFO     block_validator] Starting block validation of : 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-tp       | [2018-04-11 20:09:18 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:18 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:18.581 INFO     block_validator] Comparing current chain head 'd688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)' against new block 'd688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f (block_num:1, state:942426aca59d02be0597b2f16fef04cdd2552e356126cc10bfe08d6ae17a529d, previous_block_id:df2b8f35c8b9cbf119520f78e3ec27b51e444532cd1603b69f2a8e17777e5e5a76e2056a53d153494ad3df496e394360590e724a8a8fcac654fb3341b6a4e245)'
+supply-validator | [2018-04-11 20:09:18.582 INFO     block_validator] Fork comparison at height 2 is between - and 7ce0478b
+supply-validator | [2018-04-11 20:09:18.582 INFO     chain] Chain head updated to: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-validator | [2018-04-11 20:09:18.582 INFO     publisher] Now building on top of block: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-validator | [2018-04-11 20:09:18.584 DEBUG    chain] Verify descendant blocks: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f) ([])
+supply-validator | [2018-04-11 20:09:18.585 INFO     block_validator] Finished block validation of: 7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)
+supply-shell    | Types submitted:
+supply-shell    |  { batch: '1b5f969a11d94e977651839d0371e1d37c99bcab46e19e600bd96d2880ca56af7273d48c2d4b812aafafcb8825d46da617fca555497fd5c462885b9ca248520f' }
+supply-shell    |
+supply-shell    | > supply_chain_server@0.0.0 seed-sample-assets /sawtooth-supply-chain/server
+supply-shell    | > DATA="../../asset_client/sample_data/sample_data.json" node ./scripts/seed_sample_data.js
+supply-shell    |
+supply-server   | Received GET request for /info from ::ffff:172.18.0.6
+supply-shell    | Creating Agents . . .
+supply-server   | Received POST request for /transactions?wait from ::ffff:172.18.0.6
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:20.436 INFO     publisher] Claimed Block: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-validator | [2018-04-11 20:09:20.437 INFO     publisher] Block publishing is suspended until new chain head arrives.
+supply-validator | [2018-04-11 20:09:20.438 DEBUG    chain] Block received: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-validator | [2018-04-11 20:09:20.439 INFO     block_validator] Starting block validation of : 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:20 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:20.474 INFO     block_validator] Comparing current chain head '7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)' against new block '7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae (block_num:2, state:e43dae82b41318aca2f2ef89f5ed74c8bd90daad101db41fc7d0eb316799ebc7, previous_block_id:d688769b0e67a11718aafb6cd21c51168a3abab7f2a7d42421c17fad538681c54d00e1123609db12be06391922103665b91af7dc51ee8120ad8c0bdac0a2e86f)'
+supply-validator | [2018-04-11 20:09:20.475 INFO     block_validator] Fork comparison at height 3 is between - and 95b83551
+supply-validator | [2018-04-11 20:09:20.476 INFO     chain] Chain head updated to: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-validator | [2018-04-11 20:09:20.476 INFO     publisher] Now building on top of block: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-validator | [2018-04-11 20:09:20.479 DEBUG    chain] Verify descendant blocks: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae) ([])
+supply-validator | [2018-04-11 20:09:20.483 INFO     block_validator] Finished block validation of: 95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)
+supply-shell    | Creating Users . . .
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_0) { return r.table("agents").filter(function(var_1) { return var_1("startBlockNum").le(var_0).and(var_1("endBlockNum").gt(var_0)); }).filter(function(var_2) { return r("02cd3181dbd7d1539f470436ce222c53ab5e514f67809dc0095895e6cdfba97612").eq(var_2("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_3) { return r.branch(null, var_3.merge(r.table("users").filter(function(var_4) { return r("02cd3181dbd7d1539f470436ce222c53ab5e514f67809dc0095895e6cdfba97612").eq(var_4("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_3); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_5) { return r.table("agents").filter(function(var_6) { return var_6("startBlockNum").le(var_5).and(var_6("endBlockNum").gt(var_5)); }).filter(function(var_7) { return r("02fb5b3a093e20e420ecf9c5839215e74c97f49eb51889069eb87bc6f62ceca8dd").eq(var_7("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_8) { return r.branch(null, var_8.merge(r.table("users").filter(function(var_9) { return r("02fb5b3a093e20e420ecf9c5839215e74c97f49eb51889069eb87bc6f62ceca8dd").eq(var_9("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_8); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-shell    | StatusCodeError: 400 - "{\"error\":\"Public key must match an Agent on blockchain\"}"
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_10) { return r.table("agents").filter(function(var_11) { return var_11("startBlockNum").le(var_10).and(var_11("endBlockNum").gt(var_10)); }).filter(function(var_12) { return r("0364edd42bd9b2dea1315e2da820b569665f96e36c44b267ceeac488cfdc03bf61").eq(var_12("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_13) { return r.branch(null, var_13.merge(r.table("users").filter(function(var_14) { return r("0364edd42bd9b2dea1315e2da820b569665f96e36c44b267ceeac488cfdc03bf61").eq(var_14("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_13); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-shell    |
+supply-shell    | > supply_chain_server@0.0.0 seed-sample-fish /sawtooth-supply-chain/server
+supply-shell    | > DATA="../../fish_client/sample_data/sample_data.json" node ./scripts/seed_sample_data.js
+supply-shell    |
+supply-server   | Received GET request for /info from ::ffff:172.18.0.6
+supply-shell    | Creating Agents . . .
+supply-server   | Received POST request for /transactions?wait from ::ffff:172.18.0.6
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:22.365 INFO     publisher] Claimed Block: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-validator | [2018-04-11 20:09:22.366 INFO     publisher] Block publishing is suspended until new chain head arrives.
+supply-validator | [2018-04-11 20:09:22.367 DEBUG    chain] Block received: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-validator | [2018-04-11 20:09:22.368 INFO     block_validator] Starting block validation of : 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-tp       | [2018-04-11 20:09:22 DEBUG   core] received message of type: TP_PROCESS_REQUEST
+supply-validator | [2018-04-11 20:09:22.396 INFO     block_validator] Comparing current chain head '95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)' against new block '95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95 (block_num:3, state:818234e789158665866caa8057f88941a9ecb6a80c6ae9accd8503fdd4e72aca, previous_block_id:7ce0478ba371c50c8e413853f3def35787319595933e844607217703a1b34fa20855f0c79b2933c9c40aae74ce60c37646dc0cc703df0ceef24fd6bb30ef0fae)'
+supply-validator | [2018-04-11 20:09:22.396 INFO     block_validator] Fork comparison at height 4 is between - and 16fc206e
+supply-validator | [2018-04-11 20:09:22.397 INFO     chain] Chain head updated to: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-validator | [2018-04-11 20:09:22.398 INFO     publisher] Now building on top of block: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-validator | [2018-04-11 20:09:22.400 DEBUG    chain] Verify descendant blocks: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95) ([])
+supply-validator | [2018-04-11 20:09:22.403 INFO     block_validator] Finished block validation of: 16fc206eda4f8cb8a21bec79c3bc240bc773808e08b13512fda2f879c842694f278f9f42b3f1bb83e9246c0b6202e81e5bebb2a04fa419533306e797fde658df (block_num:4, state:5cebb2d6f55c3556282161a02784f5d1cfde6c5c7fb979e20e2467400ca0cc78, previous_block_id:95b83551eed22261ffdfcc39090b63d4c8313ce89f36bb075b759d5d3a5eecd12b3b7336b1cc6df28c70707e31b5a755590a1a2295af1e697ab676ff691caf95)
+supply-shell    | Creating Users . . .
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Received POST request for /users from ::ffff:172.18.0.6
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_15) { return r.table("agents").filter(function(var_16) { return var_16("startBlockNum").le(var_15).and(var_16("endBlockNum").gt(var_15)); }).filter(function(var_17) { return r("03ba003ea48e3599f73939b7908ca361cf539cc0baa7b0a049c590bcc46e2ef55a").eq(var_17("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_18) { return r.branch(null, var_18.merge(r.table("users").filter(function(var_19) { return r("03ba003ea48e3599f73939b7908ca361cf539cc0baa7b0a049c590bcc46e2ef55a").eq(var_19("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_18); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_20) { return r.table("agents").filter(function(var_21) { return var_21("startBlockNum").le(var_20).and(var_21("endBlockNum").gt(var_20)); }).filter(function(var_22) { return r("02f85a333b5a7db155285bdd39d61fa1b0c65550187e22b16f5a6d2f63b7f2df6c").eq(var_22("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_23) { return r.branch(null, var_23.merge(r.table("users").filter(function(var_24) { return r("02f85a333b5a7db155285bdd39d61fa1b0c65550187e22b16f5a6d2f63b7f2df6c").eq(var_24("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_23); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-server   | Index out of bounds: 0 in:
+supply-server   | r.table("blocks").orderBy(r.desc("blockNum")).nth(0)("blockNum").do(function(var_25) { return r.table("agents").filter(function(var_26) { return var_26("startBlockNum").le(var_25).and(var_26("endBlockNum").gt(var_25)); }).filter(function(var_27) { return r("02c0d076f5b30e16b56d468e4f4da4be0c1ce29370b9ab850cc4a7aec0bf4dbebc").eq(var_27("publicKey")); }).pluck("name", "publicKey").nth(0).do(function(var_28) { return r.branch(null, var_28.merge(r.table("users").filter(function(var_29) { return r("02c0d076f5b30e16b56d468e4f4da4be0c1ce29370b9ab850cc4a7aec0bf4dbebc").eq(var_29("publicKey")); }).pluck("username", "email", "encryptedKey").nth(0)), var_28); }); })
+supply-server   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+supply-shell    | StatusCodeError: 400 - "{\"error\":\"Public key must match an Agent on blockchain\"}"
+supply-shell    | /sawtooth-supply-chain

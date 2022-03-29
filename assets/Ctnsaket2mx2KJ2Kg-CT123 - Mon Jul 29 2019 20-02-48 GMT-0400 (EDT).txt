@@ -1,0 +1,37 @@
+```
+Applied config change to add node 5, current nodes in channel: [1 2 3 4 5] channel=mychannel node=1
+2019-07-29 22:16:40.830 UTC [common.deliver] deliverBlocks -> WARN 049 [channel: mychannel] Rejecting deliver request for 172.25.0.15:36498 because of consenter error
+2019-07-29 22:16:40.830 UTC [comm.grpc.server] 1 -> INFO 04a streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36498 grpc.code=OK grpc.call_duration=202.3258ms
+2019-07-29 22:16:41.046 UTC [common.deliver] deliverBlocks -> WARN 04b [channel: mychannel] Rejecting deliver request for 172.25.0.15:36500 because of consenter error
+2019-07-29 22:16:41.047 UTC [comm.grpc.server] 1 -> INFO 04c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36500 grpc.code=OK grpc.call_duration=204.312ms
+2019-07-29 22:16:41.260 UTC [common.deliver] deliverBlocks -> WARN 04d [channel: mychannel] Rejecting deliver request for 172.25.0.15:36502 because of consenter error
+2019-07-29 22:16:41.260 UTC [comm.grpc.server] 1 -> INFO 04e streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36502 grpc.code=OK grpc.call_duration=201.1618ms
+2019-07-29 22:16:41.472 UTC [common.deliver] deliverBlocks -> WARN 04f [channel: mychannel] Rejecting deliver request for 172.25.0.15:36504 because of consenter error
+2019-07-29 22:16:41.473 UTC [comm.grpc.server] 1 -> INFO 050 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36504 grpc.code=OK grpc.call_duration=201.9005ms
+2019-07-29 22:16:41.648 UTC [orderer.consensus.etcdraft] Step -> INFO 051 1 [logterm: 1, index: 5, vote: 0] cast MsgPreVote for 3 [logterm: 1, index: 5] at term 1 channel=mychannel node=1
+2019-07-29 22:16:41.652 UTC [orderer.consensus.etcdraft] Step -> INFO 052 1 [term: 1] received a MsgVote message with higher term from 3 [term: 2] channel=mychannel node=1
+2019-07-29 22:16:41.652 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 053 1 became follower at term 2 channel=mychannel node=1
+2019-07-29 22:16:41.652 UTC [orderer.consensus.etcdraft] Step -> INFO 054 1 [logterm: 1, index: 5, vote: 0] cast MsgVote for 3 [logterm: 1, index: 5] at term 2 channel=mychannel node=1
+2019-07-29 22:16:41.657 UTC [orderer.consensus.etcdraft] run -> INFO 055 raft.node: 1 elected leader 3 at term 2 channel=mychannel node=1
+2019-07-29 22:16:41.659 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 056 Raft leader changed: 0 -> 3 channel=mychannel node=1
+2019-07-29 22:16:41.688 UTC [comm.grpc.server] 1 -> INFO 057 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36506 grpc.code=OK grpc.call_duration=202.7172ms
+2019-07-29 22:16:54.737 UTC [comm.grpc.server] 1 -> INFO 058 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.25.0.15:36530 grpc.code=OK grpc.call_duration=11.7269ms
+2019-07-29 22:16:54.741 UTC [common.deliver] Handle -> WARN 059 Error reading from 172.25.0.15:36528: rpc error: code = Canceled desc = context canceled
+2019-07-29 22:16:54.742 UTC [comm.grpc.server] 1 -> INFO 05a streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36528 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=24.4416ms
+2019-07-29 22:16:54.744 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 05b Writing block [1] (Raft index: 7) to ledger channel=mychannel node=1
+2019-07-29 22:16:57.896 UTC [comm.grpc.server] 1 -> INFO 05c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.25.0.15:36546 grpc.code=OK grpc.call_duration=14.9417ms
+2019-07-29 22:16:57.901 UTC [common.deliver] Handle -> WARN 05d Error reading from 172.25.0.15:36544: rpc error: code = Canceled desc = context canceled
+2019-07-29 22:16:57.901 UTC [comm.grpc.server] 1 -> INFO 05e streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.25.0.15:36544 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=30.6912ms
+2019-07-29 22:16:57.913 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 05f Writing block [2] (Raft index: 8) to ledger channel=mychannel node=1
+2019-07-29 22:17:34.138 UTC [orderer.common.broadcast] Handle -> WARN 060 Error reading from 172.25.0.15:36584: rpc error: code = Canceled desc = context canceled
+2019-07-29 22:17:34.141 UTC [comm.grpc.server] 1 -> INFO 061 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.25.0.15:36584 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=32.8562914s
+2019-07-29 22:17:36.146 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 062 Writing block [3] (Raft index: 9) to ledger channel=mychannel node=1
+2019-07-29 22:18:06.835 UTC [orderer.common.broadcast] Handle -> WARN 063 Error reading from 172.25.0.15:36628: rpc error: code = Canceled desc = context canceled
+2019-07-29 22:18:06.838 UTC [comm.grpc.server] 1 -> INFO 064 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.25.0.15:36628 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=111.736ms
+2019-07-29 22:18:08.845 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 065 Writing block [4] (Raft index: 10) to ledger channel=mychannel node=1
+IP & PORTS
+You can access this container using the following IP address and port:
+
+DOCKER PORT	ACCESS URL
+7050/tcp	localhost:7050
+```

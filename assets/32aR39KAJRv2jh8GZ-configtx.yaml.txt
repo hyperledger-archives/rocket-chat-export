@@ -1,0 +1,207 @@
+#
+Organizations:
+  - &orderer:
+    Name: orderer
+    ID: orderer
+    MSPDir: ./crypto-config/ordererOrganizations/example.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('orderer.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('orderer.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('orderer.admin')"
+
+    OrdererEndpoints:
+      - orderer.example.com:7050
+
+  - &alpha
+    Name: alpha
+    ID: alpha
+    MSPDir: ./crypto-config/peerOrganizations/alpha.example.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('alpha.admin', 'alpha.peer', 'alpha.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('alpha.admin', 'alpha.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('alpha.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('alpha.peer')"
+
+    AnchorPeers:
+      - Host: peer0.alpha.example.com
+        Port: 7051
+
+  - &beta
+    Name: beta
+    ID: beta
+    MSPDir: ./crypto-config/peerOrganizations/beta.example.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('beta.admin', 'beta.peer', 'beta.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('beta.admin', 'beta.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('beta.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('beta.peer')"
+
+    AnchorPeers:
+      - Host: peer0.beta.example.com
+        Port: 7052
+
+  - &gama
+    Name: gama
+    ID: gama
+    MSPDir: ./crypto-config/peerOrganizations/gama.example.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('gama.admin', 'gama.peer', 'gama.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('gama.admin', 'gama.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('gama.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('gama.peer')"
+
+    AnchorPeers:
+      - Host: peer0.gama.example.com
+        Port: 7053
+
+  - &theta
+    Name: theta
+    ID: theta
+    MSPDir: ./crypto-config/peerOrganizations/theta.example.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('theta.admin', 'theta.peer', 'theta.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('theta.admin', 'theta.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('theta.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('theta.peer')"
+
+    AnchorPeers:
+      - Host: peer0.theta.example.com
+        Port: 7054
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+  Orderer: &OrdererCapabilities
+    V2_0: true
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+  EtcdRaft:
+    Consenters:
+    - Host: orderer.example.com
+      Port: 7050
+      ClientTLSCert: ../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+      ServerTLSCert: ../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  POCGenesis:
+    <<: *ChannelDefaults
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+        - *orderer
+      Capabilities:
+        <<: *OrdererCapabilities
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+          - *alpha
+          - *beta
+          - *gama
+          - *theta
+  POCChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - *alpha
+        - *beta
+        - *gama
+        - *theta
+      Capabilities:
+        <<: *ApplicationCapabilities

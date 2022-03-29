@@ -1,0 +1,65 @@
+[2020-03-05T19:43:32.535] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-03-05T19:43:32.535] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'first-network': 
+   { name: 'first-network',
+     profile: './connection-profile/first-network.json' } }
+[2020-03-05T19:43:32.536] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-03-05T19:43:32.536] [INFO] Platform -  client_configs.name  first-network  client_configs.profile  ./connection-profile/first-network.json
+[2020-03-05T19:43:32.536] [DEBUG] Platform - Creating client [[object Object]] >>  first-network
+[2020-03-05T19:43:32.536] [INFO] Platform - FabricUtils.createFabricClient 
+[2020-03-05T19:43:32.536] [DEBUG] FabricUtils - ************ Initializing fabric client for [first-network]************
+[2020-03-05T19:43:32.537] [DEBUG] FabricClient - Client configuration [first-network]  ...  this.client_config  { name: 'first-network',
+  profile: './connection-profile/first-network.json' }
+[2020-03-05T19:43:32.538] [INFO] FabricConfig - config.client.tlsEnable  false
+[2020-03-05T19:43:32.538] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-03-05T19:43:32.538] [INFO] FabricGateway - peer0.org1.example.com
+[2020-03-05T19:43:32.538] [INFO] FabricGateway - /home/samurai/Downloads/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem  
+adminPrivateKeyPath  /home/samurai/Downloads/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/1bebc656f198efb4b5bed08ef42cf3b2d89ac86f0a6b928e7a172fd823df0a48_sk
+[2020-03-05T19:43:32.538] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-03-05T19:43:32.540] [ERROR] FabricGateway -  Error: ENOENT: no such file or directory, open '/home/samurai/Downloads/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/1bebc656f198efb4b5bed08ef42cf3b2d89ac86f0a6b928e7a172fd823df0a48_sk'
+[2020-03-05T19:43:32.540] [ERROR] FabricClient - { ExplorerError: [ 'Failed to create wallet, please check the configuration, and valid file paths' ]
+    at FabricGateway.initialize (/home/samurai/Downloads/blockchain-explorer/app/platform/fabric/gateway/FabricGateway.js:146:10)
+    at <anonymous>
+  name: 'ExplorerError',
+  message: '[ \'Failed to create wallet, please check the configuration, and valid file paths\' ]' }
+[2020-03-05T19:43:32.540] [DEBUG] FabricClient - this.defaultPeer  {}
+[2020-03-05T19:43:32.540] [ERROR] FabricClient - TypeError: Cannot read property 'queryChannels' of null
+    at FabricClient.initialize (/home/samurai/Downloads/blockchain-explorer/app/platform/fabric/FabricClient.js:121:37)
+    at <anonymous>
+[2020-03-05T19:43:32.541] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-03-05T19:43:32.541] [DEBUG] FabricClient - initializeDetachClient --> client_config  { name: 'first-network',
+  profile: './connection-profile/first-network.json' }  name  first-network
+[2020-03-05T19:43:32.541] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'first-network',
+  version: '1.0.0',
+  license: 'Apache-2.0',
+  client: 
+   { tlsEnable: false,
+     adminUser: 'admin',
+     adminPassword: 'adminpw',
+     enableAuthentication: false,
+     organization: 'Org1',
+     connection: { timeout: [Object] } },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations: 
+   { Org1MSP: 
+      { mspid: 'Org1MSP',
+        fullpath: true,
+        adminPrivateKey: [Object],
+        signedCert: [Object] } },
+  peers: 
+   { 'peer0.org1.example.com': 
+      { tlsCACerts: [Object],
+        url: 'grpcs://192.168.0.11:7051',
+        eventUrl: 'grpcs://192.168.0.11:7053',
+        grpcOptions: [Object] } } }
+[2020-03-05T19:43:32.541] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-03-05T19:43:32.542] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-03-05T19:43:32.542] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-03-05T19:43:32.542] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-03-05T19:43:32.543] [INFO] Platform - FabricUtils.createDetachClient 
+[2020-03-05T19:43:32.544] [INFO] Platform - initializeListener, client_name, client  first-network { name: 'first-network',
+  profile: './connection-profile/first-network.json' }
+[2020-03-05T19:43:32.545] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-03-05T19:43:32.545] [INFO] main - pid is 17262
+[2020-03-05T19:43:32.553] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-03-05T19:43:32.553] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-03-05T19:43:32.554] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]

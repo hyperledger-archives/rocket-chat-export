@@ -1,0 +1,1866 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>tkuhrt</strong> (Wed, 02 May 2018 15:01:14 GMT):<br/>
+MicBowman
+</p>
+<p><strong>tkuhrt</strong> (Wed, 02 May 2018 15:01:54 GMT):<br/>
+https://github.com/hyperledger-labs/private-data-objects
+</p>
+<p><strong>tkuhrt</strong> (Wed, 02 May 2018 15:01:54 GMT):<br/>
+Discussion on the Private Data Objects Lab
+</p>
+<p><strong>MicBowman</strong> (Wed, 02 May 2018 15:27:57 GMT):<br/>
+welcome!
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 02 May 2018 17:28:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>aaadesok</strong> (Mon, 07 May 2018 21:11:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>byron-marohn</strong> (Mon, 07 May 2018 21:11:22 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>byron-marohn</strong> (Mon, 07 May 2018 21:11:30 GMT):<br/>
+Hello world
+</p>
+<p><strong>EugeneYYY</strong> (Mon, 07 May 2018 22:17:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 08 May 2018 17:19:47 GMT):<br/>
+Ciao mondo!
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 08 May 2018 17:25:27 GMT):<br/>
+is there a way to tag messages? -- I would like to write down some todo's, hoping they won't get lost in the chat
+</p>
+<p><strong>byron-marohn</strong> (Tue, 08 May 2018 19:09:45 GMT):<br/>
+Looks like you can "star" a message using the ... on the right side, then at the top you can display starred messages
+</p>
+<p><strong>byron-marohn</strong> (Tue, 08 May 2018 19:09:45 GMT):<br/>
+Looks like you can "star" a message using the ... on the right side, then with the ... at the top you can display starred messages
+</p>
+<p><strong>byron-marohn</strong> (Tue, 08 May 2018 19:09:59 GMT):<br/>
+Not sure if stars are global or per-user... I starred your message, you can look to see if it shows up for you
+</p>
+<p><strong>byron-marohn</strong> (Tue, 08 May 2018 19:10:58 GMT):<br/>
+Looks like we could also "pin" messages, but we don't appear to have permission to do that
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 08 May 2018 19:42:18 GMT):<br/>
+no stars
+</p>
+<p><strong>byron-marohn</strong> (Tue, 08 May 2018 20:44:07 GMT):<br/>
+As moderator Mic probably has permission to pin things. 
+</p>
+<p><strong>innomon</strong> (Thu, 10 May 2018 15:57:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>benoit.razet</strong> (Thu, 10 May 2018 15:58:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>benoit.razet</strong> (Thu, 10 May 2018 16:06:12 GMT):<br/>
+Thanks for the presentation Eugene, it was super interesting!
+</p>
+<p><strong>benoit.razet</strong> (Thu, 10 May 2018 16:07:51 GMT):<br/>
+I have a question about how the framework would be used. Suppose Alice and Bob wants to interact with each other following some business logic. They would have to deploy a smart contract on one enclave that they can both talk to, correct?
+</p>
+<p><strong>benoit.razet</strong> (Thu, 10 May 2018 16:08:36 GMT):<br/>
+or each of them can deploy the smart contract on their own enclave?
+</p>
+<p><strong>benoit.razet</strong> (Thu, 10 May 2018 16:32:43 GMT):<br/>
+Are the slides publicly available somewhere? Thanks!
+</p>
+<p><strong>BrunoVavala</strong> (Fri, 11 May 2018 16:28:03 GMT):<br/>
+Hi Benoit, the PDO design does not constrain Alice and Bob to any specific contract deployment. They could use a single enclave, or they could use contracts that are meant to be deployed on multiple enclaves. In the latter case, the contracts would have to implement mechanisms to interact with each other.
+There are plans to provide additional information about PDOs shortly. So, stay tuned for that!
+</p>
+<p><strong>benoit.razet</strong> (Fri, 11 May 2018 17:27:45 GMT):<br/>
+@BrunoVavala Thanks!
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:19:06 GMT):<br/>
+couple things we need to document
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:20:04 GMT):<br/>
+the CONTRACTHOME path should be an absolute path; build fails with a relative path because python distutils gets confused about where it should install bin and data files
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:20:52 GMT):<br/>
+@EugeneYYY we also need to either remove the build protos script (which i think is superceded by the makefile fixes in the PR i just created) or we need to make it handle paths better
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:21:17 GMT):<br/>
+it has to be run in the root of the directory tree right now
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:21:31 GMT):<br/>
+or it fails with a... "less than helpful" message
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:40:41 GMT):<br/>
+on the protoc requirement... @Dan suggested a cleaner version of the download for pre-built binaries:
+</p>
+<p><strong>Dan</strong> (Tue, 15 May 2018 20:40:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:40:41 GMT):<br/>
+RUN curl -OLsS https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip \
+ && unzip protoc-3.5.1-linux-x86_64.zip -d protoc3 \
+ && rm protoc-3.5.1-linux-x86_64.zip
+</p>
+<p><strong>MicBowman</strong> (Tue, 15 May 2018 20:41:01 GMT):<br/>
+no build required... definitely an improvement over the current instructions
+</p>
+<p><strong>rkrish82</strong> (Fri, 18 May 2018 04:56:24 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SjirNijssen</strong> (Mon, 04 Jun 2018 19:46:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Dan</strong> (Tue, 05 Jun 2018 23:56:16 GMT):<br/>
+ @Luxii this is the channel you want :)
+</p>
+<p><strong>Luxii</strong> (Tue, 05 Jun 2018 23:56:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Luxii</strong> (Wed, 06 Jun 2018 10:16:23 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=dBDaDNBxQdLkhyeBS) @Dan Thanks Dan
+</p>
+<p><strong>MicBowman</strong> (Wed, 06 Jun 2018 16:02:29 GMT):<br/>
+@Luxii ping
+</p>
+<p><strong>EugeneYYY</strong> (Wed, 06 Jun 2018 16:55:23 GMT):<br/>
+Hi @Luxii
+Here is a copy of my answer to your question at https://github.com/hyperledger-labs/private-data-objects/issues/22
+Normally, an enclave cannot be submitted without proof-data (a.k.a. empty proof data) hence a log message stating "unexpected exception" (wording can/should be improved). It is also followed by a line indicating that it can be an enclave running in SGX simulation mode "*** Enclave proof data is empty ...".  
+If PDO TP runs in a debug (it seems to be your case) with command line option --debug-on, this enclave will be successfully registered and the messages above are purely informative.
+If PDO TP runs in none debug mode, the enclave registration will be rejected and these messages can help to debug the issue. 
+Let me know if this answers your question. 
+</p>
+<p><strong>bur</strong> (Fri, 08 Jun 2018 07:39:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Fri, 08 Jun 2018 07:40:12 GMT):<br/>
+It seems I've found the PDO channel :) nice
+</p>
+<p><strong>Dan</strong> (Fri, 08 Jun 2018 15:38:37 GMT):<br/>
+You have defeated the first level of security ;)
+</p>
+<p><strong>rock_martin</strong> (Mon, 11 Jun 2018 14:22:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rock_martin</strong> (Mon, 11 Jun 2018 14:29:30 GMT):<br/>
+Hi, can anyone give me some brief about how to make use of Private Data Object? I understand we have three transaction families- Contract Enclave Registry, Contract (instance) registry and CCL registry. Can I use it as it is to store my customized data objects or will I have to change the code of the TP? If I'm to make my own PDO TP to store my customized data objects do I have shift all my business logic inside PDO TP I make???
+</p>
+<p><strong>EugeneYYY</strong> (Mon, 11 Jun 2018 15:58:55 GMT):<br/>
+@rock_martin  PDO TP currently saves encrypted smart contract states so, if you refer to the contract states as PDO object, than no need for any TP changes. The smart contract executed in the SGX enclave will update and encrypt the data and the TP will save it within a corresponding CCL state object. If you have something else in mind, please provide more details about the use case. 
+</p>
+<p><strong>MicBowman</strong> (Mon, 11 Jun 2018 18:26:07 GMT):<br/>
+the TPs allow for objects to be defined "off-chain"; the TPs do not change regardless of the PDO definitions
+</p>
+<p><strong>EugeneYYY</strong> (Mon, 11 Jun 2018 23:57:10 GMT):<br/>
+y010960y#6
+</p>
+<p><strong>EugeneYYY</strong> (Mon, 11 Jun 2018 23:57:10 GMT):<br/>
+zzzzzzzz
+</p>
+<p><strong>CodeReaper</strong> (Tue, 12 Jun 2018 08:58:43 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rock_martin</strong> (Tue, 12 Jun 2018 09:03:12 GMT):<br/>
+Suppose I want to implement some smartcontract which takes data from external apps and processes it before storing it in this secure manner. Do I require to make a separate PDO TP or my general TP can save or get data with the help of PDO TP?
+</p>
+<p><strong>MicBowman</strong> (Tue, 12 Jun 2018 15:39:50 GMT):<br/>
+the transaction processors do not need to change
+</p>
+<p><strong>MicBowman</strong> (Tue, 12 Jun 2018 15:40:28 GMT):<br/>
+the architecture separates "commit of a change" (which is what the TPs) do from "what that commit means" (which is all encapsulated in the smart contract)
+</p>
+<p><strong>MicBowman</strong> (Tue, 12 Jun 2018 15:41:52 GMT):<br/>
+the TP's currently store the encrypted state of the PDO on the blockchain... however, you could use a separate storage service for contract state (that's one of the things we plan to work on over the coming months)
+</p>
+<p><strong>CodeReaper</strong> (Wed, 13 Jun 2018 07:04:47 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=eApn2H5h2i6zw4wqL) @MicBowman So can the general TP contact PDO TP to store data entries or we'll have to send it to some external service so to commit/store it with PDO TP?
+</p>
+<p><strong>byron-marohn</strong> (Wed, 13 Jun 2018 16:56:15 GMT):<br/>
+You can definitely store arbitrary data with the existing PDO TP. 
+</p>
+<p><strong>byron-marohn</strong> (Wed, 13 Jun 2018 16:56:50 GMT):<br/>
+Your "contract" will have some data in it which follows it around - the "state". The state can be any arbitrary data you want to store
+</p>
+<p><strong>byron-marohn</strong> (Wed, 13 Jun 2018 16:57:45 GMT):<br/>
+For example, the simple integer-key contract that already exists is a good example. In this contract we have a simple integer which is the primary "state". In this contract, anyone can increment the integer, but only the owner/creator of the contract can read the integer. 
+</p>
+<p><strong>byron-marohn</strong> (Wed, 13 Jun 2018 16:57:45 GMT):<br/>
+For example, the simple integer-key contract that already exists is a good example. In this contract we have a simple integer which is the primary "state". In this contract, anyone can increment the integer, but only the owner/creator of the contract can read the integer. 
+
+Every time you do an operation on the contract, the existing state is obtained (either from a cache someplace or from the blockchain) and passed into the contract enclave along with the operation you requested to perform on it. If it modifies the state, then that new state ends up back on the blockchain for use later. 
+</p>
+<p><strong>byron-marohn</strong> (Wed, 13 Jun 2018 16:59:09 GMT):<br/>
+It's a simple example - but you can replace "integer" with any arbitrary data structure you like. It's stored on the blockchain but is encrypted in such a way that once created it can only be read within the contract enclave - which means you just need to put methods in your contract that allow the desired entities to be able to read/write/modify your state data as needed for your application
+</p>
+<p><strong>SjirNijssen</strong> (Thu, 14 Jun 2018 16:12:13 GMT):<br/>
+To PDO experts: Where can I find the definitions of Contract, Enclave and Registry? Thanks for your help.
+</p>
+<p><strong>EugeneYYY</strong> (Thu, 14 Jun 2018 16:46:57 GMT):<br/>
+@SjirNijssen There are three Sawtooth registries supported by the PDO transaction processor - Contract, Enclave, and CCL. You can find their definitions in folder https://github.com/hyperledger-labs/private-data-objects/tree/master/sawtooth/docs, correspondingly, in cregistry.md, eregistry.md, and ccl.md  
+</p>
+<p><strong>SjirNijssen</strong> (Thu, 14 Jun 2018 21:06:28 GMT):<br/>
+@EugeneYYY Thanks
+</p>
+<p><strong>nhelmy</strong> (Mon, 18 Jun 2018 21:11:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>CodeReaper</strong> (Tue, 19 Jun 2018 08:27:50 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=q2kLWovGt9vr8RJ6a) @byron-marohn So the state entries are encrypted with enclaves private-public keypair i guess. And neither the data nor the key are accessible to high level applications?? And these sensitive state entries are shared from one peer's enclave to anothers provided that attestation has already been performed. Am I correct? 
+</p>
+<p><strong>CodeReaper</strong> (Tue, 19 Jun 2018 08:31:59 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=q2kLWovGt9vr8RJ6a) @byron-marohn These methods allowing these desired users to add/modify entries are to be written inside PDO tp or it can be written inside a general tp? How would it work if any general tp has the ability to govern the read and writes of that sensitive entries??  
+</p>
+<p><strong>byron-marohn</strong> (Tue, 19 Jun 2018 21:34:22 GMT):<br/>
+Others can chime in on exactly how the state is encrypted - but yes, neither data nor key are accessible to high level applications. 
+
+The only enclaves that are able to decrypt that state key are the ones that are specifically provisioned to operate on a given contract. When you make a contract initially, you "provision" a set of enclaves (using their public keys as identifiers) that allows them to work with a given contract (this enables them to decrypt the state). So it's one additional step on what you describe above - they have to both pass attestation to register as an enclave AND they must be specifically provisioned to work with a given contract. 
+</p>
+<p><strong>byron-marohn</strong> (Tue, 19 Jun 2018 21:38:55 GMT):<br/>
+The transaction processors are written in such a way as to be completely agnostic of the operations you perform with PDO. The TPs only validate things related to the overall flow of contract processing (registration, provisioning, updating state, etc)
+
+A "user" (developer using PDO) can write whatever logic they want into the contracts themselves. A "contract" is just a set of interpreted functions (an API) that lets you do operations on some encrypted state. You can change what operations are allowed without ever modifying the PDO Transaction Processor. You just make changes to the contract code file and initialize it as a contract and you can use it, all using the stock TP. The enclave is written in the same way - you will not need to modify the enclave to change what code (the contract) it executes. This is really nice from a developer's perspective because it means that you can focus on just writing your business logic into a contract without having to worry about how it plugs into blockchain (the TP) or executes securely (via the enclave). 
+</p>
+<p><strong>byron-marohn</strong> (Tue, 19 Jun 2018 21:39:03 GMT):<br/>
+@CodeReaper 
+</p>
+<p><strong>CodeReaper</strong> (Wed, 20 Jun 2018 05:41:26 GMT):<br/>
+@byron-marohn Thanks very much for the explanation. Just a follow up, can I provision specific enclaves to have ability to decrypt data based on each and every entry to the state?? And where can I find an example of such contract which is working with PDO??
+</p>
+<p><strong>MicBowman</strong> (Wed, 20 Jun 2018 06:04:35 GMT):<br/>
+the provisioning process creates a state encryption key, each provisioned enclave encrypts that key with an enclave specific key, the resulting "encrypted state encryption key" is stored on the ledger
+</p>
+<p><strong>MicBowman</strong> (Wed, 20 Jun 2018 06:06:07 GMT):<br/>
+when a client wants to invoke a method on a contract object, the client retrieves the current authoritative state for that contract object from the ledger, picks a contract enclave that has been provisioned for the contract object, retrieves the encrypted state encryption key (ESEK) for that contract object/contract enclave combination
+</p>
+<p><strong>MicBowman</strong> (Wed, 20 Jun 2018 06:07:08 GMT):<br/>
+all that is sent, along with the method to invoke, to the contract enclave... the contract enclave decrypts the ESEK then uses the resulting key to decrypt state
+</p>
+<p><strong>MicBowman</strong> (Wed, 20 Jun 2018 06:07:50 GMT):<br/>
+there are a couple examples in the source tree and a couple more substantial ones that i will be pushing over the next few days
+</p>
+<p><strong>CodeReaper</strong> (Wed, 20 Jun 2018 11:12:38 GMT):<br/>
+Got it. I'll go through some of the contracts first.
+</p>
+<p><strong>khalifa</strong> (Wed, 20 Jun 2018 11:14:38 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Fri, 22 Jun 2018 18:38:46 GMT):<br/>
+Just pushed initial documentation into my repo for the exchange contract; @byron-marohn @BrunoVavala could you please take a look: https://github.com/cmickeyb/private-data-objects/blob/mic.jun13.demo/contracts/exchange/docs/exchange.md
+</p>
+<p><strong>byron-marohn</strong> (Fri, 22 Jun 2018 18:39:07 GMT):<br/>
+Will do! 
+</p>
+<p><strong>MicBowman</strong> (Fri, 22 Jun 2018 18:39:12 GMT):<br/>
+the example is "complete"
+</p>
+<p><strong>MicBowman</strong> (Fri, 22 Jun 2018 18:39:26 GMT):<br/>
+starting to work on the contracts themselves
+</p>
+<p><strong>hvandurme</strong> (Thu, 28 Jun 2018 11:47:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sidhujag</strong> (Thu, 12 Jul 2018 05:22:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kelly_</strong> (Fri, 13 Jul 2018 02:44:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rkrish82</strong> (Wed, 18 Jul 2018 04:48:56 GMT):<br/>
+<i>User <em>User_1</em> added by <em>rkrish82</em>.</i>
+</p>
+<p><strong>karthikamurthy_linux</strong> (Wed, 18 Jul 2018 09:31:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>CodeReaper</strong> (Thu, 19 Jul 2018 09:09:42 GMT):<br/>
+Why scheme language? To break the barrier between Python and C??
+</p>
+<p><strong>CodeReaper</strong> (Fri, 20 Jul 2018 08:33:00 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=AdLu7TvJjWbAQ9283) @MicBowman 
+</p>
+<p><strong>CodeReaper</strong> (Fri, 20 Jul 2018 08:34:06 GMT):<br/>
+Also what does send command do? I'm having trouble in understanding int-key contract
+</p>
+<p><strong>bur</strong> (Mon, 23 Jul 2018 08:13:26 GMT):<br/>
+@CodeReaper: I guess the reason is that it fits very good in the architecture (and Mic is a Scheme Fan boy) :grin: 
+</p>
+<p><strong>bur</strong> (Mon, 23 Jul 2018 08:13:39 GMT):<br/>
+Scheme needs an interpreter, the use a small c(++?) implementation, which is great thing for small TCB; not sure if there is a small python interpreter.
+</p>
+<p><strong>bur</strong> (Mon, 23 Jul 2018 08:14:22 GMT):<br/>
+Another benefit is that using an interpreter lang you can build a generic PDO enclave which can execute "arbitrary" smart contracts without changing mrenclave; thus, attestation becomes easier; when using c/c++ smart contracts, every smart contract has to be compiled and may have a different mrenclave
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:33:35 GMT):<br/>
+we need to update the usage.md to fix broken links when we moved contracts out of the client directory
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:34:39 GMT):<br/>
+@codereaper sorry that i missed the questions... vacation (a real vacation avoiding all work)
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:34:39 GMT):<br/>
+@CodeReaper  sorry that i missed the questions... vacation (a real vacation avoiding all work)
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:35:24 GMT):<br/>
+There were two reasons for Scheme... first, the interpreter is REALLY small which made it very easy to port into SGX
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:35:54 GMT):<br/>
+The small interpreter also has the advantage of having a very small TCB. There are about 70 builtin operations in the interpreter we're using
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:36:30 GMT):<br/>
+The second reason is that Scheme makes it very easy to serialize the environment
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:37:09 GMT):<br/>
+There are (at least) two styles of contract languages: ones that manage state implicitly and ones that manage state explicitly
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:37:56 GMT):<br/>
+Many SC languages use explicit state... the contract code is stateless, the state is passed in as some explicitly managed data structure (eg a table in ivy)
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:38:29 GMT):<br/>
+We wanted to experiment with implicit state where the state of the computation is saved... the notions of closure in Scheme made this very natural
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:39:04 GMT):<br/>
+Implicit state is arguably easier to program (it gives the perception of a continuously executing application)
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:39:15 GMT):<br/>
+Explicit state is easier & faster for serialization
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:39:43 GMT):<br/>
+The final reason for Scheme is that it is much easier to extend... so we could explore domain specific languages
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:40:05 GMT):<br/>
+(and I suppose you could say that i like parens) :-) :-)
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:44:47 GMT):<br/>
+@MicBowman in selecting scheme were there any _cons_?
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:49:18 GMT):<br/>
+too many parens
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:50:55 GMT):<br/>
+there are other interesting questions that are more general
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:51:21 GMT):<br/>
+we made most decisions very conservatively for security & confidentiality
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:51:40 GMT):<br/>
+among these... every contract invocation is completely stateless
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:51:54 GMT):<br/>
+that means we have to rebuild the interpreter environment each time
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:52:16 GMT):<br/>
+did you miss my italics :laughing: 
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:52:16 GMT):<br/>
+did you miss my italics :laughing: ?
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:52:33 GMT):<br/>
+i got it
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:52:47 GMT):<br/>
+but you generally cdr when selecting
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:52:48 GMT):<br/>
+Sorry. I'm terrible.
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:53:31 GMT):<br/>
+you are
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:53:34 GMT):<br/>
+;-)
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:53:56 GMT):<br/>
+I didn't try to make a pun out of cdr data for android though.
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:54:02 GMT):<br/>
+But mostly because it felt like too much work.
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:54:16 GMT):<br/>
+sigh
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:54:40 GMT):<br/>
+isn't it time for you to go on vacation? go hunting for mosquitoes in the swamps of minnesota
+</p>
+<p><strong>MicBowman</strong> (Tue, 24 Jul 2018 21:54:58 GMT):<br/>
+(isn't that what you do for fun in minnesota)
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:55:10 GMT):<br/>
+Yeah I'm about ready to pull the plug for today. 
+</p>
+<p><strong>Dan</strong> (Tue, 24 Jul 2018 21:55:31 GMT):<br/>
+(in MN the mosquitos hunt you)
+</p>
+<p><strong>alokmatta</strong> (Tue, 24 Jul 2018 23:11:49 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Wed, 25 Jul 2018 08:07:25 GMT):<br/>
+does this make sense?
+</p>
+<p><strong>GiuseppeLittera</strong> (Wed, 25 Jul 2018 09:55:52 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Wed, 01 Aug 2018 18:30:57 GMT):<br/>
+there is a PDO overview paper available on arxiv: https://arxiv.org/abs/1807.05686          
+</p>
+<p><strong>CodeReaper</strong> (Mon, 06 Aug 2018 05:25:21 GMT):<br/>
+Hi, I've got a couple of questions-
+
+1) Does Provisioning services store state encryption keys?
+2) Where does Provisoning services function, inside enclave?
+3) How do they share state encryption keys among multiple enclaves? 
+</p>
+<p><strong>CodeReaper</strong> (Mon, 06 Aug 2018 15:21:55 GMT):<br/>
+@MicBowman @Dan 
+</p>
+<p><strong>MicBowman</strong> (Mon, 06 Aug 2018 15:27:30 GMT):<br/>
+@CodeReaper the provisioning services store a piece of the state encryption key... the actual key is constructed by combining the secrets (inside the contract enclave) from several provisioning services
+</p>
+<p><strong>MicBowman</strong> (Mon, 06 Aug 2018 15:28:06 GMT):<br/>
+The provisioning services are distinct from the contract enclave... though we expect that CSPs providing contract enclaves would also provide provisioning services
+</p>
+<p><strong>MicBowman</strong> (Mon, 06 Aug 2018 15:29:59 GMT):<br/>
+that being said... the separation between PS and ES allows for many different policies... for example, for a low risk contract between the two of us, we might just each provide our own provisioning services or for high risk contracts we might want to provisioning services from multiple CSPs
+</p>
+<p><strong>MicBowman</strong> (Mon, 06 Aug 2018 15:30:41 GMT):<br/>
+the way we build the state encryption key means that so long as any one PS is honest, then the rest cannot expose the CEK
+</p>
+<p><strong>MicBowman</strong> (Mon, 06 Aug 2018 15:31:28 GMT):<br/>
+the secret generated by a given PS is connected to a contract... any contract enclave will get the same secret from the PS (which will be combined with the secrets from the other PSs)
+</p>
+<p><strong>CodeReaper</strong> (Tue, 07 Aug 2018 13:35:07 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=SpB6NaxZdqbqngQvE) @MicBowman For high availability and avoiding single point failures, can't I have an architecture where different enclave services can work with different provision services for same contract. In simple, can these provision services be replicated/duplicated for genuine reasons?? 
+</p>
+<p><strong>CodeReaper</strong> (Tue, 07 Aug 2018 13:35:50 GMT):<br/>
+Also can I find some source for how to run these examples integer-key contracts etc.
+</p>
+<p><strong>MicBowman</strong> (Tue, 07 Aug 2018 16:02:53 GMT):<br/>
+the expectation is that there are multiple provisioning services
+</p>
+<p><strong>MicBowman</strong> (Tue, 07 Aug 2018 16:03:18 GMT):<br/>
+and thinking about it... provisioning service is probably the wrong name... maybe "secret creation service"
+</p>
+<p><strong>MicBowman</strong> (Tue, 07 Aug 2018 16:03:40 GMT):<br/>
+i can walk through the sample apps with you if that helps
+</p>
+<p><strong>CodeReaper</strong> (Wed, 08 Aug 2018 13:47:57 GMT):<br/>
+@MicBowman Thanks a lot. I've done the setup, just need to stretch it up to development point. 
+</p>
+<p><strong>CodeReaper</strong> (Wed, 08 Aug 2018 13:49:58 GMT):<br/>
+By the way you can really make the whole readthedocs on this thing, covering the functional aspects as well. i would read it. :grimacing:
+</p>
+<p><strong>vdods</strong> (Sun, 12 Aug 2018 22:25:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>vdods</strong> (Sun, 12 Aug 2018 22:25:44 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>SubhodI</strong> (Mon, 13 Aug 2018 06:55:18 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SubhodI</strong> (Mon, 13 Aug 2018 06:58:48 GMT):<br/>
+Trying to build following solution on Hyperledger Fabric with private data support
+1. There exists a private transaction between PartyA and PartyB
+2. Now PartyA wants to share these private data store in stateDB with PartyC, How can i achieve this?
+In simple terms dynamic private transaction recipeients!
+
+</p>
+<p><strong>SubhodI</strong> (Mon, 13 Aug 2018 06:58:48 GMT):<br/>
+Trying to build following solution on Hyperledger Fabric with private data support
+1. There exists a private transaction between PartyA and PartyB
+2. Now PartyA wants to share these private data store in stateDB with PartyC, How can i achieve this?
+In simple terms dynamic private transaction recipients!
+
+</p>
+<p><strong>SubhodI</strong> (Mon, 13 Aug 2018 06:58:48 GMT):<br/>
+Trying to build following solution on Hyperledger Fabric with private data support
+1. There exists a private transaction between PartyA and PartyB
+2. Now PartyA wants to share these private data stored in stateDB with PartyC, How can i achieve this?
+In simple terms dynamic private transaction recipients!
+
+</p>
+<p><strong>shiyj</strong> (Fri, 24 Aug 2018 05:45:07 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nukulsharma</strong> (Fri, 24 Aug 2018 08:53:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nukulsharma</strong> (Fri, 24 Aug 2018 08:54:02 GMT):<br/>
+Hi 
+I have couple of queries - 
+1. Private Data collections - I could not find private data history , GetHistoryForKey - returns only public data 
+Note: i am using public data as normal ledger , whilst only private data as Collections 
+2. Is there any way i can find say recent 10 blocks from ledger, i dont see any API for it. The one we have is getBlockByTxID , which become quite tedious , since first we need to invoke transaction history and then invoke for each one of them to get Block . Any simpler way to this ?
+</p>
+<p><strong>MicBowman</strong> (Mon, 27 Aug 2018 15:34:03 GMT):<br/>
+@nukulsharma are your questions about collections in fabric or sawtooth? the PDO project does not have a "GetHistoryForKey" API
+</p>
+<p><strong>MicBowman</strong> (Wed, 29 Aug 2018 21:16:33 GMT):<br/>
+@here we just published a video demo for private data objects, thanks https://youtu.be/I1HbFPwo4gg
+</p>
+<p><strong>huxiangdong</strong> (Thu, 30 Aug 2018 09:04:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>cca88</strong> (Thu, 30 Aug 2018 16:48:18 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shrimanwar92</strong> (Tue, 04 Sep 2018 08:21:59 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shrimanwar92</strong> (Tue, 04 Sep 2018 08:27:01 GMT):<br/>
+Are PDO only for off-chain privacy ?
+</p>
+<p><strong>shrimanwar92</strong> (Tue, 04 Sep 2018 08:27:48 GMT):<br/>
+Is there any example in sawtooth for on-chain implementation with on-chain privacy with existing transaction processor ?
+</p>
+<p><strong>shrimanwar92</strong> (Tue, 04 Sep 2018 08:27:48 GMT):<br/>
+Is there any example in sawtooth for on-chain implementation with on-chain privacy with existing transaction processor ? (if there is on-chain PDO)
+</p>
+<p><strong>MicBowman</strong> (Tue, 04 Sep 2018 16:10:18 GMT):<br/>
+@shrimanwar92 on-chain and off-chain are... "ill-defined" concepts in general. to be specific in this case... sawtooth validators know nothing about the contracts used by an private data object
+</p>
+<p><strong>MicBowman</strong> (Tue, 04 Sep 2018 16:11:53 GMT):<br/>
+we've greatly reduced the functionality we require from sawtooth (with the basic belief that anything that is involved in global consensus is extremely expensive and difficult to scale... we moved all costly functions outside the shared ledger... so we've turned sawtooth into an enclave registry and relatively simple ordering service)
+</p>
+<p><strong>RealDeanZhao</strong> (Wed, 05 Sep 2018 01:42:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Wed, 05 Sep 2018 17:14:37 GMT):<br/>
+@EugeneYYY does the TP work if no state is pushed in the transaction? that is... is state still optional in the TP?
+</p>
+<p><strong>EugeneYYY</strong> (Tue, 11 Sep 2018 15:17:06 GMT):<br/>
+@MicBowman If you mean TP in general, as far as I know, current ST version allows transactions that don't change the state (i have not tried it though), but it is expected to change - transaction that doesn't change the state will be considered invalid.
+</p>
+<p><strong>pankajcheema</strong> (Sun, 16 Sep 2018 16:25:18 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>pankajcheema</strong> (Sun, 16 Sep 2018 16:25:22 GMT):<br/>
+Hi Experts
+</p>
+<p><strong>pankajcheema</strong> (Sun, 16 Sep 2018 16:25:30 GMT):<br/>
+Please have on look on this https://stackoverflow.com/questions/52355906/managing-privacy-in-hyperledger-fabric
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Sep 2018 18:24:17 GMT):<br/>
+@pankajcheema there is also a proposal being floated for secure chaincode in hyperledger labs. see https://github.com/hyperledger-labs/fabric-secure-chaincode
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Sep 2018 18:24:57 GMT):<br/>
+that work is very similar to the PDO project...
+</p>
+<p><strong>rmorbach</strong> (Thu, 20 Sep 2018 16:52:09 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rmorbach</strong> (Thu, 20 Sep 2018 16:52:58 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>cliveb</strong> (Fri, 21 Sep 2018 18:11:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>raccoonrat</strong> (Wed, 10 Oct 2018 02:54:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>knagware9</strong> (Thu, 15 Nov 2018 04:59:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>eugene-babichenko</strong> (Mon, 19 Nov 2018 16:26:56 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>eugene-babichenko</strong> (Mon, 19 Nov 2018 16:32:55 GMT):<br/>
+Hello, I have a little question about PDO related to performance. Consider the following scenario:
+
+* We have some state hash S[0] stored on the ledger
+* Two users send two different transactions that tries to update this state
+* One of those transactions will be rejected because it refers to the state S[0] that was already overwritten by a newer state even if those transactions alter different parts of the state
+
+So questions are: did I get right?
+</p>
+<p><strong>eugene-babichenko</strong> (Mon, 19 Nov 2018 16:32:55 GMT):<br/>
+Hello, I have a little question about PDO related to performance. Consider the following scenario:
+
+* We have some state hash S[0] stored on the ledger
+* Two users send two different transactions that tries to update this state
+* One of those transactions will be rejected because it refers to the state S[0] that was already overwritten by a newer state even if those transactions alter different parts of the state
+
+So questions are: did I get right? if I am right does that mean that transactions for the same smart contract cannot be concurrent?
+</p>
+<p><strong>ivanovv</strong> (Thu, 22 Nov 2018 10:48:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Tue, 27 Nov 2018 18:12:10 GMT):<br/>
+@eugene-babichenko updates currently must be serialized... one of the optimizations we're working on (which requires some trust in the enclave service to submit transactions) would let the enclave service provide you with the most recent version of state... since redundancy is not required for contract execution (just for post-verification), you can pick an enclave service as the primary execution point for the contract (other provisioned enclaves become hot backups) to get performance that is more like you would get in a traditional DB
+</p>
+<p><strong>AVetter</strong> (Mon, 17 Dec 2018 07:53:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>msteiner</strong> (Mon, 17 Dec 2018 20:14:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Dec 2018 20:23:53 GMT):<br/>
+after fighting with the configuration of hw enclaves for several days, i'm pushing several PRs that, in theory, simplify configuration
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Dec 2018 20:24:30 GMT):<br/>
+while i'm not happy about it... we already have a substantial dependency on environment variables for configuration... so amongst the other changes, i'm pushing all of those into a single file that can be sourced
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Dec 2018 20:24:56 GMT):<br/>
+in the process... i've also realized how... "diverse" our naming schemes are for the environment variables
+</p>
+<p><strong>MicBowman</strong> (Mon, 17 Dec 2018 20:25:16 GMT):<br/>
+i would like to propose that we convert all of the PDO specific environment variables to start with PDO_
+</p>
+<p><strong>DavorKljajic</strong> (Tue, 18 Dec 2018 12:36:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 21:43:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 21:48:07 GMT):<br/>
+I've been reading Mic's PDO paper and browsing python code, but I don't understand how PDO avoids collisions of contract state updates. The user fetches the latest state from the ledger, sends a method invocation to the enclave and commits the resulting state update back to the ledger. What happens if another user invokes another state update after the first user has fetched the state but before he commited the result? Is it first-come-first-served? which would mean that I might have to retry several times if the contract is very busy. Any doc on this?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 21:51:46 GMT):<br/>
+Another question about provisioning: After browsing the code, I still can't find out , how the PS provides sealed keys to the enclave. How are sealed keys generated/combined? The paper doesn't go into detail on this. Any doc?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 21:51:46 GMT):<br/>
+A question about provisioning: After browsing the code, I still can't find out , how the PS provides sealed keys to the enclave. How are sealed keys generated/combined? The paper doesn't go into detail on this. Any doc?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:02:12 GMT):<br/>
+yet another question regarding contract development: I've written a token contract for PDO. However, tinyscheme only knows 64bit signed integer. Is there any possibility to write contracts with bigint? like 128/256/512bit integers?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:02:12 GMT):<br/>
+yet another question regarding contract development: I've written a token contract for PDO. However, tinyscheme only knows 64bit signed integer which restricts token supply and divisibility. Is there any possibility to write contracts with bigint? like 128/256/512bit integers?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:02:12 GMT):<br/>
+A question regarding contract development: I've written a token contract for PDO. However, tinyscheme only knows 64bit signed integer which restricts token supply and divisibility. Is there any possibility to write contracts with bigint? like 128/256/512bit integers?
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:36:53 GMT):<br/>
+@eugene-babichenko I had the same question about serialized updates. @MicBowman instead of relying on the ES for serialization, wouldn't it be an option to store pdo update calls on the ledger which will order the calls? multiple ES could then run through all updates of one block and should all get the same resulting state
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:39:27 GMT):<br/>
+@brenzi a real bigint library would be really useful, agreed. in the short term, could i suggest using a vector of 64-bit ints? i'm doing some ugly things with random-identifiers to get unique strings
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:40:39 GMT):<br/>
+regarding the second question about serialization... since the ledger is actually ordering state updates, the serialization is difficult (and its not obvious how it would work... these aren't independent database updates in general)
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:41:23 GMT):<br/>
+that is... the ledger doesn't know what constitutes a valid ordering of transactions
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:41:30 GMT):<br/>
+and it has no way to determine one
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:41:46 GMT):<br/>
+only the contract can decide if F() can precede G()
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:41:50 GMT):<br/>
+on a given object
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:42:39 GMT):<br/>
+i've been experimenting with some different ways to increase parallelism by using "subcontracts"
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:45:10 GMT):<br/>
+@MicBowman but if there would be only one state update commited to the ledger per block (the one resulting from all of the previous blocks's calls). It would be very similar to a bitcoin transaction: the validator orders tx's and processes any state updates one by one
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:45:35 GMT):<br/>
+there is no limit to the number that can be committed to a block
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:46:06 GMT):<br/>
+and because we include the ordering hints for sawtooth, they should be ordered correctly in the validator
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:46:54 GMT):<br/>
+and... when I get time... i'm planning to add batch updates for multiple transactions... the one-at-a-time submission to sawtooth is too slow
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:47:27 GMT):<br/>
+so... the client can (and should) submit optimistically
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:47:49 GMT):<br/>
+but must check for when a transaction fails
+</p>
+<p><strong>brenzi</strong> (Tue, 18 Dec 2018 22:48:39 GMT):<br/>
+ok thanks. Any benchmarks yet in terms of tx/s for an example contract?
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:52:47 GMT):<br/>
+nothing i would stake my life to right now
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:53:00 GMT):<br/>
+i'm trying to set up for a hw performance test
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:53:19 GMT):<br/>
+i know i can send more txns than my sawtooth installation can handle
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:54:03 GMT):<br/>
+i'm seeing some weird slowdowns in the clients that i need to figure out
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:54:41 GMT):<br/>
+and i know that the biggest problem is that tinyscheme takes a long time to load
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 22:54:51 GMT):<br/>
+the multiple enclave worker threads has fixed some of that
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:10:37 GMT):<br/>
+@brenzi i'm still not sure why i cannot add you as a reviewer
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:10:48 GMT):<br/>
+for some of the PRs i'm pushing
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:11:21 GMT):<br/>
+several of the recent changes simplify configuration 
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:11:31 GMT):<br/>
+especially for running on hardware
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:11:45 GMT):<br/>
+feel free to jump in and comment
+</p>
+<p><strong>MicBowman</strong> (Tue, 18 Dec 2018 23:12:04 GMT):<br/>
+the plan right now is to get all the code updates in place and then clean up the documentation
+</p>
+<p><strong>knagware9</strong> (Wed, 19 Dec 2018 06:42:42 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 07:53:54 GMT):<br/>
+A question regarding provisioning: As I understand it, a contract owner defines a set of ES and PS for his contract. enclaves and ES can be migrated during the contracts lifetime thanks to secret sharing among PS. It seems to me that PS can't be migrated in some situations. If one PS goes down (accidentally or just denies service), the contract owner can't provision another enclave because that PS's share of the enclave secret would be missing.
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 08:00:27 GMT):<br/>
+Couldn't we just have some kind of multi-party key exchange among enclaves? Like http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.106.2329&rep=rep1&type=pdf or a generalized diffie-hellmann kind of exchange, assuming all enclaves can be trusted?
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 09:21:37 GMT):<br/>
+
+<br/><a href="./assets/EbEKPQuJsXCcj74uv-PDO ES PS Contract registration.png">PDO ES PS Contract registration.png</a>
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 09:21:37 GMT):<br/>
+
+<br/><a href="./assets/EbEKPQuJsXCcj74uv-PDO ES PS Contract registration.png">PDO ES PS Contract registration.png</a>
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 09:22:24 GMT):<br/>
+may I ask for a review of the above sequence diagram? IMHO the docs are missing something like this
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 09:54:08 GMT):<br/>
+
+<br/><a href="./assets/jgb2RZAoho9C2TDrp-PDO ES PS Contract registration.png">PDO ES PS Contract registration.png</a>
+</p>
+<p><strong>brenzi</strong> (Wed, 19 Dec 2018 09:54:44 GMT):<br/>
+may I ask for a review of the above sequence diagram? IMHO the docs are missing something like this 
+</p>
+<p><strong>MicBowman</strong> (Wed, 19 Dec 2018 17:05:50 GMT):<br/>
+@brenzi  provisioning is relatively "brittle" for the reasons you describe. the approach we designed is very conservative (in that we are assuming a very aggressive threat model)
+</p>
+<p><strong>MicBowman</strong> (Wed, 19 Dec 2018 17:06:28 GMT):<br/>
+we are looking at alternatives for the provisioning (we've considered a couple MPC protocols for this, a number of "m of n" policies, etc)
+</p>
+<p><strong>MicBowman</strong> (Wed, 19 Dec 2018 17:07:10 GMT):<br/>
+suggest you connect with g2flyer (Michael Steiner), he's the one looking at alternatives
+</p>
+<p><strong>brenzi</strong> (Fri, 21 Dec 2018 14:55:42 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=S4tSnMWAjYGQesmRn) @MicBowman I understand this is true if a contract has dependencies (Is there any documentation on contract dependencies?) If a contract doesn't use other contracts, random ordering by the validator would be ok, am I right?
+</p>
+<p><strong>brenzi</strong> (Fri, 21 Dec 2018 17:05:31 GMT):<br/>
+
+<br/><a href="./assets/bizgDWD7xGu9EbAqx-PDO contract execution.png">PDO contract execution.png</a>
+</p>
+<p><strong>brenzi</strong> (Fri, 21 Dec 2018 17:09:17 GMT):<br/>
+@MicBowman may I ask you for a review of my reverse-engineered infographic? It seems to me that on the TP side there's something missing, because I don't understand how the TP can validate that the ContractResponse Fields haven't been tampered with when writing CCL_TransactionPayload . (Enclave signature is there, but can't be verified because ContractResponse isn't forwarded to TP
+</p>
+<p><strong>brenzi</strong> (Fri, 21 Dec 2018 17:47:49 GMT):<br/>
+
+<br/><a href="./assets/zf5F5EHJGpobjqedQ-PDO contract execution.png">PDO contract execution.png</a>
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:03:46 GMT):<br/>
+@brenzi by the response i assume that you mean the value that is returned from the computation? the client can verify that it has the correct results because the connection to the enclave is private between the enclave and the client
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:03:59 GMT):<br/>
+the TP doesn't need (currently) to verify the response
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:12:40 GMT):<br/>
+and... to the extent i understand it... the graphic looks good
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:14:09 GMT):<br/>
+and to be clear about what i said about the result... the channel between the client and the enclave is encrypted with a session key constructed using the enclave's private RSA key
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:14:45 GMT):<br/>
+so if the answer comes back through the channel, then the client knows that it was the answer given by the enclave
+</p>
+<p><strong>MicBowman</strong> (Sat, 22 Dec 2018 00:16:14 GMT):<br/>
+we've been talking about adding the hash of the result to the text signed by the enclave, but this would be to ensure that an enclave that is verifying the execution of another enclave can verify that the enclave itself was legit
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 09:39:31 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=dkHXf7vWzcwcCGhYG) @MicBowman then why do you include contract_enclave_signature in CCL_TransactionPayload if there's no way to verify this signature? 
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 09:46:18 GMT):<br/>
+If the TP doesn't verify that the correct state has been submitted, this means it is left to the users to verify (by means of calling a contract getter on whatever information has been changed)
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 09:51:47 GMT):<br/>
+wouldn't it be useful if Alice could call the contract with message A and send the plaintext message A to Bob along with the transaction that included the state update? Of course Bob would have to trust the TP to accept this. I think I can accept that it isn't an absolute necessity to verify the new state hash against the enclave response signature. But in terms of scalability it would make sense to accept some diversified trust in return for simplicity
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 09:56:09 GMT):<br/>
+Another way could be to commit the enclave-signed response entirely onchain, so Bob could verify the signature for himself (no private information is included in the response)
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 12:04:24 GMT):<br/>
+Another problem I'm concerned about: If I run a getter function of the contract (i.e. requesting my balance in a token contract), the response isn't signed by the enclave in the current implementation AFAIK. There is no result in ContractResponse.__serialize_for_signing(). This means the ES could fake the result in the response
+</p>
+<p><strong>brenzi</strong> (Sat, 22 Dec 2018 12:18:44 GMT):<br/>
+or is it just not verified in the test_contract.py example?
+</p>
+<p><strong>NagatoPeinI1</strong> (Mon, 24 Dec 2018 06:20:03 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>BrunoVavala</strong> (Thu, 27 Dec 2018 10:19:15 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=t987BxFx3QSRrQfye) @brenzi the TP can and does verify the signature when the user submits the transaction -- see https://github.com/hyperledger-labs/private-data-objects/blob/master/sawtooth/transaction_processor/ccl_registry_handler.py#L158
+
+</p>
+<p><strong>BrunoVavala</strong> (Thu, 27 Dec 2018 10:19:15 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=t987BxFx3QSRrQfye) @brenzi the TP can and does verify the enclave signature when the user submits the transaction -- see https://github.com/hyperledger-labs/private-data-objects/blob/master/sawtooth/transaction_processor/ccl_registry_handler.py#L158
+
+</p>
+<p><strong>MicBowman</strong> (Thu, 27 Dec 2018 17:49:43 GMT):<br/>
+and to be clear... the contract enclave signs the state transition but does not (currently) include the "result" of the computation. so if the current state is S1 and you apply a method "f(1)" that causes the contract enclave to generate state S2 AND returns a value (say "5"), then the enclave signs the tuple <S1, S2, "f(1)", channel key> but does not include "5" in the signature
+</p>
+<p><strong>MicBowman</strong> (Thu, 27 Dec 2018 19:32:06 GMT):<br/>
+@BrunoVavala would the memory protection changes you pushed have an effect on performance?
+</p>
+<p><strong>msteiner</strong> (Fri, 28 Dec 2018 01:00:51 GMT):<br/>
+@brenzi, regarding your comments on PS, note that right now you can register enclaves only at contract creation time, so there isn't really an issue of not all PS being migratable.  For moderately long-running contracts, pre-allocation is probably less of the problem than the "scheduleability" which is currently effectively required to be done by the client. This clearly doesn't work well with the usual cloud model. The current thinking is to introduce a level of indirection -- following D. Wheeler's advice :-) -- with an enclave pool and having contracts assigned to enclave pools rather than enclaves and having a pool PK encryption key rather enclave PK encryption keys for tx requests.   There are different options for the gory protocol details, depending on the presence of a (transferable) proof of (ledger) publication or not. 
+</p>
+<p><strong>msteiner</strong> (Fri, 28 Dec 2018 01:00:51 GMT):<br/>
+@brenzi, regarding your comments on PS, note that right now you can register enclaves only at contract creation time, so there isn't really an issue of not all PS being migratable.  For moderately long-running contracts, pre-allocation is probably less of the problem than the "scheduleability" which is currently effectively required to be done by the client. This clearly doesn't work well with the usual cloud model. The current thinking is to introduce a level of indirection -- following D. Wheeler's advice :-) -- with an enclave pool and having contracts assigned to enclave pools rather than enclaves and having a pool PK encryption key rather enclave PK encryption keys for tx requests.   There are different options for the gory protocol details, depending on the presence of a (transferable) proof of (ledger) publication or not. 
+
+Regarding your citation to group DH, i'm well aware of that work: In fact, i wrote a thesis on it and am also cited in three citations of that paper :-)   For longer-running you would have to add though also some threshold component and some membership changes (maybe somewhat inspired by proactive secret sharing/security).  This would though certainly add considerable complexity and synchronization requirements which are certainly sub-ideal.  If we could get a good (efficient) proof-of-publication for the underlying ledger, it's also less clear whether we would need the PS any longer, currently the key contribution of PS are that they enforce that only properly registered enclaves are receiving contract keys (with a PoP contact enclaves, or pool enclaves with above change could create and distribute the keys with the effectively the same security guarantees)
+</p>
+<p><strong>brenzi</strong> (Fri, 28 Dec 2018 10:27:41 GMT):<br/>
+@msteiner Thank you for that detailed reply. I see that there's still more interesting work to do ;-) Is there a roadmap/timeline on the way to a "stable" hyperledger project?
+</p>
+<p><strong>BrunoVavala</strong> (Fri, 28 Dec 2018 16:23:24 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=e86GQy2FM8eRMfwft) @MicBowman They certainly do, but they should be negligible compared to other operation on the critical path like block I/O and encryption/decryption
+</p>
+<p><strong>MicBowman</strong> (Fri, 28 Dec 2018 18:14:09 GMT):<br/>
+@BrunoVavala i'm seeing a pretty significant slow down
+</p>
+<p><strong>MicBowman</strong> (Wed, 02 Jan 2019 23:30:35 GMT):<br/>
+@brenzi regarding a roadmap... while we are continously updating the code to harden and improve, we would need additional contributors before we would start thinking about a full project. 
+</p>
+<p><strong>MicBowman</strong> (Wed, 02 Jan 2019 23:31:31 GMT):<br/>
+that being said... we are starting to get enough interest that it might make sense to set up weekly calls where we can talk about how to address the questions you're bringing up... we have far more ideas that we have cycles to implement those ideas
+</p>
+<p><strong>MicBowman</strong> (Wed, 02 Jan 2019 23:31:43 GMT):<br/>
+hence... why this is a hyperledger labs projects
+</p>
+<p><strong>MicBowman</strong> (Fri, 04 Jan 2019 23:53:47 GMT):<br/>
+Just a heads up for anyone tracking the changes to the repository... we are trying to clean up a bunch of the "extras" to make the code easier to build, test and manage... i think we are getting close on the configuration (see build/common-config.sh) and i think the logging will be made more consistent (and logical) with PR129
+</p>
+<p><strong>MicBowman</strong> (Fri, 04 Jan 2019 23:57:43 GMT):<br/>
+one of the ongoing discussions involves the use of flags for compilation... in the past we required "SGX_DEBUG" to be set, but it is largely unused at this point. we also use DEBUG for including debug-only code (primarily logging). @msteiner proposed that we have two flags... one that indicates explicitly that the build will construct an insecure enclave (e.g. in SGX debug mode) and one that includes logging in the project. since all logging from the enclave represents a confidentiality breach, the suggestion is the SGX_SECURE=yes --> PDO_DEBUG=no
+</p>
+<p><strong>MicBowman</strong> (Sat, 05 Jan 2019 00:02:52 GMT):<br/>
+useful information... if you are getting certificate failures when contacting the IAS service and are not in a position to install the correct certificates, you can turn off the message with the following statement: export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 03:22:57 GMT):<br/>
+apropos debug, i think there is another aspect which is not completely clear to me: how is one supposed to build such that one is also able to debug with gdb?  common/ seems to honor the DEBUG environment variable but this doesn't seem to be true for pservice and eservice?  I guess in general for cmake one would have to pass CMAKE_BUILD_TYPE=Debug?  That at least seemed to do the trick for files i was interested in in pservice. If this is indeed the way it is supposed to work (but see my comment on common cmake), then we probably should also define this in {p,e}service/Makefile conditional on the DEBUG variable (and potentially could also remove the non-cmake-standard treatment of debug flags in common)?
+</p>
+<p><strong>SumanPapanaboina</strong> (Mon, 07 Jan 2019 07:21:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:37:32 GMT):<br/>
+fyi: in my ias-improvement branch i've added now following patch which does an overall build with -g for c-files as far as i can tell. It is though still a bit inconsistent when -DDEBUG is passed to gcc/g++ (everywhere in common but only a subset of places in pservice and eservice):
+intel@sgx2:~/src/PoET-et-al/pdo/src/private-data-objects.git$ git diff
+diff --git a/build/__tools__/build.sh b/build/__tools__/build.sh
+index 6fc0668..484eda7 100755
+--- a/build/__tools__/build.sh
++++ b/build/__tools__/build.sh
+@@ -66,10 +66,14 @@ if [ "$NUM_CORES " == " " ]; then
+     NUM_CORES=4
+ fi
+
++CMAKE_ARGS=
++if [ ! -z ${DEBUG+x} ]; then
++    CMAKE_ARGS+=" -DCMAKE_BUILD_TYPE=Debug"
++fi
+ # allow opting out of running tests, primarily so we can skip
+ # sgx hw-mode based tests which fail in docker test
+ if [ ! -z "${NO_SGX_RUN_DURING_BUILD}" ]; then
+-    CMAKE_ARGS="-D DISABLE_TESTS=true"
++    CMAKE_ARGS+=" -D DISABLE_TESTS=true"
+ fi
+
+ # -----------------------------------------------------------------
+diff --git a/eservice/Makefile b/eservice/Makefile
+index 22ca782..c3cc2c0 100644
+--- a/eservice/Makefile
++++ b/eservice/Makefile
+@@ -19,6 +19,11 @@ ifndef SGX_MODE
+ $(error Incomplete configuration, SGX_MODE is not defined)
+ endif
+
++ADD_CMAKE_ARGS=
++ifdef DEBUG
++   ADD_CMAKE_ARGS+=-DCMAKE_BUILD_TYPE=Debug
++endif
++
+ EGG_FILE=dist/pdo_eservice-${MOD_VERSION}-py${PY_VERSION}-linux-x86_64.egg
+
+ ENCLAVE_LIB=deps/bin/libpdo-enclave.signed.so
+@@ -67,7 +72,7 @@ $(SWIG_TARGET) : $(SWIG_FILES) $(ENCLAVE_LIB)
+
+ build :
+        mkdir $@
+-       cd $@ ; cmake .. -G "Unix Makefiles"
++       cd $@ ; cmake $(ADD_CMAKE_ARGS) .. -G "Unix Makefiles"
+
+ install: $(EGG_FILE)
+        easy_install $<
+diff --git a/pservice/Makefile b/pservice/Makefile
+index 1c2696a..58870e6 100644
+--- a/pservice/Makefile
++++ b/pservice/Makefile
+@@ -15,6 +15,11 @@
+ PY_VERSION=${shell python3 --version | sed 's/Python \(3\.[0-9]\).*/\1/'}
+ MOD_VERSION=${shell ../bin/get_version}
+
++ADD_CMAKE_ARGS=
++ifdef DEBUG
++   ADD_CMAKE_ARGS+=-DCMAKE_BUILD_TYPE=Debug
++endif
++
+ EGG_FILE=dist/pdo_pservice-${MOD_VERSION}-py${PY_VERSION}-linux-x86_64.egg
+
+ ENCLAVE_LIB=deps/bin/libpdo-enclave.signed.so
+@@ -67,7 +72,7 @@ $(SWIG_TARGET) : $(SWIG_FILES)
+
+ build :
+        mkdir $@
+-       cd $@ ; cmake .. -G "Unix Makefiles"
++       cd $@ ; cmake $(ADD_CMAKE_ARGS) .. -G "Unix Makefiles"
+
+ install: $(EGG_FILE)
+        easy_install $<
+
+
+hope to push the corresponding PR later today or tomorrow 
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:50:17 GMT):<br/>
+@msteiner see the PR that i'm pushing in a couple minutes
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:50:57 GMT):<br/>
+i have the debug flags fixed throughout
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:51:14 GMT):<br/>
+PDO_DEBUG_BUILD (we can change that)
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:51:44 GMT):<br/>
+fixes the flags, changes "#ifdef" to "#if"
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:51:55 GMT):<br/>
+name sounds good (definetly better than DEBUG, in particular for an env var)
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:52:15 GMT):<br/>
+and it fixes the "run-test" vs "test" in contracts
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:52:32 GMT):<br/>
+i think that was all of the concerns you expressed about makefiles
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:52:47 GMT):<br/>
+by the way... i've never seen "-Og" before but we use it in common
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:52:53 GMT):<br/>
+do you also change the cmake related stuff i mentioned or should i do that later by just merging your PR with my patch from above?
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:53:23 GMT):<br/>
+(the latter probably preferred by me as i anyway will have to merge these and some other docker-related debugging changes)
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:53:48 GMT):<br/>
+i set the -g flag in the CMakeFiles
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:53:52 GMT):<br/>
+explicitly
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:54:00 GMT):<br/>
+no "-G"
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:54:02 GMT):<br/>
+hmm, why not use CMAKE_BUILD_TYPE?
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:54:11 GMT):<br/>
+this would seem the cmake way?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:54:21 GMT):<br/>
+cause i intensely dislike cmake? :)
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:54:35 GMT):<br/>
+but i have no strong philosophical attachment with CMAKE_BUILD_TYPE, as long as the -g flag is pervasive ...
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:54:49 GMT):<br/>
+true... but i also need to pass in the definition of PDO_DEBUG_BUILD
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:54:55 GMT):<br/>
+so i have to check it anyway
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:55:04 GMT):<br/>
+(e.g., for pservice/eservice the support of debug is only partially applied)
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:55:39 GMT):<br/>
+yes... 
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:55:43 GMT):<br/>
+i believe that is fixed
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:55:55 GMT):<br/>
+at least its definitely in the compile options
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:55:58 GMT):<br/>
+when building now
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 20:57:07 GMT):<br/>
+ah, ok. then having our own is fine.  In fact, assuming you do the same as in common by not only setting -g but also -O0 then it's even kind of nicer with gdb as CMAKE_BUILD_TYPE=Debug defines -g -O2 which gives you a number of optimized-away stuff ...
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:58:06 GMT):<br/>
+i have -Og which is whats in common
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:58:14 GMT):<br/>
+i cant get swig to push that through
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 20:58:25 GMT):<br/>
+it seems like its dropping it to lowercase
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:00:46 GMT):<br/>
+PR #130
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:02:08 GMT):<br/>
+we are getting close to where we can update the documentation... seems like things are starting to settle down a little 
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:03:49 GMT):<br/>
+ok... looks like -Og really was the right switch
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:05:13 GMT):<br/>
+looking at patch, though, i don't think you change debug persistently as you change it only in  a sub-CMake* file and not in the top-level pservice/eservice one?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:08:03 GMT):<br/>
+the pservice/eserice makefiles don't do anything
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:08:17 GMT):<br/>
+i think just moving your debug-related changes from eservice/lib/libpdo_enclave/CMakeLists.txt to eservice/CMakeLists.txt as-is should make them pervasive (ditto for pservice)
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:08:53 GMT):<br/>
+unless im mistaken, i don't think your changes build eservice/build/pdo/eservice/enclave/ with debug
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:09:09 GMT):<br/>
+maybe
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:09:21 GMT):<br/>
+but the only place we actually build anything is in the lib/libpdo
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:09:27 GMT):<br/>
+that's the only one that matters
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:09:33 GMT):<br/>
+well... that and setup.py
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:09:51 GMT):<br/>
+the high level one just coordinates
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:09:59 GMT):<br/>
+there are c-files in the other directory which we also build?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:10:21 GMT):<br/>
+nope
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:10:26 GMT):<br/>
+oops, never mind, copied wrong place
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:10:27 GMT):<br/>
+only in the swig stuff
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:10:31 GMT):<br/>
+and in the libpdo
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:10:55 GMT):<br/>
+what i meant is eservice/pdo/eservice/enclave/
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:11:05 GMT):<br/>
+thats controlled by swig
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:11:20 GMT):<br/>
+so the switches have to be in setup.py
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:11:27 GMT):<br/>
+where we build the extension
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:11:39 GMT):<br/>
+(which is updated)
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:12:32 GMT):<br/>
+and... while i'm a little concerned that we are doing things differently in eservice/pservice than in common (where we put everything into the vars file)... i'm not THAT concerned
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:12:33 GMT):<br/>
+still confusing to have some definitions (also c related) in eservice/CMakefile ... and others down the tree ...
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:12:51 GMT):<br/>
+we don't have any meaningful definitions in the top CMakefile
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:13:01 GMT):<br/>
+its only used to move the edger8r files around
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:13:13 GMT):<br/>
+in particular as eservice/pdo/eservice/enclave _is_ added to top-level cmake 
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:13:35 GMT):<br/>
+(via ADD_SUBDIRECTORY (pdo/eservice/enclave))
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:13:36 GMT):<br/>
+it is not touched by that
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:13:44 GMT):<br/>
+agreed... that should probably be removed
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:13:59 GMT):<br/>
+except for putting the edgr8r files
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:14:35 GMT):<br/>
+look at the contents...
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:14:54 GMT):<br/>
+the ONLY thing we do is make sure the _u.h and _t.h files are created
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:14:59 GMT):<br/>
+but then edger-related files will not be compiled with -g?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:14:59 GMT):<br/>
+no compilation
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:15:24 GMT):<br/>
+edger creates stub-files which will be compiled?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:15:43 GMT):<br/>
+they are only compile as part of the extension
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:15:52 GMT):<br/>
+like i said... take a look at setup.py
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:16:04 GMT):<br/>
+enclave_u.c is compiled with swig
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:16:10 GMT):<br/>
+NOT with the cmake generated compile
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:16:15 GMT):<br/>
+and swig DOES set -g
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:17:29 GMT):<br/>
+a big part of the confusion is that swig is just weird
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:17:46 GMT):<br/>
+like cmake... its another of those really awful but incredibly useful tools
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:17:52 GMT):<br/>
+but it's also wierd that we have a eservice/pdo/eservice/enclave/CMakeLists.txt which does define a CXX project
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:18:06 GMT):<br/>
+makes me wonder whether some files might be compiled twice ...
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:09 GMT):<br/>
+the only thing it does is generate the dependency
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:13 GMT):<br/>
+it doesn't build anything
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:28 GMT):<br/>
+if its building twice it certainly doesn't show up in the log
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:44 GMT):<br/>
+i think it just creates enclave_u.c and enclave_u.h
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:47 GMT):<br/>
+and thats it
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 21:18:58 GMT):<br/>
+or... just ensures that they exist
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:26:03 GMT):<br/>
+ok, i see. we never reference PROJECT_UNTRUSTED_EDGE_SOURCES in ADD_LIBRARY or alike, hence nothing in cmake builds them
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:27:56 GMT):<br/>
+at some level, though i still feel it would be nicer to have them in the top-level as that's where one would look first and it also would be safer for case we might ever add additional c-projects in other sub-dirs.  But that's matter of taste and you convinced me that everything is built with -g, the only thing i really care :-)
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 21:29:06 GMT):<br/>
+one other thing i noticed, also a bit matter of test: you canged the syntax of DEBUG/PDO_DEBUG_BUILD from defined vs undefined to 1 vs 0.  I'm not religous either but given that the env variable has the old semantics it could lead to some confusion?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:07:05 GMT):<br/>
+we need to update common-config & the docs, but actually the behavior is similar
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 22:07:46 GMT):<br/>
+but the env variable is _not_ changed in your patch? just the variable in the c files?
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:07:46 GMT):<br/>
+the CMakefiles had an IF($ENV{DEBUG}) which would only define the DEBUG symbol for the compiler if the environment variable was 1
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:08:01 GMT):<br/>
+correct... DEBUG was never set
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:08:24 GMT):<br/>
+in common-config.sh
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:08:29 GMT):<br/>
+only SGX_DEBUG
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:08:47 GMT):<br/>
+which turns out to not be used at all & should be removed when we do the docs pass
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:10:10 GMT):<br/>
+my suggestion is that we replace SGX_DEBUG in common-config with PDO_DEBUG_BUILD
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:10:25 GMT):<br/>
+the documentation you wrote in common config is almost exactly what we want anyway
+</p>
+<p><strong>MicBowman</strong> (Mon, 07 Jan 2019 22:11:04 GMT):<br/>
+unless... we really want to support production builds with SGX_DEBUG... 
+</p>
+<p><strong>msteiner</strong> (Mon, 07 Jan 2019 22:11:05 GMT):<br/>
+makes sense
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:02:20 GMT):<br/>
+foreshadow
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:03:01 GMT):<br/>
+May  I ask for your opinion on the latest foreshadow attacks on SGX? As I understand it, this means we can no longer trust SGX on remote platforms (ES), only on hardware under our own control. Is there a way to ensure secure boot to make sure the ES system is ok? How does the sawtooth / PDO project respond to this?
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:03:01 GMT):<br/>
+May  I ask for your opinion on the latest foreshadow attacks on SGX? As I understand it, this means we can no longer trust SGX on remote platforms (ES), only on hardware under our own control (and smart contracts under our control). Is there a way to ensure secure boot to make sure the ES system is ok? How does the sawtooth / PDO project respond to this?
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:03:01 GMT):<br/>
+May  I ask for your opinion on the latest foreshadow attacks on SGX? As I understand it, this means we can no longer trust SGX on remote platforms (ES), only on hardware under our own control to make sure it's updated with patches . Probably, also smart contracts should be under our control. Is there a way to ensure secure boot to make sure the ES system is ok? How does the sawtooth / PDO project respond to this?
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:03:01 GMT):<br/>
+May  I ask for your opinion on the latest foreshadow attacks on SGX? As I understand it, this means we can no longer trust SGX on remote platforms (ES), only on hardware under our own control to make sure the system is updated with recent patches . Probably, also smart contracts should be under our control. Is there a way to ensure secure boot to make sure the ES system is ok? How does the sawtooth / PDO project respond to this?
+</p>
+<p><strong>brenzi</strong> (Tue, 15 Jan 2019 20:20:01 GMT):<br/>
+Talking 'bout: https://www.usenix.org/conference/usenixsecurity18/presentation/bulck
+</p>
+<p><strong>msteiner</strong> (Wed, 16 Jan 2019 03:02:24 GMT):<br/>
+@brenzi, your conclusion is incorrect.  If you upgrade microcode and disable hyper-threading in BIOS you should be safe from foreshadow (L1TF). I refer you to https://software.intel.com/security-software-guidance/software-guidance/l1-terminal-fault for more information.
+</p>
+<p><strong>brenzi</strong> (Wed, 16 Jan 2019 15:52:37 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=9kuMjbpPcw2DcrBdH) @msteiner but how can a ES prove to me that his enclave runs on a patched system?
+</p>
+<p><strong>brenzi</strong> (Wed, 16 Jan 2019 15:52:37 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=9kuMjbpPcw2DcrBdH) @msteiner but how can a ES prove to me that his enclave runs on a patched system? A rogue ES could run a non-patched SGX, leak the entire encrypted state in cleartext
+</p>
+<p><strong>MicBowman</strong> (Wed, 16 Jan 2019 17:03:56 GMT):<br/>
+@brenzi the attestation that you receive includes information about the firmware level and the status of hyperthreading
+</p>
+<p><strong>MicBowman</strong> (Wed, 16 Jan 2019 18:28:21 GMT):<br/>
+here are a couple links that provide a little more information: https://github.com/intel/linux-sgx/issues/340, https://software.intel.com/en-us/forums/intel-software-guard-extensions-intel-sgx/topic/798777
+</p>
+<p><strong>brenzi</strong> (Wed, 16 Jan 2019 18:49:20 GMT):<br/>
+@MicBowman Thanks for these clarifications. That's reassuring. 
+</p>
+<p><strong>brenzi</strong> (Wed, 16 Jan 2019 20:20:29 GMT):<br/>
+key exchange
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:21:02 GMT):<br/>
+@BrunoVavala i'm looking into the garbage collection for blocks in the eservice... given our proposed semantics for "proof of availability" for storage, the garbage collector could be exclusively time based (the eservice could delete any block that is older than the time guarantee)
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:21:41 GMT):<br/>
+that implementation would require that I add another "metadata" structure into the lmdb database when a block is added so that we could get time
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:22:09 GMT):<br/>
+i don't think that's a particular problem... it should work transparently to the kv store
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:23:30 GMT):<br/>
+however... i'm a little worried that the eservice requirements for storage are a little different than we have envisioned for the storage service... the eservice cares about the active working set of blocks where the storage service would be more concerned about enforcing the time delta
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:25:14 GMT):<br/>
+that distinction might lead to the conclusion that the storage service really is more than just the get/put/head functions currently implemented in the eservice
+</p>
+<p><strong>prakashnm</strong> (Fri, 25 Jan 2019 17:26:43 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Fri, 25 Jan 2019 17:27:31 GMT):<br/>
+@prakashnm this is for you as well
+</p>
+<p><strong>prakashnm</strong> (Fri, 25 Jan 2019 17:27:35 GMT):<br/>
+ok
+</p>
+<p><strong>BrunoVavala</strong> (Mon, 28 Jan 2019 22:44:13 GMT):<br/>
+the per-block metadata is useful,
+though I don't think the eservice should implement the time-based features that we have envisioned for the storage service.
+It would be sufficient to track the least recently used blocks to identify those that the client did not request after the execution -- and never will, because they are not in the active set.
+</p>
+<p><strong>MicBowman</strong> (Tue, 29 Jan 2019 00:28:35 GMT):<br/>
+i agree that the eservice should just be LRU... that would make for a relatively simple cache policy
+</p>
+<p><strong>awes0menessInc</strong> (Mon, 11 Feb 2019 18:32:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Shyam_Pratap_Singh</strong> (Fri, 15 Feb 2019 08:14:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Thu, 21 Feb 2019 15:24:32 GMT):<br/>
+i just pushed a PR to separate storage services from the enclave service (will leave the old APIs in place for now), the separation assumes that the eservice and sservice can share access to a common lmdb file. that is... the eservice MUST have a companion sservice, but there may be additional sservices that can provide state replication
+</p>
+<p><strong>MicBowman</strong> (Thu, 21 Feb 2019 15:26:15 GMT):<br/>
+the next step is to push some of the changes to the lmdb_block_store package to support separation of data & metadata. the metadata first needs to support storage management (aka garbage collection), but must also support the proof-of-replication from @prakashnm 
+</p>
+<p><strong>MicBowman</strong> (Thu, 21 Feb 2019 15:28:53 GMT):<br/>
+question... what do we want in the metadata? at this point we have speculated on two timers that need to be supported, the first is the guarantee that the storage service must implement for proof of replication, that timer is based on an expiration time from the time when a block is first added to the storage service, the second timer ensures that the blocks pushed by the client will be available to the enclave service exist long enough for the client to invoke a method
+</p>
+<p><strong>MicBowman</strong> (Thu, 21 Feb 2019 15:30:41 GMT):<br/>
+for the metadata... i'm planning to implement the md as a structure with creation time (when the block was first stored) and expiration interval (how long from the creation time the block must be stored for proof-of-replication), block size, and an opaque tag (could be used for garbage collection)
+</p>
+<p><strong>MicBowman</strong> (Thu, 21 Feb 2019 15:31:56 GMT):<br/>
+since the time between "require" and execution should be short... that list doesn't necessarily need to be kept in the database
+</p>
+<p><strong>dmitry_lavrenov</strong> (Tue, 26 Feb 2019 15:17:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Fri, 01 Mar 2019 15:46:48 GMT):<br/>
+https://github.com/mbrandenburger/fabric-secure-chaincode/blob/fab-1.4/ecc/enclave_chaincode.go
+</p>
+<p><strong>bur</strong> (Fri, 01 Mar 2019 15:50:20 GMT):<br/>
+https://github.com/mbrandenburger/fabric-secure-chaincode/blob/fab-1.4/ecc_enclave/enclave/chaincode.h
+</p>
+<p><strong>Mahesh-Raj</strong> (Mon, 04 Mar 2019 10:55:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Mahesh-Raj</strong> (Mon, 04 Mar 2019 10:55:57 GMT):<br/>
+Hey all, this is regarding Fabric1.4 Private Data
+Let's say I have 5 Orgs, (Org1, Org2, Org3, Org4, Org5) and each of them wants to do some transactions where only TWO Orgs are involved and they wanna keep them Private. I wanna use only 1 Channel
+1. How many collections would network need?
+2. If a new Org has to be added (Org6), how will existing Organisations gonna know about new Collections to interact with Org6?
+</p>
+<p><strong>bur</strong> (Mon, 04 Mar 2019 16:08:34 GMT):<br/>
+@Mahesh-Raj I have the feeling that this is the wrong channel to ask this question. You are referring to https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html
+</p>
+<p><strong>bur</strong> (Mon, 04 Mar 2019 16:08:34 GMT):<br/>
+@Mahesh-Raj I have the feeling that this is the wrong channel to ask this question. You are referring to https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html but this channel's topic is about private-data-objects, which is a hyperledger labs (https://github.com/hyperledger-labs/private-data-objects)
+</p>
+<p><strong>bur</strong> (Tue, 05 Mar 2019 18:21:21 GMT):<br/>
+Hey guys! I've merged Fabric 1.4 support https://github.com/hyperledger-labs/fabric-secure-chaincode
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 06 Mar 2019 20:06:14 GMT):<br/>
+thanks Marcus!
+</p>
+<p><strong>pfelber</strong> (Thu, 07 Mar 2019 10:33:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>vschiavoni</strong> (Thu, 07 Mar 2019 10:48:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Mahesh-Raj</strong> (Thu, 07 Mar 2019 13:00:31 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 12 Mar 2019 23:52:52 GMT):<br/>
+@bur these are the kind of error I am getting:
+- when the auction runs: Error: endorsement failure during invoke. chaincode result: <nil>
+- at the peer:  [chaincode] HandleTransaction -> ERRO 089 [0d0bb35d] Failed to handle INVOKE_CHAINCODE. error: timeout expired while executing transaction
+
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 12 Mar 2019 23:52:52 GMT):<br/>
+@bur these are the kind of error I am getting:
+- when the auction runs: Error: endorsement failure during invoke. chaincode result: <nil>
+- at the peer:  [chaincode] HandleTransaction -> ERRO 089 [0d0bb35d] Failed to handle INVOKE_CHAINCODE. error: timeout expired while executing transaction
+                       [shim] handleInvokeChaincode -> ERRO 010 [0d0bb35d] Received ERROR.
+-at the ordering service: Handle -> WARN 011 Error reading from 127.0.0.1:57414: rpc error: code = Canceled desc = context canceled
+</p>
+<p><strong>bur</strong> (Wed, 13 Mar 2019 08:53:43 GMT):<br/>
+mhh ... can you give me more context? Full log? which transaction invocation fails? what is last command in ``run_sgx_auction.sh``
+</p>
+<p><strong>BrunoVavala</strong> (Fri, 15 Mar 2019 00:55:01 GMT):<br/>
+here is some more info from the peer:
+2019-03-14 11:45:10.676 PDT [dev-jdoe-ercc-0] func2 -> INFO 536 2019-03-14 18:45:10.676 UTC [ercc] Debug -> DEBU 003 ercc: invoke is running registerEnclave
+2019-03-14 11:45:11.077 PDT [gossip/discovery] periodicalReconnectToDead -> DEBU 537 Sleeping 25s
+2019-03-14 11:45:11.088 PDT [gossip/discovery] periodicalSendAlive -> DEBU 538 Sleeping 5s
+2019-03-14 11:45:12.909 PDT [gossip/election] waitForInterrupt -> DEBU 539 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:12.909 PDT [gossip/election] IsLeader -> DEBU 53a [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:12.910 PDT [gossip/election] waitForInterrupt -> DEBU 53b [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:16.091 PDT [gossip/discovery] periodicalSendAlive -> DEBU 53c Sleeping 5s
+2019-03-14 11:45:17.911 PDT [gossip/election] waitForInterrupt -> DEBU 53d [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:17.911 PDT [gossip/election] IsLeader -> DEBU 53e [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:17.913 PDT [gossip/election] waitForInterrupt -> DEBU 53f [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:21.094 PDT [gossip/discovery] periodicalSendAlive -> DEBU 540 Sleeping 5s
+2019-03-14 11:45:22.913 PDT [gossip/election] waitForInterrupt -> DEBU 541 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:22.913 PDT [gossip/election] IsLeader -> DEBU 542 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:22.915 PDT [gossip/election] waitForInterrupt -> DEBU 543 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:26.097 PDT [gossip/discovery] periodicalSendAlive -> DEBU 544 Sleeping 5s
+2019-03-14 11:45:27.915 PDT [gossip/election] waitForInterrupt -> DEBU 545 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:27.916 PDT [gossip/election] IsLeader -> DEBU 546 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:27.917 PDT [gossip/election] waitForInterrupt -> DEBU 547 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:31.100 PDT [gossip/discovery] periodicalSendAlive -> DEBU 548 Sleeping 5s
+2019-03-14 11:45:32.918 PDT [gossip/election] waitForInterrupt -> DEBU 549 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:32.918 PDT [gossip/election] IsLeader -> DEBU 54a [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:32.920 PDT [gossip/election] waitForInterrupt -> DEBU 54b [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:36.083 PDT [gossip/discovery] periodicalReconnectToDead -> DEBU 54c Sleeping 25s
+2019-03-14 11:45:36.101 PDT [gossip/discovery] periodicalSendAlive -> DEBU 54d Sleeping 5s
+2019-03-14 11:45:37.920 PDT [gossip/election] waitForInterrupt -> DEBU 54e [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Exiting
+2019-03-14 11:45:37.920 PDT [gossip/election] IsLeader -> DEBU 54f [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Returning true
+2019-03-14 11:45:37.922 PDT [gossip/election] waitForInterrupt -> DEBU 550 [13 70 115 122 69 137 77 18 56 149 103 18 33 219 173 223 132 128 251 3 100 244 4 190 58 237 73 29 244 66 148 95] : Entering
+2019-03-14 11:45:40.558 PDT [chaincode] Execute -> DEBU 551 Exit
+2019-03-14 11:45:40.558 PDT [endorser] callChaincode -> DEBU 552 [mychannel][a896bfec76f679d994ffdd829fac489e21520ac803d2c8625b8ba880aea9277d] Exit
+2019-03-14 11:45:40.558 PDT [endorser] SimulateProposal -> ERRO 553 [mychannel][a896bfec] failed to invoke chaincode name:"ecc" , error: timeout expired while executing transaction
+
+</p>
+<p><strong>BrunoVavala</strong> (Fri, 15 Mar 2019 00:58:07 GMT):<br/>
+and here is something from the client
+2019-03-14 11:45:10.543 PDT [msp] Validate -> DEBU 026 MSP SampleOrg validating identity
+2019-03-14 11:45:10.543 PDT [msp] getCertificationChain -> DEBU 027 MSP SampleOrg getting certification chain
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 028 parsed scheme: ""
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 029 scheme "" not registered, fallback to default scheme
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 02a ccResolverWrapper: sending new addresses to cc: [{127.0.0.1:7051 0  <nil>}]
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 02b ClientConn switching balancer to "pick_first"
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 02c pickfirstBalancer: HandleSubConnStateChange: 0xc0004b0a00, CONNECTING
+2019-03-14 11:45:10.545 PDT [grpc] Printf -> DEBU 02d pickfirstBalancer: HandleSubConnStateChange: 0xc0004b0a00, READY
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 02e parsed scheme: ""
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 02f scheme "" not registered, fallback to default scheme
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 030 ccResolverWrapper: sending new addresses to cc: [{127.0.0.1:7051 0  <nil>}]
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 031 ClientConn switching balancer to "pick_first"
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 032 pickfirstBalancer: HandleSubConnStateChange: 0xc0004f3c30, CONNECTING
+2019-03-14 11:45:10.546 PDT [grpc] Printf -> DEBU 033 pickfirstBalancer: HandleSubConnStateChange: 0xc0004f3c30, READY
+2019-03-14 11:45:10.547 PDT [msp] GetDefaultSigningIdentity -> DEBU 034 Obtaining default signing identity
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 035 parsed scheme: ""
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 036 scheme "" not registered, fallback to default scheme
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 037 ccResolverWrapper: sending new addresses to cc: [{localhost:7050 0  <nil>}]
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 038 ClientConn switching balancer to "pick_first"
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 039 pickfirstBalancer: HandleSubConnStateChange: 0xc000310f00, CONNECTING
+2019-03-14 11:45:10.547 PDT [grpc] Printf -> DEBU 03a pickfirstBalancer: HandleSubConnStateChange: 0xc000310f00, READY
+2019-03-14 11:45:10.548 PDT [chaincodeCmd] getChaincodeSpec -> DEBU 03b java chaincode disabled
+2019-03-14 11:45:10.548 PDT [msp/identity] Sign -> DEBU 03c Sign: plaintext: 0AD0070A6608031A0C08B6C2AAE40510...631A0D0A0573657475700A0465726363
+2019-03-14 11:45:10.548 PDT [msp/identity] Sign -> DEBU 03d Sign: digest: 462D4579340FA459AEA5C594707C26712D6642A8919263FC561593F4B8A7EFA7
+2019-03-14 11:45:40.561 PDT [chaincodeCmd] chaincodeInvokeOrQuery -> DEBU 03e ESCC invoke result: response:<status:500 message:"failed to execute transaction a896bfec76f679d994ffdd829fac489e21520ac803d2c8625b8ba880aea9277d: error sending: timeout expired while executing transaction" >
+Error: endorsement failure during invoke. chaincode result: <nil>
+
+</p>
+<p><strong>bur</strong> (Fri, 15 Mar 2019 08:42:17 GMT):<br/>
+ok from the logs you can see that the invocation of registerEnclave timeouts. :/ 
+</p>
+<p><strong>bur</strong> (Fri, 15 Mar 2019 08:43:30 GMT):<br/>
+can you check that you are using IAS v3?! the code still usese v2 but there is a issue ticket for this already https://github.com/hyperledger-labs/fabric-secure-chaincode/blob/master/ercc/attestation/ias.go
+</p>
+<p><strong>bur</strong> (Fri, 15 Mar 2019 08:45:08 GMT):<br/>
+you can also control fabric logging as described here https://hyperledger-fabric.readthedocs.io/en/release-1.4/logging-control.html
+</p>
+<p><strong>MicBowman</strong> (Tue, 19 Mar 2019 15:04:06 GMT):<br/>
+https://docs.google.com/document/d/11wyn2uKx-UnhIw0XCogDwTDxW_IRqWiJ83HnY-kgBQ4/edit
+</p>
+<p><strong>VipinB</strong> (Tue, 19 Mar 2019 15:04:56 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kenty</strong> (Tue, 19 Mar 2019 15:10:52 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>VipinB</strong> (Tue, 19 Mar 2019 15:48:37 GMT):<br/>
+This is what I found from Matt Blaze: https://www.mattblaze.org/blog/vote_hacking_by_email/
+</p>
+<p><strong>VipinB</strong> (Tue, 19 Mar 2019 16:06:22 GMT):<br/>
+But I was at the talk at RWC, he is a heavy skeptic about Blockchain; in fact RWC was very antagonistic about Blockchain, but Dan Boneh  who is one of the organizers of RWC is also the organizer of Stanford Blockchain Conference; so not all cryptographers are anti-blockchain
+</p>
+<p><strong>VipinB</strong> (Tue, 19 Mar 2019 16:11:09 GMT):<br/>
+About the subject we spoke about 1. Exposing Individual data to others and proving that they have deleted the data afterwards- there may be many reasons why they may need to retain that data (in the case of a doctor, they may need to justify why they prescribed you a certain medecine for example or there may be legal retention requirements like bank data for 7 years etc); but regulation has to protect the user with heavy penalties for breaching retention or sharing. 2. Hiding individual results when computation is performed on them, which of course seems to be primary focus of this group. 
+</p>
+<p><strong>raphaelbenoit</strong> (Tue, 19 Mar 2019 16:36:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MicBowman</strong> (Mon, 25 Mar 2019 22:56:17 GMT):<br/>
+@BrunoVavala @msteiner :  @MelodyMcIntyre had some questions about the conversion to IAS v3. in short... given that sawtooth continues to run PoET on v2, how difficult would it be to get it working on v3?
+</p>
+<p><strong>MelodyMcIntyre</strong> (Mon, 25 Mar 2019 22:56:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>msteiner</strong> (Mon, 25 Mar 2019 23:31:42 GMT):<br/>
+s/v2/v3/g in the URLs ...
+</p>
+<p><strong>msteiner</strong> (Tue, 26 Mar 2019 01:14:09 GMT):<br/>
+(slightly more verbose, "sed -i s:v2:v3:g ias_client/sawtooth_ias_client/ias_client.py ias_client/sawtooth_ias_client/ias_client.py ias_client/tests/unit/test_ias_client.py ias_client/tests/unit/test_ias_client.py ias_proxy/sawtooth_ias_proxy/ias_proxy.py ias_proxy/sawtooth_ias_proxy/ias_proxy.py" in sawtoot-poet.git and related recompile should make it hopefully work. IAS v3 has additional error codes and error resolution information which might eventually be useful to also add but above v2->v3 should get you going ...)
+</p>
+<p><strong>mayankmk14</strong> (Tue, 26 Mar 2019 07:43:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>walmon</strong> (Tue, 02 Apr 2019 13:03:04 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Tue, 02 Apr 2019 15:14:25 GMT):<br/>
+https://zoom.us/my/hyperledger.community.3
+</p>
+<p><strong>BrunoVavala</strong> (Tue, 02 Apr 2019 15:14:29 GMT):<br/>
+
+https://zoom.us/my/hyperledger.community.3
+</p>
+<p><strong>msteiner</strong> (Tue, 02 Apr 2019 15:17:55 GMT):<br/>
+https://wiki.hyperledger.org/display/HYP/Calendar+of+Public+Meetings
+</p>
+<p><strong>ruairih</strong> (Wed, 10 Apr 2019 18:00:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Tue, 16 Apr 2019 19:58:53 GMT):<br/>
+@BrunoVavala Can you delete this dangling branch please? bruno.apr11.firstlaunch
+
+</p>
+<p><strong>bur</strong> (Tue, 16 Apr 2019 19:58:53 GMT):<br/>
+@BrunoVavala Can you delete this dangling branch please? `bruno.apr11.firstlaunch`
+
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 00:24:04 GMT):<br/>
+No. Apparently it is a protected branch. @MicBowman , can you delete it?
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 00:50:50 GMT):<br/>
+So, I have solved the "point not on the curve" error. TLCC was not checking the result of the local attestation.
+
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 00:52:03 GMT):<br/>
+moving to another topic,
+Coding Standards,
+we have to fix these.
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 00:52:36 GMT):<br/>
+I have just noticed that we use  different indentation.
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 00:53:17 GMT):<br/>
+I think there is a clang for go, so I suggest to use a tool that does that for us.
+</p>
+<p><strong>msteiner</strong> (Wed, 17 Apr 2019 01:17:33 GMT):<br/>
+gofmt is what you want (https://golang.org/doc/effective_go.html / https://golang.org/cmd/gofmt/)
+</p>
+<p><strong>bur</strong> (Wed, 17 Apr 2019 11:34:01 GMT):<br/>
+uh ... I sent you an email about this topic before reading this here :D so forget my email (maybe)
+</p>
+<p><strong>bur</strong> (Wed, 17 Apr 2019 11:36:28 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/private-data-objects?msg=CpcR7ksjfWeuu8j44) @BrunoVavala there is now even another protected branch you pushed. Better push to your own github fork and PR from there
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 17 Apr 2019 17:18:40 GMT):<br/>
+now it's fixed. I'll take care of cleaning those.
+</p>
+<p><strong>MicBowman</strong> (Thu, 18 Apr 2019 14:23:16 GMT):<br/>
+i cannot delete it
+</p>
+<p><strong>MicBowman</strong> (Thu, 18 Apr 2019 14:23:40 GMT):<br/>
+why are you creating live branches off the main repo @BrunoVavala 
+</p>
+<p><strong>BrunoVavala</strong> (Thu, 18 Apr 2019 18:17:19 GMT):<br/>
+too many clones! :P
+</p>
+<p><strong>MelodyWang</strong> (Wed, 01 May 2019 20:22:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MelodyWang</strong> (Wed, 01 May 2019 20:22:58 GMT):<br/>
+@MicBowman I need a linkable SPID to establish sawtooth sgx. But after I applied for it about 16 days, there is no any response from them yet
+Could you help me with it ? 
+</p>
+<p><strong>MicBowman</strong> (Wed, 01 May 2019 20:24:11 GMT):<br/>
+@BrunoVavala has contacted them in the past. Literally five minutes ago I sent in a request as well. Let me see what we can do
+</p>
+<p><strong>MicBowman</strong> (Wed, 01 May 2019 20:24:25 GMT):<br/>
+i will be out this afternoon, suggest you ping me tomorrow if you haven't heard anything
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 01 May 2019 20:29:54 GMT):<br/>
+Hi Melody, let me see what I can do. Meanwhile, is Melody Wang the name that you used for the your request?
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 01 May 2019 20:29:54 GMT):<br/>
+Hi @MelodyWang , let me see what I can do. Meanwhile, is Melody Wang the name that you used for the your request?
+</p>
+<p><strong>MelodyWang</strong> (Wed, 01 May 2019 20:31:00 GMT):<br/>
+@BrunoVavala I used Huibo Wang as my request 
+</p>
+<p><strong>MelodyWang</strong> (Wed, 01 May 2019 20:31:08 GMT):<br/>
+@BrunoVavala thank you so much!
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 01 May 2019 20:31:10 GMT):<br/>
+got it!
+</p>
+<p><strong>MelodyWang</strong> (Wed, 01 May 2019 20:32:08 GMT):<br/>
+@BrunoVavala and the email I used is melodyhuibo@gmail.com in case you need it
+</p>
+<p><strong>BrunoVavala</strong> (Wed, 01 May 2019 22:03:26 GMT):<br/>
+@MelodyWang , I think you should have received updates by now.
+</p>
+<p><strong>MelodyWang</strong> (Thu, 02 May 2019 17:28:44 GMT):<br/>
+@BrunoVavala I still have not received the SPID until now :joy:
+</p>
+<p><strong>MelodyWang</strong> (Thu, 02 May 2019 17:58:13 GMT):<br/>
+@BrunoVavala do you think they are able to give me this linkable SPID today 
+</p>
+<p><strong>BrunoVavala</strong> (Thu, 02 May 2019 19:50:46 GMT):<br/>
+@MelodyWang I believe they (the Attestation Services https://software.intel.com/en-us/download/intel-sgx-intel-epid-provisioning-and-attestation-services sgx_program@intel.com) have tried to communicate with you. 
+So I would invite you to check you email, and perhaps the spam folder.
+About the SPID, the Attestation Services now have a portal (https://api.portal.trustedservices.intel.com/) to automate the procedure. You can subscribe to the Intel Developer Zone, choose the service you want (production/development linkable/unlinkable EPID signatures or DCAP) and get a SPID immediately. Also, you get keys/token that allow you to authenticate your requests to IAS. Most importantly, the SPID and the keys will be visible on your IDZ account.
+You should have received information on how to build the https requests including these keys.
+</p>
+<p><strong>MelodyWang</strong> (Thu, 02 May 2019 20:05:42 GMT):<br/>
+@BrunoVavala Thank you for your reply. They did send me  portal to automate the procedure but since I am using Intel SAwtooth which is still using the certificate-based remote attestation, that is why I applied for a certificate based linkable SPID 
+</p>
+<p><strong>MelodyWang</strong> (Thu, 02 May 2019 20:06:37 GMT):<br/>
+@BrunoVavala So I still like to have a certificate based linkable SPID so i could use Intel sawtooth 
+</p>
+<p><strong>MelodyWang</strong> (Thu, 02 May 2019 20:07:27 GMT):<br/>
+@BrunoVavala is that possible they still process my case since I applied for that more than half month 
+</p>
+<p><strong>raphaelbenoit</strong> (Wed, 15 May 2019 12:00:29 GMT):<br/>
+Hey there!
+I have a question regarding private transactions:
+
+I have 3 organisations: A, B and C.
+A and B have a private collection Coll1, and B and C share a private data collection Coll2.
+I have a transaction that needs to read both the data in  Coll1and Coll2 (let's assume Coll1 has only one value = 1 and Coll2 one value = 2. The chaincode then sums up those two values and stores 3 on the ledger shared by all organisations). That means only organisation B can endorse that transaction, right? 
+Can organisations A and C still  be sure that B didn't change the values in the private data collections before calling the transaction? Or could he overwrite the Couch DB database? 
+Or is there a way, to check that the stored values are still equivalent to the stored hash on the blockchain before summing up the values?
+
+I hope this is clear enough! Thanks in advance :smiley:
+</p>
+<p><strong>bur</strong> (Wed, 15 May 2019 15:23:10 GMT):<br/>
+mhhhh ... seems that your question is related to Fabric's Private Data feature (https://hyperledger-fabric.readthedocs.io/en/release-1.4/private-data/private-data.html). I recommend to ask your question again #fabric-questions.
+</p>
+<p><strong>bur</strong> (Wed, 15 May 2019 15:23:55 GMT):<br/>
+this channel is about fabric-private-chaincode and private-data-objects, two hyperledger labs, related to trusted execution
+</p>
+<p><strong>bur</strong> (Wed, 15 May 2019 15:25:15 GMT):<br/>
+however, with fabric-private-chaincode (https://github.com/hyperledger-labs/fabric-private-chaincode) we actually protect the ledger state from a misbehaving peer which may overwrite the couch db directly. 
+</p>
+<p><strong>bur</strong> (Wed, 15 May 2019 15:25:49 GMT):<br/>
+but at this time we do not support Fabric's private data collection
+</p>
+<p><strong>raphaelbenoit</strong> (Tue, 28 May 2019 12:03:59 GMT):<br/>
+hey, thanks!  I will ask again 
+</p>
+<p><strong>raphaelbenoit</strong> (Tue, 28 May 2019 12:07:32 GMT):<br/>
+Hey there!
+I have a question regarding private transactions:
+
+I have 3 organisations: `A`, `B` and `C`.
+`A` and `B` have a private collection `Coll1`, and `B` and `C` share a private data collection `Coll2`.
+I have a transaction that needs to read both the data in `Coll1` and `Coll2` (let's assume `Coll1` has only one value `= 1` and `Coll2` one value `= 2`. The chaincode then sums up those two values and stores `3` on the ledger shared by all organisations). That means only organisation `B` can endorse that transaction, right? 
+Can organisations `A` and `C` still be sure that `B` didn't change the values in the private data collections before calling the transaction? Or could he overwrite the Couch DB database? 
+Or is there a way, to check that the stored values are still equivalent to the stored hash on the blockchain before summing up the values?
+
+I hope this is clear enough! Thanks in advance 😃
+</p>
+<p><strong>raphaelbenoit</strong> (Tue, 28 May 2019 12:10:37 GMT):<br/>
+Oh, and I ran into a problem when implementing it:
+When I try to invoke the transaction that sums up the private data in both collections I get an error. The peer from organisation `B` returns the value successfully, but all other peers return an error because `"At least one peer returned an error! This may happen when a transaction queries private data that's not accessible to all peers"`. Any idea how I can fix it?
+</p>
+<p><strong>fz</strong> (Tue, 09 Jul 2019 15:54:53 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ykim 1</strong> (Fri, 19 Jul 2019 17:46:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ykim 1</strong> (Fri, 19 Jul 2019 17:46:01 GMT):<br/>
+Hi I have some issue on using Private Data Collection. I set two collection publicCol and privateCol. both org1 and org2 has access to public and only org1 have access to privateCol. Would it be possible to have a function that will put data to both collection?? I'll only allow org1 to put data. 
+</p>
+<p><strong>msteiner</strong> (Fri, 19 Jul 2019 17:48:15 GMT):<br/>
+Hi ykim, you are in the wrong forum for this question. See what 'bur' wrote earlier in this forum on May 15th for the correct forum ..
+</p>
+<p><strong>ykim 1</strong> (Fri, 19 Jul 2019 17:50:38 GMT):<br/>
+oh ok sorry about that
+</p>
+<p><strong>RedKnight13</strong> (Fri, 26 Jul 2019 09:49:03 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>annumberhocker</strong> (Fri, 02 Aug 2019 18:38:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jeffgarratt</strong> (Tue, 06 Aug 2019 14:11:53 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>huxd</strong> (Thu, 22 Aug 2019 07:10:22 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>huxd</strong> (Thu, 22 Aug 2019 07:41:28 GMT):<br/>
+is the presentation used in the fabric contributor meeting available for download anywhere?
+</p>
+<p><strong>bur</strong> (Thu, 22 Aug 2019 08:37:47 GMT):<br/>
+@huxd we will make the slides available ASAP; but you can already watch the replay right now (https://wiki.hyperledger.org/display/fabric/Contributor+Meetings)
+</p>
+<p><strong>huxd</strong> (Thu, 22 Aug 2019 10:04:05 GMT):<br/>
+cool, thanks very much! BTW, a quick question, do you intend to make this specific for Intel SGX? or more open to other potential similar technology?
+</p>
+<p><strong>bur</strong> (Thu, 22 Aug 2019 11:10:31 GMT):<br/>
+at the moment we target SGX as TEE; however, we try to make our architecture as flexible as possible in a way that it allows us later also to leverage other TEEs (hopefully); in particular, we are working with academic partner and make FPC also running with ARM TZ; 
+</p>
+<p><strong>huxd</strong> (Thu, 22 Aug 2019 11:12:45 GMT):<br/>
+thanks!
+</p>
+<p><strong>neharprodduturi</strong> (Wed, 28 Aug 2019 17:55:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Thu, 29 Aug 2019 16:09:31 GMT):<br/>
+@huxd here the slides from the presentation: https://docs.google.com/presentation/d/1ewl7PcY9t27lScv2O2VaeHMsk13oe5B2MqU-qzDiR80/edit?usp=sharing
+</p>
+<p><strong>huxd</strong> (Fri, 30 Aug 2019 03:17:20 GMT):<br/>
+this is great, thanks very much!
+</p>
+<p><strong>huxd</strong> (Fri, 30 Aug 2019 03:18:00 GMT):<br/>
+BTW, I notice the TCF proposal in hyperledger wiki, is is about same thing?
+</p>
+<p><strong>huxd</strong> (Fri, 30 Aug 2019 03:18:08 GMT):<br/>
+https://wiki.hyperledger.org/pages/viewpage.action?pageId=16324764
+</p>
+<p><strong>AlexanderZhovnuvaty</strong> (Mon, 23 Sep 2019 09:00:22 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>swetha</strong> (Mon, 21 Oct 2019 03:36:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>zhasni</strong> (Tue, 22 Oct 2019 12:47:59 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>prakashngit</strong> (Tue, 29 Oct 2019 23:05:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>prakashngit</strong> (Tue, 29 Oct 2019 23:05:59 GMT):<br/>
+Can some one please tell me how I could become a maintainer of this labs project, I was one for a while, looks like I am no longer now
+</p>
+<p><strong>cDown</strong> (Fri, 08 Nov 2019 08:36:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bur</strong> (Mon, 11 Nov 2019 08:17:59 GMT):<br/>
+you should talk to Michael or Mic, they should approach Ry to add you as PDO maintainer :D
+</p>
+<p><strong>SethiSaab</strong> (Mon, 25 Nov 2019 10:50:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>pankajgoyal</strong> (Wed, 11 Dec 2019 18:43:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ajmeraharsh</strong> (Thu, 02 Jan 2020 08:41:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dineshthemacho1</strong> (Tue, 11 Feb 2020 16:26:30 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MHBauer</strong> (Thu, 13 Feb 2020 22:53:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>muralisr</strong> (Mon, 17 Feb 2020 12:43:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>seanyoung</strong> (Mon, 09 Mar 2020 23:13:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>gokulalex</strong> (Fri, 20 Mar 2020 05:29:07 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Luxii</strong> (Fri, 20 Mar 2020 16:54:50 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>kumar89</strong> (Wed, 25 Mar 2020 17:26:19 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MHBauer</strong> (Thu, 16 Apr 2020 21:18:19 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>akshay.sood</strong> (Wed, 09 Sep 2020 05:22:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>vineeta</strong> (Wed, 16 Sep 2020 09:43:43 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>vineeta</strong> (Wed, 16 Sep 2020 09:48:54 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>cliveb</strong> (Tue, 29 Sep 2020 15:02:21 GMT):<br/>
+Does anyone have the Meetup pass code for FPC?
+</p>
+<p><strong>alacambra</strong> (Wed, 23 Dec 2020 22:10:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>alacambra</strong> (Wed, 23 Dec 2020 22:15:38 GMT):<br/>
+Good morning everybody! I was looking at the private data trying to see for private history. If I understood correctly, private data does only have the final state plus all read-write sets. Is that correct? Does someone knows if somthing like private data history is a future feature? It sounds to me almost like another channel ...
+</p>
+<p><strong>BrunoVavala</strong> (Mon, 28 Dec 2020 16:52:04 GMT):<br/>
+Hi!
+Can you elaborate on what you mean by "private history"?
+In PDO, an execution (other than the first one) requires an input state (say S_i) and delivers and output state (say S_{i+1}). This state transition is then described in a transaction and is meant to be submitted to a ledger. Sometimes we say that a state (say S_{i+1}) is "final" once such transaction is committed on the ledger. 
+
+Also, there is no notion of read-write set in PDO. In a read operation, the output state will be an unmodified encrypted state. While in a write operation is will be modified.
+
+Regarding the private data history, I assume you refer to the history of operations performed on the private data, and possibly the previous versions of the data itself.
+Technically you can already get these when you commit the PDO transactions on the ledger, thereby being able to check all of the executions performed by a PDO. If you require something more application-specific, for instance the ability to query a PDO to get all the operations previously executed on an input state (say S_i), then that falls among the possibly use cases of PDO and can be implemented as part the application itself.
+</p>
+<p><strong>alacambra</strong> (Tue, 05 Jan 2021 08:07:51 GMT):<br/>
+Hi @BrunoVavala and thanks for your answer,
+basically what I mean, is if the private data keeps also a kind of ledger being private for the parties with access to the private data. That means, that I could browse or reconstruct any version of the private data using only capabilities of fabric (actually like it is possible to do with the ledger itself).
+About "This state transition is then described in a transaction and is meant to be submitted to a ledger". If we are speaking about private data, how this description looks like? I have understood that only the hash of the resulting data would be saved into the chain.
+</p>
+<p><strong>bur</strong> (Wed, 26 May 2021 17:23:03 GMT):<br/>
+Hi friends, I've created a PR. Please have a look at it. https://github.com/hyperledger-labs/private-data-objects/pull/321
+</p>
+<p><strong>bur</strong> (Thu, 10 Jun 2021 10:03:06 GMT):<br/>
+Is there a particular reason to use secp256k1 over NID_secp256r1 in pdo crypto? https://github.com/hyperledger-labs/private-data-objects/blob/main/common/crypto/sig.h#L25
+</p>
+<p><strong>bur</strong> (Thu, 10 Jun 2021 10:03:06 GMT):<br/>
+Is there a particular reason to use secp256k1 over secp256r1 in pdo crypto? https://github.com/hyperledger-labs/private-data-objects/blob/main/common/crypto/sig.h#L25
+</p>
+<p><strong>MicBowman</strong> (Thu, 10 Jun 2021 15:06:33 GMT):<br/>
+no... other than btc was using it
+</p>
+<p><strong>bur</strong> (Thu, 10 Jun 2021 15:20:32 GMT):<br/>
+checking openssl (https://github.com/openssl/openssl/blob/master/include/openssl/obj_mac.h) it seems there is no `secp256r1`. However, it also seems that `secp256k1` is not support by default with Golang
+</p>
+<p><strong>MicBowman</strong> (Thu, 10 Jun 2021 15:25:03 GMT):<br/>
+we also need to make sure we don't screw up the CCF integration if we are going to change curves
+</p>
+<p><strong>bur</strong> (Thu, 10 Jun 2021 15:28:03 GMT):<br/>
+true, maybe picking the curve (or even other params related to crypto) via compile flag would allow users of the PDO crypto to configure it according to their individual needs
+</p>
+<p><strong>MicBowman</strong> (Thu, 10 Jun 2021 15:28:47 GMT):<br/>
+seems like a good idea IF we were using the common library throughout all applications... i know moving back and forth with the python code was difficult
+</p>
+<p><strong>MicBowman</strong> (Thu, 10 Jun 2021 15:30:11 GMT):<br/>
+we've had big problems with "standard" representations and APIs actually being substantially different... for example, problems with CCF signature checking
+</p>
+<p><strong>bur</strong> (Thu, 10 Jun 2021 15:33:15 GMT):<br/>
+nightmare!
+</p>
+<p><strong>bur</strong> (Fri, 11 Jun 2021 15:52:48 GMT):<br/>
+>checking openssl (https://github.com/openssl/openssl/blob/master/include/openssl/obj_mac.h) it seems there is no secp256r1. 
+I was wrong ... it is just called prime256v1
+</p>
+<p><strong>MicBowman</strong> (Fri, 11 Jun 2021 16:28:05 GMT):<br/>
+what is the benefit from using prime256v1?
+</p>
+<p><strong>MicBowman</strong> (Fri, 11 Jun 2021 16:28:12 GMT):<br/>
+golang support?
+</p>
+<p><strong>bur</strong> (Fri, 11 Jun 2021 16:41:18 GMT):<br/>
+yes
+</p>
+<p><strong>bur</strong> (Fri, 11 Jun 2021 16:42:36 GMT):<br/>
+https://golang.org/pkg/crypto/elliptic/#P256
+</p>
+<p><strong>bur</strong> (Fri, 11 Jun 2021 16:45:22 GMT):<br/>
+That may simplify the integration of FPC into Fabric Smart Client without the need to compile/ship a pdo crypto lib with the FPC client sdk
+</p>
+<p><strong>bur</strong> (Fri, 11 Jun 2021 16:48:40 GMT):<br/>
+ideally, the FPC client could pick it the crypto impl ... pure go, pdo, or something else fancy
+</p>
+<p><strong>MicBowman</strong> (Fri, 11 Jun 2021 17:43:18 GMT):<br/>
+not sure what you mean by that? if you mean that we should have a compile time directive about the curve (or potentially other properties), that would work "most of the time" but in some places we don't have access to the common library & had to "hack" compatibility with common
+</p>
+<p><strong>MicBowman</strong> (Fri, 11 Jun 2021 17:43:43 GMT):<br/>
+not ideal... but necessary
+</p>
+<p><strong>bur</strong> (Mon, 14 Jun 2021 07:03:01 GMT):<br/>
+> we should have a compile time directive about the curve (or potentially other properties), that would work "most of the time"
+
+I think this would be great and help me to solve my problem
+</p>
+<p><strong>bur</strong> (Mon, 14 Jun 2021 13:45:39 GMT):<br/>
+created a draft PR for this https://github.com/hyperledger-labs/private-data-objects/pull/323
+</p>
+<p><strong>bur</strong> (Mon, 14 Jun 2021 13:49:10 GMT):<br/>
+will turn this in a real pr once I've completed the FPC part that uses this flag
+</p>
+<p><strong>swati25</strong> (Tue, 15 Jun 2021 11:13:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>swati25</strong> (Tue, 15 Jun 2021 11:13:46 GMT):<br/>
+Hi .. i am trying to do a dev environment setup for fabric block archiving but none of the specified links in readme is working.. any leads will be highly appreciated
+</p>
+<p><strong>bur</strong> (Wed, 16 Jun 2021 16:43:58 GMT):<br/>
+I guess this is the wrong channel to ask?
+</p>
+<p><strong>ikegawa.koshi</strong> (Mon, 02 Aug 2021 05:20:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>frank-student</strong> (Sat, 04 Sep 2021 04:05:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>frank-student</strong> (Sat, 04 Sep 2021 04:05:13 GMT):<br/>
+Hi, I'm having the same problem as issues#330(https://github.com/hyperledger-labs/private-data-objects/issues/330). I ran Sawtooth alone on one machine, and PDO on another, and couldn't recompile in HW mode. The build stops in the register-with-ledger.sh script..any leads will be highly appreciated
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:35:52 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:35:52 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:35:52 GMT):<br/>
+
+</p>

@@ -1,0 +1,138 @@
+root@ip-172-31-18-10:~/indy-email-verification/docker# ./manage up
+Recreating docker_email-verifier-agent_1    ... done
+Recreating docker_maildev_1                 ... done
+Recreating docker_email-verifier-postgres_1 ... done
+Recreating docker_email-verifier-service_1  ... done
+Attaching to docker_email-verifier-service_1, docker_email-verifier-agent_1, docker_maildev_1, docker_email-verifier-postgres_1
+email-verifier-agent_1     |
+email-verifier-agent_1     | ::::::::::::::::::::::::::::::::::::::::::::::
+email-verifier-agent_1     | :: Aries Cloud Agent                        ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Inbound Transports:                      ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http://0.0.0.0:10000                 ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Outbound Transports:                     ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http                                 ::
+email-verifier-agent_1     | ::   - https                                ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Public DID Information:                  ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - DID: JPdyKoHmpeR9sjcpJ4rtaS          ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Administration API:                      ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http://0.0.0.0:5000                  ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::                               ver: 0.2.1 ::
+email-verifier-agent_1     | ::::::::::::::::::::::::::::::::::::::::::::::
+email-verifier-agent_1     |
+email-verifier-agent_1     | Listening...
+email-verifier-agent_1     |
+maildev_1                  | MailDev webapp running at http://0.0.0.0:80
+maildev_1                  | MailDev SMTP Server running at 0.0.0.0:25
+email-verifier-service_1   | waiting for aca-py ...
+email-verifier-postgres_1  | 2019-07-29 18:59:01.982 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+email-verifier-postgres_1  | 2019-07-29 18:59:01.983 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+email-verifier-postgres_1  | 2019-07-29 18:59:01.987 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+email-verifier-postgres_1  | 2019-07-29 18:59:02.009 UTC [23] LOG:  database system was shut down at 2019-07-29 18:59:00 UTC
+email-verifier-postgres_1  | 2019-07-29 18:59:02.015 UTC [1] LOG:  database system is ready to accept connections
+email-verifier-agent_1     | 2019-07-29 19:00:05,301 aiohttp.server ERROR Error handling request
+email-verifier-agent_1     | Traceback (most recent call last):
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+email-verifier-agent_1     |     resp = await task
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+email-verifier-agent_1     |     resp = await handler(request)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/messaging/schemas/routes.py", line 59, in schemas_send_schema
+email-verifier-agent_1     |     ledger.send_schema(schema_name, schema_version, attributes)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 259, in send_schema
+email-verifier-agent_1     |     await self._submit(request_json)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 220, in _submit
+email-verifier-agent_1     |     f"Ledger rejected transaction request: {request_result['reason']}"
+email-verifier-agent_1     | aries_cloudagent.ledger.error.LedgerTransactionError: Ledger rejected transaction request: client request invalid: UnauthorizedClientRequest('The action is forbidden',)
+email-verifier-service_1   | INFO 2019-07-29 19:00:05,306 apps 24 140180094281536 500 Internal Server Error
+email-verifier-service_1   |
+email-verifier-service_1   | Server got itself in trouble
+email-verifier-service_1   | Traceback (most recent call last):
+email-verifier-service_1   |   File "./manage.py", line 21, in <module>
+email-verifier-service_1   |     main()
+email-verifier-service_1   |   File "./manage.py", line 17, in main
+email-verifier-service_1   |     execute_from_command_line(sys.argv)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/management/__init__.py", line 381, in execute_from_command_line
+email-verifier-service_1   |     utility.execute()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+email-verifier-service_1   |     django.setup()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+email-verifier-service_1   |     apps.populate(settings.INSTALLED_APPS)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+email-verifier-service_1   |     app_config.ready()
+email-verifier-service_1   |   File "/opt/app-root/src/email_verification/apps.py", line 36, in ready
+email-verifier-service_1   |     schema_response_body = schema_response.json()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/requests/models.py", line 897, in json
+email-verifier-service_1   |     return complexjson.loads(self.text, **kwargs)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+email-verifier-service_1   |     return _default_decoder.decode(s)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/decoder.py", line 342, in decode
+email-verifier-service_1   |     raise JSONDecodeError("Extra data", s, end)
+email-verifier-service_1   | json.decoder.JSONDecodeError: Extra data: line 1 column 5 (char 4)
+email-verifier-service_1   | WARNING: seems that you're using Django, but we could not find a 'manage.py' file.
+email-verifier-service_1   | Skipped 'python manage.py migrate'.
+email-verifier-service_1   | ---> Serving application with gunicorn (wsgi) ...
+email-verifier-service_1   | [2019-07-29 19:00:05 +0000] [26] [INFO] Starting gunicorn 19.9.0
+email-verifier-service_1   | [2019-07-29 19:00:05 +0000] [26] [INFO] Listening at: http://0.0.0.0:8080 (26)
+email-verifier-service_1   | [2019-07-29 19:00:05 +0000] [26] [INFO] Using worker: sync
+email-verifier-service_1   | [2019-07-29 19:00:05 +0000] [37] [INFO] Booting worker with pid: 37
+email-verifier-agent_1     | 2019-07-29 19:00:06,341 aiohttp.server ERROR Error handling request
+email-verifier-agent_1     | Traceback (most recent call last):
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+email-verifier-agent_1     |     resp = await task
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+email-verifier-agent_1     |     resp = await handler(request)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/messaging/schemas/routes.py", line 59, in schemas_send_schema
+email-verifier-agent_1     |     ledger.send_schema(schema_name, schema_version, attributes)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 259, in send_schema
+email-verifier-agent_1     |     await self._submit(request_json)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 220, in _submit
+email-verifier-agent_1     |     f"Ledger rejected transaction request: {request_result['reason']}"
+email-verifier-agent_1     | aries_cloudagent.ledger.error.LedgerTransactionError: Ledger rejected transaction request: client request invalid: UnauthorizedClientRequest('The action is forbidden',)
+email-verifier-service_1   | INFO 2019-07-29 19:00:06,346 apps 37 140653551793984 500 Internal Server Error
+email-verifier-service_1   |
+email-verifier-service_1   | Server got itself in trouble
+email-verifier-service_1   | [2019-07-29 19:00:06 +0000] [37] [ERROR] Exception in worker process
+email-verifier-service_1   | Traceback (most recent call last):
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+email-verifier-service_1   |     worker.init_process()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+email-verifier-service_1   |     self.load_wsgi()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+email-verifier-service_1   |     self.wsgi = self.app.wsgi()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+email-verifier-service_1   |     self.callable = self.load()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+email-verifier-service_1   |     return self.load_wsgiapp()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+email-verifier-service_1   |     return util.import_app(self.app_uri)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+email-verifier-service_1   |     __import__(module)
+email-verifier-service_1   |   File "/opt/app-root/src/email_verification_service/wsgi.py", line 16, in <module>
+email-verifier-service_1   |     application = get_wsgi_application()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+email-verifier-service_1   |     django.setup(set_prefix=False)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+email-verifier-service_1   |     apps.populate(settings.INSTALLED_APPS)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+email-verifier-service_1   |     app_config.ready()
+email-verifier-service_1   |   File "/opt/app-root/src/email_verification/apps.py", line 36, in ready
+email-verifier-service_1   |     schema_response_body = schema_response.json()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/requests/models.py", line 897, in json
+email-verifier-service_1   |     return complexjson.loads(self.text, **kwargs)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+email-verifier-service_1   |     return _default_decoder.decode(s)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/decoder.py", line 342, in decode
+email-verifier-service_1   |     raise JSONDecodeError("Extra data", s, end)
+email-verifier-service_1   | json.decoder.JSONDecodeError: Extra data: line 1 column 5 (char 4)
+email-verifier-service_1   | [2019-07-29 19:00:06 +0000] [37] [INFO] Worker exiting (pid: 37)
+email-verifier-service_1   | [2019-07-29 19:00:06 +0000] [26] [INFO] Shutting down: Master
+email-verifier-service_1   | [2019-07-29 19:00:06 +0000] [26] [INFO] Reason: Worker failed to boot.

@@ -1,0 +1,40 @@
+2017-07-13 12:51:48.103 UTC [endorser] ProcessProposal -> DEBU 487 Entry
+2017-07-13 12:51:48.103 UTC [protoutils] ValidateProposalMessage -> DEBU 488 ValidateProposalMessage starts for signed proposal 0xc424391bf0
+2017-07-13 12:51:48.104 UTC [protoutils] validateChannelHeader -> DEBU 489 validateChannelHeader info: header type 3
+2017-07-13 12:51:48.104 UTC [protoutils] checkSignatureFromCreator -> DEBU 48a checkSignatureFromCreator starts
+2017-07-13 12:51:48.105 UTC [protoutils] checkSignatureFromCreator -> DEBU 48b checkSignatureFromCreator info: creator is &{Org1MSP ed44aba6a7c153b7a5bb44867392973026a597524c0c4d6936351d6af2b7515b}
+2017-07-13 12:51:48.105 UTC [protoutils] checkSignatureFromCreator -> DEBU 48c checkSignatureFromCreator info: creator is valid
+2017-07-13 12:51:48.118 UTC [protoutils] checkSignatureFromCreator -> DEBU 48d checkSignatureFromCreator exists successfully
+2017-07-13 12:51:48.118 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 48e validateChaincodeProposalMessage starts for proposal 0xc421b74780, header 0xc424391c20
+2017-07-13 12:51:48.118 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 48f validateChaincodeProposalMessage info: header extension references chaincode name:"lscc"
+2017-07-13 12:51:48.118 UTC [endorser] ProcessProposal -> DEBU 490 processing txid: 1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b
+2017-07-13 12:51:48.118 UTC [endorser] simulateProposal -> DEBU 491 Entry - txid: 1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b channel id:
+2017-07-13 12:51:48.226 UTC [endorser] callChaincode -> DEBU 492 Entry - txid: 1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b channel id:  version: 1.0.0-beta
+2017-07-13 12:51:48.227 UTC [ccprovider] NewCCContext -> DEBU 493 NewCCCC (chain=,chaincode=lscc,version=1.0.0-beta,txid=1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b,syscc=true,proposal=0xc421b74780,canname=lscc:1.0.0-beta
+2017-07-13 12:51:48.227 UTC [chaincode] Launch -> DEBU 494 chaincode is running(no need to launch) : lscc:1.0.0-beta
+2017-07-13 12:51:48.229 UTC [chaincode] Execute -> DEBU 495 Entry
+2017-07-13 12:51:48.229 UTC [chaincode] Execute -> DEBU 496 chaincode canonical name: lscc:1.0.0-beta
+2017-07-13 12:51:48.229 UTC [chaincode] sendExecuteMessage -> DEBU 497 [1120fbb7]Inside sendExecuteMessage. Message TRANSACTION
+2017-07-13 12:51:48.230 UTC [chaincode] setChaincodeProposal -> DEBU 498 Setting chaincode proposal context...
+2017-07-13 12:51:48.230 UTC [chaincode] setChaincodeProposal -> DEBU 499 Proposal different from nil. Creating chaincode proposal context...
+2017-07-13 12:51:48.230 UTC [chaincode] sendExecuteMessage -> DEBU 49a [1120fbb7]sendExecuteMsg trigger event TRANSACTION
+2017-07-13 12:51:48.230 UTC [chaincode] processStream -> DEBU 49b [1120fbb7]Move state message TRANSACTION
+2017-07-13 12:51:48.231 UTC [chaincode] HandleMessage -> DEBU 49c [1120fbb7]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2017-07-13 12:51:48.231 UTC [chaincode] filterError -> DEBU 49d Ignoring NoTransitionError: no transition
+2017-07-13 12:51:48.231 UTC [chaincode] processStream -> DEBU 49e [1120fbb7]sending state message TRANSACTION
+2017-07-13 12:51:48.231 UTC [shim] func1 -> DEBU 49f [1120fbb7]Received message TRANSACTION from shim
+2017-07-13 12:51:48.231 UTC [shim] handleMessage -> DEBU 4a0 [1120fbb7]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2017-07-13 12:51:48.231 UTC [shim] beforeTransaction -> DEBU 4a1 [1120fbb7]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2017-07-13 12:51:48.277 UTC [shim] func1 -> DEBU 4a2 [1120fbb7]Transaction completed. Sending COMPLETED
+2017-07-13 12:51:48.277 UTC [shim] func1 -> DEBU 4a3 [1120fbb7]Move state message COMPLETED
+2017-07-13 12:51:48.278 UTC [shim] handleMessage -> DEBU 4a4 [1120fbb7]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-07-13 12:51:48.278 UTC [shim] func1 -> DEBU 4a5 [1120fbb7]send state message COMPLETED
+2017-07-13 12:51:48.278 UTC [chaincode] processStream -> DEBU 4a6 [1120fbb7]Received message COMPLETED from shim
+2017-07-13 12:51:48.278 UTC [chaincode] HandleMessage -> DEBU 4a7 [1120fbb7]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-07-13 12:51:48.279 UTC [chaincode] HandleMessage -> DEBU 4a8 [1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b]HandleMessage- COMPLETED. Notify
+2017-07-13 12:51:48.279 UTC [chaincode] notify -> DEBU 4a9 notifying Txid:1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b
+2017-07-13 12:51:48.279 UTC [chaincode] Execute -> DEBU 4aa Exit
+2017-07-13 12:51:48.279 UTC [endorser] callChaincode -> DEBU 4ab Exit
+2017-07-13 12:51:48.279 UTC [endorser] simulateProposal -> DEBU 4ac Exit
+2017-07-13 12:51:48.279 UTC [endorser] ProcessProposal -> ERRO 4ad simulateProposal() resulted in chaincode response status 500 for txid: 1120fbb7bd61c6d48eec6e2f784e51d7a66bb8db83bb721759e77234668dcd3b
+2017-07-13 12:51:48.294 UTC [endorser] ProcessProposal -> DEBU 4ae Exit

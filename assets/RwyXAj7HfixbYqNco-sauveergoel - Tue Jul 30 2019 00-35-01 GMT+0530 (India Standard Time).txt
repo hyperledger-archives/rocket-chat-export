@@ -1,0 +1,191 @@
+root@ip-172-31-18-10:~/indy-email-verification/docker# ./manage rm
+Stopping docker_email-verifier-service_1  ... done
+Stopping docker_email-verifier-agent_1    ... done
+Stopping docker_maildev_1                 ... done
+Stopping docker_email-verifier-postgres_1 ... done
+Removing docker_email-verifier-service_1  ... done
+Removing docker_email-verifier-agent_1    ... done
+Removing docker_maildev_1                 ... done
+Removing docker_email-verifier-postgres_1 ... done
+Removing network docker_default
+Stopping and removing any running containers ...
+Removing network docker_default
+WARNING: Network docker_default not found.
+Removing volume docker_django
+Removing volume docker_aca-py
+root@ip-172-31-18-10:~/indy-email-verification/docker# ./manage up
+Creating network "docker_default" with the default driver
+Creating volume "docker_django" with default driver
+Creating volume "docker_aca-py" with default driver
+Creating docker_email-verifier-postgres_1 ... done
+Creating docker_email-verifier-agent_1    ... done
+Creating docker_maildev_1                 ... done
+Creating docker_email-verifier-service_1  ... done
+Attaching to docker_email-verifier-service_1, docker_maildev_1, docker_email-verifier-agent_1, docker_email-verifier-postgres_1
+email-verifier-service_1   | waiting for aca-py ...
+maildev_1                  | MailDev webapp running at http://0.0.0.0:80
+maildev_1                  | MailDev SMTP Server running at 0.0.0.0:25
+email-verifier-postgres_1  | The files belonging to this database system will be owned by user "postgres".
+email-verifier-postgres_1  | This user must also own the server process.
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | The database cluster will be initialized with locale "en_US.utf8".
+email-verifier-postgres_1  | The default database encoding has accordingly been set to "UTF8".
+email-verifier-postgres_1  | The default text search configuration will be set to "english".
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | Data page checksums are disabled.
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+email-verifier-postgres_1  | creating subdirectories ... ok
+email-verifier-postgres_1  | selecting default max_connections ... 100
+email-verifier-postgres_1  | selecting default shared_buffers ... 128MB
+email-verifier-postgres_1  | selecting default timezone ... Etc/UTC
+email-verifier-postgres_1  | selecting dynamic shared memory implementation ... posix
+email-verifier-postgres_1  | creating configuration files ... ok
+email-verifier-postgres_1  | running bootstrap script ... ok
+email-verifier-postgres_1  | performing post-bootstrap initialization ... ok
+email-verifier-postgres_1  | syncing data to disk ... ok
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | Success. You can now start the database server using:
+email-verifier-postgres_1  |
+email-verifier-postgres_1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+email-verifier-postgres_1  |
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | WARNING: enabling "trust" authentication for local connections
+email-verifier-postgres_1  | You can change this by editing pg_hba.conf or using the option -A, or
+email-verifier-postgres_1  | --auth-local and --auth-host, the next time you run initdb.
+email-verifier-postgres_1  | waiting for server to start....2019-07-29 19:03:20.296 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+email-verifier-postgres_1  | 2019-07-29 19:03:20.326 UTC [42] LOG:  database system was shut down at 2019-07-29 19:03:20 UTC
+email-verifier-postgres_1  | 2019-07-29 19:03:20.333 UTC [41] LOG:  database system is ready to accept connections
+email-verifier-postgres_1  |  done
+email-verifier-postgres_1  | server started
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | waiting for server to shut down....2019-07-29 19:03:20.370 UTC [41] LOG:  received fast shutdown request
+email-verifier-postgres_1  | 2019-07-29 19:03:20.374 UTC [41] LOG:  aborting any active transactions
+email-verifier-postgres_1  | 2019-07-29 19:03:20.388 UTC [41] LOG:  background worker "logical replication launcher" (PID 48) exited with exit code 1
+email-verifier-postgres_1  | 2019-07-29 19:03:20.388 UTC [43] LOG:  shutting down
+email-verifier-postgres_1  | 2019-07-29 19:03:20.414 UTC [41] LOG:  database system is shut down
+email-verifier-postgres_1  |  done
+email-verifier-postgres_1  | server stopped
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | PostgreSQL init process complete; ready for start up.
+email-verifier-postgres_1  |
+email-verifier-postgres_1  | 2019-07-29 19:03:20.494 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+email-verifier-postgres_1  | 2019-07-29 19:03:20.494 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+email-verifier-postgres_1  | 2019-07-29 19:03:20.497 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+email-verifier-postgres_1  | 2019-07-29 19:03:20.522 UTC [50] LOG:  database system was shut down at 2019-07-29 19:03:20 UTC
+email-verifier-postgres_1  | 2019-07-29 19:03:20.528 UTC [1] LOG:  database system is ready to accept connections
+email-verifier-agent_1     |
+email-verifier-agent_1     | ::::::::::::::::::::::::::::::::::::::::::::::
+email-verifier-agent_1     | :: Aries Cloud Agent                        ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Inbound Transports:                      ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http://0.0.0.0:10000                 ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Outbound Transports:                     ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http                                 ::
+email-verifier-agent_1     | ::   - https                                ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Public DID Information:                  ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - DID: Dw7gbhTsBp6RLKrbAXv5UF          ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | :: Administration API:                      ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::   - http://0.0.0.0:5000                  ::
+email-verifier-agent_1     | ::                                          ::
+email-verifier-agent_1     | ::                               ver: 0.2.1 ::
+email-verifier-agent_1     | ::::::::::::::::::::::::::::::::::::::::::::::
+email-verifier-agent_1     |
+email-verifier-agent_1     | Listening...
+email-verifier-agent_1     |
+email-verifier-service_1   | INFO 2019-07-29 19:04:11,956 apps 22 139704570697536 {"schema_id": "Dw7gbhTsBp6RLKrbAXv5UF:2:verified-email:1.2.1"}
+email-verifier-service_1   | INFO 2019-07-29 19:04:19,785 apps 22 139704570697536 {"credential_definition_id": "Dw7gbhTsBp6RLKrbAXv5UF:3:CL:631:default"}
+email-verifier-service_1   | INFO 2019-07-29 19:04:19,786 apps 22 139704570697536 cred def id: Dw7gbhTsBp6RLKrbAXv5UF:3:CL:631:default
+email-verifier-service_1   | Operations to perform:
+email-verifier-service_1   |   Apply all migrations: admin, auth, contenttypes, email_verification, sessions
+email-verifier-service_1   | Running migrations:
+email-verifier-service_1   |   Applying contenttypes.0001_initial... OK
+email-verifier-service_1   |   Applying auth.0001_initial... OK
+email-verifier-service_1   |   Applying admin.0001_initial... OK
+email-verifier-service_1   |   Applying admin.0002_logentry_remove_auto_add... OK
+email-verifier-service_1   |   Applying admin.0003_logentry_add_action_flag_choices... OK
+email-verifier-service_1   |   Applying contenttypes.0002_remove_content_type_name... OK
+email-verifier-service_1   |   Applying auth.0002_alter_permission_name_max_length... OK
+email-verifier-service_1   |   Applying auth.0003_alter_user_email_max_length... OK
+email-verifier-service_1   |   Applying auth.0004_alter_user_username_opts... OK
+email-verifier-service_1   |   Applying auth.0005_alter_user_last_login_null... OK
+email-verifier-service_1   |   Applying auth.0006_require_contenttypes_0002... OK
+email-verifier-service_1   |   Applying auth.0007_alter_validators_add_error_messages... OK
+email-verifier-service_1   |   Applying auth.0008_alter_user_username_max_length... OK
+email-verifier-service_1   |   Applying auth.0009_alter_user_last_name_max_length... OK
+email-verifier-service_1   |   Applying auth.0010_alter_group_name_max_length... OK
+email-verifier-service_1   |   Applying auth.0011_update_proxy_permissions... OK
+email-verifier-service_1   |   Applying email_verification.0001_initial... OK
+email-verifier-service_1   |   Applying email_verification.0002_auto_20190415_1718... OK
+email-verifier-service_1   |   Applying sessions.0001_initial... OK
+email-verifier-service_1   | WARNING: seems that you're using Django, but we could not find a 'manage.py' file.
+email-verifier-service_1   | Skipped 'python manage.py migrate'.
+email-verifier-service_1   | ---> Serving application with gunicorn (wsgi) ...
+email-verifier-service_1   | [2019-07-29 19:04:20 +0000] [24] [INFO] Starting gunicorn 19.9.0
+email-verifier-service_1   | [2019-07-29 19:04:20 +0000] [24] [INFO] Listening at: http://0.0.0.0:8080 (24)
+email-verifier-service_1   | [2019-07-29 19:04:20 +0000] [24] [INFO] Using worker: sync
+email-verifier-service_1   | [2019-07-29 19:04:20 +0000] [35] [INFO] Booting worker with pid: 35
+email-verifier-agent_1     | 2019-07-29 19:04:21,242 aiohttp.server ERROR Error handling request
+email-verifier-agent_1     | Traceback (most recent call last):
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+email-verifier-agent_1     |     resp = await task
+email-verifier-agent_1     |   File "/home/indy/.pyenv/versions/3.6.8/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+email-verifier-agent_1     |     resp = await handler(request)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/messaging/schemas/routes.py", line 59, in schemas_send_schema
+email-verifier-agent_1     |     ledger.send_schema(schema_name, schema_version, attributes)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 259, in send_schema
+email-verifier-agent_1     |     await self._submit(request_json)
+email-verifier-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 220, in _submit
+email-verifier-agent_1     |     f"Ledger rejected transaction request: {request_result['reason']}"
+email-verifier-agent_1     | aries_cloudagent.ledger.error.LedgerTransactionError: Ledger rejected transaction request: client request invalid: UnauthorizedClientRequest('The action is forbidden',)
+email-verifier-service_1   | INFO 2019-07-29 19:04:21,245 apps 35 139721656215360 500 Internal Server Error
+email-verifier-service_1   |
+email-verifier-service_1   | Server got itself in trouble
+email-verifier-service_1   | [2019-07-29 19:04:21 +0000] [35] [ERROR] Exception in worker process
+email-verifier-service_1   | Traceback (most recent call last):
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+email-verifier-service_1   |     worker.init_process()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+email-verifier-service_1   |     self.load_wsgi()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+email-verifier-service_1   |     self.wsgi = self.app.wsgi()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+email-verifier-service_1   |     self.callable = self.load()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+email-verifier-service_1   |     return self.load_wsgiapp()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+email-verifier-service_1   |     return util.import_app(self.app_uri)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+email-verifier-service_1   |     __import__(module)
+email-verifier-service_1   |   File "/opt/app-root/src/email_verification_service/wsgi.py", line 16, in <module>
+email-verifier-service_1   |     application = get_wsgi_application()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+email-verifier-service_1   |     django.setup(set_prefix=False)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+email-verifier-service_1   |     apps.populate(settings.INSTALLED_APPS)
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+email-verifier-service_1   |     app_config.ready()
+email-verifier-service_1   |   File "/opt/app-root/src/email_verification/apps.py", line 36, in ready
+email-verifier-service_1   |     schema_response_body = schema_response.json()
+email-verifier-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/requests/models.py", line 897, in json
+email-verifier-service_1   |     return complexjson.loads(self.text, **kwargs)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+email-verifier-service_1   |     return _default_decoder.decode(s)
+email-verifier-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/decoder.py", line 342, in decode
+email-verifier-service_1   |     raise JSONDecodeError("Extra data", s, end)
+email-verifier-service_1   | json.decoder.JSONDecodeError: Extra data: line 1 column 5 (char 4)
+email-verifier-service_1   | [2019-07-29 19:04:21 +0000] [35] [INFO] Worker exiting (pid: 35)
+email-verifier-service_1   | [2019-07-29 19:04:21 +0000] [24] [INFO] Shutting down: Master
+email-verifier-service_1   | [2019-07-29 19:04:21 +0000] [24] [INFO] Reason: Worker failed to boot.
+^CERROR: Aborting.
+root@ip-172-31-18-10:~/indy-email-verification/docker#

@@ -1,0 +1,93 @@
+
+version: '2.0'
+
+services:
+  orderer:
+    image: hyperledger/fabric-orderer
+    environment:
+      - ORDERER_GENERAL_LEDGERTYPE=ram
+      - ORDERER_GENERAL_BATCHTIMEOUT=10s
+      - ORDERER_GENERAL_BATCHSIZE_MAXMESSAGECOUNT=10
+      - ORDERER_GENERAL_QUEUESIZE=1000
+      - ORDERER_GENERAL_MAXWINDOWSIZE=1000
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_LISTENPORT=7050
+      - ORDERER_RAMLEDGER_HISTORY_SIZE=100
+      - ORDERER_GENERAL_ORDERERTYPE=solo
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+      - 7050:7050
+
+  vp0:
+    image: hyperledger/fabric-peer
+    environment:
+      - CORE_PEER_ADDRESSAUTODETECT=true
+      - CORE_VM_ENDPOINT=http://172.17.0.1:2375
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_NETWORKID=${CORE_PEER_NETWORKID}
+      - CORE_NEXT=true
+      - CORE_PEER_COMMITTER_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=false
+      - CORE_PEER_ID=vp0
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050
+    volumes:
+        - /data/hyperledger/vp0:/var/hyperledger
+    command: peer node start
+    links:
+      - orderer
+    ports:
+      - 7051:7051
+    depends_on:
+      - orderer
+
+  vp1:
+    image: hyperledger/fabric-peer
+    environment:
+      - CORE_PEER_ADDRESSAUTODETECT=true
+      - CORE_VM_ENDPOINT=http://172.17.0.1:2375
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_NETWORKID=${CORE_PEER_NETWORKID}
+      - CORE_NEXT=true
+      - CORE_PEER_COMMITTER_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=false
+      - CORE_PEER_ID=vp1
+      - CORE_PEER_PROFILE_ENABLED=true
+      #- CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    volumes:
+      - /data/hyperledger/vp1:/var/hyperledger
+    command: peer node start
+    links:
+      - orderer
+      - vp0
+    ports:
+      - 9051:7051
+    depends_on:
+      - orderer
+
+  vp2:
+    image: hyperledger/fabric-peer
+    environment:
+      - CORE_PEER_ADDRESSAUTODETECT=true
+      - CORE_VM_ENDPOINT=http://172.17.0.1:2375
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_NETWORKID=${CORE_PEER_NETWORKID}
+      - CORE_NEXT=true
+      - CORE_PEER_COMMITTER_ENABLED=true
+      - CORE_PEER_ENDORSER_ENABLED=true
+      - CORE_PEER_ID=vp2
+      - CORE_PEER_PROFILE_ENABLED=true
+      #- CORE_PEER_COMMITTER_LEDGER_ORDERER=orderer:7050
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    volumes:
+      - /data/hyperledger/vp2:/var/hyperledger
+    command: peer node start
+    links:
+      - orderer
+      - vp0
+    ports:
+      - 9052:7051
+    depends_on:
+      - orderer

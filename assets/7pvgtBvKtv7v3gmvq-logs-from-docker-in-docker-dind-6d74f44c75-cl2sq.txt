@@ -1,0 +1,99 @@
+Generating RSA private key, 4196 bit long modulus (2 primes)
+........................++++
+................................................................++++
+e is 65537 (0x010001)
+Generating RSA private key, 4196 bit long modulus (2 primes)
+...........................................++++
+...............++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = docker:dind server
+Getting CA Private Key
+/certs/server/cert.pem: OK
+Generating RSA private key, 4196 bit long modulus (2 primes)
+.............................................................................................................................................++++
+....................................................................................................................................++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = docker:dind client
+Getting CA Private Key
+/certs/client/cert.pem: OK
+time="2019-09-16T12:58:07.859063371Z" level=info msg="Starting up"
+time="2019-09-16T12:58:07.861095719Z" level=warning msg="could not change group /var/run/docker.sock to docker: group docker not found"
+time="2019-09-16T12:58:07.862188407Z" level=info msg="libcontainerd: started new containerd process" pid=53
+time="2019-09-16T12:58:07.862404355Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2019-09-16T12:58:07.862531962Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2019-09-16T12:58:07.862696591Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] }" module=grpc
+time="2019-09-16T12:58:07.862806446Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2019-09-16T12:58:07.863000302Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc000147d60, CONNECTING" module=grpc
+time="2019-09-16T12:58:07.890074403Z" level=info msg="starting containerd" revision=894b81a4b802e4eb2a91d1ce216b8817763c29fb version=v1.2.6 
+time="2019-09-16T12:58:07.890757515Z" level=info msg="loading plugin "io.containerd.content.v1.content"..." type=io.containerd.content.v1 
+time="2019-09-16T12:58:07.890800747Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.btrfs"..." type=io.containerd.snapshotter.v1 
+time="2019-09-16T12:58:07.891100672Z" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.btrfs" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" 
+time="2019-09-16T12:58:07.891132532Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.aufs"..." type=io.containerd.snapshotter.v1 
+time="2019-09-16T12:58:07.896941167Z" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.aufs" error="modprobe aufs failed: "ip: can't find device 'aufs'\naufs                  241664  0 \nmodprobe: can't change directory to '/lib/modules': No such file or directory\n": exit status 1" 
+time="2019-09-16T12:58:07.896981472Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.native"..." type=io.containerd.snapshotter.v1 
+time="2019-09-16T12:58:07.897016144Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.overlayfs"..." type=io.containerd.snapshotter.v1 
+time="2019-09-16T12:58:07.897106165Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.zfs"..." type=io.containerd.snapshotter.v1 
+time="2019-09-16T12:58:07.897357613Z" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.zfs" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter" 
+time="2019-09-16T12:58:07.897381621Z" level=info msg="loading plugin "io.containerd.metadata.v1.bolt"..." type=io.containerd.metadata.v1 
+time="2019-09-16T12:58:07.897399933Z" level=warning msg="could not use snapshotter btrfs in metadata plugin" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" 
+time="2019-09-16T12:58:07.897408447Z" level=warning msg="could not use snapshotter aufs in metadata plugin" error="modprobe aufs failed: "ip: can't find device 'aufs'\naufs                  241664  0 \nmodprobe: can't change directory to '/lib/modules': No such file or directory\n": exit status 1" 
+time="2019-09-16T12:58:07.897418138Z" level=warning msg="could not use snapshotter zfs in metadata plugin" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter" 
+time="2019-09-16T12:58:07.897524830Z" level=info msg="loading plugin "io.containerd.differ.v1.walking"..." type=io.containerd.differ.v1 
+time="2019-09-16T12:58:07.897547480Z" level=info msg="loading plugin "io.containerd.gc.v1.scheduler"..." type=io.containerd.gc.v1 
+time="2019-09-16T12:58:07.897587860Z" level=info msg="loading plugin "io.containerd.service.v1.containers-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897605465Z" level=info msg="loading plugin "io.containerd.service.v1.content-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897622006Z" level=info msg="loading plugin "io.containerd.service.v1.diff-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897637480Z" level=info msg="loading plugin "io.containerd.service.v1.images-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897653451Z" level=info msg="loading plugin "io.containerd.service.v1.leases-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897757080Z" level=info msg="loading plugin "io.containerd.service.v1.namespaces-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897781035Z" level=info msg="loading plugin "io.containerd.service.v1.snapshots-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.897798197Z" level=info msg="loading plugin "io.containerd.runtime.v1.linux"..." type=io.containerd.runtime.v1 
+time="2019-09-16T12:58:07.897938921Z" level=info msg="loading plugin "io.containerd.runtime.v2.task"..." type=io.containerd.runtime.v2 
+time="2019-09-16T12:58:07.898058416Z" level=info msg="loading plugin "io.containerd.monitor.v1.cgroups"..." type=io.containerd.monitor.v1 
+time="2019-09-16T12:58:07.899028118Z" level=info msg="loading plugin "io.containerd.service.v1.tasks-service"..." type=io.containerd.service.v1 
+time="2019-09-16T12:58:07.899074359Z" level=info msg="loading plugin "io.containerd.internal.v1.restart"..." type=io.containerd.internal.v1 
+time="2019-09-16T12:58:07.899168138Z" level=info msg="loading plugin "io.containerd.grpc.v1.containers"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899194492Z" level=info msg="loading plugin "io.containerd.grpc.v1.content"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899209539Z" level=info msg="loading plugin "io.containerd.grpc.v1.diff"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899222505Z" level=info msg="loading plugin "io.containerd.grpc.v1.events"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899268345Z" level=info msg="loading plugin "io.containerd.grpc.v1.healthcheck"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899293643Z" level=info msg="loading plugin "io.containerd.grpc.v1.images"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899306531Z" level=info msg="loading plugin "io.containerd.grpc.v1.leases"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899347166Z" level=info msg="loading plugin "io.containerd.grpc.v1.namespaces"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899401356Z" level=info msg="loading plugin "io.containerd.internal.v1.opt"..." type=io.containerd.internal.v1 
+time="2019-09-16T12:58:07.899722582Z" level=info msg="loading plugin "io.containerd.grpc.v1.snapshots"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899756741Z" level=info msg="loading plugin "io.containerd.grpc.v1.tasks"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899769960Z" level=info msg="loading plugin "io.containerd.grpc.v1.version"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.899782407Z" level=info msg="loading plugin "io.containerd.grpc.v1.introspection"..." type=io.containerd.grpc.v1 
+time="2019-09-16T12:58:07.900186649Z" level=info msg=serving... address="/var/run/docker/containerd/containerd-debug.sock" 
+time="2019-09-16T12:58:07.900336988Z" level=info msg=serving... address="/var/run/docker/containerd/containerd.sock" 
+time="2019-09-16T12:58:07.900372378Z" level=info msg="containerd successfully booted in 0.011080s" 
+time="2019-09-16T12:58:07.904995721Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc000147d60, READY" module=grpc
+time="2019-09-16T12:58:07.907348308Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2019-09-16T12:58:07.907378107Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2019-09-16T12:58:07.907402850Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] }" module=grpc
+time="2019-09-16T12:58:07.907417880Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2019-09-16T12:58:07.907554598Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc000874390, CONNECTING" module=grpc
+time="2019-09-16T12:58:07.907597950Z" level=info msg="blockingPicker: the picked transport is not ready, loop back to repick" module=grpc
+time="2019-09-16T12:58:07.908401863Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc000874390, READY" module=grpc
+time="2019-09-16T12:58:07.909019607Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2019-09-16T12:58:07.909051345Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2019-09-16T12:58:07.909077670Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] }" module=grpc
+time="2019-09-16T12:58:07.909099984Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2019-09-16T12:58:07.909188860Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc0007194c0, CONNECTING" module=grpc
+time="2019-09-16T12:58:07.909523724Z" level=info msg="pickfirstBalancer: HandleSubConnStateChange: 0xc0007194c0, READY" module=grpc
+time="2019-09-16T12:58:07.916878964Z" level=info msg="[graphdriver] using prior storage driver: overlay2"
+time="2019-09-16T12:58:07.936359348Z" level=warning msg="Your kernel does not support cgroup rt period"
+time="2019-09-16T12:58:07.936394279Z" level=warning msg="Your kernel does not support cgroup rt runtime"
+time="2019-09-16T12:58:07.936615542Z" level=info msg="Loading containers: start."
+time="2019-09-16T12:58:07.946838908Z" level=warning msg="Running modprobe bridge br_netfilter failed with message: ip: can't find device 'bridge'\nbridge                151552  1 br_netfilter\nstp                    16384  1 bridge\nllc                    16384  2 bridge,stp\nip: can't find device 'br_netfilter'\nbr_netfilter           24576  0 \nbridge                151552  1 br_netfilter\nmodprobe: can't change directory to '/lib/modules': No such file or directory\n, error: exit status 1"
+time="2019-09-16T12:58:07.952055955Z" level=warning msg="Running modprobe nf_nat failed with message: `ip: can't find device 'nf_nat'\nnf_nat_ipv6            16384  1 ip6table_nat\nnf_nat_masquerade_ipv4    16384  1 ipt_MASQUERADE\nnf_nat_ipv4            16384  1 iptable_nat\nnf_nat                 32768  4 nf_nat_ipv6,xt_nat,nf_nat_masquerade_ipv4,nf_nat_ipv4\nnf_conntrack          131072 11 nf_nat_ipv6,nf_conntrack_netlink,xt_nat,ipt_MASQUERADE,nf_nat_masquerade_ipv4,ip_vs,nf_conntrack_ipv6,nf_conntrack_ipv4,nf_nat_ipv4,xt_conntrack,nf_nat\nlibcrc32c              16384  4 ip_vs,nf_nat,nf_conntrack,raid456\nmodprobe: can't change directory to '/lib/modules': No such file or directory`, error: exit status 1"
+time="2019-09-16T12:58:07.957107483Z" level=warning msg="Running modprobe xt_conntrack failed with message: `ip: can't find device 'xt_conntrack'\nxt_conntrack           16384 84 \nnf_conntrack          131072 11 nf_nat_ipv6,nf_conntrack_netlink,xt_nat,ipt_MASQUERADE,nf_nat_masquerade_ipv4,ip_vs,nf_conntrack_ipv6,nf_conntrack_ipv4,nf_nat_ipv4,xt_conntrack,nf_nat\nx_tables               40960 18 xt_statistic,xt_set,xt_multiport,iptable_raw,xt_nat,ipt_REJECT,ipt_MASQUERADE,xt_mark,xt_tcpudp,xt_comment,iptable_mangle,xt_recent,xt_addrtype,xt_conntrack,ip6table_filter,ip6_tables,iptable_filter,ip_tables\nmodprobe: can't change directory to '/lib/modules': No such file or directory`, error: exit status 1"
+time="2019-09-16T12:58:08.393679535Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+time="2019-09-16T12:58:08.540115603Z" level=info msg="Loading containers: done."
+time="2019-09-16T12:58:08.579033883Z" level=info msg="Docker daemon" commit=6a30dfca03 graphdriver(s)=overlay2 version=19.03.2
+time="2019-09-16T12:58:08.579302247Z" level=info msg="Daemon has completed initialization"
+time="2019-09-16T12:58:08.600307987Z" level=info msg="API listen on [::]:2376"
+time="2019-09-16T12:58:08.600470284Z" level=info msg="API listen on /var/run/docker.sock"

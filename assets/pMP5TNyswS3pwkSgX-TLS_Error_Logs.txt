@@ -1,0 +1,217 @@
+
+
+Client Logs
+root@3979dee0f036:/opt/gopath/src/github.com/hyperledger/fabric/peer# CORE_PEER_TLS_ROOTCERT_FILE=/lsops_artefacts/organizations/lsbldn_lsbgb65/peers/01.peer01.lsbgb65.cit.lsnet/msp/tlsintermediatecerts/tls.ca01.cit.lsnet.pem CORE_PEER_MSPCONFIGPATH=/lsops_artefacts/organizations/lsbldn_lsbgb65/users/01.admin01.lsbgb65.cit.lsnet/msp CORE_PEER_ADDRESS=peer01.lsbgb65.cit.lsnet:7051 CORE_PEER_LOCALMSPID=lsbgb65 peer chaincode instantiate -o ord01.lsorder.cit.lsnet:7050 --tls true --cafile /lsops_artefacts/organizations/lsbldn_lsorder/orderers/01.ord01.lsorder.cit.lsnet/msp/tlsintermediatecerts/tls.ca01.cit.lsnet.pem -C public -n public -v 1.0.0 -c '{"Args":["init","60"]}'
+2017-11-08 13:03:06.520 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
+2017-11-08 13:03:06.520 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
+2017-11-08 13:03:06.523 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default escc
+2017-11-08 13:03:06.523 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 004 Using default vscc
+2017-11-08 13:03:06.523 UTC [msp/identity] Sign -> DEBU 005 Sign: plaintext: 0ADC050A6408031A0C088A818CD00510...36300A000A04657363630A0476736363
+2017-11-08 13:03:06.523 UTC [msp/identity] Sign -> DEBU 006 Sign: digest: 49C97D3FBD9E14A9FECF62BB9793DDEC967F62198AEBF13B76D7B5DC0F6C6BE6
+Error: Error endorsing chaincode: rpc error: code = Unknown desc = Timeout expired while starting chaincode public:1.0.0(networkid:dev,peerid:peer01.lsbgb65.cit.lsnet,tx:b727f5f278b70e2a747301966a5b0b331d116e24d5309a7269c1adc604bdc8d7)
+Usage:
+  peer chaincode instantiate [flags]
+
+Flags:
+  -C, --channelID string   The channel on which this command should be executed (default "testchainid")
+  -c, --ctor string        Constructor message for the chaincode in JSON format (default "{}")
+  -E, --escc string        The name of the endorsement system chaincode to be used for this chaincode
+  -l, --lang string        Language the chaincode is written in (default "golang")
+  -n, --name string        Name of the chaincode
+  -P, --policy string      The endorsement policy associated to this chaincode
+  -v, --version string     Version of the chaincode specified in install/instantiate/upgrade commands
+  -V, --vscc string        The name of the verification system chaincode to be used for this chaincode
+
+Chaincode container logs
+2017-11-08 13:03:27.488 UTC [bccsp] initBCCSP -> DEBU 001 Initialize BCCSP [SW]
+2017-11-08 13:03:27.490 UTC [shim] userChaincodeStreamGetter -> ERRO 002 Error trying to connect to local peer: x509: cannot validate certificate for 172.25.0.20 because it doesn't contain any IP SANs
+2017-11-08 13:03:27.490 UTC [Public/lsPublicCC] Errorf -> ERRO 003 Error starting ls Netting chaincode: Error trying to connect to local peer: x509: cannot validate certificate for 172.25.0.20 because it doesn't contain any IP SANs
+
+
+Peer container logs
+2017-11-08 13:03:06.532 UTC [chaincode] launchAndWaitForRegister -> DEBU 60e start container with env:
+        CORE_CHAINCODE_ID_NAME=public:1.0.0
+        CORE_PEER_TLS_ENABLED=true
+        CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+        CORE_CHAINCODE_LOGGING_SHIM=warning
+        CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-11-08 13:03:06.532 UTC [container] lockContainer -> DEBU 60f waiting for container(dev-peer01.lsbgb65.cit.lsnet-public-1.0.0) lock
+2017-11-08 13:03:06.532 UTC [container] lockContainer -> DEBU 610 got container (dev-peer01.lsbgb65.cit.lsnet-public-1.0.0) lock
+2017-11-08 13:03:06.532 UTC [dockercontroller] Start -> DEBU 611 Cleanup container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0
+2017-11-08 13:03:06.535 UTC [dockercontroller] stopInternal -> DEBU 612 Stop container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0(No such container: dev-peer01.lsbgb65.cit.lsnet-public-1.0.0)
+2017-11-08 13:03:06.536 UTC [dockercontroller] stopInternal -> DEBU 613 Kill container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0 (No such container: dev-peer01.lsbgb65.cit.lsnet-public-1.0.0)
+2017-11-08 13:03:06.536 UTC [dockercontroller] stopInternal -> DEBU 614 Remove container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0 (No such container: dev-peer01.lsbgb65.cit.lsnet-public-1.0.0)
+2017-11-08 13:03:06.536 UTC [dockercontroller] Start -> DEBU 615 Start container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0
+2017-11-08 13:03:06.537 UTC [dockercontroller] getDockerHostConfig -> DEBU 616 docker container hostconfig NetworkMode: host
+2017-11-08 13:03:06.537 UTC [dockercontroller] createContainer -> DEBU 617 Create container: dev-peer01.lsbgb65.cit.lsnet-public-1.0.0
+2017-11-08 13:03:06.540 UTC [dockercontroller] Start -> DEBU 618 start-could not find image <dev-peer01.lsbgb65.cit.lsnet-public-1.0.0-417c853536b5fb4f359500a54f01efd69826a3cb9663b06eb32a921ff21d3085> (container id <dev-peer01.lsbgb65.cit.lsnet-public-1.0.0>), because of <no such image>...attempt to recreate image
+2017-11-08 13:03:06.540 UTC [chaincode-platform] generateDockerfile -> DEBU 619
+FROM ibmblockchain/fabric-baseos:0.3.2
+ADD binpackage.tar /usr/local/bin
+LABEL org.hyperledger.fabric.chaincode.id.name="public" \
+      org.hyperledger.fabric.chaincode.id.version="1.0.0" \
+      org.hyperledger.fabric.chaincode.type="GOLANG" \
+      org.hyperledger.fabric.version="1.0.3" \
+      org.hyperledger.fabric.base.version="0.3.2"
+ENV CORE_CHAINCODE_BUILDLEVEL=1.0.3
+ENV CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+COPY peer.crt /etc/hyperledger/fabric/peer.crt
+2017-11-08 13:03:06.541 UTC [util] DockerBuild -> DEBU 61a Attempting build with image ibmblockchain/fabric-ccenv:1.0.3
+2017-11-08 13:03:12.799 UTC [shim] func1 -> DEBU 61b []Received message KEEPALIVE from shim
+2017-11-08 13:03:12.799 UTC [shim] func1 -> DEBU 61c Sending KEEPALIVE response
+2017-11-08 13:03:12.799 UTC [chaincode] processStream -> DEBU 61d []Received message KEEPALIVE from shim
+2017-11-08 13:03:12.799 UTC [chaincode] processStream -> DEBU 61e Received KEEPALIVE Response
+2017-11-08 13:03:12.800 UTC [shim] func1 -> DEBU 61f []Received message KEEPALIVE from shim
+2017-11-08 13:03:12.800 UTC [shim] func1 -> DEBU 620 Sending KEEPALIVE response
+2017-11-08 13:03:12.800 UTC [chaincode] processStream -> DEBU 621 []Received message KEEPALIVE from shim
+2017-11-08 13:03:12.800 UTC [chaincode] processStream -> DEBU 622 Received KEEPALIVE Response
+2017-11-08 13:03:12.801 UTC [shim] func1 -> DEBU 623 []Received message KEEPALIVE from shim
+2017-11-08 13:03:12.801 UTC [shim] func1 -> DEBU 624 Sending KEEPALIVE response
+2017-11-08 13:08:27.468 UTC [dockercontroller] stopInternal -> DEBU 8a4 Stop container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0(Container not running: dev-peer01.lsbgb65.cit.lsnet-public-1.0.0)
+2017-11-08 13:08:27.468 UTC [dockercontroller] stopInternal -> DEBU 8a5 Kill container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0 (API error (500): {"message":"Cannot kill container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0: Container 1fab74095108942da9a70056c087444cda5be9614d6c073a71bfea29d996cd1b is not running"}
+)
+2017-11-08 13:08:27.473 UTC [dockercontroller] stopInternal -> DEBU 8a6 Removed container dev-peer01.lsbgb65.cit.lsnet-public-1.0.0
+2017-11-08 13:08:27.473 UTC [container] unlockContainer -> DEBU 8a7 container lock deleted(dev-peer01.lsbgb65.cit.lsnet-public-1.0.0)
+2017-11-08 13:08:27.473 UTC [chaincode] func1 -> DEBU 8a8 chaincode public:1.0.0 launch seq completed
+2017-11-08 13:08:27.473 UTC [chaincode] Launch -> ERRO 8a9 launchAndWaitForRegister failed Timeout expired while starting chaincode public:1.0.0(networkid:dev,peerid:peer01.lsbgb65.cit.lsnet,tx:b727f5f278b70e2a747301966a5b0b331d116e24d5309a7269c1adc604bdc8d7)
+2017-11-08 13:08:27.473 UTC [endorser] callChaincode -> DEBU 8aa Exit
+2017-11-08 13:08:27.473 UTC [endorser] simulateProposal -> ERRO 8ab failed to invoke chaincode name:"lscc"  on transaction b727f5f278b70e2a747301966a5b0b331d116e24d5309a7269c1adc604bdc8d7, error: Timeout expired while starting chaincode public:1.0.0(networkid:dev,peerid:peer01.lsbgb65.cit.lsnet,tx:b727f5f278b70e2a747301966a5b0b331d116e24d5309a7269c1adc604bdc8d7)
+2017-11-08 13:08:27.473 UTC [endorser] simulateProposal -> DEBU 8ac Exit
+2017-11-08 13:08:27.473 UTC [lockbasedtxmgr] Done -> DEBU 8ad Done with transaction simulation / query execution [874cffe5-c149-4684-a8ee-15466471ba84]
+2017-11-08 13:08:27.473 UTC [endorser] ProcessProposal -> DEBU 8ae Exit
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Orderer Logs
+2017-11-08 12:59:27.954 UTC [cauthdsl] func2 -> DEBU cac 0xc420d1c080 principal evaluation succeeds for identity 0
+2017-11-08 12:59:27.954 UTC [cauthdsl] func1 -> DEBU cad 0xc420d1c080 gate 1510145967953042325 evaluation succeeds
+2017-11-08 12:59:27.954 UTC [orderer/common/sigfilter] Apply -> DEBU cae Forwarding validly signed message for policy &{%!s(*common.ImplicitMetaPolicy=&{Readers 0}) %!s(int=1) [%!s(*policies.implicitMetaPolicy=&{0xc420bdef60 1 [0xc420124cd0]}) %!s(*policies.implicitMetaPolicy=&{0xc420bdf700 1 [0xc420124d50 0xc420124de8 0xc420124e80 0xc420124f40]})]}
+2017-11-08 12:59:27.954 UTC [orderer/common/deliver] Handle -> DEBU caf [channel: public] Received seekInfo (0xc42089a800) start:<specified:<> > stop:<specified:<> >
+2017-11-08 12:59:27.954 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU cb0 retrieveBlockByNumber() - blockNum = [0]
+2017-11-08 12:59:27.954 UTC [fsblkstorage] newBlockfileStream -> DEBU cb1 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/public/blockfile_000000], startOffset=[0]
+2017-11-08 12:59:27.954 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU cb2 Remaining bytes=[22663], Going to peek [8] bytes
+2017-11-08 12:59:27.954 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU cb3 Returning blockbytes - length=[22660], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[3]}
+2017-11-08 12:59:27.954 UTC [orderer/common/deliver] Handle -> DEBU cb4 [channel: public] Delivering block for (0xc42089a800)
+2017-11-08 12:59:27.955 UTC [orderer/common/deliver] Handle -> DEBU cb5 [channel: public] Done delivering for (0xc42089a800), waiting for new SeekInfo
+2017-11-08 12:59:27.955 UTC [orderer/common/deliver] Handle -> DEBU cb6 Attempting to read seek info message
+2017-11-08 12:59:27.955 UTC [orderer/common/deliver] Handle -> WARN cb7 Error reading from stream: rpc error: code = Canceled desc = context canceled
+2017-11-08 12:59:27.955 UTC [orderer/main] func1 -> DEBU cb8 Closing Deliver stream
+2017-11-08 13:03:06.523 UTC [orderer/main] Broadcast -> DEBU cb9 Starting new Broadcast handler
+2017-11-08 13:03:06.523 UTC [orderer/common/broadcast] Handle -> DEBU cba Starting new broadcast loop
+2017-11-08 13:08:27.474 UTC [orderer/common/broadcast] Handle -> WARN cbb Error reading from stream: rpc error: code = Canceled desc = context canceled
+2017-11-08 13:08:27.474 UTC [orderer/main] func1 -> DEBU cbc Closing Broadcast stream
+
+
+Peer TLS certificate
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 10260548515649884806 (0x8e64ca8323f91286)
+    Signature Algorithm: ecdsa-with-SHA256
+        Issuer: O=ls, CN=Test TLS ICA
+        Validity
+            Not Before: Nov  7 16:55:17 2017 GMT
+            Not After : Nov  7 16:55:17 2018 GMT
+        Subject: O=lsbgb65, OU=lsbgb65, CN=peer01.lsbgb65.cit.lsnet
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:c3:1b:bc:47:e0:8c:6d:18:01:71:0f:0a:f0:c0:
+                    48:41:83:eb:1d:0a:03:ad:5a:be:7d:e0:c4:3d:d7:
+                    f1:04:2c:5a:bc:af:4f:56:b7:58:a0:f8:fb:f0:24:
+                    57:36:9d:75:dc:a5:5a:af:26:85:18:a1:f7:31:57:
+                    a0:35:68:f9:0b
+                ASN1 OID: prime256v1
+        X509v3 extensions:
+            X509v3 Subject Key Identifier:
+                F6:1D:16:BF:67:A6:3F:25:EB:D3:42:CF:CC:AB:4A:21:7E:95:D0:A5
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Key Usage:
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Authority Key Identifier:
+                keyid:FA:F2:07:80:B2:2F:FB:95:3F:51:4B:A2:CC:D6:8D:39:13:62:E2:92
+
+            X509v3 Subject Alternative Name:
+                DNS:peer01.lsbgb65.cit.lsnet
+    Signature Algorithm: ecdsa-with-SHA256
+         30:44:02:20:2d:6c:7b:6b:d6:93:84:41:35:38:cf:1b:4e:e6:
+         4b:19:b9:0b:14:38:59:1c:fe:6a:e3:2d:2b:77:6f:6d:ef:bc:
+         02:20:41:fa:81:ed:69:7b:bb:8c:e9:23:ff:8c:c0:1f:69:23:
+         f3:e2:76:13:29:70:3b:d7:7d:eb:fb:02:5b:4a:1a:65
+
+		 
+Peer Docker-Compose entry
+peer01.lsbgb65.cit.lsnet:
+    container_name: peer01.lsbgb65.cit.lsnet
+    extends:
+      file: peer-base/peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer01.lsbgb65.cit.lsnet
+      - CORE_PEER_LOCALMSPID=lsbgb65
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb01.lsbgb65.cit.lsnet:5984
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/peer01.lsbgb65.cit.lsnet.pem
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/331669179ab71d5c12843bc9e2cec8c5224aa79afe4e7a5c537c482b023d4026_sk
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/msp/tlsintermediatecerts/tls.ca01.cit.lsnet.pem
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./lsops_artefacts/organizations/lsbldn_lsbgb65/peers/01.peer01.lsbgb65.cit.lsnet/msp/:/etc/hyperledger/fabric/msp
+        - ./lsops_artefacts/organizations/lsbldn_lsbgb65/peers/01.peer01.lsbgb65.cit.lsnet/tls/:/etc/hyperledger/fabric/tls
+        - ./mount/peer01.lsbgb65.cit.lsnet:/var/hyperledger/production
+    ports:
+      - 10051:7051
+      - 10053:7053
+    depends_on:
+      - ord01.lsorder.cit.lsnet
+      - ord02.lsorder.cit.lsnet
+      - ord03.lsorder.cit.lsnet
+      - couchdb01.lsbgb65.cit.lsnet
+
+Orderer Docker-Compose entry	  
+ord01.lsorder.cit.lsnet:
+    container_name: ord01.lsorder.cit.lsnet
+    image: ibmblockchain/fabric-orderer:1.0.3
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.block
+      - ORDERER_GENERAL_LOCALMSPID=lsorder
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer
+       # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/0c20919055b2f9f44c66ea83e04684eacd25625b4cf19a0fff92a0d9e8a7bcc7_sk
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/ord01.lsorder.cit.lsnet.pem
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tlsintermediatecerts/tls.ca01.cit.lsnet.pem]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+      - ./lsops_artefacts/fabric/channeltx/orderer.block:/var/hyperledger/orderer/orderer.block
+      - ./lsops_artefacts/organizations/lsbldn_lsorder/orderers/01.ord01.lsorder.cit.lsnet/msp:/var/hyperledger/orderer
+      - ./lsops_artefacts/organizations/lsbldn_lsorder/orderers/01.ord01.lsorder.cit.lsnet/tls:/var/hyperledger/orderer/tls
+      - ./mount/orderer01:/var/hyperledger/production
+    ports:
+      - 6050:7050
+    depends_on:
+      - zookeeper01.lsorder.cit.lsnet
+      - zookeeper02.lsorder.cit.lsnet
+      - zookeeper03.lsorder.cit.lsnet
+      - kafka01.lsorder.cit.lsnet
+      - kafka02.lsorder.cit.lsnet
+      - kafka03.lsorder.cit.lsnet
+      - kafka04.lsorder.cit.lsnet
+	  
+	  
+  
+

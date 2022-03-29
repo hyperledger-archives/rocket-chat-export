@@ -1,0 +1,1479 @@
+2017-09-11 08:09:06.376 UTC [orderer/main] main -> INFO 001[0m Starting orderer:
+ Version: 1.0.1
+ Go version: go1.7.5
+ OS/Arch: linux/amd64
+[36m2017-09-11 08:09:06.401 UTC [bccsp_sw] openKeyStore -> DEBU 002[0m KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+[36m2017-09-11 08:09:06.402 UTC [bccsp] initBCCSP -> DEBU 003[0m Initialize BCCSP [SW]
+[36m2017-09-11 08:09:06.402 UTC [msp] getPemMaterialFromDir -> DEBU 004[0m Reading directory /var/hyperledger/orderer/msp/signcerts
+[36m2017-09-11 08:09:06.404 UTC [msp] getPemMaterialFromDir -> DEBU 005[0m Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer.example.com-cert.pem
+[36m2017-09-11 08:09:06.404 UTC [msp] getPemMaterialFromDir -> DEBU 006[0m Reading directory /var/hyperledger/orderer/msp/cacerts
+[36m2017-09-11 08:09:06.404 UTC [msp] getPemMaterialFromDir -> DEBU 007[0m Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+[36m2017-09-11 08:09:06.405 UTC [msp] getPemMaterialFromDir -> DEBU 008[0m Reading directory /var/hyperledger/orderer/msp/admincerts
+[36m2017-09-11 08:09:06.405 UTC [msp] getPemMaterialFromDir -> DEBU 009[0m Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+[36m2017-09-11 08:09:06.407 UTC [msp] getPemMaterialFromDir -> DEBU 00a[0m Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+[36m2017-09-11 08:09:06.407 UTC [msp] getMspConfig -> DEBU 00b[0m Intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping. [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+[36m2017-09-11 08:09:06.407 UTC [msp] getPemMaterialFromDir -> DEBU 00c[0m Reading directory /var/hyperledger/orderer/msp/tlscacerts
+[36m2017-09-11 08:09:06.408 UTC [msp] getPemMaterialFromDir -> DEBU 00d[0m Inspecting file /var/hyperledger/orderer/msp/tlscacerts/tlsca.example.com-cert.pem
+[36m2017-09-11 08:09:06.408 UTC [msp] getPemMaterialFromDir -> DEBU 00e[0m Reading directory /var/hyperledger/orderer/msp/tlsintermediatecerts
+[36m2017-09-11 08:09:06.408 UTC [msp] getMspConfig -> DEBU 00f[0m TLS intermediate certs folder not found at [/var/hyperledger/orderer/msp/tlsintermediatecerts]. Skipping. [stat /var/hyperledger/orderer/msp/tlsintermediatecerts: no such file or directory]
+[36m2017-09-11 08:09:06.408 UTC [msp] getPemMaterialFromDir -> DEBU 010[0m Reading directory /var/hyperledger/orderer/msp/crls
+[36m2017-09-11 08:09:06.408 UTC [msp] getMspConfig -> DEBU 011[0m crls folder not found at [/var/hyperledger/orderer/msp/crls]. Skipping. [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+[36m2017-09-11 08:09:06.409 UTC [msp] getMspConfig -> DEBU 012[0m MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+[36m2017-09-11 08:09:06.409 UTC [msp] NewBccspMsp -> DEBU 013[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.409 UTC [msp] GetLocalMSP -> DEBU 014[0m Created new local MSP
+[36m2017-09-11 08:09:06.409 UTC [msp] Setup -> DEBU 015[0m Setting up MSP instance OrdererMSP
+[36m2017-09-11 08:09:06.410 UTC [msp/identity] newIdentity -> DEBU 016[0m Creating identity instance for ID &{OrdererMSP cd4019a21eb4dea80011a1dc2b230c3f765536fa16962f11ce91f4539e060828}
+[36m2017-09-11 08:09:06.478 UTC [msp/identity] newIdentity -> DEBU 017[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.479 UTC [msp/identity] newIdentity -> DEBU 018[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.480 UTC [msp/identity] newIdentity -> DEBU 019[0m Creating identity instance for ID &{OrdererMSP 7c6d86c4acfffc67a1ede69f9e2df3c419a60ce1c9b74b47c77afff427ffe1df}
+[36m2017-09-11 08:09:06.481 UTC [bccsp_sw] loadPrivateKey -> DEBU 01a[0m Loading private key [941cd7e8bc1292f00023f58f7cffddc961c76a31bfec1dd647c60e59646dea37] at [/var/hyperledger/orderer/msp/keystore/941cd7e8bc1292f00023f58f7cffddc961c76a31bfec1dd647c60e59646dea37_sk]...
+[36m2017-09-11 08:09:06.481 UTC [msp/identity] newIdentity -> DEBU 01b[0m Creating identity instance for ID &{OrdererMSP 7c6d86c4acfffc67a1ede69f9e2df3c419a60ce1c9b74b47c77afff427ffe1df}
+[36m2017-09-11 08:09:06.483 UTC [msp] Validate -> DEBU 01c[0m MSP OrdererMSP validating identity
+[36m2017-09-11 08:09:06.484 UTC [orderer/main] createLedgerFactory -> DEBU 01d[0m Ledger dir: /var/hyperledger/production/orderer
+[36m2017-09-11 08:09:06.484 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01e[0m CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+[36m2017-09-11 08:09:06.488 UTC [kvledger.util] logDirStatus -> DEBU 01f[0m Before creating dir - [/var/hyperledger/production/orderer/index/] exists
+[36m2017-09-11 08:09:06.488 UTC [kvledger.util] logDirStatus -> DEBU 020[0m After creating dir - [/var/hyperledger/production/orderer/index/] exists
+[36m2017-09-11 08:09:06.547 UTC [orderer/main] createSubDir -> DEBU 021[0m Found chains sub-dir and using it
+2017-09-11 08:09:06.547 UTC [orderer/main] initializeMultiChainManager -> INFO 022[0m Not bootstrapping because of existing chains
+[36m2017-09-11 08:09:06.548 UTC [fsblkstorage] newBlockfileMgr -> DEBU 023[0m newBlockfileMgr() initializing file-based block storage for ledger: mychannel 
+[36m2017-09-11 08:09:06.549 UTC [kvledger.util] CreateDirIfMissing -> DEBU 024[0m CreateDirIfMissing [/var/hyperledger/production/orderer/chains/mychannel/]
+[36m2017-09-11 08:09:06.560 UTC [kvledger.util] logDirStatus -> DEBU 025[0m Before creating dir - [/var/hyperledger/production/orderer/chains/mychannel/] exists
+[36m2017-09-11 08:09:06.560 UTC [kvledger.util] logDirStatus -> DEBU 026[0m After creating dir - [/var/hyperledger/production/orderer/chains/mychannel/] exists
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] loadCurrentInfo -> DEBU 027[0m loaded checkpointInfo:latestFileChunkSuffixNum=[0], latestFileChunksize=[24259], isChainEmpty=[false], lastBlockNumber=[2]
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 028[0m Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[24259], isChainEmpty=[false], lastBlockNumber=[2]
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 029[0m status of file [/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000]: exists=[true], size=[24259]
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] newBlockIndex -> DEBU 02a[0m newBlockIndex() - indexItems:[[BlockNum]]
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] newBlockfileStream -> DEBU 02b[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000], startOffset=[18521]
+[36m2017-09-11 08:09:06.562 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02c[0m Remaining bytes=[5738], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02d[0m Returning blockbytes - length=[5736], placementInfo={fileNum=[0], startOffset=[18521], bytesOffset=[18523]}
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02e[0m blockbytes [5736] read from file [0]
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02f[0m Finished reading file number [0]
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 030[0m blockbytes [0] read from file [0]
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] retrieveBlockHeaderByNumber -> DEBU 031[0m retrieveBlockHeaderByNumber() - blockNum = [2]
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] newBlockfileStream -> DEBU 032[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000], startOffset=[18521]
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 033[0m Remaining bytes=[5738], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.563 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 034[0m Returning blockbytes - length=[5736], placementInfo={fileNum=[0], startOffset=[18521], bytesOffset=[18523]}
+[36m2017-09-11 08:09:06.564 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 035[0m retrieveBlockByNumber() - blockNum = [2]
+[36m2017-09-11 08:09:06.564 UTC [fsblkstorage] newBlockfileStream -> DEBU 036[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000], startOffset=[18521]
+[36m2017-09-11 08:09:06.564 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 037[0m Remaining bytes=[5738], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.564 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 038[0m Returning blockbytes - length=[5736], placementInfo={fileNum=[0], startOffset=[18521], bytesOffset=[18523]}
+[36m2017-09-11 08:09:06.566 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 039[0m retrieveBlockByNumber() - blockNum = [0]
+[36m2017-09-11 08:09:06.566 UTC [fsblkstorage] newBlockfileStream -> DEBU 03a[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000], startOffset=[0]
+[36m2017-09-11 08:09:06.566 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 03b[0m Remaining bytes=[24259], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.568 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 03c[0m Returning blockbytes - length=[12334], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+[36m2017-09-11 08:09:06.568 UTC [common/config] NewStandardValues -> DEBU 03d[0m Initializing protos for *config.ChannelProtos
+[36m2017-09-11 08:09:06.568 UTC [common/config] initializeProtosStruct -> DEBU 03e[0m Processing field: HashingAlgorithm
+[36m2017-09-11 08:09:06.568 UTC [common/config] initializeProtosStruct -> DEBU 03f[0m Processing field: BlockDataHashingStructure
+[36m2017-09-11 08:09:06.568 UTC [common/config] initializeProtosStruct -> DEBU 040[0m Processing field: OrdererAddresses
+[36m2017-09-11 08:09:06.568 UTC [common/config] initializeProtosStruct -> DEBU 041[0m Processing field: Consortium
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 042[0m Adding to config map: [Groups] /Channel
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 043[0m Adding to config map: [Groups] /Channel/Orderer
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 044[0m Adding to config map: [Groups] /Channel/Orderer/OrdererOrg
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 045[0m Adding to config map: [Values] /Channel/Orderer/OrdererOrg/MSP
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 046[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Readers
+[36m2017-09-11 08:09:06.570 UTC [common/configtx] addToMap -> DEBU 047[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Writers
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 048[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Admins
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 049[0m Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 04a[0m Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 04b[0m Adding to config map: [Values] /Channel/Orderer/ConsensusType
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 04c[0m Adding to config map: [Values] /Channel/Orderer/BatchSize
+[36m2017-09-11 08:09:06.574 UTC [common/configtx] addToMap -> DEBU 04d[0m Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+[36m2017-09-11 08:09:06.577 UTC [common/configtx] addToMap -> DEBU 04e[0m Adding to config map: [Policy] /Channel/Orderer/Readers
+[36m2017-09-11 08:09:06.577 UTC [common/configtx] addToMap -> DEBU 04f[0m Adding to config map: [Policy] /Channel/Orderer/Writers
+[36m2017-09-11 08:09:06.581 UTC [common/configtx] addToMap -> DEBU 050[0m Adding to config map: [Policy] /Channel/Orderer/Admins
+[36m2017-09-11 08:09:06.582 UTC [common/configtx] addToMap -> DEBU 051[0m Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+[36m2017-09-11 08:09:06.583 UTC [common/configtx] addToMap -> DEBU 052[0m Adding to config map: [Groups] /Channel/Application
+[36m2017-09-11 08:09:06.583 UTC [common/configtx] addToMap -> DEBU 053[0m Adding to config map: [Groups] /Channel/Application/Org1MSP
+[36m2017-09-11 08:09:06.583 UTC [common/configtx] addToMap -> DEBU 054[0m Adding to config map: [Values] /Channel/Application/Org1MSP/MSP
+[36m2017-09-11 08:09:06.606 UTC [common/configtx] addToMap -> DEBU 055[0m Adding to config map: [Policy] /Channel/Application/Org1MSP/Readers
+[36m2017-09-11 08:09:06.606 UTC [common/configtx] addToMap -> DEBU 056[0m Adding to config map: [Policy] /Channel/Application/Org1MSP/Writers
+[36m2017-09-11 08:09:06.606 UTC [common/configtx] addToMap -> DEBU 057[0m Adding to config map: [Policy] /Channel/Application/Org1MSP/Admins
+[36m2017-09-11 08:09:06.606 UTC [common/configtx] addToMap -> DEBU 058[0m Adding to config map: [Groups] /Channel/Application/Org2MSP
+[36m2017-09-11 08:09:06.606 UTC [common/configtx] addToMap -> DEBU 059[0m Adding to config map: [Values] /Channel/Application/Org2MSP/MSP
+[36m2017-09-11 08:09:06.607 UTC [common/configtx] addToMap -> DEBU 05a[0m Adding to config map: [Policy] /Channel/Application/Org2MSP/Readers
+[36m2017-09-11 08:09:06.607 UTC [common/configtx] addToMap -> DEBU 05b[0m Adding to config map: [Policy] /Channel/Application/Org2MSP/Writers
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 05c[0m Adding to config map: [Policy] /Channel/Application/Org2MSP/Admins
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 05d[0m Adding to config map: [Policy] /Channel/Application/Readers
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 05e[0m Adding to config map: [Policy] /Channel/Application/Admins
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 05f[0m Adding to config map: [Policy] /Channel/Application/Writers
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 060[0m Adding to config map: [Values] /Channel/HashingAlgorithm
+[36m2017-09-11 08:09:06.608 UTC [common/configtx] addToMap -> DEBU 061[0m Adding to config map: [Values] /Channel/Consortium
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] addToMap -> DEBU 062[0m Adding to config map: [Values] /Channel/OrdererAddresses
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] addToMap -> DEBU 063[0m Adding to config map: [Values] /Channel/BlockDataHashingStructure
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] addToMap -> DEBU 064[0m Adding to config map: [Policy] /Channel/Readers
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] addToMap -> DEBU 065[0m Adding to config map: [Policy] /Channel/Writers
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] addToMap -> DEBU 066[0m Adding to config map: [Policy] /Channel/Admins
+[36m2017-09-11 08:09:06.609 UTC [common/configtx] processConfig -> DEBU 067[0m Beginning new config for channel mychannel
+[36m2017-09-11 08:09:06.609 UTC [common/config] NewStandardValues -> DEBU 068[0m Initializing protos for *config.ChannelProtos
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 069[0m Processing field: HashingAlgorithm
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 06a[0m Processing field: BlockDataHashingStructure
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 06b[0m Processing field: OrdererAddresses
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 06c[0m Processing field: Consortium
+[36m2017-09-11 08:09:06.609 UTC [policies] ProposePolicy -> DEBU 06d[0m Proposed new policy Readers for Channel
+[36m2017-09-11 08:09:06.609 UTC [policies] ProposePolicy -> DEBU 06e[0m Proposed new policy Writers for Channel
+[36m2017-09-11 08:09:06.609 UTC [policies] ProposePolicy -> DEBU 06f[0m Proposed new policy Admins for Channel
+[36m2017-09-11 08:09:06.609 UTC [common/config] NewStandardValues -> DEBU 070[0m Initializing protos for *config.OrdererProtos
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 071[0m Processing field: ConsensusType
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 072[0m Processing field: BatchSize
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 073[0m Processing field: BatchTimeout
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 074[0m Processing field: KafkaBrokers
+[36m2017-09-11 08:09:06.609 UTC [common/config] initializeProtosStruct -> DEBU 075[0m Processing field: ChannelRestrictions
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 076[0m Proposed new policy Readers for Orderer
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 077[0m Proposed new policy Writers for Orderer
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 078[0m Proposed new policy Admins for Orderer
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 079[0m Proposed new policy BlockValidation for Orderer
+[36m2017-09-11 08:09:06.610 UTC [common/config] NewStandardValues -> DEBU 07a[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.610 UTC [common/config] initializeProtosStruct -> DEBU 07b[0m Processing field: MSP
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 07c[0m Proposed new policy Writers for OrdererOrg
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 07d[0m Proposed new policy Admins for OrdererOrg
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 07e[0m Proposed new policy Readers for OrdererOrg
+[36m2017-09-11 08:09:06.610 UTC [common/config] NewStandardValues -> DEBU 07f[0m Initializing protos for *struct {}
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 080[0m Proposed new policy Readers for Application
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 081[0m Proposed new policy Admins for Application
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 082[0m Proposed new policy Writers for Application
+[36m2017-09-11 08:09:06.610 UTC [common/config] NewStandardValues -> DEBU 083[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.610 UTC [common/config] initializeProtosStruct -> DEBU 084[0m Processing field: MSP
+[36m2017-09-11 08:09:06.610 UTC [common/config] NewStandardValues -> DEBU 085[0m Initializing protos for *config.ApplicationOrgProtos
+[36m2017-09-11 08:09:06.610 UTC [common/config] initializeProtosStruct -> DEBU 086[0m Processing field: AnchorPeers
+[36m2017-09-11 08:09:06.610 UTC [common/config] NewStandardValues -> DEBU 087[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.610 UTC [common/config] initializeProtosStruct -> DEBU 088[0m Processing field: MSP
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 089[0m Proposed new policy Readers for Org1MSP
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 08a[0m Proposed new policy Writers for Org1MSP
+[36m2017-09-11 08:09:06.610 UTC [policies] ProposePolicy -> DEBU 08b[0m Proposed new policy Admins for Org1MSP
+[36m2017-09-11 08:09:06.611 UTC [common/config] NewStandardValues -> DEBU 08c[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.611 UTC [common/config] initializeProtosStruct -> DEBU 08d[0m Processing field: MSP
+[36m2017-09-11 08:09:06.611 UTC [common/config] NewStandardValues -> DEBU 08e[0m Initializing protos for *config.ApplicationOrgProtos
+[36m2017-09-11 08:09:06.611 UTC [common/config] initializeProtosStruct -> DEBU 08f[0m Processing field: AnchorPeers
+[36m2017-09-11 08:09:06.611 UTC [common/config] NewStandardValues -> DEBU 090[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.611 UTC [common/config] initializeProtosStruct -> DEBU 091[0m Processing field: MSP
+[36m2017-09-11 08:09:06.611 UTC [policies] ProposePolicy -> DEBU 092[0m Proposed new policy Readers for Org2MSP
+[36m2017-09-11 08:09:06.611 UTC [policies] ProposePolicy -> DEBU 093[0m Proposed new policy Writers for Org2MSP
+[36m2017-09-11 08:09:06.611 UTC [policies] ProposePolicy -> DEBU 094[0m Proposed new policy Admins for Org2MSP
+[36m2017-09-11 08:09:06.611 UTC [common/config] validateMSP -> DEBU 095[0m Setting up MSP for org OrdererOrg
+[36m2017-09-11 08:09:06.611 UTC [msp] NewBccspMsp -> DEBU 096[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.611 UTC [msp] Setup -> DEBU 097[0m Setting up MSP instance OrdererMSP
+[36m2017-09-11 08:09:06.611 UTC [msp/identity] newIdentity -> DEBU 098[0m Creating identity instance for ID &{OrdererMSP cd4019a21eb4dea80011a1dc2b230c3f765536fa16962f11ce91f4539e060828}
+[36m2017-09-11 08:09:06.612 UTC [msp/identity] newIdentity -> DEBU 099[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.612 UTC [msp/identity] newIdentity -> DEBU 09a[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.613 UTC [msp] Validate -> DEBU 09b[0m MSP OrdererMSP validating identity
+[36m2017-09-11 08:09:06.614 UTC [common/config] Validate -> DEBU 09c[0m Anchor peers for org Org1MSP are 
+[36m2017-09-11 08:09:06.614 UTC [common/config] validateMSP -> DEBU 09d[0m Setting up MSP for org Org1MSP
+[36m2017-09-11 08:09:06.614 UTC [msp] NewBccspMsp -> DEBU 09e[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.614 UTC [msp] Setup -> DEBU 09f[0m Setting up MSP instance Org1MSP
+[36m2017-09-11 08:09:06.615 UTC [msp/identity] newIdentity -> DEBU 0a0[0m Creating identity instance for ID &{Org1MSP d7694973f3e9bc09d1aebf3c7960ce30d2ffa20d81d7d036455a278ac65bc3d6}
+[36m2017-09-11 08:09:06.615 UTC [msp/identity] newIdentity -> DEBU 0a1[0m Creating identity instance for ID &{Org1MSP ef3d213378b6ef0d1183c5ec2b77448079e767cf8399137fe604eeafe5486a34}
+[36m2017-09-11 08:09:06.619 UTC [msp/identity] newIdentity -> DEBU 0a2[0m Creating identity instance for ID &{Org1MSP ef3d213378b6ef0d1183c5ec2b77448079e767cf8399137fe604eeafe5486a34}
+[36m2017-09-11 08:09:06.631 UTC [msp] Validate -> DEBU 0a3[0m MSP Org1MSP validating identity
+[36m2017-09-11 08:09:06.635 UTC [common/config] Validate -> DEBU 0a4[0m Anchor peers for org Org2MSP are 
+[36m2017-09-11 08:09:06.635 UTC [common/config] validateMSP -> DEBU 0a5[0m Setting up MSP for org Org2MSP
+[36m2017-09-11 08:09:06.636 UTC [msp] NewBccspMsp -> DEBU 0a6[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.637 UTC [msp] Setup -> DEBU 0a7[0m Setting up MSP instance Org2MSP
+[36m2017-09-11 08:09:06.637 UTC [msp/identity] newIdentity -> DEBU 0a8[0m Creating identity instance for ID &{Org2MSP 9da2404bec2daa382e79a1e34d9f2e614ab9a5ba1ce82e1c5c39e5b10280ad8f}
+[36m2017-09-11 08:09:06.650 UTC [msp/identity] newIdentity -> DEBU 0a9[0m Creating identity instance for ID &{Org2MSP 64174b7d063e385c0ad4eba47e6355e1077fa662c0e88550eed4f01447e6d5a9}
+[36m2017-09-11 08:09:06.661 UTC [msp/identity] newIdentity -> DEBU 0aa[0m Creating identity instance for ID &{Org2MSP 64174b7d063e385c0ad4eba47e6355e1077fa662c0e88550eed4f01447e6d5a9}
+[36m2017-09-11 08:09:06.693 UTC [msp] Validate -> DEBU 0ab[0m MSP Org2MSP validating identity
+[36m2017-09-11 08:09:06.701 UTC [msp] Setup -> DEBU 0ac[0m Setting up the MSP manager (3 msps)
+[36m2017-09-11 08:09:06.702 UTC [msp] Setup -> DEBU 0ad[0m MSP manager setup complete, setup 3 msps
+[36m2017-09-11 08:09:06.702 UTC [policies] GetPolicy -> DEBU 0ae[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.702 UTC [policies] CommitProposals -> DEBU 0af[0m In commit adding relative sub-policy OrdererOrg/Writers to Orderer
+[36m2017-09-11 08:09:06.702 UTC [policies] GetPolicy -> DEBU 0b0[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.702 UTC [policies] CommitProposals -> DEBU 0b1[0m In commit adding relative sub-policy OrdererOrg/Admins to Orderer
+[36m2017-09-11 08:09:06.702 UTC [policies] GetPolicy -> DEBU 0b2[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.702 UTC [policies] CommitProposals -> DEBU 0b3[0m In commit adding relative sub-policy OrdererOrg/Readers to Orderer
+[36m2017-09-11 08:09:06.702 UTC [policies] GetPolicy -> DEBU 0b4[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.703 UTC [policies] GetPolicy -> DEBU 0b5[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.703 UTC [policies] GetPolicy -> DEBU 0b6[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.703 UTC [policies] GetPolicy -> DEBU 0b7[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.703 UTC [policies] GetPolicy -> DEBU 0b8[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.703 UTC [policies] CommitProposals -> DEBU 0b9[0m In commit adding relative sub-policy Org1MSP/Readers to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0ba[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0bb[0m In commit adding relative sub-policy Org1MSP/Writers to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0bc[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0bd[0m In commit adding relative sub-policy Org1MSP/Admins to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0be[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0bf[0m In commit adding relative sub-policy Org2MSP/Readers to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c0[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0c1[0m In commit adding relative sub-policy Org2MSP/Writers to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c2[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0c3[0m In commit adding relative sub-policy Org2MSP/Admins to Application
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c4[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c5[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c6[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c7[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c8[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0c9[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] GetPolicy -> DEBU 0ca[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.705 UTC [policies] CommitProposals -> DEBU 0cb[0m In commit adding relative sub-policy Orderer/Writers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0cc[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0cd[0m In commit adding relative sub-policy Orderer/Admins to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0ce[0m Returning policy BlockValidation for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0cf[0m In commit adding relative sub-policy Orderer/BlockValidation to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0d0[0m Returning policy OrdererOrg/Writers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0d1[0m In commit adding relative sub-policy Orderer/OrdererOrg/Writers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0d2[0m Returning policy OrdererOrg/Admins for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0d3[0m In commit adding relative sub-policy Orderer/OrdererOrg/Admins to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0d4[0m Returning policy OrdererOrg/Readers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0d5[0m In commit adding relative sub-policy Orderer/OrdererOrg/Readers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0d6[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0d7[0m In commit adding relative sub-policy Orderer/Readers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0d8[0m Returning policy Org2MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0d9[0m In commit adding relative sub-policy Application/Org2MSP/Admins to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0da[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0db[0m In commit adding relative sub-policy Application/Readers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0dc[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0dd[0m In commit adding relative sub-policy Application/Admins to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0de[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0df[0m In commit adding relative sub-policy Application/Writers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0e0[0m Returning policy Org1MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0e1[0m In commit adding relative sub-policy Application/Org1MSP/Writers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0e2[0m Returning policy Org2MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0e3[0m In commit adding relative sub-policy Application/Org2MSP/Readers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0e4[0m Returning policy Org2MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0e5[0m In commit adding relative sub-policy Application/Org2MSP/Writers to Channel
+[36m2017-09-11 08:09:06.706 UTC [policies] GetPolicy -> DEBU 0e6[0m Returning policy Org1MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.706 UTC [policies] CommitProposals -> DEBU 0e7[0m In commit adding relative sub-policy Application/Org1MSP/Readers to Channel
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0e8[0m Returning policy Org1MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0e9[0m In commit adding relative sub-policy Application/Org1MSP/Admins to Channel
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0ea[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0eb[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0ec[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0ed[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0ee[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0ef[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0f0[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0f1[0m As expected, current configuration has policy '/Channel/Readers'
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0f2[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0f3[0m As expected, current configuration has policy '/Channel/Writers'
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0f4[0m Returning policy Application/Readers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0f5[0m As expected, current configuration has policy '/Channel/Application/Readers'
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0f6[0m Returning policy Application/Writers for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0f7[0m As expected, current configuration has policy '/Channel/Application/Writers'
+[36m2017-09-11 08:09:06.707 UTC [policies] GetPolicy -> DEBU 0f8[0m Returning policy Application/Admins for evaluation
+[36m2017-09-11 08:09:06.707 UTC [policies] CommitProposals -> DEBU 0f9[0m As expected, current configuration has policy '/Channel/Application/Admins'
+[36m2017-09-11 08:09:06.710 UTC [policies] GetPolicy -> DEBU 0fa[0m Returning policy Orderer/BlockValidation for evaluation
+[36m2017-09-11 08:09:06.710 UTC [policies] CommitProposals -> DEBU 0fb[0m As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+[36m2017-09-11 08:09:06.710 UTC [orderer/multichain] NewManagerImpl -> DEBU 0fc[0m Starting chain: mychannel
+[36m2017-09-11 08:09:06.710 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 0fd[0m retrieveBlockByNumber() - blockNum = [2]
+[36m2017-09-11 08:09:06.710 UTC [fsblkstorage] newBlockfileStream -> DEBU 0fe[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/mychannel/blockfile_000000], startOffset=[18521]
+[36m2017-09-11 08:09:06.710 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0ff[0m Remaining bytes=[5738], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.710 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 100[0m Returning blockbytes - length=[5736], placementInfo={fileNum=[0], startOffset=[18521], bytesOffset=[18523]}
+[36m2017-09-11 08:09:06.711 UTC [orderer/multichain] newChainSupport -> DEBU 101[0m [channel: mychannel] Retrieved metadata for tip of chain (blockNumber=2, lastConfig=0, lastConfigSeq=1): value:"\010\004" 
+2017-09-11 08:09:06.711 UTC [orderer/kafka] newChain -> INFO 102[0m [channel: mychannel] Starting chain with last persisted offset 4 and last recorded block 2
+2017-09-11 08:09:06.713 UTC [orderer/kafka] setupProducerForChannel -> INFO 104[0m [channel: mychannel] Setting up the producer for this channel...
+[36m2017-09-11 08:09:06.713 UTC [orderer/kafka] try -> DEBU 105[0m [channel: mychannel] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:06.713197 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:06.713274 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.713362 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.713419 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:06.715180 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.715416 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.715640 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.715692 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[36m2017-09-11 08:09:06.712 UTC [fsblkstorage] newBlockfileMgr -> DEBU 103[0m newBlockfileMgr() initializing file-based block storage for ledger: testchainid 
+[36m2017-09-11 08:09:06.717 UTC [kvledger.util] CreateDirIfMissing -> DEBU 106[0m CreateDirIfMissing [/var/hyperledger/production/orderer/chains/testchainid/]
+[36m2017-09-11 08:09:06.717 UTC [kvledger.util] logDirStatus -> DEBU 107[0m Before creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] exists
+[36m2017-09-11 08:09:06.717 UTC [kvledger.util] logDirStatus -> DEBU 108[0m After creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] exists
+[sarama] 2017/09/11 08:09:06.718172 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.718201 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.718217 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.718241 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[36m2017-09-11 08:09:06.718 UTC [fsblkstorage] loadCurrentInfo -> DEBU 109[0m loaded checkpointInfo:latestFileChunkSuffixNum=[0], latestFileChunksize=[24172], isChainEmpty=[false], lastBlockNumber=[1]
+[sarama] 2017/09/11 08:09:06.730923 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.730966 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.730983 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.731013 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[36m2017-09-11 08:09:06.731 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 10a[0m Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[24172], isChainEmpty=[false], lastBlockNumber=[1]
+[sarama] 2017/09/11 08:09:06.731949 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.732021 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.732104 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:06.732149 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:06.732176 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[36m2017-09-11 08:09:06.731 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 10b[0m status of file [/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000]: exists=[true], size=[24172]
+[36m2017-09-11 08:09:06.731 UTC [fsblkstorage] newBlockIndex -> DEBU 10c[0m newBlockIndex() - indexItems:[[BlockNum]]
+[36m2017-09-11 08:09:06.732 UTC [fsblkstorage] newBlockfileStream -> DEBU 10d[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[9159]
+[36m2017-09-11 08:09:06.732 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 10e[0m Remaining bytes=[15013], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.732 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 10f[0m Returning blockbytes - length=[15011], placementInfo={fileNum=[0], startOffset=[9159], bytesOffset=[9161]}
+[36m2017-09-11 08:09:06.732 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 110[0m blockbytes [15011] read from file [0]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 111[0m Finished reading file number [0]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 112[0m blockbytes [0] read from file [0]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] retrieveBlockHeaderByNumber -> DEBU 113[0m retrieveBlockHeaderByNumber() - blockNum = [1]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] newBlockfileStream -> DEBU 114[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[9159]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 115[0m Remaining bytes=[15013], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 116[0m Returning blockbytes - length=[15011], placementInfo={fileNum=[0], startOffset=[9159], bytesOffset=[9161]}
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 117[0m retrieveBlockByNumber() - blockNum = [1]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] newBlockfileStream -> DEBU 118[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[9159]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 119[0m Remaining bytes=[15013], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 11a[0m Returning blockbytes - length=[15011], placementInfo={fileNum=[0], startOffset=[9159], bytesOffset=[9161]}
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 11b[0m retrieveBlockByNumber() - blockNum = [0]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] newBlockfileStream -> DEBU 11c[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+[36m2017-09-11 08:09:06.733 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 11d[0m Remaining bytes=[24172], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.734 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 11e[0m Returning blockbytes - length=[9157], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+[36m2017-09-11 08:09:06.734 UTC [common/config] NewStandardValues -> DEBU 11f[0m Initializing protos for *config.ChannelProtos
+[36m2017-09-11 08:09:06.734 UTC [common/config] initializeProtosStruct -> DEBU 120[0m Processing field: HashingAlgorithm
+[36m2017-09-11 08:09:06.734 UTC [common/config] initializeProtosStruct -> DEBU 121[0m Processing field: BlockDataHashingStructure
+[36m2017-09-11 08:09:06.734 UTC [common/config] initializeProtosStruct -> DEBU 122[0m Processing field: OrdererAddresses
+[36m2017-09-11 08:09:06.734 UTC [common/config] initializeProtosStruct -> DEBU 123[0m Processing field: Consortium
+[36m2017-09-11 08:09:06.734 UTC [common/configtx] addToMap -> DEBU 124[0m Adding to config map: [Groups] /Channel
+[36m2017-09-11 08:09:06.734 UTC [common/configtx] addToMap -> DEBU 125[0m Adding to config map: [Groups] /Channel/Consortiums
+[36m2017-09-11 08:09:06.734 UTC [common/configtx] addToMap -> DEBU 126[0m Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium
+[36m2017-09-11 08:09:06.734 UTC [common/configtx] addToMap -> DEBU 127[0m Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org1MSP
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 128[0m Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org1MSP/MSP
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 129[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Admins
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12a[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Readers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12b[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Writers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12c[0m Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org2MSP
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12d[0m Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org2MSP/MSP
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12e[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Admins
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 12f[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Readers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 130[0m Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Writers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 131[0m Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/ChannelCreationPolicy
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 132[0m Adding to config map: [Policy] /Channel/Consortiums/Admins
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 133[0m Adding to config map: [Groups] /Channel/Orderer
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 134[0m Adding to config map: [Groups] /Channel/Orderer/OrdererOrg
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 135[0m Adding to config map: [Values] /Channel/Orderer/OrdererOrg/MSP
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 136[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Readers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 137[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Writers
+[36m2017-09-11 08:09:06.735 UTC [common/configtx] addToMap -> DEBU 138[0m Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Admins
+[36m2017-09-11 08:09:06.750 UTC [common/configtx] addToMap -> DEBU 139[0m Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+[36m2017-09-11 08:09:06.750 UTC [common/configtx] addToMap -> DEBU 13a[0m Adding to config map: [Values] /Channel/Orderer/ConsensusType
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 13b[0m Adding to config map: [Values] /Channel/Orderer/BatchSize
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 13c[0m Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 13d[0m Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 13e[0m Adding to config map: [Policy] /Channel/Orderer/Admins
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 13f[0m Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+[36m2017-09-11 08:09:06.751 UTC [common/configtx] addToMap -> DEBU 140[0m Adding to config map: [Policy] /Channel/Orderer/Readers
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 141[0m Adding to config map: [Policy] /Channel/Orderer/Writers
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 142[0m Adding to config map: [Values] /Channel/HashingAlgorithm
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 143[0m Adding to config map: [Values] /Channel/OrdererAddresses
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 144[0m Adding to config map: [Values] /Channel/BlockDataHashingStructure
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 145[0m Adding to config map: [Policy] /Channel/Readers
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 146[0m Adding to config map: [Policy] /Channel/Writers
+[36m2017-09-11 08:09:06.752 UTC [common/configtx] addToMap -> DEBU 147[0m Adding to config map: [Policy] /Channel/Admins
+[36m2017-09-11 08:09:06.753 UTC [common/configtx] processConfig -> DEBU 148[0m Beginning new config for channel testchainid
+[36m2017-09-11 08:09:06.753 UTC [common/config] NewStandardValues -> DEBU 149[0m Initializing protos for *config.ChannelProtos
+[36m2017-09-11 08:09:06.753 UTC [common/config] initializeProtosStruct -> DEBU 14a[0m Processing field: HashingAlgorithm
+[36m2017-09-11 08:09:06.753 UTC [common/config] initializeProtosStruct -> DEBU 14b[0m Processing field: BlockDataHashingStructure
+[36m2017-09-11 08:09:06.753 UTC [common/config] initializeProtosStruct -> DEBU 14c[0m Processing field: OrdererAddresses
+[36m2017-09-11 08:09:06.753 UTC [common/config] initializeProtosStruct -> DEBU 14d[0m Processing field: Consortium
+[36m2017-09-11 08:09:06.753 UTC [policies] ProposePolicy -> DEBU 14e[0m Proposed new policy Readers for Channel
+[36m2017-09-11 08:09:06.753 UTC [policies] ProposePolicy -> DEBU 14f[0m Proposed new policy Writers for Channel
+[36m2017-09-11 08:09:06.753 UTC [policies] ProposePolicy -> DEBU 150[0m Proposed new policy Admins for Channel
+[36m2017-09-11 08:09:06.753 UTC [policies] ProposePolicy -> DEBU 151[0m Proposed new policy Admins for Consortiums
+[36m2017-09-11 08:09:06.753 UTC [common/config] NewStandardValues -> DEBU 152[0m Initializing protos for *config.ConsortiumProtos
+[36m2017-09-11 08:09:06.758 UTC [common/config] initializeProtosStruct -> DEBU 153[0m Processing field: ChannelCreationPolicy
+[36m2017-09-11 08:09:06.760 UTC [common/config] NewStandardValues -> DEBU 154[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 155[0m Processing field: MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 156[0m Proposed new policy Admins for Org1MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 157[0m Proposed new policy Readers for Org1MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 158[0m Proposed new policy Writers for Org1MSP
+[36m2017-09-11 08:09:06.760 UTC [common/config] NewStandardValues -> DEBU 159[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 15a[0m Processing field: MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 15b[0m Proposed new policy Writers for Org2MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 15c[0m Proposed new policy Admins for Org2MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 15d[0m Proposed new policy Readers for Org2MSP
+[36m2017-09-11 08:09:06.760 UTC [common/config] NewStandardValues -> DEBU 15e[0m Initializing protos for *config.OrdererProtos
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 15f[0m Processing field: ConsensusType
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 160[0m Processing field: BatchSize
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 161[0m Processing field: BatchTimeout
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 162[0m Processing field: KafkaBrokers
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 163[0m Processing field: ChannelRestrictions
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 164[0m Proposed new policy BlockValidation for Orderer
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 165[0m Proposed new policy Readers for Orderer
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 166[0m Proposed new policy Writers for Orderer
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 167[0m Proposed new policy Admins for Orderer
+[36m2017-09-11 08:09:06.760 UTC [common/config] NewStandardValues -> DEBU 168[0m Initializing protos for *config.OrganizationProtos
+[36m2017-09-11 08:09:06.760 UTC [common/config] initializeProtosStruct -> DEBU 169[0m Processing field: MSP
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 16a[0m Proposed new policy Readers for OrdererOrg
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 16b[0m Proposed new policy Writers for OrdererOrg
+[36m2017-09-11 08:09:06.760 UTC [policies] ProposePolicy -> DEBU 16c[0m Proposed new policy Admins for OrdererOrg
+[36m2017-09-11 08:09:06.760 UTC [common/config] validateMSP -> DEBU 16d[0m Setting up MSP for org Org1MSP
+[36m2017-09-11 08:09:06.760 UTC [msp] NewBccspMsp -> DEBU 16e[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.760 UTC [msp] Setup -> DEBU 16f[0m Setting up MSP instance Org1MSP
+[36m2017-09-11 08:09:06.761 UTC [msp/identity] newIdentity -> DEBU 170[0m Creating identity instance for ID &{Org1MSP d7694973f3e9bc09d1aebf3c7960ce30d2ffa20d81d7d036455a278ac65bc3d6}
+[36m2017-09-11 08:09:06.761 UTC [msp/identity] newIdentity -> DEBU 171[0m Creating identity instance for ID &{Org1MSP ef3d213378b6ef0d1183c5ec2b77448079e767cf8399137fe604eeafe5486a34}
+[36m2017-09-11 08:09:06.761 UTC [msp/identity] newIdentity -> DEBU 172[0m Creating identity instance for ID &{Org1MSP ef3d213378b6ef0d1183c5ec2b77448079e767cf8399137fe604eeafe5486a34}
+[36m2017-09-11 08:09:06.765 UTC [msp] Validate -> DEBU 173[0m MSP Org1MSP validating identity
+[36m2017-09-11 08:09:06.766 UTC [common/config] validateMSP -> DEBU 174[0m Setting up MSP for org Org2MSP
+[36m2017-09-11 08:09:06.766 UTC [msp] NewBccspMsp -> DEBU 175[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.766 UTC [msp] Setup -> DEBU 176[0m Setting up MSP instance Org2MSP
+[36m2017-09-11 08:09:06.778 UTC [msp/identity] newIdentity -> DEBU 177[0m Creating identity instance for ID &{Org2MSP 9da2404bec2daa382e79a1e34d9f2e614ab9a5ba1ce82e1c5c39e5b10280ad8f}
+[36m2017-09-11 08:09:06.778 UTC [msp/identity] newIdentity -> DEBU 178[0m Creating identity instance for ID &{Org2MSP 64174b7d063e385c0ad4eba47e6355e1077fa662c0e88550eed4f01447e6d5a9}
+[36m2017-09-11 08:09:06.779 UTC [msp/identity] newIdentity -> DEBU 179[0m Creating identity instance for ID &{Org2MSP 64174b7d063e385c0ad4eba47e6355e1077fa662c0e88550eed4f01447e6d5a9}
+[36m2017-09-11 08:09:06.780 UTC [msp] Validate -> DEBU 17a[0m MSP Org2MSP validating identity
+[36m2017-09-11 08:09:06.780 UTC [common/config] validateMSP -> DEBU 17b[0m Setting up MSP for org OrdererOrg
+[36m2017-09-11 08:09:06.780 UTC [msp] NewBccspMsp -> DEBU 17c[0m Creating BCCSP-based MSP instance
+[36m2017-09-11 08:09:06.781 UTC [msp] Setup -> DEBU 17d[0m Setting up MSP instance OrdererMSP
+[36m2017-09-11 08:09:06.781 UTC [msp/identity] newIdentity -> DEBU 17e[0m Creating identity instance for ID &{OrdererMSP cd4019a21eb4dea80011a1dc2b230c3f765536fa16962f11ce91f4539e060828}
+[36m2017-09-11 08:09:06.781 UTC [msp/identity] newIdentity -> DEBU 17f[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.782 UTC [msp/identity] newIdentity -> DEBU 180[0m Creating identity instance for ID &{OrdererMSP e7bea5d6e54e65f6dec24bcfe72c1334485eaca079ef38d4cf7dabb28ef325ef}
+[36m2017-09-11 08:09:06.797 UTC [msp] Validate -> DEBU 181[0m MSP OrdererMSP validating identity
+[36m2017-09-11 08:09:06.797 UTC [msp] Setup -> DEBU 182[0m Setting up the MSP manager (3 msps)
+[36m2017-09-11 08:09:06.798 UTC [msp] Setup -> DEBU 183[0m MSP manager setup complete, setup 3 msps
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 184[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 185[0m In commit adding relative sub-policy Org1MSP/Admins to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 186[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 187[0m In commit adding relative sub-policy Org1MSP/Readers to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 188[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 189[0m In commit adding relative sub-policy Org1MSP/Writers to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 18a[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 18b[0m In commit adding relative sub-policy Org2MSP/Readers to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 18c[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 18d[0m In commit adding relative sub-policy Org2MSP/Writers to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 18e[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 18f[0m In commit adding relative sub-policy Org2MSP/Admins to SampleConsortium
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 190[0m Returning policy Org1MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 191[0m In commit adding relative sub-policy SampleConsortium/Org1MSP/Admins to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 192[0m Returning policy Org1MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 193[0m In commit adding relative sub-policy SampleConsortium/Org1MSP/Readers to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 194[0m Returning policy Org1MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 195[0m In commit adding relative sub-policy SampleConsortium/Org1MSP/Writers to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 196[0m Returning policy Org2MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 197[0m In commit adding relative sub-policy SampleConsortium/Org2MSP/Readers to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 198[0m Returning policy Org2MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 199[0m In commit adding relative sub-policy SampleConsortium/Org2MSP/Writers to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 19a[0m Returning policy Org2MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 19b[0m In commit adding relative sub-policy SampleConsortium/Org2MSP/Admins to Consortiums
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 19c[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 19d[0m In commit adding relative sub-policy OrdererOrg/Writers to Orderer
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 19e[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 19f[0m In commit adding relative sub-policy OrdererOrg/Admins to Orderer
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a0[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1a1[0m In commit adding relative sub-policy OrdererOrg/Readers to Orderer
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a2[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a3[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a4[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a5[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a6[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1a7[0m In commit adding relative sub-policy Orderer/Writers to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1a8[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1a9[0m In commit adding relative sub-policy Orderer/Admins to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1aa[0m Returning policy OrdererOrg/Writers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1ab[0m In commit adding relative sub-policy Orderer/OrdererOrg/Writers to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1ac[0m Returning policy OrdererOrg/Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1ad[0m In commit adding relative sub-policy Orderer/OrdererOrg/Admins to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1ae[0m Returning policy OrdererOrg/Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1af[0m In commit adding relative sub-policy Orderer/OrdererOrg/Readers to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1b0[0m Returning policy BlockValidation for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1b1[0m In commit adding relative sub-policy Orderer/BlockValidation to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1b2[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1b3[0m In commit adding relative sub-policy Orderer/Readers to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1b4[0m Returning policy SampleConsortium/Org1MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.798 UTC [policies] CommitProposals -> DEBU 1b5[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Admins to Channel
+[36m2017-09-11 08:09:06.798 UTC [policies] GetPolicy -> DEBU 1b6[0m Returning policy SampleConsortium/Org1MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1b7[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Readers to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1b8[0m Returning policy SampleConsortium/Org1MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1b9[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Writers to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1ba[0m Returning policy SampleConsortium/Org2MSP/Readers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1bb[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Readers to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1bc[0m Returning policy SampleConsortium/Org2MSP/Writers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1bd[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Writers to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1be[0m Returning policy SampleConsortium/Org2MSP/Admins for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1bf[0m In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Admins to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c0[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1c1[0m In commit adding relative sub-policy Consortiums/Admins to Channel
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c2[0m Returning dummy reject all policy because Readers could not be found in /Consortiums/Readers
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c3[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c4[0m Returning dummy reject all policy because Writers could not be found in /Consortiums/Writers
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c5[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c6[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c7[0m Returning policy Admins for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1c8[0m Returning policy Readers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1c9[0m As expected, current configuration has policy '/Channel/Readers'
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1ca[0m Returning policy Writers for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1cb[0m As expected, current configuration has policy '/Channel/Writers'
+[36m2017-09-11 08:09:06.799 UTC [policies] GetPolicy -> DEBU 1cc[0m Returning policy Orderer/BlockValidation for evaluation
+[36m2017-09-11 08:09:06.799 UTC [policies] CommitProposals -> DEBU 1cd[0m As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+[36m2017-09-11 08:09:06.799 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 1ce[0m retrieveBlockByNumber() - blockNum = [1]
+[36m2017-09-11 08:09:06.799 UTC [fsblkstorage] newBlockfileStream -> DEBU 1cf[0m newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[9159]
+[36m2017-09-11 08:09:06.799 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 1d0[0m Remaining bytes=[15013], Going to peek [8] bytes
+[36m2017-09-11 08:09:06.799 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 1d1[0m Returning blockbytes - length=[15011], placementInfo={fileNum=[0], startOffset=[9159], bytesOffset=[9161]}
+[36m2017-09-11 08:09:06.799 UTC [orderer/multichain] newChainSupport -> DEBU 1d2[0m [channel: testchainid] Retrieved metadata for tip of chain (blockNumber=1, lastConfig=0, lastConfigSeq=0): value:"\010\001" 
+2017-09-11 08:09:06.799 UTC [orderer/kafka] newChain -> INFO 1d3[0m [channel: testchainid] Starting chain with last persisted offset 1 and last recorded block 1
+2017-09-11 08:09:06.799 UTC [orderer/multichain] NewManagerImpl -> INFO 1d4[0m Starting with system channel testchainid and orderer type kafka
+2017-09-11 08:09:06.799 UTC [orderer/main] main -> INFO 1d5[0m Beginning to serve requests
+2017-09-11 08:09:06.799 UTC [orderer/kafka] setupProducerForChannel -> INFO 1d6[0m [channel: testchainid] Setting up the producer for this channel...
+[36m2017-09-11 08:09:06.799 UTC [orderer/kafka] try -> DEBU 1d7[0m [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:06.799983 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:06.799995 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.800049 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.800072 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:06.800769 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.800833 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.800864 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.800921 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:06.801463 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.801710 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.801726 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.801748 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:06.802735 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.802761 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.802771 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.802793 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:06.803463 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.803545 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:06.803582 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:06.803607 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:06.803636 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/11 08:09:06.982316 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:06.982373 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:06.983771 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.000160 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.000200 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.000262 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.001061 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.001104 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.001127 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.001246 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.002083 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.002112 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.002143 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.002172 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.003006 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.003046 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.003058 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.003067 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.003077 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:07.053799 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.054105 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:07.055087 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.055241 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.055355 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.055463 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.056684 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.056812 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.056867 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.056941 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.057975 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.058058 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.058104 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.058144 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.059977 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.060052 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.060086 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.060116 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.060146 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:07.253214 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.253336 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:07.254239 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.254306 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.254356 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.254389 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.255242 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.255270 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.255282 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.255317 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.256422 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.256454 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.256464 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.256485 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.257274 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.257356 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.257443 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.257514 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.257574 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:07.310289 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.310571 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:07.311663 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.311816 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.311873 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.311960 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.312952 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.313105 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.313209 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.313274 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.314364 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.314443 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.314538 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.314640 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.315480 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.315548 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.315633 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.315665 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.315692 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:07.516405 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.516453 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:07.517304 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.517339 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.517393 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.517602 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.518599 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.518678 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.518713 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.518880 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.519567 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.519640 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.519684 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.519725 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.520348 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.520412 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.520441 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.520475 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.520502 client.go:187: Closing Client
+[36m2017-09-11 08:09:07.520 UTC [orderer/kafka] try -> DEBU 1d8[0m [channel: mychannel] Retrying every 1s for a total of 30s
+[sarama] 2017/09/11 08:09:07.565884 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.566017 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:07.566813 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.566886 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.566913 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.566958 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:07.567594 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.567670 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.567709 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.567746 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:07.568363 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.568426 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.568453 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:07.568560 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:07.569362 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.569570 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:07.569652 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:07.569686 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:07.569762 client.go:187: Closing Client
+[36m2017-09-11 08:09:07.569 UTC [orderer/kafka] try -> DEBU 1d9[0m [channel: testchainid] Retrying every 1s for a total of 30s
+[36m2017-09-11 08:09:08.520 UTC [orderer/kafka] try -> DEBU 1da[0m [channel: mychannel] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:08.520956 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:08.521090 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.521281 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.521372 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:08.522559 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.522632 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.522662 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.522770 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:08.523545 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.523611 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.523641 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.523774 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:08.524622 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.524679 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.524702 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.524789 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:08.525579 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.525634 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.525654 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:08.525670 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:08.525748 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[36m2017-09-11 08:09:08.569 UTC [orderer/kafka] try -> DEBU 1db[0m [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:08.570125 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:08.570143 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.570224 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.570291 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:08.571302 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.571375 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.571405 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.571506 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:08.573402 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.573555 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.573601 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.573690 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:08.574567 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.574694 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.574741 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.574832 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:08.577171 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.577203 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.577213 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:08.577224 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:08.577235 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/11 08:09:08.775910 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.775964 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:08.776667 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.776692 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.776702 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.776724 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:08.777538 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.777812 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.777847 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.777902 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:08.781322 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.781358 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.781370 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.781394 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:08.782460 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.782492 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.782501 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:08.782508 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:08.782516 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:08.827502 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.827548 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:08.828408 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.828452 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.828466 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.828494 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:08.829638 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.829681 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.829702 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.829724 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:08.830660 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.830719 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.830731 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:08.830764 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:08.833452 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.833492 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:08.833501 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:08.833507 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:08.833517 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:09.038614 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.038668 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.039516 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.039590 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.039620 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.039738 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.040606 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.040722 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.040772 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.040860 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.041698 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.041774 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.041861 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.041919 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.044179 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.044270 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.044353 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.044394 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.044468 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:09.083626 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.083709 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.087757 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.087916 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.087990 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.088177 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.092049 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.092230 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.092295 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.092474 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.097698 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.097755 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.097780 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.097826 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.098387 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.098426 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.098456 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.098475 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.098502 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:09.294710 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.294888 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.296067 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.296102 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.296115 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.296161 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.298054 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.298146 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.298161 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.298180 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.298813 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.298851 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.298877 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.298909 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.299443 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.299475 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.299507 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.299525 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.299542 client.go:187: Closing Client
+[sarama] 2017/09/11 08:09:09.348657 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.348753 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.349544 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.349625 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.349666 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.349705 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.350224 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.350278 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.350302 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.350343 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.351132 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.351251 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.351302 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.351364 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.352005 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.352077 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.352107 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.352147 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.352173 client.go:187: Closing Client
+[36m2017-09-11 08:09:09.520 UTC [orderer/kafka] try -> DEBU 1dc[0m [channel: mychannel] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:09.520844 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:09.521004 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.521103 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.521226 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.522045 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.522107 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.522134 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.522186 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.522861 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.522994 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.523039 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.523077 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.523815 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.523889 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.523919 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.523976 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.524661 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.524733 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.524780 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.524817 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.524857 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[36m2017-09-11 08:09:09.570 UTC [orderer/kafka] try -> DEBU 1dd[0m [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:09.570973 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:09.571126 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.571335 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.571431 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.572442 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.572509 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.572537 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.572629 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.573407 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.573474 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.573549 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.573593 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.574345 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.574394 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.574416 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.574496 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.575056 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.575081 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.575115 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.575136 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.575155 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/11 08:09:09.776007 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.776159 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.777620 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.777669 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.15:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.777683 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.777719 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.778306 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.778328 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.778348 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.778370 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:09.778895 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.778927 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.14:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.778940 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.778961 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:09.779631 broker.go:96: Failed to connect to broker kafka3:9092: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.779852 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.17:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.779906 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/11 08:09:09.780001 client.go:428: client/brokers resurrecting 4 dead seed brokers
+[sarama] 2017/09/11 08:09:09.780038 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:09.825315 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.825432 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/11 08:09:09.826494 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.826614 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.22.0.13:9092: getsockopt: connection refused
+[sarama] 2017/09/11 08:09:09.826656 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:09.826711 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:09.827993 broker.go:146: Connected to broker at kafka2:9092 (unregistered)
+[sarama] 2017/09/11 08:09:10.030244 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:10.030459 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:09:10.032471 broker.go:146: Connected to broker at kafka2:9092 (unregistered)
+[sarama] 2017/09/11 08:09:12.466661 client.go:154: Successfully initialized new client
+[sarama] 2017/09/11 08:09:12.467219 client.go:154: Successfully initialized new client
+[36m2017-09-11 08:09:12.469 UTC [orderer/kafka] try -> DEBU 1de[0m [channel: testchainid] Error is nil, breaking the retry loop
+[36m2017-09-11 08:09:12.469 UTC [orderer/kafka] try -> DEBU 1df[0m [channel: mychannel] Error is nil, breaking the retry loop
+2017-09-11 08:09:12.471 UTC [orderer/kafka] startThread -> INFO 1e0[0m [channel: testchainid] Producer set up successfully
+2017-09-11 08:09:12.471 UTC [orderer/kafka] sendConnectMessage -> INFO 1e1[0m [channel: testchainid] About to post the CONNECT message...
+2017-09-11 08:09:12.471 UTC [orderer/kafka] startThread -> INFO 1e2[0m [channel: mychannel] Producer set up successfully
+2017-09-11 08:09:12.471 UTC [orderer/kafka] sendConnectMessage -> INFO 1e3[0m [channel: mychannel] About to post the CONNECT message...
+[36m2017-09-11 08:09:12.475 UTC [orderer/kafka] try -> DEBU 1e4[0m [channel: testchainid] Attempting to post the CONNECT message...
+[36m2017-09-11 08:09:12.476 UTC [orderer/kafka] try -> DEBU 1e5[0m [channel: mychannel] Attempting to post the CONNECT message...
+[sarama] 2017/09/11 08:09:12.477470 client.go:599: client/metadata fetching metadata for [mychannel] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:12.477818 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.116053 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.116171 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/11 08:09:13.130320 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.130507 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/11 08:09:13.366443 client.go:599: client/metadata fetching metadata for [mychannel] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.376038 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.376153 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:13.380787 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.385884 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.386015 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/11 08:09:13.626421 client.go:599: client/metadata fetching metadata for [mychannel] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.636081 client.go:397: client/brokers registered new broker #0 at 5d0aef878661:9092
+[sarama] 2017/09/11 08:09:13.636169 client.go:397: client/brokers registered new broker #1 at e4b0d8700f3f:9092
+[sarama] 2017/09/11 08:09:13.636197 client.go:397: client/brokers registered new broker #2 at 332ef225a952:9092
+[sarama] 2017/09/11 08:09:13.636454 client.go:397: client/brokers registered new broker #3 at a1fc75c097f8:9092
+[sarama] 2017/09/11 08:09:13.636536 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.636563 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:13.636239 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.642813 client.go:397: client/brokers registered new broker #0 at 5d0aef878661:9092
+[sarama] 2017/09/11 08:09:13.643005 client.go:397: client/brokers registered new broker #1 at e4b0d8700f3f:9092
+[sarama] 2017/09/11 08:09:13.643042 client.go:397: client/brokers registered new broker #2 at 332ef225a952:9092
+[sarama] 2017/09/11 08:09:13.643066 client.go:397: client/brokers registered new broker #3 at a1fc75c097f8:9092
+[sarama] 2017/09/11 08:09:13.643128 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/11 08:09:13.643162 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/11 08:09:13.886975 client.go:599: client/metadata fetching metadata for [mychannel] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.893354 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:13.948059 client.go:610: client/metadata found some partitions to be leaderless
+[36m2017-09-11 08:09:13.948 UTC [orderer/kafka] try -> DEBU 1e6[0m [channel: testchainid] Retrying every 1s for a total of 30s
+[sarama] 2017/09/11 08:09:13.953441 client.go:610: client/metadata found some partitions to be leaderless
+[36m2017-09-11 08:09:13.953 UTC [orderer/kafka] try -> DEBU 1e7[0m [channel: mychannel] Retrying every 1s for a total of 30s
+[36m2017-09-11 08:09:14.948 UTC [orderer/kafka] try -> DEBU 1e8[0m [channel: testchainid] Attempting to post the CONNECT message...
+[sarama] 2017/09/11 08:09:14.948679 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka2:9092
+[36m2017-09-11 08:09:14.953 UTC [orderer/kafka] try -> DEBU 1e9[0m [channel: mychannel] Attempting to post the CONNECT message...
+[sarama] 2017/09/11 08:09:14.953955 client.go:599: client/metadata fetching metadata for [mychannel] from broker kafka2:9092
+[sarama] 2017/09/11 08:09:14.964485 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:14.964485 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:14.965356 async_producer.go:584: producer/broker/2 starting up
+[sarama] 2017/09/11 08:09:14.965376 async_producer.go:596: producer/broker/2 state change to [open] on mychannel/0
+[sarama] 2017/09/11 08:09:14.965571 async_producer.go:584: producer/broker/0 starting up
+[sarama] 2017/09/11 08:09:14.965588 async_producer.go:596: producer/broker/0 state change to [open] on testchainid/0
+[sarama] 2017/09/11 08:09:14.970447 broker.go:144: Connected to broker at 332ef225a952:9092 (registered as #2)
+[sarama] 2017/09/11 08:09:14.970506 broker.go:144: Connected to broker at 5d0aef878661:9092 (registered as #0)
+[36m2017-09-11 08:09:15.094 UTC [orderer/kafka] try -> DEBU 1ea[0m [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-11 08:09:15.094 UTC [orderer/kafka] startThread -> INFO 1eb[0m [channel: testchainid] CONNECT message posted successfully
+2017-09-11 08:09:15.095 UTC [orderer/kafka] setupParentConsumerForChannel -> INFO 1ec[0m [channel: testchainid] Setting up the parent consumer for this channel...
+[36m2017-09-11 08:09:15.095 UTC [orderer/kafka] try -> DEBU 1ed[0m [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:15.095185 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:15.095260 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:15.095963 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:15.096166 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:09:15.098423 broker.go:146: Connected to broker at kafka3:9092 (unregistered)
+[36m2017-09-11 08:09:15.100 UTC [orderer/main] Deliver -> DEBU 1ee[0m Starting new Deliver handler
+[36m2017-09-11 08:09:15.101 UTC [orderer/common/deliver] Handle -> DEBU 1ef[0m Starting new deliver loop
+[36m2017-09-11 08:09:15.101 UTC [orderer/common/deliver] Handle -> DEBU 1f0[0m Attempting to read seek info message
+[33m2017-09-11 08:09:15.102 UTC [orderer/common/deliver] Handle -> WARN 1f1[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:15.102 UTC [orderer/main] func1 -> DEBU 1f2[0m Closing Deliver stream
+[sarama] 2017/09/11 08:09:15.136521 client.go:397: client/brokers registered new broker #0 at 5d0aef878661:9092
+[sarama] 2017/09/11 08:09:15.136552 client.go:397: client/brokers registered new broker #1 at e4b0d8700f3f:9092
+[sarama] 2017/09/11 08:09:15.136560 client.go:397: client/brokers registered new broker #2 at 332ef225a952:9092
+[sarama] 2017/09/11 08:09:15.136566 client.go:397: client/brokers registered new broker #3 at a1fc75c097f8:9092
+[sarama] 2017/09/11 08:09:15.136628 client.go:154: Successfully initialized new client
+[36m2017-09-11 08:09:15.136 UTC [orderer/kafka] try -> DEBU 1f3[0m [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-11 08:09:15.136 UTC [orderer/kafka] startThread -> INFO 1f4[0m [channel: testchainid] Parent consumer set up successfully
+2017-09-11 08:09:15.136 UTC [orderer/kafka] setupChannelConsumerForChannel -> INFO 1f5[0m [channel: testchainid] Setting up the channel consumer for this channel (start offset: 2)...
+[36m2017-09-11 08:09:15.136 UTC [orderer/kafka] try -> DEBU 1f6[0m [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:15.137178 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:15.139175 broker.go:144: Connected to broker at 5d0aef878661:9092 (registered as #0)
+[36m2017-09-11 08:09:15.206 UTC [orderer/main] Deliver -> DEBU 1f7[0m Starting new Deliver handler
+[36m2017-09-11 08:09:15.206 UTC [orderer/common/deliver] Handle -> DEBU 1f8[0m Starting new deliver loop
+[36m2017-09-11 08:09:15.206 UTC [orderer/common/deliver] Handle -> DEBU 1f9[0m Attempting to read seek info message
+[33m2017-09-11 08:09:15.206 UTC [orderer/common/deliver] Handle -> WARN 1fa[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:15.207 UTC [orderer/main] func1 -> DEBU 1fb[0m Closing Deliver stream
+[sarama] 2017/09/11 08:09:15.209333 client.go:110: Initializing new client
+[sarama] 2017/09/11 08:09:15.209418 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[36m2017-09-11 08:09:15.209 UTC [orderer/kafka] try -> DEBU 1fc[0m [channel: mychannel] Error is nil, breaking the retry loop
+2017-09-11 08:09:15.209 UTC [orderer/kafka] startThread -> INFO 1fd[0m [channel: mychannel] CONNECT message posted successfully
+2017-09-11 08:09:15.209 UTC [orderer/kafka] setupParentConsumerForChannel -> INFO 1fe[0m [channel: mychannel] Setting up the parent consumer for this channel...
+[36m2017-09-11 08:09:15.209 UTC [orderer/kafka] try -> DEBU 1ff[0m [channel: mychannel] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:15.209514 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:15.209557 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/11 08:09:15.210559 broker.go:146: Connected to broker at kafka1:9092 (unregistered)
+[sarama] 2017/09/11 08:09:15.272546 client.go:397: client/brokers registered new broker #0 at 5d0aef878661:9092
+[sarama] 2017/09/11 08:09:15.272669 client.go:397: client/brokers registered new broker #1 at e4b0d8700f3f:9092
+[sarama] 2017/09/11 08:09:15.272789 client.go:397: client/brokers registered new broker #2 at 332ef225a952:9092
+[sarama] 2017/09/11 08:09:15.272832 client.go:397: client/brokers registered new broker #3 at a1fc75c097f8:9092
+[sarama] 2017/09/11 08:09:15.272919 client.go:154: Successfully initialized new client
+[36m2017-09-11 08:09:15.272 UTC [orderer/kafka] try -> DEBU 200[0m [channel: mychannel] Error is nil, breaking the retry loop
+2017-09-11 08:09:15.273 UTC [orderer/kafka] startThread -> INFO 201[0m [channel: mychannel] Parent consumer set up successfully
+2017-09-11 08:09:15.273 UTC [orderer/kafka] setupChannelConsumerForChannel -> INFO 202[0m [channel: mychannel] Setting up the channel consumer for this channel (start offset: 5)...
+[36m2017-09-11 08:09:15.273 UTC [orderer/kafka] try -> DEBU 203[0m [channel: mychannel] Connecting to the Kafka cluster
+[sarama] 2017/09/11 08:09:15.273195 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/11 08:09:15.274328 broker.go:144: Connected to broker at 332ef225a952:9092 (registered as #2)
+[36m2017-09-11 08:09:15.315 UTC [orderer/kafka] try -> DEBU 204[0m [channel: mychannel] Retrying every 1s for a total of 30s
+[36m2017-09-11 08:09:15.317 UTC [orderer/kafka] try -> DEBU 205[0m [channel: testchainid] Retrying every 1s for a total of 30s
+[36m2017-09-11 08:09:15.408 UTC [orderer/main] Deliver -> DEBU 206[0m Starting new Deliver handler
+[36m2017-09-11 08:09:15.408 UTC [orderer/common/deliver] Handle -> DEBU 207[0m Starting new deliver loop
+[36m2017-09-11 08:09:15.408 UTC [orderer/common/deliver] Handle -> DEBU 208[0m Attempting to read seek info message
+[33m2017-09-11 08:09:15.409 UTC [orderer/common/deliver] Handle -> WARN 209[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:15.409 UTC [orderer/main] func1 -> DEBU 20a[0m Closing Deliver stream
+[36m2017-09-11 08:09:15.819 UTC [orderer/main] Deliver -> DEBU 20b[0m Starting new Deliver handler
+[36m2017-09-11 08:09:15.819 UTC [orderer/common/deliver] Handle -> DEBU 20c[0m Starting new deliver loop
+[36m2017-09-11 08:09:15.819 UTC [orderer/common/deliver] Handle -> DEBU 20d[0m Attempting to read seek info message
+[33m2017-09-11 08:09:15.846 UTC [orderer/common/deliver] Handle -> WARN 20e[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:15.846 UTC [orderer/main] func1 -> DEBU 20f[0m Closing Deliver stream
+[36m2017-09-11 08:09:16.315 UTC [orderer/kafka] try -> DEBU 210[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:16.317 UTC [orderer/kafka] try -> DEBU 211[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:16.650 UTC [orderer/main] Deliver -> DEBU 212[0m Starting new Deliver handler
+[36m2017-09-11 08:09:16.650 UTC [orderer/common/deliver] Handle -> DEBU 213[0m Starting new deliver loop
+[36m2017-09-11 08:09:16.650 UTC [orderer/common/deliver] Handle -> DEBU 214[0m Attempting to read seek info message
+[33m2017-09-11 08:09:16.650 UTC [orderer/common/deliver] Handle -> WARN 215[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:16.650 UTC [orderer/main] func1 -> DEBU 216[0m Closing Deliver stream
+[36m2017-09-11 08:09:17.315 UTC [orderer/kafka] try -> DEBU 217[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:17.317 UTC [orderer/kafka] try -> DEBU 218[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:18.252 UTC [orderer/main] Deliver -> DEBU 219[0m Starting new Deliver handler
+[36m2017-09-11 08:09:18.253 UTC [orderer/common/deliver] Handle -> DEBU 21a[0m Starting new deliver loop
+[36m2017-09-11 08:09:18.253 UTC [orderer/common/deliver] Handle -> DEBU 21b[0m Attempting to read seek info message
+[33m2017-09-11 08:09:18.253 UTC [orderer/common/deliver] Handle -> WARN 21c[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:18.253 UTC [orderer/main] func1 -> DEBU 21d[0m Closing Deliver stream
+[36m2017-09-11 08:09:18.315 UTC [orderer/kafka] try -> DEBU 21e[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:18.318 UTC [orderer/kafka] try -> DEBU 21f[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:18.420 UTC [orderer/main] Deliver -> DEBU 220[0m Starting new Deliver handler
+[36m2017-09-11 08:09:18.420 UTC [orderer/common/deliver] Handle -> DEBU 221[0m Starting new deliver loop
+[36m2017-09-11 08:09:18.420 UTC [orderer/common/deliver] Handle -> DEBU 222[0m Attempting to read seek info message
+[33m2017-09-11 08:09:18.422 UTC [orderer/common/deliver] Handle -> WARN 223[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:18.422 UTC [orderer/main] func1 -> DEBU 224[0m Closing Deliver stream
+[36m2017-09-11 08:09:18.525 UTC [orderer/main] Deliver -> DEBU 225[0m Starting new Deliver handler
+[36m2017-09-11 08:09:18.525 UTC [orderer/common/deliver] Handle -> DEBU 226[0m Starting new deliver loop
+[36m2017-09-11 08:09:18.525 UTC [orderer/common/deliver] Handle -> DEBU 227[0m Attempting to read seek info message
+[33m2017-09-11 08:09:18.525 UTC [orderer/common/deliver] Handle -> WARN 228[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:18.525 UTC [orderer/main] func1 -> DEBU 229[0m Closing Deliver stream
+[36m2017-09-11 08:09:18.726 UTC [orderer/main] Deliver -> DEBU 22a[0m Starting new Deliver handler
+[36m2017-09-11 08:09:18.726 UTC [orderer/common/deliver] Handle -> DEBU 22b[0m Starting new deliver loop
+[36m2017-09-11 08:09:18.727 UTC [orderer/common/deliver] Handle -> DEBU 22c[0m Attempting to read seek info message
+[33m2017-09-11 08:09:18.727 UTC [orderer/common/deliver] Handle -> WARN 22d[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:18.727 UTC [orderer/main] func1 -> DEBU 22e[0m Closing Deliver stream
+[36m2017-09-11 08:09:19.130 UTC [orderer/main] Deliver -> DEBU 22f[0m Starting new Deliver handler
+[36m2017-09-11 08:09:19.131 UTC [orderer/common/deliver] Handle -> DEBU 230[0m Starting new deliver loop
+[36m2017-09-11 08:09:19.131 UTC [orderer/common/deliver] Handle -> DEBU 231[0m Attempting to read seek info message
+[33m2017-09-11 08:09:19.131 UTC [orderer/common/deliver] Handle -> WARN 232[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:19.131 UTC [orderer/main] func1 -> DEBU 233[0m Closing Deliver stream
+[36m2017-09-11 08:09:19.315 UTC [orderer/kafka] try -> DEBU 234[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:19.317 UTC [orderer/kafka] try -> DEBU 235[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:19.932 UTC [orderer/main] Deliver -> DEBU 236[0m Starting new Deliver handler
+[36m2017-09-11 08:09:19.932 UTC [orderer/common/deliver] Handle -> DEBU 237[0m Starting new deliver loop
+[36m2017-09-11 08:09:19.932 UTC [orderer/common/deliver] Handle -> DEBU 238[0m Attempting to read seek info message
+[33m2017-09-11 08:09:19.932 UTC [orderer/common/deliver] Handle -> WARN 239[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:19.932 UTC [orderer/main] func1 -> DEBU 23a[0m Closing Deliver stream
+[36m2017-09-11 08:09:20.315 UTC [orderer/kafka] try -> DEBU 23b[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:20.318 UTC [orderer/kafka] try -> DEBU 23c[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:21.315 UTC [orderer/kafka] try -> DEBU 23d[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:21.318 UTC [orderer/kafka] try -> DEBU 23e[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:21.455 UTC [orderer/main] Deliver -> DEBU 23f[0m Starting new Deliver handler
+[36m2017-09-11 08:09:21.455 UTC [orderer/common/deliver] Handle -> DEBU 240[0m Starting new deliver loop
+[36m2017-09-11 08:09:21.455 UTC [orderer/common/deliver] Handle -> DEBU 241[0m Attempting to read seek info message
+[33m2017-09-11 08:09:21.455 UTC [orderer/common/deliver] Handle -> WARN 242[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:21.455 UTC [orderer/main] func1 -> DEBU 243[0m Closing Deliver stream
+[36m2017-09-11 08:09:21.534 UTC [orderer/main] Deliver -> DEBU 244[0m Starting new Deliver handler
+[36m2017-09-11 08:09:21.534 UTC [orderer/common/deliver] Handle -> DEBU 245[0m Starting new deliver loop
+[36m2017-09-11 08:09:21.534 UTC [orderer/common/deliver] Handle -> DEBU 246[0m Attempting to read seek info message
+[33m2017-09-11 08:09:21.534 UTC [orderer/common/deliver] Handle -> WARN 247[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:21.534 UTC [orderer/main] func1 -> DEBU 248[0m Closing Deliver stream
+[36m2017-09-11 08:09:22.315 UTC [orderer/kafka] try -> DEBU 249[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:22.318 UTC [orderer/kafka] try -> DEBU 24a[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:23.315 UTC [orderer/kafka] try -> DEBU 24b[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:23.317 UTC [orderer/kafka] try -> DEBU 24c[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:24.315 UTC [orderer/kafka] try -> DEBU 24d[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:24.317 UTC [orderer/kafka] try -> DEBU 24e[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:24.736 UTC [orderer/main] Deliver -> DEBU 24f[0m Starting new Deliver handler
+[36m2017-09-11 08:09:24.736 UTC [orderer/common/deliver] Handle -> DEBU 250[0m Starting new deliver loop
+[36m2017-09-11 08:09:24.737 UTC [orderer/common/deliver] Handle -> DEBU 251[0m Attempting to read seek info message
+[33m2017-09-11 08:09:24.737 UTC [orderer/common/deliver] Handle -> WARN 252[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:24.737 UTC [orderer/main] func1 -> DEBU 253[0m Closing Deliver stream
+[36m2017-09-11 08:09:25.315 UTC [orderer/kafka] try -> DEBU 254[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:25.317 UTC [orderer/kafka] try -> DEBU 255[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:26.315 UTC [orderer/kafka] try -> DEBU 256[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:26.317 UTC [orderer/kafka] try -> DEBU 257[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:27.315 UTC [orderer/kafka] try -> DEBU 258[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:27.317 UTC [orderer/kafka] try -> DEBU 259[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:27.857 UTC [orderer/main] Deliver -> DEBU 25a[0m Starting new Deliver handler
+[36m2017-09-11 08:09:27.857 UTC [orderer/common/deliver] Handle -> DEBU 25b[0m Starting new deliver loop
+[36m2017-09-11 08:09:27.857 UTC [orderer/common/deliver] Handle -> DEBU 25c[0m Attempting to read seek info message
+[33m2017-09-11 08:09:27.857 UTC [orderer/common/deliver] Handle -> WARN 25d[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:27.857 UTC [orderer/main] func1 -> DEBU 25e[0m Closing Deliver stream
+[36m2017-09-11 08:09:28.315 UTC [orderer/kafka] try -> DEBU 25f[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:28.317 UTC [orderer/kafka] try -> DEBU 260[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:29.315 UTC [orderer/kafka] try -> DEBU 261[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:29.317 UTC [orderer/kafka] try -> DEBU 262[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:30.315 UTC [orderer/kafka] try -> DEBU 263[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:30.317 UTC [orderer/kafka] try -> DEBU 264[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:31.138 UTC [orderer/main] Deliver -> DEBU 265[0m Starting new Deliver handler
+[36m2017-09-11 08:09:31.138 UTC [orderer/common/deliver] Handle -> DEBU 266[0m Starting new deliver loop
+[36m2017-09-11 08:09:31.138 UTC [orderer/common/deliver] Handle -> DEBU 267[0m Attempting to read seek info message
+[33m2017-09-11 08:09:31.139 UTC [orderer/common/deliver] Handle -> WARN 268[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:31.139 UTC [orderer/main] func1 -> DEBU 269[0m Closing Deliver stream
+[36m2017-09-11 08:09:31.315 UTC [orderer/kafka] try -> DEBU 26a[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:31.317 UTC [orderer/kafka] try -> DEBU 26b[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:32.315 UTC [orderer/kafka] try -> DEBU 26c[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:32.317 UTC [orderer/kafka] try -> DEBU 26d[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:33.315 UTC [orderer/kafka] try -> DEBU 26e[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:33.317 UTC [orderer/kafka] try -> DEBU 26f[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:34.315 UTC [orderer/kafka] try -> DEBU 270[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:34.317 UTC [orderer/kafka] try -> DEBU 271[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:35.315 UTC [orderer/kafka] try -> DEBU 272[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:35.317 UTC [orderer/kafka] try -> DEBU 273[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:36.315 UTC [orderer/kafka] try -> DEBU 274[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:36.317 UTC [orderer/kafka] try -> DEBU 275[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:37.315 UTC [orderer/kafka] try -> DEBU 276[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:37.317 UTC [orderer/kafka] try -> DEBU 277[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:37.865 UTC [orderer/main] Deliver -> DEBU 278[0m Starting new Deliver handler
+[36m2017-09-11 08:09:37.865 UTC [orderer/common/deliver] Handle -> DEBU 279[0m Starting new deliver loop
+[36m2017-09-11 08:09:37.865 UTC [orderer/common/deliver] Handle -> DEBU 27a[0m Attempting to read seek info message
+[33m2017-09-11 08:09:37.866 UTC [orderer/common/deliver] Handle -> WARN 27b[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:37.866 UTC [orderer/main] func1 -> DEBU 27c[0m Closing Deliver stream
+[36m2017-09-11 08:09:38.315 UTC [orderer/kafka] try -> DEBU 27d[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:38.317 UTC [orderer/kafka] try -> DEBU 27e[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:39.315 UTC [orderer/kafka] try -> DEBU 27f[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:39.317 UTC [orderer/kafka] try -> DEBU 280[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:40.315 UTC [orderer/kafka] try -> DEBU 281[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:40.317 UTC [orderer/kafka] try -> DEBU 282[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:41.315 UTC [orderer/kafka] try -> DEBU 283[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:41.317 UTC [orderer/kafka] try -> DEBU 284[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:42.315 UTC [orderer/kafka] try -> DEBU 285[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:42.317 UTC [orderer/kafka] try -> DEBU 286[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:43.315 UTC [orderer/kafka] try -> DEBU 287[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:43.317 UTC [orderer/kafka] try -> DEBU 288[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:44.315 UTC [orderer/kafka] try -> DEBU 289[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:44.318 UTC [orderer/kafka] try -> DEBU 28a[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:45.315 UTC [orderer/kafka] try -> DEBU 28b[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:45.317 UTC [orderer/kafka] try -> DEBU 28c[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:45.317 UTC [orderer/kafka] retry -> DEBU 28d[0m [channel: mychannel] Switching to the long retry interval
+[36m2017-09-11 08:09:45.317 UTC [orderer/kafka] try -> DEBU 28e[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:45.320 UTC [orderer/kafka] retry -> DEBU 28f[0m [channel: testchainid] Switching to the long retry interval
+[36m2017-09-11 08:09:45.320 UTC [orderer/kafka] try -> DEBU 290[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:09:45.322 UTC [orderer/kafka] try -> DEBU 291[0m [channel: mychannel] Retrying every 5m0s for a total of 12h0m0s
+[36m2017-09-11 08:09:45.323 UTC [orderer/kafka] try -> DEBU 292[0m [channel: testchainid] Retrying every 5m0s for a total of 12h0m0s
+[36m2017-09-11 08:09:47.869 UTC [orderer/main] Deliver -> DEBU 293[0m Starting new Deliver handler
+[36m2017-09-11 08:09:47.869 UTC [orderer/common/deliver] Handle -> DEBU 294[0m Starting new deliver loop
+[36m2017-09-11 08:09:47.869 UTC [orderer/common/deliver] Handle -> DEBU 295[0m Attempting to read seek info message
+[33m2017-09-11 08:09:47.869 UTC [orderer/common/deliver] Handle -> WARN 296[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:47.869 UTC [orderer/main] func1 -> DEBU 297[0m Closing Deliver stream
+[36m2017-09-11 08:09:57.875 UTC [orderer/main] Deliver -> DEBU 298[0m Starting new Deliver handler
+[36m2017-09-11 08:09:57.875 UTC [orderer/common/deliver] Handle -> DEBU 299[0m Starting new deliver loop
+[36m2017-09-11 08:09:57.875 UTC [orderer/common/deliver] Handle -> DEBU 29a[0m Attempting to read seek info message
+[33m2017-09-11 08:09:57.875 UTC [orderer/common/deliver] Handle -> WARN 29b[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:09:57.876 UTC [orderer/main] func1 -> DEBU 29c[0m Closing Deliver stream
+[36m2017-09-11 08:10:07.879 UTC [orderer/main] Deliver -> DEBU 29d[0m Starting new Deliver handler
+[36m2017-09-11 08:10:07.879 UTC [orderer/common/deliver] Handle -> DEBU 29e[0m Starting new deliver loop
+[36m2017-09-11 08:10:07.879 UTC [orderer/common/deliver] Handle -> DEBU 29f[0m Attempting to read seek info message
+[33m2017-09-11 08:10:07.879 UTC [orderer/common/deliver] Handle -> WARN 2a0[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:07.879 UTC [orderer/main] func1 -> DEBU 2a1[0m Closing Deliver stream
+[36m2017-09-11 08:10:17.882 UTC [orderer/main] Deliver -> DEBU 2a2[0m Starting new Deliver handler
+[36m2017-09-11 08:10:17.882 UTC [orderer/common/deliver] Handle -> DEBU 2a3[0m Starting new deliver loop
+[36m2017-09-11 08:10:17.882 UTC [orderer/common/deliver] Handle -> DEBU 2a4[0m Attempting to read seek info message
+[33m2017-09-11 08:10:17.882 UTC [orderer/common/deliver] Handle -> WARN 2a5[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:17.882 UTC [orderer/main] func1 -> DEBU 2a6[0m Closing Deliver stream
+[36m2017-09-11 08:10:27.887 UTC [orderer/main] Deliver -> DEBU 2a7[0m Starting new Deliver handler
+[36m2017-09-11 08:10:27.887 UTC [orderer/common/deliver] Handle -> DEBU 2a8[0m Starting new deliver loop
+[36m2017-09-11 08:10:27.887 UTC [orderer/common/deliver] Handle -> DEBU 2a9[0m Attempting to read seek info message
+[33m2017-09-11 08:10:27.887 UTC [orderer/common/deliver] Handle -> WARN 2aa[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:27.887 UTC [orderer/main] func1 -> DEBU 2ab[0m Closing Deliver stream
+[36m2017-09-11 08:10:37.891 UTC [orderer/main] Deliver -> DEBU 2ac[0m Starting new Deliver handler
+[36m2017-09-11 08:10:37.891 UTC [orderer/common/deliver] Handle -> DEBU 2ad[0m Starting new deliver loop
+[36m2017-09-11 08:10:37.891 UTC [orderer/common/deliver] Handle -> DEBU 2ae[0m Attempting to read seek info message
+[33m2017-09-11 08:10:37.891 UTC [orderer/common/deliver] Handle -> WARN 2af[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:37.891 UTC [orderer/main] func1 -> DEBU 2b0[0m Closing Deliver stream
+[36m2017-09-11 08:10:47.893 UTC [orderer/main] Deliver -> DEBU 2b1[0m Starting new Deliver handler
+[36m2017-09-11 08:10:47.893 UTC [orderer/common/deliver] Handle -> DEBU 2b2[0m Starting new deliver loop
+[36m2017-09-11 08:10:47.893 UTC [orderer/common/deliver] Handle -> DEBU 2b3[0m Attempting to read seek info message
+[33m2017-09-11 08:10:47.893 UTC [orderer/common/deliver] Handle -> WARN 2b4[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:47.893 UTC [orderer/main] func1 -> DEBU 2b5[0m Closing Deliver stream
+[36m2017-09-11 08:10:57.896 UTC [orderer/main] Deliver -> DEBU 2b6[0m Starting new Deliver handler
+[36m2017-09-11 08:10:57.896 UTC [orderer/common/deliver] Handle -> DEBU 2b7[0m Starting new deliver loop
+[36m2017-09-11 08:10:57.896 UTC [orderer/common/deliver] Handle -> DEBU 2b8[0m Attempting to read seek info message
+[33m2017-09-11 08:10:57.896 UTC [orderer/common/deliver] Handle -> WARN 2b9[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:10:57.896 UTC [orderer/main] func1 -> DEBU 2ba[0m Closing Deliver stream
+[36m2017-09-11 08:11:07.898 UTC [orderer/main] Deliver -> DEBU 2bb[0m Starting new Deliver handler
+[36m2017-09-11 08:11:07.898 UTC [orderer/common/deliver] Handle -> DEBU 2bc[0m Starting new deliver loop
+[36m2017-09-11 08:11:07.898 UTC [orderer/common/deliver] Handle -> DEBU 2bd[0m Attempting to read seek info message
+[33m2017-09-11 08:11:07.899 UTC [orderer/common/deliver] Handle -> WARN 2be[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:07.899 UTC [orderer/main] func1 -> DEBU 2bf[0m Closing Deliver stream
+[36m2017-09-11 08:11:17.900 UTC [orderer/main] Deliver -> DEBU 2c0[0m Starting new Deliver handler
+[36m2017-09-11 08:11:17.901 UTC [orderer/common/deliver] Handle -> DEBU 2c1[0m Starting new deliver loop
+[36m2017-09-11 08:11:17.901 UTC [orderer/common/deliver] Handle -> DEBU 2c2[0m Attempting to read seek info message
+[33m2017-09-11 08:11:17.901 UTC [orderer/common/deliver] Handle -> WARN 2c3[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:17.901 UTC [orderer/main] func1 -> DEBU 2c4[0m Closing Deliver stream
+[36m2017-09-11 08:11:27.902 UTC [orderer/main] Deliver -> DEBU 2c5[0m Starting new Deliver handler
+[36m2017-09-11 08:11:27.902 UTC [orderer/common/deliver] Handle -> DEBU 2c6[0m Starting new deliver loop
+[36m2017-09-11 08:11:27.902 UTC [orderer/common/deliver] Handle -> DEBU 2c7[0m Attempting to read seek info message
+[33m2017-09-11 08:11:27.902 UTC [orderer/common/deliver] Handle -> WARN 2c8[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:27.903 UTC [orderer/main] func1 -> DEBU 2c9[0m Closing Deliver stream
+[36m2017-09-11 08:11:37.908 UTC [orderer/main] Deliver -> DEBU 2ca[0m Starting new Deliver handler
+[36m2017-09-11 08:11:37.908 UTC [orderer/common/deliver] Handle -> DEBU 2cb[0m Starting new deliver loop
+[36m2017-09-11 08:11:37.908 UTC [orderer/common/deliver] Handle -> DEBU 2cc[0m Attempting to read seek info message
+[33m2017-09-11 08:11:37.908 UTC [orderer/common/deliver] Handle -> WARN 2cd[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:37.908 UTC [orderer/main] func1 -> DEBU 2ce[0m Closing Deliver stream
+[36m2017-09-11 08:11:47.909 UTC [orderer/main] Deliver -> DEBU 2cf[0m Starting new Deliver handler
+[36m2017-09-11 08:11:47.909 UTC [orderer/common/deliver] Handle -> DEBU 2d0[0m Starting new deliver loop
+[36m2017-09-11 08:11:47.909 UTC [orderer/common/deliver] Handle -> DEBU 2d1[0m Attempting to read seek info message
+[33m2017-09-11 08:11:47.910 UTC [orderer/common/deliver] Handle -> WARN 2d2[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:47.910 UTC [orderer/main] func1 -> DEBU 2d3[0m Closing Deliver stream
+[36m2017-09-11 08:11:57.911 UTC [orderer/main] Deliver -> DEBU 2d4[0m Starting new Deliver handler
+[36m2017-09-11 08:11:57.911 UTC [orderer/common/deliver] Handle -> DEBU 2d5[0m Starting new deliver loop
+[36m2017-09-11 08:11:57.911 UTC [orderer/common/deliver] Handle -> DEBU 2d6[0m Attempting to read seek info message
+[33m2017-09-11 08:11:57.911 UTC [orderer/common/deliver] Handle -> WARN 2d7[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:11:57.911 UTC [orderer/main] func1 -> DEBU 2d8[0m Closing Deliver stream
+[36m2017-09-11 08:12:07.913 UTC [orderer/main] Deliver -> DEBU 2d9[0m Starting new Deliver handler
+[36m2017-09-11 08:12:07.913 UTC [orderer/common/deliver] Handle -> DEBU 2da[0m Starting new deliver loop
+[36m2017-09-11 08:12:07.913 UTC [orderer/common/deliver] Handle -> DEBU 2db[0m Attempting to read seek info message
+[33m2017-09-11 08:12:07.914 UTC [orderer/common/deliver] Handle -> WARN 2dc[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:07.914 UTC [orderer/main] func1 -> DEBU 2dd[0m Closing Deliver stream
+[36m2017-09-11 08:12:17.917 UTC [orderer/main] Deliver -> DEBU 2de[0m Starting new Deliver handler
+[36m2017-09-11 08:12:17.917 UTC [orderer/common/deliver] Handle -> DEBU 2df[0m Starting new deliver loop
+[36m2017-09-11 08:12:17.917 UTC [orderer/common/deliver] Handle -> DEBU 2e0[0m Attempting to read seek info message
+[33m2017-09-11 08:12:17.917 UTC [orderer/common/deliver] Handle -> WARN 2e1[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:17.917 UTC [orderer/main] func1 -> DEBU 2e2[0m Closing Deliver stream
+[36m2017-09-11 08:12:27.919 UTC [orderer/main] Deliver -> DEBU 2e3[0m Starting new Deliver handler
+[36m2017-09-11 08:12:27.919 UTC [orderer/common/deliver] Handle -> DEBU 2e4[0m Starting new deliver loop
+[36m2017-09-11 08:12:27.919 UTC [orderer/common/deliver] Handle -> DEBU 2e5[0m Attempting to read seek info message
+[33m2017-09-11 08:12:27.919 UTC [orderer/common/deliver] Handle -> WARN 2e6[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:27.919 UTC [orderer/main] func1 -> DEBU 2e7[0m Closing Deliver stream
+[36m2017-09-11 08:12:37.921 UTC [orderer/main] Deliver -> DEBU 2e8[0m Starting new Deliver handler
+[36m2017-09-11 08:12:37.921 UTC [orderer/common/deliver] Handle -> DEBU 2e9[0m Starting new deliver loop
+[36m2017-09-11 08:12:37.921 UTC [orderer/common/deliver] Handle -> DEBU 2ea[0m Attempting to read seek info message
+[33m2017-09-11 08:12:37.921 UTC [orderer/common/deliver] Handle -> WARN 2eb[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:37.921 UTC [orderer/main] func1 -> DEBU 2ec[0m Closing Deliver stream
+[36m2017-09-11 08:12:47.923 UTC [orderer/main] Deliver -> DEBU 2ed[0m Starting new Deliver handler
+[36m2017-09-11 08:12:47.923 UTC [orderer/common/deliver] Handle -> DEBU 2ee[0m Starting new deliver loop
+[36m2017-09-11 08:12:47.924 UTC [orderer/common/deliver] Handle -> DEBU 2ef[0m Attempting to read seek info message
+[33m2017-09-11 08:12:47.924 UTC [orderer/common/deliver] Handle -> WARN 2f0[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:47.924 UTC [orderer/main] func1 -> DEBU 2f1[0m Closing Deliver stream
+[36m2017-09-11 08:12:57.930 UTC [orderer/main] Deliver -> DEBU 2f2[0m Starting new Deliver handler
+[36m2017-09-11 08:12:57.930 UTC [orderer/common/deliver] Handle -> DEBU 2f3[0m Starting new deliver loop
+[36m2017-09-11 08:12:57.930 UTC [orderer/common/deliver] Handle -> DEBU 2f4[0m Attempting to read seek info message
+[33m2017-09-11 08:12:57.930 UTC [orderer/common/deliver] Handle -> WARN 2f5[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:12:57.930 UTC [orderer/main] func1 -> DEBU 2f6[0m Closing Deliver stream
+[36m2017-09-11 08:13:07.931 UTC [orderer/main] Deliver -> DEBU 2f7[0m Starting new Deliver handler
+[36m2017-09-11 08:13:07.931 UTC [orderer/common/deliver] Handle -> DEBU 2f8[0m Starting new deliver loop
+[36m2017-09-11 08:13:07.931 UTC [orderer/common/deliver] Handle -> DEBU 2f9[0m Attempting to read seek info message
+[33m2017-09-11 08:13:07.932 UTC [orderer/common/deliver] Handle -> WARN 2fa[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:07.932 UTC [orderer/main] func1 -> DEBU 2fb[0m Closing Deliver stream
+[36m2017-09-11 08:13:17.933 UTC [orderer/main] Deliver -> DEBU 2fc[0m Starting new Deliver handler
+[36m2017-09-11 08:13:17.933 UTC [orderer/common/deliver] Handle -> DEBU 2fd[0m Starting new deliver loop
+[36m2017-09-11 08:13:17.933 UTC [orderer/common/deliver] Handle -> DEBU 2fe[0m Attempting to read seek info message
+[33m2017-09-11 08:13:17.933 UTC [orderer/common/deliver] Handle -> WARN 2ff[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:17.933 UTC [orderer/main] func1 -> DEBU 300[0m Closing Deliver stream
+[36m2017-09-11 08:13:27.935 UTC [orderer/main] Deliver -> DEBU 301[0m Starting new Deliver handler
+[36m2017-09-11 08:13:27.935 UTC [orderer/common/deliver] Handle -> DEBU 302[0m Starting new deliver loop
+[36m2017-09-11 08:13:27.935 UTC [orderer/common/deliver] Handle -> DEBU 303[0m Attempting to read seek info message
+[33m2017-09-11 08:13:27.937 UTC [orderer/common/deliver] Handle -> WARN 304[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:27.937 UTC [orderer/main] func1 -> DEBU 305[0m Closing Deliver stream
+[36m2017-09-11 08:13:37.943 UTC [orderer/main] Deliver -> DEBU 306[0m Starting new Deliver handler
+[36m2017-09-11 08:13:37.943 UTC [orderer/common/deliver] Handle -> DEBU 307[0m Starting new deliver loop
+[36m2017-09-11 08:13:37.943 UTC [orderer/common/deliver] Handle -> DEBU 308[0m Attempting to read seek info message
+[33m2017-09-11 08:13:37.943 UTC [orderer/common/deliver] Handle -> WARN 309[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:37.943 UTC [orderer/main] func1 -> DEBU 30a[0m Closing Deliver stream
+[36m2017-09-11 08:13:47.946 UTC [orderer/main] Deliver -> DEBU 30b[0m Starting new Deliver handler
+[36m2017-09-11 08:13:47.946 UTC [orderer/common/deliver] Handle -> DEBU 30c[0m Starting new deliver loop
+[36m2017-09-11 08:13:47.946 UTC [orderer/common/deliver] Handle -> DEBU 30d[0m Attempting to read seek info message
+[33m2017-09-11 08:13:47.947 UTC [orderer/common/deliver] Handle -> WARN 30e[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:47.947 UTC [orderer/main] func1 -> DEBU 30f[0m Closing Deliver stream
+[36m2017-09-11 08:13:57.948 UTC [orderer/main] Deliver -> DEBU 310[0m Starting new Deliver handler
+[36m2017-09-11 08:13:57.948 UTC [orderer/common/deliver] Handle -> DEBU 311[0m Starting new deliver loop
+[36m2017-09-11 08:13:57.949 UTC [orderer/common/deliver] Handle -> DEBU 312[0m Attempting to read seek info message
+[33m2017-09-11 08:13:57.949 UTC [orderer/common/deliver] Handle -> WARN 313[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:13:57.949 UTC [orderer/main] func1 -> DEBU 314[0m Closing Deliver stream
+[36m2017-09-11 08:14:07.950 UTC [orderer/main] Deliver -> DEBU 315[0m Starting new Deliver handler
+[36m2017-09-11 08:14:07.951 UTC [orderer/common/deliver] Handle -> DEBU 316[0m Starting new deliver loop
+[36m2017-09-11 08:14:07.951 UTC [orderer/common/deliver] Handle -> DEBU 317[0m Attempting to read seek info message
+[33m2017-09-11 08:14:07.951 UTC [orderer/common/deliver] Handle -> WARN 318[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:07.951 UTC [orderer/main] func1 -> DEBU 319[0m Closing Deliver stream
+[36m2017-09-11 08:14:17.952 UTC [orderer/main] Deliver -> DEBU 31a[0m Starting new Deliver handler
+[36m2017-09-11 08:14:17.953 UTC [orderer/common/deliver] Handle -> DEBU 31b[0m Starting new deliver loop
+[36m2017-09-11 08:14:17.953 UTC [orderer/common/deliver] Handle -> DEBU 31c[0m Attempting to read seek info message
+[33m2017-09-11 08:14:17.953 UTC [orderer/common/deliver] Handle -> WARN 31d[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:17.953 UTC [orderer/main] func1 -> DEBU 31e[0m Closing Deliver stream
+[36m2017-09-11 08:14:27.954 UTC [orderer/main] Deliver -> DEBU 31f[0m Starting new Deliver handler
+[36m2017-09-11 08:14:27.954 UTC [orderer/common/deliver] Handle -> DEBU 320[0m Starting new deliver loop
+[36m2017-09-11 08:14:27.955 UTC [orderer/common/deliver] Handle -> DEBU 321[0m Attempting to read seek info message
+[33m2017-09-11 08:14:27.955 UTC [orderer/common/deliver] Handle -> WARN 322[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:27.955 UTC [orderer/main] func1 -> DEBU 323[0m Closing Deliver stream
+[36m2017-09-11 08:14:37.957 UTC [orderer/main] Deliver -> DEBU 324[0m Starting new Deliver handler
+[36m2017-09-11 08:14:37.957 UTC [orderer/common/deliver] Handle -> DEBU 325[0m Starting new deliver loop
+[36m2017-09-11 08:14:37.957 UTC [orderer/common/deliver] Handle -> DEBU 326[0m Attempting to read seek info message
+[33m2017-09-11 08:14:37.957 UTC [orderer/common/deliver] Handle -> WARN 327[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:37.957 UTC [orderer/main] func1 -> DEBU 328[0m Closing Deliver stream
+[36m2017-09-11 08:14:45.324 UTC [orderer/kafka] try -> DEBU 329[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:14:45.324 UTC [orderer/kafka] try -> DEBU 32a[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:14:47.960 UTC [orderer/main] Deliver -> DEBU 32b[0m Starting new Deliver handler
+[36m2017-09-11 08:14:47.960 UTC [orderer/common/deliver] Handle -> DEBU 32c[0m Starting new deliver loop
+[36m2017-09-11 08:14:47.960 UTC [orderer/common/deliver] Handle -> DEBU 32d[0m Attempting to read seek info message
+[33m2017-09-11 08:14:47.961 UTC [orderer/common/deliver] Handle -> WARN 32e[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:47.961 UTC [orderer/main] func1 -> DEBU 32f[0m Closing Deliver stream
+[36m2017-09-11 08:14:57.962 UTC [orderer/main] Deliver -> DEBU 330[0m Starting new Deliver handler
+[36m2017-09-11 08:14:57.963 UTC [orderer/common/deliver] Handle -> DEBU 331[0m Starting new deliver loop
+[36m2017-09-11 08:14:57.963 UTC [orderer/common/deliver] Handle -> DEBU 332[0m Attempting to read seek info message
+[33m2017-09-11 08:14:57.963 UTC [orderer/common/deliver] Handle -> WARN 333[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:14:57.963 UTC [orderer/main] func1 -> DEBU 334[0m Closing Deliver stream
+[36m2017-09-11 08:15:07.965 UTC [orderer/main] Deliver -> DEBU 335[0m Starting new Deliver handler
+[36m2017-09-11 08:15:07.965 UTC [orderer/common/deliver] Handle -> DEBU 336[0m Starting new deliver loop
+[36m2017-09-11 08:15:07.965 UTC [orderer/common/deliver] Handle -> DEBU 337[0m Attempting to read seek info message
+[33m2017-09-11 08:15:07.965 UTC [orderer/common/deliver] Handle -> WARN 338[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:07.965 UTC [orderer/main] func1 -> DEBU 339[0m Closing Deliver stream
+[36m2017-09-11 08:15:17.967 UTC [orderer/main] Deliver -> DEBU 33a[0m Starting new Deliver handler
+[36m2017-09-11 08:15:17.967 UTC [orderer/common/deliver] Handle -> DEBU 33b[0m Starting new deliver loop
+[36m2017-09-11 08:15:17.967 UTC [orderer/common/deliver] Handle -> DEBU 33c[0m Attempting to read seek info message
+[33m2017-09-11 08:15:17.967 UTC [orderer/common/deliver] Handle -> WARN 33d[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:17.967 UTC [orderer/main] func1 -> DEBU 33e[0m Closing Deliver stream
+[36m2017-09-11 08:15:27.968 UTC [orderer/main] Deliver -> DEBU 33f[0m Starting new Deliver handler
+[36m2017-09-11 08:15:27.968 UTC [orderer/common/deliver] Handle -> DEBU 340[0m Starting new deliver loop
+[36m2017-09-11 08:15:27.968 UTC [orderer/common/deliver] Handle -> DEBU 341[0m Attempting to read seek info message
+[33m2017-09-11 08:15:27.969 UTC [orderer/common/deliver] Handle -> WARN 342[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:27.969 UTC [orderer/main] func1 -> DEBU 343[0m Closing Deliver stream
+[36m2017-09-11 08:15:37.972 UTC [orderer/main] Deliver -> DEBU 344[0m Starting new Deliver handler
+[36m2017-09-11 08:15:37.978 UTC [orderer/common/deliver] Handle -> DEBU 345[0m Starting new deliver loop
+[36m2017-09-11 08:15:37.978 UTC [orderer/common/deliver] Handle -> DEBU 346[0m Attempting to read seek info message
+[33m2017-09-11 08:15:37.978 UTC [orderer/common/deliver] Handle -> WARN 347[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:37.978 UTC [orderer/main] func1 -> DEBU 348[0m Closing Deliver stream
+[36m2017-09-11 08:15:47.980 UTC [orderer/main] Deliver -> DEBU 349[0m Starting new Deliver handler
+[36m2017-09-11 08:15:47.980 UTC [orderer/common/deliver] Handle -> DEBU 34a[0m Starting new deliver loop
+[36m2017-09-11 08:15:47.980 UTC [orderer/common/deliver] Handle -> DEBU 34b[0m Attempting to read seek info message
+[33m2017-09-11 08:15:47.980 UTC [orderer/common/deliver] Handle -> WARN 34c[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:47.980 UTC [orderer/main] func1 -> DEBU 34d[0m Closing Deliver stream
+[36m2017-09-11 08:15:50.204 UTC [orderer/main] Deliver -> DEBU 34e[0m Starting new Deliver handler
+[36m2017-09-11 08:15:50.204 UTC [orderer/common/deliver] Handle -> DEBU 34f[0m Starting new deliver loop
+[36m2017-09-11 08:15:50.204 UTC [orderer/common/deliver] Handle -> DEBU 350[0m Attempting to read seek info message
+[33m2017-09-11 08:15:50.205 UTC [orderer/common/deliver] Handle -> WARN 351[0m [channel: testchainid] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:50.205 UTC [orderer/main] func1 -> DEBU 352[0m Closing Deliver stream
+[36m2017-09-11 08:15:50.209 UTC [grpc] Printf -> DEBU 353[0m transport: http2Server.HandleStreams failed to read frame: read tcp 172.22.0.19:7050->172.22.0.11:38990: read: connection reset by peer
+[36m2017-09-11 08:15:57.982 UTC [orderer/main] Deliver -> DEBU 354[0m Starting new Deliver handler
+[36m2017-09-11 08:15:57.982 UTC [orderer/common/deliver] Handle -> DEBU 355[0m Starting new deliver loop
+[36m2017-09-11 08:15:57.982 UTC [orderer/common/deliver] Handle -> DEBU 356[0m Attempting to read seek info message
+[33m2017-09-11 08:15:57.982 UTC [orderer/common/deliver] Handle -> WARN 357[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:15:57.982 UTC [orderer/main] func1 -> DEBU 358[0m Closing Deliver stream
+[36m2017-09-11 08:16:07.984 UTC [orderer/main] Deliver -> DEBU 359[0m Starting new Deliver handler
+[36m2017-09-11 08:16:07.984 UTC [orderer/common/deliver] Handle -> DEBU 35a[0m Starting new deliver loop
+[36m2017-09-11 08:16:07.984 UTC [orderer/common/deliver] Handle -> DEBU 35b[0m Attempting to read seek info message
+[33m2017-09-11 08:16:07.984 UTC [orderer/common/deliver] Handle -> WARN 35c[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:07.984 UTC [orderer/main] func1 -> DEBU 35d[0m Closing Deliver stream
+[36m2017-09-11 08:16:17.985 UTC [orderer/main] Deliver -> DEBU 35e[0m Starting new Deliver handler
+[36m2017-09-11 08:16:17.985 UTC [orderer/common/deliver] Handle -> DEBU 35f[0m Starting new deliver loop
+[36m2017-09-11 08:16:17.985 UTC [orderer/common/deliver] Handle -> DEBU 360[0m Attempting to read seek info message
+[33m2017-09-11 08:16:17.985 UTC [orderer/common/deliver] Handle -> WARN 361[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:17.986 UTC [orderer/main] func1 -> DEBU 362[0m Closing Deliver stream
+[36m2017-09-11 08:16:27.087 UTC [orderer/main] Deliver -> DEBU 363[0m Starting new Deliver handler
+[36m2017-09-11 08:16:27.087 UTC [orderer/common/deliver] Handle -> DEBU 364[0m Starting new deliver loop
+[36m2017-09-11 08:16:27.087 UTC [orderer/common/deliver] Handle -> DEBU 365[0m Attempting to read seek info message
+[33m2017-09-11 08:16:27.088 UTC [orderer/common/deliver] Handle -> WARN 366[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:27.088 UTC [orderer/main] func1 -> DEBU 367[0m Closing Deliver stream
+[36m2017-09-11 08:16:27.987 UTC [orderer/main] Deliver -> DEBU 368[0m Starting new Deliver handler
+[36m2017-09-11 08:16:27.987 UTC [orderer/common/deliver] Handle -> DEBU 369[0m Starting new deliver loop
+[36m2017-09-11 08:16:27.987 UTC [orderer/common/deliver] Handle -> DEBU 36a[0m Attempting to read seek info message
+[33m2017-09-11 08:16:27.987 UTC [orderer/common/deliver] Handle -> WARN 36b[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:27.987 UTC [orderer/main] func1 -> DEBU 36c[0m Closing Deliver stream
+[36m2017-09-11 08:16:37.989 UTC [orderer/main] Deliver -> DEBU 36d[0m Starting new Deliver handler
+[36m2017-09-11 08:16:37.989 UTC [orderer/common/deliver] Handle -> DEBU 36e[0m Starting new deliver loop
+[36m2017-09-11 08:16:37.989 UTC [orderer/common/deliver] Handle -> DEBU 36f[0m Attempting to read seek info message
+[33m2017-09-11 08:16:37.989 UTC [orderer/common/deliver] Handle -> WARN 370[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:37.989 UTC [orderer/main] func1 -> DEBU 371[0m Closing Deliver stream
+[36m2017-09-11 08:16:47.991 UTC [orderer/main] Deliver -> DEBU 372[0m Starting new Deliver handler
+[36m2017-09-11 08:16:47.991 UTC [orderer/common/deliver] Handle -> DEBU 373[0m Starting new deliver loop
+[36m2017-09-11 08:16:47.991 UTC [orderer/common/deliver] Handle -> DEBU 374[0m Attempting to read seek info message
+[33m2017-09-11 08:16:47.991 UTC [orderer/common/deliver] Handle -> WARN 375[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:47.991 UTC [orderer/main] func1 -> DEBU 376[0m Closing Deliver stream
+[36m2017-09-11 08:16:50.395 UTC [orderer/main] Deliver -> DEBU 377[0m Starting new Deliver handler
+[36m2017-09-11 08:16:50.396 UTC [orderer/common/deliver] Handle -> DEBU 378[0m Starting new deliver loop
+[36m2017-09-11 08:16:50.396 UTC [orderer/common/deliver] Handle -> DEBU 379[0m Attempting to read seek info message
+[33m2017-09-11 08:16:50.396 UTC [orderer/common/deliver] Handle -> WARN 37a[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:50.397 UTC [orderer/main] func1 -> DEBU 37b[0m Closing Deliver stream
+[36m2017-09-11 08:16:57.994 UTC [orderer/main] Deliver -> DEBU 37c[0m Starting new Deliver handler
+[36m2017-09-11 08:16:57.995 UTC [orderer/common/deliver] Handle -> DEBU 37d[0m Starting new deliver loop
+[36m2017-09-11 08:16:57.995 UTC [orderer/common/deliver] Handle -> DEBU 37e[0m Attempting to read seek info message
+[33m2017-09-11 08:16:57.995 UTC [orderer/common/deliver] Handle -> WARN 37f[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:16:57.995 UTC [orderer/main] func1 -> DEBU 380[0m Closing Deliver stream
+[36m2017-09-11 08:17:07.997 UTC [orderer/main] Deliver -> DEBU 381[0m Starting new Deliver handler
+[36m2017-09-11 08:17:07.997 UTC [orderer/common/deliver] Handle -> DEBU 382[0m Starting new deliver loop
+[36m2017-09-11 08:17:07.997 UTC [orderer/common/deliver] Handle -> DEBU 383[0m Attempting to read seek info message
+[33m2017-09-11 08:17:07.997 UTC [orderer/common/deliver] Handle -> WARN 384[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:07.997 UTC [orderer/main] func1 -> DEBU 385[0m Closing Deliver stream
+[36m2017-09-11 08:17:17.999 UTC [orderer/main] Deliver -> DEBU 386[0m Starting new Deliver handler
+[36m2017-09-11 08:17:17.999 UTC [orderer/common/deliver] Handle -> DEBU 387[0m Starting new deliver loop
+[36m2017-09-11 08:17:17.999 UTC [orderer/common/deliver] Handle -> DEBU 388[0m Attempting to read seek info message
+[33m2017-09-11 08:17:17.999 UTC [orderer/common/deliver] Handle -> WARN 389[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:17.999 UTC [orderer/main] func1 -> DEBU 38a[0m Closing Deliver stream
+[36m2017-09-11 08:17:28.001 UTC [orderer/main] Deliver -> DEBU 38b[0m Starting new Deliver handler
+[36m2017-09-11 08:17:28.001 UTC [orderer/common/deliver] Handle -> DEBU 38c[0m Starting new deliver loop
+[36m2017-09-11 08:17:28.002 UTC [orderer/common/deliver] Handle -> DEBU 38d[0m Attempting to read seek info message
+[33m2017-09-11 08:17:28.002 UTC [orderer/common/deliver] Handle -> WARN 38e[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:28.002 UTC [orderer/main] func1 -> DEBU 38f[0m Closing Deliver stream
+[36m2017-09-11 08:17:38.008 UTC [orderer/main] Deliver -> DEBU 390[0m Starting new Deliver handler
+[36m2017-09-11 08:17:38.008 UTC [orderer/common/deliver] Handle -> DEBU 391[0m Starting new deliver loop
+[36m2017-09-11 08:17:38.008 UTC [orderer/common/deliver] Handle -> DEBU 392[0m Attempting to read seek info message
+[33m2017-09-11 08:17:38.008 UTC [orderer/common/deliver] Handle -> WARN 393[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:38.008 UTC [orderer/main] func1 -> DEBU 394[0m Closing Deliver stream
+[36m2017-09-11 08:17:48.012 UTC [orderer/main] Deliver -> DEBU 395[0m Starting new Deliver handler
+[36m2017-09-11 08:17:48.012 UTC [orderer/common/deliver] Handle -> DEBU 396[0m Starting new deliver loop
+[36m2017-09-11 08:17:48.012 UTC [orderer/common/deliver] Handle -> DEBU 397[0m Attempting to read seek info message
+[33m2017-09-11 08:17:48.012 UTC [orderer/common/deliver] Handle -> WARN 398[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:48.012 UTC [orderer/main] func1 -> DEBU 399[0m Closing Deliver stream
+[36m2017-09-11 08:17:58.015 UTC [orderer/main] Deliver -> DEBU 39a[0m Starting new Deliver handler
+[36m2017-09-11 08:17:58.015 UTC [orderer/common/deliver] Handle -> DEBU 39b[0m Starting new deliver loop
+[36m2017-09-11 08:17:58.015 UTC [orderer/common/deliver] Handle -> DEBU 39c[0m Attempting to read seek info message
+[33m2017-09-11 08:17:58.016 UTC [orderer/common/deliver] Handle -> WARN 39d[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:17:58.016 UTC [orderer/main] func1 -> DEBU 39e[0m Closing Deliver stream
+[36m2017-09-11 08:18:08.017 UTC [orderer/main] Deliver -> DEBU 39f[0m Starting new Deliver handler
+[36m2017-09-11 08:18:08.017 UTC [orderer/common/deliver] Handle -> DEBU 3a0[0m Starting new deliver loop
+[36m2017-09-11 08:18:08.017 UTC [orderer/common/deliver] Handle -> DEBU 3a1[0m Attempting to read seek info message
+[33m2017-09-11 08:18:08.017 UTC [orderer/common/deliver] Handle -> WARN 3a2[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:08.017 UTC [orderer/main] func1 -> DEBU 3a3[0m Closing Deliver stream
+[36m2017-09-11 08:18:18.018 UTC [orderer/main] Deliver -> DEBU 3a4[0m Starting new Deliver handler
+[36m2017-09-11 08:18:18.018 UTC [orderer/common/deliver] Handle -> DEBU 3a5[0m Starting new deliver loop
+[36m2017-09-11 08:18:18.018 UTC [orderer/common/deliver] Handle -> DEBU 3a6[0m Attempting to read seek info message
+[33m2017-09-11 08:18:18.019 UTC [orderer/common/deliver] Handle -> WARN 3a7[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:18.019 UTC [orderer/main] func1 -> DEBU 3a8[0m Closing Deliver stream
+[36m2017-09-11 08:18:28.021 UTC [orderer/main] Deliver -> DEBU 3a9[0m Starting new Deliver handler
+[36m2017-09-11 08:18:28.021 UTC [orderer/common/deliver] Handle -> DEBU 3aa[0m Starting new deliver loop
+[36m2017-09-11 08:18:28.021 UTC [orderer/common/deliver] Handle -> DEBU 3ab[0m Attempting to read seek info message
+[33m2017-09-11 08:18:28.021 UTC [orderer/common/deliver] Handle -> WARN 3ac[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:28.021 UTC [orderer/main] func1 -> DEBU 3ad[0m Closing Deliver stream
+[36m2017-09-11 08:18:38.023 UTC [orderer/main] Deliver -> DEBU 3ae[0m Starting new Deliver handler
+[36m2017-09-11 08:18:38.023 UTC [orderer/common/deliver] Handle -> DEBU 3af[0m Starting new deliver loop
+[36m2017-09-11 08:18:38.023 UTC [orderer/common/deliver] Handle -> DEBU 3b0[0m Attempting to read seek info message
+[33m2017-09-11 08:18:38.023 UTC [orderer/common/deliver] Handle -> WARN 3b1[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:38.023 UTC [orderer/main] func1 -> DEBU 3b2[0m Closing Deliver stream
+[36m2017-09-11 08:18:48.025 UTC [orderer/main] Deliver -> DEBU 3b3[0m Starting new Deliver handler
+[36m2017-09-11 08:18:48.025 UTC [orderer/common/deliver] Handle -> DEBU 3b4[0m Starting new deliver loop
+[36m2017-09-11 08:18:48.025 UTC [orderer/common/deliver] Handle -> DEBU 3b5[0m Attempting to read seek info message
+[33m2017-09-11 08:18:48.025 UTC [orderer/common/deliver] Handle -> WARN 3b6[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:48.025 UTC [orderer/main] func1 -> DEBU 3b7[0m Closing Deliver stream
+[36m2017-09-11 08:18:58.027 UTC [orderer/main] Deliver -> DEBU 3b8[0m Starting new Deliver handler
+[36m2017-09-11 08:18:58.027 UTC [orderer/common/deliver] Handle -> DEBU 3b9[0m Starting new deliver loop
+[36m2017-09-11 08:18:58.027 UTC [orderer/common/deliver] Handle -> DEBU 3ba[0m Attempting to read seek info message
+[33m2017-09-11 08:18:58.027 UTC [orderer/common/deliver] Handle -> WARN 3bb[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:18:58.027 UTC [orderer/main] func1 -> DEBU 3bc[0m Closing Deliver stream
+[36m2017-09-11 08:19:08.029 UTC [orderer/main] Deliver -> DEBU 3bd[0m Starting new Deliver handler
+[36m2017-09-11 08:19:08.029 UTC [orderer/common/deliver] Handle -> DEBU 3be[0m Starting new deliver loop
+[36m2017-09-11 08:19:08.029 UTC [orderer/common/deliver] Handle -> DEBU 3bf[0m Attempting to read seek info message
+[33m2017-09-11 08:19:08.030 UTC [orderer/common/deliver] Handle -> WARN 3c0[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:08.030 UTC [orderer/main] func1 -> DEBU 3c1[0m Closing Deliver stream
+[sarama] 2017/09/11 08:19:12.467874 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:19:12.469023 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/11 08:19:15.137736 client.go:601: client/metadata fetching metadata for all topics from broker kafka3:9092
+[sarama] 2017/09/11 08:19:15.273862 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[36m2017-09-11 08:19:18.033 UTC [orderer/main] Deliver -> DEBU 3c2[0m Starting new Deliver handler
+[36m2017-09-11 08:19:18.033 UTC [orderer/common/deliver] Handle -> DEBU 3c3[0m Starting new deliver loop
+[36m2017-09-11 08:19:18.033 UTC [orderer/common/deliver] Handle -> DEBU 3c4[0m Attempting to read seek info message
+[33m2017-09-11 08:19:18.033 UTC [orderer/common/deliver] Handle -> WARN 3c5[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:18.033 UTC [orderer/main] func1 -> DEBU 3c6[0m Closing Deliver stream
+[36m2017-09-11 08:19:28.035 UTC [orderer/main] Deliver -> DEBU 3c7[0m Starting new Deliver handler
+[36m2017-09-11 08:19:28.035 UTC [orderer/common/deliver] Handle -> DEBU 3c8[0m Starting new deliver loop
+[36m2017-09-11 08:19:28.035 UTC [orderer/common/deliver] Handle -> DEBU 3c9[0m Attempting to read seek info message
+[33m2017-09-11 08:19:28.035 UTC [orderer/common/deliver] Handle -> WARN 3ca[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:28.036 UTC [orderer/main] func1 -> DEBU 3cb[0m Closing Deliver stream
+[36m2017-09-11 08:19:38.040 UTC [orderer/main] Deliver -> DEBU 3cc[0m Starting new Deliver handler
+[36m2017-09-11 08:19:38.040 UTC [orderer/common/deliver] Handle -> DEBU 3cd[0m Starting new deliver loop
+[36m2017-09-11 08:19:38.040 UTC [orderer/common/deliver] Handle -> DEBU 3ce[0m Attempting to read seek info message
+[33m2017-09-11 08:19:38.040 UTC [orderer/common/deliver] Handle -> WARN 3cf[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:38.040 UTC [orderer/main] func1 -> DEBU 3d0[0m Closing Deliver stream
+[36m2017-09-11 08:19:45.322 UTC [orderer/kafka] try -> DEBU 3d1[0m [channel: mychannel] Connecting to the Kafka cluster
+[36m2017-09-11 08:19:45.323 UTC [orderer/kafka] try -> DEBU 3d2[0m [channel: testchainid] Connecting to the Kafka cluster
+[36m2017-09-11 08:19:48.042 UTC [orderer/main] Deliver -> DEBU 3d3[0m Starting new Deliver handler
+[36m2017-09-11 08:19:48.042 UTC [orderer/common/deliver] Handle -> DEBU 3d4[0m Starting new deliver loop
+[36m2017-09-11 08:19:48.042 UTC [orderer/common/deliver] Handle -> DEBU 3d5[0m Attempting to read seek info message
+[33m2017-09-11 08:19:48.042 UTC [orderer/common/deliver] Handle -> WARN 3d6[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:48.042 UTC [orderer/main] func1 -> DEBU 3d7[0m Closing Deliver stream
+[36m2017-09-11 08:19:58.044 UTC [orderer/main] Deliver -> DEBU 3d8[0m Starting new Deliver handler
+[36m2017-09-11 08:19:58.044 UTC [orderer/common/deliver] Handle -> DEBU 3d9[0m Starting new deliver loop
+[36m2017-09-11 08:19:58.044 UTC [orderer/common/deliver] Handle -> DEBU 3da[0m Attempting to read seek info message
+[33m2017-09-11 08:19:58.044 UTC [orderer/common/deliver] Handle -> WARN 3db[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:19:58.044 UTC [orderer/main] func1 -> DEBU 3dc[0m Closing Deliver stream
+[36m2017-09-11 08:20:08.046 UTC [orderer/main] Deliver -> DEBU 3dd[0m Starting new Deliver handler
+[36m2017-09-11 08:20:08.046 UTC [orderer/common/deliver] Handle -> DEBU 3de[0m Starting new deliver loop
+[36m2017-09-11 08:20:08.046 UTC [orderer/common/deliver] Handle -> DEBU 3df[0m Attempting to read seek info message
+[33m2017-09-11 08:20:08.046 UTC [orderer/common/deliver] Handle -> WARN 3e0[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:08.046 UTC [orderer/main] func1 -> DEBU 3e1[0m Closing Deliver stream
+[36m2017-09-11 08:20:18.048 UTC [orderer/main] Deliver -> DEBU 3e2[0m Starting new Deliver handler
+[36m2017-09-11 08:20:18.048 UTC [orderer/common/deliver] Handle -> DEBU 3e3[0m Starting new deliver loop
+[36m2017-09-11 08:20:18.048 UTC [orderer/common/deliver] Handle -> DEBU 3e4[0m Attempting to read seek info message
+[33m2017-09-11 08:20:18.049 UTC [orderer/common/deliver] Handle -> WARN 3e5[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:18.049 UTC [orderer/main] func1 -> DEBU 3e6[0m Closing Deliver stream
+[36m2017-09-11 08:20:28.051 UTC [orderer/main] Deliver -> DEBU 3e7[0m Starting new Deliver handler
+[36m2017-09-11 08:20:28.051 UTC [orderer/common/deliver] Handle -> DEBU 3e8[0m Starting new deliver loop
+[36m2017-09-11 08:20:28.051 UTC [orderer/common/deliver] Handle -> DEBU 3e9[0m Attempting to read seek info message
+[33m2017-09-11 08:20:28.051 UTC [orderer/common/deliver] Handle -> WARN 3ea[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:28.051 UTC [orderer/main] func1 -> DEBU 3eb[0m Closing Deliver stream
+[36m2017-09-11 08:20:38.055 UTC [orderer/main] Deliver -> DEBU 3ec[0m Starting new Deliver handler
+[36m2017-09-11 08:20:38.055 UTC [orderer/common/deliver] Handle -> DEBU 3ed[0m Starting new deliver loop
+[36m2017-09-11 08:20:38.055 UTC [orderer/common/deliver] Handle -> DEBU 3ee[0m Attempting to read seek info message
+[33m2017-09-11 08:20:38.056 UTC [orderer/common/deliver] Handle -> WARN 3ef[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:38.056 UTC [orderer/main] func1 -> DEBU 3f0[0m Closing Deliver stream
+[36m2017-09-11 08:20:48.057 UTC [orderer/main] Deliver -> DEBU 3f1[0m Starting new Deliver handler
+[36m2017-09-11 08:20:48.057 UTC [orderer/common/deliver] Handle -> DEBU 3f2[0m Starting new deliver loop
+[36m2017-09-11 08:20:48.057 UTC [orderer/common/deliver] Handle -> DEBU 3f3[0m Attempting to read seek info message
+[33m2017-09-11 08:20:48.057 UTC [orderer/common/deliver] Handle -> WARN 3f4[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:48.057 UTC [orderer/main] func1 -> DEBU 3f5[0m Closing Deliver stream
+[36m2017-09-11 08:20:58.061 UTC [orderer/main] Deliver -> DEBU 3f6[0m Starting new Deliver handler
+[36m2017-09-11 08:20:58.061 UTC [orderer/common/deliver] Handle -> DEBU 3f7[0m Starting new deliver loop
+[36m2017-09-11 08:20:58.061 UTC [orderer/common/deliver] Handle -> DEBU 3f8[0m Attempting to read seek info message
+[33m2017-09-11 08:20:58.062 UTC [orderer/common/deliver] Handle -> WARN 3f9[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:20:58.062 UTC [orderer/main] func1 -> DEBU 3fa[0m Closing Deliver stream
+[36m2017-09-11 08:21:08.064 UTC [orderer/main] Deliver -> DEBU 3fb[0m Starting new Deliver handler
+[36m2017-09-11 08:21:08.064 UTC [orderer/common/deliver] Handle -> DEBU 3fc[0m Starting new deliver loop
+[36m2017-09-11 08:21:08.064 UTC [orderer/common/deliver] Handle -> DEBU 3fd[0m Attempting to read seek info message
+[33m2017-09-11 08:21:08.065 UTC [orderer/common/deliver] Handle -> WARN 3fe[0m [channel: mychannel] Rejecting deliver request because of consenter error
+[36m2017-09-11 08:21:08.065 UTC [orderer/main] func1 -> DEBU 3ff[0m Closing Deliver stream

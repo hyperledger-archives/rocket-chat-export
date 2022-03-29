@@ -1,0 +1,119 @@
+```stack backtrace:
+
+   0: failure::backtrace::internal::InternalBacktrace::new (0x7ffc84ae1bd7)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\backtrace\internal.rs:46
+
+   1: failure::backtrace::Backtrace::new (0x7ffc84ae0e3e)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\backtrace\mod.rs:121
+
+   2: failure::error::error_impl::{{impl}}::from<serde_json::error::Error> (0x7ffc84601f92)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\error\error_impl.rs:19
+
+   3: failure::error::{{impl}}::from<serde_json::error::Error> (0x7ffc845bb45e)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\error\mod.rs:36
+
+   4: core::convert::{{impl}}::into<serde_json::error::Error,failure::error::Error> (0x7ffc8455f22e)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libcore\convert\mod.rs:560
+
+   5: failure::context::Context<str*>::with_err<str*,serde_json::error::Error> (0x7ffc845baeef)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\context.rs:105
+
+   6: failure::Fail::context<serde_json::error::Error,str*> (0x7ffc8455f6f0)
+
+             at C:\Users\jenkins\.cargo\registry\src\github.com-1ecc6299db9ec823\failure-0.1.8\src\lib.rs:161
+
+   7: indy_api_types::errors::{{impl}}::to_indy::{{closure}}<indy::domain::ledger::response::Message<indy::domain::ledger::schema::GetSchemaReplyResult>,serde_json::error::Error,str*> (0x7ffc83c56438)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\indy-api-types\src\errors.rs:474
+
+   8: core::result::Result<indy::domain::ledger::response::Message<indy::domain::ledger::schema::GetSchemaReplyResult>, serde_json::error::Error>::map_err<indy::domain::ledger::response::Message<indy::domain::ledger::schema::GetSchemaReplyResult>,serde_json::er (0x7ffc83fcea8f)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libcore\result.rs:612
+
+   9: indy_api_types::errors::{{impl}}::to_indy<indy::domain::ledger::response::Message<indy::domain::ledger::schema::GetSchemaReplyResult>,serde_json::error::Error,str*> (0x7ffc83f988d3)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\indy-api-types\src\errors.rs:475
+
+  10: indy::services::ledger::{{impl}}::parse_response::{{closure}}<indy::domain::ledger::schema::GetSchemaReplyResult> (0x7ffc83dc2cc4)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\services\ledger\mod.rs:467
+
+  11: indy::services::ledger::LedgerService::parse_response<indy::domain::ledger::schema::GetSchemaReplyResult> (0x7ffc83dc02ac)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\services\ledger\mod.rs:458
+
+  12: indy::services::ledger::{{impl}}::parse_get_schema_response::{{closure}} (0x7ffc83dbb377)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\services\ledger\mod.rs:262
+
+  13: indy::services::ledger::LedgerService::parse_get_schema_response (0x7ffc840273a4)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\services\ledger\mod.rs:260
+
+  14: indy::commands::ledger::LedgerCommandExecutor::_get_schema_continue (0x7ffc8406c0c2)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\commands\ledger.rs:1283
+
+  15: indy::commands::ledger::LedgerCommandExecutor::execute (0x7ffc84056403)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\commands\ledger.rs:485
+
+  16: indy::commands::{{impl}}::new::{{closure}} (0x7ffc84434df9)
+
+             at c:\Users\jenkins\workspace\indy-sdk\indy-sdk-ci\PR-2328\libindy\src\commands\mod.rs:181
+
+  17: std::sys_common::backtrace::__rust_begin_short_backtrace<closure-0,tuple<>> (0x7ffc8409dc93)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\sys_common\backtrace.rs:131
+
+  18: std::thread::{{impl}}::spawn_unchecked::{{closure}}::{{closure}}<closure-0,tuple<>> (0x7ffc83c5cb23)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\thread\mod.rs:476
+
+  19: std::panic::{{impl}}::call_once<tuple<>,closure-0> (0x7ffc8415b4c3)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\panic.rs:319
+
+  20: std::panicking::try::do_call<std::panic::AssertUnwindSafe<closure-0>,tuple<>> (0x7ffc841341fb)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\panicking.rs:350
+
+  21: core::iter::traits::collect::{{impl}}::into_iter<serde_json::map::Keys> (0x7ffc84134627)
+
+  22: std::panicking::try<tuple<>,std::panic::AssertUnwindSafe<closure-0>> (0x7ffc8413400c)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\panicking.rs:325
+
+  23: std::panic::catch_unwind<std::panic::AssertUnwindSafe<closure-0>,tuple<>> (0x7ffc8415b663)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\panic.rs:394
+
+  24: std::thread::{{impl}}::spawn_unchecked::{{closure}}<closure-0,tuple<>> (0x7ffc83c5c68c)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libstd\thread\mod.rs:474
+
+  25: core::ops::function::FnOnce::call_once<closure-0,tuple<>> (0x7ffc842b7b6e)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\src\libcore\ops\function.rs:233
+
+  26: std::sys::windows::thread::{{impl}}::new::thread_start (0x7ffc84b2001a)
+
+             at /rustc/04488afe34512aa4c33566eb16d8c912a3ae04f9\/src\libstd\sys\windows\thread.rs:56
+
+  27: BaseThreadInitThunk (0x7ffca01f84d4)
+
+
+
+Structure doesn't correspond to type. Most probably not found
+
+
+
+Item not found on ledger })
+
+ INFO|indy::services::ledger        |         src\services\ledger\mod.rs:260 | parse_get_schema_response() => Err(IndyError { inner: Error("data did not match any variant of untagged enum Reply", line: 0, column: 0)

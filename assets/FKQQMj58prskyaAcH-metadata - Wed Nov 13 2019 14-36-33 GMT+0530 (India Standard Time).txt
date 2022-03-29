@@ -1,0 +1,351 @@
+orderer(orderer0) node logs 
+```
+root@Orderer:~/GoWorkspace/src/github.com/MultiOrgs/networks# docker logs orderer.example.com
+2019-11-13 08:46:17.755 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+2019-11-13 08:46:17.769 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+        General.LedgerType = "file"
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = []
+        General.Cluster.ListenAddress = ""
+        General.Cluster.ListenPort = 0
+        General.Cluster.ServerCertificate = ""
+        General.Cluster.ServerPrivateKey = ""
+        General.Cluster.ClientCertificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.Cluster.ClientPrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.Cluster.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+        General.Cluster.ReplicationMaxRetries = 12
+        General.Cluster.SendBufferSize = 10
+        General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+        General.Cluster.TLSHandshakeTimeShift = 0s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.ConnectionTimeout = 0s
+        General.GenesisMethod = "file"
+        General.GenesisProfile = "OrdererOrg"
+        General.SystemChannel = "test-system-channel-name"
+        General.GenesisFile = "/var/hyperledger/orderer/orderer.genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+        General.LocalMSPID = "OrdererMSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.Ephemeral = false
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.BCCSP.PluginOpts =
+        General.Authentication.TimeWindow = 15m0s
+        General.Authentication.NoExpirationChecks = false
+        FileLedger.Location = "/var/hyperledger/production/orderer"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        RAMLedger.HistorySize = 1000
+        Kafka.Retry.ShortInterval = 5s
+        Kafka.Retry.ShortTotal = 10m0s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = false
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = false
+        Kafka.TLS.PrivateKey = ""
+        Kafka.TLS.Certificate = ""
+        Kafka.TLS.RootCAs = []
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 3
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[WALDir:/var/hyperledger/production/orderer/etcdraft/wal SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot]
+        Operations.ListenAddress = "127.0.0.1:8443"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+2019-11-13 08:46:17.785 UTC [orderer.common.server] extractSysChanLastConfig -> INFO 003 Bootstrapping because no existing channels
+2019-11-13 08:46:17.794 UTC [orderer.common.server] initializeServerConfig -> INFO 004 Starting orderer with TLS enabled
+2019-11-13 08:46:17.795 UTC [orderer.common.server] configureClusterListener -> INFO 005 Cluster listener is not configured, defaulting to use the general listener on port 7050
+2019-11-13 08:46:17.796 UTC [fsblkstorage] newBlockfileMgr -> INFO 006 Getting block information from block storage
+2019-11-13 08:46:17.824 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 007 EvictionSuspicion not set, defaulting to 10m0s
+2019-11-13 08:46:17.825 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 008 No WAL data found, creating new WAL at path '/var/hyperledger/production/orderer/etcdraft/wal/myorderer' channel=myorderer node=1   2019-11-13 08:46:17.836 UTC [orderer.commmon.multichannel] Initialize -> INFO 009 Starting system channel 'myorderer' with genesis block hash f172c8e1c79c0200be66929b7c07f200eb033f2f46f53f87a20da659f31c381a and orderer type etcdraft
+2019-11-13 08:46:17.836 UTC [orderer.consensus.etcdraft] Start -> INFO 00a Starting Raft node channel=myorderer node=1
+2019-11-13 08:46:17.837 UTC [orderer.common.cluster] Configure -> INFO 00b Entering, channel: myorderer, nodes: [ID: 2,
+Endpoint: orderer2.example.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQN2xOlGTfDfoKZUhThRnyjzAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIyLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEzIQ6+4yHROQRD9PyaTO3+giTLtYfygYOL+AoNybwTzVb
+CQRhl+SbKoJgFhdD0GY19C/TUVTVQk4eX6bDYVurVqOBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjIuZXhhbXBsZS5jb22CCG9yZGVyZXIyghRvcmRl
+cmVyMi5leGFtcGxlLmNvbYcEAw5DMDAKBggqhkjOPQQDAgNIADBFAiEA5+DJHI/Z
+Ky0b0KM5DXkKMfmH8uKkqlw4+tt6x8mJuUwCIBTwHGwEoCR0XWGp6YL77RCEXGWm
+nsP0hLREZNdjVf1I
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQN2xOlGTfDfoKZUhThRnyjzAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIyLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEzIQ6+4yHROQRD9PyaTO3+giTLtYfygYOL+AoNybwTzVb
+CQRhl+SbKoJgFhdD0GY19C/TUVTVQk4eX6bDYVurVqOBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjIuZXhhbXBsZS5jb22CCG9yZGVyZXIyghRvcmRl
+cmVyMi5leGFtcGxlLmNvbYcEAw5DMDAKBggqhkjOPQQDAgNIADBFAiEA5+DJHI/Z
+Ky0b0KM5DXkKMfmH8uKkqlw4+tt6x8mJuUwCIBTwHGwEoCR0XWGp6YL77RCEXGWm
+nsP0hLREZNdjVf1I
+-----END CERTIFICATE-----
+ ID: 3,
+Endpoint: orderer3.example.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQLAtDODmWCeltQAudvslFaTAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIzLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAECwZ1qakDPJNzJBbKxXujDVXDxuxDtf7Lv21zXqY6aMHh
+eqynIRpvIRC7alk4FncwZxUMBXRGeHLQjBFPilBNf6OBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjMuZXhhbXBsZS5jb22CCG9yZGVyZXIzghRvcmRl
+cmVyMy5leGFtcGxlLmNvbYcEIkV2DTAKBggqhkjOPQQDAgNIADBFAiEAiFxRh9PL
+qIRO3kkHzVNNUg34k5DLgatYSwNZZcE5XWwCIGuog4kRufLrsb119lJnPt7+uliV
+RzAINWms4Hgldi9u
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQLAtDODmWCeltQAudvslFaTAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIzLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAECwZ1qakDPJNzJBbKxXujDVXDxuxDtf7Lv21zXqY6aMHh
+eqynIRpvIRC7alk4FncwZxUMBXRGeHLQjBFPilBNf6OBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjMuZXhhbXBsZS5jb22CCG9yZGVyZXIzghRvcmRl
+cmVyMy5leGFtcGxlLmNvbYcEIkV2DTAKBggqhkjOPQQDAgNIADBFAiEAiFxRh9PL
+qIRO3kkHzVNNUg34k5DLgatYSwNZZcE5XWwCIGuog4kRufLrsb119lJnPt7+uliV
+RzAINWms4Hgldi9u
+-----END CERTIFICATE-----
+]
+2019-11-13 08:46:17.838 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00c Allocating a new stub for node 2 with endpoint of orderer2.example.com:7050 for channel myorderer
+2019-11-13 08:46:17.838 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00d Deactivating node 2 in channel myorderer with endpoint of orderer2.example.com:7050 due to TLS certificate change
+2019-11-13 08:46:17.839 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00e Allocating a new stub for node 3 with endpoint of orderer3.example.com:7050 for channel myorderer
+2019-11-13 08:46:17.840 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00f Deactivating node 3 in channel myorderer with endpoint of orderer3.example.com:7050 due to TLS certificate change
+2019-11-13 08:46:17.841 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 010 3 exists in both old and new membership for channel myorderer , skipping its deactivation
+2019-11-13 08:46:17.841 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 011 2 exists in both old and new membership for channel myorderer , skipping its deactivation
+2019-11-13 08:46:17.841 UTC [orderer.common.cluster] Configure -> INFO 012 Exiting
+2019-11-13 08:46:17.842 UTC [orderer.consensus.etcdraft] start -> INFO 013 Starting raft node as part of a new channel channel=myorderer node=1
+2019-11-13 08:46:17.842 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 014 1 became follower at term 0 channel=myorderer node=1
+2019-11-13 08:46:17.842 UTC [orderer.consensus.etcdraft] newRaft -> INFO 015 newRaft 1 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=myorderer node=1
+2019-11-13 08:46:17.842 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 016 1 became follower at term 1 channel=myorderer node=1
+2019-11-13 08:46:17.843 UTC [orderer.common.server] Start -> INFO 017 Starting orderer:
+ Version: 1.4.3
+ Commit SHA: b8c4a6a
+ Go version: go1.11.5
+ OS/Arch: linux/amd64
+2019-11-13 08:46:17.843 UTC [orderer.common.server] Start -> INFO 018 Beginning to serve requests
+2019-11-13 08:46:17.849 UTC [orderer.consensus.etcdraft] apply -> INFO 019 Applied config change to add node 1, current nodes in channel: [1 2 3] channel=myorderer node=1
+2019-11-13 08:46:17.850 UTC [orderer.consensus.etcdraft] apply -> INFO 01a Applied config change to add node 2, current nodes in channel: [1 2 3] channel=myorderer node=1
+2019-11-13 08:46:17.850 UTC [orderer.consensus.etcdraft] apply -> INFO 01b Applied config change to add node 3, current nodes in channel: [1 2 3] channel=myorderer node=1
+2019-11-13 08:46:22.846 UTC [orderer.consensus.etcdraft] Step -> INFO 01c 1 is starting a new election at term 1 channel=myorderer node=1
+2019-11-13 08:46:22.847 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 01d 1 became pre-candidate at term 1 channel=myorderer node=1
+2019-11-13 08:46:22.847 UTC [orderer.consensus.etcdraft] poll -> INFO 01e 1 received MsgPreVoteResp from 1 at term 1 channel=myorderer node=1
+2019-11-13 08:46:22.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 01f 1 [logterm: 1, index: 3] sent MsgPreVote request to 3 at term 1 channel=myorderer node=1
+2019-11-13 08:46:22.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 020 1 [logterm: 1, index: 3] sent MsgPreVote request to 2 at term 1 channel=myorderer node=1
+2019-11-13 08:46:22.847 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 021 Failed to send StepRequest to 2, because: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp 3.14.67.48:7050: connect: connection refused" channel=myorderer node=1
+2019-11-13 08:46:27.846 UTC [orderer.consensus.etcdraft] Step -> INFO 022 1 is starting a new election at term 1 channel=myorderer node=1
+2019-11-13 08:46:27.846 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 023 1 became pre-candidate at term 1 channel=myorderer node=1
+2019-11-13 08:46:27.847 UTC [orderer.consensus.etcdraft] poll -> INFO 024 1 received MsgPreVoteResp from 1 at term 1 channel=myorderer node=1
+2019-11-13 08:46:27.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 025 1 [logterm: 1, index: 3] sent MsgPreVote request to 2 at term 1 channel=myorderer node=1
+2019-11-13 08:46:27.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 026 1 [logterm: 1, index: 3] sent MsgPreVote request to 3 at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.835 UTC [orderer.consensus.etcdraft] Step -> INFO 027 1 [logterm: 1, index: 3, vote: 0] cast MsgPreVote for 2 [logterm: 1, index: 3] at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.846 UTC [orderer.consensus.etcdraft] Step -> INFO 028 1 is starting a new election at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.846 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 029 1 became pre-candidate at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.847 UTC [orderer.consensus.etcdraft] poll -> INFO 02a 1 received MsgPreVoteResp from 1 at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 02b 1 [logterm: 1, index: 3] sent MsgPreVote request to 2 at term 1 channel=myorderer node=1
+2019-11-13 08:46:32.847 UTC [orderer.consensus.etcdraft] campaign -> INFO 02c 1 [logterm: 1, index: 3] sent MsgPreVote request to 3 at term 1 channel=myorderer node=1
+2019-11-13 08:46:33.833 UTC [orderer.consensus.etcdraft] Step -> INFO 02d 1 [logterm: 1, index: 3, vote: 0] cast MsgPreVote for 2 [logterm: 1, index: 3] at term 1 channel=myorderer node=1
+2019-11-13 08:46:33.834 UTC [orderer.consensus.etcdraft] send -> INFO 02e Successfully sent StepRequest to 2 after failed attempt(s) channel=myorderer node=1
+2019-11-13 08:46:34.076 UTC [orderer.consensus.etcdraft] Step -> INFO 02f 1 [term: 1] received a MsgVote message with higher term from 2 [term: 2] channel=myorderer node=1
+2019-11-13 08:46:34.076 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 030 1 became follower at term 2 channel=myorderer node=1
+2019-11-13 08:46:34.076 UTC [orderer.consensus.etcdraft] Step -> INFO 031 1 [logterm: 1, index: 3, vote: 0] cast MsgVote for 2 [logterm: 1, index: 3] at term 2 channel=myorderer node=1
+2019-11-13 08:46:34.317 UTC [orderer.consensus.etcdraft] run -> INFO 032 raft.node: 1 elected leader 2 at term 2 channel=myorderer node=1
+2019-11-13 08:46:34.319 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 033 Raft leader changed: 0 -> 2 channel=myorderer node=1
+2019-11-13 08:46:43.831 UTC [orderer.consensus.etcdraft] Step -> INFO 034 1 [logterm: 2, index: 4, vote: 2] cast MsgPreVote for 2 [logterm: 2, index: 4] at term 2 channel=myorderer node=1
+2019-11-13 08:46:44.070 UTC [orderer.consensus.etcdraft] Step -> INFO 035 1 [term: 2] received a MsgVote message with higher term from 2 [term: 4] channel=myorderer node=1
+2019-11-13 08:46:44.070 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 036 1 became follower at term 4 channel=myorderer node=1
+2019-11-13 08:46:44.070 UTC [orderer.consensus.etcdraft] Step -> INFO 037 1 [logterm: 2, index: 4, vote: 0] cast MsgVote for 2 [logterm: 2, index: 4] at term 4 channel=myorderer node=1
+2019-11-13 08:46:44.070 UTC [orderer.consensus.etcdraft] run -> INFO 038 raft.node: 1 lost leader 2 at term 4 channel=myorderer node=1
+2019-11-13 08:46:44.072 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 039 Raft leader changed: 2 -> 0 channel=myorderer node=1
+2019-11-13 08:46:44.311 UTC [orderer.consensus.etcdraft] run -> INFO 03a raft.node: 1 elected leader 2 at term 4 channel=myorderer node=1
+2019-11-13 08:46:44.316 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 03b Raft leader changed: 0 -> 2 channel=myorderer node=1
+2019-11-13 08:48:22.508 UTC [comm.grpc.server] 1 -> INFO 03c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50066 grpc.code=OK grpc.call_duration=35.163927ms
+2019-11-13 08:48:22.509 UTC [comm.grpc.server] 1 -> INFO 03d streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.139.192.138:50068 grpc.code=OK grpc.call_duration=31.330647ms
+2019-11-13 08:48:22.720 UTC [comm.grpc.server] 1 -> INFO 03e streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50070 grpc.code=OK grpc.call_duration=200.959755ms
+2019-11-13 08:48:22.934 UTC [comm.grpc.server] 1 -> INFO 03f streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50072 grpc.code=OK grpc.call_duration=201.489945ms
+2019-11-13 08:48:23.143 UTC [comm.grpc.server] 1 -> INFO 040 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50074 grpc.code=OK grpc.call_duration=201.05269ms
+2019-11-13 08:48:23.225 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 041 Writing block [1] (Raft index: 6) to ledger channel=myorderer node=1
+2019-11-13 08:48:23.233 UTC [fsblkstorage] newBlockfileMgr -> INFO 042 Getting block information from block storage
+2019-11-13 08:48:23.249 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 043 EvictionSuspicion not set, defaulting to 10m0s
+2019-11-13 08:48:23.249 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 044 No WAL data found, creating new WAL at path '/var/hyperledger/production/orderer/etcdraft/wal/mychannel' channel=mychannel node=1   2019-11-13 08:48:23.257 UTC [orderer.commmon.multichannel] newChain -> INFO 045 Created and starting new chain mychannel
+2019-11-13 08:48:23.257 UTC [orderer.consensus.etcdraft] Start -> INFO 046 Starting Raft node channel=mychannel node=1
+2019-11-13 08:48:23.258 UTC [orderer.common.cluster] Configure -> INFO 047 Entering, channel: mychannel, nodes: [ID: 2,
+Endpoint: orderer2.example.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQN2xOlGTfDfoKZUhThRnyjzAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIyLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEzIQ6+4yHROQRD9PyaTO3+giTLtYfygYOL+AoNybwTzVb
+CQRhl+SbKoJgFhdD0GY19C/TUVTVQk4eX6bDYVurVqOBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjIuZXhhbXBsZS5jb22CCG9yZGVyZXIyghRvcmRl
+cmVyMi5leGFtcGxlLmNvbYcEAw5DMDAKBggqhkjOPQQDAgNIADBFAiEA5+DJHI/Z
+Ky0b0KM5DXkKMfmH8uKkqlw4+tt6x8mJuUwCIBTwHGwEoCR0XWGp6YL77RCEXGWm
+nsP0hLREZNdjVf1I
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQN2xOlGTfDfoKZUhThRnyjzAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIyLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEzIQ6+4yHROQRD9PyaTO3+giTLtYfygYOL+AoNybwTzVb
+CQRhl+SbKoJgFhdD0GY19C/TUVTVQk4eX6bDYVurVqOBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjIuZXhhbXBsZS5jb22CCG9yZGVyZXIyghRvcmRl
+cmVyMi5leGFtcGxlLmNvbYcEAw5DMDAKBggqhkjOPQQDAgNIADBFAiEA5+DJHI/Z
+Ky0b0KM5DXkKMfmH8uKkqlw4+tt6x8mJuUwCIBTwHGwEoCR0XWGp6YL77RCEXGWm
+nsP0hLREZNdjVf1I
+-----END CERTIFICATE-----
+ ID: 3,
+Endpoint: orderer3.example.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQLAtDODmWCeltQAudvslFaTAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIzLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAECwZ1qakDPJNzJBbKxXujDVXDxuxDtf7Lv21zXqY6aMHh
+eqynIRpvIRC7alk4FncwZxUMBXRGeHLQjBFPilBNf6OBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjMuZXhhbXBsZS5jb22CCG9yZGVyZXIzghRvcmRl
+cmVyMy5leGFtcGxlLmNvbYcEIkV2DTAKBggqhkjOPQQDAgNIADBFAiEAiFxRh9PL
+qIRO3kkHzVNNUg34k5DLgatYSwNZZcE5XWwCIGuog4kRufLrsb119lJnPt7+uliV
+RzAINWms4Hgldi9u
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICeDCCAh6gAwIBAgIQLAtDODmWCeltQAudvslFaTAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTE5MTExMjEwMzAwMFoXDTI5MTEwOTEwMzAwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIzLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAECwZ1qakDPJNzJBbKxXujDVXDxuxDtf7Lv21zXqY6aMHh
+eqynIRpvIRC7alk4FncwZxUMBXRGeHLQjBFPilBNf6OBtDCBsTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgFR/2D9UsEDZj8+ldweQNEWHi/83KnoCqOU/Ug1lXx6ow
+RQYDVR0RBD4wPIIUb3JkZXJlcjMuZXhhbXBsZS5jb22CCG9yZGVyZXIzghRvcmRl
+cmVyMy5leGFtcGxlLmNvbYcEIkV2DTAKBggqhkjOPQQDAgNIADBFAiEAiFxRh9PL
+qIRO3kkHzVNNUg34k5DLgatYSwNZZcE5XWwCIGuog4kRufLrsb119lJnPt7+uliV
+RzAINWms4Hgldi9u
+-----END CERTIFICATE-----
+]
+2019-11-13 08:48:23.259 UTC [orderer.common.cluster] updateStubInMapping -> INFO 048 Allocating a new stub for node 2 with endpoint of orderer2.example.com:7050 for channel mychannel
+2019-11-13 08:48:23.259 UTC [orderer.common.cluster] updateStubInMapping -> INFO 049 Deactivating node 2 in channel mychannel with endpoint of orderer2.example.com:7050 due to TLS certificate change
+2019-11-13 08:48:23.259 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04a Allocating a new stub for node 3 with endpoint of orderer3.example.com:7050 for channel mychannel
+2019-11-13 08:48:23.260 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04b Deactivating node 3 in channel mychannel with endpoint of orderer3.example.com:7050 due to TLS certificate change
+2019-11-13 08:48:23.260 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 04c 2 exists in both old and new membership for channel mychannel , skipping its deactivation
+2019-11-13 08:48:23.260 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 04d 3 exists in both old and new membership for channel mychannel , skipping its deactivation
+2019-11-13 08:48:23.261 UTC [orderer.common.cluster] Configure -> INFO 04e Exiting
+2019-11-13 08:48:23.261 UTC [orderer.consensus.etcdraft] start -> INFO 04f Starting raft node as part of a new channel channel=mychannel node=1
+2019-11-13 08:48:23.261 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 050 1 became follower at term 0 channel=mychannel node=1
+2019-11-13 08:48:23.261 UTC [orderer.consensus.etcdraft] newRaft -> INFO 051 newRaft 1 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=mychannel node=1
+2019-11-13 08:48:23.262 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 052 1 became follower at term 1 channel=mychannel node=1
+2019-11-13 08:48:23.281 UTC [orderer.consensus.etcdraft] apply -> INFO 053 Applied config change to add node 1, current nodes in channel: [1 2 3] channel=mychannel node=1
+2019-11-13 08:48:23.281 UTC [orderer.consensus.etcdraft] apply -> INFO 054 Applied config change to add node 2, current nodes in channel: [1 2 3] channel=mychannel node=1
+2019-11-13 08:48:23.281 UTC [orderer.consensus.etcdraft] apply -> INFO 055 Applied config change to add node 3, current nodes in channel: [1 2 3] channel=mychannel node=1
+2019-11-13 08:48:23.350 UTC [common.deliver] deliverBlocks -> WARN 056 [channel: mychannel] Rejecting deliver request for 10.139.192.138:50076 because of consenter error
+2019-11-13 08:48:23.351 UTC [comm.grpc.server] 1 -> INFO 057 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50076 grpc.code=OK grpc.call_duration=201.207987ms
+2019-11-13 08:48:23.560 UTC [common.deliver] deliverBlocks -> WARN 058 [channel: mychannel] Rejecting deliver request for 10.139.192.138:50078 because of consenter error
+2019-11-13 08:48:23.561 UTC [comm.grpc.server] 1 -> INFO 059 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50078 grpc.code=OK grpc.call_duration=201.563273ms
+2019-11-13 08:48:23.776 UTC [common.deliver] deliverBlocks -> WARN 05a [channel: mychannel] Rejecting deliver request for 10.139.192.138:50080 because of consenter error
+2019-11-13 08:48:23.777 UTC [comm.grpc.server] 1 -> INFO 05b streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50080 grpc.code=OK grpc.call_duration=201.184155ms
+2019-11-13 08:48:23.986 UTC [common.deliver] deliverBlocks -> WARN 05c [channel: mychannel] Rejecting deliver request for 10.139.192.138:50082 because of consenter error
+2019-11-13 08:48:23.987 UTC [comm.grpc.server] 1 -> INFO 05d streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50082 grpc.code=OK grpc.call_duration=201.417304ms
+2019-11-13 08:48:24.081 UTC [orderer.consensus.etcdraft] Step -> INFO 05e 1 [logterm: 1, index: 3, vote: 0] cast MsgPreVote for 2 [logterm: 1, index: 3] at term 1 channel=mychannel node=1
+2019-11-13 08:48:24.111 UTC [orderer.consensus.etcdraft] Step -> INFO 05f 1 [term: 1] received a MsgVote message with higher term from 2 [term: 2] channel=mychannel node=1
+2019-11-13 08:48:24.111 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 060 1 became follower at term 2 channel=mychannel node=1
+2019-11-13 08:48:24.111 UTC [orderer.consensus.etcdraft] Step -> INFO 061 1 [logterm: 1, index: 3, vote: 0] cast MsgVote for 2 [logterm: 1, index: 3] at term 2 channel=mychannel node=1
+2019-11-13 08:48:24.142 UTC [orderer.consensus.etcdraft] run -> INFO 062 raft.node: 1 elected leader 2 at term 2 channel=mychannel node=1
+2019-11-13 08:48:24.143 UTC [orderer.consensus.etcdraft] serveRequest -> INFO 063 Raft leader changed: 0 -> 2 channel=mychannel node=1
+2019-11-13 08:48:24.203 UTC [common.deliver] Handle -> WARN 064 Error reading from 10.139.192.138:50084: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:24.204 UTC [comm.grpc.server] 1 -> INFO 065 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50084 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=209.17958ms
+2019-11-13 08:48:38.120 UTC [common.deliver] Handle -> WARN 066 Error reading from 10.139.192.138:50098: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:38.120 UTC [comm.grpc.server] 1 -> INFO 067 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50098 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=25.2436ms
+2019-11-13 08:48:38.121 UTC [orderer.common.broadcast] Handle -> WARN 068 Error reading from 10.139.192.138:50100: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:38.121 UTC [comm.grpc.server] 1 -> INFO 069 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.139.192.138:50100 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=18.718053ms
+2019-11-13 08:48:38.426 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 06a Writing block [1] (Raft index: 5) to ledger channel=mychannel node=1
+2019-11-13 08:48:41.227 UTC [orderer.common.broadcast] Handle -> WARN 06b Error reading from 10.139.192.138:50104: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:41.228 UTC [comm.grpc.server] 1 -> INFO 06c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.139.192.138:50104 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=20.996756ms
+2019-11-13 08:48:41.228 UTC [common.deliver] Handle -> WARN 06d Error reading from 10.139.192.138:50102: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:41.229 UTC [comm.grpc.server] 1 -> INFO 06e streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.192.138:50102 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=27.452482ms
+2019-11-13 08:48:41.501 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 06f Writing block [2] (Raft index: 6) to ledger channel=mychannel node=1
+2019-11-13 08:48:50.316 UTC [orderer.common.broadcast] Handle -> WARN 070 Error reading from 10.139.192.138:50154: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:48:50.316 UTC [comm.grpc.server] 1 -> INFO 071 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.139.192.138:50154 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1.267251391s
+2019-11-13 08:49:00.585 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 072 Writing block [3] (Raft index: 7) to ledger channel=mychannel node=1
+2019-11-13 08:49:03.904 UTC [orderer.common.broadcast] Handle -> WARN 073 Error reading from 10.139.192.138:50246: rpc error: code = Canceled desc = context canceled
+2019-11-13 08:49:03.905 UTC [comm.grpc.server] 1 -> INFO 074 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.139.192.138:50246 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=105.414096ms
+2019-11-13 08:49:07.642 UTC [comm.grpc.server] 1 -> INFO 075 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=10.139.160.103:54996 grpc.peer_subject="CN=Admin@org2.example.com,L=San Francisco,ST=California,C=US" error="context finished before block retrieved: context canceled" grpc.code=Unknown grpc.call_duration=14.990671655s
+2019-11-13 08:49:14.186 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 076 Writing block [4] (Raft index: 8) to ledger channel=mychannel node=1
+root@Orderer:~/GoWorkspace/src/github.com/MultiOrgs/networks#
+```

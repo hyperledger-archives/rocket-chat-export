@@ -1,0 +1,156 @@
+TAP version 13
+# #######Caliper Test######
+# ##### testing 'smallOperations' ######
+----test round 0----
+started monitor successfully
+doTest() with: { type: 'test',
+  label: 'smallOperations',
+  rateControl: { type: 'fixed-rate', opts: { tps: 20 } },
+  trim: 0,
+  args: { accounts: 30, txnPerBatch: 10 },
+  cb: 'benchmark/smallbank/smallbankOperations.js',
+  config: 'benchmark/smallbank/sawtooth.json',
+  numb: 100,
+  roundIdx: 1,
+  totalClients: 2,
+  clients: 2,
+  clientargs: {},
+  clientIdx: 0 }
+Connected to tcp://127.0.0.1:4004
+doTest() with: { type: 'test',
+  label: 'smallOperations',
+  rateControl: { type: 'fixed-rate', opts: { tps: 20 } },
+  trim: 0,
+  args: { accounts: 30, txnPerBatch: 10 },
+  cb: 'benchmark/smallbank/smallbankOperations.js',
+  config: 'benchmark/smallbank/sawtooth.json',
+  numb: 100,
+  roundIdx: 1,
+  totalClients: 2,
+  clients: 2,
+  clientargs: {},
+  clientIdx: 1 }
+Info: client 30417 start test runFixedNumber():small_bank_operations
+***** { type: 'fixed-rate', opts: { tps: 20 } }
+Info: client 30422 start test runFixedNumber():small_bank_operations
+***** { type: 'fixed-rate', opts: { tps: 20 } }
+[Transaction Info] - Submitted: 0 Succ: 0 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 20 Succ: 20 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 40 Succ: 40 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 60 Succ: 60 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 90 Succ: 80 Fail:0 Unfinished:10
+[Transaction Info] - Submitted: 110 Succ: 100 Fail:0 Unfinished:10
+[Transaction Info] - Submitted: 140 Succ: 120 Fail:0 Unfinished:20
+[Transaction Info] - Submitted: 160 Succ: 150 Fail:0 Unfinished:10
+[Transaction Info] - Submitted: 180 Succ: 160 Fail:0 Unfinished:20
+[Transaction Info] - Submitted: 200 Succ: 180 Fail:0 Unfinished:20
+###test result:###
++-----------------+------+------+-----------+-------------+-------------+-------------+------------+
+| Name            | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|-----------------|------|------|-----------|-------------|-------------|-------------|------------|
+| smallOperations | 200  | 0    | 22 tps    | 0.04 s      | 0.01 s      | 0.02 s      | 22 tps     |
++-----------------+------+------+-----------+-------------+-------------+-------------+------------+
+
+### resource stats ###
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+
+| TYPE   | NAME                              | Memory(max) | Memory(avg) | CPU(max) | CPU(avg) | Traffic In | Traffic Out |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-rest-api-default         | 23.9MB      | 23.9MB      | 0.64%    | 0.50%    | 132.5KB    | 135.8KB     |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-smallbank-tp-go-...fault | 5.8MB       | 4.7MB       | 7.49%    | 4.89%    | 452.0KB    | 251.0KB     |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-settings-tp-default      | 20.3MB      | 20.3MB      | 0.00%    | 0.00%    | 0B         | 0B          |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-validator-default        | 39.6MB      | 37.4MB      | 35.53%   | 25.72%   | 376.2KB    | 462.7KB     |
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+
+
+ok 1 passed 'smallOperations' testing
+wait 5 seconds for next round...
+Connected to tcp://127.0.0.1:4004
+Connected to tcp://127.0.0.1:4004
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+# ##### testing 'query' ######
+----test round 1----
+doTest() with: { type: 'test',
+  label: 'query',
+  rateControl: { type: 'fixed-rate', opts: { tps: 50 } },
+  trim: 0,
+  cb: 'benchmark/smallbank/query.js',
+  config: 'benchmark/smallbank/sawtooth.json',
+  numb: 50,
+  roundIdx: 2,
+  totalClients: 2,
+  clients: 2,
+  clientargs: {},
+  clientIdx: 0 }
+Info: client 30417 start test runFixedNumber():querying accounts
+***** { type: 'fixed-rate', opts: { tps: 50 } }
+doTest() with: { type: 'test',
+  label: 'query',
+  rateControl: { type: 'fixed-rate', opts: { tps: 50 } },
+  trim: 0,
+  cb: 'benchmark/smallbank/query.js',
+  config: 'benchmark/smallbank/sawtooth.json',
+  numb: 50,
+  roundIdx: 2,
+  totalClients: 2,
+  clients: 2,
+  clientargs: {},
+  clientIdx: 1 }
+Info: client 30422 start test runFixedNumber():querying accounts
+***** { type: 'fixed-rate', opts: { tps: 50 } }
+[Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0
+[Transaction Info] - Submitted: 250 Succ: 250 Fail:0 Unfinished:0
+###test result:###
++-------+------+------+-----------+-------------+-------------+-------------+------------+
+| Name  | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|-------|------|------|-----------|-------------|-------------|-------------|------------|
+| query | 100  | 0    | 51 tps    | 0.04 s      | 0.01 s      | 0.02 s      | 50 tps     |
++-------+------+------+-----------+-------------+-------------+-------------+------------+
+
+### resource stats ###
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+
+| TYPE   | NAME                              | Memory(max) | Memory(avg) | CPU(max) | CPU(avg) | Traffic In | Traffic Out |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-rest-api-default         | 24.0MB      | 24.0MB      | 4.47%    | 4.47%    | 0B         | 0B          |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-smallbank-tp-go-...fault | 5.8MB       | 5.8MB       | 0.00%    | 0.00%    | 0B         | 0B          |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-settings-tp-default      | 20.3MB      | 20.3MB      | 0.00%    | 0.00%    | 0B         | 0B          |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|
+| Docker | sawtooth-validator-default        | 39.6MB      | 39.6MB      | 3.19%    | 3.19%    | 0B         | 0B          |
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+
+
+ok 2 passed 'query' testing
+----------finished test----------
+
+###all test results:###
++------+-----------------+------+------+-----------+-------------+-------------+-------------+------------+
+| Test | Name            | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|------|-----------------|------|------|-----------|-------------|-------------|-------------|------------|
+| 1    | smallOperations | 200  | 0    | 22 tps    | 0.04 s      | 0.01 s      | 0.02 s      | 22 tps     |
+|------|-----------------|------|------|-----------|-------------|-------------|-------------|------------|
+| 2    | query           | 100  | 0    | 51 tps    | 0.04 s      | 0.01 s      | 0.02 s      | 50 tps     |
++------+-----------------+------+------+-----------+-------------+-------------+-------------+------------+
+
+### resource stats (maximum) ###
++--------+-----------------------------------+-------------+----------+------------+-------------+
+| TYPE   | NAME                              | Memory(max) | CPU(max) | Traffic In | Traffic Out |
+|--------|-----------------------------------|-------------|----------|------------|-------------|
+| Docker | sawtooth-rest-api-default         | 24.0MB      | 4.47%    | 132.5KB    | 135.8KB     |
+|--------|-----------------------------------|-------------|----------|------------|-------------|
+| Docker | sawtooth-smallbank-tp-go-...fault | 5.8MB       | 7.49%    | 452.0KB    | 251.0KB     |
+|--------|-----------------------------------|-------------|----------|------------|-------------|
+| Docker | sawtooth-settings-tp-default      | 20.3MB      | 0.00%    | 0B         | 0B          |
+|--------|-----------------------------------|-------------|----------|------------|-------------|
+| Docker | sawtooth-validator-default        | 39.6MB      | 35.53%   | 377.8KB    | 463.9KB     |
++--------+-----------------------------------+-------------+----------+------------+-------------+
+
+[Transaction Info] - Submitted: 300 Succ: 300 Fail:0 Unfinished:0
+Generated report at /home/ram/caliper/benchmark/smallbank/report20181016T032837.html
+Client exited 
+Client exited 

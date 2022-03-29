@@ -1,0 +1,2233 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Tue, 11 Jul 2017 23:33:33 GMT):<br/>
+nage
+</p>
+<p><strong>VipinB</strong> (Wed, 12 Jul 2017 15:04:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nage</strong> (Wed, 12 Jul 2017 15:06:21 GMT):<br/>
+Thanks @rjones!
+</p>
+<p><strong>wightman</strong> (Wed, 12 Jul 2017 15:07:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 12 Jul 2017 15:17:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>LoveshHarchandani</strong> (Wed, 12 Jul 2017 15:28:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>stevetolman</strong> (Wed, 12 Jul 2017 15:29:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>tharmon</strong> (Wed, 12 Jul 2017 15:44:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 12 Jul 2017 16:14:20 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/270
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 12 Jul 2017 16:14:20 GMT):<br/>
+Catchup if 3pc messages are missed, INDY-335: https://github.com/hyperledger/indy-plenum/pull/270
+</p>
+<p><strong>peacekeeper</strong> (Wed, 12 Jul 2017 16:25:09 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mark.hadley</strong> (Wed, 12 Jul 2017 16:52:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mark.hadley</strong> (Wed, 12 Jul 2017 16:53:10 GMT):<br/>
+Addressed issues with PR, ready for review.
+Addressed issues with previous PR, https://github.com/hyperledger/indy-plenum/pull/267
+</p>
+<p><strong>ashcherbakov</strong> (Thu, 13 Jul 2017 06:50:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>avkrishnan</strong> (Thu, 13 Jul 2017 08:43:13 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>LoveshHarchandani</strong> (Thu, 13 Jul 2017 08:59:54 GMT):<br/>
+Minor cleanup on view change pr, https://github.com/hyperledger/indy-plenum/pull/273
+</p>
+<p><strong>peacekeeper</strong> (Thu, 13 Jul 2017 09:26:29 GMT):<br/>
+@gudkov my idea for IS-201 is something like this:
+```
+
+	public interface ListenerObserver {
+
+		public ConnectionObserver onListener(Agent.Listener listener);
+	}
+
+	public interface ConnectionObserver {
+
+		public MessageObserver onConnection(Agent.Listener listener, Agent.Connection connection, String senderDid, String receiverDid);
+	}
+
+	public interface MessageObserver {
+
+		public void onMessage(Agent.Connection connection, String message);
+	}
+
+```
+</p>
+<p><strong>peacekeeper</strong> (Thu, 13 Jul 2017 09:26:29 GMT):<br/>
+@gudkov my idea for IS-202 is something like this:
+```
+
+	public interface ListenerObserver {
+
+		public ConnectionObserver onListener(Agent.Listener listener);
+	}
+
+	public interface ConnectionObserver {
+
+		public MessageObserver onConnection(Agent.Listener listener, Agent.Connection connection, String senderDid, String receiverDid);
+	}
+
+	public interface MessageObserver {
+
+		public void onMessage(Agent.Connection connection, String message);
+	}
+
+```
+</p>
+<p><strong>gudkov</strong> (Thu, 13 Jul 2017 09:26:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>peacekeeper</strong> (Thu, 13 Jul 2017 09:27:05 GMT):<br/>
+so e.g. when there is a new connection, ConnectionObserver.onConnection() is called, and the library user has to return a MessageObserver for messages that arrive on that connection
+</p>
+<p><strong>peacekeeper</strong> (Thu, 13 Jul 2017 09:27:47 GMT):<br/>
+and when a listener is opened, ListenerObserver.onListener() is called, and the library user has to return a ConnectionObserver for new connections on that listener
+</p>
+<p><strong>peacekeeper</strong> (Thu, 13 Jul 2017 09:29:17 GMT):<br/>
+not sure if it's the best approach, maybe you prefer a different design
+</p>
+<p><strong>gudkov</strong> (Thu, 13 Jul 2017 09:56:19 GMT):<br/>
+I am not sure that we need ListenerObserver. Agent.Listener must be returned as resilt of Future in agentListen call.
+</p>
+<p><strong>gudkov</strong> (Thu, 13 Jul 2017 09:57:45 GMT):<br/>
+According to ConnectionObserver and MessageObserver  let's try to follow this way.
+</p>
+<p><strong>sergey.minaev</strong> (Thu, 13 Jul 2017 10:11:21 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 13 Jul 2017 12:18:36 GMT):<br/>
+Catchup if 3pc messages are missed, INDY-335: https://github.com/hyperledger/indy-plenum/pull/270
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 13 Jul 2017 12:18:36 GMT):<br/>
+Review: "Catchup if 3pc messages are missed, INDY-335" https://github.com/hyperledger/indy-plenum/pull/270
+</p>
+<p><strong>danielhardman</strong> (Thu, 13 Jul 2017 13:44:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dsurnin</strong> (Thu, 13 Jul 2017 14:07:38 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dsurnin</strong> (Thu, 13 Jul 2017 14:08:10 GMT):<br/>
+Review please
+https://github.com/hyperledger/indy-plenum/pull/275
+</p>
+<p><strong>mark.hadley</strong> (Thu, 13 Jul 2017 15:38:35 GMT):<br/>
+https://github.com/hyperledger/indy-node/pull/228
+Rewrote test to verify that the exception caught was actually the one we were looking for.
+Please review.
+</p>
+<p><strong>LoveshHarchandani</strong> (Thu, 13 Jul 2017 16:12:07 GMT):<br/>
+@here Review https://github.com/hyperledger/indy-plenum/pull/278
+</p>
+<p><strong>mark.hadley</strong> (Thu, 13 Jul 2017 19:45:35 GMT):<br/>
+https://github.com/hyperledger/indy-client/pull/233
+Just needs a quick review
+</p>
+<p><strong>danielhardman</strong> (Thu, 13 Jul 2017 20:24:05 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=ueApfuzbscej4x8oj) @mark.hadley done
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 14 Jul 2017 07:53:02 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=CpWcHgKbiCbKHSfDy) @LoveshHarchandani please have a look at my comments
+</p>
+<p><strong>srottem</strong> (Sat, 15 Jul 2017 08:16:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Mon, 17 Jul 2017 07:35:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>alexeykoren</strong> (Mon, 17 Jul 2017 08:48:01 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Mon, 17 Jul 2017 10:35:41 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/236
+</p>
+<p><strong>LoveshHarchandani</strong> (Mon, 17 Jul 2017 10:45:05 GMT):<br/>
+@here https://github.com/hyperledger/indy-plenum/pull/283
+</p>
+<p><strong>LoveshHarchandani</strong> (Mon, 17 Jul 2017 22:27:43 GMT):<br/>
+@here review https://github.com/hyperledger/indy-plenum/pull/284
+</p>
+<p><strong>farooq_m_khan</strong> (Tue, 18 Jul 2017 09:07:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>LoveshHarchandani</strong> (Tue, 18 Jul 2017 14:25:59 GMT):<br/>
+review https://github.com/hyperledger/indy-plenum/pull/287
+</p>
+<p><strong>LoveshHarchandani</strong> (Wed, 19 Jul 2017 09:35:59 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/288
+</p>
+<p><strong>wightman</strong> (Wed, 19 Jul 2017 16:29:03 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/246
+</p>
+<p><strong>mark.hadley</strong> (Wed, 19 Jul 2017 20:34:57 GMT):<br/>
+For review:
+https://github.com/hyperledger/indy-node/pull/247
+https://github.com/hyperledger/indy-plenum/pull/292
+
+These are both related to INDY-218.
+</p>
+<p><strong>LoveshHarchandani</strong> (Thu, 20 Jul 2017 06:13:11 GMT):<br/>
+Optimisation in ledger: https://github.com/hyperledger/indy-plenum/pull/293
+</p>
+<p><strong>faisal00813</strong> (Thu, 20 Jul 2017 06:41:28 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>LoveshHarchandani</strong> (Thu, 20 Jul 2017 07:25:07 GMT):<br/>
+some updates to perf test script for local https://github.com/hyperledger/indy-node/pull/248
+</p>
+<p><strong>dsurnin</strong> (Thu, 20 Jul 2017 12:11:15 GMT):<br/>
+Please review https://github.com/hyperledger/indy-node/pull/250
+</p>
+<p><strong>mark.hadley</strong> (Thu, 20 Jul 2017 17:19:13 GMT):<br/>
+Please review https://github.com/hyperledger/indy-plenum/pull/292
+</p>
+<p><strong>mark.hadley</strong> (Thu, 20 Jul 2017 17:19:13 GMT):<br/>
+Please review https://github.com/hyperledger/indy-plenum/pull/292 - THIS IS CLOSED. Please see PR 296 (link below)
+</p>
+<p><strong>nage</strong> (Thu, 20 Jul 2017 17:42:31 GMT):<br/>
+pull requests and code reviews for Hyperledger Indy code bases -- please escalate in #indy if things aren&#39;t getting any attention
+</p>
+<p><strong>mzk-vct</strong> (Thu, 20 Jul 2017 18:09:20 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mzk-vct</strong> (Thu, 20 Jul 2017 18:09:30 GMT):<br/>
+Review please 
+Review please https://github.com/hyperledger/indy-plenum/pull/295
+</p>
+<p><strong>mark.hadley</strong> (Thu, 20 Jul 2017 20:46:32 GMT):<br/>
+Please review https://github.com/hyperledger/indy-plenum/pull/296 
+</p>
+<p><strong>LoveshHarchandani</strong> (Fri, 21 Jul 2017 09:19:20 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/297
+</p>
+<p><strong>peacekeeper</strong> (Fri, 21 Jul 2017 10:10:52 GMT):<br/>
+small PR for java wrapper: https://github.com/hyperledger/indy-sdk/pull/122
+</p>
+<p><strong>gudkov</strong> (Fri, 21 Jul 2017 11:07:33 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=SifiTx7b5Dj9fanfm) @peacekeeper done
+</p>
+<p><strong>peacekeeper</strong> (Fri, 21 Jul 2017 13:39:37 GMT):<br/>
+PR for java register_wallet_type, i haven't tested it thoroughly, maybe someone can review/improve.. https://github.com/hyperledger/indy-sdk/pull/127
+</p>
+<p><strong>andrey.goncharov</strong> (Fri, 21 Jul 2017 13:58:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>srottem</strong> (Fri, 21 Jul 2017 14:35:43 GMT):<br/>
+PR for .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/128
+</p>
+<p><strong>LoveshHarchandani</strong> (Fri, 21 Jul 2017 20:06:20 GMT):<br/>
+PR for a bugfix https://github.com/hyperledger/indy-plenum/pull/300
+</p>
+<p><strong>rjones</strong> (Sun, 23 Jul 2017 20:33:11 GMT):<br/>
+peacekeeper
+</p>
+<p><strong>rjones</strong> (Sun, 23 Jul 2017 20:33:15 GMT):<br/>
+peacekeeper
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 24 Jul 2017 07:56:23 GMT):<br/>
+Please review (PR for INDY-389)
+https://github.com/hyperledger/indy-plenum/pull/301
+</p>
+<p><strong>LoveshHarchandani</strong> (Mon, 24 Jul 2017 08:12:19 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/302
+</p>
+<p><strong>LoveshHarchandani</strong> (Mon, 24 Jul 2017 10:01:26 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/303/
+</p>
+<p><strong>wightman</strong> (Mon, 24 Jul 2017 14:56:15 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/246
+</p>
+<p><strong>mark.hadley</strong> (Mon, 24 Jul 2017 15:06:41 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/304
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 24 Jul 2017 16:40:27 GMT):<br/>
+Please review a hot fix for INDY-334:
+https://github.com/hyperledger/indy-plenum/pull/305
+</p>
+<p><strong>rjones</strong> (Mon, 24 Jul 2017 18:45:26 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>mark.hadley</strong> (Mon, 24 Jul 2017 22:56:41 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/260
+</p>
+<p><strong>devin-fisher</strong> (Mon, 24 Jul 2017 22:59:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ryanmarsh</strong> (Tue, 25 Jul 2017 17:31:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>devin-fisher</strong> (Wed, 26 Jul 2017 01:01:31 GMT):<br/>
+@danielhardman Please review: https://github.com/hyperledger/indy-plenum/pull/308
+</p>
+<p><strong>devin-fisher</strong> (Wed, 26 Jul 2017 04:04:32 GMT):<br/>
+@danielhardman  Please review https://github.com/hyperledger/indy-anoncreds/pull/80
+</p>
+<p><strong>ryanmarsh</strong> (Wed, 26 Jul 2017 13:43:34 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/306
+</p>
+<p><strong>ryanmarsh</strong> (Wed, 26 Jul 2017 20:22:05 GMT):<br/>
+Made changes and is ready for review: https://github.com/hyperledger/indy-plenum/pull/306
+</p>
+<p><strong>wightman</strong> (Thu, 27 Jul 2017 03:48:44 GMT):<br/>
+For review: https://github.com/hyperledger/indy-node/pull/264
+</p>
+<p><strong>dsurnin</strong> (Thu, 27 Jul 2017 14:08:58 GMT):<br/>
+Review please
+https://github.com/hyperledger/indy-plenum/pull/311
+</p>
+<p><strong>edge</strong> (Thu, 27 Jul 2017 19:14:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>srottem</strong> (Fri, 28 Jul 2017 08:02:40 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/143
+</p>
+<p><strong>peacekeeper</strong> (Fri, 28 Jul 2017 14:13:58 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=XgyikRKQ6eWkKf397) @srottem reviewed+merged
+</p>
+<p><strong>mark.hadley</strong> (Fri, 28 Jul 2017 18:51:32 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/315
+</p>
+<p><strong>mark.hadley</strong> (Fri, 28 Jul 2017 18:57:11 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/268   This will not be able to pass integration tests until plenum PR 315 is merged.
+</p>
+<p><strong>edge</strong> (Fri, 28 Jul 2017 18:57:14 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>wightman</strong> (Fri, 28 Jul 2017 19:54:59 GMT):<br/>
+For review: https://github.com/hyperledger/indy-node/pull/270
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 28 Jul 2017 20:03:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 28 Jul 2017 20:04:20 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/269
+</p>
+<p><strong>srottem</strong> (Fri, 28 Jul 2017 20:24:50 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/146
+</p>
+<p><strong>srottem</strong> (Sat, 29 Jul 2017 07:12:00 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=T6R8WGxxSztLDKbEk) Replaced with new pull request - please review this instead: https://github.com/hyperledger/indy-sdk/pull/147
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 31 Jul 2017 13:33:26 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/316
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 31 Jul 2017 14:58:16 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/317
+</p>
+<p><strong>mark.hadley</strong> (Mon, 31 Jul 2017 19:25:36 GMT):<br/>
+Do we have anyone online that can code review Alex's PR above? This bug that this PR is fixing will fix my PR.
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 31 Jul 2017 19:52:12 GMT):<br/>
+Please Review: https://github.com/hyperledger/indy-node/pull/272
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 31 Jul 2017 19:52:12 GMT):<br/>
+Please Review: https://github.com/hyperledger/indy-node/pull/272  This fixes a broken link in the menu items in the Getting Started Guide.
+</p>
+<p><strong>stevetolman</strong> (Tue, 01 Aug 2017 00:27:01 GMT):<br/>
+Please review https://github.com/sovrin-foundation/sovrin/pull/9
+</p>
+<p><strong>tharmon</strong> (Wed, 02 Aug 2017 04:44:27 GMT):<br/>
+Please review PR to update the STN’s genesis transaction files: https://github.com/sovrin-foundation/sovrin/pull/10
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 02 Aug 2017 10:02:46 GMT):<br/>
+Reproducible build, INDY-346  https://github.com/hyperledger/indy-anoncreds/pull/84
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 02 Aug 2017 10:04:56 GMT):<br/>
+Reproducible build, INDY-346 https://github.com/hyperledger/indy-plenum/pull/313
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 02 Aug 2017 10:05:45 GMT):<br/>
+Reproducible build, INDY-346 https://github.com/hyperledger/indy-node/pull/267
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 02 Aug 2017 20:36:29 GMT):<br/>
+Please review: https://github.com/sovrin-foundation/sovrin/pull/11    INDY-704 Release Notes - Adds Additional Info
+
+Adding additional information to cover time stamps, terminology changes
+in the CLI, a new emergency command for Trustees and keyring to wallet
+directory information.
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 02 Aug 2017 21:03:26 GMT):<br/>
+Please Review: https://github.com/hyperledger/indy-node/pull/278
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 02 Aug 2017 21:03:26 GMT):<br/>
+Please Review: https://github.com/hyperledger/indy-node/pull/278  INDY 440- Updated the file name for Faber in the Getting Started Guide per INDY-457. See comments.
+</p>
+<p><strong>avkrishnan</strong> (Fri, 04 Aug 2017 05:43:54 GMT):<br/>
+Please review (fixed a typo): https://github.com/hyperledger/indy-node/pull/280
+</p>
+<p><strong>spivachuk</strong> (Fri, 04 Aug 2017 10:10:47 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-anoncreds/pull/86
+</p>
+<p><strong>spivachuk</strong> (Fri, 04 Aug 2017 10:10:47 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-anoncreds/pull/86
+INDY-378: Corrected getting of values from wallet
+</p>
+<p><strong>srottem</strong> (Fri, 04 Aug 2017 11:06:31 GMT):<br/>
+Please review (move marshalling to Java WalletType): https://github.com/hyperledger/indy-sdk/pull/160
+</p>
+<p><strong>spivachuk</strong> (Fri, 04 Aug 2017 14:26:22 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/281
+INDY-378: Corrected getting of values from repo
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 04 Aug 2017 16:45:16 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/283    CS-144 Updates to the Getting Started Guide where it was "target" and is now "remote".
+</p>
+<p><strong>dsurnin</strong> (Mon, 07 Aug 2017 11:59:02 GMT):<br/>
+Please review https://github.com/hyperledger/indy-plenum/pull/322
+</p>
+<p><strong>peacekeeper</strong> (Tue, 08 Aug 2017 03:57:29 GMT):<br/>
+PR for adding a note about Java 8: https://github.com/hyperledger/indy-sdk/pull/165
+</p>
+<p><strong>mark.hadley</strong> (Tue, 08 Aug 2017 22:48:51 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/287
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 09 Aug 2017 09:19:50 GMT):<br/>
+*pep8 fixes* https://github.com/hyperledger/indy-plenum/pull/324
+</p>
+<p><strong>peacekeeper</strong> (Wed, 09 Aug 2017 11:43:47 GMT):<br/>
+I have this PR for platform-independent loading of libindy: https://github.com/hyperledger/indy-sdk/pull/169
+</p>
+<p><strong>mzk-vct</strong> (Wed, 09 Aug 2017 13:01:11 GMT):<br/>
+Please review https://github.com/hyperledger/indy-plenum/pull/326
+</p>
+<p><strong>srottem</strong> (Wed, 09 Aug 2017 13:31:48 GMT):<br/>
+PR to bring .NET tests into line with Java tests - please review: https://github.com/hyperledger/indy-sdk/pull/170
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 09 Aug 2017 15:55:50 GMT):<br/>
+*Speed up the plenum tests* https://github.com/hyperledger/indy-plenum/pull/319
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 09 Aug 2017 15:55:50 GMT):<br/>
+*Speed up the indy-plenum tests* https://github.com/hyperledger/indy-plenum/pull/319
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 09 Aug 2017 16:22:57 GMT):<br/>
+*Speed up the indy-node tests*  https://github.com/hyperledger/indy-node/pull/289/files
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 09 Aug 2017 16:22:57 GMT):<br/>
+*Speed up the indy-node tests*  https://github.com/hyperledger/indy-node/pull/289
+</p>
+<p><strong>mark.hadley</strong> (Wed, 09 Aug 2017 18:18:13 GMT):<br/>
+Please (re)review:
+https://github.com/hyperledger/indy-node/pull/287
+</p>
+<p><strong>peacekeeper</strong> (Thu, 10 Aug 2017 10:13:47 GMT):<br/>
+@gudkov As discussed today on the call, maybe you can review+merge this (https://github.com/hyperledger/indy-sdk/pull/173) first, which should make custom wallets working. And then @srottem + I and others can further discuss higher-level functionality for custom wallets (https://github.com/hyperledger/indy-sdk/pull/160)
+</p>
+<p><strong>LoveshHarchandani</strong> (Thu, 10 Aug 2017 10:28:38 GMT):<br/>
+PR for a bug i encountered where `testValidatorSuspensionByTrustee` regularly fails, https://github.com/hyperledger/indy-plenum/pull/329
+</p>
+<p><strong>ashcherbakov</strong> (Thu, 10 Aug 2017 11:19:44 GMT):<br/>
+INDY-373: ledger serialization (in plenum): 
+https://github.com/hyperledger/indy-plenum/pull/331
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 10 Aug 2017 12:38:34 GMT):<br/>
+*Fix pep8 errors* https://github.com/hyperledger/indy-anoncreds/pull/90
+</p>
+<p><strong>wightman</strong> (Thu, 10 Aug 2017 22:29:05 GMT):<br/>
+For review: https://github.com/hyperledger/indy-node/pull/297
+</p>
+<p><strong>dsurnin</strong> (Fri, 11 Aug 2017 07:31:43 GMT):<br/>
+please review
+https://github.com/hyperledger/indy-node/pull/298
+</p>
+<p><strong>srottem</strong> (Fri, 11 Aug 2017 08:25:53 GMT):<br/>
+PR for sign and verify changes ported to .NET: https://github.com/hyperledger/indy-sdk/pull/180
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 11 Aug 2017 10:17:32 GMT):<br/>
+INDY-373: ledger serialization (indy-node part):
+https://github.com/hyperledger/indy-node/pull/300
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 11 Aug 2017 13:21:45 GMT):<br/>
+INDY-373: changes in serialization format of genesis txns:
+https://github.com/sovrin-foundation/sovrin/pull/16
+</p>
+<p><strong>dsurnin</strong> (Mon, 14 Aug 2017 11:53:27 GMT):<br/>
+please review
+https://github.com/hyperledger/indy-plenum/pull/335
+</p>
+<p><strong>LoveshHarchandani</strong> (Wed, 16 Aug 2017 08:10:39 GMT):<br/>
+https://github.com/hyperledger/indy-plenum/pull/340
+</p>
+<p><strong>spivachuk</strong> (Thu, 17 Aug 2017 10:13:07 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/336
+INDY-484: Made some corrections
+</p>
+<p><strong>spivachuk</strong> (Thu, 17 Aug 2017 10:13:35 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/343
+INDY-484: Added a script for filtering a log
+</p>
+<p><strong>srottem</strong> (Thu, 17 Aug 2017 11:34:11 GMT):<br/>
+PR correcting .NET tests: https://github.com/hyperledger/indy-sdk/pull/194
+</p>
+<p><strong>srottem</strong> (Thu, 17 Aug 2017 20:45:47 GMT):<br/>
+PR make variable names consistent btw .NET and Rust: https://github.com/hyperledger/indy-sdk/pull/197
+</p>
+<p><strong>alexander.shekhovcov</strong> (Fri, 18 Aug 2017 09:59:25 GMT):<br/>
+INDY-419: *pep8+pyflake fixes* https://github.com/hyperledger/indy-plenum/pull/339
+</p>
+<p><strong>alexander.shekhovcov</strong> (Fri, 18 Aug 2017 13:22:11 GMT):<br/>
+INDY-419: *pep8+pyflake fixes* https://github.com/hyperledger/indy-node/pull/315
+</p>
+<p><strong>spivachuk</strong> (Fri, 18 Aug 2017 16:04:46 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/348
+INDY-484: Added level arg to filter_log script
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 18 Aug 2017 16:41:17 GMT):<br/>
+Please review (a fix in migration):
+https://github.com/hyperledger/indy-node/pull/316
+</p>
+<p><strong>srottem</strong> (Sat, 19 Aug 2017 08:10:57 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=riZsuQp4MCACgrqSh) @srottem Replaced with PR 201: https://github.com/hyperledger/indy-sdk/pull/201
+</p>
+<p><strong>srottem</strong> (Sat, 19 Aug 2017 08:11:54 GMT):<br/>
+PR to remove incorrect tracking of unmanaged memory in custom wallet: https://github.com/hyperledger/indy-sdk/pull/202
+</p>
+<p><strong>spivachuk</strong> (Mon, 21 Aug 2017 10:46:17 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/350
+INDY-484: Added script gathering statistics on log
+</p>
+<p><strong>srottem</strong> (Tue, 22 Aug 2017 12:43:21 GMT):<br/>
+PR correcting bug causing unit test to fail: https://github.com/hyperledger/indy-sdk/pull/212
+</p>
+<p><strong>srottem</strong> (Wed, 23 Aug 2017 08:11:05 GMT):<br/>
+PR to pull SDK revocation changes into .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/214
+</p>
+<p><strong>alexander.shekhovcov</strong> (Wed, 23 Aug 2017 12:15:17 GMT):<br/>
+INDY-446: *Node promotion failed if pool is restarted and the primary node does not start* https://github.com/hyperledger/indy-plenum/pull/353
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 24 Aug 2017 10:17:04 GMT):<br/>
+INDY-465: *Log failure to post txn* https://github.com/hyperledger/indy-plenum/pull/355
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 24 Aug 2017 10:18:22 GMT):<br/>
+INDY-465: *Log failure to post txn* https://github.com/hyperledger/indy-node/pull/319
+</p>
+<p><strong>srottem</strong> (Thu, 24 Aug 2017 12:31:17 GMT):<br/>
+PR to fix .NET custom wallet list problem: https://github.com/hyperledger/indy-sdk/pull/221
+</p>
+<p><strong>spivachuk</strong> (Thu, 24 Aug 2017 15:48:11 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/357
+https://github.com/hyperledger/indy-node/pull/320
+INDY-733: Implemented wallet migration mechanism
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 25 Aug 2017 13:10:33 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/358
+</p>
+<p><strong>spivachuk</strong> (Fri, 25 Aug 2017 17:42:36 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/360
+INDY-733: Added renaming of wallets base directory
+</p>
+<p><strong>spivachuk</strong> (Fri, 25 Aug 2017 18:23:11 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/323
+INDY-733: Added renaming of wallets base directory
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 28 Aug 2017 08:16:05 GMT):<br/>
+PR for a new RC (into stable branch):
+https://github.com/hyperledger/indy-plenum/pull/361
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 28 Aug 2017 12:37:56 GMT):<br/>
+https://github.com/hyperledger/indy-node/pull/324
+</p>
+<p><strong>alexander.shekhovcov</strong> (Mon, 28 Aug 2017 12:50:51 GMT):<br/>
+INDY-715: *Validator info tool* https://github.com/hyperledger/indy-plenum/pull/359
+</p>
+<p><strong>alexander.shekhovcov</strong> (Mon, 28 Aug 2017 12:51:03 GMT):<br/>
+INDY-715: *Validator info tool* https://github.com/hyperledger/indy-node/pull/322
+</p>
+<p><strong>darrell.odonnell</strong> (Mon, 28 Aug 2017 20:14:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jljordan_bcgov</strong> (Mon, 28 Aug 2017 20:22:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jljordan_bcgov</strong> (Mon, 28 Aug 2017 20:23:36 GMT):<br/>
+https://github.com/hyperledger-archives/indy-client/pulls some pulls that update the Getting Started "Alice Script"
+</p>
+<p><strong>jljordan_bcgov</strong> (Mon, 28 Aug 2017 20:24:07 GMT):<br/>
+I'm running through it again and noticing a few more changes needed .. so if the pull is merged I can review and revise as needed
+</p>
+<p><strong>avkrishnan</strong> (Tue, 29 Aug 2017 11:05:53 GMT):<br/>
+Message from @LoveshHarchandani State proof generation and verification https://github.com/hyperledger/indy-plenum/pull/364
+</p>
+<p><strong>srottem</strong> (Tue, 29 Aug 2017 13:25:57 GMT):<br/>
+PR  for .NET test fixes: https://github.com/hyperledger/indy-sdk/pull/234
+</p>
+<p><strong>nage</strong> (Tue, 29 Aug 2017 21:05:20 GMT):<br/>
+@jljordan_bcgov it looks like you're PR is against the hyperledger-archives, what link or project did you use to get you there?  (indy-client is retired, and that information and code should now exist inside of indy-node)
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 29 Aug 2017 21:51:32 GMT):<br/>
+@nage ... I wondered about that ... I should go and do the changes again (if they apply) to the indy-node repo
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 29 Aug 2017 21:52:45 GMT):<br/>
+my bad :) learning all the repos!
+</p>
+<p><strong>nage</strong> (Tue, 29 Aug 2017 22:06:33 GMT):<br/>
+That would help the pull request get the attention it deserves (sorry I didn't catch that earlier)
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 29 Aug 2017 23:32:20 GMT):<br/>
+NP
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 30 Aug 2017 22:35:28 GMT):<br/>
+INDY-796 : Release Notes for Sovrin Aries 1.0.4 https://github.com/sovrin-foundation/sovrin/pull/19
+</p>
+<p><strong>alexander.shekhovcov</strong> (Thu, 31 Aug 2017 12:36:49 GMT):<br/>
+INDY-765: *Limit length of batches* https://github.com/hyperledger/indy-plenum/pull/367
+</p>
+<p><strong>lmrln</strong> (Fri, 01 Sep 2017 10:09:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>andkononykhin</strong> (Fri, 01 Sep 2017 12:15:09 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jljordan_bcgov</strong> (Fri, 01 Sep 2017 20:54:23 GMT):<br/>
+https://github.com/evernym/sovrin-environments/pull/20 to fix a formatting error I caused .. thanks @sklump 
+</p>
+<p><strong>sklump</strong> (Fri, 01 Sep 2017 20:54:23 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>srottem</strong> (Sun, 03 Sep 2017 17:48:34 GMT):<br/>
+PR for improving documentation for the .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/245
+</p>
+<p><strong>marek.dapps</strong> (Mon, 04 Sep 2017 13:13:53 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>andkononykhin</strong> (Mon, 04 Sep 2017 16:15:33 GMT):<br/>
+PR fixes validator-info https://github.com/hyperledger/indy-node/pull/336
+</p>
+<p><strong>sklump</strong> (Wed, 06 Sep 2017 11:13:23 GMT):<br/>
+Hello all - I don't see a tab/space convention in the bash scripts that have emerged around the pool-network for sovrin-environments/docker.
+
+It's hardly the most important thing, but I'd propose 4 spaces if it were my product.
+</p>
+<p><strong>sklump</strong> (Wed, 06 Sep 2017 11:13:23 GMT):<br/>
+Hello all - I don't see a tab/space convention in the bash scripts that have emerged around the pool-network for sovrin-environments/docker.
+
+It's hardly the most important thing, but I'd propose 4 spaces if it were my product. The team may have already been through this and decided it's more trouble than it's worth to standardize.
+</p>
+<p><strong>spivachuk</strong> (Wed, 06 Sep 2017 18:26:34 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-sdk/pull/250
+Made python wrapper compatible with Python 3.5
+</p>
+<p><strong>srottem</strong> (Thu, 07 Sep 2017 16:57:53 GMT):<br/>
+PR for making the .NET wrapper platform independent: https://github.com/hyperledger/indy-sdk/pull/254
+</p>
+<p><strong>mzk-vct</strong> (Fri, 08 Sep 2017 09:43:22 GMT):<br/>
+Please review PR for INDY-761: https://github.com/hyperledger/indy-plenum/pull/362
+</p>
+<p><strong>jljordan_bcgov</strong> (Fri, 08 Sep 2017 18:02:41 GMT):<br/>
+A few pull requests waiting for merge
+https://github.com/evernym/sovrin-environments/pulls
+</p>
+<p><strong>sklump</strong> (Fri, 08 Sep 2017 18:23:51 GMT):<br/>
+#21 is for vagrant deployment, no conflict with #20 which is all about docker
+</p>
+<p><strong>darrell.odonnell</strong> (Fri, 08 Sep 2017 20:53:14 GMT):<br/>
+@here anything you can do to push for the pulls @danielhardman ?
+</p>
+<p><strong>nage</strong> (Mon, 11 Sep 2017 15:17:55 GMT):<br/>
+@tharmon ^^^ (pull requests on sovrin-environments)
+</p>
+<p><strong>tharmon</strong> (Tue, 12 Sep 2017 14:26:07 GMT):<br/>
+Merged #21. I'm waiting for a slight modification or explanation on #20.
+</p>
+<p><strong>tharmon</strong> (Tue, 12 Sep 2017 14:26:09 GMT):<br/>
+@sklump ^^^
+</p>
+<p><strong>sklump</strong> (Tue, 12 Sep 2017 14:33:21 GMT):<br/>
+@tharmon, I made that change as requested last week, do you not see it?
+</p>
+<p><strong>tharmon</strong> (Tue, 12 Sep 2017 14:40:20 GMT):<br/>
+@sklump Interesting. It didn't notify me that there was a new commit into the PR, so I was waiting for a comment to that effect. Looking at it now.
+</p>
+<p><strong>tharmon</strong> (Tue, 12 Sep 2017 14:41:03 GMT):<br/>
+Merged. Thank you.
+</p>
+<p><strong>bendon</strong> (Tue, 12 Sep 2017 14:49:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>bendon</strong> (Tue, 12 Sep 2017 14:50:48 GMT):<br/>
+Hi there. Working on INDY-580, I came across some broken link and missing commands in Sovrin_Running_Locally guide.
+</p>
+<p><strong>bendon</strong> (Tue, 12 Sep 2017 14:53:51 GMT):<br/>
+With the help of Sovrin support and an other doc (https://github.com/evernym/sovrin-environments/blob/master/vagrant/training/vb-multi-vm/TestSovrinClusterSetup.md), I've managed to connect the dots and submitted PR 344.
+</p>
+<p><strong>bendon</strong> (Tue, 12 Sep 2017 14:54:32 GMT):<br/>
+Here: https://github.com/hyperledger/indy-node/pull/344
+</p>
+<p><strong>srottem</strong> (Wed, 13 Sep 2017 08:56:26 GMT):<br/>
+PR to fix resource release on finalization on .NET: https://github.com/hyperledger/indy-sdk/pull/258
+</p>
+<p><strong>srottem</strong> (Wed, 13 Sep 2017 09:01:40 GMT):<br/>
+PR fixing .NET cross platform regression error introduced during previous merge: https://github.com/hyperledger/indy-sdk/pull/259
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 15 Sep 2017 21:10:52 GMT):<br/>
+PR to update the release notes with all the new information contained in INDY-850 and INDY-812 in one combined pull request: https://github.com/sovrin-foundation/sovrin/pull/24
+</p>
+<p><strong>srottem</strong> (Tue, 19 Sep 2017 08:04:26 GMT):<br/>
+PR for .NET sample project to mirror the Java one: https://github.com/hyperledger/indy-sdk/pull/266
+</p>
+<p><strong>tharmon</strong> (Wed, 20 Sep 2017 16:33:09 GMT):<br/>
+A small update to correctly link to Rocket.Chat from the README: https://github.com/hyperledger/indy-sdk/pull/271
+</p>
+<p><strong>srottem</strong> (Thu, 21 Sep 2017 12:43:21 GMT):<br/>
+PR to fix miscellaneous packaging API and documentation problems with .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/272
+</p>
+<p><strong>srottem</strong> (Thu, 21 Sep 2017 15:14:41 GMT):<br/>
+PR implementing granular .NET exceptions: https://github.com/hyperledger/indy-sdk/pull/274
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 22 Sep 2017 13:00:22 GMT):<br/>
+BLS Multi-sigs and State proofs PR:
+https://github.com/hyperledger/indy-plenum/pull/385
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 25 Sep 2017 13:30:44 GMT):<br/>
+BLS multi-sig (and partially state proofs) PR:
+https://github.com/hyperledger/indy-node/pull/358
+</p>
+<p><strong>mzk-vct</strong> (Mon, 25 Sep 2017 16:15:10 GMT):<br/>
+Checking state proof on client side
+https://github.com/hyperledger/indy-plenum/pull/394
+</p>
+<p><strong>mzk-vct</strong> (Tue, 26 Sep 2017 15:31:24 GMT):<br/>
+ Reformat attr data before saving
+https://github.com/hyperledger/indy-node/pull/360
+</p>
+<p><strong>spivachuk</strong> (Mon, 02 Oct 2017 15:20:17 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/402
+INDY-830: Rebranding migration for wallet
+</p>
+<p><strong>spivachuk</strong> (Mon, 02 Oct 2017 15:38:22 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/351
+INDY-830: Removed Evernym and Sovrin brands
+</p>
+<p><strong>spivachuk</strong> (Tue, 03 Oct 2017 09:20:57 GMT):<br/>
+Please review:
+https://github.com/sovrin-foundation/sovrin/pull/25
+INDY-880: Support Indy branding in sovrin package
+</p>
+<p><strong>bryanhuang</strong> (Wed, 04 Oct 2017 02:40:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Wed, 04 Oct 2017 10:18:18 GMT):<br/>
+Please review:
+https://github.com/evernym/sovrin-environments/pull/28
+INDY-891: Support rebranding in Docker environment
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 04 Oct 2017 20:14:35 GMT):<br/>
+Please Review: 
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 04 Oct 2017 20:14:35 GMT):<br/>
+Please Review: https://github.com/hyperledger-archives/indy-client/pull/265
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 04 Oct 2017 20:14:35 GMT):<br/>
+Please Review: 
+https://github.com/hyperledger-archives/indy-client/pull/265
+Updates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 06 Oct 2017 08:12:41 GMT):<br/>
+INDY-877: Protocol version support in Plenum:
+https://github.com/hyperledger/indy-plenum/pull/407
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 06 Oct 2017 09:43:33 GMT):<br/>
+INDY-877: Protocol version support in Indy-Node:
+https://github.com/hyperledger/indy-node/pull/379
+</p>
+<p><strong>bendon</strong> (Fri, 06 Oct 2017 10:39:51 GMT):<br/>
+INDY-580: Improve packaging before supporting CentOS in Indy-Node
+https://github.com/hyperledger/indy-node/pull/381
+REM: ci pr-merge test failed on evernym server, but I can't access it to investigate.
+</p>
+<p><strong>tbrooke</strong> (Fri, 06 Oct 2017 13:25:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 06 Oct 2017 19:20:01 GMT):<br/>
+Please Review: https://github.com/hyperledger/indy-node/pull/386
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 06 Oct 2017 19:20:01 GMT):<br/>
+INDY-894 Update verbiage in Getting Started Guide
+Please Review: https://github.com/hyperledger/indy-node/pull/386
+
+Updates verbiage in Getting Started Guide to reflect small changes due
+to removing branding from Sovrin to Indy. I also updated verbiage
+throughout to reflect actors specifically, where it made sense to do
+so for the sake of clarity. Example, instead of just saying "Indy", I
+changed it to "Indy code base" or "the ledger" or "the network."
+</p>
+<p><strong>srottem</strong> (Sun, 08 Oct 2017 13:27:56 GMT):<br/>
+Bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/303
+</p>
+<p><strong>srottem</strong> (Sun, 08 Oct 2017 13:27:56 GMT):<br/>
+PR for bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/303
+</p>
+<p><strong>srottem</strong> (Sun, 08 Oct 2017 13:27:56 GMT):<br/>
+PR for bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/304
+</p>
+<p><strong>srottem</strong> (Sun, 08 Oct 2017 13:29:02 GMT):<br/>
+PR for IS-368 (also referenced in the ticket): https://github.com/hyperledger/indy-sdk/pull/301
+</p>
+<p><strong>srottem</strong> (Sun, 08 Oct 2017 13:29:50 GMT):<br/>
+PR updating NET samples to bring them into line with the state-proof changes: https://github.com/hyperledger/indy-sdk/pull/300
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 09 Oct 2017 18:57:38 GMT):<br/>
+Please review: 
+Indy 894 Update verbiage in Getting Started Guide #391
+
+This is a resubmit of pull request 386 which has been closed.
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 09 Oct 2017 18:57:38 GMT):<br/>
+Please review: 
+Indy 894 Update verbiage in Getting Started Guide #391
+
+This is a resubmit of pull request 386 which has been closed.
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 09 Oct 2017 18:57:38 GMT):<br/>
+Please review: 
+Indy 894 Update verbiage in Getting Started Guide #391
+
+https://github.com/hyperledger/indy-node/pull/391
+
+This is a resubmit of pull request 386 which has been closed.
+</p>
+<p><strong>srottem</strong> (Tue, 10 Oct 2017 19:52:03 GMT):<br/>
+PR adding guard clauses to public methods in the Java wrapper: https://github.com/hyperledger/indy-sdk/pull/312
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 10 Oct 2017 20:04:22 GMT):<br/>
+Please review: 
+README_update Updates pathing to Getting Started Guide
+
+https://github.com/hyperledger/indy-node/pull/393
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 10 Oct 2017 20:07:35 GMT):<br/>
+--2nd Request--
+
+This is the second request for the following pull request. There will be more done to this repository as some documents in the current Indy repositories, still point there. The documents in there have the incorrect location to the Getting Started Guide. Again, 2nd request: 
+
+Please Review: 
+https://github.com/hyperledger-archives/indy-client/pull/265
+Updates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 10 Oct 2017 20:07:35 GMT):<br/>
+--2nd Request for the Pull Request listed below--
+
+This is the second request for the following pull request. There will be more done to this repository as some documents in the current Indy repositories, still point there. The documents in there have the incorrect location to the Getting Started Guide. Again, 2nd request: 
+
+Please Review: 
+https://github.com/hyperledger-archives/indy-client/pull/265
+Updates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.
+</p>
+<p><strong>stevetolman</strong> (Tue, 10 Oct 2017 21:04:09 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 10 Oct 2017 22:12:50 GMT):<br/>
+Please Review: 
+https://github.com/hyperledger-archives/indy-common/pull/125
+Updates the path of the Getting Started Guide in the setup.md file in this location. This set of instructions is referenced in one of the documents in the current Indy repositories. 
+</p>
+<p><strong>spivachuk</strong> (Wed, 11 Oct 2017 11:30:36 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/394
+INDY-157: Fixed bug with wrong cancel messages
+</p>
+<p><strong>srottem</strong> (Wed, 11 Oct 2017 12:15:05 GMT):<br/>
+PR adding pairwise to .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/314
+</p>
+<p><strong>srottem</strong> (Thu, 12 Oct 2017 14:35:09 GMT):<br/>
+PR adding sealed encryption to .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/316
+</p>
+<p><strong>srottem</strong> (Thu, 12 Oct 2017 21:17:16 GMT):<br/>
+PR with fixes for regression errors introduced by recent merges and test refactoring to simplify maintenance: https://github.com/hyperledger/indy-sdk/pull/317
+</p>
+<p><strong>srottem</strong> (Thu, 12 Oct 2017 21:17:16 GMT):<br/>
+PR with .NET fixes for  regression errors introduced by recent merges and test refactoring to simplify maintenance: https://github.com/hyperledger/indy-sdk/pull/317
+</p>
+<p><strong>srottem</strong> (Fri, 13 Oct 2017 12:35:40 GMT):<br/>
+PR porting indy_issuer_revoke_claim tests to Java and .NET wrappers: https://github.com/hyperledger/indy-sdk/pull/319
+</p>
+<p><strong>TechWritingWhiz</strong> (Fri, 13 Oct 2017 16:46:39 GMT):<br/>
+Following up on this PR. Not yet merged. Please review: Please review: 
+README_update Updates pathing to Getting Started Guide
+
+https://github.com/hyperledger/indy-node/pull/393
+</p>
+<p><strong>srottem</strong> (Sat, 14 Oct 2017 09:03:58 GMT):<br/>
+PR implementing granular exceptions in Java wrapper: https://github.com/hyperledger/indy-sdk/pull/321
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 16 Oct 2017 21:39:11 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/399
+
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 16 Oct 2017 21:39:11 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/399
+Adds a link to the Hyperledger Wiki-Indy page within the README.md file
+in an effort to consolidate and encourage the wiki page to be the 
+main "hub" starting point for the Indy documentation.
+
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 16 Oct 2017 21:54:44 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-sdk/pull/324
+Adds a link to the Hyperledger Wiki-Indy page within the README.md file
+in an effort to consolidate and encourage the wiki page to be the 
+main "hub" starting point for the Indy documentation.
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 16 Oct 2017 22:16:02 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-anoncreds/pull/105
+Adds a link to the Hyperledger Wiki-Indy page within the README.md file
+in an effort to consolidate and encourage the wiki page to be the 
+main "hub" starting point for the Indy documentation.
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 16 Oct 2017 22:25:28 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-crypto/pull/38
+Adds a link to the Hyperledger Wiki-Indy page within the README.md file
+in an effort to consolidate and encourage the wiki page to be the 
+main "hub" starting point for the Indy documentation.
+</p>
+<p><strong>spivachuk</strong> (Tue, 17 Oct 2017 17:38:48 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/402
+INDY-869: Prevented upgrade to a lower version
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 17 Oct 2017 22:12:38 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/403
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 17 Oct 2017 22:12:38 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/403
+Updates the link to the Vagrant Setup Guide
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 17 Oct 2017 22:12:38 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/403
+Updates the link to the Vagrant Setup Guide in the Getting Started Guide.
+</p>
+<p><strong>spivachuk</strong> (Fri, 20 Oct 2017 11:03:48 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/424
+INDY-382: Added isTxnForced util function
+</p>
+<p><strong>ashcherbakov</strong> (Fri, 20 Oct 2017 15:43:08 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/425
+</p>
+<p><strong>andkononykhin</strong> (Fri, 20 Oct 2017 16:45:22 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/422
+</p>
+<p><strong>spivachuk</strong> (Fri, 20 Oct 2017 19:38:40 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/408
+INDY-382: Fixed bug with forced config txns
+</p>
+<p><strong>srottem</strong> (Sun, 22 Oct 2017 20:16:39 GMT):<br/>
+PR bringing .NET wrapper exceptions into line with Java wrapper: https://github.com/hyperledger/indy-sdk/pull/337
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 23 Oct 2017 08:52:19 GMT):<br/>
+INDY-905: https://github.com/hyperledger/indy-node/pull/410 - added new tests
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 23 Oct 2017 16:16:38 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/413
+
+Updates links to the Getting Started Guide and Setup docs to the stable branch vs. master.
+</p>
+<p><strong>spivachuk</strong> (Tue, 24 Oct 2017 12:56:05 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/416
+INDY-917: Fixed bug in Upgrader.get_upgrade_txn
+</p>
+<p><strong>ashcherbakov</strong> (Tue, 24 Oct 2017 14:35:47 GMT):<br/>
+Please review
+https://github.com/hyperledger/indy-plenum/pull/427
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 24 Oct 2017 17:14:31 GMT):<br/>
+2nd Request: 
+
+Please review: 
+https://github.com/hyperledger/indy-crypto/pull/38
+Adds a link to the Hyperledger Wiki-Indy page within the README.md file
+in an effort to consolidate and encourage the wiki page to be the 
+main "hub" starting point for the Indy documentation.
+</p>
+<p><strong>spivachuk</strong> (Tue, 24 Oct 2017 17:46:36 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/418
+INDY-917: Added a test for the fix
+</p>
+<p><strong>codenamedmitri</strong> (Tue, 24 Oct 2017 18:02:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ChristianSmith</strong> (Tue, 24 Oct 2017 18:08:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 25 Oct 2017 21:07:27 GMT):<br/>
+Please Review: 
+
+https://github.com/hyperledger/indy-node/pull/421
+Adds a link to instructions on setting up a Developer Environment from the Getting Started Guide.
+</p>
+<p><strong>srottem</strong> (Fri, 27 Oct 2017 14:06:56 GMT):<br/>
+PR implementing agent2agent v2 changes in .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/349
+</p>
+<p><strong>srottem</strong> (Sat, 28 Oct 2017 20:06:21 GMT):<br/>
+PR implementing crypto api: https://github.com/hyperledger/indy-sdk/pull/352
+</p>
+<p><strong>nage</strong> (Mon, 30 Oct 2017 22:06:39 GMT):<br/>
+@sergey.minaev Would you review the SQLCypher PR from @MALodder and take the appropriate action?
+</p>
+<p><strong>MALodder</strong> (Mon, 30 Oct 2017 22:06:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sergey.minaev</strong> (Tue, 31 Oct 2017 07:52:59 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h) @nage I've already done it (if we are talking about https://github.com/hyperledger/indy-sdk/pull/342- about of week ago). There was 2 comments from me. One was fixed, another one - no. So we waiting for @MALodder fix or comment for the second problem.
+</p>
+<p><strong>sergey.minaev</strong> (Tue, 31 Oct 2017 07:52:59 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h) @nage I've already done it (if we are talking about https://github.com/hyperledger/indy-sdk/pull/342). There was 2 comments from me. One was fixed, another one - no. So we waiting for @MALodder fix or comment for the second problem.
+</p>
+<p><strong>sergey.minaev</strong> (Tue, 31 Oct 2017 07:56:30 GMT):<br/>
+@MALodder please ask me any questions, if comments or build checks in the PR are not clear.
+</p>
+<p><strong>ashcherbakov</strong> (Wed, 01 Nov 2017 12:39:02 GMT):<br/>
+Please review:
+INDY-754: Updating documentation
+https://github.com/hyperledger/indy-node/pull/427
+</p>
+<p><strong>stevetolman</strong> (Wed, 01 Nov 2017 13:22:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mark.hadley</strong> (Thu, 02 Nov 2017 16:10:55 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>alexeykoren</strong> (Fri, 03 Nov 2017 11:15:47 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>anikitinDSR</strong> (Wed, 08 Nov 2017 09:03:59 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>srottem</strong> (Thu, 09 Nov 2017 23:43:24 GMT):<br/>
+PR propagating changes to the signus functionality into .the NET wrapper: https://github.com/hyperledger/indy-sdk/pull/373
+</p>
+<p><strong>srottem</strong> (Thu, 09 Nov 2017 23:59:29 GMT):<br/>
+PR refactoring crypto tests and fixing other failing .NET tests: https://github.com/hyperledger/indy-sdk/pull/374
+</p>
+<p><strong>srottem</strong> (Tue, 21 Nov 2017 23:41:30 GMT):<br/>
+PR updating Agent demo tests and samples in .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/391
+</p>
+<p><strong>srottem</strong> (Wed, 22 Nov 2017 00:34:06 GMT):<br/>
+PR improving .NET docs and linking them from the Readme.md: https://github.com/hyperledger/indy-sdk/pull/392
+</p>
+<p><strong>turmewr3ck</strong> (Wed, 22 Nov 2017 15:16:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Fri, 24 Nov 2017 12:42:41 GMT):<br/>
+Please review:
+INDY-960: Fixed bug with missed return statement
+https://github.com/hyperledger/indy-node/pull/474
+</p>
+<p><strong>spivachuk</strong> (Fri, 24 Nov 2017 12:43:37 GMT):<br/>
+Please review:
+INDY-960: Fixed bug with missed return statement
+https://github.com/hyperledger/indy-node/pull/474
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 28 Nov 2017 21:58:10 GMT):<br/>
+Please Review: 
+INDY-966 Release notes for 1.1.7
+https://github.com/sovrin-foundation/sovrin/pull/40
+</p>
+<p><strong>the_identity_guy</strong> (Mon, 04 Dec 2017 21:33:10 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Audrius</strong> (Tue, 05 Dec 2017 21:09:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ashcherbakov</strong> (Mon, 11 Dec 2017 12:53:22 GMT):<br/>
+A Pull Request with proposed Observer Nodes Design:
+https://github.com/hyperledger/indy-plenum/pull/478
+</p>
+<p><strong>gvvishwanath</strong> (Fri, 15 Dec 2017 05:22:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>calvinx</strong> (Fri, 15 Dec 2017 06:29:24 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nghia47</strong> (Mon, 18 Dec 2017 04:01:21 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nghia47</strong> (Mon, 18 Dec 2017 08:35:31 GMT):<br/>
+@spivachuk Please review https://github.com/hyperledger/indy-node/pull/456
+</p>
+<p><strong>bendon</strong> (Tue, 19 Dec 2017 08:41:23 GMT):<br/>
+Please review PR https://github.com/hyperledger/indy-plenum/pull/485 in the context of INDY-938 (Resolve licensing issues)
+</p>
+<p><strong>spivachuk</strong> (Tue, 19 Dec 2017 10:41:05 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=f74nu7EMsnQwKsSnf) @nghia47 Please see my comments in the PR.
+</p>
+<p><strong>nghia47</strong> (Thu, 21 Dec 2017 03:39:31 GMT):<br/>
+@spivachuk thanks for your comments. Please take a look on my update. https://github.com/hyperledger/indy-node/pull/456 
+</p>
+<p><strong>TechWritingWhiz</strong> (Thu, 21 Dec 2017 21:25:11 GMT):<br/>
+Please review: Updates to Getting Started Guide  -- 
+https://github.com/hyperledger/indy-node/pull/503
+</p>
+<p><strong>TechWritingWhiz</strong> (Thu, 21 Dec 2017 22:16:00 GMT):<br/>
+Please review: 
+https://github.com/hyperledger/indy-node/pull/504
+</p>
+<p><strong>TechWritingWhiz</strong> (Thu, 21 Dec 2017 22:16:00 GMT):<br/>
+Please review: INDY-1059
+https://github.com/hyperledger/indy-node/pull/504
+</p>
+<p><strong>spivachuk</strong> (Mon, 25 Dec 2017 19:12:23 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR) @nghia47 
+Please fix those findings that have still not been fixed and also see my new comments in the PR.
+</p>
+<p><strong>spivachuk</strong> (Mon, 25 Dec 2017 19:12:23 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR) @nghia47 Please fix those findings that have still not been fixed and also see my new comments in the PR.
+</p>
+<p><strong>nghia47</strong> (Tue, 26 Dec 2017 15:28:04 GMT):<br/>
+@spivachuk Please take a look on latest committed code.
+</p>
+<p><strong>nghia47</strong> (Tue, 26 Dec 2017 15:29:23 GMT):<br/>
+@ashcherbakov Please take a look on the latest commit for your request change https://github.com/hyperledger/indy-node/pull/456
+</p>
+<p><strong>ashcherbakov</strong> (Tue, 26 Dec 2017 15:30:13 GMT):<br/>
+@spivachuk ^
+</p>
+<p><strong>ashcherbakov</strong> (Tue, 26 Dec 2017 15:34:03 GMT):<br/>
+I will approve once Nikita approves.
+</p>
+<p><strong>nghia47</strong> (Tue, 26 Dec 2017 15:37:03 GMT):<br/>
+@ashcherbakov Please review https://github.com/hyperledger/indy-sdk/pull/432
+</p>
+<p><strong>ashcherbakov</strong> (Wed, 27 Dec 2017 11:16:08 GMT):<br/>
+Please review a PR with new documentation and diagrams:
+https://github.com/hyperledger/indy-node/pull/508
+</p>
+<p><strong>spivachuk</strong> (Wed, 27 Dec 2017 11:26:07 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=aZioqK7fxJRT3EP69) @nghia47 Please see the comment in the PR about the content of `indy-node/acceptance/pool.txn`.
+</p>
+<p><strong>ashcherbakov</strong> (Thu, 28 Dec 2017 13:40:45 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/510
+INDY-1055: moving environment scripts from sovrin-environment repo to indy-node
+</p>
+<p><strong>TechWritingWhiz</strong> (Thu, 04 Jan 2018 17:37:33 GMT):<br/>
+Please Review: 
+INDY-1062 Updates to the Getting Started Guide
+
+https://github.com/hyperledger/indy-node/pull/511
+</p>
+<p><strong>TechWritingWhiz</strong> (Thu, 04 Jan 2018 21:46:23 GMT):<br/>
+Please Review: 
+INDY-1060 Corrections to TechSovrinClusterSetup.md
+https://github.com/hyperledger/indy-node/pull/512
+</p>
+<p><strong>Derashe</strong> (Mon, 15 Jan 2018 16:08:18 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Rickzan</strong> (Tue, 16 Jan 2018 19:23:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sklump</strong> (Wed, 17 Jan 2018 17:48:56 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Wed, 17 Jan 2018 20:11:25 GMT):<br/>
+Please review: 
+INDY-892
+https://github.com/hyperledger/indy-node/pull/526
+</p>
+<p><strong>bendon</strong> (Thu, 18 Jan 2018 13:55:05 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=8eM6aT6HK2dLGwp2L) Nobody to review this old PR?
+</p>
+<p><strong>ashcherbakov</strong> (Thu, 18 Jan 2018 14:00:45 GMT):<br/>
+@bendon As I know, INDY-938 was potponed due to some negotiations and agreements between Sovrin and Hyperledger.
+@nage do you have some updates regarding this?
+
+</p>
+<p><strong>bendon</strong> (Thu, 18 Jan 2018 14:01:26 GMT):<br/>
+@ashcherbakov Thanks for the heads up
+</p>
+<p><strong>spivachuk</strong> (Thu, 18 Jan 2018 18:22:20 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/505
+</p>
+<p><strong>spivachuk</strong> (Thu, 18 Jan 2018 18:22:20 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/505
+INDY-1081: Fixed update of last caught up 3PC-key
+</p>
+<p><strong>nage</strong> (Thu, 18 Jan 2018 21:02:56 GMT):<br/>
+@bendon and @ashcherbakov I believe it was hung up by the agreement between Evernym and the Sovrin Foundation, not Hyperledger (as far as I know).  @Sean_Bohan is reaching out to @tkuhrt and @jlaw 1 to get it resolved correctly.
+</p>
+<p><strong>Sean_Bohan</strong> (Thu, 18 Jan 2018 21:02:56 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>tkuhrt</strong> (Thu, 18 Jan 2018 21:02:56 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Fri, 19 Jan 2018 10:24:38 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/529
+INDY-1081: Updated indy-plenum dependency
+</p>
+<p><strong>zhigunenko.dsr</strong> (Wed, 24 Jan 2018 09:20:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>tkuhrt</strong> (Fri, 26 Jan 2018 12:45:52 GMT):<br/>
+SeanBohan_Sovrin
+</p>
+<p><strong>nmellal</strong> (Tue, 30 Jan 2018 09:56:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Derashe</strong> (Wed, 31 Jan 2018 07:59:42 GMT):<br/>
+Please review 
+https://github.com/hyperledger/indy-node/pull/541
+[INDY-1057] Getting rid of raet stuff 
+</p>
+<p><strong>spivachuk</strong> (Wed, 31 Jan 2018 10:53:15 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/510
+INDY-1095: Fix issue with checkpoint bounds shift
+</p>
+<p><strong>spivachuk</strong> (Wed, 31 Jan 2018 13:01:18 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/544
+INDY-1095: Updated indy-plenum-dev dependency
+</p>
+<p><strong>ianco</strong> (Thu, 01 Feb 2018 16:49:26 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>pimotte</strong> (Fri, 02 Feb 2018 07:30:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>spivachuk</strong> (Thu, 08 Feb 2018 14:27:50 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-plenum/pull/523
+INDY-1081: Fixed handling of requested PREPARE
+</p>
+<p><strong>spivachuk</strong> (Thu, 08 Feb 2018 16:05:16 GMT):<br/>
+Please review:
+https://github.com/hyperledger/indy-node/pull/557
+INDY-1081: Updated indy-plenum dependency
+</p>
+<p><strong>Drew 42</strong> (Fri, 16 Feb 2018 21:36:47 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 19 Feb 2018 22:05:19 GMT):<br/>
+Please Review: 
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 19 Feb 2018 22:05:19 GMT):<br/>
+Please Review: 
+https://github.com/hyperledger/indy-sdk/pull/541
+</p>
+<p><strong>TechWritingWhiz</strong> (Mon, 19 Feb 2018 22:05:19 GMT):<br/>
+Please Review: 
+https://github.com/hyperledger/indy-sdk/pull/541
+Cleans up the New Getting Started Guide
+</p>
+<p><strong>Comuto</strong> (Wed, 21 Feb 2018 12:34:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nghia47</strong> (Mon, 26 Feb 2018 10:02:37 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/551
+Adds the scripts for Indy SDK getting started guides.
+</p>
+<p><strong>sergey.khoroshavin</strong> (Tue, 27 Feb 2018 10:27:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Toktar</strong> (Tue, 27 Feb 2018 14:15:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SergeyPalamarchuk</strong> (Wed, 28 Feb 2018 08:00:49 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>brycecurtis</strong> (Fri, 02 Mar 2018 18:36:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>brycecurtis</strong> (Fri, 02 Mar 2018 18:37:31 GMT):<br/>
+Please review:  https://github.com/hyperledger/indy-node/pull/589
+INDY 1207: Add Docker getting started configuration
+</p>
+<p><strong>brycecurtis</strong> (Tue, 06 Mar 2018 15:19:43 GMT):<br/>
+@ashcherbakov Please review https://github.com/hyperledger/indy-node/pull/589
+</p>
+<p><strong>ashcherbakov</strong> (Wed, 07 Mar 2018 08:05:20 GMT):<br/>
+Hi @brycecurtis. @andkononykhin is going to review this PR as he's already familiar with these changes.
+</p>
+<p><strong>mboyd</strong> (Fri, 16 Mar 2018 22:29:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 20 Mar 2018 19:33:43 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/582
+INDY-1211
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 20 Mar 2018 20:02:15 GMT):<br/>
+Please disregard Pull request #582  at https://github.com/hyperledger/indy-sdk/pull/582. I've closed it oout.
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 20 Mar 2018 20:22:32 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/583
+INDY-1211
+</p>
+<p><strong>TechWritingWhiz</strong> (Tue, 20 Mar 2018 20:52:21 GMT):<br/>
+Please disregard Pull request #583 at https://github.com/hyperledger/indy-sdk/pull/583
+
+</p>
+<p><strong>ShikarSharma</strong> (Tue, 20 Mar 2018 22:49:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>smithbk</strong> (Thu, 29 Mar 2018 20:27:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>smithbk</strong> (Thu, 29 Mar 2018 20:28:16 GMT):<br/>
+Pls review https://github.com/hyperledger/indy-node/pull/588 - adds support for supervisord
+</p>
+<p><strong>esplinr</strong> (Mon, 09 Apr 2018 22:36:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 02:16:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 02:37:29 GMT):<br/>
+Hi Channel, found a typo in a readme. please review: https://github.com/hyperledger/indy-node/pull/658
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 02:39:18 GMT):<br/>
+Also I'm not quite sure what to do with the JIRA ticket. I've changed status to code review but don't know who to reasign the ticket to, please advise.
+</p>
+<p><strong>esplinr</strong> (Fri, 20 Apr 2018 15:22:24 GMT):<br/>
+Thanks fro the PR Steve.
+</p>
+<p><strong>esplinr</strong> (Fri, 20 Apr 2018 15:22:24 GMT):<br/>
+Thanks fro the PR @Steve-Boyd 
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 15:31:00 GMT):<br/>
+Not a problem @esplinr. This is a great project and I want to get involved however I can. Even if it's simple PRs for now.
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 15:31:00 GMT):<br/>
+Not a problem @esplinr. This is a great project and I want to get involved however I can. 
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 20 Apr 2018 16:00:01 GMT):<br/>
+CI seems to be hanging
+</p>
+<p><strong>KitHat</strong> (Mon, 23 Apr 2018 08:53:20 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>trthhrtz</strong> (Wed, 25 Apr 2018 07:23:29 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mboyd</strong> (Wed, 02 May 2018 18:04:55 GMT):<br/>
+Added a Contributor Resources page and a How to Sign Commits page in the indy-sdk repository. Let me know if these are intuitive to you: https://github.com/hyperledger/indy-sdk/pull/706
+</p>
+<p><strong>mboyd</strong> (Wed, 02 May 2018 18:06:53 GMT):<br/>
+I also improved the main Indy-SDK readme based on my experience interacting with it and helping onboard multiple Sovrin developers. I've added the correct getting started guide to the top, and added a couple more current resources for understanding how the ecosystem works. Would love any of your feedback: https://github.com/hyperledger/indy-sdk/pull/701
+</p>
+<p><strong>esplinr</strong> (Thu, 03 May 2018 14:30:06 GMT):<br/>
+@mboyd Great work!
+</p>
+<p><strong>gudkov</strong> (Fri, 04 May 2018 11:09:50 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=f7Z6WnedWGhetMKZG) @Steve-Boyd CI for now requires manual triggering. 
+</p>
+<p><strong>Steve-Boyd</strong> (Fri, 04 May 2018 17:44:21 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=jwf6N35TvsDghnhYi) @gudkov Good to know thanks. Is there a team that works on DevOps stuff for the projects? I'd be interested to help with that if there is a need.
+</p>
+<p><strong>esplinr</strong> (Fri, 04 May 2018 20:48:18 GMT):<br/>
+Thanks for volunteering @Steve-Boyd. Currently devops is hosted by Evernym. A great first task would be to research what other Hyperledger projects are doing. We would like to move CI / CD to a shared platform and give more people access to assist with it.
+</p>
+<p><strong>trthhrtz</strong> (Mon, 07 May 2018 07:00:01 GMT):<br/>
+Please review:
+IS-680: Re-struct rotate key how-to in Python #723 
+https://github.com/hyperledger/indy-sdk/pull/723
+</p>
+<p><strong>trthhrtz</strong> (Mon, 07 May 2018 07:00:01 GMT):<br/>
+Please review:
+IS-680: Re-struct rotate key how-to in Python
+https://github.com/hyperledger/indy-sdk/pull/723
+</p>
+<p><strong>SteveGoob</strong> (Fri, 11 May 2018 19:47:14 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SteveGoob</strong> (Fri, 11 May 2018 19:47:33 GMT):<br/>
+Ready for review:
+</p>
+<p><strong>SteveGoob</strong> (Fri, 11 May 2018 19:47:33 GMT):<br/>
+Ready for review: IS-686 https://github.com/hyperledger/indy-sdk/pull/747
+</p>
+<p><strong>trthhrtz</strong> (Mon, 14 May 2018 06:55:10 GMT):<br/>
+Please review:
+IS-687: Add structure to the 'Save Schema and Credential Definition' how-to in Python
+https://github.com/hyperledger/indy-sdk/pull/749
+</p>
+<p><strong>jeremi 24</strong> (Fri, 25 May 2018 07:06:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>burdettadam</strong> (Tue, 29 May 2018 19:16:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SteveGoob</strong> (Tue, 29 May 2018 19:18:52 GMT):<br/>
+Ready for review: IS-707 https://github.com/hyperledger/indy-sdk/pull/812
+</p>
+<p><strong>srottem</strong> (Wed, 06 Jun 2018 16:07:27 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/842.  Once merged I will release a new package on nuget.
+</p>
+<p><strong>SteveGoob</strong> (Wed, 06 Jun 2018 20:07:02 GMT):<br/>
+Changes have been addressed. Requesting review again: IS-707 https://github.com/hyperledger/indy-sdk/pull/812
+</p>
+<p><strong>abraham</strong> (Fri, 08 Jun 2018 05:19:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>devin-fisher</strong> (Wed, 13 Jun 2018 20:25:33 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/762 
+Simple repin of plenum to pick up fixes.
+</p>
+<p><strong>devin-fisher</strong> (Fri, 15 Jun 2018 22:09:16 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/769
+</p>
+<p><strong>devin-fisher</strong> (Fri, 15 Jun 2018 22:28:50 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-plenum/pull/752
+</p>
+<p><strong>haggs</strong> (Fri, 06 Jul 2018 23:51:20 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>salmanbaset</strong> (Wed, 11 Jul 2018 18:27:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>Sergey.Kupryushin</strong> (Thu, 19 Jul 2018 14:01:27 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>slr</strong> (Thu, 19 Jul 2018 19:57:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>devin-fisher</strong> (Fri, 20 Jul 2018 21:36:51 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/835
+Am I the only one that uses this channel.
+</p>
+<p><strong>devin-fisher</strong> (Fri, 20 Jul 2018 21:36:51 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-node/pull/835
+Am I the only one that uses this channel?
+</p>
+<p><strong>burdettadam</strong> (Mon, 23 Jul 2018 17:34:54 GMT):<br/>
+Please review: https://github.com/hyperledger/indy-sdk/pull/958
+</p>
+<p><strong>vladan.divac</strong> (Thu, 26 Jul 2018 15:45:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>herveblanc</strong> (Tue, 07 Aug 2018 08:09:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>NataliaDracheva</strong> (Thu, 09 Aug 2018 12:54:06 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>danielhardman</strong> (Tue, 14 Aug 2018 22:32:36 GMT):<br/>
+A trivial PR against the SDK--just changes the wording of an error message to fix a grammar problem. https://github.com/hyperledger/indy-sdk/pull/1074
+</p>
+<p><strong>sureshtedla</strong> (Fri, 31 Aug 2018 17:30:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kenebert</strong> (Wed, 12 Sep 2018 16:57:08 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kenebert</strong> (Wed, 12 Sep 2018 21:54:08 GMT):<br/>
+Trivial PR against the ubuntu-build doc. Inform new users that they need to fill in the actual path in the sample script. https://github.com/hyperledger/indy-sdk/pull/1137 Jira ticket IS-937
+</p>
+<p><strong>MattRaffel</strong> (Tue, 18 Sep 2018 16:44:15 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MattRaffel</strong> (Wed, 19 Sep 2018 23:21:26 GMT):<br/>
+PR lots of fixes to dotnet wrapper unit testing.  please read PR description. https://github.com/hyperledger/indy-sdk/pull/1147
+</p>
+<p><strong>ianco</strong> (Thu, 20 Sep 2018 20:46:17 GMT):<br/>
+Hi folks, added PR https://github.com/hyperledger/indy-sdk/pull/1151 update to indy-cli to support storage_credentials for wallet create, open and import commands.  It's my first PR to indy-sdk so let me know if there's anything I need to do.  Thanks!!!
+</p>
+<p><strong>jljordan_bcgov</strong> (Sun, 23 Sep 2018 04:29:27 GMT):<br/>
+^^ @esplinr 
+</p>
+<p><strong>karthick15v</strong> (Fri, 28 Sep 2018 06:20:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mboyd</strong> (Fri, 28 Sep 2018 17:28:20 GMT):<br/>
+As discussed in our weekly indy working group call today, we want to help more dev know about the call, so we have added a line to the indy-sdk readme inviting them to it. Simple PR request: https://github.com/hyperledger/indy-sdk/pull/1167
+</p>
+<p><strong>esplinr</strong> (Mon, 01 Oct 2018 15:29:52 GMT):<br/>
+Thank you @mboyd 
+</p>
+<p><strong>ianco</strong> (Tue, 02 Oct 2018 20:37:28 GMT):<br/>
+Added PR for wallet unit testing and refactor inmem storage as shared library (demonstrated at the working group a couple of weeks ago):  https://github.com/hyperledger/indy-sdk/pull/1175
+</p>
+<p><strong>brycebudd</strong> (Mon, 08 Oct 2018 16:10:59 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>osesov</strong> (Tue, 09 Oct 2018 14:21:51 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>osesov</strong> (Tue, 09 Oct 2018 14:23:25 GMT):<br/>
+Hi guys. Just added PR for fixing android build script 
+jira: https://jira.hyperledger.org/browse/IS-1033
+PR: https://github.com/hyperledger/indy-sdk/pull/1206
+</p>
+<p><strong>esplinr</strong> (Wed, 10 Oct 2018 17:02:18 GMT):<br/>
+Thank you for all the PRs @ianco and @osesov 
+</p>
+<p><strong>ianco</strong> (Wed, 10 Oct 2018 17:05:10 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=sQmQ3mumzY6pj5ZNL) @esplinr My pleasure!  Let me know if there are any comments re PR 1175 (wallet testing and inmem re-factor) - I'm working on a Postgres wallet storage plug-in so this one (inmem) was kind of a trial run ...  It may be worth a HIPE on how to structure/test wallet storage plug-ins
+</p>
+<p><strong>esplinr</strong> (Wed, 10 Oct 2018 17:09:32 GMT):<br/>
+Will do. I want them to provide feedback on your PR in the next sprint (change-over is tomorrow). Thanks for your patience. We are trying to get faster at this.
+</p>
+<p><strong>faisal00813</strong> (Fri, 12 Oct 2018 06:32:43 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=FKzbTM5tjRvzyZ7Nu) @osesov @osesov Thank you for fixing this.
+</p>
+<p><strong>srottem</strong> (Mon, 15 Oct 2018 06:12:14 GMT):<br/>
+Hi guys - I've submitted a PR to implement logging in the .NET wrapper, completely refactor of the test suite to match the current Java one and fix issues that were uncovered. https://github.com/hyperledger/indy-sdk/pull/1217.  Please review.
+</p>
+<p><strong>mark.hadley</strong> (Wed, 17 Oct 2018 16:21:01 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mark.hadley</strong> (Wed, 17 Oct 2018 16:23:57 GMT):<br/>
+PR https://github.com/hyperledger/indy-sdk/pull/1222
+Fixes libvcx python tests
+Fixes bug in setup.py
+Fixes bug EN-870
+Adds 2 new Error Codes (and to both Python and Node Wrappers)
+</p>
+<p><strong>mark.hadley</strong> (Fri, 19 Oct 2018 17:36:45 GMT):<br/>
+I've updated the above PR to address the concerns of the python wrappers test suite for libvcx:
+https://github.com/hyperledger/indy-sdk/pull/1222
+@wightman @gudkov 
+</p>
+<p><strong>mark.hadley</strong> (Mon, 22 Oct 2018 21:48:23 GMT):<br/>
+PR 1222 is updated per @wightman requests
+https://github.com/hyperledger/indy-sdk/pull/1222
+</p>
+<p><strong>ianco</strong> (Mon, 22 Oct 2018 21:50:51 GMT):<br/>
+PR 1238 for the Postgres Wallet Plug-in https://github.com/hyperledger/indy-sdk/pull/1238, and HIPE PR 49 https://github.com/hyperledger/indy-hipe/pull/49 describing some general plug-in questions/issues/suggestions that I'd like to table for discussion.  (Note that PR 1238 supersedes my previous PR 1175 for the in-mem wallet, as this latest PR includes everything from the previous PR.)
+</p>
+<p><strong>mark.hadley</strong> (Tue, 23 Oct 2018 16:07:43 GMT):<br/>
+Just want to bump https://github.com/hyperledger/indy-sdk/pull/1222
+Is reviewed and ready to be merged.
+</p>
+<p><strong>ianco</strong> (Thu, 25 Oct 2018 01:36:32 GMT):<br/>
+PR 1247 for Postgres Wallet (https://github.com/hyperledger/indy-sdk/pull/1247) replaces 1238 (closed) and signs off commits.
+</p>
+<p><strong>gudkov</strong> (Thu, 25 Oct 2018 07:02:50 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=n2hMB3yvk8DGbC37Y) @ianco See my comments in your HIPE about wallet storage test harness. 
+</p>
+<p><strong>ianco</strong> (Thu, 25 Oct 2018 15:08:26 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=Ytg5QRFAYCYETgTry) @gudkov Thanks for the feedback I'll take a look!
+</p>
+<p><strong>ianco</strong> (Sun, 28 Oct 2018 20:42:45 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=rpi77edQAbubo6pS9) I've added JIRA tickets for each issue/topic in the PR and HIPE so we can address them individually.
+</p>
+<p><strong>mark.hadley</strong> (Mon, 29 Oct 2018 13:52:49 GMT):<br/>
+PR #1222 
+https://github.com/hyperledger/indy-sdk/pull/1222
+Updated and ready for merge.  
+
+</p>
+<p><strong>kdenhartog</strong> (Mon, 29 Oct 2018 15:50:46 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MALodder</strong> (Sat, 03 Nov 2018 18:51:03 GMT):<br/>
+https://github.com/hyperledger/indy-crypto/pull/132
+</p>
+<p><strong>MALodder</strong> (Sat, 03 Nov 2018 18:52:53 GMT):<br/>
+Inequality predicates
+</p>
+<p><strong>MALodder</strong> (Mon, 05 Nov 2018 13:40:04 GMT):<br/>
+@gudkov ^^
+</p>
+<p><strong>mark.hadley</strong> (Thu, 08 Nov 2018 23:40:28 GMT):<br/>
+@wightman @ryanmarsh 
+https://github.com/hyperledger/indy-sdk/pull/1275
+PR That Implements a new customizable logger for libvcx.
+</p>
+<p><strong>ianco</strong> (Fri, 09 Nov 2018 16:11:37 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/pull/1273 = bug fix for liindy storage plug-in (see IS-1045)
+https://github.com/hyperledger/indy-sdk/pull/1282 = postgres storage plug-in (depends on 1273)
+
+These are also included in PR 1247, but I;ve segregated them out for ease of review/merge.
+
+PR 1247 also includes updates to python wrapper and CLI to support storage plug-ins, and plug-in test harness.  I will create separate PR's for those once 1273 and 1282 are accepted/merged.
+</p>
+<p><strong>ianco</strong> (Fri, 09 Nov 2018 16:11:37 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/pull/1273 = bug fix for liindy storage plug-in (see IS-1045)
+https://github.com/hyperledger/indy-sdk/pull/1282 = postgres storage plug-in (depends on PR 1273)
+
+These are also included in PR 1247, but I;ve segregated them out for ease of review/merge.
+
+PR 1247 also includes updates to python wrapper and CLI to support storage plug-ins, and plug-in test harness.  I will create separate PR's for those once 1273 and 1282 are accepted/merged.
+</p>
+<p><strong>ianco</strong> (Fri, 09 Nov 2018 16:12:12 GMT):<br/>
+@gudkov  ^^^
+</p>
+<p><strong>janl</strong> (Fri, 09 Nov 2018 16:32:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>danielhardman</strong> (Fri, 09 Nov 2018 16:59:59 GMT):<br/>
+@JanL (I think I have the right handle) wanted to socialize a HIPE proposal that was built around the concept of consent receipts, but was having trouble with Rocket Chat--so I said I'd drop a link here. https://github.com/hyperledger/indy-hipe/pull/55
+</p>
+<p><strong>mxs1491</strong> (Thu, 15 Nov 2018 10:30:52 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>haggs</strong> (Fri, 16 Nov 2018 00:47:53 GMT):<br/>
+https://github.com/hyperledger/indy-agent/pull/41
+</p>
+<p><strong>haggs</strong> (Fri, 16 Nov 2018 00:48:28 GMT):<br/>
+Small PR to allow command line arguments when setting up an agent walletname and walletpassphrase
+</p>
+<p><strong>kdenhartog</strong> (Tue, 27 Nov 2018 11:56:39 GMT):<br/>
+@sergey.minaev I got the changes that you and @gudkov proposed for IS-1094. There's a few problems I ran into though, so I detailed them in the comment section of the PR. I wanted to confirm this was an acceptable refactor for the function names.
+</p>
+<p><strong>mboyd</strong> (Wed, 28 Nov 2018 21:50:58 GMT):<br/>
+https://github.com/hyperledger/indy-hipe/pull/63
+new HIPE proposing a multi-repository readthedocs site for Indy
+</p>
+<p><strong>sergey.minaev</strong> (Thu, 29 Nov 2018 11:33:14 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv) @kdenhartog @gudkov https://github.com/hyperledger/indy-sdk/pull/1314
+</p>
+<p><strong>sergey.minaev</strong> (Thu, 29 Nov 2018 11:33:14 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv) @kdenhartog @gudkov https://github.com/hyperledger/indy-sdk/pull/1314#issuecomment-442801548
+</p>
+<p><strong>kdenhartog</strong> (Thu, 29 Nov 2018 11:39:35 GMT):<br/>
+@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compile suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I didn't understand what the implications might be. Would you suggest that I add these? 
+</p>
+<p><strong>kdenhartog</strong> (Thu, 29 Nov 2018 11:39:35 GMT):<br/>
+@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I didn't understand what the implications might be. Would you suggest that I add these? 
+</p>
+<p><strong>kdenhartog</strong> (Thu, 29 Nov 2018 11:39:35 GMT):<br/>
+@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I thought that they may not be used for new crypto_types.
+</p>
+<p><strong>kdenhartog</strong> (Thu, 29 Nov 2018 11:39:35 GMT):<br/>
+@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I thought that they may not be used for new crypto_types. If I should change this then I can do that.
+</p>
+<p><strong>ianco</strong> (Thu, 06 Dec 2018 15:31:40 GMT):<br/>
+@gudkov   updates made to postgres wallet storage https://github.com/hyperledger/indy-sdk/pull/1282 ...  There has also been a suggestion to move this to a separate repo, rather than adding to indy-sdk, let me know if I should create a separate repo for this or if it will be merged into indy-sdk
+</p>
+<p><strong>ianco</strong> (Thu, 06 Dec 2018 15:31:40 GMT):<br/>
+@gudkov   updates made to postgres wallet storage https://github.com/hyperledger/indy-sdk/pull/1282 ...  There has also been a suggestion to move this to a separate repo, rather than adding to indy-sdk, let me know if I should create a separate repo for this or if it will be merged into indy-sdk  @esplinr 
+</p>
+<p><strong>esplinr</strong> (Thu, 06 Dec 2018 22:11:22 GMT):<br/>
+^^^ @sergey.minaev 
+</p>
+<p><strong>sergey.minaev</strong> (Mon, 10 Dec 2018 09:51:01 GMT):<br/>
+@ianco thank you for update, there is a good chance, that Slava will be able to start reviewing new changes today.
+</p>
+<p><strong>ianco</strong> (Mon, 10 Dec 2018 19:07:24 GMT):<br/>
+Great thanks!
+</p>
+<p><strong>sam-kaw</strong> (Tue, 11 Dec 2018 22:05:51 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>yisheng</strong> (Wed, 12 Dec 2018 03:40:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>olegwb</strong> (Wed, 12 Dec 2018 14:18:23 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sasiedu</strong> (Thu, 13 Dec 2018 08:29:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sasiedu</strong> (Thu, 13 Dec 2018 08:30:08 GMT):<br/>
+Hi guys, how do I get access to the JIRA board?
+</p>
+<p><strong>sasiedu</strong> (Thu, 13 Dec 2018 11:37:13 GMT):<br/>
+Pull request. URL: https://github.com/hyperledger/indy-sdk/pull/1355, JIRA-REF: IS-1111 
+</p>
+<p><strong>sasiedu</strong> (Thu, 13 Dec 2018 11:37:13 GMT):<br/>
+@sergey.minaev  Pull request. URL: https://github.com/hyperledger/indy-sdk/pull/1355, JIRA-REF: IS-1111 
+</p>
+<p><strong>olegwb</strong> (Thu, 13 Dec 2018 14:58:51 GMT):<br/>
+@Artemkaaas As we discussed yesterday, the ticket IS-1112 is created with the topic outlined.
+</p>
+<p><strong>Artemkaaas</strong> (Thu, 13 Dec 2018 14:58:52 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>esplinr</strong> (Thu, 13 Dec 2018 21:41:45 GMT):<br/>
+@sasiedu Which JIRA board? And what is your need for it?
+</p>
+<p><strong>sasiedu</strong> (Fri, 14 Dec 2018 05:50:07 GMT):<br/>
+@esplinr indysdk board, under community contribution. It's a golang wrapper for indysdk
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 15:12:24 GMT):<br/>
+@sasiedu I think you just have to be a logged in user to access the IndySDK board. Are you not seeing it?
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 15:13:38 GMT):<br/>
+I see that you created an epic for the golang wrapper (thank you!). Is your concern that you want it to be tracked as an in-progress community contribution?
+</p>
+<p><strong>sasiedu</strong> (Fri, 14 Dec 2018 15:53:56 GMT):<br/>
+@esplinr KitHat moved it to community contribution. but I have submitted a pull request for that task. It should be in review
+</p>
+<p><strong>KitHat</strong> (Fri, 14 Dec 2018 16:03:43 GMT):<br/>
+@esplinr I have moved it to Community Contribution from our EV sprint, I thought it is a correct place, isn't it?
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:03:55 GMT):<br/>
+Yes it is.
+</p>
+<p><strong>sasiedu</strong> (Fri, 14 Dec 2018 16:16:43 GMT):<br/>
+@esplinr I don't have a problem with it. Just not sure who to tag for review
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:18:02 GMT):<br/>
+We need to figure out the best way to handle wrappers that aren't directly required by the SDK. They don't get the same level of attention as the ones that are integrated into the CI / CD.
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:18:30 GMT):<br/>
+My opinion is that they should live in their own repositories, and we should create a list of such wrappers in the Hyperledger wiki so that they are easy to find.
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:19:09 GMT):<br/>
+My team doesn't have experience with Go, so we aren't well positioned to provide feedback on the wrapper or to help maintain it.
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:19:43 GMT):<br/>
+@sasiedu I'm glad you wrote the wrapper and I expect it will be useful to many people. But should it live within the SDK repository?
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:20:52 GMT):<br/>
+If you keep it in a separate GitHub repository, how do we help people find it? Is it best to have a wiki page, or to have a file in the SDK repo that lists recommended wrappers?
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 16:21:16 GMT):<br/>
+We've debated these questions off and on over the last few months, and your wrapper gives us a good opportunity to decide on a policy.
+</p>
+<p><strong>sasiedu</strong> (Fri, 14 Dec 2018 18:23:29 GMT):<br/>
+@esplinr I don't mind if sits outside of the SDK repo and have file in the repo that lists recommended wrappers and later added to the repo. The problem is if it doesn't match up to the indysdk wrapper standards
+</p>
+<p><strong>sasiedu</strong> (Fri, 14 Dec 2018 18:25:07 GMT):<br/>
+and are the dotnet, node, java and python official wrappers??
+</p>
+<p><strong>TelegramSam</strong> (Fri, 14 Dec 2018 18:26:33 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 19:36:53 GMT):<br/>
+We don't really talk in terms of "official".
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 19:37:00 GMT):<br/>
+The question is who maintains something.
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 19:37:16 GMT):<br/>
+.NET has no clear maintainer at the moment, so we have been talking about taking it out of the repo. Node and Java are maintained by Evernym. Python is used by Indy Node and so is required for the CI / CD to complete and is maintained by the team.
+</p>
+<p><strong>esplinr</strong> (Fri, 14 Dec 2018 19:38:03 GMT):<br/>
+We are discussing whether we should remove from the repo wrappers that are not required for CI / CD, but Node and Java are required for the current reference agents so that might mean they should stay.
+</p>
+<p><strong>sasiedu</strong> (Sat, 15 Dec 2018 16:20:26 GMT):<br/>
+okay, then I will create an external repo and send link, if someone wants to use it
+</p>
+<p><strong>esplinr</strong> (Mon, 17 Dec 2018 20:32:29 GMT):<br/>
+@sasiedu We discussed it as a team at Evernym, and we are in favor of adding the link in the README inside the official SDK repo. If you do the PR, you will appear as GitHub an official contributor (with perks like being able to vote in the next Hyperledger election).
+</p>
+<p><strong>esplinr</strong> (Mon, 17 Dec 2018 20:32:41 GMT):<br/>
+Thank you for making this wrapper avaiable.
+</p>
+<p><strong>esplinr</strong> (Mon, 17 Dec 2018 20:32:41 GMT):<br/>
+Thank you for making this wrapper available.
+</p>
+<p><strong>mboyd</strong> (Tue, 18 Dec 2018 04:48:30 GMT):<br/>
+indy-sdk docs PR here: https://github.com/hyperledger/indy-sdk/pull/1365
+</p>
+<p><strong>mboyd</strong> (Tue, 18 Dec 2018 22:39:58 GMT):<br/>
+enabled readthedocs for:
+-  indy-node: https://github.com/hyperledger/indy-node/pull/1101
+- indy-plenum: https://github.com/hyperledger/indy-plenum/pull/1037
+- indy-hipe: https://github.com/hyperledger/indy-hipe/pull/74
+
+</p>
+<p><strong>MayukhGhosh</strong> (Fri, 21 Dec 2018 09:58:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sasiedu</strong> (Sat, 22 Dec 2018 11:18:38 GMT):<br/>
+@esplinr okay, i will do that
+</p>
+<p><strong>ianco</strong> (Wed, 02 Jan 2019 17:13:48 GMT):<br/>
+Postgres storage cleanup https://github.com/hyperledger/indy-sdk/pull/1371 is updated per feedback @gudkov 
+</p>
+<p><strong>ianco</strong> (Tue, 15 Jan 2019 14:20:58 GMT):<br/>
+VCX pluggable wallets https://github.com/hyperledger/indy-sdk/pull/1404 - is W.I.P. but has some VCX questions if a VCXpert has some time to look :-)
+</p>
+<p><strong>kdenhartog</strong> (Thu, 17 Jan 2019 19:50:32 GMT):<br/>
+@sergey.minaev just added a doc about libindy's architecture in PR #1417. Can you review it and verify everything's correct and add additional detail if needed? Here's a link to the doc https://github.com/kdenhartog/indy-sdk/tree/libindy-doc/doc/design/012-libindy-architecture-overview 
+</p>
+<p><strong>Yair</strong> (Fri, 18 Jan 2019 11:01:07 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MattRaffel</strong> (Fri, 18 Jan 2019 15:49:52 GMT):<br/>
+@kdenhartog  so glad you started that doc.  
+</p>
+<p><strong>coderintherye</strong> (Fri, 25 Jan 2019 23:11:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>coderintherye</strong> (Fri, 25 Jan 2019 23:12:39 GMT):<br/>
+very minor PR for doc fix https://github.com/hyperledger/indy-node/pull/1141
+</p>
+<p><strong>coderintherye</strong> (Fri, 25 Jan 2019 23:13:11 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=SxhxMgJLXZHF2XoqA) https://jira.hyperledger.org/browse/INDY-1964
+</p>
+<p><strong>mboyd</strong> (Wed, 30 Jan 2019 20:25:12 GMT):<br/>
+Hi all, I'm hoping to have the docs/ folders with support for readthedocs ready by Friday. All of the remaining merge conflicts have been resolved. The Hyperledger admins are meeting with me to configure the site with their RTD account. Would the respective maintainers be able to review these PRs when convenient? 
+
+@sergey.minaev 
+@danielhardman 
+Repos still left to merge:
+- Indy SDK: https://github.com/hyperledger/indy-sdk/pull/1365
+- Indy Node: https://github.com/hyperledger/indy-node/pull/1101
+- Indy HIPE: https://github.com/hyperledger/indy-hipe/pull/74
+</p>
+<p><strong>danielhardman</strong> (Wed, 30 Jan 2019 20:43:44 GMT):<br/>
+I'm in favor of merging the one for Indy HIPE. Let me see if other maintainers agree.
+</p>
+<p><strong>ianco</strong> (Fri, 01 Feb 2019 18:28:31 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/pull/1446 - primarily adds wallet plug-in support to VCX, but also fixes the annoying segfault that occurs after Alice (successfully) sends a proof request
+</p>
+<p><strong>nanspro</strong> (Wed, 06 Feb 2019 15:29:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rasviitanen</strong> (Mon, 18 Feb 2019 10:55:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>nanspro</strong> (Sat, 23 Feb 2019 02:11:49 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>theoturner</strong> (Fri, 08 Mar 2019 16:32:48 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>theoturner</strong> (Fri, 08 Mar 2019 16:42:08 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/pull/1521 https://jira.hyperledger.org/browse/IS-1214 @MattRaffel MacOS installer
+</p>
+<p><strong>MattRaffel</strong> (Wed, 13 Mar 2019 19:10:53 GMT):<br/>
+https://github.com/hyperledger/indy-sdk/pull/1528
+</p>
+<p><strong>danielhardman</strong> (Mon, 18 Mar 2019 16:28:50 GMT):<br/>
+@sergey.minaev This is a trivial PR that should only take 30 secs to review. It just fixes a broken hyperlink in the docs. Can you approve? https://github.com/hyperledger/indy-sdk/pull/1544
+</p>
+<p><strong>MALodder</strong> (Mon, 18 Mar 2019 16:30:45 GMT):<br/>
+I approved it  @danielhardman 
+</p>
+<p><strong>Ryan2</strong> (Tue, 26 Mar 2019 04:48:55 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>cobear25</strong> (Mon, 08 Apr 2019 15:09:32 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>cobear25</strong> (Mon, 08 Apr 2019 15:10:16 GMT):<br/>
+Hi there, I just submitted a PR for the iOS wrapper. I don't have access to JIRA though so I haven't added a ticket there. Here's the PR: https://github.com/hyperledger/indy-sdk/pull/1582
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 19:57:56 GMT):<br/>
+@cobear25 Thank you for the PR. The maintainers are short handed at the moment due to vacations and other projects, but we'll review it when we can.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 19:58:09 GMT):<br/>
+@cobear25 What prevents you from accessing Jira?
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 19:58:09 GMT):<br/>
+@cobear25 Out of curiosity, what prevents you from accessing Jira?
+</p>
+<p><strong>cobear25</strong> (Mon, 08 Apr 2019 20:56:16 GMT):<br/>
+@esplinr I can view all the issues but I don't have login credentials, which I'm guessing are needed to add issues?
+</p>
+<p><strong>cobear25</strong> (Mon, 08 Apr 2019 20:57:42 GMT):<br/>
+Also, how long are you thinking it would take before a maintainer can look at it?
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 21:35:43 GMT):<br/>
+@cobear25 You can get a login by signing up for a free Linux Foundation account.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 21:36:05 GMT):<br/>
+One maintainer got back from vacation today, and one left last Friday. I'll have to ask them.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 21:36:05 GMT):<br/>
+One maintainer left last Friday, and one got back from vacation today. I'll have to ask.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 21:36:16 GMT):<br/>
+But it's currently taking us a few weeks.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 21:37:12 GMT):<br/>
+We recently did some work on the iOS wrapper, so we might already have the environments necessary to test.
+</p>
+<p><strong>cobear25</strong> (Mon, 08 Apr 2019 21:53:15 GMT):<br/>
+Yeah, I saw the changes that went in last week and they were super helpful to get it up and running on the latest iOS and swift version. The wrapper just didn't have all the functionality we need at the moment.
+</p>
+<p><strong>esplinr</strong> (Mon, 08 Apr 2019 22:10:07 GMT):<br/>
+Your contribution will speed that along a lot. Thank you again.
+</p>
+<p><strong>helengarneau</strong> (Tue, 16 Apr 2019 16:52:39 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>SteveGoob</strong> (Fri, 19 Apr 2019 20:12:51 GMT):<br/>
+[IS-754](https://jira.hyperledger.org/browse/IS-754) Just submitted a [pull request](https://github.com/hyperledger/indy-sdk/pull/1591). Ping me if you have any questions about it
+</p>
+<p><strong>SteveGoob</strong> (Fri, 19 Apr 2019 20:12:51 GMT):<br/>
+[IS-754](https://jira.hyperledger.org/browse/IS-754) Just submitted a [pull request](https://github.com/hyperledger/indy-sdk/pull/1591) for adding test coverage reports to the project. Ping me if you have any questions about it
+</p>
+<p><strong>rasviitanen</strong> (Tue, 21 May 2019 11:44:16 GMT):<br/>
+Hi, Just submitted: https://github.com/hyperledger/indy-sdk/pull/1639 Jira issue: https://jira.hyperledger.org/browse/IS-825
+</p>
+<p><strong>ilya1w</strong> (Wed, 22 May 2019 03:52:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dbluhm</strong> (Mon, 15 Jul 2019 16:01:50 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>dbluhm</strong> (Mon, 15 Jul 2019 16:03:54 GMT):<br/>
+Just submitted: https://github.com/hyperledger/indy-sdk/pull/1728
+
+I don't think it is controversial but happy to discuss more if others feel differently. It introduces much more convenient error handling in the python wrapper.
+</p>
+<p><strong>dbluhm</strong> (Mon, 15 Jul 2019 16:03:54 GMT):<br/>
+Just submitted: https://github.com/hyperledger/indy-sdk/pull/1728
+
+I don't think it is controversial but happy to discuss more if others feel differently. It introduces much more convenient error handling when using the python wrapper.
+</p>
+<p><strong>theoturner</strong> (Wed, 31 Jul 2019 17:25:07 GMT):<br/>
+@esplinr https://github.com/hyperledger/indy-sdk/pull/1775 https://jira.hyperledger.org/browse/IS-1340 MacOS installer fix
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 09:34:11 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 09:34:12 GMT):<br/>
+Just created a new Jira-Ticket and PR
+
+https://github.com/hyperledger/indy-sdk/pull/1803
+https://github.com/hyperledger/indy-sdk/pull/1803
+(Some Ideas for upgrading the Python-Wrapper)
+Feel free to ask anything if you have any questions.
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 09:34:12 GMT):<br/>
+Just created a new Jira-Ticket and PR
+
+https://github.com/hyperledger/indy-sdk/pull/1803
+https://jira.hyperledger.org/browse/IS-1350
+(Some Ideas for upgrading the Python-Wrapper)
+Feel free to ask anything if you have any questions.
+</p>
+<p><strong>dbluhm</strong> (Mon, 12 Aug 2019 13:18:57 GMT):<br/>
+Really impressive! Is a `pass` really all that is needed for those methods when the `LibindyCommand` decorator is used?
+</p>
+<p><strong>dbluhm</strong> (Mon, 12 Aug 2019 13:22:16 GMT):<br/>
+I think we should use this structure for the python wrapper as we migrate to Aries SDK. cc @esplinr 
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 13:25:25 GMT):<br/>
+Hey dbluhm
+Yes!
+Only if youre adding new data-types you will need to add a bit more. But everything else is really that easy ;)
+</p>
+<p><strong>dbluhm</strong> (Mon, 12 Aug 2019 13:53:34 GMT):<br/>
+@JeromeK what was the motivation for grouping the functions into classes as static methods as opposed to just having a module with plain functions?
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 14:14:57 GMT):<br/>
+@dbluhm 
+Its just because of the importing, you could also do with plain functions - does not matter ;)
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 14:14:57 GMT):<br/>
+@dbluhm 
+It's just because of the importing, you could also do it with plain functions - does not matter ;)
+</p>
+<p><strong>JeromeK</strong> (Mon, 12 Aug 2019 14:14:57 GMT):<br/>
+@dbluhm 
+It's just because of the importing, you could also do it with plain functions - does not matter.
+</p>
+<p><strong>esplinr</strong> (Wed, 14 Aug 2019 20:03:26 GMT):<br/>
+cc @sergey.minaev 
+</p>
+<p><strong>jadhavajay</strong> (Thu, 19 Sep 2019 18:45:49 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>DibbsZA</strong> (Fri, 27 Sep 2019 10:17:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>ajayjadhav</strong> (Fri, 18 Oct 2019 13:37:17 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 22 Oct 2019 17:37:08 GMT):<br/>
+Any word on this?
+
+https://github.com/hyperledger/indy-sdk/pull/1893
+</p>
+<p><strong>jljordan_bcgov</strong> (Tue, 22 Oct 2019 17:37:19 GMT):<br/>
+^^ @esplinr 
+</p>
+<p><strong>Rick</strong> (Thu, 24 Oct 2019 13:47:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>aaronr</strong> (Tue, 28 Jan 2020 17:36:16 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>aaronr</strong> (Tue, 28 Jan 2020 17:36:17 GMT):<br/>
+Just submitted https://github.com/hyperledger/indy-sdk/pull/2028 for Jira issue https://jira.hyperledger.org/browse/IS-1443
+
+It allows the postgres wallet plugin to be configured to use a specific database name when running in multiwallet mode.  Please ping me if you have questions about it.
+</p>
+<p><strong>burdettadam</strong> (Tue, 28 Jan 2020 21:44:22 GMT):<br/>
+rs_schema_handler PR in indy-node is ready for code review. https://github.com/hyperledger/indy-node/pull/1513
+</p>
+<p><strong>burdettadam</strong> (Wed, 29 Jan 2020 22:41:08 GMT):<br/>
+rs_encoding_handler PR in indy_node is ready for code review. https://github.com/hyperledger/indy-node/pull/1575
+</p>
+<p><strong>DibbsZA</strong> (Sat, 01 Feb 2020 08:47:21 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>burdettadam</strong> (Thu, 27 Feb 2020 22:10:56 GMT):<br/>
+documentation improvement PR in indy_node is ready for code review. https://github.com/hyperledger/indy-node/pull/1587
+</p>
+<p><strong>thomas_kim</strong> (Mon, 16 Mar 2020 10:26:54 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>thomas_kim</strong> (Mon, 16 Mar 2020 10:26:56 GMT):<br/>
+@sergey.minaev Just created a new Jira issue and PR.
+
+https://jira.hyperledger.org/browse/IS-1528
+https://github.com/hyperledger/indy-sdk/pull/2132
+
+Documentation improvement PR for Android. 
+</p>
+<p><strong>thomas_kim</strong> (Mon, 16 Mar 2020 10:26:56 GMT):<br/>
+@sergey.minaev Just created a new Jira issue and PR.
+
+https://jira.hyperledger.org/browse/IS-1528
+https://github.com/hyperledger/indy-sdk/pull/2132
+
+Trivial documentation update PR for Android. 
+</p>
+<p><strong>thomas_kim</strong> (Mon, 16 Mar 2020 10:26:56 GMT):<br/>
+@sergey.minaev Just created a new Jira issue and PR.
+
+https://jira.hyperledger.org/browse/IS-1528
+https://github.com/hyperledger/indy-sdk/pull/2132
+Trivial documentation update PR for Android. 
+</p>
+<p><strong>sergey.minaev</strong> (Tue, 17 Mar 2020 08:48:14 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=vyEQA9YS4JoJBXqjP) @ Thank you! Will review it soon
+</p>
+<p><strong>thomas_kim</strong> (Wed, 22 Apr 2020 09:21:06 GMT):<br/>
+@sergey.minaev I just have created a new Jira issue and PR
+https://jira.hyperledger.org/browse/IS-1551
+https://github.com/hyperledger/indy-sdk/pull/2156
+Some fixes in LibVCX of Java wrapper
+</p>
+<p><strong>thomas_kim</strong> (Thu, 23 Apr 2020 02:11:03 GMT):<br/>
+@sergey.minaev Jenkins build is failed, but I don't have a permission to get into the Jenkins... Can you please let me know the reason why a build is failed for the PR https://github.com/hyperledger/indy-sdk/pull/2132. When I built the project in my local machine, there was no problem. 
+</p>
+<p><strong>thomas_kim</strong> (Fri, 24 Apr 2020 10:44:20 GMT):<br/>
+@sergey.minaev I just created another PR. Always, many thanks to maintainers. 
+https://jira.hyperledger.org/browse/IS-1554
+https://github.com/hyperledger/indy-sdk/pull/2161
+In this PR I created the sample Android demo application for Alice, and documented findings I have found while I was struggling with native libraries and NDK issues. 
+</p>
+<p><strong>thomas_kim</strong> (Thu, 21 May 2020 06:27:54 GMT):<br/>
+Hi maintainers~ I have created the PR for LibVCX.
+https://github.com/hyperledger/indy-sdk/pull/2172
+This PR is about deleting a credential from the wallet and in the memory for V3
+</p>
+<p><strong>esplinr</strong> (Fri, 22 May 2020 20:50:29 GMT):<br/>
+Very cool. Thank you!
+</p>
+<p><strong>esplinr</strong> (Fri, 22 May 2020 20:50:29 GMT):<br/>
+Very cool @thomas_kim . Thank you!
+</p>
+<p><strong>thomas_kim</strong> (Mon, 25 May 2020 00:19:07 GMT):<br/>
+My pleasure. 
+</p>
+<p><strong>ianco</strong> (Fri, 29 May 2020 21:35:43 GMT):<br/>
+Indy gurus, I'd appreciate some feedback on this PR:  https://github.com/hyperledger/indy-sdk/pull/2179 ...  It adds support to proof validation so that predicates can support restrictions of the form `"restrictions": [{ ..., "attr::name::value": "Alex" }]` (currently with these kinds of restrictions in predicates the proof process will work up to the validation step and then fail)
+</p>
+<p><strong>ianco</strong> (Fri, 29 May 2020 21:36:00 GMT):<br/>
+The issue is logged here:  https://jira.hyperledger.org/browse/IS-1557
+</p>
+<p><strong>ianco</strong> (Fri, 29 May 2020 21:36:31 GMT):<br/>
+(The PR is a work in progress, I don't want to put too much work into it if I'm already out in left field)
+</p>
+<p><strong>thomas_kim</strong> (Mon, 08 Jun 2020 02:48:57 GMT):<br/>
+@sergey.minaev I have created the PR for VCX iOS wrapper. 
+https://github.com/hyperledger/indy-sdk/pull/2187
+I have added APIs needed to use V3 protocol.
+</p>
+<p><strong>thomas_kim</strong> (Wed, 17 Jun 2020 08:06:52 GMT):<br/>
+Here is another PR about VCX iOS wrapper. I added more APIs
+https://github.com/hyperledger/indy-sdk/pull/2195
+</p>
+<p><strong>thomas_kim</strong> (Thu, 25 Jun 2020 11:08:04 GMT):<br/>
+I just created a PR about VCX wallet APIs (add/update/delete_tags, open_search, fetch_next, close_search)
+https://github.com/hyperledger/indy-sdk/pull/2209
+</p>
+<p><strong>hcsatish</strong> (Tue, 07 Jul 2020 16:41:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>JakeZ2020</strong> (Fri, 07 Aug 2020 18:25:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sheru</strong> (Wed, 30 Sep 2020 11:59:12 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shimizut</strong> (Mon, 05 Oct 2020 05:15:57 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>shimizut</strong> (Mon, 05 Oct 2020 05:15:58 GMT):<br/>
+Hello everyone. I'm new here.
+I created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.
+
+https://jira.hyperledger.org/browse/IS-1561
+https://github.com/hyperledger/indy-sdk/pull/2238
+</p>
+<p><strong>shimizut</strong> (Mon, 05 Oct 2020 05:15:58 GMT):<br/>
+Hello everyone. I'm new here.
+I created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.
+
+https://jira.hyperledger.org/browse/IS-1561
+https://github.com/hyperledger/indy-sdk/pull/2238
+
+I do now know whom I should tag to review. Sorry.
+</p>
+<p><strong>shimizut</strong> (Mon, 05 Oct 2020 05:15:58 GMT):<br/>
+Hello everyone. I'm new here.
+I created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.
+
+https://jira.hyperledger.org/browse/IS-1561
+https://github.com/hyperledger/indy-sdk/pull/2238
+
+I do not know whom I should tag to review. Sorry.
+</p>
+<p><strong>esplinr</strong> (Mon, 05 Oct 2020 14:44:34 GMT):<br/>
+@sergey.minaev Can you look at this?
+</p>
+<p><strong>esplinr</strong> (Mon, 05 Oct 2020 14:44:47 GMT):<br/>
+@shimizut That's an impressive first contribution!
+</p>
+<p><strong>esplinr</strong> (Mon, 05 Oct 2020 14:45:06 GMT):<br/>
+As a note, we are moving the project away from Jira toward GitHub issues.-
+</p>
+<p><strong>esplinr</strong> (Mon, 05 Oct 2020 14:45:06 GMT):<br/>
+As a note, we are moving the project away from Jira toward GitHub issues.
+</p>
+<p><strong>shimizut</strong> (Tue, 06 Oct 2020 01:12:44 GMT):<br/>
+Yes I can.
+</p>
+<p><strong>shimizut</strong> (Tue, 06 Oct 2020 01:25:16 GMT):<br/>
+@esplinr 
+Thank you. I made an issue on Jira according to https://docs.google.com/presentation/d/1zbb1-4TjH1-iYN7LnFZyPWvB1w-YcoUwKYCfByugSE0/edit#slide=id.g23d83a3667_0_55 .
+I would greatly appreciate it if you could tell me what to do. Should I close that on Jira and submit an issue on GitHub?
+</p>
+<p><strong>shimizut</strong> (Tue, 06 Oct 2020 06:20:25 GMT):<br/>
+I am sorry that indentation of a line was not good. I have corrected and pushed.
+</p>
+<p><strong>esplinr</strong> (Thu, 08 Oct 2020 05:01:41 GMT):<br/>
+No worries.
+</p>
+<p><strong>esplinr</strong> (Thu, 08 Oct 2020 05:01:50 GMT):<br/>
+I don't think you an additional GitHub issue is necessary.
+</p>
+<p><strong>esplinr</strong> (Thu, 08 Oct 2020 05:02:00 GMT):<br/>
+Sorry about the out-of-date contributor documentation.
+</p>
+<p><strong>shimizut</strong> (Thu, 15 Oct 2020 04:33:32 GMT):<br/>
+Thank you for review and merging my pull request.
+By the way, I pointed out that the implementation does not match the specification in
+</p>
+<p><strong>shimizut</strong> (Thu, 15 Oct 2020 04:33:32 GMT):<br/>
+Thank you for review and merging my pull request.
+By the way, I pointed out that the implementation does not match the specification in https://github.com/hyperledger/indy-sdk/pull/2238, but there was no response. Because I am not sure the specification is correct or not, I did not add document change in the last pull request.
+Then, I created a new issue about it and a pull request.
+According to the esplinr's mention, I did not create the issue on Jira but on GitHub.
+I would be grateful if you could let me know if the procedure is not correct.
+</p>
+<p><strong>shimizut</strong> (Thu, 15 Oct 2020 04:33:32 GMT):<br/>
+Thank you for review and merging my pull request.
+By the way, I pointed out that the implementation does not match the specification in https://github.com/hyperledger/indy-sdk/pull/2238, but there was no response. Because I am not sure the specification is correct or not, I did not add document change in the last pull request.
+Then, I created a new issue about it and a pull request https://github.com/hyperledger/indy-sdk/issues/2249.
+According to the esplinr's mention, I did not create the issue on Jira but on GitHub.
+I would be grateful if you could let me know if the procedure is not correct.
+</p>
+<p><strong>esplinr</strong> (Mon, 26 Oct 2020 22:30:52 GMT):<br/>
+Thank you!
+</p>
+<p><strong>esplinr</strong> (Mon, 26 Oct 2020 22:31:10 GMT):<br/>
+This is great. Thank you!
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 16:51:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 16:51:44 GMT):<br/>
+I noticed that the indy-sdk's Rust language wrapper was written for Rust 2015, so I updated it to Rust 2018 and created a PR.  However, I'm hung up on the DCO process.  I'm getting a message that says: 
+
+"remote: Permission to hyperledger/indy-sdk.git denied to mccown.
+fatal: unable to access 'https://github.com/hyperledger/indy-sdk.git/': The requested URL returned error: 403"
+
+Any pointers on how to proceed?
+
+Here is the PR that I'm trying to submit:
+
+https://github.com/hyperledger/indy-sdk/pull/2435
+</p>
+<p><strong>ianco</strong> (Wed, 13 Oct 2021 16:55:35 GMT):<br/>
+You need to DCO sign all your commits (`git commit -s ...` or `git commit --signoff ...` I think ...)
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 18:00:07 GMT):<br/>
+Thanks for the tip.  I fixed the DCO.  It sure is easier to do that on the initial commit rather than trying to correct that later.
+</p>
+<p><strong>ianco</strong> (Wed, 13 Oct 2021 18:13:11 GMT):<br/>
+Looks like you now have a conflict in your PR
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 18:16:01 GMT):<br/>
+I see the conflict of "libindy/Cargo.lock".  I didn't have one in my PR (I think), so I don't know how to delete it.  It says "Only those with write access to this repository can merge pull requests."
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 18:16:01 GMT):<br/>
+I see the conflict of "libindy/Cargo.lock".  I didn't have one in my PR (I think), so I don't know how to delete it.  It says "Only those with write access to this repository can merge pull requests."
+
+Any idea on what I need to do to fix it?
+</p>
+<p><strong>ianco</strong> (Wed, 13 Oct 2021 18:44:06 GMT):<br/>
+It usually means there are updates on the main branch that you haven't merged into your fork
+</p>
+<p><strong>ianco</strong> (Wed, 13 Oct 2021 18:44:32 GMT):<br/>
+Try merging the latest code into your fork and see if you get a local conclict
+</p>
+<p><strong>ianco</strong> (Wed, 13 Oct 2021 18:44:32 GMT):<br/>
+Try merging the latest code into your fork and see if you get a local conflict
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 18:55:26 GMT):<br/>
+I'm reading through both main and my PR and I think what's happening is that main has a libindy/Cargo.lock file, while I deleted it from my PR.  Since cargo rebuilds the lock files, I didn't think it was a problem.  Now, I'm not sure how to go about fixing it...
+</p>
+<p><strong>mccown</strong> (Wed, 13 Oct 2021 19:03:27 GMT):<br/>
+I just tested building libindy locally and verified that cargo recreates the .lock files and the build finishes successfully.
+</p>
+<p><strong>mccown</strong> (Thu, 14 Oct 2021 18:40:14 GMT):<br/>
+I figured out the DCO issue.  I hadn't signed the PR before I submitted it, so I had to figure out how to sign after submission.  Now, it's held up on a Cargo.lock file problem in the Jenkins process.  I removed the Cargo.lock files before submitting my PR, since cargo rebuilds them.  I guess that's causing a problem.  I don't have merge access, so I can't resolve it.  Any help is appreciated. 
+
+https://github.com/hyperledger/indy-sdk/pull/2435
+</p>
+<p><strong>ianco</strong> (Thu, 14 Oct 2021 18:59:09 GMT):<br/>
+Your indy-sdk fork is showing as `6 commits behind hyperledger:master`, so you need to catch up your local fork first.  I suspect that will give you the conflict locally, so then when you fix it locally it will fix the PR
+</p>
+<p><strong>mccown</strong> (Thu, 14 Oct 2021 21:54:35 GMT):<br/>
+@ianco got it.  Since I don't use github / jenkins often, I ended up closing the previous PR and created an updated one, which should be ready to go.
+
+https://github.com/hyperledger/indy-sdk/pull/2437
+</p>
+<p><strong>rjones</strong> (Sat, 12 Feb 2022 22:00:25 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Sat, 12 Feb 2022 22:00:26 GMT):<br/>
+[Please move to Discord](https://discord.com/channels/905194001349627914/905205711850594336)
+</p>
+<p><strong>rjones</strong> (Sat, 12 Feb 2022 22:00:26 GMT):<br/>
+[Please get an account on the Hyperledger discord](https://discord.gg), then [join Indy](https://discord.com/channels/905194001349627914/905205711850594336)
+</p>

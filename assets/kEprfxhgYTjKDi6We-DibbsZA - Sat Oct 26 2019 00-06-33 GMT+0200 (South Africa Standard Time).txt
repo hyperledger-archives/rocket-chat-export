@@ -1,0 +1,92 @@
+not having much luck with that so far.
+My setup is as follows:
+- My provision compose file starts the DB & agent images. 
+- It persists the DB with a volume which is mounting a local empty folder.
+- In the Agent definition, I have replaced the normal aca-py startup with a very long sleep so the container doesn't terminate before I can get inside it.
+- I launch that in one terminal and the DB does its normal thing.
+- in another terminal I ```docker exec``` into the agent container
+- Then I paste all my argument variables as exports and then paste the aca-py provision command like so 
+```
+
+export LEDGER_BUILD_URL="https://raw.githubusercontent.com/sovrin-foundation/sovrin/master/sovrin/pool_transactions_builder_genesis"
+export AGENT_SEED="000000000000000000000000000sbsa1"
+export WALLET_NAME="sbsa-wallet"
+export WALLET_STORAGE_TYPE="postgres_storage"
+export WALLET_ENCRYPTION_KEY="key"
+export POSTGRESQL_WALLET_HOST="wallet-db"
+export POSTGRESQL_WALLET_PORT="5432"
+export POSTGRESQL_WALLET_DATABASE="wallet_db"
+export POSTGRESQL_WALLET_USER="walletuser"
+export POSTGRESQL_WALLET_PASSWORD="walletpassword"
+export POSTGRESQL_WALLET_ADMIN_USER="postgres"
+export POSTGRESQL_WALLET_ADMIN_PASSWORD="mysecretpassword"
+
+aca-py provision \
+--seed $AGENT_SEED \
+--genesis-url $LEDGER_BUILD_URL \
+--wallet-type indy \
+--wallet-name $WALLET_NAME \
+--wallet-key $WALLET_ENCRYPTION_KEY \
+--wallet-storage-type $WALLET_STORAGE_TYPE \
+--wallet-storage-config '{"url":"$POSTGRESQL_WALLET_HOST:$POSTGRESQL_WALLET_PORT","max_connections":5}' \
+--wallet-storage-creds '{"account":"$POSTGRESQL_WALLET_USER","password":"$POSTGRESQL_WALLET_PASSWORD","admin_account":"$POSTGRESQL_WALLET_ADMIN_USER","admin_password":"$POSTGRESQL_WALLET_ADMIN_PASSWORD"}'
+
+```
+This is the result
+```
+indy@30f1a93dd289:~$ aca-py provision \
+> --seed $AGENT_SEED \
+> --genesis-url $LEDGER_BUILD_URL \
+> --wallet-type indy \
+> --wallet-name $WALLET_NAME \
+> --wallet-key $WALLET_ENCRYPTION_KEY \
+> --wallet-storage-type $WALLET_STORAGE_TYPE \
+> --wallet-storage-config '{"url":"$POSTGRESQL_WALLET_HOST:$POSTGRESQL_WALLET_PORT","max_connections":5}' \
+> --wallet-storage-creds '{"account":"$POSTGRESQL_WALLET_USER","password":"$POSTGRESQL_WALLET_PASSWORD","admin_account":"$POSTGRESQL_WALLET_ADMIN_USER","admin_password":"$POSTGRESQL_WALLET_ADMIN_PASSWORD"}'
+Initializing postgres wallet
+Success, loaded postgres wallet storage
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/wallet/indy.py", line 160, in create
+    credentials=json.dumps(self._wallet_access),
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/wallet.py", line 61, in create_wallet
+    create_wallet.cb)
+indy.error.WalletStorageError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/commands/provision.py", line 32, in provision
+    public_did = await wallet_config(context, True)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/config/wallet.py", line 16, in wallet_config
+    wallet: BaseWallet = await context.inject(BaseWallet)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/config/injection_context.py", line 126, in inject
+    return await self.injector.inject(base_cls, settings, required=required)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/config/injector.py", line 77, in inject
+    result = await provider.provide(ext_settings, self)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/config/provider.py", line 82, in provide
+    self._instance = await self._provider.provide(config, injector)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/config/provider.py", line 105, in provide
+    instance = await self._provider.provide(config, injector)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/wallet/provider.py", line 40, in provide
+    await wallet.open()
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/wallet/indy.py", line 220, in open
+    await self.create(self._auto_remove)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/wallet/indy.py", line 170, in create
+    raise WalletError(str(x_indy))
+aries_cloudagent.wallet.error.WalletError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/indy/.pyenv/versions/3.6.9/bin/aca-py", line 32, in <module>
+    run_command(command, args)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/commands/__init__.py", line 35, in run_command
+    module.execute(argv)
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/commands/provision.py", line 52, in execute
+    loop.run_until_complete(provision(settings))
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/asyncio/base_events.py", line 484, in run_until_complete
+    return future.result()
+  File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aries_cloudagent/commands/provision.py", line 39, in provision
+    raise ProvisionError("Error during provisioning") from e
+aries_cloudagent.commands.provision.ProvisionError: Error during provisioning
+```

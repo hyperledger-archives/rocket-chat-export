@@ -1,0 +1,187 @@
+fabric_sdk_java          | 2019-10-23 07:10:30.544 ERROR 1 --- [nio-8213-exec-5] org.hyperledger.fabric.sdk.Channel       : Channel Channel{id: 3, name: amchannel} Sending proposal with transaction: 8acefcee3f73c1a27c1eb7ba4253a33a024f89d48ebaaf0fc3fc82f5dbd3a07a to Peer{ id: 8, name: peer1.org1.example.com, channelName: amchannel, url: grpcs://peer1.org1.example.com:7056} failed because of: gRPC failure=Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: peer1.org1.example.com/172.18.0.12:7056
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+fabric_sdk_java          |      at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+fabric_sdk_java          |      at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:670)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:617)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:534)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+fabric_sdk_java          |      at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+fabric_sdk_java          |      at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+fabric_sdk_java          |      at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+fabric_sdk_java          |      at java.lang.Thread.run(Thread.java:748)
+fabric_sdk_java          | Caused by: java.net.ConnectException: Connection refused
+fabric_sdk_java          |      ... 12 more
+fabric_sdk_java          | }
+fabric_sdk_java          |
+fabric_sdk_java          | java.lang.Exception: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+fabric_sdk_java          |      at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:4140) [fabric-sdk-java-1.4.0.jar!/:na]
+fabric_sdk_java          |      at org.hyperledger.fabric.sdk.Channel.joinPeer(Channel.java:798) [fabric-sdk-java-1.4.0.jar!/:na]
+fabric_sdk_java          |      at org.hyperledger.fabric.sdk.Channel.joinPeer(Channel.java:738) [fabric-sdk-java-1.4.0.jar!/:na]
+fabric_sdk_java          |      at com.example.fabric.sdk.utils.ChannelHelper.joinPeersWithStaticConfig(ChannelHelper.java:206) [classes!/:na]
+fabric_sdk_java          |      at com.example.fabric.sdk.controller.ChannelController.joinPeersToChannel(ChannelController.java:63) [classes!/:na]
+fabric_sdk_java          |      at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_232]
+fabric_sdk_java          |      at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_232]
+fabric_sdk_java          |      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_232]
+fabric_sdk_java          |      at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_232]
+fabric_sdk_java          |      at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) [spring-webmvc-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at com.example.fabric.sdk.security.auth.jwt.JwtTokenAuthenticationProcessingFilter.successfulAuthentication(JwtTokenAuthenticationProcessingFilter.java:57) [classes!/:na]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:240) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at com.example.fabric.sdk.security.auth.jwt.JwtTokenAuthenticationProcessingFilter.successfulAuthentication(JwtTokenAuthenticationProcessingFilter.java:57) [classes!/:na]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:240) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar!/:5.1.8.RELEASE]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_232]
+fabric_sdk_java          |      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_232]
+fabric_sdk_java          |      at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar!/:9.0.21]
+fabric_sdk_java          |      at java.lang.Thread.run(Thread.java:748) [na:1.8.0_232]
+fabric_sdk_java          | Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+fabric_sdk_java          |      at io.grpc.Status.asRuntimeException(Status.java:530) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:482) ~[grpc-stub-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.CensusStatsModule$StatsClientInterceptor$1$1.onClose(CensusStatsModule.java:694) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.CensusTracingModule$TracingClientInterceptor$1$1.onClose(CensusTracingModule.java:397) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:459) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:63) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.close(ClientCallImpl.java:546) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.access$600(ClientCallImpl.java:467) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:584) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.17.1.jar!/:1.17.1]
+fabric_sdk_java          |      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_232]
+fabric_sdk_java          |      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_232]
+fabric_sdk_java          |      ... 1 common frames omitted
+fabric_sdk_java          | Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: peer1.org1.example.com/172.18.0.12:7056
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_232]
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[na:1.8.0_232]
+fabric_sdk_java          |      at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:670) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:617) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:534) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[netty-transport-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906) ~[netty-common-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.36.Final.jar!/:4.1.36.Final]
+fabric_sdk_java          |      ... 1 common frames omitted
+fabric_sdk_java          | Caused by: java.net.ConnectException: Connection refused
+fabric_sdk_java          |      ... 12 common frames omitted
+fabric_sdk_java          |
+fabric_sdk_java          | 2019-10-23 07:10:30.546 ERROR 1 --- [nio-8213-exec-5] org.hyperledger.fabric.sdk.Channel       : Channel{id: 3, name: amchannel} removing peer Peer{ id: 8, name: peer1.org1.example.com, channelName: amchannel, url: grpcs://peer1.org1.example.com:7056} due to exception Join peer to channel amchannel failed.  Status FAILURE, details: Channel Channel{id: 3, name: amchannel} Sending proposal with transaction: 8acefcee3f73c1a27c1eb7ba4253a33a024f89d48ebaaf0fc3fc82f5dbd3a07a to Peer{ id: 8, name: peer1.org1.example.com, channelName: amchannel, url: grpcs://peer1.org1.example.com:7056} failed because of: gRPC failure=Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: peer1.org1.example.com/172.18.0.12:7056
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+fabric_sdk_java          |      at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+fabric_sdk_java          |      at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:670)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:617)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:534)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+fabric_sdk_java          |      at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+fabric_sdk_java          |      at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+fabric_sdk_java          |      at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+fabric_sdk_java          |      at java.lang.Thread.run(Thread.java:748)
+fabric_sdk_java          | Caused by: java.net.ConnectException: Connection refused
+fabric_sdk_java          |      ... 12 more
+fabric_sdk_java          | }
+fabric_sdk_java          | 2019-10-23 07:10:30.547 ERROR 1 --- [nio-8213-exec-5] org.hyperledger.fabric.sdk.Channel       : org.hyperledger.fabric.sdk.exception.ProposalException: Join peer to channel amchannel failed.  Status FAILURE, details: Channel Channel{id: 3, name: amchannel} Sending proposal with transaction: 8acefcee3f73c1a27c1eb7ba4253a33a024f89d48ebaaf0fc3fc82f5dbd3a07a to Peer{ id: 8, name: peer1.org1.example.com, channelName: amchannel, url: grpcs://peer1.org1.example.com:7056} failed because of: gRPC failure=Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: peer1.org1.example.com/172.18.0.12:7056
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+fabric_sdk_java          |      at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+fabric_sdk_java          |      at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+fabric_sdk_java          |      at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:670)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:617)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:534)
+fabric_sdk_java          |      at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+fabric_sdk_java          |      at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+fabric_sdk_java          |      at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+fabric_sdk_java          |      at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+fabric_sdk_java          |      at java.lang.Thread.run(Thread.java:748)
+fabric_sdk_java          | Caused by: java.net.ConnectException: Connection refused
+fabric_sdk_java          |      ... 12 more

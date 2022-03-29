@@ -1,0 +1,117 @@
+Each Orderer MSPID equals the name in the genesis and channel definitions. ORDERER_GENERAL_LOCALMSPID=BPNOrderer1MSP. Each peer MSPID equals the name on the peer. CORE_PEER_GENERAL_LOCALMSPID=BPNBelltanePeer1MSP
+
+Genesis definition:
+
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *BPNOrderer1Org
+                - *BPNOrderer2Org
+                - *BPNOrderer3Org
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *BPNBelltanePeer1
+                    - *BPNBelltanePeer2
+                    - *BPNByrlinPeer1
+                    - *BPNByrlinPeer2
+
+Channel definition:
+
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                    - *BPNBelltanePeer1
+                    - *BPNBelltanePeer2
+                    - *BPNByrlinPeer1
+                    - *BPNByrlinPeer2
+
+Organizations:
+
+    - &BPNOrderer1Org
+        Name: BPNOrderer1Org
+        ID: BPNOrderer1MSP
+        MSPDir: /etc/hyperledger/msp/orderer1/msp
+
+    - &BPNOrderer2Org
+        Name: BPNOrderer2Org
+        ID: BPNOrderer2MSP
+        MSPDir: /etc/hyperledger/msp/orderer2/msp
+
+    - &BPNOrderer3Org
+        Name: BPNOrderer3Org
+        ID: BPNOrderer3MSP
+        MSPDir: /etc/hyperledger/msp/orderer3/msp
+
+    - &BPNBelltanePeer1
+        Name: BPNBelltanePeer1MSP
+        ID: BPNBelltanePeer1MSP
+        MSPDir: /etc/hyperledger/msp/belltane/peer1/msp
+
+    - &BPNBelltanePeer2
+        Name: BPNBelltanePeer2MSP
+        ID: BPNBelltanePeer2MSP
+        MSPDir: /etc/hyperledger/msp/belltane/peer2/msp
+
+    - &BPNByrlinPeer1
+        Name: BPNByrlinPeer1MSP
+        ID: BPNByrlinPeer1MSP
+        MSPDir: /etc/hyperledger/msp/byrlin/peer1/msp
+
+    - &BPNByrlinPeer2
+        Name: BPNByrlinPeer2MSP
+        ID: BPNByrlinPeer2MSP
+        MSPDir: /etc/hyperledger/msp/byrlin/peer2/msp
+
+I see all 4 peers in the Consortium in the genesis block as below.
+
+"Consortiums": {
+                                                                                "groups": {
+                                                                                        "SampleConsortium": {
+                                                                                                "groups": {
+                                                                                                        "BPNBelltanePeer1MSP": {
+
+I see all 3 orderers in the genesis block.
+
+ "Orderer": {
+                                                                                "groups": {
+                                                                                        "BPNOrderer1Org": {
+                                                                                                "mod_policy": "Admins",
+                                                                                                "policies": {
+                                                                                                        "Admins": {
+                                                                                                                "mod_policy": "Admins",
+                                                                                                                "policy": {
+                                                                                                                        "type": 1,
+                                                                                                                        "value": {
+                                                                                                                                "identities": [
+                                                                                                                                        {
+                                                                                                                                                "principal": {
+                                                                                                                                                        "msp_identifier": "BPNOrderer1MSP",
+                                                                                                                                                        "role": "ADMIN"
+                                                                                                                                                },
+                                                                                                                                                "principal_classification": "ROLE"
+
+I see all 4 peers in the channel.
+
+"write_set": {
+                                        "groups": {
+                                                "Application": {
+                                                        "groups": {
+                                                                "BPNBelltanePeer1MSP": {
+                                                                        "mod_policy": "",
+                                                                        "version": "0"
+                                                                },
+                                                                "BPNBelltanePeer2MSP": {
+                                                                        "mod_policy": "",
+                                                                        "version": "0"
+                                                                },
+                                                                "BPNByrlinPeer1MSP": {
+                                                                        "mod_policy": "",
+                                                                        "version": "0"
+                                                                },
+                                                                "BPNByrlinPeer2MSP": {
+                                                                        "mod_policy": "",
+                                                                        "version": "0"
+                                                                }
+                                                        },

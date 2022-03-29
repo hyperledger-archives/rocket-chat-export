@@ -1,0 +1,182 @@
+[INFO] 08:18:20.141 [Default Executor-thread-41] ERROR org.hyperledger.fabric.sdk.Channel - Channel Channel{id: 19, name: mychannel} Sending proposal with transaction: 9b022c40c1592bb078499bd60195ba91e98ee124a83b11194c2fe12a2869f851 to Peer{ id: 23, name: org1peer-api.127-0-0-1.nip.io:8082, channelName: mychannel, url: grpc://localhost:8082, mspid: Org1MSP} failed because of: gRPC failure=Status{code=UNIMPLEMENTED, description=HTTP status code 404
+[INFO] invalid content-type: text/plain; charset=utf-8
+[INFO] headers: Metadata(:status=404,content-type=text/plain; charset=utf-8,date=Fri, 23 Apr 2021 06:18:19 GMT,x-content-type-options=nosniff,content-length=19)
+[INFO] DATA-----------------------------
+[INFO] 404 page not found
+[INFO]
+[INFO] DATA-----------------------------
+[INFO] , cause=null}
+[INFO] java.lang.Exception: io.grpc.StatusRuntimeException: UNIMPLEMENTED: HTTP status code 404
+[INFO] invalid content-type: text/plain; charset=utf-8
+[INFO] headers: Metadata(:status=404,content-type=text/plain; charset=utf-8,date=Fri, 23 Apr 2021 06:18:19 GMT,x-content-type-options=nosniff,content-length=19)
+[INFO] DATA-----------------------------
+[INFO] 404 page not found
+[INFO] 
+[INFO] DATA-----------------------------
+[INFO]
+[INFO]  at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:4945) [fabric-sdk-java-2.2.5.jar:?]
+[INFO]  at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:4848) [fabric-sdk-java-2.2.5.jar:?]
+[INFO]  at org.hyperledger.fabric.sdk.Channel.sendTransactionProposalToEndorsers(Channel.java:4624) [fabric-sdk-java-2.2.5.jar:?]
+[INFO]  at org.hyperledger.fabric.gateway.impl.TransactionImpl.sendTransactionProposal(TransactionImpl.java:134) [fabric-gateway-java-2.2.0.jar:?]
+[INFO]  at org.hyperledger.fabric.gateway.impl.TransactionImpl.endorseTransaction(TransactionImpl.java:120) [fabric-gateway-java-2.2.0.jar:?]
+[INFO]  at org.hyperledger.fabric.gateway.impl.TransactionImpl.submit(TransactionImpl.java:106) [fabric-gateway-java-2.2.0.jar:?]
+[INFO]  at org.hyperledger.fabric.gateway.impl.ContractImpl.submitTransaction(ContractImpl.java:50) [fabric-gateway-java-2.2.0.jar:?]
+[INFO]  at org.UWBPosAPI.communication.Resources.addTag(Resources.java:84) [classes/:?]
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldSubclass.addTag$$super(Unknown Source) [classes/:?]
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor877.invoke(Unknown Source) ~[?:?]
+[INFO]  at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+[INFO]  at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at com.ibm.ws.microprofile.metrics.cdi20.interceptors.TimedInterceptor.timedCallable(TimedInterceptor.java:90) [com.ibm.ws.microprofile.metrics.cdi.2.0_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.microprofile.metrics.cdi20.interceptors.TimedInterceptor.timedMethod(TimedInterceptor.java:73) [com.ibm.ws.microprofile.metrics.cdi.2.0_1.0.51.jar:?]
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor715.invoke(Unknown Source) ~[?:?]
+[INFO]  at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+[INFO]  at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68) [com.ibm.ws.org.jboss.weld3_1.0.51.jar:3.1.4.Final]
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldSubclass.addTag(Unknown Source) [classes/:?]
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldClientProxy.addTag(Unknown Source) [classes/:?]
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor876.invoke(Unknown Source) ~[?:?]
+[INFO]  at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+[INFO]  at com.ibm.ws.jaxrs20.cdi.component.JaxRsFactoryImplicitBeanCDICustomizer.serviceInvoke(JaxRsFactoryImplicitBeanCDICustomizer.java:342) [com.ibm.ws.jaxrs.2.0.cdi_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.performInvocation(LibertyJaxRsServerFactoryBean.java:641) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.performInvocation(LibertyJaxRsInvoker.java:160) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:101) [com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:273) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:205) [com.ibm.ws.org.apache.cxf.cxf.rt.frontend.jaxrs.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:444) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:111) [com.ibm.ws.org.apache.cxf.cxf.rt.frontend.jaxrs.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59) [com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96) [com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.51.jar:3.4.1.SNAPSHOT][INFO]  at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308) [com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:123) [com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:275) [com.ibm.ws.org.apache.cxf.cxf.rt.transports.http.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at com.ibm.ws.jaxrs20.endpoint.AbstractJaxRsWebEndpoint.invoke(AbstractJaxRsWebEndpoint.java:137) [com.ibm.ws.org.apache.cxf.cxf.rt.frontend.jaxrs.3.2_1.0.51.jar:3.4.1.SNAPSHOT]
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.handleRequest(IBMRestServlet.java:146) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.doPost(IBMRestServlet.java:104) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at javax.servlet.http.HttpServlet.service(HttpServlet.java:706) [com.ibm.websphere.javaee.servlet.4.0_1.0.51.jar:?]
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.service(IBMRestServlet.java:96) [com.ibm.ws.jaxrs.2.0.server_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1257) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:745) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:442) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1226) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5061) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:314) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1006) [com.ibm.ws.w
+[INFO] ebcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:279) [com.ibm.ws.webcontainer_1.1.51.jar:?]
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1159) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:428) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:387) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:566) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:500) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:360) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:327) [com.ibm.ws.transport.http_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:167) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:75) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:504) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:574) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:958) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1047) [com.ibm.ws.channelfw_1.0.51.jar:?]
+[INFO]  at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238) [com.ibm.ws.threading_1.1.51.jar:?]
+[INFO]  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+[INFO]  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+[INFO]  at java.lang.Thread.run(Thread.java:834) [?:?]
+[INFO] Caused by: io.grpc.StatusRuntimeException: UNIMPLEMENTED: HTTP status code 404
+[INFO] invalid content-type: text/plain; charset=utf-8
+[INFO] headers: Metadata(:status=404,content-type=text/plain; charset=utf-8,date=Fri, 23 Apr 2021 06:18:19 GMT,x-content-type-options=nosniff,content-length=19)
+[INFO] DATA-----------------------------
+[INFO] 404 page not found
+[INFO]
+[INFO] DATA-----------------------------
+[INFO]
+[INFO]  at io.grpc.Status.asRuntimeException(Status.java:534) ~[grpc-api-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:533) ~[grpc-stub-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:464) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:428) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:461) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:553) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:68) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:739) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:718) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.35.0.jar:1.35.0]
+[INFO]  ... 3 more
+[INFO] 08:18:20.170 [Default Executor-thread-41] ERROR org.hyperledger.fabric.gateway.impl.TransactionImpl - No valid proposal responses received. 1 peer error responses: Channel 
+Channel{id: 19, name: mychannel} Sending proposal with transaction: 9b022c40c1592bb078499bd60195ba91e98ee124a83b11194c2fe12a2869f851 to Peer{ id: 23, name: org1peer-api.127-0-0-1.nip.io:8082, channelName: mychannel, url: grpc://localhost:8082, mspid: Org1MSP} failed because of: gRPC failure=Status{code=UNIMPLEMENTED, description=HTTP status code 404
+[INFO] invalid content-type: text/plain; charset=utf-8
+[INFO] headers: Metadata(:status=404,content-type=text/plain; charset=utf-8,date=Fri, 23 Apr 2021 06:18:19 GMT,x-content-type-options=nosniff,content-length=19)
+[INFO] DATA-----------------------------
+[INFO] 404 page not found
+[INFO]
+[INFO] DATA-----------------------------
+[INFO] , cause=null}
+[INFO] Unable to get network/contract and execute query
+[INFO] Current working dir: C:\Users\sachi\source\repos\UWBPosAPI\API\target\liberty\wlp\usr\servers\defaultServer
+[INFO] Unable to find config or wallet - please check the wallet directory and connection json
+[INFO] [WARNING ] javax.ws.rs.ServiceUnavailableException: HTTP 503 Service Unavailable
+[INFO]  at org.UWBPosAPI.communication.Resources.addTag(Resources.java:100)
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldSubclass.addTag$$super(Unknown Source)
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor877.invoke(Unknown Source)
+[INFO]  at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[INFO]  at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+[INFO]  at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+[INFO]  at com.ibm.ws.microprofile.metrics.cdi20.interceptors.TimedInterceptor.timedCallable(TimedInterceptor.java:90)
+[INFO]  at com.ibm.ws.microprofile.metrics.cdi20.interceptors.TimedInterceptor.timedMethod(TimedInterceptor.java:73)
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor715.invoke(Unknown Source)
+[INFO]  at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[INFO]  at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+[INFO]  at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+[INFO]  at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+[INFO]  at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldSubclass.addTag(Unknown Source)
+[INFO]  at org.UWBPosAPI.communication.Resources$Proxy$_$$_WeldClientProxy.addTag(Unknown Source)
+[INFO]  at jdk.internal.reflect.GeneratedMethodAccessor876.invoke(Unknown Source)
+[INFO]  at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[INFO]  at com.ibm.ws.jaxrs20.cdi.component.JaxRsFactoryImplicitBeanCDICustomizer.serviceInvoke(JaxRsFactoryImplicitBeanCDICustomizer.java:342)
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.performInvocation(LibertyJaxRsServerFactoryBean.java:641)
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.performInvocation(LibertyJaxRsInvoker.java:160)
+[INFO]  at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:101)
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:273)
+[INFO]  at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:205)
+[INFO]  at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:444)
+[INFO]  at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:111)
+[INFO]  at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59)
+[INFO]  at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96)
+[INFO]  at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308)
+[INFO]  at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:123)
+[INFO]  at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:275)
+[INFO]  at com.ibm.ws.jaxrs20.endpoint.AbstractJaxRsWebEndpoint.invoke(AbstractJaxRsWebEndpoint.java:137)
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.handleRequest(IBMRestServlet.java:146)
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.doPost(IBMRestServlet.java:104)
+[INFO]  at javax.servlet.http.HttpServlet.service(HttpServlet.java:706)
+[INFO]  at com.ibm.websphere.jaxrs.server.IBMRestServlet.service(IBMRestServlet.java:96)
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1257)
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:745)
+[INFO]  at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:442)
+[INFO]  at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1226)
+[INFO]  at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5061)
+[INFO]  at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:314)
+[INFO]  at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1006)
+[INFO]  at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:279)
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1159)
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:428)
+[INFO]  at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:387)
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:566)
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:500)
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:360)
+[INFO]  at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:327)
+[INFO]  at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:167)
+[INFO]  at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:75)
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:504)
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:574)
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:958)
+[INFO]  at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1047)
+[INFO]  at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+[INFO]  at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[INFO]  at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[INFO]  at java.base/java.lang.Thread.run(Thread.java:834)

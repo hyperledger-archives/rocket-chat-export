@@ -1,0 +1,121 @@
+[2017-12-12T10:59:17.372] [DEBUG] helpers/Transaction - querying identity_management for national hash
+
+[2017-12-12T10:59:17.372] [DEBUG] lib/handler.js - Invoke chaincode identity_management with args getNationalHash
+
+peer         | 2017-12-12 10:59:17.377 UTC [chaincode] ExecuteChaincode -> ERRO 14d97 txid: e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63 exists
+
+peer         | github.com/hyperledger/fabric/core/chaincode.(*Handler).createTxContext
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/handler.go:171
+
+peer         | github.com/hyperledger/fabric/core/chaincode.(*Handler).sendExecuteMessage
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/handler.go:1430
+
+peer         | github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:814
+
+peer         | github.com/hyperledger/fabric/core/chaincode.Execute
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:58
+peer         | github.com/hyperledger/fabric/core/chaincode.ExecuteChaincode
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:85
+
+peer         | github.com/hyperledger/fabric/core/chaincode.GetChaincodeDataFromLSCC
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:61
+
+peer         | github.com/hyperledger/fabric/core/chaincode.(*Handler).enterBusyState.func1
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/handler.go:1263
+
+peer         | runtime.goexit
+
+peer         | 	/opt/go/src/runtime/asm_amd64.s:2337
+
+peer         | error sending
+
+peer         | failed to execute transaction
+
+peer         | error executing chaincode
+
+peer         | 2017-12-12 10:59:17.377 UTC [chaincode] 2 -> ERRO 14d98 [e0904792]Failed to get chaincode data (error executing chaincode: failed to execute transaction: error sending: txid: e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63 exists) for invoked chaincode. Sending ERROR
+
+[2017-12-12T10:59:17.383] [DEBUG] lib/handler.js - Received chat message from peer: {"type":"TRANSACTION","timestamp":null,"payload":{"type":"Buffer","data":[10,12,113,117,101,114,121,67,111,110,116,111,117,114,10,71,67,79,78,84,95,98,102,50,97,100,48,51,102,102,56,57,102,54,55,97,100,48,48,56,50,52,100,55,52,48,53,100,98,101,51,50,56,100,57,102,97,53,99,48,51,53,53,53,54,100,100,48,51,102,100,98,48,56,57,52,48,53,98,53,48,57,51,56,48,95,48]},"txid":"e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63","proposal":{"proposal_bytes":{"type":"Buffer","data":[10,222,7,10,118,8,3,16,1,26,11,8,132,237,190,209,5,16,192,208,188,103,34,13,112,117,98,108,105,99,99,104,97,110,110,101,108,42,64,101,48,57,48,52,55,57,50,52,97,56,97,100,48,99,97,102,99,102,55,100,99,55,49,101,51,55,52,48,50,51,99,56,56,52,101,52,55,50,54,97,102,50,48,57,57,51,48,99,56,99,98,98,97,99,97,54,56,102,56,97,99,54,51,58,18,18,16,18,14,119,111,114,107,95,99,111,110,116,114,97,99,116,115,18,227,6,10,198,6,10,19,97,117,116,104,45,98,101,108,103,105,117,109,45,98,101,45,77,83,80,18,174,6,45,45,45,45,45,66,69,71,73,78,32,67,69,82,84,73,70,73,67,65,84,69,45,45,45,45,45,10,77,73,73,67,76,84,67,67,65,100,83,103,65,119,73,66,65,103,73,74,65,79,84,80,114,84,74,51,70,71,105,82,77,65,107,71,66,121,113,71,83,77,52,57,66,65,69,119,83,68,69,76,77,65,107,71,65,49,85,69,66,104,77,67,10,89,109,85,120,69,68,65,79,66,103,78,86,66,65,111,77,66,50,74,108,98,71,100,112,100,87,48,120,68,84,65,76,66,103,78,86,66,65,115,77,66,71,70,49,100,71,103,120,71,68,65,87,66,103,78,86,66,65,77,77,68,50,70,49,10,100,71,103,117,89,109,86,115,90,50,108,49,98,83,53,105,90,84,65,101,70,119,48,120,78,122,69,121,77,68,99,120,78,84,85,53,77,68,100,97,70,119,48,121,78,122,69,121,77,68,85,120,78,84,85,53,77,68,100,97,77,70,85,120,10,67,122,65,74,66,103,78,86,66,65,89,84,65,109,74,108,77,82,65,119,68,103,89,68,86,81,81,75,68,65,100,105,90,87,120,110,97,88,86,116,77,81,48,119,67,119,89,68,86,81,81,76,68,65,82,104,100,88,82,111,77,83,85,119,10,73,119,89,68,86,81,81,68,68,66,120,116,89,87,108,117,100,71,70,112,98,109,86,121,76,84,69,117,89,88,86,48,97,67,53,105,90,87,120,110,97,88,86,116,76,109,74,108,77,70,107,119,69,119,89,72,75,111,90,73,122,106,48,67,10,65,81,89,73,75,111,90,73,122,106,48,68,65,81,99,68,81,103,65,69,66,86,112,52,99,115,71,87,115,55,80,89,73,120,55,85,107,106,50,70,122,102,47,111,68,49,117,101,118,78,75,70,83,57,99,55,55,47,83,57,106,87,77,87,10,99,116,74,90,113,67,72,56,80,71,122,71,83,100,110,88,82,84,76,116,114,118,43,106,121,55,67,52,111,121,73,80,88,104,80,70,48,79,86,108,52,113,79,66,109,106,67,66,108,122,65,51,66,103,103,113,65,119,81,70,66,103,99,73,10,65,81,81,114,68,67,108,55,73,109,70,48,100,72,74,122,73,106,112,55,73,107,53,104,100,71,108,118,98,109,70,115,76,85,108,69,73,106,111,105,78,122,77,119,77,84,65,49,73,68,107,48,79,67,65,49,78,67,74,57,102,84,65,102,10,66,103,78,86,72,83,77,69,71,68,65,87,103,66,82,86,88,68,111,85,114,56,55,111,43,110,54,82,71,56,82,47,107,97,103,90,97,119,119,90,68,68,65,77,66,103,78,86,72,82,77,66,65,102,56,69,65,106,65,65,77,66,48,71,10,65,49,85,100,68,103,81,87,66,66,82,66,66,66,71,101,122,104,72,51,118,88,107,43,119,49,75,53,57,112,65,47,112,77,49,110,111,68,65,79,66,103,78,86,72,81,56,66,65,102,56,69,66,65,77,67,66,52,65,119,67,81,89,72,10,75,111,90,73,122,106,48,69,65,81,78,73,65,68,66,70,65,105,69,65,118,118,52,121,100,102,89,79,109,76,69,85,80,83,105,56,83,80,65,110,110,49,53,110,51,106,68,51,83,51,47,57,103,69,98,84,76,103,111,83,85,48,89,67,10,73,67,87,116,72,109,78,121,80,105,52,55,47,48,72,83,104,103,49,109,76,82,114,90,122,114,106,121,52,69,49,72,57,49,65,103,99,118,119,68,98,69,68,69,10,45,45,45,45,45,69,78,68,32,67,69,82,84,73,70,73,67,65,84,69,45,45,45,45,45,10,18,24,250,16,176,92,113,108,233,159,205,252,24,210,246,53,48,75,59,86,1,221,124,69,11,136,18,197,1,10,194,1,10,191,1,8,1,18,16,18,14,119,111,114,107,95,99,111,110,116,114,97,99,116,115,26,168,1,10,17,102,117,110,100,87,111,114,107,67,111,110,116,114,97,99,116,115,10,69,87,67,95,53,51,56,100,51,49,101,49,101,48,51,99,53,51,48,99,101,52,98,49,52,54,98,52,5
+peer         | 2017-12-12 10:59:17.379 UTC [chaincode] ExecuteChaincode -> ERRO 14daa transaction returned with failure: error executing chaincode: failed to execute transaction: error sending: txid: e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63 exists
+
+peer         | github.com/hyperledger/fabric/core/chaincode.Execute
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:83
+peer         | github.com/hyperledger/fabric/core/chaincode.ExecuteChaincode
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:85
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:117
+
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:262
+
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:477
+
+peer         | github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+
+peer         | github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551
+peer         | runtime.goexit
+
+peer         | 	/opt/go/src/runtime/asm_amd64.s:2337
+peer         | error executing chaincode
+
+peer         | 2017-12-12 10:59:17.381 UTC [endorser] simulateProposal -> ERRO 14dba failed to invoke chaincode name:"work_contracts"  on transaction e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63, error: transaction returned with failure: error executing chaincode: failed to execute transaction: error sending: txid: e09047924a8ad0cafcf7dc71e374023c884e4726af209930c8cbbaca68f8ac63 exists
+
+peer         | github.com/hyperledger/fabric/core/chaincode.Execute
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:83
+
+peer         | github.com/hyperledger/fabric/core/chaincode.ExecuteChaincode
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:85
+
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:117
+
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:262
+peer         | github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:477
+peer         | github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+
+peer         | github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+
+6,57,101,48,57,98,57,57,97,48,48,51,50,48,102,102,51,50,49,54,52,56,97,50,48,99,57,50,56,55,48,97,48,49,49,98,53,99,50,52,95,48,10,70,87,65,76,95,98,102,50,97,100,48,51,102,102,56,57,102,54,55,97,100,48,48,56,50,52,100,55,52,48,53,100,98,101,51,50,56,100,57,102,97,53,99,48,51,53,53,53,54,100,100,48,51,102,100,98,48,56,57,52,48,53,98,53,48,57,51,56,48,95,48,10,4,49,48,48,48]},"signature":{"type":"Buffer","data":[48,68,2,32,35,37,82,99,191,230,163,190,159,121,52,222,184,8,254,189,43,152,25,14,146,105,61,75,80,86,88,140,138,12,143,58,2,32,20,160,25,79,15,146,96,106,210,224,121,78,46,216,149,12,237,166,47,245,43,87,9,93,152,28,109,69,127,220,39,213]}},"chaincode_event":null,"channel_id":""}, state: ready
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781
+
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981
+
+peer         | github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+peer         | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551
+peer         | runtime.goexit

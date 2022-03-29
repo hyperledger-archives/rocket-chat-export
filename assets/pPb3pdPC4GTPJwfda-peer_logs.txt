@@ -1,0 +1,48 @@
+Connect to a Hyperledger Fabric gateway.
+Use channel "securitization".
+2022-01-03T18:00:21.890Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: orderer.farmer.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:21.892Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server orderer.farmer.securitization.com:7050 url:grpcs://localhost:7050 timeout:3000
+2022-01-03T18:00:21.893Z - error: [DiscoveryService]: _buildOrderer[securitization] - Unable to connect to the discovered orderer orderer.farmer.securitization.com:7050 due to Error: Failed to connect before the deadline on Committer- name: orderer.farmer.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:24.897Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: orderer.ratingagency.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:24.898Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server orderer.ratingagency.securitization.com:7050 url:grpcs://localhost:7050 timeout:3000
+2022-01-03T18:00:24.898Z - error: [DiscoveryService]: _buildOrderer[securitization] - Unable to connect to the discovered orderer orderer.ratingagency.securitization.com:7050 due to Error: Failed to connect before the deadline on Committer- name: orderer.ratingagency.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:27.902Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: orderer.spv.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:27.902Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server orderer.spv.securitization.com:7050 url:grpcs://localhost:7050 timeout:3000
+2022-01-03T18:00:27.902Z - error: [DiscoveryService]: _buildOrderer[securitization] - Unable to connect to the discovered orderer orderer.spv.securitization.com:7050 due to Error: Failed to connect before the deadline on Committer- name: orderer.spv.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:30.904Z - error: [ServiceEndpoint]: Error: Failed to connect before the deadline on Committer- name: orderer.investor.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+2022-01-03T18:00:30.906Z - error: [ServiceEndpoint]: waitForReady - Failed to connect to remote gRPC server orderer.investor.securitization.com:7050 url:grpcs://localhost:7050 timeout:3000
+2022-01-03T18:00:30.906Z - error: [DiscoveryService]: _buildOrderer[securitization] - Unable to connect to the discovered orderer orderer.investor.securitization.com:7050 due to Error: Failed to connect before the deadline on Committer- name: orderer.investor.securitization.com:7050, url:grpcs://localhost:7050, connected:false, connectAttempted:true
+Use Origination.
+Submit InitLedger transaction.
+2022-01-03T18:00:31.013Z - error: [DiscoveryHandler]: compareProposalResponseResults[undefined] - read/writes result sets do not match index=1
+2022-01-03T18:00:31.033Z - error: [DiscoveryHandler]: compareProposalResponseResults[undefined] - read/writes result sets do not match index=1
+2022-01-03T18:00:31.055Z - error: [DiscoveryHandler]: compareProposalResponseResults[undefined] - read/writes result sets do not match index=1
+2022-01-03T18:00:31.056Z - error: [DiscoveryHandler]: compareProposalResponseResults[undefined] - read/writes result sets do not match index=1
+2022-01-03T18:00:31.056Z - error: [DiscoveryHandler]: compareProposalResponseResults[undefined] - read/writes result sets do not match index=1
+2022-01-03T18:00:33.180Z - warn: [TransactionEventHandler]: strategyFail: commit failure for transaction "81c8f61e3ce1e8012744ff943be7b5deef5673d51765e794527464f2f3fab9c3": TransactionError: Commit of transaction 81c8f61e3ce1e8012744ff943be7b5deef5673d51765e794527464f2f3fab9c3 failed on peer peer.originator.securitization.com with status ENDORSEMENT_POLICY_FAILURE
+    at TransactionEventHandler.eventCallback (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/transactioneventhandler.js:86:31)
+    at CommitListenerSession.notifyListener (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/commitlistenersession.js:78:18)
+    at EventListener.callback (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/commitlistenersession.js:69:18)
+    at EventListener.onEvent (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventListener.js:124:10)
+    at EventService._callTransactionListener (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:1051:16)
+    at EventService._processTxEvents (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:1006:12)
+    at ClientDuplexStreamImpl.<anonymous> (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:481:12)
+    at ClientDuplexStreamImpl.emit (node:events:390:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9) {
+  transactionId: '81c8f61e3ce1e8012744ff943be7b5deef5673d51765e794527464f2f3fab9c3',
+  transactionCode: 'ENDORSEMENT_POLICY_FAILURE'
+}
+Error processing transaction. TransactionError: Commit of transaction 81c8f61e3ce1e8012744ff943be7b5deef5673d51765e794527464f2f3fab9c3 failed on peer peer.originator.securitization.com with status ENDORSEMENT_POLICY_FAILURE
+TransactionError: Commit of transaction 81c8f61e3ce1e8012744ff943be7b5deef5673d51765e794527464f2f3fab9c3 failed on peer peer.originator.securitization.com with status ENDORSEMENT_POLICY_FAILURE
+    at TransactionEventHandler.eventCallback (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/transactioneventhandler.js:86:31)
+    at CommitListenerSession.notifyListener (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/commitlistenersession.js:78:18)
+    at EventListener.callback (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-network/lib/impl/event/commitlistenersession.js:69:18)
+    at EventListener.onEvent (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventListener.js:124:10)
+    at EventService._callTransactionListener (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:1051:16)
+    at EventService._processTxEvents (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:1006:12)
+    at ClientDuplexStreamImpl.<anonymous> (/home/oliver/go/src/github.com/hyperledger/fabric-samples/tfm/applications/my_application/node_modules/fabric-common/lib/EventService.js:481:12)
+    at ClientDuplexStreamImpl.emit (node:events:390:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+Disconnect from the gateway.

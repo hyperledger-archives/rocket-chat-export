@@ -1,0 +1,76 @@
+While testing the NAT features on Besu, I ran it using `bin/besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-ws-enabled --rpc-http-enabled --nat-method=UPNP` on my mac, with the firewall on (nothing alowed to enter) and of course no upnp device enabled on my network. So I was expecting this to fail or ta least tell me after some retries that it was not sucessful. But instead I had some strange specification violation message:
+```nicolas@ethy besu % bin/besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-ws-enabled --rpc-http-enabled --nat-method=UPNP
+Setting logging level to INFO
+2020-02-12 19:36:41.575+01:00 | main | INFO  | Besu | Starting Besu version: besu/v1.4.0-beta4-dev-b6e25567/osx-x86_64/oracle-java-12
+2020-02-12 19:36:41.771+01:00 | main | INFO  | StaticNodesParser | StaticNodes file /Users/nicolas/Develop/besu/build/install/besu/static-nodes.json does not exist, no static connections will be created.
+2020-02-12 19:36:41.771+01:00 | main | INFO  | Besu | Connecting to 0 static nodes.
+2020-02-12 19:36:42.452+01:00 | main | INFO  | KeyPairUtil | Loaded key 0x9757f92896ff92baa66e3aa1906758fccea10f29a6e846e4530f4b3f3546f4b7e66c8a03d534f12eeee7ff59bc8c4d7a87b53d7ba0398923d6e2377aa427eee1 from /Users/nicolas/Develop/besu/build/install/besu/key
+2020-02-12 19:36:42.472+01:00 | main | INFO  | DatabaseMetadata | Lookup database metadata file in data directory: /Users/nicolas/Develop/besu/build/install/besu
+2020-02-12 19:36:42.521+01:00 | main | INFO  | RocksDBKeyValueStorageFactory | Existing database detected at /Users/nicolas/Develop/besu/build/install/besu. Version 1
+2020-02-12 19:36:43.146+01:00 | main | INFO  | ProtocolScheduleBuilder | Protocol schedule created with milestones: [ConstantinopleFix: 0]
+2020-02-12 19:36:43.399+01:00 | main | INFO  | Runner | Starting Ethereum main loop ...
+2020-02-12 19:36:43.399+01:00 | main | INFO  | UpnpNatManager | Starting UPnP Service
+2020-02-12 19:36:43.400+01:00 | main | INFO  | UpnpServiceImpl | Starting UPnP service...
+2020-02-12 19:36:43.431+01:00 | main | INFO  | Router | Configuration did not create a StreamServer for: /192.168.0.20
+2020-02-12 19:36:43.629+01:00 | main | INFO  | NetworkRunner | Starting Network.
+2020-02-12 19:36:43.750+01:00 | nioEventLoopGroup-2-1 | INFO  | RlpxAgent | P2P RLPx agent started and listening on /0:0:0:0:0:0:0:0:30303.
+2020-02-12 19:36:43.751+01:00 | main | INFO  | PeerDiscoveryAgent | Starting peer discovery agent on host=0.0.0.0, port=30303
+2020-02-12 19:36:43.751+01:00 | main | INFO  | NatService | Waiting for up to 60 seconds to detect external IP address...
+2020-02-12 19:36:43.760+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Wrong XML namespace declared on root element: [urn:dslforum-org:device-1-0]
+2020-02-12 19:36:43.763+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): DeviceInfo
+2020-02-12 19:36:43.763+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): DeviceConfig
+2020-02-12 19:36:43.764+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): Layer3Forwarding
+2020-02-12 19:36:43.764+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): ManagementServer
+2020-02-12 19:36:43.765+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): LANConfigSecurity
+2020-02-12 19:36:43.766+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): LANEthernetInterfaceConfig
+2020-02-12 19:36:43.766+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): WLANConfiguration
+2020-02-12 19:36:43.767+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): WANCommonInterfaceConfig
+2020-02-12 19:36:43.768+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: Skipping invalid service declaration. Can't parse service ID string (namespace/id): WANPPPConnection
+2020-02-12 19:36:43.769+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'LANDevice'
+2020-02-12 19:36:43.770+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'WANDevice'
+2020-02-12 19:36:43.770+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'TR064 IGD'
+2020-02-12 19:36:43.782+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'LANDevice'
+2020-02-12 19:36:43.782+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'WANDevice'
+2020-02-12 19:36:43.783+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'LANDevice'
+2020-02-12 19:36:43.783+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'WANDevice'
+2020-02-12 19:36:43.783+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'TR064 IGD'
+2020-02-12 19:36:43.784+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'LANDevice'
+2020-02-12 19:36:43.784+01:00 | jupnp-7 | WARN  | SpecificationViolationReporter | UPnP specification violation: UPC must be 12 digits: '' for device 'WANDevice'
+```
+I don't think it's a big deal, but then waited and had a stacktrace:
+```
+2020-02-12 19:37:43.752+01:00 | main | WARN  | NatService | Caught exception while trying to query NAT external IP address (ignoring): {}
+java.util.concurrent.TimeoutException: null
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1957) ~[?:?]
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092) ~[?:?]
+	at org.hyperledger.besu.nat.NatService.queryExternalIPAddress(NatService.java:126) [besu-nat-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.ethereum.p2p.discovery.PeerDiscoveryAgent.start(PeerDiscoveryAgent.java:128) [besu-p2p-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.ethereum.p2p.network.DefaultP2PNetwork.start(DefaultP2PNetwork.java:200) [besu-p2p-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.ethereum.p2p.network.NetworkRunner.start(NetworkRunner.java:80) [besu-p2p-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.Runner.start(Runner.java:89) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.cli.BesuCommand.synchronize(BesuCommand.java:1701) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.cli.BesuCommand.startSynchronization(BesuCommand.java:1000) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.cli.BesuCommand.run(BesuCommand.java:885) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at picocli.CommandLine.executeUserObject(CommandLine.java:1769) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine.access$900(CommandLine.java:145) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2141) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2108) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine$AbstractParseResultHandler.handleParseResult(CommandLine.java:1968) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine.parseWithHandlers(CommandLine.java:2322) [picocli-4.1.4.jar:4.1.4]
+	at org.hyperledger.besu.cli.util.ConfigOptionSearchAndRunHandler.handle(ConfigOptionSearchAndRunHandler.java:61) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.cli.util.ConfigOptionSearchAndRunHandler.handle(ConfigOptionSearchAndRunHandler.java:31) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at picocli.CommandLine$AbstractParseResultHandler.handleParseResult(CommandLine.java:1968) [picocli-4.1.4.jar:4.1.4]
+	at picocli.CommandLine.parseWithHandlers(CommandLine.java:2322) [picocli-4.1.4.jar:4.1.4]
+	at org.hyperledger.besu.cli.BesuCommand.parse(BesuCommand.java:996) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.cli.BesuCommand.parse(BesuCommand.java:873) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+	at org.hyperledger.besu.Besu.main(Besu.java:49) [besu-1.4.0-beta4-SNAPSHOT.jar:1.4.0-beta4-dev-b6e25567]
+2020-02-12 19:37:43.834+01:00 | vert.x-eventloop-thread-2 | INFO  | VertxPeerDiscoveryAgent | Started peer discovery agent successfully, on effective host=0:0:0:0:0:0:0:0 and port=30303
+2020-02-12 19:37:43.837+01:00 | vert.x-eventloop-thread-2 | INFO  | PeerDiscoveryAgent | P2P peer discovery agent started and listening on /0:0:0:0:0:0:0:0:30303
+2020-02-12 19:37:43.870+01:00 | main | INFO  | NatService | Waiting for up to 60 seconds to detect external IP address...
+```
+I then tried to shut the node but it seems to be stuck on some sort of loop and even mass ctrl+C doesn't stop it.
+I tried again and this time had a:
+```
+2020-02-12 19:40:02.090+01:00 | Thread-1 | ERROR | AbstractMinerExecutor | Failed to shutdown EthHashMinerExecutor.
+```
+just before the node shut down.

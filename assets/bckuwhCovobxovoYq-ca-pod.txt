@@ -1,0 +1,213 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-07-09T06:05:27Z"
+  generateName: ca-68bf85dcbf-
+  labels:
+    app.kubernetes.io/instance: carrier-net-ca
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ca
+    helm.sh/chart: ca-0.2.0
+    name: ca
+    pod-template-hash: 68bf85dcbf
+  name: ca-68bf85dcbf-gfs6c
+  namespace: carrier-net
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: ca-68bf85dcbf
+    uid: d741ed5f-aad2-4d3c-bb52-791d4cf41f6e
+  resourceVersion: "18742"
+  uid: ffcb7952-91c5-494f-8d44-b6a37d9e6016
+spec:
+  containers:
+  - command:
+    - sh
+    - -c
+    - sleep 1 && fabric-ca-server start -b carrier-admin:`cat /etc/hyperledger/fabric-ca-server-config/user_cred`
+      -d
+    env:
+    - name: FABRIC_CA_HOME
+      value: /etc/hyperledger/fabric-ca-server
+    - name: FABRIC_CA_SERVER_CA_NAME
+      value: ca.carrier-net
+    - name: FABRIC_CA_SERVER_CA_CERTFILE
+      value: /etc/hyperledger/fabric-ca-server-config/server.crt
+    - name: FABRIC_CA_SERVER_CA_KEYFILE
+      value: /etc/hyperledger/fabric-ca-server-config/server.key
+    - name: FABRIC_CA_SERVER_TLS_ENABLED
+      value: "true"
+    - name: FABRIC_CA_SERVER_DEBUG
+      value: "true"
+    - name: FABRIC_CA_SERVER_TLS_CERTFILE
+      value: /etc/hyperledger/fabric-ca-server-config/server.crt
+    - name: FABRIC_CA_SERVER_TLS_KEYFILE
+      value: /etc/hyperledger/fabric-ca-server-config/server.key
+    - name: FABRIC_CA_SERVER_DB_DATASOURCE
+      value: /var/hyperledger/fabric-ca-server/db/fabric-ca-server.db
+    image: hyperledger/fabric-ca:1.4.8
+    imagePullPolicy: IfNotPresent
+    name: ca
+    ports:
+    - containerPort: 7054
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/hyperledger/fabric-ca-server-config
+      name: certificates
+      readOnly: true
+    - mountPath: /var/hyperledger/fabric-ca-server/db/
+      name: ca-server-db
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-k4b8k
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: regcred
+  initContainers:
+  - args:
+    - |-
+      #!/usr/bin/env sh
+      validateVaultResponse () {
+        if echo ${2} | grep "errors"; then
+          echo "ERROR: unable to retrieve ${1}: ${2}"
+          exit 1
+        fi
+        if  [ "$3" == "LOOKUPSECRETRESPONSE" ]
+        then
+          http_code=$(curl -sS -o /dev/null -w "%{http_code}" \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+          ${VAULT_ADDR}/v1/${vault_secret_key})
+          curl_response=$?
+          if test "$http_code" != "200" ; then
+              echo "Http response code from Vault - $http_code"
+              if test "$curl_response" != "0"; then
+                 echo "Error: curl command failed with error code - $curl_response"
+                 exit 1
+              fi
+          fi
+        fi
+      }
+
+      KUBE_SA_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+      echo "Getting secrets from Vault Server: ${VAULT_ADDR}"
+      # Login to Vault and so I can get an approle token
+      VAULT_CLIENT_TOKEN=$(curl -sS --request POST ${VAULT_ADDR}/v1/auth/${KUBERNETES_AUTH_PATH}/login \
+        -H "Content-Type: application/json" \
+        -d '{"role":"'"${VAULT_APP_ROLE}"'","jwt":"'"${KUBE_SA_TOKEN}"'"}' | \
+        jq -r 'if .errors then . else .auth.client_token end')
+      validateVaultResponse 'vault login token' "${VAULT_CLIENT_TOKEN}"
+
+      SECRET_CERT=hoangle/crypto/peerOrganizations/carrier-net/ca?ca.carrier-net-cert.pem
+      vault_secret_key=$(echo ${SECRET_CERT} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_CERT} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+          ${VAULT_ADDR}/v1/${vault_secret_key} | \
+          jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}" "LOOKUPSECRETRESPONSE"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/server.crt
+
+      SECRET_KEY=hoangle/crypto/peerOrganizations/carrier-net/ca?carrier-net-CA.key
+      vault_secret_key=$(echo ${SECRET_KEY} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_KEY} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+          ${VAULT_ADDR}/v1/${vault_secret_key} | \
+          jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}" "LOOKUPSECRETRESPONSE"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/server.key
+
+
+      SECRET_ADMIN_PASS=hoangle/credentials/carrier-net/ca/carrier?user
+      vault_secret_key=$(echo ${SECRET_ADMIN_PASS} |awk -F "?" '{print $1}')
+      vault_data_key=$(echo ${SECRET_ADMIN_PASS} |awk -F "?" '{print $2}')
+      LOOKUP_SECRET_RESPONSE=$(curl -sS \
+          --header "X-Vault-Token: ${VAULT_CLIENT_TOKEN}" \
+      ${VAULT_ADDR}/v1/${vault_secret_key} | jq -r 'if .errors then . else . end')
+      validateVaultResponse "secret (${vault_secret_key})" "${LOOKUP_SECRET_RESPONSE}" "LOOKUPSECRETRESPONSE"
+      VALUE_OF_SECRET=$(echo ${LOOKUP_SECRET_RESPONSE} | jq -r ".data[\"${vault_data_key}\"]")
+      echo "${VALUE_OF_SECRET}" >> ${MOUNT_PATH}/user_cred
+    command:
+    - sh
+    - -c
+    env:
+    - name: VAULT_ADDR
+      value: http://VAULT_IP_ADDRESS:8200/
+    - name: KUBERNETES_AUTH_PATH
+      value: devcarrier-net-auth
+    - name: VAULT_APP_ROLE
+      value: vault-role
+    - name: MOUNT_PATH
+      value: /secret
+    image: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+    imagePullPolicy: Always
+    name: ca-certs-init
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /secret
+      name: certificates
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-k4b8k
+      readOnly: true
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: vault-auth
+  serviceAccountName: vault-auth
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: ca-server-db
+    persistentVolumeClaim:
+      claimName: ca-server-db-pvc
+  - emptyDir:
+      medium: Memory
+    name: certificates
+  - name: kube-api-access-k4b8k
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2021-07-09T06:05:27Z"
+    message: '0/3 nodes are available: 3 pod has unbound immediate PersistentVolumeClaims.'
+    reason: Unschedulable
+    status: "False"
+    type: PodScheduled
+  phase: Pending
+  qosClass: BestEffort

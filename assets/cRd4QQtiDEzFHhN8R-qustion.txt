@@ -1,0 +1,172 @@
+2020-07-17 01:06:22.147 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 2.1.1
+ Commit SHA: 6393adb
+ Go version: go1.14.1
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2020-07-17 01:06:22.151 UTC [peer] getLocalAddress -> INFO 002 Auto-detected peer address: 172.24.0.9:9051
+2020-07-17 01:06:22.152 UTC [peer] getLocalAddress -> INFO 003 Returning peer0.org2.example.com:9051
+2020-07-17 01:06:22.206 UTC [nodeCmd] initGrpcSemaphores -> INFO 004 concurrency limit for endorser service is 2500
+2020-07-17 01:06:22.207 UTC [nodeCmd] initGrpcSemaphores -> INFO 005 concurrency limit for deliver service is 2500
+2020-07-17 01:06:22.207 UTC [nodeCmd] serve -> INFO 006 Starting peer with TLS enabled
+2020-07-17 01:06:22.247 UTC [ledgermgmt] NewLedgerMgr -> INFO 007 Initializing LedgerMgr
+2020-07-17 01:06:22.304 UTC [leveldbhelper] openDBAndCheckFormat -> INFO 008 DB is empty Setting db format as 2.0
+2020-07-17 01:06:22.310 UTC [fsblkstorage] NewProvider -> INFO 009 Creating new file ledger directory at /var/hyperledger/production/ledgersData/chains/chains
+2020-07-17 01:06:22.335 UTC [leveldbhelper] openDBAndCheckFormat -> INFO 00a DB is empty Setting db format as 2.0
+2020-07-17 01:06:22.368 UTC [couchdb] handleRequest -> WARN 00b Retrying couchdb request in 125ms. Attempt:1  Error:Get "http://couchdb1:5984/": dial tcp 172.24.0.5:5984: connect: connection refused
+2020-07-17 01:06:22.494 UTC [couchdb] handleRequest -> WARN 00c Retrying couchdb request in 250ms. Attempt:2  Error:Get "http://couchdb1:5984/": dial tcp 172.24.0.5:5984: connect: connection refused
+2020-07-17 01:06:22.745 UTC [couchdb] handleRequest -> WARN 00d Retrying couchdb request in 500ms. Attempt:3  Error:Get "http://couchdb1:5984/": dial tcp 172.24.0.5:5984: connect: connection refused
+2020-07-17 01:06:23.246 UTC [couchdb] handleRequest -> WARN 00e Retrying couchdb request in 1s. Attempt:4  Error:Get "http://couchdb1:5984/": dial tcp 172.24.0.5:5984: connect: connection refused
+2020-07-17 01:06:24.458 UTC [couchdb] CreateSystemDatabasesIfNotExist -> ERRO 00f Error calling CouchDB CreateDatabaseIfNotExist() for system dbName: _users, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+2020-07-17 01:06:24.458 UTC [couchdb] VerifyCouchConfig -> ERRO 010 Unable to connect to CouchDB, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.. Check the admin username and password.
+panic: Error in instantiating ledger provider: unable to connect to CouchDB. Check the admin username and password: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/ledger/ledgermgmt.NewLedgerMgr(0xc0003ff960, 0x1b6a660)
+        /go/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:79 +0x782
+github.com/hyperledger/fabric/internal/peer/node.serve(0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:420 +0x1f32
+github.com/hyperledger/fabric/internal/peer/node.glob..func6(0x2432260, 0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:128 +0x9c
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2432260, 0x25647c0, 0x0, 0x0, 0x2432260, 0x25647c0)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:826 +0x453
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x24329e0, 0xc00056ff50, 0x1, 0x1)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+        /go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b
+2020-07-17 01:23:23.519 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 2.1.1
+ Commit SHA: 6393adb
+ Go version: go1.14.1
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2020-07-17 01:23:23.520 UTC [peer] getLocalAddress -> INFO 002 Auto-detected peer address: 172.24.0.8:9051
+2020-07-17 01:23:23.521 UTC [peer] getLocalAddress -> INFO 003 Returning peer0.org2.example.com:9051
+2020-07-17 01:23:23.527 UTC [nodeCmd] initGrpcSemaphores -> INFO 004 concurrency limit for endorser service is 2500
+2020-07-17 01:23:23.528 UTC [nodeCmd] initGrpcSemaphores -> INFO 005 concurrency limit for deliver service is 2500
+2020-07-17 01:23:23.528 UTC [nodeCmd] serve -> INFO 006 Starting peer with TLS enabled
+2020-07-17 01:23:23.563 UTC [ledgermgmt] NewLedgerMgr -> INFO 007 Initializing LedgerMgr
+2020-07-17 01:23:23.691 UTC [couchdb] CreateSystemDatabasesIfNotExist -> ERRO 008 Error calling CouchDB CreateDatabaseIfNotExist() for system dbName: _users, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+2020-07-17 01:23:23.692 UTC [couchdb] VerifyCouchConfig -> ERRO 009 Unable to connect to CouchDB, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.. Check the admin username and password.
+panic: Error in instantiating ledger provider: unable to connect to CouchDB. Check the admin username and password: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/ledger/ledgermgmt.NewLedgerMgr(0xc000375960, 0x1b6a660)
+        /go/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:79 +0x782
+github.com/hyperledger/fabric/internal/peer/node.serve(0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:420 +0x1f32
+github.com/hyperledger/fabric/internal/peer/node.glob..func6(0x2432260, 0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:128 +0x9c
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2432260, 0x25647c0, 0x0, 0x0, 0x2432260, 0x25647c0)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:826 +0x453
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x24329e0, 0xc000577f50, 0x1, 0x1)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+        /go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b
+2020-07-17 01:29:54.019 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 2.1.1
+ Commit SHA: 6393adb
+ Go version: go1.14.1
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2020-07-17 01:29:54.019 UTC [peer] getLocalAddress -> INFO 002 Auto-detected peer address: 172.24.0.8:9051
+2020-07-17 01:29:54.020 UTC [peer] getLocalAddress -> INFO 003 Returning peer0.org2.example.com:9051
+2020-07-17 01:29:54.028 UTC [nodeCmd] initGrpcSemaphores -> INFO 004 concurrency limit for endorser service is 2500
+2020-07-17 01:29:54.029 UTC [nodeCmd] initGrpcSemaphores -> INFO 005 concurrency limit for deliver service is 2500
+2020-07-17 01:29:54.029 UTC [nodeCmd] serve -> INFO 006 Starting peer with TLS enabled
+2020-07-17 01:29:54.046 UTC [ledgermgmt] NewLedgerMgr -> INFO 007 Initializing LedgerMgr
+2020-07-17 01:29:54.142 UTC [couchdb] CreateSystemDatabasesIfNotExist -> ERRO 008 Error calling CouchDB CreateDatabaseIfNotExist() for system dbName: _users, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+2020-07-17 01:29:54.142 UTC [couchdb] VerifyCouchConfig -> ERRO 009 Unable to connect to CouchDB, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.. Check the admin username and password.
+panic: Error in instantiating ledger provider: unable to connect to CouchDB. Check the admin username and password: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/ledger/ledgermgmt.NewLedgerMgr(0xc000387960, 0x1b6a660)
+        /go/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:79 +0x782
+github.com/hyperledger/fabric/internal/peer/node.serve(0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:420 +0x1f32
+github.com/hyperledger/fabric/internal/peer/node.glob..func6(0x2432260, 0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:128 +0x9c
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2432260, 0x25647c0, 0x0, 0x0, 0x2432260, 0x25647c0)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:826 +0x453
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x24329e0, 0xc00054bf50, 0x1, 0x1)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+        /go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b
+2020-07-17 01:30:48.756 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 2.1.1
+ Commit SHA: 6393adb
+ Go version: go1.14.1
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2020-07-17 01:30:48.756 UTC [peer] getLocalAddress -> INFO 002 Auto-detected peer address: 172.24.0.4:9051
+2020-07-17 01:30:48.757 UTC [peer] getLocalAddress -> INFO 003 Returning peer0.org2.example.com:9051
+2020-07-17 01:30:48.762 UTC [nodeCmd] initGrpcSemaphores -> INFO 004 concurrency limit for endorser service is 2500
+2020-07-17 01:30:48.762 UTC [nodeCmd] initGrpcSemaphores -> INFO 005 concurrency limit for deliver service is 2500
+2020-07-17 01:30:48.762 UTC [nodeCmd] serve -> INFO 006 Starting peer with TLS enabled
+2020-07-17 01:30:48.781 UTC [ledgermgmt] NewLedgerMgr -> INFO 007 Initializing LedgerMgr
+2020-07-17 01:30:48.887 UTC [couchdb] CreateSystemDatabasesIfNotExist -> ERRO 008 Error calling CouchDB CreateDatabaseIfNotExist() for system dbName: _users, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+2020-07-17 01:30:48.887 UTC [couchdb] VerifyCouchConfig -> ERRO 009 Unable to connect to CouchDB, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.. Check the admin username and password.
+panic: Error in instantiating ledger provider: unable to connect to CouchDB. Check the admin username and password: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/ledger/ledgermgmt.NewLedgerMgr(0xc0003a1960, 0x1b6a660)
+        /go/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:79 +0x782
+github.com/hyperledger/fabric/internal/peer/node.serve(0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:420 +0x1f32
+github.com/hyperledger/fabric/internal/peer/node.glob..func6(0x2432260, 0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:128 +0x9c
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2432260, 0x25647c0, 0x0, 0x0, 0x2432260, 0x25647c0)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:826 +0x453
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x24329e0, 0xc00056ff50, 0x1, 0x1)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+        /go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b
+2020-07-17 01:34:18.844 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 2.1.1
+ Commit SHA: 6393adb
+ Go version: go1.14.1
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2020-07-17 01:34:18.844 UTC [peer] getLocalAddress -> INFO 002 Auto-detected peer address: 172.24.0.8:9051
+2020-07-17 01:34:18.844 UTC [peer] getLocalAddress -> INFO 003 Returning peer0.org2.example.com:9051
+2020-07-17 01:34:18.849 UTC [nodeCmd] initGrpcSemaphores -> INFO 004 concurrency limit for endorser service is 2500
+2020-07-17 01:34:18.850 UTC [nodeCmd] initGrpcSemaphores -> INFO 005 concurrency limit for deliver service is 2500
+2020-07-17 01:34:18.850 UTC [nodeCmd] serve -> INFO 006 Starting peer with TLS enabled
+2020-07-17 01:34:18.868 UTC [ledgermgmt] NewLedgerMgr -> INFO 007 Initializing LedgerMgr
+2020-07-17 01:34:18.958 UTC [couchdb] CreateSystemDatabasesIfNotExist -> ERRO 008 Error calling CouchDB CreateDatabaseIfNotExist() for system dbName: _users, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+2020-07-17 01:34:18.958 UTC [couchdb] VerifyCouchConfig -> ERRO 009 Unable to connect to CouchDB, error: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.. Check the admin username and password.
+panic: Error in instantiating ledger provider: unable to connect to CouchDB. Check the admin username and password: error handling CouchDB request. Error:forbidden,  Status Code:403,  Reason:You can't edit the security object of the user database.
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/core/ledger/ledgermgmt.NewLedgerMgr(0xc0003a1960, 0x1b6a660)
+        /go/src/github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledger_mgmt.go:79 +0x782
+github.com/hyperledger/fabric/internal/peer/node.serve(0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:420 +0x1f32
+github.com/hyperledger/fabric/internal/peer/node.glob..func6(0x2432260, 0x25647c0, 0x0, 0x0, 0x0, 0x0)
+        /go/src/github.com/hyperledger/fabric/internal/peer/node/start.go:128 +0x9c
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2432260, 0x25647c0, 0x0, 0x0, 0x2432260, 0x25647c0)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:826 +0x453
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x24329e0, 0xc00056ff50, 0x1, 0x1)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+        /go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+        /go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b

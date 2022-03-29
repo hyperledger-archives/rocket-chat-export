@@ -1,0 +1,92 @@
+```docker logs d2292ba74290
+2019-07-23 21:27:36.292 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 1.4.2
+ Commit SHA: c6cc550
+ Go version: go1.11.5
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Image Version: 0.4.15
+  Base Docker Namespace: hyperledger
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2019-07-23 21:27:36.293 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+2019-07-23 21:27:36.293 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+2019-07-23 21:27:36.407 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+2019-07-23 21:27:36.523 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+2019-07-23 21:27:36.783 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.5:7051
+2019-07-23 21:27:36.783 UTC [peer] func1 -> INFO 007 Returning peer0.org1.example.com:7051
+2019-07-23 21:27:36.894 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.5:7051
+2019-07-23 21:27:36.894 UTC [peer] func1 -> INFO 009 Returning peer0.org1.example.com:7051
+2019-07-23 21:27:36.906 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+2019-07-23 21:27:36.912 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer0.org1.example.com
+2019-07-23 21:27:36.912 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer0.org1.example.com:7052
+2019-07-23 21:27:36.917 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+2019-07-23 21:27:36.917 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+2019-07-23 21:27:36.918 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+2019-07-23 21:27:36.918 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+2019-07-23 21:27:36.922 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer0.org1.example.com:7051 and bootstrap set [peer1.org1.example.com:8051]
+2019-07-23 21:27:36.926 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer0.org1.example.com:7051, InternalEndpoint: peer0.org1.example.com:7051, PKI-ID: e6269752736e3df43cd63355baa680b9015c8687545ad8b483ae8a41981ea567, Metadata: 
+2019-07-23 21:27:36.927 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer0.org1.example.com:7051 started
+2019-07-23 21:27:36.927 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+2019-07-23 21:27:36.929 UTC [cscc] Init -> INFO 015 Init CSCC
+2019-07-23 21:27:36.929 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2019-07-23 21:27:36.929 UTC [qscc] Init -> INFO 017 Init QSCC
+2019-07-23 21:27:36.929 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+2019-07-23 21:27:36.929 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+2019-07-23 21:27:36.930 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+2019-07-23 21:27:36.930 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+2019-07-23 21:27:36.930 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+2019-07-23 21:27:36.930 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer0.org1.example.com" ], network ID=[dev], address=[peer0.org1.example.com:7051]
+2019-07-23 21:27:36.930 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer0.org1.example.com" ], network ID=[dev], address=[peer0.org1.example.com:7051]
+2019-07-23 21:27:36.931 UTC [nodeCmd] func7 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+2019-07-23 21:27:36.931 UTC [kvledger] LoadPreResetHeight -> INFO 020 Loading prereset height from path [/var/hyperledger/production/ledgersData/chains]
+2019-07-23 21:27:36.931 UTC [fsblkstorage] LoadPreResetHeight -> INFO 021 Loading Pre-reset heights
+2019-07-23 21:27:36.931 UTC [fsblkstorage] preRestHtFiles -> INFO 022 Dir [/var/hyperledger/production/ledgersData/chains/chains] missing... exiting
+2019-07-23 21:27:36.931 UTC [fsblkstorage] LoadPreResetHeight -> INFO 023 Pre-reset heights loaded
+2019-07-23 21:27:36.998 UTC [comm.grpc.server] 1 -> INFO 024 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-07-23T21:27:38.998Z grpc.peer_address=172.18.0.6:46004 grpc.peer_subject="CN=peer1.org1.example.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=96.443µs
+2019-07-23 21:27:37.003 UTC [comm.grpc.server] 1 -> INFO 025 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-07-23T21:27:47.001Z grpc.peer_address=172.18.0.6:46004 grpc.peer_subject="CN=peer1.org1.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1.535253ms
+2019-07-23 21:27:37.007 UTC [comm.grpc.server] 1 -> INFO 026 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-07-23T21:27:39.007Z grpc.peer_address=172.18.0.6:46006 grpc.peer_subject="CN=peer1.org1.example.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=225.401µs
+2019-07-23 21:27:37.911 UTC [comm.grpc.server] 1 -> INFO 027 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.peer_address=172.18.0.6:46006 grpc.peer_subject="CN=peer1.org1.example.com,L=San Francisco,ST=California,C=US" error=EOF grpc.code=Unknown grpc.call_duration=925.103838ms
+2019-07-23 21:27:53.403 UTC [endorser] callChaincode -> INFO 028 [][9bfa04b8] Entry chaincode: name:"cscc" 
+2019-07-23 21:27:53.404 UTC [ledgermgmt] CreateLedger -> INFO 029 Creating ledger [mychannel] with genesis block
+2019-07-23 21:27:53.406 UTC [fsblkstorage] newBlockfileMgr -> INFO 02a Getting block information from block storage
+2019-07-23 21:27:53.416 UTC [kvledger] CommitWithPvtData -> INFO 02b [mychannel] Committed block [0] with 1 transaction(s) in 7ms (state_validation=0ms block_and_pvtdata_commit=4ms state_commit=1ms) commitHash=[]
+2019-07-23 21:27:53.418 UTC [ledgermgmt] CreateLedger -> INFO 02c Created ledger [mychannel] with genesis block
+2019-07-23 21:27:53.421 UTC [peer] capabilitiesSupportedOrPanic -> PANI 02d [channel mychannel] incompatible: Application capability V2_0 is required but not supported
+panic: [channel mychannel] incompatible: Application capability V2_0 is required but not supported
+	panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x28 pc=0xd15686]
+
+goroutine 32 [running]:
+github.com/hyperledger/fabric/core/chaincode/shim.(*Handler).triggerNextState(0xc002636de0, 0x0, 0xc0025aa960)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/shim/handler.go:35 +0x26
+github.com/hyperledger/fabric/core/chaincode/shim.(*Handler).handleTransaction.func1.1(0xc002636de0, 0xc0003efeb0, 0xc0025aa960)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/shim/handler.go:247 +0x42
+panic(0x10278c0, 0xc0004b6d40)
+	/opt/go/src/runtime/panic.go:513 +0x1b9
+github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc0000f2b00, 0x0, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:229 +0x515
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).log(0xc00014a520, 0x4, 0x1273a48, 0x1d, 0xc0003ef488, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0xf6
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).Panicf(0xc00014a520, 0x1273a48, 0x1d, 0xc0003ef488, 0x2, 0x2)
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159 +0x79
+github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panicf(0xc00014a528, 0x1273a48, 0x1d, 0xc0003ef488, 0x2, 0x2)
+	/opt/gopath/src/github.com/hyperledger/fabric/common/flogging/zap.go:74 +0x60
+github.com/hyperledger/fabric/core/peer.capabilitiesSupportedOrPanic(0x13d7620, 0xc00277ec60)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/peer/peer.go:174 +0x312
+github.com/hyperledger/fabric/core/peer.createChain(0xc002940880, 0x9, 0x13de300, 0xc002739360, 0xc000083f80, 0x13ca500, 0xc00014aaf8, 0x13d5e20, 0xc000390960, 0x13b9460, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/peer/peer.go:355 +0xd4
+github.com/hyperledger/fabric/core/peer.CreateChainFromBlock(0xc000083f80, 0x13ca500, 0xc00014aaf8, 0x13d5e20, 0xc000390960, 0x1, 0x1)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/peer/peer.go:505 +0x1c0
+github.com/hyperledger/fabric/core/scc/cscc.joinChain(0xc002940290, 0x9, 0xc000083f80, 0x13ca500, 0xc00014aaf8, 0x13d5e20, 0xc000390960, 0x0, 0x0, 0x0, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/scc/cscc/configure.go:236 +0x79
+github.com/hyperledger/fabric/core/scc/cscc.(*PeerConfiger).InvokeNoShim(0xc000390d70, 0xc000408f30, 0x2, 0x2, 0xc0025b8aa0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/scc/cscc/configure.go:164 +0x692
+github.com/hyperledger/fabric/core/scc/cscc.(*PeerConfiger).Invoke(0xc000390d70, 0x13e32e0, 0xc0000f2bb0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/scc/cscc/configure.go:120 +0x29b
+github.com/hyperledger/fabric/core/chaincode/shim.(*Handler).handleTransaction.func1(0xc002636de0, 0xc0025aa960, 0xc00014fa00)
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/shim/handler.go:273 +0x4eb
+created by github.com/hyperledger/fabric/core/chaincode/shim.(*Handler).handleTransaction
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/shim/handler.go:242 +0x53
+McKinley:first-network CT15$ 
+```

@@ -1,0 +1,533 @@
+Configure the Network on the First Node     
+****************************************
+
+
+
+Here am using 2 servers. 10.53.17.167 is the ip of the server which is assinged for validator-1,10.53.17.209 is the ip of the server which is assinged for validator-2
+
+
+First i cleared the Sawtooth directory's
+cd /var/lib/sawtooth
+rm -f $(ls)
+
+cd /var/log/sawtooth
+rm -f $(ls)
+
+cd /etc/sawtooth/keys
+sudo rm -f $(ls)
+
+cd /home/1193328/.sawtooth/keys
+sudo rm -f $(ls)
+
+
+cd
+ 
+
+sudo apt autoremove -y sawtooth                                       -- remove existing sawtooth
+
+-------------------------------------------------------------------------------------------------
+
+Step 1: Install Sawtooth(nightly repository)
+
+1. $sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 44FC67F19B2466EA
+
+2. $sudo apt-add-repository "deb http://repo.sawtooth.me/ubuntu/nightly xenial universe"
+
+3. $sudo apt-get update
+
+
+4. $sudo apt-get install -y sawtooth
+
+
+   
+5. $dpkg -l '*sawtooth*'
+
+
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                            Version              Architecture         Description
++++-===============================-====================-====================-===================================================================
+ii  python3-sawtooth-cli            1.1.1~dev808-1       all                  Sawtooth CLI
+ii  python3-sawtooth-intkey         1.1.1~dev808-1       all                  Sawtooth Intkey Python Example
+ii  python3-sawtooth-poet-cli       1.1.1~dev808-1       all                  Sawtooth PoET CLI
+ii  python3-sawtooth-poet-common    1.1.1~dev808-1       all                  Sawtooth PoET Common Modules
+ii  python3-sawtooth-poet-core      1.1.1~dev808-1       all                  Sawtooth Core Consensus Module
+ii  python3-sawtooth-poet-families  1.1.1~dev808-1       all                  Sawtooth Transaction Processor Families
+ii  python3-sawtooth-poet-simulator 1.1.1~dev808-1       all                  Sawtooth PoET Simulator Enclave
+ii  python3-sawtooth-rest-api       1.1.1~dev808-1       all                  Sawtooth REST API
+ii  python3-sawtooth-sdk            1.1.1~dev808-1       all                  Sawtooth Python SDK
+ii  python3-sawtooth-settings       1.1.1~dev808-1       all                  Sawtooth Settings Transaction Processor
+ii  python3-sawtooth-signing        1.1.1~dev808-1       all                  Sawtooth Signing Library
+ii  python3-sawtooth-validator      1.1.1~dev808-1       all                  Sawtooth Validator
+ii  python3-sawtooth-xo             1.1.1~dev808-1       all                  Sawtooth XO Example
+ii  sawtooth                        1.1.1.dev808         all                  Hyperledger Sawtooth Distributed Ledger
+
+
+Step 2: Generate a User Key
+
+6. $sawtooth keygen
+
+creating key directory: /home/1193328/.sawtooth/keys
+writing file: /home/1193328/.sawtooth/keys/1193328.priv
+writing file: /home/1193328/.sawtooth/keys/1193328.pub
+
+
+Step 3: Create the Genesis Block
+
+7. $sawset genesis
+
+Generated config-genesis.batch      -- comments created in  /home/1193328   
+
+
+8. $sudo -u sawtooth sawadm genesis config-genesis.batch
+
+Processing config-genesis.batch...
+Generating /var/lib/sawtooth/genesis.batch
+
+
+Step 4: Generate the Root Key for the Validator
+
+9. $sudo sawadm keygen
+
+writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+
+
+
+Now change the permissions of the created files
+
+$cd /etc/sawtooth/keys/
+$sudo chmod 777 $(ls)
+
+$cd
+
+Step 5: Create a batch to initialize the Settings transaction family in the genesis block
+
+$sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch
+
+Generated config-genesis.batch
+
+
+
+Step 6:Create a batch to initialize the PoET consensus settings
+
+$sudo sawset proposal create -k /etc/sawtooth/keys/validator.priv \-o config.batch \sawtooth.consensus.algorithm=poet \sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)" \sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement) \sawtooth.poet.valid_enclave_basenames=$(poet enclave basename)
+
+Step 7:Create a batch to register the first validator with the PoET Validator Registry
+
+$sudo poet registration create -k /etc/sawtooth/keys/validator.priv -o poet.batch
+
+Writing key state for PoET public key: 02a73997...25f972b4
+Generating poet.batch
+
+
+Step 8:Create a batch to configure optional PoET settings
+
+$sawset proposal create -k /etc/sawtooth/keys/validator.priv \-o poet-settings.batch \sawtooth.poet.target_wait_time=5 \sawtooth.poet.initial_wait_time=25 \sawtooth.publisher.max_batches_per_block=100
+
+Step 9:Combine the previously created batches into a single genesis batch that will be committed in the genesis block
+
+$sudo sawadm genesis config-genesis.batch config.batch poet.batch poet-settings.batch
+
+Processing config-genesis.batch...
+Processing config.batch...
+Processing poet.batch...
+Processing poet-settings.batch...
+
+
+
+Step 10:The following command will start the validator on the first node
+
+
+$sudo -u sawtooth sawtooth-validator -vv --bind component:tcp://127.0.0.1:4004 --bind network:tcp://10.53.17.167:8800 --endpoint tcp://10.53.17.167:8800 --peers tcp://10.53.17.209:8800
+
+						-- comments  10.53.17.167 is the ip of the server which is assinged for validator-1
+									 10.53.17.209 is the ip of the server which is assinged for validator-2
+
+
+
+[2018-06-13 13:57:19.546 WARNING  (unknown file)] [src/pylogger.rs: 37] Started logger at level DEBUG
+[2018-06-13 13:57:19.724 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 13:57:19.727 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 13:57:19.929 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2018-06-13 13:57:19.929 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+[2018-06-13 13:57:19.930 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2018-06-13 13:57:19.932 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.1.1.dev808
+[2018-06-13 13:57:19.932 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[2018-06-13 13:57:19.932 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[2018-06-13 13:57:19.935 DEBUG    state_verifier] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 13:57:19.936 DEBUG    state_verifier] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 13:57:19.940 INFO     state_verifier] Skipping state verification: chain head's state root is present
+[2018-06-13 13:57:19.940 INFO     cli] Starting validator with serial scheduler
+[2018-06-13 13:57:19.940 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 13:57:19.941 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[2018-06-13 13:57:19.943 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 13:57:19.947 DEBUG    threadpool] Creating thread pool executor Component
+[2018-06-13 13:57:19.947 DEBUG    threadpool] Creating thread pool executor Network
+[2018-06-13 13:57:19.947 DEBUG    threadpool] Creating thread pool executor Client
+[2018-06-13 13:57:19.948 DEBUG    threadpool] Creating thread pool executor Signature
+[2018-06-13 13:57:19.949 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 13:57:19.950 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 13:57:19.957 DEBUG    threadpool] Creating thread pool executor Executing
+[2018-06-13 13:57:19.957 DEBUG    threadpool] Creating thread pool executor Instrumented
+[2018-06-13 13:57:19.966 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 13:57:19.968 INFO     interconnect] Listening on tcp://127.0.0.1:4004
+[2018-06-13 13:57:19.968 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2018-06-13 13:57:19.968 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2018-06-13 13:57:19.969 DEBUG    genesis] genesis_batch_file: /var/lib/sawtooth/genesis.batch
+[2018-06-13 13:57:19.969 DEBUG    genesis] block_chain_id: not yet specified
+[2018-06-13 13:57:19.970 INFO     genesis] Producing genesis block from /var/lib/sawtooth/genesis.batch
+[2018-06-13 13:57:19.970 DEBUG    genesis] Adding 4 batches
+
+
+Step 11:Open a separate terminal window and start the REST API on the first validator node
+
+$sudo -u sawtooth sawtooth-rest-api -v
+
+
+[2018-06-13 14:03:10.159 INFO     messaging] Connecting to tcp://localhost:4004
+[2018-06-13 14:03:10.159 INFO     rest_api] Creating handlers for validator at tcp://localhost:4004
+[2018-06-13 14:03:10.161 INFO     rest_api] Starting REST API on 127.0.0.1:8008
+======== Running on http://127.0.0.1:8008 ========
+(Press CTRL+C to quit)
+
+
+Step 12:Start the transaction processors on the first validator node. Open a separate terminal window to start each component
+
+
+$sudo -u sawtooth settings-tp -v
+
+
+
+[2018-06-13 14:05:07.877 INFO     core] register attempt: OK
+[2018-06-13 14:05:07.885 INFO     handler] Setting setting sawtooth.settings.vote.authorized_keys changed from None to 023213a5a31e1dd1f936a6bc377a8bacee62ae63ed1238fa36e58a8135c875dbdd
+[2018-06-13 14:05:07.897 INFO     handler] Setting setting sawtooth.consensus.algorithm changed from None to poet
+[2018-06-13 14:05:07.911 INFO     handler] Setting setting sawtooth.poet.report_public_key_pem changed from None to -----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+4CvFTiuyid+IN4dP1+mhTnfxX+I/ntt8LUKZMbI1R1izOUoxJRoX6VQ4S9VgDLEC
+PW6QlkeLI1eqe4DiYb9+J5ANhq4+XkhwgCUUFwpfqSfXWCHimjaGsZHbavl5nv/6
+IbZJL/2YzE37IzJdES16JCfmIUrk6TUqL0WgrWXyweTIoVSbld0M29kToSkMXLsj
+8vbQbTiKwViWhYlzi0cQIo7PiAss66lAW0X6AM7ZJYyAcfSjSLR4guMz76Og8aRk
+jtsjEEkq7Ndz5H8hllWUoHpxGDqLhM9O1/h+QdvTz7luZgpeJ5KB92vYL6yOlSxM
+fQIDAQAB
+-----END PUBLIC KEY-----
+[2018-06-13 14:05:07.923 INFO     handler] Setting setting sawtooth.poet.valid_enclave_measurements changed from None to c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+[2018-06-13 14:05:07.943 INFO     handler] Setting setting sawtooth.poet.valid_enclave_basenames changed from None to b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+
+
+
+$sudo -u sawtooth intkey-tp-python -v				-- comments open in seperate terminal
+
+
+[sudo] password for 1193328: 
+[2018-06-13 14:06:09.175 INFO     core] register attempt: OK
+
+
+
+$sudo -u sawtooth xo-tp-python -v				-- comments open in seperate terminal
+
+[2018-06-13 14:07:00.476 INFO     core] register attempt: OK
+
+
+$sudo -u sawtooth poet-validator-registry-tp -v			-- comments open in seperate terminal
+
+
+[2018-06-13 14:07:55 INFO    core] register attempt: OK
+[2018-06-13 14:07:55 INFO    handler] Validator id 023213a5a31e1dd1f936a6bc377a8bacee62ae63ed1238fa36e58a8135c875dbdd was added to the validator_map and set.
+
+
+
+
+
+
+
+Set Up the Second Validator Node
+********************************
+
+Step 1:Install Sawtooth on the second node
+
+Step 2:Create your user key
+
+$sawtooth keygen
+
+writing file: /home/1193328/.sawtooth/keys/1193328.priv
+writing file: /home/1193328/.sawtooth/keys/1193328.pub
+
+
+Step 3:Create the root key for the validator:
+
+$sudo sawadm keygen
+
+writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+
+Step 4:Start the Second Validator Node  				-- comments open in seperate terminal
+
+
+
+$sudo -u sawtooth sawtooth-validator -vv --bind component:tcp://127.0.0.1:4004 --bind network:tcp://10.53.17.209:8800 --endpoint tcp://10.53.17.209:8800 --peers tcp://10.53.17.167:8800
+
+											-- comments  10.53.17.167 is the ip of the server which is assinged for validator-1
+									 					 10.53.17.209 is the ip of the server which is assinged for validator-2
+
+
+
+
+[2018-06-13 14:19:30.425 WARNING  (unknown file)] [src/pylogger.rs: 37] Started logger at level DEBUG
+[2018-06-13 14:19:30.590 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 14:19:30.593 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 14:19:30.808 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2018-06-13 14:19:30.808 INFO     validator] Loading validator information from config: /etc/sawtooth/validator.toml
+[2018-06-13 14:19:30.816 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2018-06-13 14:19:30.817 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2018-06-13 14:19:30.819 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.1.1.dev808
+[2018-06-13 14:19:30.819 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[2018-06-13 14:19:30.825 DEBUG    state_verifier] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 14:19:30.826 DEBUG    state_verifier] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 14:19:30.828 INFO     state_verifier] Skipping state verification: chain head's state root is present
+[2018-06-13 14:19:30.829 INFO     cli] Starting validator with serial scheduler
+[2018-06-13 14:19:30.829 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 14:19:30.829 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[2018-06-13 14:19:30.831 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Component
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Network
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Client
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Signature
+[2018-06-13 14:19:30.835 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 14:19:30.836 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 14:19:30.842 DEBUG    threadpool] Creating thread pool executor Executing
+[2018-06-13 14:19:30.842 DEBUG    threadpool] Creating thread pool executor Instrumented
+[2018-06-13 14:19:30.849 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.851 INFO     interconnect] Listening on tcp://127.0.0.1:4004
+[2018-06-13 14:19:30.851 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2018-06-13 14:19:30.852 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2018-06-13 14:19:30.853 DEBUG    genesis] genesis_batch_file: not found
+[2018-06-13 14:19:30.853 DEBUG    genesis] block_chain_id: not yet specified
+[2018-06-13 14:19:30.853 INFO     genesis] No chain head and not the genesis node: starting in peering mode
+[2018-06-13 14:19:30.858 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.860 INFO     interconnect] Listening on tcp://10.53.17.209:8800
+[2018-06-13 14:19:30.861 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2018-06-13 14:19:30.861 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2018-06-13 14:19:30.863 DEBUG    gossip] Endpoint has not completed authorization in 10 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.863 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.864 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.864 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.865 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.865 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+
+
+
+Step 5:Open a separate terminal window and start the REST API on the second validator node
+
+
+$sudo -u sawtooth sawtooth-rest-api -v
+
+[2018-06-13 14:22:31.023 INFO     messaging] Connecting to tcp://localhost:4004
+[2018-06-13 14:22:31.024 INFO     rest_api] Creating handlers for validator at tcp://localhost:4004
+[2018-06-13 14:22:31.026 INFO     rest_api] Starting REST API on 127.0.0.1:8008
+======== Running on http://127.0.0.1:8008 ========
+(Press CTRL+C to quit)
+
+
+Step 6:Start the transaction processors on the second validator node.Open a separate terminal window to start each component
+
+
+$sudo -u sawtooth settings-tp -v
+
+[2018-06-13 14:24:23.211 INFO     core] register attempt: OK
+
+
+$sudo -u sawtooth intkey-tp-python -v						-- comments open in seperate terminal
+
+[2018-06-13 14:25:51.187 INFO     core] register attempt: OK
+
+
+$sudo -u sawtooth xo-tp-python -v							-- comments open in seperate terminal
+
+[2018-06-13 14:26:47.166 INFO     core] register attempt: OK
+
+
+$sudo -u sawtooth poet-validator-registry-tp -v				-- comments open in seperate terminal
+
+[2018-06-13 14:27:27 INFO    core] register attempt: OK
+
+-------------------------
+
+
+
+
+Below is the entire log for validator-2
+
+
+[2018-06-13 14:19:30.425 WARNING  (unknown file)] [src/pylogger.rs: 37] Started logger at level DEBUG
+[2018-06-13 14:19:30.590 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 14:19:30.593 DEBUG    ffi] loading library libsawtooth_validator.so
+[2018-06-13 14:19:30.808 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2018-06-13 14:19:30.808 INFO     validator] Loading validator information from config: /etc/sawtooth/validator.toml
+[2018-06-13 14:19:30.816 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2018-06-13 14:19:30.817 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2018-06-13 14:19:30.819 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.1.1.dev808
+[2018-06-13 14:19:30.819 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[2018-06-13 14:19:30.825 DEBUG    state_verifier] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 14:19:30.826 DEBUG    state_verifier] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 14:19:30.828 INFO     state_verifier] Skipping state verification: chain head's state root is present
+[2018-06-13 14:19:30.829 INFO     cli] Starting validator with serial scheduler
+[2018-06-13 14:19:30.829 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[2018-06-13 14:19:30.829 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[2018-06-13 14:19:30.831 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Component
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Network
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Client
+[2018-06-13 14:19:30.833 DEBUG    threadpool] Creating thread pool executor Signature
+[2018-06-13 14:19:30.835 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 14:19:30.836 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2018-06-13 14:19:30.842 DEBUG    threadpool] Creating thread pool executor Executing
+[2018-06-13 14:19:30.842 DEBUG    threadpool] Creating thread pool executor Instrumented
+[2018-06-13 14:19:30.849 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.851 INFO     interconnect] Listening on tcp://127.0.0.1:4004
+[2018-06-13 14:19:30.851 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2018-06-13 14:19:30.852 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2018-06-13 14:19:30.853 DEBUG    genesis] genesis_batch_file: not found
+[2018-06-13 14:19:30.853 DEBUG    genesis] block_chain_id: not yet specified
+[2018-06-13 14:19:30.853 INFO     genesis] No chain head and not the genesis node: starting in peering mode
+[2018-06-13 14:19:30.858 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.860 INFO     interconnect] Listening on tcp://10.53.17.209:8800
+[2018-06-13 14:19:30.861 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2018-06-13 14:19:30.861 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2018-06-13 14:19:30.863 DEBUG    gossip] Endpoint has not completed authorization in 10 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.863 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.864 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.864 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:30.865 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:30.865 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.889 DEBUG    gossip] Endpoint has not completed authorization in 20 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.889 DEBUG    interconnect] Removing connection: ad8d58a298fbc538c41cab2d09285a7f2af685ee89544f019249e40d8af5269f2192f0c952edbb9d35f7ac1b60be39b7ab30d23044e2077784451352f9826e13
+[2018-06-13 14:19:50.890 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.890 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.890 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.890 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.890 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:19:50.892 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:19:50.892 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:00.883 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:00.884 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:30.936 DEBUG    gossip] Endpoint has not completed authorization in 40 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:20:30.937 DEBUG    interconnect] Removing connection: ad8d58a298fbc538c41cab2d09285a7f2af685ee89544f019249e40d8af5269f2192f0c952edbb9d35f7ac1b60be39b7ab30d23044e2077784451352f9826e13
+[2018-06-13 14:20:30.937 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_message function was registered
+[2018-06-13 14:20:30.937 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_last_message function was registered
+[2018-06-13 14:20:30.937 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:20:30.937 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:20:30.938 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:20:30.938 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:30.939 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:40.919 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:20:40.919 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:21:51.031 DEBUG    gossip] Endpoint has not completed authorization in 80 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:21:51.031 DEBUG    interconnect] Removing connection: ad8d58a298fbc538c41cab2d09285a7f2af685ee89544f019249e40d8af5269f2192f0c952edbb9d35f7ac1b60be39b7ab30d23044e2077784451352f9826e13
+[2018-06-13 14:21:51.031 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_message function was registered
+[2018-06-13 14:21:51.031 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_last_message function was registered
+[2018-06-13 14:21:51.031 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:21:51.032 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:21:51.032 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:21:51.033 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:21:51.033 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:22:00.991 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:22:00.991 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:24:23.209 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: cad1cb4ff8b7863bdf06631127c649d221fdbb643b8084ccb1164ac4375796ca2aaf0fb402c2e02e64121852def88b1c5f8946cb19276f8400f5455d9068fe3f. Using default max occupancy: 10
+[2018-06-13 14:24:23.210 INFO     processor_handlers] registered transaction processor: connection_id=cad1cb4ff8b7863bdf06631127c649d221fdbb643b8084ccb1164ac4375796ca2aaf0fb402c2e02e64121852def88b1c5f8946cb19276f8400f5455d9068fe3f, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[2018-06-13 14:24:31.209 DEBUG    gossip] Endpoint has not completed authorization in 160 seconds: tcp://10.53.17.167:8800
+[2018-06-13 14:24:31.209 DEBUG    interconnect] Removing connection: ad8d58a298fbc538c41cab2d09285a7f2af685ee89544f019249e40d8af5269f2192f0c952edbb9d35f7ac1b60be39b7ab30d23044e2077784451352f9826e13
+[2018-06-13 14:24:31.209 WARNING  dispatch] Attempted to remove send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_message function was registered
+[2018-06-13 14:24:31.210 WARNING  dispatch] Attempted to remove send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800, but no send_last_message function was registered
+[2018-06-13 14:24:31.210 DEBUG    gossip] attempting to peer with tcp://10.53.17.167:8800
+[2018-06-13 14:24:31.210 DEBUG    interconnect] Adding connection to tcp://10.53.17.167:8800
+[2018-06-13 14:24:31.210 DEBUG    selector_events] Using selector: ZMQSelector
+[2018-06-13 14:24:31.211 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:24:31.211 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:24:41.142 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:24:41.143 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.53.17.167:8800
+[2018-06-13 14:25:51.185 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 500bd14439a8532a9116a9a7366347f9da71430fe33284051fbcf55fd944f208cfabbc4b88374f871757465f96bf2544a33aef4152d49fadb552becb2b1c9aff. Using default max occupancy: 10
+[2018-06-13 14:25:51.186 INFO     processor_handlers] registered transaction processor: connection_id=500bd14439a8532a9116a9a7366347f9da71430fe33284051fbcf55fd944f208cfabbc4b88374f871757465f96bf2544a33aef4152d49fadb552becb2b1c9aff, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[2018-06-13 14:26:47.164 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 53be74c23def0799fc07a2ecda838cded78152edc53feb8ea665e9855a08d71712692c38a6f5bc5b9c2399bbb963acda01e23842b92b5ade6372b0101288d911. Using default max occupancy: 10
+[2018-06-13 14:26:47.165 INFO     processor_handlers] registered transaction processor: connection_id=53be74c23def0799fc07a2ecda838cded78152edc53feb8ea665e9855a08d71712692c38a6f5bc5b9c2399bbb963acda01e23842b92b5ade6372b0101288d911, family=xo, version=1.0, namespaces=['5b7349'], max_occupancy=10
+[2018-06-13 14:27:27.193 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: bc9ec8f15e9950838db1888076dde20e263d849642b645baffb5080b6ba4fddebe09ed40c4f6b29498883867c4d65af73e725765dbe55e4ae3f9e6a219b0d774. Using default max occupancy: 10
+[2018-06-13 14:27:27.193 INFO     processor_handlers] registered transaction processor: connection_id=bc9ec8f15e9950838db1888076dde20e263d849642b645baffb5080b6ba4fddebe09ed40c4f6b29498883867c4d65af73e725765dbe55e4ae3f9e6a219b0d774, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+
+
+
+
+-----------------------------------
+
+
+
+
+
+Confirm Network Functionality
+****************************
+Step 1:To check whether peering has occurred on the network, submit a peers query to the REST API on the first validator node
+
+Open a terminal window on the first validator node and run the following command.
+
+$curl http://localhost:8008/peers
+
+
+{
+  "data": [],
+  "link": "http://localhost:8008/peers"
+}
+
+Step 2:Run the Sawtooth command on a validator node to show the other nodes on the network, called peers
+
+$sawtooth peer list
+
+It returns NULL
+
+Step 3:Submit a transaction to the REST API on the first validator node
+
+
+$intkey set MyKey 999
+
+{
+  "link": "http://127.0.0.1:8008/batch_statuses?id=0c5975e0761a8fe4aca2a58d8a3f14634698efc34ccec08e173e97572ec3eee03668e65457729a3319735636048f1b758d480b9810bbd0f639cf373b639b2976"
+}
+
+
+Step 4:Check for this transaction to appear on the second validator node
+
+Open a terminal window on the second validator node to run the following command
+
+$intkey show MyKey
+
+Error: Error 503: Service Unavailable
+
+
+--------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

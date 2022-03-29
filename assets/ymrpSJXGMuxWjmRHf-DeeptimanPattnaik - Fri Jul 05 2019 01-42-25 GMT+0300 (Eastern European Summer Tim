@@ -1,0 +1,142 @@
+2019-07-04 22:19:14.625 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+ Version: 1.3.0
+ Commit SHA: ab0a67a
+ Go version: go1.10.4
+ OS/Arch: linux/amd64
+ Experimental features: false
+ Chaincode:
+  Base Image Version: 0.4.13
+  Base Docker Namespace: hyperledger
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+2019-07-04 22:19:14.625 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+2019-07-04 22:19:14.625 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+2019-07-04 22:19:17.839 UTC [couchdb] handleRequest -> WARN 004 Retrying couchdb request in 125ms. Attempt:1  Error:Get http://couchdb.peer0.org1.company.ledger.com:5984/: dial tcp 172.29.0.4:5984: connect: connection refused
+2019-07-04 22:19:17.966 UTC [couchdb] handleRequest -> WARN 005 Retrying couchdb request in 250ms. Attempt:2  Error:Get http://couchdb.peer0.org1.company.ledger.com:5984/: dial tcp 172.29.0.4:5984: connect: connection refused
+2019-07-04 22:19:18.219 UTC [couchdb] handleRequest -> WARN 006 Retrying couchdb request in 500ms. Attempt:3  Error:Get http://couchdb.peer0.org1.company.ledger.com:5984/: dial tcp 172.29.0.4:5984: connect: connection refused
+2019-07-04 22:19:22.251 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 007 Created state database _users
+2019-07-04 22:19:23.262 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 008 Created state database _replicator
+2019-07-04 22:19:23.997 UTC [kvledger] NewProvider -> INFO 009 ledger provider Initialized
+2019-07-04 22:19:24.709 UTC [ledgermgmt] initialize -> INFO 00a ledger mgmt initialized
+2019-07-04 22:19:24.710 UTC [peer] func1 -> INFO 00b Auto-detected peer address: 172.29.0.13:7051
+2019-07-04 22:19:24.710 UTC [peer] func1 -> INFO 00c Host is 0.0.0.0 , falling back to auto-detected address: 172.29.0.13:7051
+2019-07-04 22:19:24.710 UTC [peer] func1 -> INFO 00d Auto-detected peer address: 172.29.0.13:7051
+2019-07-04 22:19:24.710 UTC [peer] func1 -> INFO 00e Host is 0.0.0.0 , falling back to auto-detected address: 172.29.0.13:7051
+2019-07-04 22:19:24.713 UTC [nodeCmd] serve -> INFO 00f Starting peer with TLS enabled
+2019-07-04 22:19:24.717 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 010 Entering computeChaincodeEndpoint with peerHostname: 172.29.0.13
+2019-07-04 22:19:24.719 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 011 Exit with ccEndpoint: 172.29.0.13:7052
+2019-07-04 22:19:24.719 UTC [nodeCmd] createChaincodeServer -> WARN 012 peer.chaincodeListenAddress is not set, using 172.29.0.13:7052
+2019-07-04 22:19:24.723 UTC [sccapi] registerSysCC -> INFO 013 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+2019-07-04 22:19:24.727 UTC [sccapi] registerSysCC -> INFO 014 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+2019-07-04 22:19:24.728 UTC [sccapi] registerSysCC -> INFO 015 system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+2019-07-04 22:19:24.728 UTC [sccapi] registerSysCC -> INFO 016 system chaincode +lifecycle(github.com/hyperledger/fabric/core/chaincode/lifecycle) registered
+2019-07-04 22:19:25.014 UTC [gossip/gossip] NewGossipService -> INFO 017 Creating gossip service with self membership of {peer0.org1.company.ledger.com:7051 [] [49 242 91 80 125 174 153 96 169 250 6 39 165 47 145 231 212 138 39 23 22 73 205 41 177 240 128 226 11 196 210 202] 172.29.0.13:7051 <nil> <nil>}
+2019-07-04 22:19:25.019 UTC [gossip/gossip] start -> INFO 018 Gossip instance 172.29.0.13:7051 started
+2019-07-04 22:19:25.210 UTC [sccapi] deploySysCC -> INFO 019 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+2019-07-04 22:19:25.214 UTC [cscc] Init -> INFO 01a Init CSCC
+2019-07-04 22:19:25.219 UTC [sccapi] deploySysCC -> INFO 01b system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2019-07-04 22:19:25.221 UTC [qscc] Init -> INFO 01c Init QSCC
+2019-07-04 22:19:25.223 UTC [sccapi] deploySysCC -> INFO 01d system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+2019-07-04 22:19:25.225 UTC [sccapi] deploySysCC -> INFO 01e system chaincode +lifecycle/(github.com/hyperledger/fabric/core/chaincode/lifecycle) deployed
+2019-07-04 22:19:25.226 UTC [nodeCmd] serve -> INFO 01f Deployed system chaincodes
+2019-07-04 22:19:25.229 UTC [discovery] NewService -> INFO 020 Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+2019-07-04 22:19:25.229 UTC [nodeCmd] registerDiscoveryService -> INFO 021 Discovery service activated
+2019-07-04 22:19:25.246 UTC [nodeCmd] serve -> INFO 022 Starting peer with ID=[name:"peer0.org1.company.ledger.com" ], network ID=[companyledger], address=[172.29.0.13:7051]
+2019-07-04 22:19:25.247 UTC [nodeCmd] serve -> INFO 023 Started peer with ID=[name:"peer0.org1.company.ledger.com" ], network ID=[companyledger], address=[172.29.0.13:7051]
+2019-07-04 22:19:25.247 UTC [nodeCmd] func8 -> INFO 024 Starting profiling server with listenAddress = 0.0.0.0:6060
+2019-07-04 22:19:26.883 UTC [endorser] callChaincode -> INFO 025 [][0346f669] Entry chaincode: name:"cscc" 
+2019-07-04 22:19:26.885 UTC [endorser] callChaincode -> INFO 026 [][0346f669] Exit chaincode: name:"cscc"  (1ms)
+2019-07-04 22:19:32.018 UTC [gossip/comm] sendToEndpoint -> WARN 027 Failed obtaining connection for 172.29.0.12:7051, PKIid:[76 154 135 242 225 163 180 89 75 108 165 53 253 173 163 21 123 172 191 37 11 239 124 60 38 37 33 186 70 254 42 98] reason: context deadline exceeded
+2019-07-04 22:19:32.019 UTC [gossip/discovery] expireDeadMembers -> WARN 028 Entering [[76 154 135 242 225 163 180 89 75 108 165 53 253 173 163 21 123 172 191 37 11 239 124 60 38 37 33 186 70 254 42 98]]
+2019-07-04 22:19:32.019 UTC [gossip/discovery] expireDeadMembers -> WARN 029 Closing connection to Endpoint: peer1.org1.company.ledger.com:8051, InternalEndpoint: 172.29.0.12:7051, PKI-ID: [76 154 135 242 225 163 180 89 75 108 165 53 253 173 163 21 123 172 191 37 11 239 124 60 38 37 33 186 70 254 42 98], Metadata: []
+2019-07-04 22:19:32.019 UTC [gossip/discovery] expireDeadMembers -> WARN 02a Exiting
+2019-07-04 22:19:34.227 UTC [endorser] callChaincode -> INFO 02b [][1860feae] Entry chaincode: name:"cscc" 
+2019-07-04 22:19:34.228 UTC [endorser] callChaincode -> INFO 02c [][1860feae] Exit chaincode: name:"cscc"  (1ms)
+2019-07-04 22:19:34.256 UTC [endorser] callChaincode -> INFO 02d [][cb3e8f63] Entry chaincode: name:"cscc" 
+2019-07-04 22:19:34.284 UTC [ledgermgmt] CreateLedger -> INFO 02e Creating ledger [companyledger] with genesis block
+2019-07-04 22:19:34.371 UTC [fsblkstorage] newBlockfileMgr -> INFO 02f Getting block information from block storage
+2019-07-04 22:19:35.021 UTC [gossip/comm] sendToEndpoint -> WARN 030 Failed obtaining connection for 172.29.0.12:7051, PKIid:[76 154 135 242 225 163 180 89 75 108 165 53 253 173 163 21 123 172 191 37 11 239 124 60 38 37 33 186 70 254 42 98] reason: context deadline exceeded
+2019-07-04 22:19:35.270 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 031 Created state database companyledger_
+2019-07-04 22:19:36.988 UTC [kvledger] CommitWithPvtData -> INFO 032 [companyledger] Committed block [0] with 1 transaction(s) in 1717ms (state_validation=1ms block_commit=720ms state_commit=701ms)
+2019-07-04 22:19:37.161 UTC [ledgermgmt] CreateLedger -> INFO 033 Created ledger [companyledger] with genesis block
+2019-07-04 22:19:37.211 UTC [gossip/gossip] JoinChan -> INFO 034 Joining gossip network of channel companyledger with 2 organizations
+2019-07-04 22:19:37.211 UTC [gossip/gossip] learnAnchorPeers -> INFO 035 No configured anchor peers of Org2MSP for channel companyledger to learn about
+2019-07-04 22:19:37.211 UTC [gossip/gossip] learnAnchorPeers -> INFO 036 No configured anchor peers of Org1MSP for channel companyledger to learn about
+2019-07-04 22:19:37.559 UTC [sccapi] deploySysCC -> INFO 037 system chaincode lscc/companyledger(github.com/hyperledger/fabric/core/scc/lscc) deployed
+2019-07-04 22:19:37.560 UTC [cscc] Init -> INFO 038 Init CSCC
+2019-07-04 22:19:37.560 UTC [sccapi] deploySysCC -> INFO 039 system chaincode cscc/companyledger(github.com/hyperledger/fabric/core/scc/cscc) deployed
+2019-07-04 22:19:37.560 UTC [qscc] Init -> INFO 03a Init QSCC
+2019-07-04 22:19:37.560 UTC [sccapi] deploySysCC -> INFO 03b system chaincode qscc/companyledger(github.com/hyperledger/fabric/core/scc/qscc) deployed
+2019-07-04 22:19:37.560 UTC [sccapi] deploySysCC -> INFO 03c system chaincode +lifecycle/companyledger(github.com/hyperledger/fabric/core/chaincode/lifecycle) deployed
+2019-07-04 22:19:37.561 UTC [endorser] callChaincode -> INFO 03d [][cb3e8f63] Exit chaincode: name:"cscc"  (3304ms)
+2019-07-04 22:19:38.023 UTC [gossip/comm] sendToEndpoint -> WARN 03e Failed obtaining connection for 172.29.0.12:7051, PKIid:[76 154 135 242 225 163 180 89 75 108 165 53 253 173 163 21 123 172 191 37 11 239 124 60 38 37 33 186 70 254 42 98] reason: context deadline exceeded
+2019-07-04 22:19:43.562 UTC [gossip/election] beLeader -> INFO 03f [49 242 91 80 125 174 153 96 169 250 6 39 165 47 145 231 212 138 39 23 22 73 205 41 177 240 128 226 11 196 210 202] : Becoming a leader
+2019-07-04 22:19:55.462 UTC [endorser] callChaincode -> INFO 040 [][ca6e1b6a] Entry chaincode: name:"lscc" 
+2019-07-04 22:19:55.463 UTC [endorser] callChaincode -> INFO 041 [][ca6e1b6a] Exit chaincode: name:"lscc"  (1ms)
+2019-07-04 22:19:55.854 UTC [endorser] callChaincode -> INFO 042 [][d1e8f6b7] Entry chaincode: name:"lscc" 
+2019-07-04 22:19:57.117 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 043 Created state database companyledger_lscc
+2019-07-04 22:19:57.147 UTC [lscc] executeInstall -> INFO 044 Installed Chaincode [CC_ORG1_V13] Version [1] to peer
+2019-07-04 22:19:57.148 UTC [endorser] callChaincode -> INFO 045 [][d1e8f6b7] Exit chaincode: name:"lscc"  (1293ms)
+2019-07-04 22:20:15.202 UTC [endorser] callChaincode -> INFO 046 [companyledger][5f617a25] Entry chaincode: name:"cscc" 
+2019-07-04 22:20:15.203 UTC [endorser] callChaincode -> INFO 047 [companyledger][5f617a25] Exit chaincode: name:"cscc"  (2ms)
+2019-07-04 22:20:15.221 UTC [endorser] callChaincode -> INFO 048 [companyledger][15803844] Entry chaincode: name:"lscc" 
+2019-07-04 22:20:15.532 UTC [golang-platform] GenerateDockerBuild -> INFO 049 building chaincode with ldflagsOpt: '-ldflags "-linkmode external -extldflags '-static'"'
+2019-07-04 22:20:15.543 UTC [golang-platform] GenerateDockerBuild -> INFO 04a building chaincode with tags: 
+2019-07-04 22:21:34.609 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 04b 2019-07-04 22:21:34.608 UTC [shim] setupChaincodeLogging -> INFO 001 Chaincode (build level: 1.3.0) starting up ...
+2019-07-04 22:21:34.997 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 04c ########### HelloWorldServiceChaincode Init ###########
+2019-07-04 22:21:35.003 UTC [endorser] callChaincode -> INFO 04d [companyledger][15803844] Exit chaincode: name:"lscc"  (79782ms)
+2019-07-04 22:21:38.842 UTC [committer/txvalidator] Validate -> INFO 04e [companyledger] Validated block [1] in 938ms
+2019-07-04 22:21:39.482 UTC [cceventmgmt] HandleStateUpdates -> INFO 04f Channel [companyledger]: Handling LSCC state update for chaincode [CC_ORG1_V13]
+2019-07-04 22:21:41.307 UTC [kvledger] CommitWithPvtData -> INFO 050 [companyledger] Committed block [1] with 1 transaction(s) in 2464ms (state_validation=1323ms block_commit=759ms state_commit=251ms)
+2019-07-04 22:21:52.242 UTC [endorser] callChaincode -> INFO 051 [companyledger][74bdc576] Entry chaincode: name:"lscc" 
+2019-07-04 22:21:52.471 UTC [endorser] callChaincode -> INFO 052 [companyledger][74bdc576] Exit chaincode: name:"lscc"  (229ms)
+2019-07-04 22:22:13.895 UTC [endorser] callChaincode -> INFO 053 [companyledger][7518961a] Entry chaincode: name:"cscc" 
+2019-07-04 22:22:13.897 UTC [endorser] callChaincode -> INFO 054 [companyledger][7518961a] Exit chaincode: name:"cscc"  (2ms)
+2019-07-04 22:22:14.059 UTC [endorser] callChaincode -> INFO 055 [companyledger][50d09a41] Entry chaincode: name:"CC_ORG1_V13" 
+2019-07-04 22:22:14.060 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 056 ########### HelloWorldServiceChaincode Invoke *********************************** ###########
+2019-07-04 22:22:14.060 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 057 Create User Function Called
+2019-07-04 22:22:14.061 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 058 Create User :>>>> test company == test2q3@org1.com == testc == testo == 88,000 == admin
+2019-07-04 22:22:14.061 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 059 userID = eDUwOTo6Q049dmd6ZXdxenR4YXNxQG9yZzEuY29tLE9VPXBlZXIrT1U9b3JnMStPVT1kZXBhcnRtZW50MTo6Q049Y2Eub3JnMS5jb21wYW55LmxlZGdlci5jb20sTz1vcmcxLmNvbXBhbnkubGVkZ2VyLmNvbSxMPVNhbiBGcmFuY2lzY28sU1Q9Q2FsaWZvcm5pYSxDPVVT
+2019-07-04 22:22:14.063 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 05a Chaincode --- Name = %s test company , Email = %s test2q3@org1.com , Company = %s testc , Occupation = %s testo , Salary = %s 88,000 , UserType = %s admin
+2019-07-04 22:22:14.064 UTC [endorser] callChaincode -> INFO 05b [companyledger][50d09a41] Exit chaincode: name:"CC_ORG1_V13"  (4ms)
+2019-07-04 22:23:27.704 UTC [vscc] Validate -> ERRO 05c VSCC error: stateBasedValidator.Validate failed, err validation of endorsement policy for chaincode CC_ORG1_V13 in tx 2:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:27.704 UTC [committer/txvalidator] validateTx -> ERRO 05d VSCCValidateTx for transaction txId = 50d09a417eda56149394b1ebd2713fa5cd3e51b5cb46158e6367c3eda1698b8d returned error: validation of endorsement policy for chaincode CC_ORG1_V13 in tx 2:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:27.705 UTC [committer/txvalidator] Validate -> INFO 05e [companyledger] Validated block [2] in 43ms
+2019-07-04 22:23:27.706 UTC [valimpl] preprocessProtoBlock -> WARN 05f Channel [companyledger]: Block [2] Transaction index [0] TxId [50d09a417eda56149394b1ebd2713fa5cd3e51b5cb46158e6367c3eda1698b8d] marked as invalid by committer. Reason code [ENDORSEMENT_POLICY_FAILURE]
+2019-07-04 22:23:28.635 UTC [kvledger] CommitWithPvtData -> INFO 060 [companyledger] Committed block [2] with 1 transaction(s) in 929ms (state_validation=0ms block_commit=794ms state_commit=54ms)
+2019-07-04 22:23:29.147 UTC [endorser] callChaincode -> INFO 061 [companyledger][cbd997d7] Entry chaincode: name:"CC_ORG1_V13" 
+2019-07-04 22:23:29.150 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 062 ########### HelloWorldServiceChaincode Invoke *********************************** ###########
+2019-07-04 22:23:29.150 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 063 Create User Function Called
+2019-07-04 22:23:29.150 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 064 Create User :>>>> test company == test2q3@org1.com == testc == testo == 88,000 == admin
+2019-07-04 22:23:29.152 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 065 userID = eDUwOTo6Q049dmd6ZXdxenR4YXNxQG9yZzEuY29tLE9VPXBlZXIrT1U9b3JnMStPVT1kZXBhcnRtZW50MTo6Q049Y2Eub3JnMS5jb21wYW55LmxlZGdlci5jb20sTz1vcmcxLmNvbXBhbnkubGVkZ2VyLmNvbSxMPVNhbiBGcmFuY2lzY28sU1Q9Q2FsaWZvcm5pYSxDPVVT
+2019-07-04 22:23:29.153 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 066 Chaincode --- Name = %s test company , Email = %s test2q3@org1.com , Company = %s testc , Occupation = %s testo , Salary = %s 88,000 , UserType = %s admin
+2019-07-04 22:23:29.154 UTC [endorser] callChaincode -> INFO 067 [companyledger][cbd997d7] Exit chaincode: name:"CC_ORG1_V13"  (7ms)
+2019-07-04 22:23:31.369 UTC [vscc] Validate -> ERRO 068 VSCC error: stateBasedValidator.Validate failed, err validation of endorsement policy for chaincode CC_ORG1_V13 in tx 3:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:31.369 UTC [committer/txvalidator] validateTx -> ERRO 069 VSCCValidateTx for transaction txId = cbd997d71cf49f5288f088899c522c28d9c1c0e5c942d70ea168f5d300097bb8 returned error: validation of endorsement policy for chaincode CC_ORG1_V13 in tx 3:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:31.369 UTC [committer/txvalidator] Validate -> INFO 06a [companyledger] Validated block [3] in 9ms
+2019-07-04 22:23:31.370 UTC [valimpl] preprocessProtoBlock -> WARN 06b Channel [companyledger]: Block [3] Transaction index [0] TxId [cbd997d71cf49f5288f088899c522c28d9c1c0e5c942d70ea168f5d300097bb8] marked as invalid by committer. Reason code [ENDORSEMENT_POLICY_FAILURE]
+2019-07-04 22:23:32.180 UTC [kvledger] CommitWithPvtData -> INFO 06c [companyledger] Committed block [3] with 1 transaction(s) in 810ms (state_validation=0ms block_commit=678ms state_commit=14ms)
+2019-07-04 22:23:33.199 UTC [endorser] callChaincode -> INFO 06d [companyledger][6996a73c] Entry chaincode: name:"CC_ORG1_V13" 
+2019-07-04 22:23:33.201 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 06e ########### HelloWorldServiceChaincode Invoke *********************************** ###########
+2019-07-04 22:23:33.201 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 06f Create User Function Called
+2019-07-04 22:23:33.201 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 070 Create User :>>>> test company == test2q3@org1.com == testc == testo == 88,000 == admin
+2019-07-04 22:23:33.202 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 071 userID = eDUwOTo6Q049dmd6ZXdxenR4YXNxQG9yZzEuY29tLE9VPXBlZXIrT1U9b3JnMStPVT1kZXBhcnRtZW50MTo6Q049Y2Eub3JnMS5jb21wYW55LmxlZGdlci5jb20sTz1vcmcxLmNvbXBhbnkubGVkZ2VyLmNvbSxMPVNhbiBGcmFuY2lzY28sU1Q9Q2FsaWZvcm5pYSxDPVVT
+2019-07-04 22:23:33.204 UTC [endorser] callChaincode -> INFO 072 [companyledger][6996a73c] Exit chaincode: name:"CC_ORG1_V13"  (4ms)
+2019-07-04 22:23:33.204 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 073 Chaincode --- Name = %s test company , Email = %s test2q3@org1.com , Company = %s testc , Occupation = %s testo , Salary = %s 88,000 , UserType = %s admin
+2019-07-04 22:23:35.347 UTC [vscc] Validate -> ERRO 074 VSCC error: stateBasedValidator.Validate failed, err validation of endorsement policy for chaincode CC_ORG1_V13 in tx 4:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:35.347 UTC [committer/txvalidator] validateTx -> ERRO 075 VSCCValidateTx for transaction txId = 6996a73c491b466bfcc84e0c08261222964381357b3c018de3b55f9708d63298 returned error: validation of endorsement policy for chaincode CC_ORG1_V13 in tx 4:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:35.348 UTC [committer/txvalidator] Validate -> INFO 076 [companyledger] Validated block [4] in 9ms
+2019-07-04 22:23:35.348 UTC [valimpl] preprocessProtoBlock -> WARN 077 Channel [companyledger]: Block [4] Transaction index [0] TxId [6996a73c491b466bfcc84e0c08261222964381357b3c018de3b55f9708d63298] marked as invalid by committer. Reason code [ENDORSEMENT_POLICY_FAILURE]
+2019-07-04 22:23:36.214 UTC [kvledger] CommitWithPvtData -> INFO 078 [companyledger] Committed block [4] with 1 transaction(s) in 865ms (state_validation=0ms block_commit=646ms state_commit=21ms)
+2019-07-04 22:23:38.227 UTC [endorser] callChaincode -> INFO 079 [companyledger][4f82bb21] Entry chaincode: name:"CC_ORG1_V13" 
+2019-07-04 22:23:38.232 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 07a ########### HelloWorldServiceChaincode Invoke *********************************** ###########
+2019-07-04 22:23:38.232 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 07b Create User Function Called
+2019-07-04 22:23:38.232 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 07c Create User :>>>> test company == test2q3@org1.com == testc == testo == 88,000 == admin
+2019-07-04 22:23:38.232 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 07d userID = eDUwOTo6Q049dmd6ZXdxenR4YXNxQG9yZzEuY29tLE9VPXBlZXIrT1U9b3JnMStPVT1kZXBhcnRtZW50MTo6Q049Y2Eub3JnMS5jb21wYW55LmxlZGdlci5jb20sTz1vcmcxLmNvbXBhbnkubGVkZ2VyLmNvbSxMPVNhbiBGcmFuY2lzY28sU1Q9Q2FsaWZvcm5pYSxDPVVT
+2019-07-04 22:23:38.234 UTC [companyledger-peer0.org1.company.ledger.com-CC_ORG1_V13-1] func2 -> INFO 07e Chaincode --- Name = %s test company , Email = %s test2q3@org1.com , Company = %s testc , Occupation = %s testo , Salary = %s 88,000 , UserType = %s admin
+2019-07-04 22:23:38.235 UTC [endorser] callChaincode -> INFO 07f [companyledger][4f82bb21] Exit chaincode: name:"CC_ORG1_V13"  (7ms)
+2019-07-04 22:23:40.420 UTC [vscc] Validate -> ERRO 080 VSCC error: stateBasedValidator.Validate failed, err validation of endorsement policy for chaincode CC_ORG1_V13 in tx 5:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:40.420 UTC [committer/txvalidator] validateTx -> ERRO 081 VSCCValidateTx for transaction txId = 4f82bb219134fc34421990bc1a009e1114232a23b5ae29c11f81fa472ebfa4b5 returned error: validation of endorsement policy for chaincode CC_ORG1_V13 in tx 5:0 failed: signature set did not satisfy policy
+2019-07-04 22:23:40.420 UTC [committer/txvalidator] Validate -> INFO 082 [companyledger] Validated block [5] in 10ms
+2019-07-04 22:23:40.421 UTC [valimpl] preprocessProtoBlock -> WARN 083 Channel [companyledger]: Block [5] Transaction index [0] TxId [4f82bb219134fc34421990bc1a009e1114232a23b5ae29c11f81fa472ebfa4b5] marked as invalid by committer. Reason code [ENDORSEMENT_POLICY_FAILURE]
+2019-07-04 22:23:41.141 UTC [kvledger] CommitWithPvtData -> INFO 084 [companyledger] Committed block [5] with 1 transaction(s) in 720ms (state_validation=0ms block_commit=634ms state_commit=15ms)

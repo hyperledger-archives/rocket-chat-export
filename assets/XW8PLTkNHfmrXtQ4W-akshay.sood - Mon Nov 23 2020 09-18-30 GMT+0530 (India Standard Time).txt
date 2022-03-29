@@ -1,0 +1,406 @@
+> hyperledger-explorer@1.1.3 app-start /opt/explorer
+> ./start.sh
+
+************************************************************************************
+**************************** Hyperledger Explorer **********************************
+************************************************************************************
+2020-11-23T03:41:48.143Z - debug: Successfully constructed a winston logger with configurations debug=console, info=console
+2020-11-23T03:41:48.298Z - debug: [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+[2020-11-23T03:41:48.574] [DEBUG] main - false 'ssl-certs' '/opt/explorer/app/ssl-certs'
+[2020-11-23T03:41:48.590] [INFO] PgService - SSL to Postgresql disabled
+[2020-11-23T03:41:48.591] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@explorerdb.mynetwork.com:5432/fabricexplorer
+[2020-11-23T03:41:48.639] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-11-23T03:41:48.639] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'first-network':
+   { name: 'first-network',
+     profile: './connection-profile/first-network.json' } }
+[2020-11-23T03:41:48.640] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-11-23T03:41:48.640] [INFO] Platform -  network_config.id  first-network  network_config.profile  ./connection-profile/first-network.json
+[2020-11-23T03:41:48.640] [DEBUG] Platform - Creating network client [first-network] >>  { name: 'first-network',
+  profile: './connection-profile/first-network.json' }
+[2020-11-23T03:41:48.640] [INFO] Platform - Disabled authentication
+[2020-11-23T03:41:48.641] [DEBUG] FabricUtils - ************ Initializing fabric client for [first-network]************
+[2020-11-23T03:41:48.641] [DEBUG] FabricClient - Client configuration [first-network]  ...
+2020-11-23T03:41:48.641Z - debug: [Gateway]: in Gateway constructor
+[2020-11-23T03:41:48.642] [INFO] FabricConfig - config.client.tlsEnable  false
+[2020-11-23T03:41:48.642] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-11-23T03:41:48.642] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-11-23T03:41:48.644] [INFO] FabricGateway - enrollUserIdentity: userName : admin
+2020-11-23T03:41:48.645Z - debug: [Gateway]: connect - start
+2020-11-23T03:41:48.645Z - debug: [Gateway]: connection options: {"identity":"admin","wallet":{"providerRegistry":{"providers":{}},"store":{"storePath":"/opt/explorer/wallet/first-network"}},"discovery":{"enabled":true,"asLocalhost":false},"clientTlsIdentity":""}
+2020-11-23T03:41:48.646Z - debug: [Client]: Client.constructor[gateway client] - start 
+2020-11-23T03:41:48.646Z - debug: [Gateway]: connect - setting identity from wallet
+2020-11-23T03:41:48.647Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - start
+2020-11-23T03:41:48.649Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - have the key [Circular]
+2020-11-23T03:41:48.649Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - start
+2020-11-23T03:41:48.651Z - debug: [crypto_ecdsa_aes]: createKeyFromRaw - have the key [Circular]
+2020-11-23T03:41:48.651Z - debug: [Gateway]: connect - using self signed setting for tls
+2020-11-23T03:41:48.651Z - debug: [Client]: setTlsClientCertAndKey: gateway client - start
+2020-11-23T03:41:48.652Z - debug: [Client]: setTlsClientCertAndKey: gateway client - generating self-signed TLS client certificate
+2020-11-23T03:41:48.652Z - debug: [crypto_ecdsa_aes]: Hash algorithm: SHA2, hash output size: 256
+2020-11-23T03:41:48.795Z - debug: [Gateway]: connect - NetworkConfig loading client from ccp
+2020-11-23T03:41:48.795Z - debug: [NetworkConfig]: loadFromConfig - start
+2020-11-23T03:41:48.795Z - debug: [NetworkConfig]: buildPeer - start - my-ibp-peer-name
+2020-11-23T03:41:48.796Z - debug: [NetworkConfig]: findPeerMspid - start for my-ibp-peer-name
+2020-11-23T03:41:48.796Z - debug: [NetworkConfig]: findPeerMspid - checking peer my-ibp-peer-name in org org1
+2020-11-23T03:41:48.796Z - debug: [NetworkConfig]: findPeerMspid - found mspid org1 for my-ibp-peer-name
+2020-11-23T03:41:48.796Z - debug: [NetworkConfig]: buildOptions - start
+2020-11-23T03:41:48.797Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:48.797Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:48.797Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:48.797Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-peer-name
+2020-11-23T03:41:48.797Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:48.798Z - debug: [Client]: new endpoint url: grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:48.798Z - debug: [NetworkConfig]: buildPeer - about to connect to endorser my-ibp-peer-name url:grpcs://my-ibp-peer-name:443 mspid:org1
+2020-11-23T03:41:48.799Z - debug: [Client]: getEndorser: gateway client start name:my-ibp-peer-name
+2020-11-23T03:41:48.799Z - debug: [Client]: getEndorser: gateway client create endorser name:my-ibp-peer-name
+2020-11-23T03:41:48.799Z - debug: [Endorser]: Endorser.constructor[my-ibp-peer-name] - start 
+2020-11-23T03:41:48.799Z - debug: [Client]: getEndorser: gateway client return endorser name:my-ibp-peer-name
+2020-11-23T03:41:48.799Z - debug: [ServiceEndpoint]: connect[Endorser-my-ibp-peer-name] - start 
+2020-11-23T03:41:48.799Z - debug: [ServiceEndpoint]: connect[Endorser-my-ibp-peer-name] - create the grpc service for my-ibp-peer-name
+2020-11-23T03:41:48.801Z - debug: [ServiceEndpoint]: waitForReady - start Endorser-my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:48.801Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.399Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-peer-name url:grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.399Z - debug: [ServiceEndpoint]: connect[Endorser-my-ibp-peer-name] - end - completed the waitForReady for my-ibp-peer-name
+2020-11-23T03:41:49.400Z - debug: [NetworkConfig]: buildPeer - connected to endorser my-ibp-peer-name url:grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.400Z - debug: [NetworkConfig]: buildChannel - start - mychannel
+2020-11-23T03:41:49.401Z - debug: [Client]: getChannel: gateway client start name:mychannel
+2020-11-23T03:41:49.401Z - debug: [Client]: getChannel: gateway client create channel name:mychannel
+2020-11-23T03:41:49.402Z - debug: [Channel]: Channel.constructor[mychannel] - start
+2020-11-23T03:41:49.402Z - debug: [Channel]: Channel.constructor[mychannel] - channel name is good mychannel
+2020-11-23T03:41:49.403Z - debug: [Channel]: Constructed Channel instance: name - mychannel
+2020-11-23T03:41:49.403Z - debug: [Client]: getChannel: gateway client return channel name:mychannel
+2020-11-23T03:41:49.403Z - debug: [Client]: getEndorser: gateway client start name:my-ibp-peer-name
+2020-11-23T03:41:49.403Z - debug: [Client]: getEndorser: gateway client existing endorser name:my-ibp-peer-name
+2020-11-23T03:41:49.404Z - debug: [Client]: getEndorser: gateway client return endorser name:my-ibp-peer-name
+2020-11-23T03:41:49.404Z - debug: [Channel]: addEndorser[mychannel] - start
+2020-11-23T03:41:49.404Z - debug: [ServiceEndpoint]: isConnectable[Endorser-my-ibp-peer-name] - start 
+2020-11-23T03:41:49.405Z - debug: [ServiceEndpoint]: isConnectable[Endorser-my-ibp-peer-name] - this servive endpoint has been connected
+2020-11-23T03:41:49.405Z - debug: [Channel]: addEndorser[mychannel] - adding a new Endorser  --name: my-ibp-peer-name
+2020-11-23T03:41:49.405Z - debug: [NetworkConfig]: buildChannel - added endorsing peer :: my-ibp-peer-name
+2020-11-23T03:41:49.405Z - debug: [NetworkConfig]: buildChannel - no orderers in config
+2020-11-23T03:41:49.405Z - debug: [NetworkConfig]: loadFromConfig - end
+2020-11-23T03:41:49.406Z - debug: [Gateway]: connect - end
+2020-11-23T03:41:49.406Z - debug: [Gateway]: getNetwork - start
+2020-11-23T03:41:49.407Z - debug: [Gateway]: getNetwork - create network object and initialize
+2020-11-23T03:41:49.407Z - debug: [Client]: getChannel: gateway client start name:mychannel
+2020-11-23T03:41:49.407Z - debug: [Client]: getChannel: gateway client existing channel name:mychannel
+2020-11-23T03:41:49.407Z - debug: [Client]: getChannel: gateway client return channel name:mychannel
+2020-11-23T03:41:49.408Z - debug: [Network]: constructor - start
+2020-11-23T03:41:49.409Z - debug: [Network]: _initialize - start
+2020-11-23T03:41:49.410Z - debug: [Network]: _initializeInternalChannel - start
+2020-11-23T03:41:49.410Z - debug: [Network]: _initializeInternalChannel - initialize with discovery
+2020-11-23T03:41:49.410Z - debug: [Network]: _initializeInternalChannel - user has not specified discovery targets, check channel and client
+2020-11-23T03:41:49.411Z - debug: [Channel]: getEndorsers[mychannel] - start
+2020-11-23T03:41:49.411Z - debug: [Channel]: _getServiceEndpoints - start - org1
+2020-11-23T03:41:49.412Z - debug: [Channel]: _getServiceEndpoints - Endorser mspid matched, added my-ibp-peer-name
+2020-11-23T03:41:49.412Z - debug: [Network]: _initializeInternalChannel - using channel/client targets
+2020-11-23T03:41:49.412Z - debug: [Client]: newDiscoverer: gateway client start name:my-ibp-peer-name
+2020-11-23T03:41:49.413Z - debug: [Discoverer]: Discoverer.constructor[my-ibp-peer-name] - start 
+2020-11-23T03:41:49.413Z - debug: [Client]: newDiscoverer: gateway client return new Discoverer name:my-ibp-peer-name
+2020-11-23T03:41:49.413Z - debug: [ServiceEndpoint]: connect[Discoverer-my-ibp-peer-name] - start 
+2020-11-23T03:41:49.413Z - debug: [ServiceEndpoint]: connect[Discoverer-my-ibp-peer-name] - create the grpc service for my-ibp-peer-name
+2020-11-23T03:41:49.414Z - debug: [ServiceEndpoint]: waitForReady - start Discoverer-my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.415Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.430Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-peer-name url:grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.431Z - debug: [ServiceEndpoint]: connect[Discoverer-my-ibp-peer-name] - end - completed the waitForReady for my-ibp-peer-name
+2020-11-23T03:41:49.431Z - debug: [Channel]: newDiscoveryService[mychannel] - start
+2020-11-23T03:41:49.432Z - debug: [DiscoveryService]: DiscoveryService.constructor[mychannel] - start 
+2020-11-23T03:41:49.432Z - debug: [ServiceAction]: ServiceAction.constructor - start [mychannel]
+2020-11-23T03:41:49.433Z - debug: [DiscoveryService]: build[mychannel] - start
+2020-11-23T03:41:49.433Z - debug: [IdentityContext]: serializeIdentity - start
+2020-11-23T03:41:49.434Z - debug: [Client]: getClientCertHash: gateway client - start
+2020-11-23T03:41:49.435Z - debug: [Client]: getClientCertHash: gateway client - using clientCert 
+---CERT---
+2020-11-23T03:41:49.438Z - debug: [DiscoveryService]: build[mychannel] - adding config query
+2020-11-23T03:41:49.438Z - debug: [DiscoveryService]: build[mychannel] - adding peer membership query
+2020-11-23T03:41:49.440Z - debug: [ServiceAction]: sign[DiscoveryService:mychannel] - start
+2020-11-23T03:41:49.440Z - debug: [IdentityContext]: sign - start
+2020-11-23T03:41:49.467Z - debug: [crypto_ecdsa_aes]: ecdsa signature:  negative=0, words=[26277299, 29188787, 28165452, 56037981, 22718499, 62998219, 2538209, 58362488, 12234287, 573052, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], length=10, red=null, negative=0, words=[19506746, 19899451, 15120411, 27320283, 4094319, 16108905, 32734866, 44476198, 35906525, 1141113], length=10, red=null, recoveryParam=0
+2020-11-23T03:41:49.468Z - debug: [IdentityContext]: sign - end
+2020-11-23T03:41:49.468Z - debug: [ServiceAction]: sign[DiscoveryService:mychannel] - end
+2020-11-23T03:41:49.468Z - debug: [Network]: _initializeInternalChannel - will discover asLocalhost:false
+2020-11-23T03:41:49.468Z - debug: [DiscoveryService]: send[mychannel] - start
+2020-11-23T03:41:49.468Z - debug: [ServiceAction]: getSignedEnvelope[DiscoveryService:mychannel] - start
+2020-11-23T03:41:49.469Z - debug: [DiscoveryService]: send[mychannel] - about to discover on grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.469Z - debug: [ServiceEndpoint]: checkConnection[my-ibp-peer-name] - start - connected:true
+2020-11-23T03:41:49.469Z - debug: [ServiceEndpoint]: waitForReady - start Discoverer-my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.469Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-peer-name - grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.469Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-peer-name url:grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.469Z - debug: [ServiceEndpoint]: checkConnection[my-ibp-peer-name] - end - connected:true
+2020-11-23T03:41:49.469Z - debug: [Discoverer]: sendDiscovery[my-ibp-peer-name] - start ----my-ibp-peer-name grpcs://my-ibp-peer-name:443
+2020-11-23T03:41:49.703Z - debug: [Discoverer]: sendDiscovery[my-ibp-peer-name] - Received discovery response from peer "grpcs://my-ibp-peer-name:443"
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: send[mychannel] - processing discovery response
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: send[mychannel] - parse discovery response.results
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: send[mychannel] - process result index:0
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: send[mychannel] - process result - have configResult in 0
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: _processConfig[mychannel] - start
+2020-11-23T03:41:49.705Z - debug: [DiscoveryService]: _processConfig[mychannel] - found organization blockaero
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - start
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - adding a new MSP  --name: blockaero
+2020-11-23T03:41:49.706Z - debug: [DiscoveryService]: _processConfig[mychannel] - found organization org1
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - start
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - adding a new MSP  --name: org1
+2020-11-23T03:41:49.706Z - debug: [DiscoveryService]: _processConfig[mychannel] - found organization saesl
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - start
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - adding a new MSP  --name: saesl
+2020-11-23T03:41:49.706Z - debug: [DiscoveryService]: _processConfig[mychannel] - found organization siaec
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - start
+2020-11-23T03:41:49.706Z - debug: [Channel]: addMsp[mychannel] - adding a new MSP  --name: siaec
+2020-11-23T03:41:49.706Z - debug: [DiscoveryService]: _processConfig[mychannel] - found orderer org: blockaero
+2020-11-23T03:41:49.707Z - debug: [DiscoveryService]: _buildOrderers[mychannel] - start
+2020-11-23T03:41:49.707Z - debug: [DiscoveryService]: _buildOrderers[mychannel] - orderer msp:blockaero
+2020-11-23T03:41:49.707Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - start mspid:blockaero endpoint:my-ibp-orderer-name:7050
+2020-11-23T03:41:49.707Z - debug: [Channel]: getCommitter[mychannel] - start
+2020-11-23T03:41:49.707Z - debug: [DiscoveryService]: _buildUrl[mychannel] - start
+2020-11-23T03:41:49.707Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - create a new orderer grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:49.708Z - debug: [Client]: newCommitter: gateway client start name:my-ibp-orderer-name:7050
+2020-11-23T03:41:49.708Z - debug: [Committer]: Committer.constructor[my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:49.708Z - debug: [Client]: newCommitter: gateway client return new committer name:my-ibp-orderer-name:7050
+2020-11-23T03:41:49.708Z - debug: [DiscoveryService]: _buildOptions[mychannel] - start
+2020-11-23T03:41:49.708Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - start
+2020-11-23T03:41:49.708Z - debug: [DiscoveryService]: Found msp blockaero
+2020-11-23T03:41:49.708Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - no tls intermediate certs
+2020-11-23T03:41:49.708Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:49.708Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:49.708Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:49.708Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-orderer-name
+2020-11-23T03:41:49.708Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:49.709Z - debug: [Client]: new endpoint url: grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:49.710Z - debug: [Channel]: getCommitters[mychannel] - start
+2020-11-23T03:41:49.710Z - debug: [Channel]: _getServiceEndpoints - start - undefined
+2020-11-23T03:41:49.710Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:49.710Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - create the grpc service for my-ibp-orderer-name:7050
+2020-11-23T03:41:49.710Z - debug: [ServiceEndpoint]: waitForReady - start Committer-my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:49.710Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.347Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-orderer-name:7050 url:grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.347Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - end - completed the waitForReady for my-ibp-orderer-name:7050
+2020-11-23T03:41:50.348Z - debug: [Channel]: addCommitter[mychannel] - start
+2020-11-23T03:41:50.348Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.348Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - this servive endpoint has been connected
+2020-11-23T03:41:50.348Z - debug: [Channel]: addCommitter[mychannel] - adding a new Committer  --name: my-ibp-orderer-name:7050
+2020-11-23T03:41:50.349Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - start mspid:blockaero endpoint:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.349Z - debug: [Channel]: getCommitter[mychannel] - start
+2020-11-23T03:41:50.349Z - debug: [DiscoveryService]: _buildUrl[mychannel] - start
+2020-11-23T03:41:50.349Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - create a new orderer grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.349Z - debug: [Client]: newCommitter: gateway client start name:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.350Z - debug: [Committer]: Committer.constructor[my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.350Z - debug: [Client]: newCommitter: gateway client return new committer name:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.350Z - debug: [DiscoveryService]: _buildOptions[mychannel] - start
+2020-11-23T03:41:50.350Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - start
+2020-11-23T03:41:50.350Z - debug: [DiscoveryService]: Found msp blockaero
+2020-11-23T03:41:50.350Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - no tls intermediate certs
+2020-11-23T03:41:50.350Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:50.350Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:50.350Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:50.350Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-orderer-name
+2020-11-23T03:41:50.350Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:50.351Z - debug: [Client]: new endpoint url: grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.351Z - debug: [Channel]: getCommitters[mychannel] - start
+2020-11-23T03:41:50.351Z - debug: [Channel]: _getServiceEndpoints - start - undefined
+2020-11-23T03:41:50.351Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:50.351Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:50.351Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.351Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - create the grpc service for my-ibp-orderer-name:7050
+2020-11-23T03:41:50.352Z - debug: [ServiceEndpoint]: waitForReady - start Committer-my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.352Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.928Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-orderer-name:7050 url:grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.928Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - end - completed the waitForReady for my-ibp-orderer-name:7050
+2020-11-23T03:41:50.928Z - debug: [Channel]: addCommitter[mychannel] - start
+2020-11-23T03:41:50.929Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.929Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - this servive endpoint has been connected
+2020-11-23T03:41:50.929Z - debug: [Channel]: addCommitter[mychannel] - adding a new Committer  --name: my-ibp-orderer-name:7050
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - start mspid:blockaero endpoint:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.929Z - debug: [Channel]: getCommitter[mychannel] - start
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildUrl[mychannel] - start
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - create a new orderer grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.929Z - debug: [Client]: newCommitter: gateway client start name:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.929Z - debug: [Committer]: Committer.constructor[my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.929Z - debug: [Client]: newCommitter: gateway client return new committer name:my-ibp-orderer-name:7050
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildOptions[mychannel] - start
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - start
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: Found msp blockaero
+2020-11-23T03:41:50.929Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - no tls intermediate certs
+2020-11-23T03:41:50.929Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:50.930Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:50.930Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:50.930Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-orderer-name
+2020-11-23T03:41:50.930Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:50.930Z - debug: [Client]: new endpoint url: grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.930Z - debug: [Channel]: getCommitters[mychannel] - start
+2020-11-23T03:41:50.930Z - debug: [Channel]: _getServiceEndpoints - start - undefined
+2020-11-23T03:41:50.930Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:50.930Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:50.930Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:50.931Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:50.931Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:50.931Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - create the grpc service for my-ibp-orderer-name:7050
+2020-11-23T03:41:50.931Z - debug: [ServiceEndpoint]: waitForReady - start Committer-my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:50.931Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:51.550Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-orderer-name:7050 url:grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:51.550Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - end - completed the waitForReady for my-ibp-orderer-name:7050
+2020-11-23T03:41:51.550Z - debug: [Channel]: addCommitter[mychannel] - start
+2020-11-23T03:41:51.550Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:51.550Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - this servive endpoint has been connected
+2020-11-23T03:41:51.551Z - debug: [Channel]: addCommitter[mychannel] - adding a new Committer  --name: my-ibp-orderer-name:7050
+2020-11-23T03:41:51.551Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - start mspid:blockaero endpoint:my-ibp-orderer-name:7050
+2020-11-23T03:41:51.551Z - debug: [Channel]: getCommitter[mychannel] - start
+2020-11-23T03:41:51.551Z - debug: [DiscoveryService]: _buildUrl[mychannel] - start
+2020-11-23T03:41:51.551Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - create a new orderer grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:51.552Z - debug: [Client]: newCommitter: gateway client start name:my-ibp-orderer-name:7050
+2020-11-23T03:41:51.552Z - debug: [Committer]: Committer.constructor[my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:51.552Z - debug: [Client]: newCommitter: gateway client return new committer name:my-ibp-orderer-name:7050
+2020-11-23T03:41:51.552Z - debug: [DiscoveryService]: _buildOptions[mychannel] - start
+2020-11-23T03:41:51.552Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - start
+2020-11-23T03:41:51.552Z - debug: [DiscoveryService]: Found msp blockaero
+2020-11-23T03:41:51.552Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - no tls intermediate certs
+2020-11-23T03:41:51.553Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:51.553Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:51.553Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:51.553Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-orderer-name
+2020-11-23T03:41:51.553Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:51.554Z - debug: [Client]: new endpoint url: grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:51.554Z - debug: [Channel]: getCommitters[mychannel] - start
+2020-11-23T03:41:51.554Z - debug: [Channel]: _getServiceEndpoints - start - undefined
+2020-11-23T03:41:51.554Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:51.554Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:51.554Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:51.554Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:51.554Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:51.554Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:51.554Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:51.555Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - create the grpc service for my-ibp-orderer-name:7050
+2020-11-23T03:41:51.555Z - debug: [ServiceEndpoint]: waitForReady - start Committer-my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:51.555Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.190Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-orderer-name:7050 url:grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.190Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - end - completed the waitForReady for my-ibp-orderer-name:7050
+2020-11-23T03:41:52.190Z - debug: [Channel]: addCommitter[mychannel] - start
+2020-11-23T03:41:52.191Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:52.191Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - this servive endpoint has been connected
+2020-11-23T03:41:52.191Z - debug: [Channel]: addCommitter[mychannel] - adding a new Committer  --name: my-ibp-orderer-name:7050
+2020-11-23T03:41:52.191Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - start mspid:blockaero endpoint:my-ibp-orderer-name:7050
+2020-11-23T03:41:52.191Z - debug: [Channel]: getCommitter[mychannel] - start
+2020-11-23T03:41:52.191Z - debug: [DiscoveryService]: _buildUrl[mychannel] - start
+2020-11-23T03:41:52.192Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - create a new orderer grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.192Z - debug: [Client]: newCommitter: gateway client start name:my-ibp-orderer-name:7050
+2020-11-23T03:41:52.192Z - debug: [Committer]: Committer.constructor[my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:52.192Z - debug: [Client]: newCommitter: gateway client return new committer name:my-ibp-orderer-name:7050
+2020-11-23T03:41:52.192Z - debug: [DiscoveryService]: _buildOptions[mychannel] - start
+2020-11-23T03:41:52.192Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - start
+2020-11-23T03:41:52.192Z - debug: [DiscoveryService]: Found msp blockaero
+2020-11-23T03:41:52.192Z - debug: [DiscoveryService]: _buildTlsRootCerts[mychannel] - no tls intermediate certs
+2020-11-23T03:41:52.192Z - debug: [Client]: newEndpoint: gateway client - start
+2020-11-23T03:41:52.192Z - debug: [Client]: getConnectionOptions: gateway client - start
+2020-11-23T03:41:52.193Z - debug: [Client]: newEndpoint: gateway client grpc-wait-for-ready-timeout set to 3000
+2020-11-23T03:41:52.193Z - debug: [Client]: newEndpoint: gateway client - ssl_target_name_override: my-ibp-orderer-name
+2020-11-23T03:41:52.193Z - debug: [Endpoint]: Endpoint.constructor - start 
+2020-11-23T03:41:52.193Z - debug: [Client]: new endpoint url: grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.193Z - debug: [Channel]: getCommitters[mychannel] - start
+2020-11-23T03:41:52.193Z - debug: [Channel]: _getServiceEndpoints - start - undefined
+2020-11-23T03:41:52.193Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:52.193Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:52.194Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:52.194Z - debug: [Channel]: _getServiceEndpoints - Committer added my-ibp-orderer-name:7050
+2020-11-23T03:41:52.194Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:52.194Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:52.194Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:52.194Z - debug: [DiscoveryService]: _buildOrderer[mychannel] - checking Committer- name: my-ibp-orderer-name:7050, url:grpcs://my-ibp-orderer-name:7050, connected:true, connectAttempted:true
+2020-11-23T03:41:52.194Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:52.194Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - create the grpc service for my-ibp-orderer-name:7050
+2020-11-23T03:41:52.194Z - debug: [ServiceEndpoint]: waitForReady - start Committer-my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.194Z - debug: [ServiceEndpoint]: waitForReady - promise running my-ibp-orderer-name:7050 - grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.804Z - debug: [ServiceEndpoint]: waitForReady - Successfully connected to remote gRPC server my-ibp-orderer-name:7050 url:grpcs://my-ibp-orderer-name:7050
+2020-11-23T03:41:52.804Z - debug: [ServiceEndpoint]: connect[Committer-my-ibp-orderer-name:7050] - end - completed the waitForReady for my-ibp-orderer-name:7050
+2020-11-23T03:41:52.805Z - debug: [Channel]: addCommitter[mychannel] - start
+2020-11-23T03:41:52.805Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - start 
+2020-11-23T03:41:52.805Z - debug: [ServiceEndpoint]: isConnectable[Committer-my-ibp-orderer-name:7050] - this servive endpoint has been connected
+2020-11-23T03:41:52.805Z - debug: [Channel]: addCommitter[mychannel] - adding a new Committer  --name: my-ibp-orderer-name:7050
+2020-11-23T03:41:52.805Z - debug: [DiscoveryService]: send[mychannel] - completed processing result 0
+2020-11-23T03:41:52.805Z - debug: [DiscoveryService]: send[mychannel] - process result index:1
+2020-11-23T03:41:52.805Z - debug: [DiscoveryService]: send[mychannel] - process result - have members in 1
+2020-11-23T03:41:52.806Z - debug: [DiscoveryService]: _processMembership[mychannel] - start
+2020-11-23T03:41:52.806Z - debug: [DiscoveryService]: _processMembership[mychannel] - found org:siaec
+2020-11-23T03:41:52.808Z - debug: [DiscoveryService]: _processPeers[mychannel] - peer :my-ibp-peer-name
+2020-11-23T03:41:52.809Z - debug: [DiscoveryService]: _processPeers[mychannel] - ledgerHeight :3542
+2020-11-23T03:41:52.809Z - debug: [DiscoveryService]: _processPeers[mychannel] - chaincode :{"name":"assets","version":"1.0.90"}
+2020-11-23T03:41:52.810Z - debug: [DiscoveryService]: _buildPeer[mychannel] - start
+2020-11-23T03:41:52.810Z - debug: [Channel]: getEndorser[mychannel] - start
+2020-11-23T03:41:52.810Z - debug: [DiscoveryService]: _buildPeer[mychannel] - did not find endorser my-ibp-peer-name
+[2020-11-23T03:41:52.810] [ERROR] FabricClient - Error: Missing port parameter
+    at module.exports.checkParameter (/opt/explorer/node_modules/fabric-common/lib/Utils.js:631:8)
+    at DiscoveryService._buildUrl (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:663:58)
+    at DiscoveryService._buildPeer (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:633:20)
+    at DiscoveryService._processPeers (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:553:15)
+    at DiscoveryService._processMembership (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:505:42)
+    at DiscoveryService.send (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:334:55)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2020-11-23T03:41:52.811] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-11-23T03:41:52.811] [DEBUG] FabricClient - initializeDetachClient first-network
+[2020-11-23T03:41:52.811] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'mychannel',
+  description: 'Network on IBP v2',
+  version: '1.0.0',
+  client:
+   { 'client-1':
+      { tlsEnable: true, channel: 'mychannel', organization: 'org1' },
+     channel: 'mychannel',
+     tlsEnable: false,
+     adminCredential: { id: 'admin', password: 'password' },
+     enableAuthentication: false,
+     organization: 'org1',
+     connection: { timeout: [Object] } },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations:
+   { org1:
+      { mspid: 'org1',
+        fullpath: true,
+        peers: [Array],
+        adminPrivateKey: [Object],
+        signedCert: [Object] } },
+  peers:
+   { 'my-ibp-peer-name':
+      { url:
+         'grpcs://my-ibp-peer-name:443',
+        name:
+         'my-ibp-peer-name',
+        tlsCACerts: [Object],
+        grpcOptions: [Object] } } }
+[2020-11-23T03:41:52.812] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-11-23T03:41:52.812] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-11-23T03:41:52.812] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-11-23T03:41:52.812] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-11-23T03:41:52.815] [INFO] Platform - initializeListener, network_id, network_client  first-network { name: 'mychannel',
+  description: 'Network on IBP v2',
+  version: '1.0.0',
+  client:
+   { 'client-1':
+      { tlsEnable: true, channel: 'mychannel', organization: 'org1' },
+     channel: 'mychannel',
+     tlsEnable: false,
+     adminCredential: { id: 'admin', password: 'password' },
+     enableAuthentication: false,
+     organization: 'org1',
+     connection: { timeout: [Object] } },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations:
+   { org1:
+      { mspid: 'org1',
+        fullpath: true,
+        peers: [Array],
+        adminPrivateKey: [Object],
+        signedCert: [Object] } },
+  peers:
+   { 'my-ibp-peer-name':
+      { url:
+         'grpcs://my-ibp-peer-name:443',
+        name:
+         'my-ibp-peer-name',
+        tlsCACerts: [Object],
+        grpcOptions: [Object] } } }
+[2020-11-23T03:41:52.816] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-11-23T03:41:52.816] [INFO] main - pid is 19
+[2020-11-23T03:41:52.817] [DEBUG] PgService -  the getRowsBySQlNoCondition  select c.id as id,c.name as channelName,c.blocks as blocks ,c.channel_genesis_hash as channel_genesis_hash,c.trans as transactions,c.createdt as createdat,c.channel_hash as channel_hash from channel c,
+        peer_ref_channel pc where c.channel_genesis_hash = pc.channelid and c.network_name = 'first-network' group by c.id ,c.name ,c.blocks  ,c.trans ,c.createdt ,c.channel_hash,c.channel_genesis_hash order by c.name 
+[2020-11-23T03:41:52.817] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-11-23T03:41:52.818] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]
+[2020-11-23T03:41:54.819] [INFO] main - Received kill signal, shutting down gracefully
+[2020-11-23T03:41:54.822] [INFO] Platform - <<<<<<<<<<<<<<<<<<<<<<<<<< Closing explorer  >>>>>>>>>>>>>>>>>>>>>
+[2020-11-23T03:41:54.823] [INFO] main - Closed out connections

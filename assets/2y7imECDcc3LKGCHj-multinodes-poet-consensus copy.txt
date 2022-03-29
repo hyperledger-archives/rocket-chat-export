@@ -1,0 +1,247 @@
+version: '3'
+
+volumes:
+  poet-shared:
+
+services:
+
+  private-equity-tokenization-js-processor-0:
+    container_name: private-equity-tokenization-js-processor-0
+    build:
+      context: .
+      dockerfile: ./jsprocessor/Dockerfile
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    environment:
+      - 'http_proxy=${http_proxy}'
+      - 'https_proxy=${https_proxy}'
+      - 'no_proxy=sawtooth-rest-api-0,sawtooth-rest-api-1,validator-0,validator-1,${no_proxy}'
+      - 'validator=tcp://validator-0:4004'
+    depends_on:
+      - validator-0
+    volumes:
+      - '.:/project/private-equity-tokenization/'
+
+  private-equity-tokenization-js-processor-1:
+    container_name: private-equity-tokenization-js-processor-1
+    build:
+      context: .
+      dockerfile: ./jsprocessor/Dockerfile
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    environment:
+      - 'http_proxy=${http_proxy}'
+      - 'https_proxy=${https_proxy}'
+      - 'no_proxy=sawtooth-rest-api-0,sawtooth-rest-api-1,validator-0,validator-1,${no_proxy}'
+      - 'validator=tcp://validator-1:4004'
+    depends_on:
+      - validator-1
+    volumes:
+      - '.:/project/private-equity-tokenization/'
+
+  private-equity-tokenization-client-js:
+    container_name: private-equity-tokenization-client-js
+    build:
+      context: .
+      dockerfile: ./jsclient/Dockerfile
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    environment:
+      - 'http_proxy=${http_proxy}'
+      - 'https_proxy=${https_proxy}'
+      - 'no_proxy=sawtooth-rest-api-0,sawtooth-rest-api-1,validator-0,validator-1,${no_proxy}'
+    volumes:
+      - '.:/project/private-equity-tokenization/'
+    ports:
+      - '0.0.0.0:3000:3000'
+    depends_on:
+      - sawtooth-rest-api-0
+      - sawtooth-rest-api-1
+    stop_signal: SIGKILL
+
+  settings-tp-0:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-0
+    depends_on:
+      - validator-0
+    command: settings-tp -vv --connect tcp://validator-0:4004
+
+  settings-tp-1:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-1
+    depends_on:
+      - validator-1
+    command: settings-tp -vv --connect tcp://validator-1:4004
+
+  poet-engine-0:
+    image: hyperledger/sawtooth-poet-engine:1.1
+    container_name: sawtooth-poet-engine-0
+    depends_on:
+      - validator-0
+    volumes:
+      - poet-shared:/poet-shared
+    command: "bash -c \"\
+        if [ ! -f /poet-shared/poet-enclave-measurement ]; then \
+            poet enclave measurement >> /poet-shared/poet-enclave-measurement; \
+        fi && \
+        if [ ! -f /poet-shared/poet-enclave-basename ]; then \
+            poet enclave basename >> /poet-shared/poet-enclave-basename; \
+        fi && \
+        if [ ! -f /poet-shared/simulator_rk_pub.pem ]; then \
+            cp /etc/sawtooth/simulator_rk_pub.pem /poet-shared; \
+        fi && \
+        while [ ! -f /poet-shared/validator-0/keys/validator.priv ]; do sleep 1; done && \
+        cp -a /poet-shared/validator-0/keys /etc/sawtooth && \
+        poet registration create -k /etc/sawtooth/keys/validator.priv -o /poet-shared/poet.batch && \
+        poet-engine -C tcp://validator-0:5050 --component tcp://validator-0:4004 \
+    \""
+
+  poet-engine-1:
+    image: hyperledger/sawtooth-poet-engine:1.1
+    container_name: sawtooth-poet-engine-1
+    depends_on:
+      - validator-1
+    volumes:
+      - poet-shared:/poet-shared
+    command: "bash -c \"\
+        while [ ! -f /poet-shared/validator-1/keys/validator.priv ]; do sleep 1; done && \
+        cp -a /poet-shared/validator-1/keys /etc/sawtooth && \
+        poet-engine -C tcp://validator-1:5050 --component tcp://validator-1:4004 \
+    \""
+
+  poet-validator-registry-tp-0:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    container_name: sawtooth-poet-validator-registry-tp-0
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -C tcp://validator-0:4004
+
+  poet-validator-registry-tp-1:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    container_name: sawtooth-poet-validator-registry-tp-1
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -C tcp://validator-1:4004
+
+  sawtooth-rest-api-0:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-0
+    expose:
+      - 8008
+    ports:
+      - '8043:8008'
+    depends_on:
+      - validator-0
+      - private-equity-tokenization-js-processor-0
+    entrypoint: |
+      sawtooth-rest-api -vv
+        --connect tcp://validator-0:4004
+        --bind sawtooth-rest-api-0:8008
+
+  sawtooth-rest-api-1:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-1
+    expose:
+      - 8008
+    ports:
+      - '8143:8008'
+    depends_on:
+      - validator-1
+      - sawtooth-rest-api-0
+    entrypoint: |
+      sawtooth-rest-api -vv
+        --connect tcp://validator-1:4004
+        --bind sawtooth-rest-api-1:8008
+
+  validator-0:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-0
+    expose:
+      - 4004
+      - 5050
+      - 8800
+    volumes:
+      - poet-shared:/poet-shared
+    command: "bash -c \"\
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then \
+          echo '--- First run setup started... ---\n'; \
+          sawadm keygen --force; \
+          mkdir -p /poet-shared/validator-0 || true; \
+          cp -a /etc/sawtooth/keys /poet-shared/validator-0/ ; \
+          while [ ! -f /poet-shared/poet-enclave-measurement ]; do sleep 1; done; \
+          while [ ! -f /poet-shared/poet-enclave-basename ]; do sleep 1; done; \
+          while [ ! -f /poet-shared/poet.batch ]; do sleep 1; done; \
+          cp /poet-shared/poet.batch / ; \
+          sawset genesis \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config-genesis.batch ; \
+          sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            sawtooth.consensus.algorithm.name=poet \
+            sawtooth.consensus.algorithm.version=0.1 \
+            sawtooth.poet.report_public_key_pem=\
+            \\\"$$(cat /poet-shared/simulator_rk_pub.pem)\\\" \
+            sawtooth.poet.valid_enclave_measurements=$$(cat /poet-shared/poet-enclave-measurement) \
+            sawtooth.poet.valid_enclave_basenames=$$(cat /poet-shared/poet-enclave-basename) \
+            -o config.batch ; \
+          sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+               sawtooth.poet.target_wait_time=5 \
+               sawtooth.poet.initial_wait_time=25 \
+               sawtooth.publisher.max_batches_per_block=100 \
+            -o poet-settings.batch ; \
+          sawadm genesis \
+            config-genesis.batch config.batch poet.batch poet-settings.batch ; \
+          echo Done > /poet-shared/network_status.txt ; \
+          echo '--- First run setup completed... ---\n' ; \
+        else \
+          echo '--- First run setup skipped... ---\n' ; \
+        fi && \
+        sawtooth-validator -v \
+          --bind network:tcp://eth0:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind consensus:tcp://eth0:5050 \
+          --endpoint tcp://validator-0:8800 \
+          --peering static \
+          --scheduler serial \
+          --network-auth trust
+    \""
+
+  validator-1:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-1
+    expose:
+      - 4004
+      - 5050
+      - 8800
+    volumes:
+      - poet-shared:/poet-shared
+    depends_on:
+      - validator-0
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then \
+          echo '--- First run setup started... ---\n' && \
+          sawadm keygen --force && \
+          mkdir -p /poet-shared/validator-1 || true && \
+          cp -a /etc/sawtooth/keys /poet-shared/validator-1/ && \
+          echo '--- First run setup completed... ---\n'
+        else
+          echo '--- First run setup skipped... ---\n'
+        fi;
+        sawtooth-validator -v \
+            --bind network:tcp://eth0:8800 \
+            --bind component:tcp://eth0:4004 \
+            --bind consensus:tcp://eth0:5050 \
+            --peering static \
+            --endpoint tcp://validator-1:8800 \
+            --peers tcp://validator-0:8800 \
+            --scheduler serial \
+            --network-auth trust
+      "

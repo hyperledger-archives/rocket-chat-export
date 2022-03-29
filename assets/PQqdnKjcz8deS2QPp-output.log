@@ -1,0 +1,300 @@
+2020-05-18 12:49:43 DEBUG Config:121 - Loading configuration from /home/ongchinkai/shared/blockchain-gateway/target/config.properties and it is present: false
+2020-05-18 12:49:45 WARN  Config:127 - Failed to load any configuration from: config.properties. Using toolkit defaults
+2020-05-18 12:49:45 DEBUG InternalLoggerFactory:47 - Using Log4J as the default logging framework
+2020-05-18 12:49:45 DEBUG PlatformDependent0:395 - -Dio.netty.noUnsafe: false
+2020-05-18 12:49:45 DEBUG PlatformDependent0:851 - Java version: 8
+2020-05-18 12:49:45 DEBUG PlatformDependent0:120 - sun.misc.Unsafe.theUnsafe: available
+2020-05-18 12:49:45 DEBUG PlatformDependent0:144 - sun.misc.Unsafe.copyMemory: available
+2020-05-18 12:49:45 DEBUG PlatformDependent0:182 - java.nio.Buffer.address: available
+2020-05-18 12:49:45 DEBUG PlatformDependent0:243 - direct buffer constructor: available
+2020-05-18 12:49:45 DEBUG PlatformDependent0:313 - java.nio.Bits.unaligned: available, true
+2020-05-18 12:49:45 DEBUG PlatformDependent0:378 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+2020-05-18 12:49:45 DEBUG PlatformDependent0:385 - java.nio.DirectByteBuffer.<init>(long, int): available
+2020-05-18 12:49:45 DEBUG PlatformDependent:1028 - sun.misc.Unsafe: available
+2020-05-18 12:49:45 DEBUG PlatformDependent:1147 - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2020-05-18 12:49:45 DEBUG PlatformDependent:1226 - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2020-05-18 12:49:45 DEBUG PlatformDependent:173 - -Dio.netty.maxDirectMemory: 2023227392 bytes
+2020-05-18 12:49:45 DEBUG PlatformDependent:180 - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2020-05-18 12:49:45 DEBUG CleanerJava6:92 - java.nio.ByteBuffer.cleaner(): available
+2020-05-18 12:49:45 DEBUG PlatformDependent:200 - -Dio.netty.noPreferDirect: false
+2020-05-18 12:49:45 DEBUG CryptoPrimitives:619 - Mapped curve strength 256 to secp256r1
+2020-05-18 12:49:45 DEBUG CryptoPrimitives:619 - Mapped curve strength 256 to secp256r1
+2020-05-18 12:49:45 DEBUG HFClient:428 - Setting user context to MSPID: Org1MSP user: gateway
+2020-05-18 12:49:45 INFO  Gateway:263 - Unable to load channel configuration from connection profile: Channel isprintchannel not found in configuration file. Found channel names: myteachannel 
+2020-05-18 12:49:45 DEBUG Channel:309 - Creating channel: isprintchannel, client context gateway
+2020-05-18 12:49:45 DEBUG Peer:104 - Created Peer{ id: 2, name: peer1.org1.isprint.com, channelName: null, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:45 DEBUG Channel:664 - Channel{id: 1, name: isprintchannel} adding peer: Peer{ id: 2, name: peer1.org1.isprint.com, channelName: null, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}, peerOptions: PeerOptions( newest: true, startEvents: null, stopEvents: 9223372036854775807, registerEventsForFilteredBlocks: false, PeerRoles:[endorsingPeer ,chaincodeQuery ,ledgerQuery ,eventSource ,serviceDiscovery])
+2020-05-18 12:49:45 DEBUG Peer:184 - Peer{ id: 2, name: peer1.org1.isprint.com, channelName: null, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} setting channel to Channel{id: 1, name: isprintchannel}, from null
+2020-05-18 12:49:45 DEBUG Channel:708 - Channel isprintchannel mapping peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} to mspid Org1MSP
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:73 - -Dio.netty.native.workdir: /tmp (io.netty.tmpdir)
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:78 - -Dio.netty.native.deleteLibAfterLoading: true
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:82 - -Dio.netty.native.tryPatchShadedId: true
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:344 - Unable to load the library 'netty_tcnative_linux_x86_64', trying other loading mechanism.
+java.lang.UnsatisfiedLinkError: no netty_tcnative_linux_x86_64 in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1860)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1124)
+	at io.netty.util.internal.NativeLibraryUtil.loadLibrary(NativeLibraryUtil.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at io.netty.util.internal.NativeLibraryLoader$1.run(NativeLibraryLoader.java:369)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at io.netty.util.internal.NativeLibraryLoader.loadLibraryByHelper(NativeLibraryLoader.java:361)
+	at io.netty.util.internal.NativeLibraryLoader.loadLibrary(NativeLibraryLoader.java:339)
+	at io.netty.util.internal.NativeLibraryLoader.load(NativeLibraryLoader.java:136)
+	at io.netty.util.internal.NativeLibraryLoader.loadFirstAvailable(NativeLibraryLoader.java:96)
+	at io.netty.handler.ssl.OpenSsl.loadTcNative(OpenSsl.java:578)
+	at io.netty.handler.ssl.OpenSsl.<clinit>(OpenSsl.java:133)
+	at io.grpc.netty.GrpcSslContexts.configure(GrpcSslContexts.java:194)
+	at org.hyperledger.fabric.sdk.Endpoint.getSslContextBuilder(Endpoint.java:294)
+	at org.hyperledger.fabric.sdk.Endpoint.<init>(Endpoint.java:254)
+	at org.hyperledger.fabric.sdk.Endpoint.createEndpoint(Endpoint.java:487)
+	at org.hyperledger.fabric.sdk.Peer.setTLSCertificateKeyPair(Peer.java:465)
+	at org.hyperledger.fabric.sdk.Channel.addPeer(Channel.java:679)
+	at org.hyperledger.fabric.gateway.impl.GatewayImpl.getNetwork(GatewayImpl.java:274)
+	at com.isprint.blockchain.gateway.BlockchainGateway.main(BlockchainGateway.java:45)
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:140 - netty_tcnative_linux_x86_64 cannot be loaded from java.library.path, now trying export to -Dio.netty.native.workdir: /tmp
+java.lang.UnsatisfiedLinkError: no netty_tcnative_linux_x86_64 in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1860)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1124)
+	at io.netty.util.internal.NativeLibraryUtil.loadLibrary(NativeLibraryUtil.java:38)
+	at io.netty.util.internal.NativeLibraryLoader.loadLibrary(NativeLibraryLoader.java:349)
+	at io.netty.util.internal.NativeLibraryLoader.load(NativeLibraryLoader.java:136)
+	at io.netty.util.internal.NativeLibraryLoader.loadFirstAvailable(NativeLibraryLoader.java:96)
+	at io.netty.handler.ssl.OpenSsl.loadTcNative(OpenSsl.java:578)
+	at io.netty.handler.ssl.OpenSsl.<clinit>(OpenSsl.java:133)
+	at io.grpc.netty.GrpcSslContexts.configure(GrpcSslContexts.java:194)
+	at org.hyperledger.fabric.sdk.Endpoint.getSslContextBuilder(Endpoint.java:294)
+	at org.hyperledger.fabric.sdk.Endpoint.<init>(Endpoint.java:254)
+	at org.hyperledger.fabric.sdk.Endpoint.createEndpoint(Endpoint.java:487)
+	at org.hyperledger.fabric.sdk.Peer.setTLSCertificateKeyPair(Peer.java:465)
+	at org.hyperledger.fabric.sdk.Channel.addPeer(Channel.java:679)
+	at org.hyperledger.fabric.gateway.impl.GatewayImpl.getNetwork(GatewayImpl.java:274)
+	at com.isprint.blockchain.gateway.BlockchainGateway.main(BlockchainGateway.java:45)
+	Suppressed: java.lang.UnsatisfiedLinkError: no netty_tcnative_linux_x86_64 in java.library.path
+		at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1860)
+		at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+		at java.lang.System.loadLibrary(System.java:1124)
+		at io.netty.util.internal.NativeLibraryUtil.loadLibrary(NativeLibraryUtil.java:38)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at io.netty.util.internal.NativeLibraryLoader$1.run(NativeLibraryLoader.java:369)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at io.netty.util.internal.NativeLibraryLoader.loadLibraryByHelper(NativeLibraryLoader.java:361)
+		at io.netty.util.internal.NativeLibraryLoader.loadLibrary(NativeLibraryLoader.java:339)
+		... 12 more
+2020-05-18 12:49:46 DEBUG NativeLibraryLoader:340 - Successfully loaded the library /tmp/libnetty_tcnative_linux_x86_642649011654916087488.so
+2020-05-18 12:49:46 DEBUG OpenSsl:146 - Initialize netty-tcnative using engine: 'default'
+2020-05-18 12:49:46 DEBUG OpenSsl:171 - netty-tcnative using native library: BoringSSL
+2020-05-18 12:49:46 DEBUG ResourceLeakDetector:129 - -Dio.netty.leakDetection.level: simple
+2020-05-18 12:49:46 DEBUG ResourceLeakDetector:130 - -Dio.netty.leakDetection.targetRecords: 4
+2020-05-18 12:49:46 DEBUG AbstractByteBuf:62 - -Dio.netty.buffer.checkAccessible: true
+2020-05-18 12:49:46 DEBUG AbstractByteBuf:63 - -Dio.netty.buffer.checkBounds: true
+2020-05-18 12:49:46 DEBUG ResourceLeakDetectorFactory:202 - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@be64738
+2020-05-18 12:49:46 DEBUG InternalThreadLocalMap:54 - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2020-05-18 12:49:46 DEBUG InternalThreadLocalMap:57 - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:142 - -Dio.netty.allocator.numHeapArenas: 2
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:143 - -Dio.netty.allocator.numDirectArenas: 2
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:145 - -Dio.netty.allocator.pageSize: 8192
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:150 - -Dio.netty.allocator.maxOrder: 11
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:154 - -Dio.netty.allocator.chunkSize: 16777216
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:155 - -Dio.netty.allocator.tinyCacheSize: 512
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:156 - -Dio.netty.allocator.smallCacheSize: 256
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:157 - -Dio.netty.allocator.normalCacheSize: 64
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:158 - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:159 - -Dio.netty.allocator.cacheTrimInterval: 8192
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:160 - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:161 - -Dio.netty.allocator.useCacheForAllThreads: true
+2020-05-18 12:49:46 DEBUG PooledByteBufAllocator:162 - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2020-05-18 12:49:46 DEBUG ByteBufUtil:85 - -Dio.netty.allocator.type: pooled
+2020-05-18 12:49:46 DEBUG ByteBufUtil:94 - -Dio.netty.threadLocalDirectBufferSize: 0
+2020-05-18 12:49:46 DEBUG ByteBufUtil:97 - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2020-05-18 12:49:46 DEBUG ResourceLeakDetectorFactory:202 - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@16ec5519
+2020-05-18 12:49:46 DEBUG Recycler:96 - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2020-05-18 12:49:46 DEBUG Recycler:97 - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2020-05-18 12:49:46 DEBUG Recycler:98 - -Dio.netty.recycler.linkCapacity: 16
+2020-05-18 12:49:46 DEBUG Recycler:99 - -Dio.netty.recycler.ratio: 8
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 => ECDHE-ECDSA-AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 => ECDHE-ECDSA-AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 => ECDHE-RSA-AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_RSA_WITH_AES_128_GCM_SHA256 => ECDHE-RSA-AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 => ECDHE-ECDSA-AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 => ECDHE-ECDSA-AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 => ECDHE-RSA-AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_RSA_WITH_AES_256_GCM_SHA384 => ECDHE-RSA-AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-ECDSA-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-ECDSA-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-RSA-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-RSA-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-PSK-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 => ECDHE-PSK-CHACHA20-POLY1305
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA => ECDHE-ECDSA-AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_ECDSA_WITH_AES_128_CBC_SHA => ECDHE-ECDSA-AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA => ECDHE-RSA-AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_RSA_WITH_AES_128_CBC_SHA => ECDHE-RSA-AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA => ECDHE-PSK-AES128-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_PSK_WITH_AES_128_CBC_SHA => ECDHE-PSK-AES128-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA => ECDHE-ECDSA-AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_ECDSA_WITH_AES_256_CBC_SHA => ECDHE-ECDSA-AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA => ECDHE-RSA-AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_RSA_WITH_AES_256_CBC_SHA => ECDHE-RSA-AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA => ECDHE-PSK-AES256-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_ECDHE_PSK_WITH_AES_256_CBC_SHA => ECDHE-PSK-AES256-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_RSA_WITH_AES_128_GCM_SHA256 => AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_RSA_WITH_AES_128_GCM_SHA256 => AES128-GCM-SHA256
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_RSA_WITH_AES_256_GCM_SHA384 => AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_RSA_WITH_AES_256_GCM_SHA384 => AES256-GCM-SHA384
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_RSA_WITH_AES_128_CBC_SHA => AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_RSA_WITH_AES_128_CBC_SHA => AES128-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_PSK_WITH_AES_128_CBC_SHA => PSK-AES128-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_PSK_WITH_AES_128_CBC_SHA => PSK-AES128-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_RSA_WITH_AES_256_CBC_SHA => AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_RSA_WITH_AES_256_CBC_SHA => AES256-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_PSK_WITH_AES_256_CBC_SHA => PSK-AES256-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_PSK_WITH_AES_256_CBC_SHA => PSK-AES256-CBC-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:330 - Cipher suite mapping: TLS_RSA_WITH_3DES_EDE_CBC_SHA => DES-CBC3-SHA
+2020-05-18 12:49:46 DEBUG CipherSuiteConverter:331 - Cipher suite mapping: SSL_RSA_WITH_3DES_EDE_CBC_SHA => DES-CBC3-SHA
+2020-05-18 12:49:46 DEBUG OpenSsl:361 - Supported protocols (OpenSSL): [SSLv2Hello, TLSv1, TLSv1.1, TLSv1.2, TLSv1.3] 
+2020-05-18 12:49:46 DEBUG OpenSsl:362 - Default cipher suites (OpenSSL): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+2020-05-18 12:49:46 DEBUG ResourceLeakDetectorFactory:202 - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1623b78d
+2020-05-18 12:49:46 DEBUG Endpoint:271 - Endpoint grpcs://127.0.0.1:7051, using CN overrideAuthority: 'peer1.org1.isprint.com'
+2020-05-18 12:49:46 DEBUG MultithreadEventLoopGroup:44 - -Dio.netty.eventLoopThreads: 2
+2020-05-18 12:49:46 DEBUG NioEventLoop:106 - -Dio.netty.noKeySetOptimization: false
+2020-05-18 12:49:46 DEBUG NioEventLoop:107 - -Dio.netty.selectorAutoRebuildThreshold: 512
+2020-05-18 12:49:46 DEBUG PlatformDependent:890 - org.jctools-core.MpscChunkedArrayQueue: available
+2020-05-18 12:49:46 DEBUG Channel:1229 - Channel isprintchannel initialize shutdown false
+2020-05-18 12:49:46 DEBUG Channel:1841 - Channel isprintchannel loadCACertificates
+2020-05-18 12:49:47 DEBUG ProtoUtils:99 - ChannelHeader: type: ENDORSER_TRANSACTION, version: 1, Txid: 3024c3360def3c9b5b7fd0d925c5677eb3de27649e89cef34fe1c57dbaf3319c, channelId: isprintchannel, epoch 0, clientTLSCertificate digest: 
+2020-05-18 12:49:47 DEBUG ProposalBuilder:213 - ChaincodeInvocationSpec type: GOLANG, chaincode name: cscc, chaincode path: , chaincode version:  args("GetConfigBlock", "isprintchannel")
+2020-05-18 12:49:47 DEBUG ProtoUtils:202 -  User: gateway Certificate: 2d2d2d2d2d424547494e2043455254494649434154452d2d2d2d2d0a4d49494370544343416b75674177494241674955566352497a72304c71484865626a766d394276677a6f51766f4e6b77436759494b6f5a497a6a3045417749770a637a454c4d416b474131554542684d4356564d78457a415242674e5642416754436b4e6862476c6d62334a7561574578466a415542674e564241635444564e680a62694247636d467559326c7a593238784754415842674e5642416f54454739795a7a457561584e77636d6c756443356a623230784844416142674e5642414d540a45324e684c6d39795a7a457561584e77636d6c756443356a623230774868634e4d6a41774e5445344d444d794d4441775768634e4d6a45774e5445344d444d790a4e544177576a424e4d544177445159445651514c45775a6a62476c6c626e5177437759445651514c45775276636d63784d4249474131554543784d4c5a4756770a59584a3062575675644445784754415842674e5642414d4d4547313564475668636d567a5a584a325a563968634841775754415442676371686b6a4f505149420a42676771686b6a4f50514d4242774e43414153314f422f4b797239556d48567672366f7a7861395947365442684f426f5a756669504a6350346a686b4958796d0a62316d5234746e4d49585a66444e395a512b4651675145574e796473664f7944614a4f5539386c436f3448694d4948664d41344741315564447745422f7751450a417749486744414d42674e5648524d4241663845416a41414d4230474131556444675157424252775264702f4a757079684a376f58734f4d5a53464859566e730a386a417242674e5648534d454a44416967434162384e64346637465442565452396c722f74396d6d5058644642336b785946634648442f414c5a42737344427a0a4267677141775146426763494151526e65794a68644852796379493665794a6f5a6935425a6d5a7062476c6864476c7662694936496d39795a7a45755a4756770a59584a3062575675644445694c434a6f5a693546626e4a76624778745a573530535551694f694a746558526c59584a6c63325679646d566659584277496977690a6147597556486c775a534936496d4e736157567564434a396654414b42676771686b6a4f5051514441674e494144424641694541736a6d35614970377a7275710a7675363867362b554f6f336a32325066386e5950766c782b4a7143714678514349416d652f6a6b42544c50316371656d6f6f4e6e704537302f56752b565463330a482f48516e667154486434650a2d2d2d2d2d454e442043455254494649434154452d2d2d2d2d0a
+2020-05-18 12:49:47 DEBUG ProtoUtils:227 - SignatureHeader: nonce: f11442a41bd4da048848064c0c9e5f5a5178f70babe8d8c9, User:gateway, MSPID: Org1MSP, idBytes: 03fe638d0d30740ed8a58568a9415c7fad8bed1fdafe8db5bdd9ac75ed5bbf49
+2020-05-18 12:49:47 DEBUG Channel:940 - Getting signed proposal.
+2020-05-18 12:49:47 DEBUG Channel:942 - Got signed proposal.
+2020-05-18 12:49:47 DEBUG Channel:4405 - Channel isprintchannel send proposal to Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}, txID: 3024c3360def3c9b5b7fd0d925c5677eb3de27649e89cef34fe1c57dbaf3319c
+2020-05-18 12:49:47 DEBUG Peer:233 - peer.sendProposalAsync Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:48 DEBUG DefaultChannelId:79 - -Dio.netty.processId: 10428 (auto-detected)
+2020-05-18 12:49:48 DEBUG NetUtil:139 - -Djava.net.preferIPv4Stack: false
+2020-05-18 12:49:48 DEBUG NetUtil:140 - -Djava.net.preferIPv6Addresses: false
+2020-05-18 12:49:48 DEBUG NetUtil:224 - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+2020-05-18 12:49:48 DEBUG NetUtil:271 - /proc/sys/net/core/somaxconn: 128
+2020-05-18 12:49:48 DEBUG DefaultChannelId:101 - -Dio.netty.machineId: 08:00:27:ff:fe:33:4f:d0 (auto-detected)
+2020-05-18 12:49:48 DEBUG ResourceLeakDetectorFactory:202 - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@7e1e69f0
+2020-05-18 12:49:48 DEBUG SslHandler:1743 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] HANDSHAKEN: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND SETTINGS: ack=false settings={ENABLE_PUSH=0, MAX_CONCURRENT_STREAMS=0, INITIAL_WINDOW_SIZE=1048576, MAX_HEADER_LIST_SIZE=8192}
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=983041
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND SETTINGS: ack=false settings={}
+2020-05-18 12:49:48 DEBUG NettyClientHandler:193 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND SETTINGS: ack=true
+2020-05-18 12:49:48 DEBUG NettyClientHandler:193 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND SETTINGS: ack=true
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND HEADERS: streamId=3 headers=GrpcHttp2OutboundHeaders[:authority: peer1.org1.isprint.com, :path: /protos.Endorser/ProcessProposal, :method: POST, :scheme: https, content-type: application/grpc, te: trailers, user-agent: grpc-java-netty/1.23.0, grpc-accept-encoding: gzip] streamDependency=0 weight=16 exclusive=false padding=0 endStream=false
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND DATA: streamId=3 padding=0 endStream=true length=1266 bytes=00000004ed0aa1090aec080a6d080310011a0b08eba788f6051080efb934220e69737072696e746368616e6e656c2a4033303234633333363064656633633962...
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=1266
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND PING: ack=false bytes=145258749040133895
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND PING: ack=true bytes=145258749040133895
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=3 headers=GrpcHttp2ResponseHeaders[:status: 200, content-type: application/grpc] padding=0 endStream=false
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND DATA: streamId=3 padding=0 endStream=false length=16384 bytes=0000008f7a080122db8b0108c8011ad48b010a4608011220387b265946c09d202789a17270232c30d06b772bb4698e74a19a906e362649f11a200dd9097059fc...
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND DATA: streamId=3 padding=0 endStream=false length=16384 bytes=4e68750a41563858696f3957555a326a5454424c4d41344741315564447745422f775145417749486744414d42674e5648524d4241663845416a41414d437347...
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND DATA: streamId=3 padding=0 endStream=false length=3967 bytes=61575a76636d3570595445574d4251474131554542784d4e5532467549455a790a5957356a61584e6a627a455a4d4263474131554543684d5162334a6e4d5335...
+2020-05-18 12:49:48 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=3 headers=GrpcHttp2ResponseHeaders[grpc-status: 0, grpc-message: ] padding=0 endStream=true
+2020-05-18 12:49:48 DEBUG Channel:4438 - Channel isprintchannel, transaction: 3024c3360def3c9b5b7fd0d925c5677eb3de27649e89cef34fe1c57dbaf3319c got back from peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} status: 200, message: 
+2020-05-18 12:49:48 DEBUG Channel:2010 - Channel isprintchannel Got config block getting MSP data and anchorPeers data
+2020-05-18 12:49:49 DEBUG Channel:1851 - loading certificates for MSP : Org1MSP
+2020-05-18 12:49:49 DEBUG Channel:1851 - loading certificates for MSP : OrdererMSP
+2020-05-18 12:49:49 DEBUG Channel:1862 - Channel isprintchannel loadCACertificates completed 
+2020-05-18 12:49:49 INFO  ServiceDiscovery:239 - Channel isprintchannel doing discovery with peer: Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:49 DEBUG Peer:285 - peer.sendDiscoveryRequstAsync Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND HEADERS: streamId=5 headers=GrpcHttp2OutboundHeaders[:authority: peer1.org1.isprint.com, :path: /discovery.Discovery/Discover, :method: POST, :scheme: https, content-type: application/grpc, te: trailers, user-agent: grpc-java-netty/1.23.0, grpc-accept-encoding: gzip] streamDependency=0 weight=16 exclusive=false padding=0 endStream=false
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND DATA: streamId=5 padding=0 endStream=true length=1150 bytes=00000004790aad080a82080add070a074f7267314d535012d1072d2d2d2d2d424547494e2043455254494649434154452d2d2d2d2d0a4d49494370544343416b...
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=1150
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND PING: ack=false bytes=145258749040133895
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND PING: ack=true bytes=145258749040133895
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=5 headers=GrpcHttp2ResponseHeaders[:status: 200, content-type: application/grpc] padding=0 endStream=false
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND DATA: streamId=5 padding=0 endStream=false length=11624 bytes=0000002d630afa5112f7510a9e280a0a4f7264657265724d5350128f280a0a4f7264657265724d535012c7062d2d2d2d2d424547494e20434552544946494341...
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=5 headers=GrpcHttp2ResponseHeaders[grpc-status: 0, grpc-message: ] padding=0 endStream=true
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:201 - Channel isprintchannel no tls intermediary ca certs for mspid: OrdererMSP
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:201 - Channel isprintchannel no tls intermediary ca certs for mspid: Org1MSP
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:385 - Channel isprintchannel service discovery completed: true
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:443 - Channel isprintchannel doing discovery for chaincodes: [ServiceDiscoveryChaincodeCalls(name: myteacc)]
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:455 - Channel isprintchannel doing discovery for chaincodes on peer: Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:504 - Channel isprintchannel peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} sending chaincode query request
+2020-05-18 12:49:49 DEBUG Peer:285 - peer.sendDiscoveryRequstAsync Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP}
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND HEADERS: streamId=7 headers=GrpcHttp2OutboundHeaders[:authority: peer1.org1.isprint.com, :path: /discovery.Discovery/Discover, :method: POST, :scheme: https, content-type: application/grpc, te: trailers, user-agent: grpc-java-netty/1.23.0, grpc-accept-encoding: gzip] streamDependency=0 weight=16 exclusive=false padding=0 endStream=false
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND DATA: streamId=7 padding=0 endStream=true length=1142 bytes=00000004710aa6080a82080add070a074f7267314d535012d1072d2d2d2d2d424547494e2043455254494649434154452d2d2d2d2d0a4d49494370544343416b...
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=1142
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND PING: ack=false bytes=145258749040133895
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND PING: ack=true bytes=145258749040133895
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=7 headers=GrpcHttp2ResponseHeaders[:status: 200, content-type: application/grpc] padding=0 endStream=false
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND DATA: streamId=7 padding=0 endStream=false length=1148 bytes=00000004770af4081af1080aee080a076d79746561636312d8080a02473012d1080ace080abe010a7418057a70121408999ea888cda680881610f6829a9be7aa...
+2020-05-18 12:49:49 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=7 headers=GrpcHttp2ResponseHeaders[grpc-status: 0, grpc-message: ] padding=0 endStream=true
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:510 - Channel isprintchannel peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} completed chaincode query request
+2020-05-18 12:49:49 DEBUG ServiceDiscovery:601 - Channel isprintchannel found 1 layouts for chaincode: myteacc, layouts: [SDLayout: {groups: [SDGroup: { name: G0, required: 1, endorsers: [SDEndorser-Org1MSP-peer1.org1.isprint.com:7051]}]}]
+2020-05-18 12:49:49 DEBUG Channel:1330 - Channel isprintchannel doing channel update for service discovery.
+2020-05-18 12:49:49 DEBUG Channel:1352 - Channel isprintchannel doing channel update adding new orderer mspid: OrdererMSP, endpoint: orderer1.isprint.com:7050
+2020-05-18 12:49:49 DEBUG Channel:1031 - Channel Channel{id: 1, name: isprintchannel} adding Orderer{id: 4, channelName: , name:orderer1.isprint.com:7050, url: grpcs://orderer1.isprint.com:7050, mspid: OrdererMSP}
+2020-05-18 12:49:49 DEBUG Orderer:140 - Orderer{id: 4, channelName: , name:orderer1.isprint.com:7050, url: grpcs://orderer1.isprint.com:7050, mspid: OrdererMSP} setting channel Channel{id: 1, name: isprintchannel}
+2020-05-18 12:49:49 DEBUG Channel:1429 - Channel isprintchannel doing channel update found new peer mspid: Org1MSP, endpoint: peer1.org1.isprint.com:7051
+2020-05-18 12:49:49 DEBUG Peer:104 - Created Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: null, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP}
+2020-05-18 12:49:49 DEBUG Channel:664 - Channel{id: 1, name: isprintchannel} adding peer: Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: null, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP}, peerOptions: PeerOptions( newest: true, startEvents: null, stopEvents: 9223372036854775807, registerEventsForFilteredBlocks: false, PeerRoles:[endorsingPeer ,chaincodeQuery ,ledgerQuery ,eventSource])
+2020-05-18 12:49:49 DEBUG Peer:184 - Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: null, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} setting channel to Channel{id: 1, name: isprintchannel}, from null
+2020-05-18 12:49:49 DEBUG Channel:708 - Channel isprintchannel mapping peer Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} to mspid Org1MSP
+2020-05-18 12:49:49 DEBUG Channel:1284 - Eventque started null
+2020-05-18 12:49:49 DEBUG Endpoint:298 - Endpoint grpcs://peer1.org1.isprint.com:7051 with no ssl context
+2020-05-18 12:49:49 DEBUG ProtoUtils:99 - ChannelHeader: type: DELIVER_SEEK_INFO, version: 1, Txid: f47109510bb9dd74ae573c676d8ab7b0b2b719b6846ba28f00439484c2762f61, channelId: isprintchannel, epoch 0, clientTLSCertificate digest: 
+2020-05-18 12:49:54 WARN  PeerEventServiceClient:339 - PeerEventServiceClient{id: 6, channel: isprintchannel, peerName: peer1.org1.isprint.com:7051, url: grpcs://peer1.org1.isprint.com:7051} Channel isprintchannel connect time exceeded for peer eventing service peer1.org1.isprint.com:7051, timed out at 5000 ms.
+2020-05-18 12:49:54 DEBUG Endpoint:271 - Endpoint grpcs://127.0.0.1:7051, using CN overrideAuthority: 'peer1.org1.isprint.com'
+2020-05-18 12:49:54 DEBUG ProtoUtils:99 - ChannelHeader: type: DELIVER_SEEK_INFO, version: 1, Txid: 87792d486481010b8dfa31998129e42abead7b7659a5020b30729622be7b797e, channelId: isprintchannel, epoch 0, clientTLSCertificate digest: B5392DB976A4E1C48A2D6ECC19E00725D090D45ED12D91FCF0FAAF18B1A20AB5
+2020-05-18 12:49:54 DEBUG SslHandler:1743 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] HANDSHAKEN: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND SETTINGS: ack=false settings={ENABLE_PUSH=0, MAX_CONCURRENT_STREAMS=0, INITIAL_WINDOW_SIZE=1048576, MAX_HEADER_LIST_SIZE=8192}
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=983041
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND SETTINGS: ack=false settings={}
+2020-05-18 12:49:54 DEBUG NettyClientHandler:193 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND SETTINGS: ack=true
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND HEADERS: streamId=3 headers=GrpcHttp2OutboundHeaders[:authority: peer1.org1.isprint.com, :path: /protos.Deliver/Deliver, :method: POST, :scheme: https, content-type: application/grpc, te: trailers, user-agent: grpc-java-netty/1.23.0, grpc-accept-encoding: gzip] streamDependency=0 weight=16 exclusive=false padding=0 endStream=false
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND DATA: streamId=3 padding=0 endStream=false length=1262 bytes=00000004e90a9d090a86090a8601080510011a0c08f2a788f6051080e3d0fe01220e69737072696e746368616e6e656c2a403837373932643438363438313031...
+2020-05-18 12:49:54 DEBUG NettyClientHandler:193 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND SETTINGS: ack=true
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND WINDOW_UPDATE: streamId=0 windowSizeIncrement=1262
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND PING: ack=false bytes=145258749040133895
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND PING: ack=true bytes=145258749040133895
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND HEADERS: streamId=3 headers=GrpcHttp2ResponseHeaders[:status: 200, content-type: application/grpc] padding=0 endStream=false
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND DATA: streamId=3 padding=0 endStream=false length=4469 bytes=000000117012ed220a46080212205529b282d188e52f2d8e39a163a60f2c056ce4de81b5c61bba41977d468d06291a2004135128ef6ee35cf4a27172a85cd5e6...
+2020-05-18 12:49:54 DEBUG Channel:1294 - 0 eventhubs initialized
+2020-05-18 12:49:54 DEBUG Channel:5558 - Channel isprintchannel registerTransactionListenerProcessor starting
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND DATA: streamId=3 padding=0 endStream=true length=0 bytes=
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] INBOUND PING: ack=false bytes=145258749040133895
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND PING: ack=true bytes=145258749040133895
+2020-05-18 12:49:54 DEBUG Channel:6411 - Channel isprintchannel blockListener BLOCK_LISTENER_HANDLE36a8aed4-c8bb-4a85-9619-7855c954d0d6BLOCK_LISTENER_HANDLE starting
+2020-05-18 12:49:54 DEBUG Channel:1297 - Channel isprintchannel registerTransactionListenerProcessor completed
+2020-05-18 12:49:54 DEBUG Channel:5802 - Channel isprintchannel registerChaincodeListenerProcessor starting
+2020-05-18 12:49:54 DEBUG Channel:6411 - Channel isprintchannel blockListener BLOCK_LISTENER_HANDLE7eb5e087-bdbf-477e-97b6-54afc26da9b9BLOCK_LISTENER_HANDLE starting
+2020-05-18 12:49:54 INFO  Channel:1309 - Channel Channel{id: 1, name: isprintchannel} eventThread started shutdown: false  thread: null 
+2020-05-18 12:49:54 DEBUG Channel:1313 - Channel isprintchannel initialized
+2020-05-18 12:49:54 DEBUG Channel:5571 - is peer true, is filtered: false
+2020-05-18 12:49:54 DEBUG Channel:6411 - Channel isprintchannel blockListener BLOCK_LISTENER_HANDLEb49144d3-698a-41bb-956d-fc51ea500d21BLOCK_LISTENER_HANDLE starting
+2020-05-18 12:49:54 DEBUG Channel:5818 - Channel isprintchannel got event for transaction 151a419532f1de04395e2e445380f46f79f9c03ce90fecbfc850267126f655cf 
+2020-05-18 12:49:54 DEBUG Channel:1000 - RemovePeerInternal Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} from channel Channel{id: 1, name: isprintchannel}
+2020-05-18 12:49:54 DEBUG Channel:722 - Channel isprintchannel removing mapping peer Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} to mspid Org1MSP
+2020-05-18 12:49:54 DEBUG Peer:130 - Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} unset Channel{id: 1, name: isprintchannel}
+2020-05-18 12:49:54 DEBUG Peer:333 - Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} is shutting down.
+2020-05-18 12:49:54 DEBUG Peer:346 - Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} is shutting down PeerEventServiceClient{id: 6, channel: isprintchannel, peerName: peer1.org1.isprint.com:7051, url: grpcs://peer1.org1.isprint.com:7051}
+2020-05-18 12:49:54 DEBUG PeerEventServiceClient:143 - PeerEventServiceClient{id: 6, channel: isprintchannel, peerName: peer1.org1.isprint.com:7051, url: grpcs://peer1.org1.isprint.com:7051} is shutting down.
+2020-05-18 12:49:54 DEBUG PeerEventServiceClient:322 - DeliverResponse onCompleted PeerEventServiceClient{id: 6, channel: isprintchannel, peerName: peer1.org1.isprint.com:7051, url: grpcs://peer1.org1.isprint.com:7051} setting done.
+2020-05-18 12:49:54 DEBUG PeerEventServiceClient:177 - PeerEventServiceClient{id: 6, channel: isprintchannel, peerName: peer1.org1.isprint.com:7051, url: grpcs://peer1.org1.isprint.com:7051} is down.
+2020-05-18 12:49:54 DEBUG Peer:350 - Peer{ id: 5, name: peer1.org1.isprint.com:7051, channelName: isprintchannel, url: grpcs://peer1.org1.isprint.com:7051, mspid: Org1MSP} is shut down.
+2020-05-18 12:49:54 DEBUG Channel:1000 - RemovePeerInternal Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} from channel Channel{id: 1, name: isprintchannel}
+2020-05-18 12:49:54 DEBUG Channel:722 - Channel isprintchannel removing mapping peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} to mspid Org1MSP
+2020-05-18 12:49:54 DEBUG Peer:130 - Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} unset Channel{id: 1, name: isprintchannel}
+2020-05-18 12:49:54 DEBUG Peer:333 - Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} is shutting down.
+2020-05-18 12:49:54 DEBUG Peer:271 - Peer Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} removing endorser client EndorserClient{id: 3, channel: isprintchannel, name:peer1.org1.isprint.com, url: grpcs://127.0.0.1:7051}, isActive: true
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0xfff94d96, L:/127.0.0.1:59962 - R:/127.0.0.1:7051] OUTBOUND GO_AWAY: lastStreamId=0 errorCode=0 length=0 bytes=
+2020-05-18 12:49:54 DEBUG Peer:346 - Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} is shutting down PeerEventServiceClient{id: 7, channel: isprintchannel, peerName: peer1.org1.isprint.com, url: grpcs://127.0.0.1:7051}
+2020-05-18 12:49:54 DEBUG PeerEventServiceClient:143 - PeerEventServiceClient{id: 7, channel: isprintchannel, peerName: peer1.org1.isprint.com, url: grpcs://127.0.0.1:7051} is shutting down.
+2020-05-18 12:49:54 DEBUG PeerEventServiceClient:322 - DeliverResponse onCompleted PeerEventServiceClient{id: 7, channel: isprintchannel, peerName: peer1.org1.isprint.com, url: grpcs://127.0.0.1:7051} setting done.
+2020-05-18 12:49:54 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND GO_AWAY: lastStreamId=0 errorCode=0 length=0 bytes=
+2020-05-18 12:49:57 DEBUG PeerEventServiceClient:177 - PeerEventServiceClient{id: 7, channel: isprintchannel, peerName: peer1.org1.isprint.com, url: grpcs://127.0.0.1:7051} is down.
+2020-05-18 12:49:57 DEBUG Peer:350 - Peer{ id: 2, name: peer1.org1.isprint.com, channelName: isprintchannel, url: grpcs://127.0.0.1:7051, mspid: Org1MSP} is shut down.
+2020-05-18 12:49:57 DEBUG Orderer:229 - Shutting down Orderer{id: 4, channelName: isprintchannel, name:orderer1.isprint.com:7050, url: grpcs://orderer1.isprint.com:7050, mspid: OrdererMSP}
+2020-05-18 12:49:57 INFO  Channel:5546 - Channel isprintchannel eventThread shutting down. shutdown: true  thread: pool-1-thread-2 
+2020-05-18 12:49:57 DEBUG NettyClientHandler:216 - [id: 0x453686ab, L:/127.0.0.1:59968 - R:/127.0.0.1:7051] OUTBOUND RST_STREAM: streamId=3 errorCode=8

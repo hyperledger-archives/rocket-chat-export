@@ -1,0 +1,176 @@
+2017-03-15 03:15:55.540 UTC [shim] func1 -> DEBU 62c [639459ff]send state message COMPLETED
+2017-03-15 03:15:55.540 UTC [chaincode] processStream -> DEBU 62d [639459ff]Received message COMPLETED from shim
+2017-03-15 03:15:55.540 UTC [chaincode] HandleMessage -> DEBU 62e [639459ff]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-15 03:15:55.540 UTC [chaincode] HandleMessage -> DEBU 62f [639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99]HandleMessage- COMPLETED. Notify
+2017-03-15 03:15:55.540 UTC [chaincode] notify -> DEBU 630 notifying Txid:639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99
+2017-03-15 03:15:55.540 UTC [ccprovider] NewCCContext -> DEBU 631 NewCCCC (chain=bar,chaincode=publiccc,version=1.0,txid=639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99,syscc=false,proposal=0xc42184b8b0,canname=publiccc:1.0
+2017-03-15 03:15:55.540 UTC [chaincode] Launch -> DEBU 632 launchAndWaitForRegister fetched 12082 from file system%!(EXTRA <nil>)
+2017-03-15 03:15:55.540 UTC [chaincode] getArgsAndEnv -> DEBU 633 Executable is chaincode
+2017-03-15 03:15:55.540 UTC [chaincode] getArgsAndEnv -> DEBU 634 Args [chaincode -peer.address=172.22.0.7:7051]
+2017-03-15 03:15:55.540 UTC [chaincode] launchAndWaitForRegister -> DEBU 635 start container: publiccc:1.0(networkid:dev,peerid:vp1)
+2017-03-15 03:15:55.540 UTC [chaincode] launchAndWaitForRegister -> DEBU 636 start container with args: chaincode -peer.address=172.22.0.7:7051
+2017-03-15 03:15:55.540 UTC [chaincode] launchAndWaitForRegister -> DEBU 637 start container with env:
+        CORE_CHAINCODE_ID_NAME=publiccc:1.0
+        CORE_PEER_TLS_ENABLED=false
+        CORE_CHAINCODE_LOGLEVEL=WARNING
+        CORE_CHAINCODE_LOGFORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2017-03-15 03:15:55.540 UTC [container] lockContainer -> DEBU 638 waiting for container(dev-vp1-publiccc-1.0) lock
+2017-03-15 03:15:55.540 UTC [container] lockContainer -> DEBU 639 got container (dev-vp1-publiccc-1.0) lock
+2017-03-15 03:15:55.540 UTC [dockercontroller] Start -> DEBU 63a Cleanup container dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.542 UTC [dockercontroller] stopInternal -> DEBU 63b Stop container dev-vp1-publiccc-1.0(Container not running: dev-vp1-publiccc-1.0)
+2017-03-15 03:15:55.545 UTC [dockercontroller] stopInternal -> DEBU 63c Kill container dev-vp1-publiccc-1.0 (API error (500): {"message":"Cannot kill container dev-vp1-publiccc-1.0: Container 6b2a343ddf7c4d1bfaa54c744c2d5f7519e31cc12f88ae751511f52520740c52 is not running"}
+)
+2017-03-15 03:15:55.554 UTC [dockercontroller] stopInternal -> DEBU 63d Removed container dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.554 UTC [dockercontroller] Start -> DEBU 63e Start container dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.554 UTC [dockercontroller] getDockerHostConfig -> DEBU 63f docker container hostconfig NetworkMode: host
+2017-03-15 03:15:55.555 UTC [dockercontroller] createContainer -> DEBU 640 Create container: dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.594 UTC [dockercontroller] createContainer -> DEBU 641 Created container: dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.835 UTC [dockercontroller] Start -> DEBU 642 Started container dev-vp1-publiccc-1.0
+2017-03-15 03:15:55.836 UTC [container] unlockContainer -> DEBU 643 container lock deleted(dev-vp1-publiccc-1.0)
+2017-03-15 03:15:55.850 UTC [chaincode] HandleChaincodeStream -> DEBU 644 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2017-03-15 03:15:55.850 UTC [chaincode] processStream -> DEBU 645 []Received message REGISTER from shim
+2017-03-15 03:15:55.850 UTC [chaincode] HandleMessage -> DEBU 646 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2017-03-15 03:15:55.850 UTC [chaincode] beforeRegisterEvent -> DEBU 647 Received REGISTER in state created
+2017-03-15 03:15:55.850 UTC [chaincode] registerHandler -> DEBU 648 registered handler complete for chaincode publiccc:1.0
+2017-03-15 03:15:55.851 UTC [chaincode] beforeRegisterEvent -> DEBU 649 Got REGISTER for chaincodeID = name:"publiccc:1.0" , sending back REGISTERED
+2017-03-15 03:15:55.851 UTC [chaincode] notifyDuringStartup -> DEBU 64a Notifying during startup
+2017-03-15 03:15:55.851 UTC [chaincode] ready -> DEBU 64b sending READY
+2017-03-15 03:15:55.851 UTC [chaincode] setChaincodeProposal -> DEBU 64c Setting chaincode proposal context...
+2017-03-15 03:15:55.851 UTC [chaincode] setChaincodeProposal -> DEBU 64d Proposal different from nil. Creating chaincode proposal context...
+2017-03-15 03:15:55.851 UTC [chaincode] processStream -> DEBU 64e [639459ff]Move state message READY
+2017-03-15 03:15:55.851 UTC [chaincode] HandleMessage -> DEBU 64f [639459ff]Fabric side Handling ChaincodeMessage of type: READY in state established
+2017-03-15 03:15:55.851 UTC [chaincode] enterReadyState -> DEBU 650 [639459ff]Entered state ready
+2017-03-15 03:15:55.851 UTC [chaincode] notify -> DEBU 651 notifying Txid:639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99
+2017-03-15 03:15:55.851 UTC [chaincode] processStream -> DEBU 652 [639459ff]sending state message READY
+2017-03-15 03:15:55.851 UTC [chaincode] Launch -> DEBU 653 sending init completed
+2017-03-15 03:15:55.851 UTC [chaincode] Launch -> DEBU 654 LaunchChaincode complete
+2017-03-15 03:15:55.851 UTC [chaincode] sendExecuteMessage -> DEBU 655 [639459ff]Inside sendExecuteMessage. Message INIT
+2017-03-15 03:15:55.851 UTC [chaincode] setChaincodeProposal -> DEBU 656 Setting chaincode proposal context...
+2017-03-15 03:15:55.851 UTC [chaincode] setChaincodeProposal -> DEBU 657 Proposal different from nil. Creating chaincode proposal context...
+2017-03-15 03:15:55.851 UTC [chaincode] sendExecuteMessage -> DEBU 658 [639459ff]sendExecuteMsg trigger event INIT
+2017-03-15 03:15:55.851 UTC [chaincode] processStream -> DEBU 659 [639459ff]Move state message INIT
+2017-03-15 03:15:55.851 UTC [chaincode] HandleMessage -> DEBU 65a [639459ff]Fabric side Handling ChaincodeMessage of type: INIT in state ready
+2017-03-15 03:15:55.851 UTC [chaincode] filterError -> DEBU 65b Ignoring NoTransitionError: no transition
+2017-03-15 03:15:55.851 UTC [chaincode] processStream -> DEBU 65c [639459ff]sending state message INIT
+2017-03-15 03:15:55.852 UTC [chaincode] processStream -> DEBU 65d [639459ff]Received message COMPLETED from shim
+2017-03-15 03:15:55.852 UTC [chaincode] HandleMessage -> DEBU 65e [639459ff]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-15 03:15:55.852 UTC [chaincode] HandleMessage -> DEBU 65f [639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99]HandleMessage- COMPLETED. Notify
+2017-03-15 03:15:55.852 UTC [chaincode] notify -> DEBU 660 notifying Txid:639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99
+2017-03-15 03:15:55.852 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 661 Simulation completed, getting simulation results
+2017-03-15 03:15:55.852 UTC [lockbasedtxmgr] Done -> DEBU 662 Done with transaction simulation / query execution [710547da-7bd8-449d-8f97-28dd823e1287]
+2017-03-15 03:15:55.852 UTC [endorser] endorseProposal -> DEBU 663 endorseProposal starts for chainID bar, ccid name:"lccc"
+2017-03-15 03:15:55.852 UTC [endorser] endorseProposal -> DEBU 664 endorseProposal info: escc for cid name:"lccc"  is escc
+2017-03-15 03:15:55.852 UTC [ccprovider] NewCCContext -> DEBU 665 NewCCCC (chain=bar,chaincode=escc,version=0.7.0-snapshot-3295920,txid=639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99,syscc=true,proposal=0xc42184b8b0,canname=escc:0.7.0-snapshot-3295920
+2017-03-15 03:15:55.852 UTC [chaincode] Launch -> DEBU 666 chaincode is running(no need to launch) : escc:0.7.0-snapshot-3295920
+2017-03-15 03:15:55.852 UTC [chaincode] sendExecuteMessage -> DEBU 667 [639459ff]Inside sendExecuteMessage. Message TRANSACTION
+2017-03-15 03:15:55.852 UTC [chaincode] setChaincodeProposal -> DEBU 668 Setting chaincode proposal context...
+2017-03-15 03:15:55.852 UTC [chaincode] setChaincodeProposal -> DEBU 669 Proposal different from nil. Creating chaincode proposal context...
+2017-03-15 03:15:55.852 UTC [chaincode] sendExecuteMessage -> DEBU 66a [639459ff]sendExecuteMsg trigger event TRANSACTION
+2017-03-15 03:15:55.852 UTC [chaincode] processStream -> DEBU 66b [639459ff]Move state message TRANSACTION
+2017-03-15 03:15:55.852 UTC [chaincode] HandleMessage -> DEBU 66c [639459ff]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2017-03-15 03:15:55.852 UTC [chaincode] filterError -> DEBU 66d Ignoring NoTransitionError: no transition
+2017-03-15 03:15:55.852 UTC [chaincode] processStream -> DEBU 66e [639459ff]sending state message TRANSACTION
+2017-03-15 03:15:55.852 UTC [shim] func1 -> DEBU 66f [639459ff]Received message TRANSACTION from shim
+2017-03-15 03:15:55.852 UTC [shim] handleMessage -> DEBU 670 [639459ff]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2017-03-15 03:15:55.852 UTC [shim] beforeTransaction -> DEBU 671 [639459ff]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2017-03-15 03:15:55.852 UTC [escc] Invoke -> DEBU 672 ESCC starts: 7 args
+2017-03-15 03:15:55.853 UTC [escc] Invoke -> DEBU 673 ESCC exits successfully
+2017-03-15 03:15:55.853 UTC [shim] func1 -> DEBU 674 [639459ff]Transaction completed. Sending COMPLETED
+2017-03-15 03:15:55.853 UTC [shim] func1 -> DEBU 675 [639459ff]Move state message COMPLETED
+2017-03-15 03:15:55.853 UTC [shim] handleMessage -> DEBU 676 [639459ff]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-15 03:15:55.853 UTC [shim] func1 -> DEBU 677 [639459ff]send state message COMPLETED
+2017-03-15 03:15:55.853 UTC [chaincode] processStream -> DEBU 678 [639459ff]Received message COMPLETED from shim
+2017-03-15 03:15:55.853 UTC [chaincode] HandleMessage -> DEBU 679 [639459ff]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-15 03:15:55.853 UTC [chaincode] HandleMessage -> DEBU 67a [639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99]HandleMessage- COMPLETED. Notify
+2017-03-15 03:15:55.853 UTC [chaincode] notify -> DEBU 67b notifying Txid:639459fffb8353783046a4064dbdf8797454074f67e337080b4feef6ed842d99
+2017-03-15 03:15:55.853 UTC [lockbasedtxmgr] Done -> DEBU 67c Done with transaction simulation / query execution [710547da-7bd8-449d-8f97-28dd823e1287]
+2017-03-15 03:15:56.284 UTC [eventhub_producer] Chat -> ERRO 67d Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-03-15 03:15:56.284 UTC [eventhub_producer] deRegisterHandler -> DEBU 67e deRegisterHandler BLOCK
+2017-03-15 03:15:58.399 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 67f Sleeping 5s
+2017-03-15 03:16:02.207 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 680 No such channel [98 97 114]
+2017-03-15 03:16:03.401 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 681 Sleeping 5s
+2017-03-15 03:16:08.385 UTC [gossip/discovery#172.22.0.7:7051] periodicalReconnectToDead -> DEBU 682 Sleeping 25s
+2017-03-15 03:16:08.402 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 683 Sleeping 5s
+2017-03-15 03:16:12.259 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 684 No such channel [98 97 114]
+2017-03-15 03:16:13.403 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 685 Sleeping 5s
+2017-03-15 03:16:18.406 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 686 Sleeping 5s
+2017-03-15 03:16:22.276 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 687 No such channel [98 97 114]
+2017-03-15 03:16:23.406 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 688 Sleeping 5s
+2017-03-15 03:16:28.407 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 689 Sleeping 5s
+2017-03-15 03:16:32.289 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 68a No such channel [98 97 114]
+2017-03-15 03:16:33.386 UTC [gossip/discovery#172.22.0.7:7051] periodicalReconnectToDead -> DEBU 68b Sleeping 25s
+2017-03-15 03:16:33.408 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 68c Sleeping 5s
+2017-03-15 03:16:38.409 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 68d Sleeping 5s
+^[OC2017-03-15 03:16:42.312 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 68e No such channel [98 97 114]
+2017-03-15 03:16:43.410 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 68f Sleeping 5s
+2017-03-15 03:16:48.411 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 690 Sleeping 5s
+2017-03-15 03:16:52.333 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 691 No such channel [98 97 114]
+
+2017-03-15 03:18:22.567 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 6b0 No such channel [98 97 114]
+2017-03-15 03:18:23.433 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6b1 Sleeping 5s
+2017-03-15 03:18:28.434 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6b2 Sleeping 5s
+2017-03-15 03:18:32.589 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 6b3 No such channel [98 97 114]
+2017-03-15 03:18:33.434 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6b4 Sleeping 5s
+2017-03-15 03:18:38.242 UTC [eventhub_producer] registerHandler -> DEBU 6b5 registerHandler BLOCK
+2017-03-15 03:18:38.316 UTC [protoutils] ValidateProposalMessage -> DEBU 6b6 ValidateProposalMessage starts for signed proposal 0xc4210b6c60
+2017-03-15 03:18:38.316 UTC [protoutils] validateChannelHeader -> DEBU 6b7 validateChannelHeader info: header type 3
+2017-03-15 03:18:38.316 UTC [protoutils] checkSignatureFromCreator -> DEBU 6b8 checkSignatureFromCreator starts
+2017-03-15 03:18:38.317 UTC [protoutils] checkSignatureFromCreator -> DEBU 6b9 checkSignatureFromCreator info: creator is &{DEFAULT DEFAULT}
+2017-03-15 03:18:38.317 UTC [protoutils] checkSignatureFromCreator -> DEBU 6ba checkSignatureFromCreator info: creator is valid
+2017-03-15 03:18:38.317 UTC [protoutils] checkSignatureFromCreator -> DEBU 6bb checkSignatureFromCreator exists successfully
+2017-03-15 03:18:38.317 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6bc validateChaincodeProposalMessage starts for proposal 0xc4215a8c30, header 0xc4210b6cc0
+2017-03-15 03:18:38.317 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 6bd validateChaincodeProposalMessage info: header extension references chaincode path:"github.com/bsl/clsnet-cls-chaincode/public" name:"publiccc" version:"1.0"
+2017-03-15 03:18:38.317 UTC [kvledger] retrieveTransactionByID -> DEBU 6be retrieveTransactionByID() - txId = [95b6daf76f017e029c620f824335c0d45ac53dc8e3f38d2f29487f2d62f0d798]
+2017-03-15 03:18:38.317 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 6bf constructing new tx simulator
+2017-03-15 03:18:38.317 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 6c0 constructing new tx simulator [b430fffe-6a01-4153-95fa-0dfa6e7b5b29]
+2017-03-15 03:18:38.317 UTC [ccprovider] NewCCContext -> DEBU 6c1 NewCCCC (chain=bar,chaincode=lccc,version=0.7.0-snapshot-3295920,txid=95b6daf76f017e029c620f824335c0d45ac53dc8e3f38d2f29487f2d62f0d798,syscc=true,proposal=0xc4215a8c30,canname=lccc:0.7.0-snapshot-3295920
+2017-03-15 03:18:38.317 UTC [chaincode] Launch -> DEBU 6c2 chaincode is running(no need to launch) : lccc:0.7.0-snapshot-3295920
+2017-03-15 03:18:38.317 UTC [chaincode] sendExecuteMessage -> DEBU 6c3 [95b6daf7]Inside sendExecuteMessage. Message TRANSACTION
+2017-03-15 03:18:38.317 UTC [chaincode] setChaincodeProposal -> DEBU 6c4 Setting chaincode proposal context...
+2017-03-15 03:18:38.317 UTC [chaincode] setChaincodeProposal -> DEBU 6c5 Proposal different from nil. Creating chaincode proposal context...
+2017-03-15 03:18:38.317 UTC [chaincode] sendExecuteMessage -> DEBU 6c6 [95b6daf7]sendExecuteMsg trigger event TRANSACTION
+2017-03-15 03:18:38.317 UTC [chaincode] processStream -> DEBU 6c7 [95b6daf7]Move state message TRANSACTION
+2017-03-15 03:18:38.317 UTC [chaincode] HandleMessage -> DEBU 6c8 [95b6daf7]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2017-03-15 03:18:38.317 UTC [chaincode] filterError -> DEBU 6c9 Ignoring NoTransitionError: no transition
+2017-03-15 03:18:38.317 UTC [chaincode] processStream -> DEBU 6ca [95b6daf7]sending state message TRANSACTION
+2017-03-15 03:18:38.317 UTC [shim] func1 -> DEBU 6cb [95b6daf7]Received message TRANSACTION from shim
+2017-03-15 03:18:38.317 UTC [shim] handleMessage -> DEBU 6cc [95b6daf7]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2017-03-15 03:18:38.317 UTC [shim] beforeTransaction -> DEBU 6cd [95b6daf7]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2017-03-15 03:18:38.317 UTC [shim] handleGetState -> DEBU 6ce [95b6daf7]Sending GET_STATE
+2017-03-15 03:18:38.318 UTC [chaincode] processStream -> DEBU 6cf [95b6daf7]Received message GET_STATE from shim
+2017-03-15 03:18:38.318 UTC [chaincode] HandleMessage -> DEBU 6d0 [95b6daf7]Fabric side Handling ChaincodeMessage of type: GET_STATE in state ready
+2017-03-15 03:18:38.318 UTC [chaincode] afterGetState -> DEBU 6d1 [95b6daf7]Received GET_STATE, invoking get state from ledger
+2017-03-15 03:18:38.318 UTC [chaincode] filterError -> DEBU 6d2 Ignoring NoTransitionError: no transition
+2017-03-15 03:18:38.318 UTC [chaincode] func1 -> DEBU 6d3 [95b6daf7] getting state for chaincode lccc, key publiccc, channel bar
+2017-03-15 03:18:38.318 UTC [statecouchdb] GetState -> DEBU 6d4 GetState(). ns=lccc, key=publiccc
+2017-03-15 03:18:38.318 UTC [couchdb] ReadDoc -> DEBU 6d5 Entering ReadDoc()  id=[lcccpubliccc]
+2017-03-15 03:18:38.318 UTC [couchdb] handleRequest -> DEBU 6d6 Entering handleRequest()  method=GET  url=http://couchdb1:5984/bar/lccc%00publiccc?attachments=true
+2017-03-15 03:18:38.318 UTC [couchdb] handleRequest -> DEBU 6d7 HTTP Request: GET /bar/lccc%00publiccc?attachments=true HTTP/1.1 | Host: couchdb1:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Accept-Encoding: gzip |  |
+2017-03-15 03:18:38.393 UTC [gossip/discovery#172.22.0.7:7051] periodicalReconnectToDead -> DEBU 6d8 Sleeping 25s
+2017-03-15 03:18:38.395 UTC [couchdb] handleRequest -> DEBU 6d9 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2017-03-15 03:18:38.395 UTC [couchdb] ReadDoc -> DEBU 6da Document not found (404), returning nil value instead of 404 error
+2017-03-15 03:18:38.395 UTC [chaincode] func1 -> DEBU 6db [95b6daf7]No state associated with key: publiccc. Sending RESPONSE with an empty payload
+2017-03-15 03:18:38.395 UTC [chaincode] 1 -> DEBU 6dc [95b6daf7]handleGetState serial send RESPONSE
+2017-03-15 03:18:38.395 UTC [shim] func1 -> DEBU 6dd [95b6daf7]Received message RESPONSE from shim
+2017-03-15 03:18:38.395 UTC [shim] handleMessage -> DEBU 6de [95b6daf7]Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2017-03-15 03:18:38.395 UTC [shim] sendChannel -> DEBU 6df [95b6daf7]before send
+2017-03-15 03:18:38.395 UTC [shim] sendChannel -> DEBU 6e0 [95b6daf7]after send
+2017-03-15 03:18:38.395 UTC [shim] afterResponse -> DEBU 6e1 [95b6daf7]Received RESPONSE, communicated (state:ready)
+2017-03-15 03:18:38.395 UTC [shim] handleGetState -> DEBU 6e2 [95b6daf7]GetState received payload RESPONSE
+2017-03-15 03:18:38.395 UTC [lccc] Invoke -> ERRO 6e3 ChaincodeId: publiccc does not exist on channel: bar(err:chaincode not found publiccc)
+2017-03-15 03:18:38.395 UTC [shim] func1 -> DEBU 6e4 [95b6daf7]Transaction completed. Sending COMPLETED
+2017-03-15 03:18:38.395 UTC [shim] func1 -> DEBU 6e5 [95b6daf7]Move state message COMPLETED
+2017-03-15 03:18:38.395 UTC [shim] handleMessage -> DEBU 6e6 [95b6daf7]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2017-03-15 03:18:38.395 UTC [shim] func1 -> DEBU 6e7 [95b6daf7]send state message COMPLETED
+2017-03-15 03:18:38.395 UTC [chaincode] processStream -> DEBU 6e8 [95b6daf7]Received message COMPLETED from shim
+2017-03-15 03:18:38.395 UTC [chaincode] HandleMessage -> DEBU 6e9 [95b6daf7]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2017-03-15 03:18:38.396 UTC [chaincode] HandleMessage -> DEBU 6ea [95b6daf76f017e029c620f824335c0d45ac53dc8e3f38d2f29487f2d62f0d798]HandleMessage- COMPLETED. Notify
+2017-03-15 03:18:38.396 UTC [chaincode] notify -> DEBU 6eb notifying Txid:95b6daf76f017e029c620f824335c0d45ac53dc8e3f38d2f29487f2d62f0d798
+2017-03-15 03:18:38.396 UTC [lockbasedtxmgr] Done -> DEBU 6ec Done with transaction simulation / query execution [b430fffe-6a01-4153-95fa-0dfa6e7b5b29]
+2017-03-15 03:18:38.435 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6ed Sleeping 5s
+2017-03-15 03:18:38.846 UTC [eventhub_producer] Chat -> ERRO 6ee Error during Chat, stopping handler: stream error: code = 1 desc = "context canceled"
+2017-03-15 03:18:38.846 UTC [eventhub_producer] deRegisterHandler -> DEBU 6ef deRegisterHandler BLOCK
+2017-03-15 03:18:42.603 UTC [gossip/gossip#172.22.0.7:7051] PeersOfChannel -> WARN 6f0 No such channel [98 97 114]
+2017-03-15 03:18:43.436 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6f1 Sleeping 5s
+2017-03-15 03:18:48.437 UTC [gossip/discovery#172.22.0.7:7051] periodicalSendAlive -> DEBU 6f2 Sleeping 5s
+

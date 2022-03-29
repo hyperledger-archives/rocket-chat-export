@@ -1,0 +1,49 @@
+Hello, I'm getting this error on the validator
+
+`No response from d63da6566eeebcf52de42f924cce6801d2b4baef0162e2bdb325825a389c0a5088d25765304587ae288daca90c528a4b427826a7f626c1997f08dce27abe2bc2 in 125.61478543281555 seconds - removing connection.
+[2020-02-25 11:22:27.566 DEBUG    handlers] got connect message from 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767. sending ack
+[2020-02-25 11:22:27.567 DEBUG    handlers] Endpoint of connecting node is tcp://sawtooth-1-5b6575dd84-ff474:8800
+[2020-02-25 11:22:27.567 DEBUG    interconnect] Determining whether inbound connection should be allowed. num connections: 63 max 100
+[2020-02-25 11:22:27.567 DEBUG    handlers] Allowing incoming connection: 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767
+[2020-02-25 11:22:27.571 DEBUG    handlers] Connection: 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767 is approved
+[2020-02-25 11:22:27.576 DEBUG    interconnect] Received an error response to the NETWORK_CONNECT we sent. Removing connection: 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767
+[2020-02-25 11:22:27.576 DEBUG    interconnect] Removing connection: 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767
+[2020-02-25 11:22:27.576 DEBUG    interconnect] Connection disconnected: 3f772974f77393ef19b3371a1e1dfa81f459a469a9ce4e32099f7e149d3eda4b7884b9d55829b80b7171362e58a6109ae79d94913672732f5745418c07e96767
+[2020-02-25 11:22:28.146 DEBUG    handlers] got connect message from 867442286568cf937ddd0c0015430c898e6bbe48029e8a0d8530cf620bb2a464aa117c43d5f42053d3410890c2d5835b3920194d5e6d4ba6e2d2d385dac50ed2. sending ack`
+
+and the log in poet container is
+
+`Writing key state for PoET public key: 02859c58...95c01e20
+Generating /poet-shared/poet.batch
+[2020-02-25 10:51:19.383 DEBUG    selector_events] Using selector: ZMQSelector
+[2020-02-25 10:51:21.725 INFO     oracle] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2020-02-25 10:51:21.728 DEBUG    selector_events] Using selector: ZMQSelector
+[2020-02-25 10:51:21.837 DEBUG    consensus_state_store] Create consensus store: /var/lib/sawtooth/poet_consensus_state-03aef4d7.lmdb
+[2020-02-25 10:51:21.837 DEBUG    poet_key_state_store] Create PoET key state store: /var/lib/sawtooth/poet-key-state-03aef4d7.lmdb
+[2020-02-25 10:51:21.851 INFO     poet_enclave_factory] Load PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator; Target wait time: 5.000000; Initial wait time: 25.000000; Population estimate sample size: 50;
+[2020-02-25 10:51:21.930 DEBUG    poet_enclave_simulator] PoET enclave simulator creating anti-Sybil ID from: 2020-02-25T10:51:21.930251
+[2020-02-25 10:51:21.937 DEBUG    poet_block_publisher] Using PoET public key: 02859c58...95c01e20
+[2020-02-25 10:51:21.938 DEBUG    poet_block_publisher] Unseal signup data: eyJjb3Vu...ZTIwIn0=
+[2020-02-25 10:51:21.947 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Signup committed block bf644ffe, chain head was block 00000000
+[2020-02-25 10:51:21.949 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Claimed 0 block(s) out of 250
+[2020-02-25 10:51:21.955 DEBUG    consensus_state] Skipping block claim delay check.  Only 0 block(s) in the chain.  Claim delay is 0 block(s). 1 validator(s) registered.
+[2020-02-25 10:51:21.968 DEBUG    poet_block_publisher] Created wait timer: TIMER, 5.00, 6.07, 0000000000000000
+[2020-02-25 10:51:28.199 DEBUG    engine] Block not ready to be summarized
+[2020-02-25 10:51:28.310 DEBUG    poet_block_publisher] Using PoET public key: 02859c58...95c01e20
+[2020-02-25 10:52:19.323 DEBUG    poet_block_publisher] Created wait timer: TIMER, 5.00, 6.07, 0000000000000000
+[2020-02-25 10:52:25.556 DEBUG    engine] Block not ready to be summarized
+[2020-02-25 10:52:25.668 DEBUG    poet_block_publisher] Using PoET public key: 02859c58...95c01e20
+[2020-02-25 10:52:25.668 DEBUG    poet_block_publisher] Unseal signup data: eyJjb3Vu...ZTIwIn0=
+[2020-02-25 10:52:25.676 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Signup committed block bf644ffe, chain head was block 00000000
+[2020-02-25 10:52:25.678 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Claimed 0 block(s) out of 250
+[2020-02-25 10:52:25.683 DEBUG    consensus_state] Skipping block claim delay check.  Only 0 block(s) in the chain.  Claim delay is 0 block(s). 1 validator(s) registered.
+[2020-02-25 10:52:25.692 DEBUG    poet_block_publisher] Created wait timer: TIMER, 5.00, 6.07, 0000000000000000
+[2020-02-25 10:52:31.926 DEBUG    engine] Block not ready to be summarized
+[2020-02-25 10:52:32.035 DEBUG    poet_block_publisher] Using PoET public key: 02859c58...95c01e20
+[2020-02-25 10:52:32.035 DEBUG    poet_block_publisher] Unseal signup data: eyJjb3Vu...ZTIwIn0=
+[2020-02-25 10:52:32.041 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Signup committed block bf644ffe, chain head was block 00000000
+[2020-02-25 10:52:32.044 DEBUG    consensus_state] Validator validator-03aef4d7 (ID=03aef4d7...7f96d7cd): Claimed 0 block(s) out of 250
+[2020-02-25 10:52:32.048 DEBUG    consensus_state] Skipping block claim delay check.  Only 0 block(s) in the chain.  Claim delay is 0 block(s). 1 validator(s) registered.
+[2020-02-25 10:52:32.056 DEBUG    poet_block_publisher] Created wait timer: TIMER, 5.00, 6.07, 0000000000000000
+[2020-02-25 10:52:38.288 DEBUG    engine] Block not ready to be summarized
+[2020-02-25 10:52:38.398 DEBUG    poet_block_publisher] Using PoET public key: 02859c58...95c01e20`

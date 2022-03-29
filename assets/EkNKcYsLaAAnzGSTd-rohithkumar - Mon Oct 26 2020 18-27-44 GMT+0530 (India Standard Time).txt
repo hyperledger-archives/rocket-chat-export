@@ -1,0 +1,151 @@
+[2020-10-26T12:54:33.258] [DEBUG] main - false 'ssl-certs' '/opt/explorer/app/ssl-certs'
+[2020-10-26T12:54:33.351] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-10-26T12:54:33.351] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'tt-network':
+   { name: 'tt-network',
+     profile: './connection-profile/tt-network.json' } }
+[2020-10-26T12:54:33.351] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-10-26T12:54:33.351] [INFO] Platform -  network_config.id  tt-network  network_config.profile  ./connection-profile/tt-network.json
+[2020-10-26T12:54:33.351] [DEBUG] Platform - Creating network client [tt-network] >>  { name: 'tt-network',
+  profile: './connection-profile/tt-network.json' }
+[2020-10-26T12:54:33.352] [INFO] Platform - Disabled authentication
+[2020-10-26T12:54:33.353] [DEBUG] FabricUtils - ************ Initializing fabric client for [tt-network]************
+[2020-10-26T12:54:33.353] [DEBUG] FabricClient - Client configuration [tt-network]  ...
+[2020-10-26T12:54:33.354] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-10-26T12:54:33.354] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-10-26T12:54:33.354] [INFO] FabricConfig - FabricConfig, this.config.channels  channelall
+[2020-10-26T12:54:33.374] [INFO] FabricGateway - enrollUserIdentity: userName : exploreradmin
+[2020-10-26T12:54:39.573] [ERROR] FabricClient - { Error: Failed to connect before the deadline on Discoverer- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+    at checkState (/opt/explorer/node_modules/@grpc/grpc-js/build/src/client.js:69:26)
+    at Timeout.watcherObject.timer.setTimeout [as _onTimeout] (/opt/explorer/node_modules/@grpc/grpc-js/build/src/channel.js:292:17)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10) connectFailed: true }
+[2020-10-26T12:54:39.573] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-10-26T12:54:39.574] [DEBUG] FabricClient - initializeDetachClient tt-network
+[2020-10-26T12:54:39.574] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-26T12:54:39.574] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-10-26T12:54:39.575] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-10-26T12:54:39.575] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-10-26T12:54:39.575] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-10-26T12:54:39.579] [INFO] Platform - initializeListener, network_id, network_client  tt-network { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-26T12:54:39.580] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-10-26T12:54:39.580] [INFO] main - pid is 19
+[2020-10-26T12:54:39.583] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-10-26T12:54:39.583] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]
+/opt/explorer/logs/app # cat app.log 
+[2020-10-26T12:54:33.258] [DEBUG] main - false 'ssl-certs' '/opt/explorer/app/ssl-certs'
+[2020-10-26T12:54:33.351] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-10-26T12:54:33.351] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'tt-network':
+   { name: 'tt-network',
+     profile: './connection-profile/tt-network.json' } }
+[2020-10-26T12:54:33.351] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-10-26T12:54:33.351] [INFO] Platform -  network_config.id  tt-network  network_config.profile  ./connection-profile/tt-network.json
+[2020-10-26T12:54:33.351] [DEBUG] Platform - Creating network client [tt-network] >>  { name: 'tt-network',
+  profile: './connection-profile/tt-network.json' }
+[2020-10-26T12:54:33.352] [INFO] Platform - Disabled authentication
+[2020-10-26T12:54:33.353] [DEBUG] FabricUtils - ************ Initializing fabric client for [tt-network]************
+[2020-10-26T12:54:33.353] [DEBUG] FabricClient - Client configuration [tt-network]  ...
+[2020-10-26T12:54:33.354] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-10-26T12:54:33.354] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-10-26T12:54:33.354] [INFO] FabricConfig - FabricConfig, this.config.channels  channelall
+[2020-10-26T12:54:33.374] [INFO] FabricGateway - enrollUserIdentity: userName : exploreradmin
+[2020-10-26T12:54:39.573] [ERROR] FabricClient - { Error: Failed to connect before the deadline on Discoverer- name: peer0.manufacturer.tracktrace.com, url:grpcs://peer0.manufacturer.tracktrace.com:7051, connected:false, connectAttempted:true
+    at checkState (/opt/explorer/node_modules/@grpc/grpc-js/build/src/client.js:69:26)
+    at Timeout.watcherObject.timer.setTimeout [as _onTimeout] (/opt/explorer/node_modules/@grpc/grpc-js/build/src/channel.js:292:17)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10) connectFailed: true }
+[2020-10-26T12:54:39.573] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-10-26T12:54:39.574] [DEBUG] FabricClient - initializeDetachClient tt-network
+[2020-10-26T12:54:39.574] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-26T12:54:39.574] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-10-26T12:54:39.575] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-10-26T12:54:39.575] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-10-26T12:54:39.575] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-10-26T12:54:39.579] [INFO] Platform - initializeListener, network_id, network_client  tt-network { name: 'tt-network',
+  version: '1.0.0',
+  client:
+   { tlsEnable: true,
+     adminCredential: { id: 'exploreradmin', password: 'exploreradminpw' },
+     enableAuthentication: false,
+     organization: 'ManufacturerMSP',
+     connection: { timeout: [Object] } },
+  channels: { channelall: { peers: [Object], connection: [Object] } },
+  organizations:
+   { ManufacturerMSP:
+      { mspid: 'ManufacturerMSP',
+        adminPrivateKey: [Object],
+        peers: [Array],
+        signedCert: [Object] } },
+  peers:
+   { 'peer0.manufacturer.tracktrace.com':
+      { tlsCACerts: [Object],
+        url: 'grpcs://peer0.manufacturer.tracktrace.com:7051',
+        eventUrl: 'grpcs://peer0.manufacturer.tracktrace.com:7053',
+        grpcOptions: [Object] } } }
+[2020-10-26T12:54:39.580] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-10-26T12:54:39.580] [INFO] main - pid is 19
+[2020-10-26T12:54:39.583] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-10-26T12:54:39.583] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]

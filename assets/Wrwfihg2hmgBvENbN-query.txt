@@ -1,0 +1,330 @@
+Hello everyone,
+
+I have a question about the TLS configuration between orderers and kafka cluster. I want to enable TLS between kafka and orderers.
+
+Here is our kafka cluster compose files:
+
+HLF network deployed on AWS single instance. all component use docker service name for communication
+
+To check TLS configuration i have just setup 
+zookeeper (zookeeper1, zookeeper2, zookeeper3)
+Kafka (kafka1,kafka2)
+Orderer
+
+A:
+```
+version: '2'
+
+services:
+  zookeeper1:
+    image: hyperledger/fabric-zookeeper
+    restart: always
+    environment:
+     ZOO_MY_ID: 1
+     ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888  server.3=zookeeper3:2888:3888
+    ports:
+      - '2181'
+
+  zookeeper2:
+    image: hyperledger/fabric-zookeeper
+    restart: always
+    environment:
+     ZOO_MY_ID: 2
+     ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888  server.3=zookeeper3:2888:3888
+    ports:
+      - '2181'
+
+  zookeeper3:
+    image: hyperledger/fabric-zookeeper
+    restart: always
+    environment:
+     ZOO_MY_ID: 3
+     ZOO_SERVERS: server.1=zookeeper1:2888:3888 server.2=zookeeper2:2888:3888  server.3=zookeeper3:2888:3888
+    ports:
+      - 12181:2181
+  kafka1:
+    image: hyperledger/fabric-kafka
+    restart: always
+    environment:
+      - KAFKA_BROKER_ID=0
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1:2181
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      #enable TLS
+      - KAFKA_LISTENERS=PLAINTEXT://:9092,SSL://:9093
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://:9092,SSL://:9093
+      - KAFKA_SSL_CLIENT_AUTH=required
+      - KAFKA_SSL_KEYSTORE_LOCATION=/opt/kafka/ssl/server.keystore.jks
+      - KAFKA_SSL_TRUSTSTORE_LOCATION=/opt/kafka/ssl/server.truststore.jks
+      - KAFKA_SSL_KEY_PASSWORD=test1234
+      - KAFKA_SSL_KEYSTORE_PASSWORD=test1234
+      - KAFKA_SSL_TRUSTSTORE_PASSWORD=test1234
+      - KAFKA_SSL_KEYSTORE_TYPE=JKS
+      - KAFKA_SSL_TRUSTSTORE_TYPE=JKS
+      - KAFKA_SSL_ENABLED_PROTOCOLS=TLSv1.2,TLSv1.1,TLSv1
+      - KAFKA_SSL_INTER_BROKER_PROTOCOL=SSL
+    ports:
+      - 9092:9092
+      - 9093:9093
+    depends_on:
+      - zookeeper1
+      - zookeeper2
+      - zookeeper3
+    volumes:
+      - ./kafkaTLSserver:/opt/kafka/ssl
+
+```
+
+B:
+```
+version: '2'
+
+services:
+  kafka2:
+    image: hyperledger/fabric-kafka
+    restart: always
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=123.123.123.123:12181
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      #enable TLS
+      - KAFKA_LISTENERS=PLAINTEXT://:9092,SSL://:9093
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://:9092,SSL://:9093
+      - KAFKA_SSL_CLIENT_AUTH=required
+      - KAFKA_SSL_KEYSTORE_LOCATION=/opt/kafka/ssl/server.keystore.jks
+      - KAFKA_SSL_TRUSTSTORE_LOCATION=/opt/kafka/ssl/server.truststore.jks
+      - KAFKA_SSL_KEY_PASSWORD=test1234
+      - KAFKA_SSL_KEYSTORE_PASSWORD=test1234
+      - KAFKA_SSL_TRUSTSTORE_PASSWORD=test1234
+      - KAFKA_SSL_KEYSTORE_TYPE=JKS
+      - KAFKA_SSL_TRUSTSTORE_TYPE=JKS
+      - KAFKA_SSL_ENABLED_PROTOCOLS=TLSv1.2,TLSv1.1,TLSv1
+      - KAFKA_SSL_INTER_BROKER_PROTOCOL=SSL
+    ports:
+      - 9092:9092
+      - 9093:9093
+    volumes:
+      - ./kafkaTLSserver:/opt/kafka/ssl
+
+```
+
+script about generate kafka tls certs:
+```
+#!/bin/bash
+
+rm -rf kafkaTLSserver kafkaTLSclient
+mkdir kafkaTLSserver kafkaTLSclient
+
+cd ./kafkaTLSserver
+# make ca 
+openssl genrsa -out ca.key 2048
+printf "CN\nBJ\nBJ\nPS\nPS\nps.com\n\n" |openssl req -x509 -new -nodes -key ca.key  -days 3650 -out ca.crt
+
+# make server 
+openssl genrsa -out server.key 2048
+printf "CN\nBJ\nBJ\nPS\nPS\nkafkaserver\n\n\n\n" |openssl req -new -key server.key -out server.csr
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650
+
+# make client
+openssl genrsa -out client.key 2048
+printf "CN\nBJ\nBJ\nPS\nPS\nclient\n\n\n\n" |openssl req -new -key client.key -out client.csr
+openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 3650
+
+# do transfer
+openssl pkcs12 -export -in server.crt -inkey server.key -out server.pk12 -name server -passout pass:test1234
+printf "test1234\ntest1234\nY\n\n" | keytool -importkeystore -deststorepass test1234 -destkeypass test1234 -destkeystore server.keystore.jks -srckeystore server.pk12 -srcstoretype PKCS12 -srcstorepass test1234 -alias server
+
+# add singed cert to server jks
+printf "test1234\ntest1234\nY\n\n" | keytool -keystore server.truststore.jks -alias CARoot -import -file ca.crt
+printf "test1234\n\n" | keytool -keystore server.truststore.jks -alias server -import -file server.crt
+printf "test1234\n\n" | keytool -keystore server.truststore.jks -alias client -import -file client.crt
+
+cp ca.crt ../kafkaTLSclient
+cp client.crt ../kafkaTLSclient
+cp client.key ../kafkaTLSclient
+
+cd ..
+```
+
+Here is orderer compose file:
+```
+version: '2'
+
+services:
+
+  orderer.ord1.example.com:
+    container_name: orderer.ord1.example.com
+    image: hyperledger/fabric-orderer
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=Orderer1MSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=false
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      # enabled kafka client TLS
+      - ORDERER_KAFKA_SERVER=kafkaserver
+      - ORDERER_KAFKA_VERBOSE=true
+      - ORDERER_KAFKA_TLS_ENABLED=true
+      - ORDERER_KAFKA_TLS_PRIVATEKEY=/var/hyperledger/orderer/kafka/tls/client.key
+      - ORDERER_KAFKA_TLS_CERTIFICATE=/var/hyperledger/orderer/kafka//tls/client.crt
+      - ORDERER_KAFKA_TLS_ROOTCAS=[/var/hyperledger/orderer/kafka/tls/ca.crt]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+      - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+      - ../crypto-config/ordererOrganizations/ord1.example.com/orderers/orderer.ord1.example.com/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/ord1.example.com/orderers/orderer.ord1.example.com/tls:/var/hyperledger/orderer/tls
+      - ../kafkaTLSclient:/var/hyperledger/orderer/kafka/tls
+    ports:
+      - 7050:7050
+```
+
+When I start orderer after zookeeper and Kafka start it give me following error
+```
+2019-02-27 12:30:20.223 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+2019-02-27 12:30:20.267 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+        General.LedgerType = "file"
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = []
+        General.Cluster.RootCAs = [/etc/hyperledger/fabric/tls/ca.crt]
+        General.Cluster.ClientCertificate = ""
+        General.Cluster.ClientPrivateKey = ""
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.GenesisMethod = "file"
+        General.GenesisProfile = "SampleInsecureKafka"
+        General.SystemChannel = "test-system-channel-name"
+        General.GenesisFile = "/etc/hyperledger/configtx/genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+        General.LocalMSPID = "orderer-MSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.Ephemeral = false
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.BCCSP.PluginOpts =
+        General.Authentication.TimeWindow = 15m0s
+        FileLedger.Location = "/var/hyperledger/production/orderer"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        RAMLedger.HistorySize = 1000
+        Kafka.Retry.ShortInterval = 1s
+        Kafka.Retry.ShortTotal = 30s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = true
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = true
+        Kafka.TLS.PrivateKey = "/var/private/ssl/client.key"
+        Kafka.TLS.Certificate = "/var/private/ssl/client.crt"
+        Kafka.TLS.RootCAs = [/var/private/ssl/ca.crt]
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 3
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[WALDir:/var/hyperledger/production/orderer/etcdraft/wal SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot]
+        Operations.ListenAddress = "127.0.0.1:8443"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+2019-02-27 12:30:20.297 UTC [orderer.common.server] initializeServerConfig -> INFO 003 Starting orderer with TLS enabled
+2019-02-27 12:30:20.298 UTC [fsblkstorage] newBlockfileMgr -> INFO 004 Getting block information from block storage
+2019-02-27 12:30:20.326 UTC [orderer.consensus.kafka] newBrokerConfig -> PANI 005 Unable to decode public/private key pair: tls: failed to find any PEM data in certificate input
+panic: Unable to decode public/private key pair: tls: failed to find any PEM data in certificate input
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc0000e1ce0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:229 +0x515
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).log(0xc0000a6360, 0xc00055d704, 0xc000082720, 0x5f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0xf6
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).Panicf(0xc0000a6360, 0xc000082720, 0x5f, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159 +0x79
+github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panic(0xc0000a6368, 0xc00055d878, 0x2, 0x2)
+        /opt/gopath/src/github.com/hyperledger/fabric/common/flogging/zap.go:73 +0x75
+github.com/hyperledger/fabric/orderer/consensus/kafka.newBrokerConfig(0x1, 0xc00003809d, 0x1b, 0xc0000380de, 0x1b, 0xc000188570, 0x1, 0x1, 0x0, 0x0, ...)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/consensus/kafka/config.go:47 +0x259
+github.com/hyperledger/fabric/orderer/consensus/kafka.New(0x3b9aca00, 0x6fc23ac00, 0x45d964b800, 0x274a48a78000, 0x2540be400, 0x2540be400, 0x2540be400, 0x3, 0xee6b280, 0x3, ...)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/consensus/kafka/consenter.go:25 +0xdb
+github.com/hyperledger/fabric/orderer/common/server.initializeMultichannelRegistrar(0xc0000751c0, 0xc00001a6a0, 0x0, 0xc0002f6000, 0x19b4420, 0xc0003b0140, 0x2, 0x2, 0xc0003b0150, 0x2, ...)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:406 +0x206
+github.com/hyperledger/fabric/orderer/common/server.Start(0xf4dfc0, 0x5, 0xc00056cc00)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:142 +0x52d
+github.com/hyperledger/fabric/orderer/common/server.Main()
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:87 +0x1ce
+main.main()
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:15 +0x20
+
+```	  
+
+I checked HLF v1.3 code
+orderer\consensus\kafka\config.go
+```
+if brokerConfig.Net.TLS.Enable {
+		// create public/private key pair structure
+		keyPair, err := tls.X509KeyPair([]byte(tlsConfig.Certificate), []byte(tlsConfig.PrivateKey))
+		if err != nil {
+			logger.Panic("Unable to decode public/private key pair:", err)
+		}
+		// create root CA pool
+		rootCAs := x509.NewCertPool()
+		for _, certificate := range tlsConfig.RootCAs {
+			if !rootCAs.AppendCertsFromPEM([]byte(certificate)) {
+				logger.Panic("Unable to parse the root certificate authority certificates (Kafka.Tls.RootCAs)")
+			}
+		}
+		brokerConfig.Net.TLS.Config = &tls.Config{
+			Certificates: []tls.Certificate{keyPair},
+			RootCAs:      rootCAs,
+			MinVersion:   tls.VersionTLS12,
+			MaxVersion:   0, // Latest supported TLS version
+		}
+	}
+```
+from above code it expect certificate content instead of file location?
+I tried with that approach also but got same error.
+i think in above code instead of `tls.X509KeyPair([]byte(tlsConfig.Certificate), []byte(tlsConfig.PrivateKey))` method it should be 
+`tls.LoadX509KeyPair(tlsConfig.Certificate, tlsConfig.PrivateKey)`
+
+	  

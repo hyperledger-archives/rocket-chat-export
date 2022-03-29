@@ -1,0 +1,201 @@
+
+[root@fabcoin e2e_cli]# ./network_setup.sh up
+setting to default channel 'mychannel'
+Channel name - mychannel
+
+Building configtxgen
+build/bin/configtxgen
+CGO_CFLAGS=" " GOBIN=/root/bcp/golang/src/github.com/hyperledger/fabric/build/bin go install -tags "nopkcs11" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-441b308 -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+Binary available as build/bin/configtxgen
+Generating genesis block
+2017/04/21 12:42:35 Loading configuration
+2017/04/21 12:42:35 Looking for configtx.yaml in: /root/bcp/golang/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/21 12:42:35 Found configtx.yaml there
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Generating genesis block
+2017/04/21 12:42:35 Writing genesis block
+Generating channel configuration transaction
+2017/04/21 12:42:35 Loading configuration
+2017/04/21 12:42:35 Looking for configtx.yaml in: /root/bcp/golang/src/github.com/hyperledger/fabric/common/configtx/tool
+2017/04/21 12:42:35 Found configtx.yaml there
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Checking for MSPDir at: .
+2017/04/21 12:42:35 Generating new channel configtx
+2017/04/21 12:42:35 Creating no-op MSP instance
+2017/04/21 12:42:35 Obtaining default signing identity
+2017/04/21 12:42:35 Creating no-op signing identity instance
+2017/04/21 12:42:35 Serialinzing identity
+2017/04/21 12:42:35 signing message
+2017/04/21 12:42:35 signing message
+2017/04/21 12:42:35 Writing new channel tx
+Creating orderer0
+Creating peer0
+Creating peer1
+Creating peer2
+Creating peer3
+Creating cli
+Channel name : mychannel
+2017-04-21 17:42:50.486 UTC [logging] InitFromViper -> DEBU 001 Setting default logging level to DEBUG for command 'channel'
+2017-04-21 17:42:50.486 UTC [msp] GetLocalMSP -> DEBU 002 Returning existing local MSP
+2017-04-21 17:42:50.487 UTC [msp] GetDefaultSigningIdentity -> DEBU 003 Obtaining default signing identity
+fatal error: unexpected signal during runtime execution
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x63 pc=0x7fa8cda23259]
+
+runtime stack:
+runtime.throw(0xd2bd11, 0x2a)
+        /opt/go/src/runtime/panic.go:566 +0x95
+runtime.sigpanic()
+        /opt/go/src/runtime/sigpanic_unix.go:12 +0x2cc
+
+goroutine 50 [syscall, locked to thread]:
+runtime.cgocall(0xa98c50, 0xc420358df8, 0xc400000000)
+        /opt/go/src/runtime/cgocall.go:131 +0x110 fp=0xc420358db0 sp=0xc420358d70
+net._C2func_getaddrinfo(0x7fa8bc0008c0, 0x0, 0xc42017ba10, 0xc420042268, 0x0, 0x0, 0x0)
+        ??:0 +0x68 fp=0xc420358df8 sp=0xc420358db0
+net.cgoLookupIPCNAME(0x7ffc03634b37, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /opt/go/src/net/cgo_unix.go:146 +0x37c fp=0xc420358f18 sp=0xc420358df8
+net.cgoIPLookup(0xc420085ec0, 0x7ffc03634b37, 0x8)
+        /opt/go/src/net/cgo_unix.go:198 +0x4d fp=0xc420358fa8 sp=0xc420358f18
+runtime.goexit()
+        /opt/go/src/runtime/asm_amd64.s:2086 +0x1 fp=0xc420358fb0 sp=0xc420358fa8
+created by net.cgoLookupIP
+        /opt/go/src/net/cgo_unix.go:208 +0xb4
+
+goroutine 1 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.Dial(0x7ffc03634b37, 0xd, 0xc42031d580, 0x3, 0x4, 0xc42031d580, 0x2, 0x4)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:264 +0x5ab
+github.com/hyperledger/fabric/peer/common.GetBroadcastClient(0x7ffc03634b37, 0xd, 0x1, 0x7ffc03634b83, 0x68, 0xc420254c80, 0x1309a20, 0xc420178cc0, 0x7ffc03634b48)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/common/ordererclient.go:66 +0x18f
+github.com/hyperledger/fabric/peer/channel.InitCmdFactory.func1(0x7ffc03634b55, 0x19, 0xc42017b5c0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/channel/channel.go:102 +0x5c
+github.com/hyperledger/fabric/peer/channel.sendCreateChainTransaction(0xc420254c80, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/channel/create.go:127 +0x83
+github.com/hyperledger/fabric/peer/channel.executeCreate(0xc420254c80, 0xc420254c80, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/channel/create.go:141 +0x2f
+github.com/hyperledger/fabric/peer/channel.create(0xc42023a900, 0xc42023c820, 0x1, 0xa, 0xc420254c80, 0x7, 0x7)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/channel/create.go:178 +0x45
+github.com/hyperledger/fabric/peer/channel.createCmd.func1(0xc42023a900, 0xc42023c820, 0x1, 0xa, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/channel/create.go:55 +0x52
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0xc42023a900, 0xc42023c6e0, 0xa, 0xa, 0xc42023a900, 0xc42023c6e0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:599 +0x234
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x12f0cc0, 0xf, 0xc420010035, 0xa)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:689 +0x367
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(0x12f0cc0, 0x50, 0xc420010035)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:648 +0x2b
+main.main()
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/main.go:111 +0x52d
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+        /opt/go/src/runtime/asm_amd64.s:2086 +0x1
+
+goroutine 36 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).transportMonitor(0xc420233200)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:623 +0x36a
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ClientConn).newAddrConn.func1(0xc420233200)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:418 +0x190
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ClientConn).newAddrConn
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:419 +0x38e
+
+goroutine 34 [syscall]:
+os/signal.signal_recv(0xc42003a7a8)
+        /opt/go/src/runtime/sigqueue.go:116 +0x157
+os/signal.loop()
+        /opt/go/src/os/signal/signal_unix.go:22 +0x22
+created by os/signal.init.1
+        /opt/go/src/os/signal/signal_unix.go:28 +0x41
+
+goroutine 12 [IO wait]:
+net.runtime_pollWait(0x7fa8cdc79048, 0x72, 0x3)
+        /opt/go/src/runtime/netpoll.go:160 +0x59
+net.(*pollDesc).wait(0xc42001d560, 0x72, 0xc42004e838, 0xc420012068)
+        /opt/go/src/net/fd_poll_runtime.go:73 +0x38
+net.(*pollDesc).waitRead(0xc42001d560, 0x12fe660, 0xc420012068)
+        /opt/go/src/net/fd_poll_runtime.go:78 +0x34
+net.(*netFD).Read(0xc42001d500, 0xc420314800, 0x400, 0x400, 0x0, 0x12fe660, 0xc420012068)
+        /opt/go/src/net/fd_unix.go:243 +0x1a1
+net.(*conn).Read(0xc420042218, 0xc420314800, 0x400, 0x400, 0x0, 0x0, 0x0)
+        /opt/go/src/net/net.go:173 +0x70
+crypto/tls.(*block).readFromUntil(0xc42017aff0, 0x7fa8cdc79108, 0xc420042218, 0x5, 0xc420042218, 0x0)
+        /opt/go/src/crypto/tls/conn.go:476 +0x91
+crypto/tls.(*Conn).readRecord(0xc420312000, 0xd87617, 0xc420312108, 0x0)
+        /opt/go/src/crypto/tls/conn.go:578 +0xc4
+crypto/tls.(*Conn).Read(0xc420312000, 0xc420322000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+        /opt/go/src/crypto/tls/conn.go:1113 +0x116
+bufio.(*Reader).fill(0xc4200857a0)
+        /opt/go/src/bufio/bufio.go:97 +0x10c
+bufio.(*Reader).Read(0xc4200857a0, 0xc4200a8578, 0x9, 0x9, 0x9, 0x18, 0x28)
+        /opt/go/src/bufio/bufio.go:209 +0x1bc
+io.ReadAtLeast(0x12f8e60, 0xc4200857a0, 0xc4200a8578, 0x9, 0x9, 0x9, 0x411138, 0x30, 0xc42004ed28)
+        /opt/go/src/io/io.go:307 +0xa4
+io.ReadFull(0x12f8e60, 0xc4200857a0, 0xc4200a8578, 0x9, 0x9, 0xa1b0a376408df501, 0xa100000000000000, 0x3)
+        /opt/go/src/io/io.go:325 +0x58
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.readFrameHeader(0xc4200a8578, 0x9, 0x9, 0x12f8e60, 0xc4200857a0, 0x0, 0xc400000000, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:237 +0x7b
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.(*Framer).ReadFrame(0xc4200a8540, 0x1300360, 0xc420180300, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:464 +0xa4
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.(*framer).readFrame(0xc42017b440, 0xc420180300, 0xc420180300, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http_util.go:430 +0x2f
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.(*http2Client).reader(0xc4200aa3c0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:820 +0xb6
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:167 +0x89f
+
+goroutine 13 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.(*http2Client).controller(0xc4200aa3c0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:898 +0x597
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:197 +0xdd0
+
+goroutine 14 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.NewClientStream.func1(0x1308ca0, 0xc4200aa3c0, 0xc4200aa4b0, 0xc420233320)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/stream.go:186 +0x393
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.NewClientStream
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/stream.go:203 +0x96d
+
+goroutine 15 [select]:
+net.lookupIPContext(0x1305f60, 0xc420085e00, 0x7ffc03634b37, 0x8, 0x0, 0x0, 0x0, 0x0, 0x4220f83904649)
+        /opt/go/src/net/lookup.go:122 +0x7bc
+net.internetAddrList(0x1305f60, 0xc420085e00, 0xd07625, 0x3, 0x7ffc03634b37, 0xd, 0x0, 0x0, 0x0, 0xed08c3b9a, ...)
+        /opt/go/src/net/ipsock.go:241 +0x5e0
+net.resolveAddrList(0x1305f60, 0xc420085e00, 0xd07c19, 0x4, 0xd07625, 0x3, 0x7ffc03634b37, 0xd, 0x0, 0x0, ...)
+        /opt/go/src/net/dial.go:179 +0x106
+net.(*Dialer).DialContext(0xc42005f9a8, 0x1305f20, 0xc420012248, 0xd07625, 0x3, 0x7ffc03634b37, 0xd, 0x0, 0x0, 0x0, ...)
+        /opt/go/src/net/dial.go:329 +0x238
+net.(*Dialer).Dial(0xc42005f9a8, 0xd07625, 0x3, 0x7ffc03634b37, 0xd, 0x8fd6b6cdea992602, 0xc4201793f0, 0x7fa8cdc348c0, 0x8210de43d3ba2000)
+        /opt/go/src/net/dial.go:282 +0x75
+net.DialTimeout(0xd07625, 0x3, 0x7ffc03634b37, 0xd, 0x4a817c800, 0xc420053a60, 0x5021b2, 0x58fa449a, 0xc41d53c9f1)
+        /opt/go/src/net/dial.go:268 +0x9d
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.newHTTP2Client.func1(0x7ffc03634b37, 0xd, 0x4a817c800, 0xa, 0xa, 0xc420053af0, 0x44561e)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:110 +0x54
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.newHTTP2Client(0x7ffc03634b37, 0xd, 0xc42009f948, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/http2_client.go:116 +0xeb
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport.NewClientTransport(0x7ffc03634b37, 0xd, 0xc42009f948, 0x0, 0x0, 0x0, 0xb27f8d518ee26a8b)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/transport/transport.go:357 +0x3f
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).resetTransport(0xc42009f8c0, 0xc420320500, 0xc42009f8c8, 0xc420358708)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:566 +0x1e2
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ClientConn).newAddrConn(0xc4200aa5a0, 0x7ffc03634b37, 0xd, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:404 +0x3c4
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.Dial.func1(0xc42031d5c0, 0x1, 0x1, 0xc4200aa5a0, 0xc420085c80)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:253 +0x79
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.Dial
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:259 +0x308
+
+goroutine 16 [select]:
+net.cgoLookupIP(0x1305f60, 0xc420085e00, 0x7ffc03634b37, 0x8, 0x30, 0x38, 0xc4203205c0, 0x0, 0xc4200aa668, 0xc420044c00)
+        /opt/go/src/net/cgo_unix.go:209 +0x2f5
+net.lookupIP(0x1305f60, 0xc420085e00, 0x7ffc03634b37, 0x8, 0xc420358678, 0x411138, 0x40, 0xc9e340, 0xc0000001)
+        /opt/go/src/net/lookup_unix.go:70 +0xf9
+net.glob..func11(0x1305f60, 0xc420085e00, 0xd86e30, 0x7ffc03634b37, 0x8, 0x13050a0, 0xc4200e9810, 0x0, 0x0, 0xc4203205c0)
+        /opt/go/src/net/hook.go:19 +0x52
+net.lookupIPContext.func1(0xc42009f8c0, 0xc42009f8c0, 0xc420358788, 0x6dc299)
+        /opt/go/src/net/lookup.go:119 +0x5c
+internal/singleflight.(*Group).doCall(0x13219f0, 0xc420318e60, 0x7ffc03634b37, 0x8, 0xc42017b9b0)
+        /opt/go/src/internal/singleflight/singleflight.go:93 +0x3c
+created by internal/singleflight.(*Group).DoChan
+        /opt/go/src/internal/singleflight/singleflight.go:86 +0x339
+!!!!!!!!!!!!!!! Channel creation failed !!!!!!!!!!!!!!!!
+================== ERROR !!! FAILED to execute End-2-End Scenario ==================

@@ -1,0 +1,356 @@
+        General.LedgerType = "file"
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/tls/server/pair/tls.key"
+        General.TLS.Certificate = "/var/hyperledger/tls/server/pair/tls.crt"
+        General.TLS.RootCAs = [/var/hyperledger/tls/server/cert/cacert.pem]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = [/etc/hyperledger/fabric]
+        General.Cluster.ListenAddress = ""
+        General.Cluster.ListenPort = 0
+        General.Cluster.ServerCertificate = ""
+        General.Cluster.ServerPrivateKey = ""
+        General.Cluster.ClientCertificate = "/var/hyperledger/tls/server/pair/tls.crt"
+        General.Cluster.ClientPrivateKey = "/var/hyperledger/tls/server/pair/tls.key"
+        General.Cluster.RootCAs = [/var/hyperledger/tls/server/cert/cacert.pem]
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+        General.Cluster.ReplicationMaxRetries = 12
+        General.Cluster.SendBufferSize = 10
+        General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+        General.Cluster.TLSHandshakeTimeShift = 0s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.ConnectionTimeout = 0s
+        General.GenesisMethod = "file"
+        General.GenesisProfile = "initial"
+        General.SystemChannel = "test-system-channel-name"
+        General.GenesisFile = "/hl_config/genesis/genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/msp"
+        General.LocalMSPID = "OrgbuyerMSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.Ephemeral = false
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/msp/keystore"
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.BCCSP.PluginOpts =
+        General.Authentication.TimeWindow = 15m0s
+        General.Authentication.NoExpirationChecks = false
+        FileLedger.Location = "/var/hyperledger/ledger"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        RAMLedger.HistorySize = 1000
+        Kafka.Retry.ShortInterval = 5s
+        Kafka.Retry.ShortTotal = 10m0s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = false
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = false
+        Kafka.TLS.PrivateKey = ""
+        Kafka.TLS.Certificate = ""
+        Kafka.TLS.RootCAs = []
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 3
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+        Operations.ListenAddress = "127.0.0.1:8443"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+^[[34m2019-09-09 05:24:03.154 UTC [orderer.common.server] extractSysChanLastConfig -> INFO 003^[[0m Bootstrapping because no existing channels
+^[[34m2019-09-09 05:24:03.158 UTC [orderer.common.server] initializeServerConfig -> INFO 004^[[0m Starting orderer with TLS enabled
+^[[34m2019-09-09 05:24:03.158 UTC [orderer.common.server] configureClusterListener -> INFO 005^[[0m Cluster listener is not configured, defaulting to use the general listener on port 7050
+^[[34m2019-09-09 05:24:03.159 UTC [fsblkstorage] newBlockfileMgr -> INFO 006^[[0m Getting block information from block storage
+^[[34m2019-09-09 05:24:03.191 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 007^[[0m EvictionSuspicion not set, defaulting to 10m0s
+^[[34m2019-09-09 05:24:03.191 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 008^[[0m No WAL data found, creating new WAL at path '/var/hyperledger/production/orderer/etcdraft/wal/testchainid' channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.208 UTC [orderer.commmon.multichannel] Initialize -> INFO 009^[[0m Starting system channel 'testchainid' with genesis block hash 855ae783c5c69cba547db8be703eb3bf741600119a9700f7915d07b92161cf53 and orderer type etcdraft
+^[[34m2019-09-09 05:24:03.208 UTC [orderer.consensus.etcdraft] Start -> INFO 00a^[[0m Starting Raft node channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.208 UTC [orderer.common.cluster] Configure -> INFO 00b^[[0m Entering, channel: testchainid, nodes: [ID: 1,
+Endpoint: orderer-2buyer-hlf-ord.blockchain-buyer.svc.cluster.local:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDBjCCAqygAwIBAgIUHgp5QPhT+ReYKkO2KJKBIFEhx5IwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxODAwWhcNMjAwOTA4MDUyMzAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIyMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAEz7IBEe+YH712X+ruH5wNr2khCQzJuOQLix29db6KRXwKvJQY
+vN4TZjJ0qNwuK/NekY9WxGYqnMYSpWyvsBd21aOCAUQwggFAMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQU0MsRY662kVYwCRIUbqh33RO8JhcwHwYDVR0jBBgwFoAUwi0w
+fSxF4gjnetE5XffAh49hluYwZAYDVR0RBF0wW4Ieb3JkZXJlcjIuYnV5ZXIuYXp1
+cmUuemVldmUubmV0gjlvcmRlcmVyLTJidXllci1obGYtb3JkLmJsb2NrY2hhaW4t
+YnV5ZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMiOnsi
+aGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVyMiIs
+ImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhAMqb7tuFrR3K
+g8RHwH6MGATGV8m8xXHjyQJ1sf0Qr4yNAiB8ycGpqPrbme53CjX87jFi5LcIlZQx
+RVAdl96DBCAV8g==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDBjCCAqygAwIBAgIUHgp5QPhT+ReYKkO2KJKBIFEhx5IwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxODAwWhcNMjAwOTA4MDUyMzAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIyMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAEz7IBEe+YH712X+ruH5wNr2khCQzJuOQLix29db6KRXwKvJQY
+vN4TZjJ0qNwuK/NekY9WxGYqnMYSpWyvsBd21aOCAUQwggFAMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQU0MsRY662kVYwCRIUbqh33RO8JhcwHwYDVR0jBBgwFoAUwi0w
+fSxF4gjnetE5XffAh49hluYwZAYDVR0RBF0wW4Ieb3JkZXJlcjIuYnV5ZXIuYXp1
+cmUuemVldmUubmV0gjlvcmRlcmVyLTJidXllci1obGYtb3JkLmJsb2NrY2hhaW4t
+YnV5ZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMiOnsi
+aGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVyMiIs
+ImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhAMqb7tuFrR3K
+g8RHwH6MGATGV8m8xXHjyQJ1sf0Qr4yNAiB8ycGpqPrbme53CjX87jFi5LcIlZQx
+RVAdl96DBCAV8g==
+-----END CERTIFICATE-----
+ ID: 3,
+Endpoint: orderer-3lender-hlf-ord.blockchain-lender.svc.cluster.local:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCTCCAq+gAwIBAgIUQzz+4nTKZrdEUCTdgsjp2qJvXZkwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIzMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAExqhrM0uXdR7G5imWrNJnWlPpjR4wpahAmUaW6IcecVfTIhyW
+ywj7RgMYZ20t8p45B2tDkfBkY3UWaA5NDqwVgKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQUvEAAdrygmkadO+jKQXJPHuTTyvcwHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjMubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0zbGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MyIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhAILc9GeD
+yQ4XNgo7qQya4svXZPsglMWjln3DY7KeoebnAiB4qma+P70rk+yRNeL5YYXbgKIL
+uTvYW7QYYA3MHL9WvA==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCTCCAq+gAwIBAgIUQzz+4nTKZrdEUCTdgsjp2qJvXZkwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIzMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAExqhrM0uXdR7G5imWrNJnWlPpjR4wpahAmUaW6IcecVfTIhyW
+ywj7RgMYZ20t8p45B2tDkfBkY3UWaA5NDqwVgKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQUvEAAdrygmkadO+jKQXJPHuTTyvcwHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjMubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0zbGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MyIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhAILc9GeD
+yQ4XNgo7qQya4svXZPsglMWjln3DY7KeoebnAiB4qma+P70rk+yRNeL5YYXbgKIL
+uTvYW7QYYA3MHL9WvA==
+-----END CERTIFICATE-----
+ ID: 4,
+Endpoint: orderer-2lender-hlf-ord.blockchain-lender.svc.cluster.local:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCTCCAq+gAwIBAgIUBqTWWfOLMRyaJNRF2q54YoQDaCswCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIyMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAE3H0rtTVv43NRkAOk0L4CpJU7s5CfzZ+AhIxSoSHfkzJlTQX6
+EhW6/nP1GueDyvPK0qKEtrVWHr8kyD4FH8dpTKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQUi68WC5oUUZGAO/5up/m2t8VFNyswHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjIubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0ybGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MiIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhANxW/yY5
+cYXWkbXbv3ttAuKvNpabtcXxTgvhOuEMMa5VAiB6plX/agLJS9t16dFfsX4aXGad
+18jJTyEMX6xmuoW0Ew==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCTCCAq+gAwIBAgIUBqTWWfOLMRyaJNRF2q54YoQDaCswCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIyMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAE3H0rtTVv43NRkAOk0L4CpJU7s5CfzZ+AhIxSoSHfkzJlTQX6
+EhW6/nP1GueDyvPK0qKEtrVWHr8kyD4FH8dpTKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQUi68WC5oUUZGAO/5up/m2t8VFNyswHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjIubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0ybGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MiIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDSAAwRQIhANxW/yY5
+cYXWkbXbv3ttAuKvNpabtcXxTgvhOuEMMa5VAiB6plX/agLJS9t16dFfsX4aXGad
+18jJTyEMX6xmuoW0Ew==
+-----END CERTIFICATE-----
+ ID: 5,
+Endpoint: orderer-1lender-hlf-ord.blockchain-lender.svc.cluster.local:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCDCCAq+gAwIBAgIUBXwvWl34KvJ4PB6KiFsWWVzktUUwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIxMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAE7Cja9KGusL5mAVBAFkiTKHwBZ5RVY6CTIqYHrixIsnYb3ONx
+EP8nEnVfBbzdbLU/peAb3tK0YJoAwx32sHjAfKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQU5xuVcY7IN6g8B+orFxlLTsWhDa4wHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjEubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0xbGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MSIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDRwAwRAIgNpdb7qXv
+7dPxGiCxRNdqM2T0iELgJFl8NaFnx6EnJm4CIGEbE8LDoqxLvjuYmstpP+UkSGzt
+GnRkTTLiEJbvU7iX
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIDCDCCAq+gAwIBAgIUBXwvWl34KvJ4PB6KiFsWWVzktUUwCgYIKoZIzj0EAwIw
+XjELMAkGA1UEBhMCSU4xCzAJBgNVBAgTAlVQMQ4wDAYDVQQHEwVOT0lEQTEQMA4G
+A1UEChMHc29mb2NsZTETMBEGA1UECxMKYmxvY2tjaGFpbjELMAkGA1UEAxMCY2Ew
+HhcNMTkwOTA5MDUxOTAwWhcNMjAwOTA4MDUyNDAwWjBgMQswCQYDVQQGEwJJTjEL
+MAkGA1UECBMCVVAxDjAMBgNVBAcTBU5PaWRhMRAwDgYDVQQKEwdTb2ZvY2xlMQ8w
+DQYDVQQLEwZjbGllbnQxETAPBgNVBAMTCG9yZGVyZXIxMFkwEwYHKoZIzj0CAQYI
+KoZIzj0DAQcDQgAE7Cja9KGusL5mAVBAFkiTKHwBZ5RVY6CTIqYHrixIsnYb3ONx
+EP8nEnVfBbzdbLU/peAb3tK0YJoAwx32sHjAfKOCAUcwggFDMA4GA1UdDwEB/wQE
+AwIDqDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIw
+ADAdBgNVHQ4EFgQU5xuVcY7IN6g8B+orFxlLTsWhDa4wHwYDVR0jBBgwFoAUdXEr
+ZFxIWf3bEcChkaUY9i+EGoIwZwYDVR0RBGAwXoIfb3JkZXJlcjEubGVuZGVyLmF6
+dXJlLnplZXZlLm5ldII7b3JkZXJlci0xbGVuZGVyLWhsZi1vcmQuYmxvY2tjaGFp
+bi1sZW5kZXIuc3ZjLmNsdXN0ZXIubG9jYWwwWwYIKgMEBQYHCAEET3siYXR0cnMi
+OnsiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVy
+MSIsImhmLlR5cGUiOiJjbGllbnQifX0wCgYIKoZIzj0EAwIDRwAwRAIgNpdb7qXv
+7dPxGiCxRNdqM2T0iELgJFl8NaFnx6EnJm4CIGEbE8LDoqxLvjuYmstpP+UkSGzt
+GnRkTTLiEJbvU7iX
+-----END CERTIFICATE-----
+]
+^[[34m2019-09-09 05:24:03.208 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00c^[[0m Allocating a new stub for node 1 with endpoint of orderer-2buyer-hlf-ord.blockchain-buyer.svc.cluster.local:7050 for channel testchainid
+^[[34m2019-09-09 05:24:03.208 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00d^[[0m Deactivating node 1 in channel testchainid with endpoint of orderer-2buyer-hlf-ord.blockchain-buyer.svc.cluster.local:7050 due to TLS certificate change
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00e^[[0m Allocating a new stub for node 3 with endpoint of orderer-3lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 for channel testchainid
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00f^[[0m Deactivating node 3 in channel testchainid with endpoint of orderer-3lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 due to TLS certificate change
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 010^[[0m Allocating a new stub for node 4 with endpoint of orderer-2lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 for channel testchainid
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 011^[[0m Deactivating node 4 in channel testchainid with endpoint of orderer-2lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 due to TLS certificate change
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 012^[[0m Allocating a new stub for node 5 with endpoint of orderer-1lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 for channel testchainid
+^[[34m2019-09-09 05:24:03.209 UTC [orderer.common.cluster] updateStubInMapping -> INFO 013^[[0m Deactivating node 5 in channel testchainid with endpoint of orderer-1lender-hlf-ord.blockchain-lender.svc.cluster.local:7050 due to TLS certificate change
+^[[34m2019-09-09 05:24:03.212 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 014^[[0m 4 exists in both old and new membership for channel testchainid , skipping its deactivation
+^[[34m2019-09-09 05:24:03.212 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 015^[[0m 5 exists in both old and new membership for channel testchainid , skipping its deactivation
+^[[34m2019-09-09 05:24:03.212 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 016^[[0m 1 exists in both old and new membership for channel testchainid , skipping its deactivation
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 017^[[0m 3 exists in both old and new membership for channel testchainid , skipping its deactivation
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.common.cluster] Configure -> INFO 018^[[0m Exiting
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.consensus.etcdraft] start -> INFO 019^[[0m Starting raft node as part of a new channel channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 01a^[[0m 2 became follower at term 0 channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.consensus.etcdraft] newRaft -> INFO 01b^[[0m newRaft 2 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 01c^[[0m 2 became follower at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.214 UTC [orderer.common.server] Start -> INFO 01d^[[0m Starting orderer:
+ Version: 1.4.3
+ Commit SHA: b8c4a6a
+ Go version: go1.11.5
+ OS/Arch: linux/amd64
+^[[34m2019-09-09 05:24:03.215 UTC [orderer.common.server] Start -> INFO 01e^[[0m Beginning to serve requests
+^[[34m2019-09-09 05:24:03.257 UTC [orderer.consensus.etcdraft] apply -> INFO 01f^[[0m Applied config change to add node 1, current nodes in channel: [1 2 3 4 5] channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.257 UTC [orderer.consensus.etcdraft] apply -> INFO 020^[[0m Applied config change to add node 2, current nodes in channel: [1 2 3 4 5] channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.257 UTC [orderer.consensus.etcdraft] apply -> INFO 021^[[0m Applied config change to add node 3, current nodes in channel: [1 2 3 4 5] channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.257 UTC [orderer.consensus.etcdraft] apply -> INFO 022^[[0m Applied config change to add node 4, current nodes in channel: [1 2 3 4 5] channel=testchainid node=2
+^[[34m2019-09-09 05:24:03.257 UTC [orderer.consensus.etcdraft] apply -> INFO 023^[[0m Applied config change to add node 5, current nodes in channel: [1 2 3 4 5] channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.715 UTC [orderer.consensus.etcdraft] Step -> INFO 024^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.715 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 025^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.715 UTC [orderer.consensus.etcdraft] poll -> INFO 026^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 027^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 028^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] campaign -> INFO 029^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] campaign -> INFO 02a^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[31m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02b^[[0m Failed to send StepRequest to 3, because: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp: lookup orderer-3lender-hlf-ord.blockchain-lender.svc.cluster.local on 10.0.0.10:53: no such host" channel=testchainid node=2
+^[[31m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02c^[[0m Failed to send StepRequest to 4, because: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp: lookup orderer-2lender-hlf-ord.blockchain-lender.svc.cluster.local on 10.0.0.10:53: no such host" channel=testchainid node=2
+^[[31m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02d^[[0m Failed to send StepRequest to 5, because: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp: lookup orderer-1lender-hlf-ord.blockchain-lender.svc.cluster.local on 10.0.0.10:53: no such host" channel=testchainid node=2
+^[[31m2019-09-09 05:24:08.716 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02e^[[0m Failed to send StepRequest to 1, because: connection to 1(orderer-2buyer-hlf-ord.blockchain-buyer.svc.cluster.local:7050) is in state CONNECTING channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] Step -> INFO 02f^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 030^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] poll -> INFO 031^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 032^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 033^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 034^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:14.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 035^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] Step -> INFO 036^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 037^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] poll -> INFO 038^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 039^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 03a^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 03b^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:19.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 03c^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] Step -> INFO 03d^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 03e^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] poll -> INFO 03f^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 040^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 041^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 042^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 043^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:25.215 UTC [orderer.consensus.etcdraft] send -> INFO 044^[[0m Successfully sent StepRequest to 1 after failed attempt(s) channel=testchainid node=2
+^[[31m2019-09-09 05:24:28.586 UTC [core.comm] ServerHandshake -> ERRO 045^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.83:44426
+^[[31m2019-09-09 05:24:28.870 UTC [core.comm] ServerHandshake -> ERRO 046^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.2.253:33690
+^[[31m2019-09-09 05:24:29.916 UTC [core.comm] ServerHandshake -> ERRO 047^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.83:44450
+^[[34m2019-09-09 05:24:30.225 UTC [orderer.consensus.etcdraft] Step -> INFO 048^[[0m 2 [logterm: 1, index: 5, vote: 0] cast MsgPreVote for 1 [logterm: 1, index: 5] at term 1 channel=testchainid node=2
+^[[31m2019-09-09 05:24:30.233 UTC [core.comm] ServerHandshake -> ERRO 049^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.2.253:33720
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] Step -> INFO 04a^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 04b^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] poll -> INFO 04c^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 04d^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 04e^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 04f^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.715 UTC [orderer.consensus.etcdraft] campaign -> INFO 050^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.717 UTC [orderer.consensus.etcdraft] poll -> INFO 051^[[0m 2 received MsgPreVoteResp from 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:30.717 UTC [orderer.consensus.etcdraft] stepCandidate -> INFO 052^[[0m 2 [quorum:3] has received 2 MsgPreVoteResp votes and 0 vote rejections channel=testchainid node=2
+^[[31m2019-09-09 05:24:32.471 UTC [core.comm] ServerHandshake -> ERRO 053^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.2.253:33742
+^[[31m2019-09-09 05:24:32.776 UTC [core.comm] ServerHandshake -> ERRO 054^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.83:44480
+^[[31m2019-09-09 05:24:33.010 UTC [core.comm] ServerHandshake -> ERRO 055^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.84:39540
+^[[31m2019-09-09 05:24:34.425 UTC [core.comm] ServerHandshake -> ERRO 056^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.84:39544
+^[[34m2019-09-09 05:24:35.223 UTC [orderer.consensus.etcdraft] Step -> INFO 057^[[0m 2 [logterm: 1, index: 5, vote: 0] cast MsgPreVote for 1 [logterm: 1, index: 5] at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] Step -> INFO 058^[[0m 2 is starting a new election at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 059^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] poll -> INFO 05a^[[0m 2 received MsgPreVoteResp from 2 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 05b^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 05c^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 05d^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.215 UTC [orderer.consensus.etcdraft] campaign -> INFO 05e^[[0m 2 [logterm: 1, index: 5] sent MsgPreVote request to 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.217 UTC [orderer.consensus.etcdraft] poll -> INFO 05f^[[0m 2 received MsgPreVoteResp from 1 at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:24:36.217 UTC [orderer.consensus.etcdraft] stepCandidate -> INFO 060^[[0m 2 [quorum:3] has received 2 MsgPreVoteResp votes and 0 vote rejections channel=testchainid node=2
+^[[31m2019-09-09 05:24:36.630 UTC [core.comm] ServerHandshake -> ERRO 061^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.2.253:33772
+^[[31m2019-09-09 05:24:36.881 UTC [core.comm] ServerHandshake -> ERRO 062^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.84:39578
+^[[31m2019-09-09 05:24:37.220 UTC [core.comm] ServerHandshake -> ERRO 063^[[0m TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=10.244.1.83:44528
+^[[34m2019-09-09 05:24:40.224 UTC [orderer.consensus.etcdraft] Step -> INFO 064^[[0m 2 [logterm: 1, index: 5, vote: 0] cast MsgPreVote for 1 [logterm: 1, index: 5] at term 1 channel=testchainid node=2
+^[[34m2019-09-09 05:26:48.215 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 170^[[0m 2 became pre-candidate at term 1 channel=testchainid node=2
+~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+~                                                                                                                                                            

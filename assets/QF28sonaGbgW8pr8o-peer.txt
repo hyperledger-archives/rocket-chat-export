@@ -1,0 +1,27 @@
+mbp:~ ry$ brew update
+Already up-to-date.
+mbp:~ ry$ brew tap rjones-lf/fabric
+==> Tapping rjones-lf/fabric
+Cloning into '/usr/local/Homebrew/Library/Taps/rjones-lf/homebrew-fabric'...
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 1), reused 6 (delta 1), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+Tapped 1 formula (33 files, 40KB)
+mbp:~ ry$ brew install fabric-tools
+==> Installing fabric-tools from rjones-lf/fabric
+==> Downloading https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/darwin-amd64-1.0.0-rc1/hyperledger-fa
+######################################################################## 100.0%
+🍺  /usr/local/Cellar/fabric-tools/1.0.0-rc1: 6 files, 59.4MB, built in 9 seconds
+mbp:~ ry$ which peer
+/usr/local/bin/peer
+mbp:~ ry$ peer
+panic: Fatal error when initializing core config : Error when reading core config file: Unsupported Config Type ""
+
+
+goroutine 1 [running]:
+panic(0x7929c0, 0xc420216d50)
+	/opt/go/go1.7.linux.amd64/src/runtime/panic.go:500 +0x1a1
+main.main()
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/peer/main.go:94 +0x852
+mbp:~ ry$ 

@@ -1,0 +1,220 @@
+# Copyright 2018 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ------------------------------------------------------------------------------
+
+version: '3'
+
+services:
+  seth-cli:
+    build:
+      context: .
+      dockerfile: ./cli/Dockerfile
+      args:
+        - ISOLATION_ID=${ISOLATION_ID}
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: sawtooth-seth-cli:${ISOLATION_ID}
+    container_name: seth-cli
+    volumes:
+      - ./contracts:/project/sawtooth-seth/contracts
+      - sawtooth:/root/.sawtooth
+    depends_on:
+      - validator
+    working_dir: /project/sawtooth-seth
+    entrypoint: |
+      bash -c "
+        seth config init --url http://seth-rpc:3030
+        tail -f /dev/null
+      "
+
+  seth-cli-go:
+    build:
+      context: .
+      dockerfile: ./cli-go/Dockerfile
+      args:
+        - ISOLATION_ID=${ISOLATION_ID}
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: sawtooth-seth-cli-go:${ISOLATION_ID}
+    container_name: seth-cli-go
+    volumes:
+      - ./contracts:/project/sawtooth-seth/contracts
+    depends_on:
+      - rest-api
+    working_dir: /project/sawtooth-seth
+    entrypoint: |
+      bash -c "
+        seth init http://rest-api:8080 &&
+        if [ ! -f /root/.sawtooth/keys/root.priv ]; then
+        sawtooth keygen
+        fi;
+        tail -f /dev/null
+      "
+
+  seth-tp:
+    build:
+      context: .
+      dockerfile: ./processor/Dockerfile
+      args:
+        - ISOLATION_ID=${ISOLATION_ID}
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    tty: true
+    stdin_open: true
+    image: sawtooth-seth-tp:${ISOLATION_ID}
+    container_name: seth-tp
+    depends_on:
+      - validator
+    command: |
+      bash -c "
+        seth-tp -vv \
+          -C tcp://validator:4004
+      "
+
+  block-info-tp:
+    image: hyperledger/sawtooth-block-info-tp:nightly
+    container_name: block-info-tp
+    depends_on:
+      - validator
+    command: block-info-tp -vv --connect tcp://validator:4004
+
+  settings-tp:
+    image: hyperledger/sawtooth-settings-tp:nightly
+    container_name: settings-tp
+    depends_on:
+      - validator
+    command: settings-tp -vv --connect tcp://validator:4004
+
+  rest-api:
+    image: hyperledger/sawtooth-rest-api:nightly
+    container_name: rest-api
+    ports:
+      - '8080:8080'
+    depends_on:
+      - validator
+    entrypoint: |
+      sawtooth-rest-api -vv
+        --connect tcp://validator:4004
+        --bind rest-api:8080
+
+  # devmode-rust:
+  #   image: hyperledger/sawtooth-devmode-engine-rust:nightly
+  #   container_name: devmode-engine-rust
+  #   depends_on:
+  #     - validator
+  #   command: devmode-engine-rust -v --connect tcp://validator:5050
+
+  poet-validator-registry-tp:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.1
+    container_name: sawtooth-poet-validator-registry-tp
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -C tcp://validator:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-engine:
+    image: hyperledger/sawtooth-poet-engine:1.1
+    container_name: sawtooth-poet-engine
+    volumes:
+      - poet-shared:/poet-shared
+    command: "bash -c \"\
+        while [ ! -f /poet-shared/validator/keys/validator.priv ]; do sleep 1; done && \
+        cp -a /poet-shared/validator/keys /etc/sawtooth && \
+        poet-engine -C tcp://validator:5050 --component tcp://validator:4004 \
+    \""
+
+
+  validator:
+    image: hyperledger/sawtooth-validator:nightly
+    container_name: sawtooth-validator
+    ports:
+      - '4004:4004/tcp'
+      - 8800
+    command: |
+      bash -c "
+        sawadm keygen --force && \
+        mkdir -p /poet-shared/validator-0 || true && \
+        cp -a /etc/sawtooth/keys /poet-shared/validator/ && \
+        while [ ! -f /poet-shared/poet-enclave-measurement ]; do sleep 1; done && \
+        while [ ! -f /poet-shared/poet-enclave-basename ]; do sleep 1; done && \
+        while [ ! -f /poet-shared/poet.batch ]; do sleep 1; done && \
+        cp /poet-shared/poet.batch / && \
+        
+        if [ ! -f /etc/keys/validator.priv ]; then
+        sawset genesis \
+          -k /etc/sawtooth/keys/validator.priv \
+          -o config-genesis.batch &&
+        
+        sawset proposal create \
+          -k /etc/sawtooth/keys/validator.priv \
+          sawtooth.consensus.algorithm.name=PoET \
+          sawtooth.consensus.algorithm.version=0.1 \
+          sawtooth.poet.report_public_key_pem=\
+          \\\"$$(cat /poet-shared/simulator_rk_pub.pem)\\\" \
+          sawtooth.poet.valid_enclave_measurements=$$(cat /poet-shared/poet-enclave-measurement) \
+          sawtooth.poet.valid_enclave_basenames=$$(cat /poet-shared/poet-enclave-basename) \
+          -o config.batch &&
+
+        sawset proposal create \
+          -k /etc/sawtooth/keys/validator.priv \
+             sawtooth.poet.target_wait_time=5 \
+             sawtooth.poet.initial_wait_time=25 \
+             sawtooth.publisher.max_batches_per_block=100 \
+          -o poet-settings.batch && \
+
+        
+        sawadm genesis config-genesis.batch config.batch poet.batch poet-settings.batch
+        fi;
+        sawtooth-validator -vv \
+            --endpoint tcp://validator:8800 \
+            --bind component:tcp://eth0:4004 \
+            --bind network:tcp://eth0:8800 \
+            --bind consensus:tcp://eth0:5050
+      "
+    environment:
+      PYTHONPATH: "/project/sawtooth-core/consensus/poet/common:\
+        /project/sawtooth-core/consensus/poet/simulator:\
+        /project/sawtooth-core/consensus/poet/core"
+    
+
+  seth-rpc:
+    build:
+      context: .
+      dockerfile: ./rpc/Dockerfile
+      args:
+        - ISOLATION_ID=${ISOLATION_ID}
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: sawtooth-seth-rpc:${ISOLATION_ID}
+    container_name: seth-rpc
+    volumes:
+      - sawtooth:/root/.sawtooth
+    depends_on:
+      - validator
+    ports:
+      - 3030:3030
+    command: |
+      bash -c "
+        seth-rpc --connect tcp://validator:4004 --bind 0.0.0.0:3030
+      "
+
+volumes:
+  sawtooth:
+  poet-shared:

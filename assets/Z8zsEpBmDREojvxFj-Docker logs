@@ -1,0 +1,69 @@
+iiw-book-agent_1     | 2020-02-19 14:24:03,435 aries_cloudagent.ledger.indy WARNING Credential definition 4QxzWk3ajdnEA37NdNU5Kt:3:CL:1068:default already exists on ledger default
+iiw-book-agent_1     | 2020-02-19 14:24:03,436 indy.anoncreds DEBUG issuer_create_credential_offer: >>> wallet_handle: 3, cred_def_id: '4QxzWk3ajdnEA37NdNU5Kt:3:CL:1068:default'
+iiw-book-agent_1     | 2020-02-19 14:24:03,441 indy.anoncreds DEBUG issuer_create_credential_offer: Creating callback
+iiw-book-agent_1     | 2020-02-19 14:24:03,442 indy.libindy DEBUG create_cb: >>> cb_type: <class 'ctypes.CFUNCTYPE.<locals>.CFunctionType'>
+iiw-book-agent_1     | 2020-02-19 14:24:03,442 indy.libindy DEBUG _indy_callback: <<<
+iiw-book-agent_1     | 2020-02-19 14:24:03,442 indy.libindy DEBUG create_cb: <<< res: <CFunctionType object at 0x7effc50389a8>
+iiw-book-agent_1     | 2020-02-19 14:24:03,443 indy.libindy DEBUG do_call: >>> name: indy_issuer_create_credential_offer, args: (c_int(3), c_char_p(139636987069136), <CFunctionType object at 0x7effc50389a8>)
+iiw-book-agent_1     | 2020-02-19 14:24:03,443 indy.libindy.native.indy.commands DEBUG 	src/commands/mod.rs:126 | AnoncredsCommand command received
+iiw-book-agent_1     | 2020-02-19 14:24:03,443 indy.libindy.native.anoncreds_command_executor DEBUG 	src/commands/anoncreds/mod.rs:56 | Issuer command received
+iiw-book-agent_1     | 2020-02-19 14:24:03,443 indy.libindy.native.issuer_command_executor DEBUG 	src/commands/anoncreds/issuer.rs:211 | CreateCredentialOffer command received
+iiw-book-agent_1     | 2020-02-19 14:24:03,443 indy.libindy.native.indy.commands.anoncreds.issuer DEBUG 	src/commands/anoncreds/issuer.rs:644 | create_credential_offer >>> wallet_handle: 3, cred_def_id: CredentialDefinitionId("4QxzWk3ajdnEA37NdNU5Kt:3:CL:1068:default")
+iiw-book-agent_1     | 2020-02-19 14:24:03,444 indy.libindy DEBUG _get_error_details: >>>
+iiw-book-agent_1     | 2020-02-19 14:24:03,444 indy.libindy DEBUG _get_error_details: <<< error_details: {'backtrace': '', 'message': 'Error: Wallet item not found\n  Caused by: Item not found\n  Caused by: Query returned no rows\n'}
+iiw-book-agent_1     | 2020-02-19 14:24:03,444 indy.libindy DEBUG _indy_callback: >>> command_handle: 37, err , args: (b'',)
+iiw-book-agent_1     | 2020-02-19 14:24:03,445 indy.libindy DEBUG _indy_callback: <<<
+iiw-book-agent_1     | 2020-02-19 14:24:03,445 indy.libindy DEBUG do_call: Function indy_issuer_create_credential_offer returned err: 0
+iiw-book-agent_1     | 2020-02-19 14:24:03,445 indy.libindy DEBUG do_call: <<< <Future pending>
+iiw-book-agent_1     | 2020-02-19 14:24:03,445 indy.libindy DEBUG _indy_loop_callback: >>> command_handle: 37, err , args: (b'',)
+iiw-book-agent_1     | 2020-02-19 14:24:03,452 indy.libindy WARNING _indy_loop_callback: Function returned error 
+iiw-book-agent_1     | 2020-02-19 14:24:03,456 indy.libindy DEBUG _indy_loop_callback <<<
+iiw-book-agent_1     | 2020-02-19 14:24:03,464 aries_cloudagent.core.dispatcher ERROR Handler error: credential_definitions_send_credential_definition
+iiw-book-agent_1     | Traceback (most recent call last):
+iiw-book-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/messaging/credential_definitions/routes.py", line 115, in credential_definitions_send_credential_definition
+iiw-book-agent_1     |     ledger.send_credential_definition(schema_id, tag)
+iiw-book-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 532, in send_credential_definition
+iiw-book-agent_1     |     f"Credential definition {credential_definition_id} is on "
+iiw-book-agent_1     | aries_cloudagent.ledger.error.LedgerError: Credential definition 4QxzWk3ajdnEA37NdNU5Kt:3:CL:1068:default is on ledger default but not in wallet default
+iiw-book-agent_1     | 2020-02-19 14:24:03,466 aiohttp.server ERROR Error handling request
+iiw-book-agent_1     | Traceback (most recent call last):
+iiw-book-agent_1     |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+iiw-book-agent_1     |     resp = await task
+iiw-book-agent_1     |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+iiw-book-agent_1     |     resp = await handler(request)
+iiw-book-agent_1     |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_middlewares.py", line 119, in impl
+iiw-book-agent_1     |     return await handler(request)
+iiw-book-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/admin/server.py", line 187, in apply_limiter
+iiw-book-agent_1     |     return await task
+iiw-book-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/messaging/credential_definitions/routes.py", line 115, in credential_definitions_send_credential_definition
+iiw-book-agent_1     |     ledger.send_credential_definition(schema_id, tag)
+iiw-book-agent_1     |   File "/home/indy/src/aries-cloudagent/aries_cloudagent/ledger/indy.py", line 532, in send_credential_definition
+iiw-book-agent_1     |     f"Credential definition {credential_definition_id} is on "
+iiw-book-agent_1     | aries_cloudagent.ledger.error.LedgerError: Credential definition 4QxzWk3ajdnEA37NdNU5Kt:3:CL:1068:default is on ledger default but not in wallet default
+iiw-book-service_1   | INFO 2020-02-19 14:24:03,473 apps 30 140098540341056 500 Internal Server Error
+iiw-book-service_1   | 
+iiw-book-service_1   | Server got itself in trouble
+iiw-book-service_1   | Traceback (most recent call last):
+iiw-book-service_1   |   File "./manage.py", line 21, in <module>
+iiw-book-service_1   |     main()
+iiw-book-service_1   |   File "./manage.py", line 17, in main
+iiw-book-service_1   |     execute_from_command_line(sys.argv)
+iiw-book-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/management/__init__.py", line 381, in execute_from_command_line
+iiw-book-service_1   |     utility.execute()
+iiw-book-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+iiw-book-service_1   |     django.setup()
+iiw-book-agent_1     | 2020-02-19 14:24:03,481 aiohttp.access INFO 172.25.0.5 [19/Feb/2020:14:24:03 +0000] "POST /credential-definitions HTTP/1.1" 500 244 "-" "python-requests/2.21.0"
+iiw-book-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+iiw-book-service_1   |     apps.populate(settings.INSTALLED_APPS)
+iiw-book-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+iiw-book-service_1   |     app_config.ready()
+iiw-book-service_1   |   File "/opt/app-root/src/iiw_book/apps.py", line 45, in ready
+iiw-book-service_1   |     credential_definition_response_body = credential_definition_response.json()
+iiw-book-service_1   |   File "/opt/app-root/lib/python3.6/site-packages/requests/models.py", line 897, in json
+iiw-book-service_1   |     return complexjson.loads(self.text, **kwargs)
+iiw-book-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+iiw-book-service_1   |     return _default_decoder.decode(s)
+iiw-book-service_1   |   File "/opt/rh/rh-python36/root/usr/lib64/python3.6/json/decoder.py", line 342, in decode
+iiw-book-service_1   |     raise JSONDecodeError("Extra data", s, end)
+iiw-book-service_1   | json.decoder.JSONDecodeError: Extra data: line 1 column 5 (char 4)
+docker_iiw-book-service_1 exited with code 1

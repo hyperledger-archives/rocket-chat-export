@@ -1,0 +1,127 @@
+Hello there. I have been running into a problem when trying to accept a mediation connection request through a connection URL on a multitenant agent. Errors are being thrown on both the mediator and multitenant side.
+
+Here is the command I am running on the mediator side: 
+```
+  aca-py start \
+  --endpoint http://localhost:3008/ \
+  --label flexMediator \
+  --inbound-transport http 0.0.0.0 8020 \
+  --outbound-transport http \
+  --webhook-url http://localhost:3008/ \
+  --admin 0.0.0.0 3008 \
+  --admin-insecure-mode \
+  --genesis-url https://raw.githubusercontent.com/sovrin-foundation/sovrin/master/sovrin/pool_transactions_builder_genesis \
+  --wallet-type indy \
+  --wallet-name flexMediator \
+  --wallet-key flexKey \
+  --auto-provision \
+  --open-mediation \
+  --invite \
+  --invite-multi-use \
+  --invite-label mediationInvite \
+  --auto-accept-invites \
+  --auto-accept-requests \
+  --seed kQKZX3UR5c7zmWi28oXlBnTlHYwIt3N1
+``` 
+Here is the error being output on the mediator side:
+```
+2022-01-28 10:52:27,545 aries_cloudagent.admin.server ERROR Handler error with exception: Not Found
+
+=================
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aries_cloudagent/admin/server.py", line 163, in ready_middleware
+    return await handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aries_cloudagent/admin/server.py", line 200, in debug_middleware
+    return await handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp_apispec/middlewares.py", line 22, in validation_middleware
+    return await handler(request)
+  File "/usr/local/lib/python3.9/site-packages/aries_cloudagent/admin/server.py", line 391, in setup_context
+    return await task
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_urldispatcher.py", line 927, in _handle
+    raise self._http_exception
+aiohttp.web_exceptions.HTTPNotFound: Not Found
+2022-01-28 10:52:27,549 aries_cloudagent.transport.outbound.manager ERROR >>> Error when posting to: http://localhost:3008//topic/connections/; Error: (<class 'aries_cloudagent.transport.outbound.base.OutboundTransportError'>, OutboundTransportError('Unexpected response status 404, caused by: Not Found'), <traceback object at 0x1098c9180>); Re-queue failed message ...
+2022-01-28 10:52:37,557 aries_cloudagent.admin.server ERROR Handler error with exception: Not Found
+``` 
+
+Here is the command I am running for the multitenant agent:
+```
+aca-py start \
+  --endpoint http://localhost:3005/ \
+  --label flexAdmin \
+  --inbound-transport http 0.0.0.0 8000 \
+  --outbound-transport http \
+  --webhook-url http://localhost:3005/ \
+  --admin 0.0.0.0 3006 \
+  --admin-insecure-mode \
+  --genesis-url https://raw.githubusercontent.com/sovrin-foundation/sovrin/master/sovrin/pool_transactions_builder_genesis \
+  --wallet-type indy \
+  --wallet-name flexIdentityAdmin \
+  --wallet-key flexKey \
+  --auto-provision \
+  --multitenant \
+  --multitenant-admin \
+  --jwt-secret test \
+  --mediator-invitation http://localhost:3008/?oob=eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9vdXQtb2YtYmFuZC8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiOWJiNjYwMTAtYTIwYy00NmQyLWE5ZWQtMGVlMDNkYTdmMzI2IiwgImxhYmVsIjogIm1lZGlhdGlvbkludml0ZSIsICJoYW5kc2hha2VfcHJvdG9jb2xzIjogWyJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9kaWRleGNoYW5nZS8xLjAiXSwgInNlcnZpY2VzIjogW3siaWQiOiAiI2lubGluZSIsICJ0eXBlIjogImRpZC1jb21tdW5pY2F0aW9uIiwgInJlY2lwaWVudEtleXMiOiBbImRpZDprZXk6ejZNa3RMSmkxM2tDcEhram9Rb0hYYWhXaVJNb3ZlRDhwc3VUMlNQdnNXR0I4ZmhaIl0sICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cDovL2xvY2FsaG9zdDozMDA4LyJ9XX0=
+``` 
+Here is the error I am getting from the multitenant agent:
+
+First it repeats this:
+```
+2022-01-28 11:37:53,230 aries_cloudagent.transport.outbound.manager ERROR >>> Error when posting to: http://localhost:3005//topic/connections/; Error: (<class 'aiohttp.client_exceptions.ClientConnectorError'>, ClientConnectorError(ConnectionKey(host='localhost', port=3005, is_ssl=False, ssl=None, proxy=None, proxy_auth=None, proxy_headers_hash=None), ConnectionRefusedError(61, "Connect call failed ('127.0.0.1', 3005)")), <traceback object at 0x10b5a7300>); Re-queue failed message ...
+Attempting to connect to mediator...
+``` 
+Then it shows this:
+```
+2022-01-28 11:38:33,367 aries_cloudagent.transport.outbound.manager ERROR >>> Outbound message failed to deliver, NOT Re-queued.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 969, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore  # noqa
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1056, in create_connection
+    raise exceptions[0]
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1041, in create_connection
+    sock = await self._connect_sock(
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 955, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 502, in sock_connect
+    return await fut
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 537, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 3005)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aries_cloudagent/transport/outbound/http.py", line 80, in handle_message
+    async with self.client_session.post(
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/client.py", line 1117, in __aenter__
+    self._resp = await self._coro
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/client.py", line 520, in _request
+    conn = await self._connector.connect(
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 535, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 892, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 1051, in _create_direct_connection
+    raise last_exc
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 1020, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 975, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:3005 ssl:default [Connect call failed ('127.0.0.1', 3005)]
+2022-01-28 11:38:33,410 aries_cloudagent.transport.outbound.manager ERROR Outbound message could not be delivered to http://localhost:3005//topic/connections/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/connector.py", line 969, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore  # noqa
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1056, in create_connection
+    raise exceptions[0]
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1041, in create_connection
+    sock = await self._connect_sock(
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 955, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 502, in sock_connect
+    return await fut
+  File "/usr/local/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 537, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 3005)
+```

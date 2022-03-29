@@ -1,0 +1,174 @@
+There you go:
+configtx.yml
+```
+Organizations:
+    - &Audit
+        Name: Audit
+        ID: AuditMSP
+        MSPDir: crypto-config/ordererOrganizations/audit.blockit.co/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('AuditMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('AuditMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('AuditMSP.admin')"
+    - &BlockIT
+        Name: BlockIT
+        ID: BlockITMSP
+        MSPDir: crypto-config/peerOrganizations/blockit.co/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('BlockITMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('BlockITMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('BlockITMSP.member')"
+
+        AnchorPeers:
+            - Host: test_peer1
+              Port: 8051
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V1_4_3: true
+        V1_3: false
+        V1_1: false
+    Orderer: &OrdererCapabilities
+        V1_4_2: true
+        V1_1: false
+    Application: &ApplicationCapabilities
+        V1_4_2: true
+        V1_3: false
+        V1_2: false
+        V1_1: false
+
+Application: &ApplicationDefaults
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "ANY Endorsement"
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+    OrdererType: etcdraft
+    EtcdRaft:
+        Consenters:
+          - Host: test_orderer0
+            Port: 7050
+            ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer0/tls/server.crt
+            ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer0/tls/server.crt
+          - Host: test_orderer1
+            Port: 7050
+            ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer1/tls/server.crt
+            ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer1/tls/server.crt
+          - Host: test_orderer2
+            Port: 7050
+            ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer2/tls/server.crt
+            ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer2/tls/server.crt
+    Addresses:
+        - test_orderer0:7050
+        - test_orderer1:7050
+        - test_orderer2:7050
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Readers"
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+
+Channel: &ChannelDefaults
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Readers"
+    Capabilities:
+        <<: *ChannelCapabilities
+
+Profiles:
+
+    Channel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *BlockIT
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    MultiNodeEtcdRaft:
+        <<: *ChannelDefaults
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            OrdererType: etcdraft
+            EtcdRaft:
+                Consenters:
+                    - Host: test_orderer0
+                      Port: 7050
+                      ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer0/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer0/tls/server.crt
+                    - Host: test_orderer1
+                      Port: 7050
+                      ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer1/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer1/tls/server.crt
+                    - Host: test_orderer2
+                      Port: 7050
+                      ClientTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer2/tls/server.crt
+                      ServerTLSCert: crypto-config/ordererOrganizations/audit.blockit.co/orderers/test_orderer2/tls/server.crt
+            Addresses:
+                - test_orderer0:7050
+                - test_orderer1:7050
+                - test_orderer2:7050
+                          
+            Organizations:
+            - *Audit
+            Capabilities:
+                <<: *OrdererCapabilities
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+            - <<: *Audit
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                - *BlockIT
+```

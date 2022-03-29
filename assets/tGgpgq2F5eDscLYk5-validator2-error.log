@@ -1,0 +1,62 @@
+[10:26:05.335 [MainThread] cli ERROR] Can't bind to tcp://10.0.2.16:8800: Cannot assign requested address
+[10:26:14.645 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 512, in setup
+    self._socket.bind(self._address)
+  File "zmq/backend/cython/socket.pyx", line 487, in zmq.backend.cython.socket.Socket.bind (zmq/backend/cython/socket.c:5156)
+  File "zmq/backend/cython/checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc (zmq/backend/cython/socket.c:7535)
+zmq.error.ZMQError: Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 516, in setup
+    str(e)))
+sawtooth_validator.exceptions.LocalConfigurationError: Can't bind to tcp://10.0.2.16:8800: Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 280, in main
+    sys.exit(1)
+SystemExit: 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt
+[10:32:25.234 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt
+[10:33:46.704 [Thread-47] handlers ERROR] ConsensusStateGet
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/handlers.py", line 547, in handle_request
+    request.block_id, request.addresses)
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 183, in state_get
+    self._get_blocks([block_id])[0].get_state_view(
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in _get_blocks
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in <listcomp>
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/journal/block_cache.py", line 69, in __getitem__
+    raise ValueError("None or empty block_id is an invalid identifier")
+ValueError: None or empty block_id is an invalid identifier
+[10:38:44.053 [MainThread] (unknown file) ERROR] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt

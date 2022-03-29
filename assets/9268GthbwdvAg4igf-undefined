@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [[ $1 = "" ]]
+then
+    echo "No file name provided"
+    exit -1
+fi
+
+declare -a sed_commands=(
+    "/DEBUG    interconnect/d" 
+    "/DEBUG    gossip/d"
+    "/tp-validator-registry-2_1/d"
+    "/tp-config-/d"
+    "/tp-validator-registry-/d"
+    "/DEBUG    tp_state_handlers/d"
+    "/INFO:test_poet_smoke:Sending batch/d"
+    "/DEBUG    responder/d"
+    "/DEBUG    signature_verifier/d"
+    "/DEBUG    completer/d"
+    "/We cannot initialize the block because our PoET signup information is not in the validator registry/d"
+    "/Consensus not ready to build candidate block/d"
+    "s/\o033//g"
+    "s/\[[0-9;]\+m//g"
+    )
+    
+tmpfile=$(mktemp)
+for sed_command in "${sed_commands[@]}"
+do
+    echo "Execute sed command: $sed_command"
+    sed "$sed_command" $1 > $tmpfile
+    mv $tmpfile $1
+done
+
+echo "Collect integration test results"
+
+cat output | ./clean_smoke_test_results > poet_smoke_test_results.txt
+
+echo "Collect per-validator log messages"
+
+declare -a validators=(
+    "validator-0_1"
+    "validator-1_1"
+    "validator-2_1"
+    )
+    
+for validator in "${validators[@]}"
+do
+    echo "Collect log messages for $validator"
+    grep $validator output > $validator.txt
+done
+

@@ -1,0 +1,223 @@
+Installing Chaincode on peer1.fis.example.com
+2019-05-30 15:00:05.682 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+2019-05-30 15:00:05.682 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+fatal error: unexpected signal during runtime execution
+[signal SIGSEGV: segmentation violation code=0x1 addr=0xe5 pc=0x7f563414f3f8]
+
+runtime stack:
+runtime.throw(0x1272c18, 0x2a)
+        /opt/go/src/runtime/panic.go:608 +0x72
+runtime.sigpanic()
+        /opt/go/src/runtime/signal_unix.go:374 +0x2f2
+
+goroutine 1 [syscall]:
+runtime.cgocall(0xe45ff0, 0xc000362c68, 0x29)
+        /opt/go/src/runtime/cgocall.go:128 +0x5e fp=0xc000362c30 sp=0xc000362bf8 pc=0x4039ee
+os/user._Cfunc_mygetpwuid_r(0x667b4646, 0xc0002fe1b0, 0x7f5618000a10, 0x400, 0xc0001741b0, 0xc000000000)
+        _cgo_gotypes.go:173 +0x4d fp=0xc000362c68 sp=0xc000362c30 pc=0x79d55d
+os/user.lookupUnixUid.func1.1(0x667b4646, 0xc0002fe1b0, 0x7f5618000a10, 0x400, 0xc0001741b0, 0xc000362d00)
+        /opt/go/src/os/user/cgo_lookup_unix.go:100 +0x135 fp=0xc000362ca8 sp=0xc000362c68 pc=0x79f0b5
+os/user.lookupUnixUid.func1(0x110e8c0)
+        /opt/go/src/os/user/cgo_lookup_unix.go:100 +0x50 fp=0xc000362ce8 sp=0xc000362ca8 pc=0x79f150
+os/user.retryWithBuffer(0xc0004c6050, 0xc000362dc0, 0xc0004c6050, 0x100000000000a)
+        /opt/go/src/os/user/cgo_lookup_unix.go:253 +0x3e fp=0xc000362d40 sp=0xc000362ce8 pc=0x79e59e
+os/user.lookupUnixUid(0x667b4646, 0x0, 0x0, 0x0)
+        /opt/go/src/os/user/cgo_lookup_unix.go:96 +0x130 fp=0xc000362df8 sp=0xc000362d40 pc=0x79da60
+os/user.lookupUserId(0xc0000be0f0, 0xa, 0x0, 0x484e64, 0x667b4646)
+        /opt/go/src/os/user/cgo_lookup_unix.go:86 +0x73 fp=0xc000362e30 sp=0xc000362df8 pc=0x79d8f3
+os/user.LookupId(0xc0000be0f0, 0xa, 0xa, 0x0, 0x0)
+        /opt/go/src/os/user/lookup.go:41 +0x51 fp=0xc000362e80 sp=0xc000362e30 pc=0x79cf31
+archive/tar.statUnix(0x13bc060, 0xc00028e4e0, 0xc0000c62a0, 0x1fa1740, 0x492a36)
+        /opt/go/src/archive/tar/stat_unix.go:39 +0x48a fp=0xc000362ef0 sp=0xc000362e80 pc=0x7a8b4a
+archive/tar.FileInfoHeader(0x13bc060, 0xc00028e4e0, 0xc0000a0240, 0x59, 0x0, 0x0, 0x1)
+        /opt/go/src/archive/tar/common.go:702 +0x454 fp=0xc000363070 sp=0xc000362ef0 pc=0x7a2074
+github.com/hyperledger/fabric/core/container/util.WriteStreamToPackage(0x139bb00, 0xc00029e780, 0xc0000a0240, 0x59, 0xc000040100, 0x1a, 0xc000092a80, 0x0, 0xc0003632c8)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/container/util/writer.go:185 +0x18b fp=0xc000363228 sp=0xc000363070 pc=0x8dfabb
+github.com/hyperledger/fabric/core/container/util.WriteFileToPackage(0xc0000a0240, 0x59, 0xc000040100, 0x1a, 0xc000092a80, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/container/util/writer.go:175 +0x395 fp=0xc000363358 sp=0xc000363228 pc=0x8df8a5
+github.com/hyperledger/fabric/core/container/util.WriteFolderToTarPackage.func1(0xc0000a0240, 0x59, 0x13bc060, 0xc00028e410, 0x0, 0x0, 0x12, 0xc000363510)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/container/util/writer.go:127 +0x377 fp=0xc000363488 sp=0xc000363358 pc=0x8e0577
+path/filepath.walk(0xc0000a0240, 0x59, 0x13bc060, 0xc00028e410, 0xc000505140, 0x0, 0x0)
+        /opt/go/src/path/filepath/path.go:358 +0x41c fp=0xc000363560 sp=0xc000363488 pc=0x512a0c
+path/filepath.walk(0xc00003e140, 0x46, 0x13bc060, 0xc00028e000, 0xc000505140, 0x0, 0x0)
+        /opt/go/src/path/filepath/path.go:382 +0x2fe fp=0xc000363638 sp=0xc000363560 pc=0x5128ee
+path/filepath.walk(0x7ffce5e7a9c8, 0x42, 0x13bc060, 0xc000272680, 0xc000505140, 0x0, 0x60)
+        /opt/go/src/path/filepath/path.go:382 +0x2fe fp=0xc000363710 sp=0xc000363638 pc=0x5128ee
+path/filepath.Walk(0x7ffce5e7a9c8, 0x42, 0xc000505140, 0x0, 0x1)
+        /opt/go/src/path/filepath/path.go:404 +0x105 fp=0xc000363770 sp=0xc000363710 pc=0x512b45
+github.com/hyperledger/fabric/core/container/util.WriteFolderToTarPackage(0xc000092a80, 0x7ffce5e7a9c8, 0x42, 0xc00038d920, 0x1, 0x1, 0x0, 0x0, 0x13bc060, 0xc0002725b0)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/container/util/writer.go:136 +0x24a fp=0xc000363868 sp=0xc000363770 pc=0x8deeba
+github.com/hyperledger/fabric/core/chaincode/platforms/node.(*Platform).GetDeploymentPayload(0x1fc5e60, 0x7ffce5e7a9c8, 0x42, 0x4, 0xc00018f3d8, 0x123d701, 0x4, 0xc00038d9c0)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/platforms/node/platform.go:160 +0x235 fp=0xc000363960 sp=0xc000363868 pc=0xa29c45
+github.com/hyperledger/fabric/core/chaincode/platforms.(*Registry).GetDeploymentPayload(0xc00000ca20, 0x123d77a, 0x4, 0x7ffce5e7a9c8, 0x42, 0x4, 0x7ffce5e7a9c8, 0x42, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/platforms/platforms.go:103 +0x8f fp=0xc0003639d0 sp=0xc000363960 pc=0x8e12cf
+github.com/hyperledger/fabric/core/container.GetChaincodePackageBytes(0xc00000ca20, 0xc0000c4800, 0x0, 0x1197340, 0xc00039bd10, 0xc0003a0804, 0x4)
+        /opt/gopath/src/github.com/hyperledger/fabric/core/container/controller.go:217 +0xc7 fp=0xc000363a30 sp=0xc0003639d0 pc=0xd35f47
+github.com/hyperledger/fabric/peer/chaincode.getChaincodeDeploymentSpec(0xc0000c4800, 0xc0000c4801, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/common.go:58 +0x11c fp=0xc000363aa0 sp=0xc000363a30 pc=0xd4f9ec
+github.com/hyperledger/fabric/peer/chaincode.genChaincodeDeploymentSpec(0xc0000e6c80, 0x7ffce5e7a9b2, 0xa, 0x7ffce5e7aa0e, 0x2, 0x0, 0x8020103, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/install.go:109 +0xac fp=0xc000363b68 sp=0xc000363aa0 pc=0xd56aec
+github.com/hyperledger/fabric/peer/chaincode.chaincodeInstall(0xc0000e6c80, 0x0, 0x0, 0xc0005060b0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/install.go:177 +0x156 fp=0xc000363c58 sp=0xc000363b68 pc=0xd57276
+github.com/hyperledger/fabric/peer/chaincode.installCmd.func1(0xc0000e6c80, 0xc0002be160, 0x0, 0xb, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/install.go:44 +0x54 fp=0xc000363c98 sp=0xc000363c58 pc=0xd5c5e4
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0xc0000e6c80, 0xc0002be0b0, 0xb, 0xb, 0xc0000e6c80, 0xc0002be0b0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:762 +0x473 fp=0xc000363d88 sp=0xc000363c98 pc=0xd21183
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x1eb4220, 0x8, 0x0, 0x1eb33e0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:852 +0x2fd fp=0xc000363ec8 sp=0xc000363d88 pc=0xd21b7d
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(0x1eb4220, 0xc00054ff40, 0x1)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:800 +0x2b fp=0xc000363ef8 sp=0xc000363ec8 pc=0xd2185b
+main.main()
+        /opt/gopath/src/github.com/hyperledger/fabric/peer/main.go:53 +0x2f7 fp=0xc000363f98 sp=0xc000363ef8 pc=0xe45427
+runtime.main()
+        /opt/go/src/runtime/proc.go:201 +0x207 fp=0xc000363fe0 sp=0xc000363f98 pc=0x42f7b7
+runtime.goexit()
+        /opt/go/src/runtime/asm_amd64.s:1333 +0x1 fp=0xc000363fe8 sp=0xc000363fe0 pc=0x45de51
+
+goroutine 36 [syscall]:
+os/signal.signal_recv(0x0)
+        /opt/go/src/runtime/sigqueue.go:139 +0x9c
+os/signal.loop()
+        /opt/go/src/os/signal/signal_unix.go:23 +0x22
+created by os/signal.init.0
+        /opt/go/src/os/signal/signal_unix.go:29 +0x41
+
+goroutine 22 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0000c42c0, 0x1, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/controlbuf.go:317 +0x103
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc00029ed80, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/controlbuf.go:435 +0x1ac
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0000c8340)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:301 +0x7b
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:299 +0xc53
+
+goroutine 38 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccResolverWrapper).watcher(0xc0002fed50)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/resolver_conn_wrapper.go:109 +0x142
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccResolverWrapper).start
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/resolver_conn_wrapper.go:95 +0x3f
+
+goroutine 39 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc000163d80)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/balancer_conn_wrappers.go:122 +0x10f
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.newCCBalancerWrapper
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/balancer_conn_wrappers.go:113 +0x13d
+
+goroutine 40 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).transportMonitor(0xc00018c780)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:1070 +0x1c1
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).connect.func1(0xc00018c780)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:622 +0x1b2
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).connect
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:613 +0xe1
+
+goroutine 20 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0000c8340)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:1229 +0x113
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:256 +0x1281
+
+goroutine 21 [IO wait]:
+internal/poll.runtime_pollWait(0x7f563455af00, 0x72, 0xc00006b988)
+        /opt/go/src/runtime/netpoll.go:173 +0x66
+internal/poll.(*pollDesc).wait(0xc000177018, 0x72, 0xffffffffffffff00, 0x13a05a0, 0x1ed6df0)
+        /opt/go/src/internal/poll/fd_poll_runtime.go:85 +0x9a
+internal/poll.(*pollDesc).waitRead(0xc000177018, 0xc00056e000, 0x400, 0x400)
+        /opt/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc000177000, 0xc00056e000, 0x400, 0x400, 0x0, 0x0, 0x0)
+        /opt/go/src/internal/poll/fd_unix.go:169 +0x179
+net.(*netFD).Read(0xc000177000, 0xc00056e000, 0x400, 0x400, 0x40983b, 0xc000030000, 0x10b2ec0)
+        /opt/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0001748c8, 0xc00056e000, 0x400, 0x400, 0x0, 0x0, 0x0)
+        /opt/go/src/net/net.go:177 +0x68
+crypto/tls.(*block).readFromUntil(0xc000336030, 0x139e660, 0xc0001748c8, 0x5, 0xc0001748c8, 0x0)
+        /opt/go/src/crypto/tls/conn.go:492 +0x89
+crypto/tls.(*Conn).readRecord(0xc00014d500, 0x12a4b17, 0xc00014d620, 0x0)
+        /opt/go/src/crypto/tls/conn.go:593 +0xdd
+crypto/tls.(*Conn).Read(0xc00014d500, 0xc00047e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+        /opt/go/src/crypto/tls/conn.go:1145 +0xf1
+bufio.(*Reader).Read(0xc000380300, 0xc00003a2d8, 0x9, 0x9, 0x30, 0x28, 0x1164560)
+        /opt/go/src/bufio/bufio.go:216 +0x22f
+io.ReadAtLeast(0x139bb00, 0xc000380300, 0xc00003a2d8, 0x9, 0x9, 0x9, 0xc000336960, 0x4024ee, 0xc00006be9b)
+        /opt/go/src/io/io.go:310 +0x88
+io.ReadFull(0x139bb00, 0xc000380300, 0xc00003a2d8, 0x9, 0x9, 0x99048a, 0xc000336990, 0xc000330004)
+        /opt/go/src/io/io.go:329 +0x58
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.readFrameHeader(0xc00003a2d8, 0x9, 0x9, 0x139bb00, 0xc000380300, 0x0, 0x0, 0xc000336990, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:237 +0x7b
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.(*Framer).ReadFrame(0xc00003a2a0, 0xc000336990, 0xc000336900, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:492 +0xa3
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0000c8340)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:1178 +0x12e
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:261 +0xaf8
+
+goroutine 24 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0000c8d00)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:1229 +0x113
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:256 +0x1281
+
+goroutine 7 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccResolverWrapper).watcher(0xc00027cba0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/resolver_conn_wrapper.go:109 +0x142
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccResolverWrapper).start
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/resolver_conn_wrapper.go:95 +0x3f
+
+goroutine 8 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0002c6380)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/balancer_conn_wrappers.go:122 +0x10f
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.newCCBalancerWrapper
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/balancer_conn_wrappers.go:113 +0x13d
+
+goroutine 9 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).transportMonitor(0xc0000e6780)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:1070 +0x1c1
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).connect.func1(0xc0000e6780)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:622 +0x1b2
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*addrConn).connect
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/clientconn.go:613 +0xe1
+
+goroutine 25 [IO wait]:
+internal/poll.runtime_pollWait(0x7f563455ad60, 0x72, 0xc000070988)
+        /opt/go/src/runtime/netpoll.go:173 +0x66
+internal/poll.(*pollDesc).wait(0xc000177318, 0x72, 0xffffffffffffff00, 0x13a05a0, 0x1ed6df0)
+        /opt/go/src/internal/poll/fd_poll_runtime.go:85 +0x9a
+internal/poll.(*pollDesc).waitRead(0xc000177318, 0xc000558800, 0x400, 0x400)
+        /opt/go/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc000177300, 0xc000558800, 0x400, 0x400, 0x0, 0x0, 0x0)
+        /opt/go/src/internal/poll/fd_unix.go:169 +0x179
+net.(*netFD).Read(0xc000177300, 0xc000558800, 0x400, 0x400, 0x40983b, 0xc000030000, 0x10b2ec0)
+        /opt/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0001748e0, 0xc000558800, 0x400, 0x400, 0x0, 0x0, 0x0)
+        /opt/go/src/net/net.go:177 +0x68
+crypto/tls.(*block).readFromUntil(0xc0002ffb90, 0x139e660, 0xc0001748e0, 0x5, 0xc0001748e0, 0x0)
+        /opt/go/src/crypto/tls/conn.go:492 +0x89
+crypto/tls.(*Conn).readRecord(0xc000061180, 0x12a4b17, 0xc0000612a0, 0x0)
+        /opt/go/src/crypto/tls/conn.go:593 +0xdd
+crypto/tls.(*Conn).Read(0xc000061180, 0xc0004e4000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+        /opt/go/src/crypto/tls/conn.go:1145 +0xf1
+bufio.(*Reader).Read(0xc000380780, 0xc00003a658, 0x9, 0x9, 0x30, 0x28, 0x1164560)
+        /opt/go/src/bufio/bufio.go:216 +0x22f
+io.ReadAtLeast(0x139bb00, 0xc000380780, 0xc00003a658, 0x9, 0x9, 0x9, 0xc00027cc90, 0x4024ee, 0xc000070e9b)
+        /opt/go/src/io/io.go:310 +0x88
+io.ReadFull(0x139bb00, 0xc000380780, 0xc00003a658, 0x9, 0x9, 0x99048a, 0xc0002ffbc0, 0xc0002f0004)
+        /opt/go/src/io/io.go:329 +0x58
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.readFrameHeader(0xc00003a658, 0x9, 0x9, 0x139bb00, 0xc000380780, 0x0, 0x0, 0xc0002ffbc0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:237 +0x7b
+github.com/hyperledger/fabric/vendor/golang.org/x/net/http2.(*Framer).ReadFrame(0xc00003a620, 0xc0002ffbc0, 0xc0002ffb00, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/golang.org/x/net/http2/frame.go:492 +0xa3
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0000c8d00)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:1178 +0x12e
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:261 +0xaf8
+
+goroutine 26 [select]:
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0000c4480, 0x1, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/controlbuf.go:317 +0x103
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc00054d9e0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/controlbuf.go:435 +0x1ac
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0000c8d00)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:301 +0x7b
+created by github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport.newHTTP2Client
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/internal/transport/http2_client.go:299 +0xc53

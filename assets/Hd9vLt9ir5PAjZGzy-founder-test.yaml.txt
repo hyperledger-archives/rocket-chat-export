@@ -1,0 +1,110 @@
+version: '2.1'
+
+services:
+
+    genesis-tp-founder:
+        environment:
+        - TF_NAME=test
+        image: genesis-tp
+        container_name: test-genesis-tp-founder
+        command: |
+            bash -c "
+              genesis-protogen
+              sleep 1
+              genesis-tp -v --connect tcp://validator-founder:4004
+            "
+
+    genesis-rest-api-founder:
+        environment:
+        - TF_NAME=test
+        image: genesis-rest-api
+        container_name: test-genesis-rest-api-founder
+        expose:
+        - '8000'
+        ports:
+        - '8000:8000'
+        depends_on:
+        - validator-founder
+        - rest-api-founder
+        command: |
+            bash -c "
+              genesis-rest-api \
+                --host genesis-rest-api-founder \
+                --port 8000 \
+                --validator tcp://validator-founder:4004 \
+                --sawtooth_rest_url http://rest-api-founder:8008
+            "
+
+    rest-api-founder:
+        image: hyperledger/sawtooth-rest-api:1.0.5
+        container_name: test-sawtooth-rest-api-founder
+        expose:
+        - '8008'
+        ports:
+        - '8008:8008'
+        depends_on:
+        - validator-founder
+        entrypoint: sawtooth-rest-api -vv --connect tcp://validator-founder:4004 --bind rest-api-founder:8008
+
+    settings-tp-founder:
+        image: hyperledger/sawtooth-settings-tp:1.0.5
+        container_name: test-sawtooth-settings-tp-founder
+        depends_on:
+        - validator-founder
+        entrypoint: settings-tp -vv --connect tcp://validator-founder:4004
+
+    identity-tp-founder:
+        image: hyperledger/sawtooth-identity-tp:1.0.5
+        container_name: test-sawtooth-identity-tp-founder
+        depends_on:
+        - validator-founder
+        entrypoint: identity-tp -vv --connect tcp://validator-founder:4004
+
+    poet-validator-registry-tp-founder:
+        image: hyperledger/sawtooth-poet-validator-registry-tp:1.0.5
+        container_name: sawtooth-poet-validator-registry-tp-founder
+        expose:
+          - 4004
+        command: poet-validator-registry-tp -C tcp://validator-founder:4004
+        environment:
+          PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+        stop_signal: SIGKILL
+
+    validator-founder:
+        image: hyperledger/sawtooth-validator:1.0.5
+        container_name: test-sawtooth-validator-founder
+        expose:
+        - '4004'
+        - '8800'
+        - '5050'
+        ports:
+        - '4004:4004'
+        - '8800:8800'
+        command: |
+            bash -c "
+              if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+                sawadm keygen
+                sawtooth keygen my_key
+              fi;
+              sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch &&
+              sawset proposal create -k /etc/sawtooth/keys/validator.priv \
+                sawtooth.consensus.algorithm=poet \
+                sawtooth.poet.report_public_key_pem=`$$(cat /etc/sawtooth/simulator_rk_pub.pem)` \
+                sawtooth.poet.valid_enclave_metestrements=$$(poet enclave metestrement) \
+                sawtooth.poet.valid_enclave_basenames=$$(poet enclave basename) \
+                -o config.batch &&
+              poet registration create -k /etc/sawtooth/keys/validator.priv -o poet.batch
+              sawset proposal create -k /etc/sawtooth/keys/validator.priv \
+                -o poet-settings.batch \
+                sawtooth.poet.target_wait_time=5 \
+                sawtooth.poet.initial_wait_time=25 \
+                sawtooth.publisher.max_batches_per_block=100 &&
+              sawadm genesis config-genesis.batch config.batch poet.batch poet-settings.batch &&
+              sawtooth-validator -vv \
+                --endpoint tcp://validator-founder:8800 \
+                --bind component:tcp://eth0:4004 \
+                --bind network:tcp://eth0:8800 \
+                --peering dynamic \
+                --scheduler serial \
+                --network-auth challenge
+            "

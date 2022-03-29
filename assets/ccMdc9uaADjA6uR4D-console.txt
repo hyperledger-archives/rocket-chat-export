@@ -1,0 +1,63 @@
+[2020-06-30T15:22:04.158] [INFO] PgService - SSL to Postgresql disabled
+[2020-06-30T15:22:04.158] [INFO] PgService - connecting to Postgresql postgres://hppoc:******@127.0.0.1:5432/fabricexplorer
+[2020-06-30T15:22:05.656] [INFO] Platform -  client_configs.name  test-network  client_configs.profile  ./connection-profile/test-network.json
+[2020-06-30T15:22:05.660] [INFO] FabricConfig - config.client.tlsEnable  true
+[2020-06-30T15:22:05.660] [INFO] FabricGateway - peer0.org1.example.com
+[2020-06-30T15:22:05.660] [INFO] FabricGateway - Org1MSP 
+ signedCertPath : /media/sf_sharedDir/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/ 
+ adminPrivateKeyPath  /media/sf_sharedDir/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/
+[2020-06-30T15:22:05.660] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-06-30T15:22:05.855] [ERROR] FabricGateway -  TypeError: org.peers is not iterable
+[2020-06-30T15:22:05.855] [ERROR] FabricClient - ExplorerError: [
+  'Failed to create wallet, please check the configuration, and valid file paths'
+]
+    at FabricGateway.initialize (/home/chaincode-explorer/blockchain-explorer/app/platform/fabric/gateway/FabricGateway.js:130:10)
+[2020-06-30T15:22:05.856] [ERROR] FabricClient - Error: No discovery targets found
+    at NetworkImpl._initializeInternalChannel (/home/chaincode-explorer/blockchain-explorer/node_modules/fabric-network/lib/network.js:260:23)
+    at NetworkImpl._initialize (/home/chaincode-explorer/blockchain-explorer/node_modules/fabric-network/lib/network.js:230:20)
+    at Gateway.getNetwork (/home/chaincode-explorer/blockchain-explorer/node_modules/fabric-network/lib/gateway.js:330:26)
+    at FabricGateway.queryChannels (/home/chaincode-explorer/blockchain-explorer/app/platform/fabric/gateway/FabricGateway.js:245:38)
+    at FabricClient.initialize (/home/chaincode-explorer/blockchain-explorer/app/platform/fabric/FabricClient.js:93:40)
+[2020-06-30T15:22:05.856] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-06-30T15:22:05.856] [INFO] FabricClient - initializeDetachClient, network config)  {
+  name: 'test-network-org1',
+  version: '1.0.0',
+  client: {
+    tlsEnable: true,
+    adminUser: 'admin',
+    adminPassword: 'adminpw',
+    enableAuthentication: false,
+    organization: 'Org1',
+    connection: { timeout: [Object] }
+  },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations: {
+    Org1: {
+      mspid: 'Org1MSP',
+      fullpath: false,
+      adminPrivateKey: [Object],
+      signedCert: [Object]
+    }
+  },
+  peers: {
+    'peer0.org1.example.com': {
+      url: 'grpcs://localhost:7051',
+      tlsCACerts: [Object],
+      grpcOptions: [Object]
+    }
+  }
+}
+[2020-06-30T15:22:05.856] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-06-30T15:22:05.856] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-06-30T15:22:05.856] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-06-30T15:22:05.856] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-06-30T15:22:05.862] [INFO] Platform - initializeListener, client_name, client  test-network {
+  name: 'test-network',
+  profile: './connection-profile/test-network.json'
+}
+[2020-06-30T15:22:05.863] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-06-30T15:22:05.863] [INFO] main - pid is 14488
+[2020-06-30T15:22:05.866] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-06-30T15:22:05.866] [ERROR] main - Error :  [
+  'Default client peer is down and no channel details available database'
+]

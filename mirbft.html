@@ -1,0 +1,455 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Fri, 23 Apr 2021 15:51:21 GMT):<br/>
+@bur here you go
+</p>
+<p><strong>bur</strong> (Fri, 23 Apr 2021 15:51:21 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 23 Apr 2021 15:51:30 GMT):<br/>
+bur
+</p>
+<p><strong>matopavlovic</strong> (Fri, 23 Apr 2021 21:00:36 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>matopavlovic</strong> (Fri, 23 Apr 2021 21:01:22 GMT):<br/>
+Thank you!
+</p>
+<p><strong>vukolic</strong> (Mon, 26 Apr 2021 08:44:45 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sigma67</strong> (Thu, 29 Apr 2021 09:05:02 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+`func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...`
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added as seen below
+`func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}` 
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure.
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+
+`func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...`
+
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added as seen below
+
+`func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}` 
+
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure.
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+
+`func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...`
+
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added? As seen below
+
+`func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}` 
+
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure.
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+
+```func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...```
+
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added? As seen below
+
+```func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}``` 
+
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure.
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+
+```func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...```
+
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added? As seen below
+
+```func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}``` 
+
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure. However it is clear that this action is not deprecated since it produced by the state machine in response to a fetch request.
+</p>
+<p><strong>harrymknight</strong> (Tue, 11 May 2021 10:07:57 GMT):<br/>
+Are messages of type ForwardRequest deprecated in regard to the state machine? I notice that in this block of code located in state_machine.go
+
+```func (sm *StateMachine) step(source nodeID, msg *msgs.Msg) *ActionList {
+	actions := &ActionList{}
+	switch msg.Type.(type) {
+	case *msgs.Msg_RequestAck:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_FetchRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+	case *msgs.Msg_ForwardRequest:
+		return actions.concat(sm.clientHashDisseminator.step(source, msg))
+...```
+
+the case for a message of type ForwardRequest is dealt with yet the step method of clientHashDisseminator doesn't account for it instead raising an error. Furthermore this type of message only seems to produced by a replica i.e. it is never produced internally by the state machine, and has an accompanying comment that indicates so.
+
+So in regard to request forwarding (of transactions to be ordered) is it only the execution of an action of type forward request that has to be added? As seen below
+
+```func (pi *WorkItems) AddStateMachineResults(actions *statemachine.ActionList) {
+	// First we'll handle everything that's not a network send
+	iter := actions.Iterator()
+	for action := iter.Next(); action != nil; action = iter.Next() {
+		switch t := action.Type.(type) {
+		case *state.Action_Send:
+			walDependent := false
+			// TODO, make sure this switch captures all the safe ones
+			switch t.Send.Msg.Type.(type) {
+			case *msgs.Msg_RequestAck:
+			case *msgs.Msg_Checkpoint:
+			case *msgs.Msg_FetchBatch:
+			case *msgs.Msg_ForwardBatch:
+			default:
+				walDependent = true
+			}
+			if walDependent {
+				pi.WALActions().PushBack(action)
+			} else {
+				pi.NetActions().PushBack(action)
+			}
+		case *state.Action_Hash:
+			pi.HashActions().PushBack(action)
+		case *state.Action_AppendWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_TruncateWriteAhead:
+			pi.WALActions().PushBack(action)
+		case *state.Action_Commit:
+			pi.AppActions().PushBack(action)
+		case *state.Action_Checkpoint:
+			pi.AppActions().PushBack(action)
+		case *state.Action_AllocatedRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_CorrectRequest:
+			pi.ClientActions().PushBack(action)
+		case *state.Action_StateApplied:
+			pi.ClientActions().PushBack(action)
+			// TODO, create replicas
+		case *state.Action_ForwardRequest:
+			// XXX address
+		case *state.Action_StateTransfer:
+			pi.AppActions().PushBack(action)
+		}
+	}
+}``` 
+
+I guess here the action would be delegated to the net processor to make use of the link provided in processorConfig but I'm not entirely sure. However it is clear that this action is not deprecated since it is produced by the state machine in response to a fetch request.
+</p>
+<p><strong>rjones</strong> (Tue, 11 May 2021 21:36:09 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>matopavlovic</strong> (Thu, 13 May 2021 06:50:19 GMT):<br/>
+Hi Harry, thanks for you interest in MirBFT! The request forwarding is indeed not yet implemented. The current plan is to take request forwarding out of the state machine in a separate module that deals with client requests. Currently a ForwardRequest message is not produced by any part of the code, in or outside the state machine. Also, the are rather big changes pending for the state machine code in general, but those will take a bit of time. What I do expect in a few days (hopefully next week) is a refactoring of the node and processor, putting some more order in the different modules (the state machine implementing the actual protocol will be one of these modules) with clearer responsibilities of each of the modules. That should shed more light on how and where request forwarding is to be implemented. Stay tuned!
+</p>
+<p><strong>davidkel</strong> (Sun, 13 Jun 2021 14:05:49 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>knagware9</strong> (Thu, 08 Jul 2021 11:04:31 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kthomas</strong> (Thu, 30 Sep 2021 16:11:41 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>kthomas</strong> (Thu, 30 Sep 2021 16:11:42 GMT):<br/>
+Hi @matopavlovic please can you indicate the current status of implementing WAL?
+</p>
+<p><strong>matopavlovic</strong> (Mon, 29 Nov 2021 15:58:21 GMT):<br/>
+Hi @kthomas , sorry for the late response. A basic wal WAL is implemented (https://github.com/hyperledger-labs/mirbft/tree/main/pkg/simplewal), but the documentation is still missing. That being said, the protocol does not yet properly make use of the WAL.
+</p>
+<p><strong>mkaddoura</strong> (Wed, 02 Mar 2022 21:46:05 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mkaddoura</strong> (Wed, 02 Mar 2022 22:33:29 GMT):<br/>
+Hi, I am trying to understand how MirBFT is used in blockchain. Because each block is verified and committed in parallel, how does the blockchain links the blocks? For example, how does a block compute and add the previous block's hash?
+</p>
+<p><strong>davidkel</strong> (Wed, 02 Mar 2022 22:36:13 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>rjones</strong> (Wed, 09 Mar 2022 03:03:28 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 09 Mar 2022 03:03:28 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 09 Mar 2022 03:03:28 GMT):<br/>
+
+</p>

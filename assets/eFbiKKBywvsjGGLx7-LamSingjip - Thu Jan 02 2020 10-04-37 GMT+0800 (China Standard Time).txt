@@ -1,0 +1,157 @@
+++ VERSION=1.4.4
+++ CA_VERSION=1.4.4
+++ THIRDPARTY_IMAGE_VERSION=0.4.18
+++++ sed 's/mingw64_nt.*/windows/'
+++++ tr '[:upper:]' '[:lower:]'
+++++ uname -s
+++++ sed s/x86_64/amd64/g
+++++ uname -m
++++ echo linux-amd64
+++ ARCH=linux-amd64
++++ uname -m
+++ MARCH=x86_64
+++ DOCKER=true
+++ SAMPLES=true
+++ BINARIES=true
+++ '[' -n '' ']'
+++ [[ 1.4.4 =~ ^1\.[0-1]\.* ]]
+++ : 1.4.4
+++ : 1.4.4
+++ : 0.4.18
+++ BINARY_FILE=hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ CA_BINARY_FILE=hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ getopts 'h?dsb' opt
+++ '[' true == true ']'
+++ echo
+
+++ echo 'Clone hyperledger/fabric-samples repo'
+Clone hyperledger/fabric-samples repo
+++ echo
+
+++ cloneSamplesRepo
+++ '[' -d first-network ']'
+++ '[' -d fabric-samples ']'
+++ echo '===> Cloning hyperledger/fabric-samples repo and checkout v1.4.4'
+===> Cloning hyperledger/fabric-samples repo and checkout v1.4.4
+++ git clone -b master https://github.com/hyperledger/fabric-samples.git
+Cloning into 'fabric-samples'...
+remote: Enumerating objects: 4427, done.
+remote: Total 4427 (delta 0), reused 0 (delta 0), pack-reused 4427
+Receiving objects: 100% (4427/4427), 1.61 MiB | 160.00 KiB/s, done.
+Resolving deltas: 100% (2179/2179), done.
+++ cd fabric-samples
+++ git checkout v1.4.4
+Note: checking out 'v1.4.4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bc72f3e Remove Stalebot
+++ '[' true == true ']'
+++ echo
+
+++ echo 'Pull Hyperledger Fabric binaries'
+Pull Hyperledger Fabric binaries
+++ echo
+
+++ pullBinaries
+++ echo '===> Downloading version 1.4.4 platform specific fabric binaries'
+===> Downloading version 1.4.4 platform specific fabric binaries
+++ download hyperledger-fabric-linux-amd64-1.4.4.tar.gz https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ local BINARY_FILE=hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ local URL=https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ echo '===> Downloading: ' https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+===> Downloading:  https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ wget https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+--2020-01-02 09:28:54--  https://github.com/hyperledger/fabric/releases/download/v1.4.4/hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+Resolving github.com (github.com)... 13.250.177.223
+Connecting to github.com (github.com)|13.250.177.223|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/66573241/64d82b80-072e-11ea-9015-6a611a74ce59?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200102T012857Z&X-Amz-Expires=300&X-Amz-Signature=3af6876779521542a7e2fa41771523462a6b94f556045e37623d51360322bbc5&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2020-01-02 09:28:55--  https://github-production-release-asset-2e65be.s3.amazonaws.com/66573241/64d82b80-072e-11ea-9015-6a611a74ce59?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200102T012857Z&X-Amz-Expires=300&X-Amz-Signature=3af6876779521542a7e2fa41771523462a6b94f556045e37623d51360322bbc5&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.41.12
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.41.12|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 83482367 (80M) [application/octet-stream]
+Saving to: ‘hyperledger-fabric-linux-amd64-1.4.4.tar.gz’
+
+hyperledger-fabric-linux-amd 100%[============================================>]  79.61M   245KB/s    in 7m 6s   
+
+2020-01-02 09:36:02 (191 KB/s) - ‘hyperledger-fabric-linux-amd64-1.4.4.tar.gz’ saved [83482367/83482367]
+
+++ tar xvzf hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+bin/
+bin/orderer
+bin/peer
+bin/configtxlator
+bin/discover
+bin/idemixgen
+bin/cryptogen
+bin/configtxgen
+config/
+config/orderer.yaml
+config/core.yaml
+config/configtx.yaml
+++ rm hyperledger-fabric-linux-amd64-1.4.4.tar.gz
+++ '[' -n '' ']'
+++ echo '==> Done.'
+==> Done.
+++ '[' 0 -eq 22 ']'
+++ echo '===> Downloading version 1.4.4 platform specific fabric-ca-client binary'
+===> Downloading version 1.4.4 platform specific fabric-ca-client binary
+++ download hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ local BINARY_FILE=hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ local URL=https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ echo '===> Downloading: ' https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+===> Downloading:  https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ wget https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+--2020-01-02 09:36:06--  https://github.com/hyperledger/fabric-ca/releases/download/v1.4.4/hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+Resolving github.com (github.com)... 13.250.177.223
+Connecting to github.com (github.com)|13.250.177.223|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/79410323/e8326500-07a0-11ea-8b61-50ea1ffe9e52?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200102T013610Z&X-Amz-Expires=300&X-Amz-Signature=27eb7e4226653e86dfda9165b764560538e809f97e1ddefbabd33aabe04ec8a2&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2020-01-02 09:36:07--  https://github-production-release-asset-2e65be.s3.amazonaws.com/79410323/e8326500-07a0-11ea-8b61-50ea1ffe9e52?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200102T013610Z&X-Amz-Expires=300&X-Amz-Signature=27eb7e4226653e86dfda9165b764560538e809f97e1ddefbabd33aabe04ec8a2&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.217.41.12
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.41.12|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10334501 (9.9M) [application/octet-stream]
+Saving to: ‘hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz’
+
+hyperledger-fabric-ca-linux-  20%[========>                                    ]   2.01M  2.56KB/s    in 4m 20s  
+
+2020-01-02 09:45:33 (7.91 KB/s) - Read error at byte 2105902/10334501 (Connection reset by peer). Retrying.
+
+--2020-01-02 09:45:34--  (try: 2)  https://github-production-release-asset-2e65be.s3.amazonaws.com/79410323/e8326500-07a0-11ea-8b61-50ea1ffe9e52?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200102%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200102T013610Z&X-Amz-Expires=300&X-Amz-Signature=27eb7e4226653e86dfda9165b764560538e809f97e1ddefbabd33aabe04ec8a2&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dhyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz&response-content-type=application%2Foctet-stream
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.217.41.12|:443... connected.
+HTTP request sent, awaiting response... 403 Forbidden
+2020-01-02 09:45:36 ERROR 403: Forbidden.
+
+++ rc=8
+++ tar xvzf hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+bin/
+bin/fabric-ca-client
+
+gzip: stdin: unexpected end of file
+tar: Unexpected EOF in archive
+tar: Unexpected EOF in archive
+tar: Error is not recoverable: exiting now
+++ rc=2
+++ rm hyperledger-fabric-ca-linux-amd64-1.4.4.tar.gz
+++ '[' -n 2 ']'
+++ echo '==> There was an error downloading the binary file.'
+==> There was an error downloading the binary file.
+++ return 22
+++ '[' 22 -eq 22 ']'
+++ echo
+
+++ echo '------> 1.4.4 fabric-ca-client binary is not available to download  (Available from 1.1.0-rc1) <----'
+------> 1.4.4 fabric-ca-client binary is not available to download  (Available from 1.1.0-rc1) <----
+++ echo
+
+++ exit

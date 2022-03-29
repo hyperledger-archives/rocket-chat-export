@@ -1,0 +1,107 @@
+Here is the container log dump for the orderer:
+docker logs 6178fbc79d7a7895b6f7c0ae21ef770109e684a607cf7a78045b814e10945738
+2019-11-07 00:27:20.945 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+2019-11-07 00:27:21.072 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+        General.LedgerType = "file"
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = []
+        General.Cluster.ListenAddress = ""
+        General.Cluster.ListenPort = 0
+        General.Cluster.ServerCertificate = ""
+        General.Cluster.ServerPrivateKey = ""
+        General.Cluster.ClientCertificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.Cluster.ClientPrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.Cluster.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+        General.Cluster.ReplicationMaxRetries = 12
+        General.Cluster.SendBufferSize = 10
+        General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+        General.Cluster.TLSHandshakeTimeShift = 0s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.ConnectionTimeout = 0s
+        General.GenesisMethod = "file"
+        General.GenesisProfile = "SampleInsecureSolo"
+        General.SystemChannel = "test-system-channel-name"
+        General.GenesisFile = "/var/hyperledger/orderer/orderer.genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+        General.LocalMSPID = "XYZOrdererMSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.Ephemeral = false
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.BCCSP.PluginOpts =
+        General.Authentication.TimeWindow = 15m0s
+        General.Authentication.NoExpirationChecks = false
+        FileLedger.Location = "/var/hyperledger/production/orderer"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        RAMLedger.HistorySize = 1000
+        Kafka.Retry.ShortInterval = 5s
+        Kafka.Retry.ShortTotal = 10m0s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = true
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = false
+        Kafka.TLS.PrivateKey = ""
+        Kafka.TLS.Certificate = ""
+        Kafka.TLS.RootCAs = []
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 1
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[WALDir:/var/hyperledger/production/orderer/etcdraft/wal SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot]
+        Operations.ListenAddress = "127.0.0.1:8443"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+panic: unable to bootstrap orderer. Error reading genesis block file: open /var/hyperledger/orderer/orderer.genesis.block: no such file or directory
+
+goroutine 1 [running]:
+github.com/hyperledger/fabric/orderer/common/bootstrap/file.(*fileBootstrapper).GenesisBlock(0xc0005258e0, 0xc0005258e0)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/bootstrap/file/bootstrap.go:39 +0x1d0
+github.com/hyperledger/fabric/orderer/common/server.extractBootstrapBlock(0xc000559200, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:532 +0x1bd
+github.com/hyperledger/fabric/orderer/common/server.Start(0x1018e03, 0x5, 0xc000559200)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:96 +0x43
+github.com/hyperledger/fabric/orderer/common/server.Main()
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:91 +0x1ce
+main.main()
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/main.go:15 +0x20

@@ -1,0 +1,106 @@
+2018-12-20 15:51:37.679 UTC [msp.identity] Sign -> DEBU b3b9 Sign: plaintext: 0A09706565723A37303531 
+2018-12-20 15:51:37.679 UTC [msp.identity] Sign -> DEBU b3ba Sign: digest: D18B553283AFC791A71A1AB3F379E85F4599DAAE3CE5B43F6A912E5BFD23E73D 
+2018-12-20 15:51:39.010 UTC [chaincode] Launch -> DEBU b3bb stopping due to error while launching: timeout expired while starting chaincode mycc:0 for transaction
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:71
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).LaunchInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:129
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).ExecuteLegacyInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:221
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).ExecuteLegacyInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:131
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:179
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:237
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:456
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:32
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:169
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:31
+github.com/hyperledger/fabric/common/grpclogging.UnaryServerInterceptor.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/common/grpclogging/server.go:91
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:34
+github.com/hyperledger/fabric/common/grpcmetrics.UnaryServerInterceptor.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/common/grpcmetrics/interceptor.go:30
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:39
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:171
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:982
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1208
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:686
+runtime.goexit
+	/opt/go/src/runtime/asm_amd64.s:1333
+2018-12-20 15:51:39.010 UTC [container] lockContainer -> DEBU b3bc waiting for container(mycc-0) lock
+2018-12-20 15:51:39.010 UTC [container] lockContainer -> DEBU b3bd got container (mycc-0) lock
+2018-12-20 15:51:39.010 UTC [dockercontroller] stopInternal -> DEBU b3be stopping container {"id": "dev-peer-mycc-0"}
+2018-12-20 15:51:39.011 UTC [dockercontroller] stopInternal -> DEBU b3bf stop container result {"error": "Container not running: dev-peer-mycc-0"}
+2018-12-20 15:51:39.011 UTC [dockercontroller] stopInternal -> DEBU b3c0 killing container {"id": "dev-peer-mycc-0"}
+2018-12-20 15:51:39.011 UTC [dockercontroller] stopInternal -> DEBU b3c1 kill container result {"id": "dev-peer-mycc-0", "error": "Container not running: dev-peer-mycc-0"}
+2018-12-20 15:51:39.011 UTC [dockercontroller] stopInternal -> DEBU b3c2 removing container {"id": "dev-peer-mycc-0"}
+2018-12-20 15:51:39.123 UTC [dockercontroller] stopInternal -> DEBU b3c3 remove container result {"id": "dev-peer-mycc-0", "error": null}
+2018-12-20 15:51:39.123 UTC [container] unlockContainer -> DEBU b3c4 container lock deleted(mycc-0)
+2018-12-20 15:51:39.123 UTC [chaincode] Launch -> DEBU b3c5 launch complete
+2018-12-20 15:51:39.123 UTC [chaincode] Deregister -> DEBU b3c6 deregister handler: mycc:0
+2018-12-20 15:51:39.123 UTC [endorser] callChaincode -> INFO b3c7 [myc][16eb7fe7] Exit chaincode: name:"lscc"  (300114ms)
+2018-12-20 15:51:39.123 UTC [endorser] SimulateProposal -> ERRO b3c8 [myc][16eb7fe7] failed to invoke chaincode name:"lscc" , error: timeout expired while starting chaincode mycc:0 for transaction
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:71
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).LaunchInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:129
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).ExecuteLegacyInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:221
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).ExecuteLegacyInit
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:131
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:179
+github.com/hyperledger/fabric/core/endorser.(*Endorser).SimulateProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:237
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:456
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:32
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:169
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:31
+github.com/hyperledger/fabric/common/grpclogging.UnaryServerInterceptor.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/common/grpclogging/server.go:91
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:34
+github.com/hyperledger/fabric/common/grpcmetrics.UnaryServerInterceptor.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/common/grpcmetrics/interceptor.go:30
+github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware.ChainUnaryServer.func1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:39
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:171
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:982
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:1208
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:686
+runtime.goexit
+	/opt/go/src/runtime/asm_amd64.s:1333
+2018-12-20 15:51:39.123 UTC [endorser] SimulateProposal -> DEBU b3c9 [myc][16eb7fe7] Exit
+2018-12-20 15:51:39.123 UTC [lockbasedtxmgr] Done -> DEBU b3ca Done with transaction simulation / query execution [16eb7fe7980eb18585deacbfb906a6227e46bd57c678394266e5a89eaec5c732]
+2018-12-20 15:51:39.123 UTC [endorser] ProcessProposal -> DEBU b3cb Exit: request from 172.18.0.5:33188
+2018-12-20 15:51:39.123 UTC [comm.grpc.server] 1 -> INFO b3cc unary call completed {"grpc.start_time": "2018-12-20T15:46:39.008Z", "grpc.service": "protos.Endorser", "grpc.method": "ProcessProposal", "grpc.peer_address": "172.18.0.5:33188", "grpc.code": "OK", "grpc.call_duration": "5m0.114718604s"}
+2018-12-20 15:51:39.125 UTC [grpc] infof -> DEBU b3cd transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2018-12-20 15:51:39.125 UTC [grpc] infof -> DEBU b3ce transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2018-12-20 15:51:41.680 UTC [msp] GetDefaultSigningIdentity -> DEBU b3cf Obtaining default signing identity
+2018-12-20 15:51:41.680 UTC [msp.identity] Sign -> DEBU b3d0 Sign: plaintext: 18012A3E0A2D0A09706565723A373035...47120D08B588B5EAC1EE82B91510A326 
+2018-12-20 15:51:41.680 UTC [msp.identity] Sign -> DEBU b3d1 Sign: digest: BD100513423295B12D79D41FF82AC03CBA7C482D2272C347D1E89FD5D10C95D6 
+2018-12-20 15:51:41.680 UTC [msp] GetDefaultSigningIdentity -> DEBU b3d2 Obtaining default signing identity

@@ -1,0 +1,157 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red52\green52\blue52;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c26667\c26667\c26667;\cssrgb\c0\c0\c0\c4706;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 root@458dfa7112dc:/opt/wd# ./scripts/revoke-user.sh admin5\
+\
+=========================================================\
+Enrolling this client with the following credentials\
+at fabric-ca-server:7050\
+=========================================================\
+\
+  username: admin\
+  password: adminpw\
+\
+2017/09/28 13:31:38 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+2017/09/28 13:31:38 [INFO] generating key: &\{A:ecdsa S:256\}\
+2017/09/28 13:31:38 [INFO] encoded CSR\
+2017/09/28 13:31:38 [INFO] Stored client certificate at /etc/hyperledger/fabric-ca-client-home/msp/signcerts/cert.pem\
+2017/09/28 13:31:38 [INFO] Stored CA root certificate at /etc/hyperledger/fabric-ca-client-home/msp/cacerts/fabric-ca-server-7054.pem\
+Client enrolled!\
+\
+\
+=====================================================\
+Registering a peer following a successful enrollment.\
+=====================================================\
+\
+ id.type: peer\
+ id.name: admin5\
+ id.affliliation: org1.department1\
+ id.attrs: 'hf.Revoker=true,admin=true:ecert'\
+\
+2017/09/28 13:31:38 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+2017/09/28 13:31:38 [INFO] Configuration file location: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+zKZhVyIEIfwd\
+\
+Expected user in database:\
+ admin\
+ admin2\
+admin|$2a$10$0j/ISfFrVX3FLLeJ7eEpG.Eu/u.U1c7mQTjIEFN7LCsTkg3RRxbba|client||[\{"name":"hf.Revoker","value":"1"\},\{"name":"hf.IntermediateCA","value":"1"\},\{"name":"hf.Registrar.Roles","value":"client,user,peer,validator,auditor"\},\{"name":"hf.Registrar.DelegateRoles","value":"client,user,validator,auditor"\}]|5|-1\
+admin1|$2a$10$swD/C5JGW9Yuf7kYiXQkQuwi.3vdq.kE0QSV4behTBH4ImU71ng2S|peer|org1.department1|[\{"name":"hf.Revoker","value":"true"\},\{"name":"admin","value":"true:ecert"\}]|-1|-1\
+admin2|$2a$10$G/kHo1SYubpmnmpe1jCqMeCRcdBrPBfO/2oNjw9XhmT.IkbqoIuUK|peer|org1.department1|[\{"name":"hf.Revoker","value":"true"\},\{"name":"admin","value":"true:ecert"\}]|-1|-1\
+admin4|$2a$10$cOoPKRswN6WllwjhySR1uO0lpeJCylxfyAuXyceghSfY2ijfnW.Ay|peer|org1.department1|[\{"name":"hf.Revoker","value":"true"\},\{"name":"admin","value":"true:ecert"\}]|-1|-1\
+admin5|$2a$10$tEAjNXdXlY8q/Td.yG3d4.18zmnubtaqaQFuTsBMDXlSdnMoRjwIa|peer|org1.department1|[\{"name":"hf.Revoker","value":"true"\},\{"name":"admin","value":"true:ecert"\}]|0|-1\
+\
+=========================================================\
+Enrolling this client with the following credentials\
+at fabric-ca-server:7050\
+=========================================================\
+\
+  username: admin5\
+  password:\
+\
+2017/09/28 13:31:38 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+2017/09/28 13:31:38 [INFO] generating key: &\{A:ecdsa S:256\}\
+2017/09/28 13:31:38 [INFO] encoded CSR\
+2017/09/28 13:31:38 [INFO] Stored client certificate at /etc/hyperledger/fabric-ca-client-home/misc/signcerts/cert.pem\
+2017/09/28 13:31:38 [INFO] Stored CA root certificate at /etc/hyperledger/fabric-ca-client-home/misc/cacerts/fabric-ca-server-7054.pem\
+Client enrolled!\
+\
+\
+Cert for admin5\
+Certificate:\
+    Data:\
+        Version: 3 (0x2)\
+        Serial Number:\
+            58:e9:1c:cc:53:72:51:39:01:36:4b:0a:5b:99:ef:f1:5d:52:e0:5f\
+    Signature Algorithm: ecdsa-with-SHA256\
+        Issuer: C=US, ST=North Carolina, O=Hyperledger, OU=Fabric, CN=fabric-ca-server\
+        Validity\
+            Not Before: Sep 28 13:27:00 2017 GMT\
+            Not After : Sep 28 13:27:00 2018 GMT\
+        Subject: C=US, ST=North Carolina, O=Hyperledger, OU=Fabric, CN=admin5\
+        Subject Public Key Info:\
+            Public Key Algorithm: id-ecPublicKey\
+                Public-Key: (256 bit)\
+                pub:\
+                    04:90:07:f2:2e:69:00:ff:f6:63:31:6c:f9:69:05:\
+                    d1:fc:84:97:ff:6f:11:e0:36:30:2d:e5:eb:32:65:\
+                    54:6b:2e:27:ca:b9:f2:f6:06:66:b1:ed:25:66:28:\
+                    86:9d:c1:db:cc:1e:12:b9:95:70:c5:c0:a8:b2:e3:\
+                    06:db:92:9e:8b\
+                ASN1 OID: prime256v1\
+                NIST CURVE: P-256\
+        X509v3 extensions:\
+            X509v3 Key Usage: critical\
+                Digital Signature\
+            X509v3 Basic Constraints: critical\
+                CA:FALSE\
+            X509v3 Subject Key Identifier:\
+                2F:4A:55:2F:9A:3B:9C:0F:46:50:AB:CD:07:10:87:B1:A6:EC:D2:9A\
+            X509v3 Authority Key Identifier:\
+                keyid:CD:40:A4:E6:F3:0A:60:69:FC:2F:F0:01:5D:55:49:D5:0C:28:51:4F\
+\
+            X509v3 Subject Alternative Name:\
+                DNS:458dfa7112dc\
+    Signature Algorithm: ecdsa-with-SHA256\
+         30:44:02:20:44:a0:51:65:70:c1:58:b0:e4:ae:b0:93:43:dd:\
+         56:79:ce:43:4b:62:cb:d1:ef:b2:db:b4:0f:47:d2:de:2a:8a:\
+         02:20:5a:8c:ee:df:72:e2:61:91:b9:16:a6:78:fa:33:02:16:\
+         a7:1d:f5:a0:28:0d:91:70:3c:6b:b3:1b:14:43:ea:05\
+\
+===================================\
+ Revoking\
+===================================\
+\
+ username: admin5\
+\
+2017/09/28 13:31:38 [INFO] User provided config file: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+2017/09/28 13:31:38 [INFO] Configuration file location: /etc/hyperledger/fabric-ca-client-home/fabric-ca-client-config.yaml\
+2017/09/28 13:31:39 [INFO] Revocation was successful\
+\
+\
+Cert for admin5\
+Certificate:\
+    Data:\
+        Version: 3 (0x2)\
+        Serial Number:\
+            58:e9:1c:cc:53:72:51:39:01:36:4b:0a:5b:99:ef:f1:5d:52:e0:5f\
+    Signature Algorithm: ecdsa-with-SHA256\
+        Issuer: C=US, ST=North Carolina, O=Hyperledger, OU=Fabric, CN=fabric-ca-server\
+        Validity\
+            Not Before: Sep 28 13:27:00 2017 GMT\
+            Not After : Sep 28 13:27:00 2018 GMT\
+        Subject: C=US, ST=North Carolina, O=Hyperledger, OU=Fabric, CN=admin5\
+        Subject Public Key Info:\
+            Public Key Algorithm: id-ecPublicKey\
+                Public-Key: (256 bit)\
+                pub:\
+                    04:90:07:f2:2e:69:00:ff:f6:63:31:6c:f9:69:05:\
+                    d1:fc:84:97:ff:6f:11:e0:36:30:2d:e5:eb:32:65:\
+                    54:6b:2e:27:ca:b9:f2:f6:06:66:b1:ed:25:66:28:\
+                    86:9d:c1:db:cc:1e:12:b9:95:70:c5:c0:a8:b2:e3:\
+                    06:db:92:9e:8b\
+                ASN1 OID: prime256v1\
+                NIST CURVE: P-256\
+        X509v3 extensions:\
+            X509v3 Key Usage: critical\
+                Digital Signature\
+            X509v3 Basic Constraints: critical\
+                CA:FALSE\
+            X509v3 Subject Key Identifier:\
+                2F:4A:55:2F:9A:3B:9C:0F:46:50:AB:CD:07:10:87:B1:A6:EC:D2:9A\
+            X509v3 Authority Key Identifier:\
+                keyid:CD:40:A4:E6:F3:0A:60:69:FC:2F:F0:01:5D:55:49:D5:0C:28:51:4F\
+\
+            X509v3 Subject Alternative Name:\
+                DNS:458dfa7112dc\
+    Signature Algorithm: ecdsa-with-SHA256\
+         30:44:02:20:44:a0:51:65:70:c1:58:b0:e4:ae:b0:93:43:dd:\
+         56:79:ce:43:4b:62:cb:d1:ef:b2:db:b4:0f:47:d2:de:2a:8a:\
+         02:20:5a:8c:ee:df:72:e2:61:91:b9:16:a6:78:fa:33:02:16:\
+         a7:1d:f5:a0:28:0d:91:70:3c:6b:b3:1b:14:43:ea:05}

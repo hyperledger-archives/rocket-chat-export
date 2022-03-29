@@ -1,0 +1,119 @@
+~/code/github/bc/hyperledge/fabric-samples/first-network(master ✔) ./byfn.sh -m up -c testch
+Starting with channel 'testch' and CLI timeout of '10000'
+Continue (y/n)? y
+proceeding ...
+/Users/jiaxi/work/bin/cryptogen
+
+##########################################################
+##### Generate certificates using cryptogen tool #########
+##########################################################
+org1.example.com
+org2.example.com
+
+/Users/jiaxi/work/bin/configtxgen
+##########################################################
+#########  Generating Orderer Genesis block ##############
+##########################################################
+2017-08-11 20:14:36.114 CST [common/configtx/tool] main -> INFO 001 Loading configuration
+2017-08-11 20:14:36.176 CST [common/configtx/tool] doOutputBlock -> INFO 002 Generating genesis block
+2017-08-11 20:14:36.181 CST [common/configtx/tool] doOutputBlock -> INFO 003 Writing genesis block
+
+#################################################################
+### Generating channel configuration transaction 'channel.tx' ###
+#################################################################
+2017-08-11 20:14:36.209 CST [common/configtx/tool] main -> INFO 001 Loading configuration
+2017-08-11 20:14:36.213 CST [common/configtx/tool] doOutputChannelCreateTx -> INFO 002 Generating new channel configtx
+2017-08-11 20:14:36.213 CST [common/configtx/tool] doOutputChannelCreateTx -> INFO 003 Writing new channel tx
+
+#################################################################
+#######    Generating anchor peer update for Org1MSP   ##########
+#################################################################
+2017-08-11 20:14:36.240 CST [common/configtx/tool] main -> INFO 001 Loading configuration
+2017-08-11 20:14:36.246 CST [common/configtx/tool] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+2017-08-11 20:14:36.246 CST [common/configtx/tool] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+
+#################################################################
+#######    Generating anchor peer update for Org2MSP   ##########
+#################################################################
+2017-08-11 20:14:36.272 CST [common/configtx/tool] main -> INFO 001 Loading configuration
+2017-08-11 20:14:36.277 CST [common/configtx/tool] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+2017-08-11 20:14:36.278 CST [common/configtx/tool] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+
+Creating network "net_byfn" with the default driver
+Creating peer1.org2.example.com ...
+Creating peer1.org1.example.com ...
+Creating orderer.example.com ...
+Creating peer0.org2.example.com ...
+Creating peer0.org1.example.com ...
+Creating orderer.example.com
+Creating peer1.org2.example.com
+Creating peer1.org1.example.com
+Creating peer0.org1.example.com
+Creating peer0.org1.example.com ... done
+Creating cli ...
+Creating cli ... done
+WARNING: The DELAY variable is not set. Defaulting to a blank string.
+peer1.org2.example.com is up-to-date
+peer0.org1.example.com is up-to-date
+orderer.example.com is up-to-date
+peer1.org1.example.com is up-to-date
+peer0.org2.example.com is up-to-date
+Recreating cli ...
+Recreating cli ... done
+
+ ____    _____      _      ____    _____
+/ ___|  |_   _|    / \    |  _ \  |_   _|
+\___ \    | |     / _ \   | |_) |   | |
+ ___) |   | |    / ___ \  |  _ <    | |
+|____/    |_|   /_/   \_\ |_| \_\   |_|
+
+Build your first network (BYFN) end-to-end test
+
+Channel name : testch
+Creating channel...
+CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
+CORE_PEER_TLS_ENABLED=true
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=DEBUG
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+2017-08-11 12:15:00.868 UTC [msp] GetLocalMSP -> DEBU 001 Returning existing local MSP
+2017-08-11 12:15:00.868 UTC [msp] GetDefaultSigningIdentity -> DEBU 002 Obtaining default signing identity
+2017-08-11 12:15:00.884 UTC [channelCmd] InitCmdFactory -> INFO 003 Endorser and orderer connections initialized
+2017-08-11 12:15:00.887 UTC [msp] GetLocalMSP -> DEBU 004 Returning existing local MSP
+2017-08-11 12:15:00.888 UTC [msp] GetDefaultSigningIdentity -> DEBU 005 Obtaining default signing identity
+2017-08-11 12:15:00.888 UTC [msp] GetLocalMSP -> DEBU 006 Returning existing local MSP
+2017-08-11 12:15:00.888 UTC [msp] GetDefaultSigningIdentity -> DEBU 007 Obtaining default signing identity
+2017-08-11 12:15:00.888 UTC [msp/identity] Sign -> DEBU 008 Sign: plaintext: 0A8C060A074F7267314D53501280062D...53616D706C65436F6E736F727469756D
+2017-08-11 12:15:00.888 UTC [msp/identity] Sign -> DEBU 009 Sign: digest: BA1DFB75CD0F151166662FA960ECA001EC8BABD6847601DD800F119DEA1DF8ED
+2017-08-11 12:15:00.888 UTC [msp] GetLocalMSP -> DEBU 00a Returning existing local MSP
+2017-08-11 12:15:00.888 UTC [msp] GetDefaultSigningIdentity -> DEBU 00b Obtaining default signing identity
+2017-08-11 12:15:00.888 UTC [msp] GetLocalMSP -> DEBU 00c Returning existing local MSP
+2017-08-11 12:15:00.888 UTC [msp] GetDefaultSigningIdentity -> DEBU 00d Obtaining default signing identity
+2017-08-11 12:15:00.888 UTC [msp/identity] Sign -> DEBU 00e Sign: plaintext: 0AC0060A1208021A0608C4BFB6CC0522...71F53DAD5FF56855FD82B18573EBF283
+2017-08-11 12:15:00.888 UTC [msp/identity] Sign -> DEBU 00f Sign: digest: 5640D20D9B8C8632F5460F88D67631BDB4098B3669D64C20A023FD0D0A392336
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel create [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+  -t, --timeout int        Channel creation timeout (default 5)
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+!!!!!!!!!!!!!!! Channel creation failed !!!!!!!!!!!!!!!!
+========= ERROR !!! FAILED to execute End-2-End Scenario ===========
+
+^C

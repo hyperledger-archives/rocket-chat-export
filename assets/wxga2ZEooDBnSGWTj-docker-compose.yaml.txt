@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  sawtooth-data-storage:
+    image: http://registry.gitlab.com/exo-dev/sawtooth-data-container:latest
+    restart: always
+
+  validator:
+    image: hyperledger/sawtooth-validator:latest
+    container_name: sawtooth-validator-default
+    expose:
+      - 4004
+    ports:
+      - "4004:4004"
+    depends_on:
+      - sawtooth-data-storage
+    volumes: [
+      'sawtooth-data-storage:/var/lib/sawtooth'
+    ]
+    # start the validator with an empty genesis batch
+    entrypoint: "bash -c \"\
+        sawtooth-validator -vv \
+          --endpoint tcp://validator:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+        \""
+  
+  settings-tp:
+    image: hyperledger/sawtooth-tp_settings:latest
+    container_name: sawtooth-settings-tp-default
+    expose:
+      - 4004
+    depends_on:
+      - validator
+    entrypoint: settings-tp -vv tcp://validator:4004
+    
+  rest-api:
+    image: hyperledger/sawtooth-rest_api:latest
+    container_name: sawtooth-rest-api-default
+    expose:
+      - 4004
+      - 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - validator
+    entrypoint: sawtooth-rest-api --connect tcp://validator:4004 --bind rest-api:8080
+
+volumes:
+  sawtooth-data-storage:

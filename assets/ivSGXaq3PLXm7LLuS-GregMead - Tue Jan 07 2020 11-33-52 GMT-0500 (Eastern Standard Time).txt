@@ -1,0 +1,117 @@
+Working w/ "default: SW"
+ubuntu@ip-172-31-85-208:~/fab-ca/server$ fabric-ca-server start -b admin:adminpw --loglevel debug
+2020/01/07 16:01:28 [DEBUG] Home directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:01:28 [INFO] Configuration file location: /home/ubuntu/fab-ca/server/fabric-ca-server-config.yaml
+2020/01/07 16:01:28 [INFO] Starting server in home directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:01:28 [DEBUG] Set log level: debug
+2020/01/07 16:01:28 [INFO] Server Version: 2.0.0-snapshot-d780eb0
+2020/01/07 16:01:28 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+2020/01/07 16:01:28 [DEBUG] Making server filenames absolute
+2020/01/07 16:01:28 [DEBUG] Initializing default CA in directory /home/ubuntu/fab-ca/server
+2020/01/07 16:01:28 [DEBUG] Init CA with home /home/ubuntu/fab-ca/server and config {Version:2.0.0-snapshot-d780eb0 Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile: Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc000281f90 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ip-172-31-85-208 localhost] KeyRequest:0xc00032f1e0 CA:0xc00032f260 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.GenCRL:1 hf.IntermediateCA:1 hf.Registrar.Attributes:* hf.Registrar.DelegateRoles:* hf.Registrar.Roles:* hf.Revoker:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc0003d8320 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:1000 NonceExpiration:15s NonceSweepInterval:15m}}
+2020/01/07 16:01:28 [DEBUG] CA Home Directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:01:28 [DEBUG] Checking configuration file version '2.0.0-snapshot-d780eb0' against server version: '2.0.0-snapshot-d780eb0'
+2020/01/07 16:01:28 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc000080840 Pkcs11Opts:0xc0004cf5c0}
+2020/01/07 16:01:28 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc0004307b0 DummyKeystore:<nil> InmemKeystore:<nil>}
+2020/01/07 16:01:28 [DEBUG] Initializing BCCSP with PKCS11 options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false Library:/usr/local/lib/softhsm/libsofthsm2.so Label:ForFabric Pin:98765432 SoftVerify:false Immutable:false}
+2020/01/07 16:01:28 [DEBUG] Initialize key material
+2020/01/07 16:01:28 [DEBUG] Making CA filenames absolute
+2020/01/07 16:01:28 [INFO] The CA key and certificate already exist
+2020/01/07 16:01:28 [INFO] The key is stored by BCCSP provider 'SW'
+2020/01/07 16:01:28 [INFO] The certificate is at: /home/ubuntu/fab-ca/server/ca-cert.pem
+2020/01/07 16:01:28 [DEBUG] Loading CN from existing enrollment information
+2020/01/07 16:01:28 [DEBUG] Initializing DB
+2020/01/07 16:01:28 [DEBUG] Initializing 'sqlite3' database at '/home/ubuntu/fab-ca/server/fabric-ca-server.db'
+2020/01/07 16:01:28 [DEBUG] Using sqlite database, connect to database in home (/home/ubuntu/fab-ca/server/fabric-ca-server.db) directory
+2020/01/07 16:01:28 [DEBUG] Creating SQLite database (/home/ubuntu/fab-ca/server/fabric-ca-server.db) if it does not exist...
+2020/01/07 16:01:28 [DEBUG] Creating users table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating affiliations table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating certificates table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating credentials table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating revocation_authority_info table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating nonces table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Creating properties table if it does not exist
+2020/01/07 16:01:28 [DEBUG] Successfully opened sqlite3 DB
+2020/01/07 16:01:28 [DEBUG] Initializing identity registry
+2020/01/07 16:01:28 [DEBUG] Initialized DB identity registry
+2020/01/07 16:01:28 [DEBUG] Checking database levels '&{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}' against server levels '&{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}'
+2020/01/07 16:01:28 [DEBUG] Loading identity table
+2020/01/07 16:01:28 [DEBUG] Loading identity 'admin'
+2020/01/07 16:01:28 [DEBUG] DB: Getting identity admin
+2020/01/07 16:01:28 [DEBUG] Identity 'admin' already registered, loaded identity
+2020/01/07 16:01:28 [DEBUG] Successfully loaded identity table
+2020/01/07 16:01:28 [DEBUG] Loading affiliations table
+2020/01/07 16:01:28 [DEBUG] DB: Add affiliation org1
+2020/01/07 16:01:28 [DEBUG] Affiliation 'org1' already exists
+2020/01/07 16:01:28 [DEBUG] DB: Add affiliation org1.department1
+2020/01/07 16:01:28 [DEBUG] Affiliation 'org1.department1' already exists
+2020/01/07 16:01:28 [DEBUG] DB: Add affiliation org1.department2
+2020/01/07 16:01:28 [DEBUG] Affiliation 'org1.department2' already exists
+2020/01/07 16:01:28 [DEBUG] DB: Add affiliation org2
+2020/01/07 16:01:28 [DEBUG] Affiliation 'org2' already exists
+2020/01/07 16:01:28 [DEBUG] DB: Add affiliation org2.department1
+2020/01/07 16:01:28 [DEBUG] Affiliation 'org2.department1' already exists
+2020/01/07 16:01:28 [DEBUG] Successfully loaded affiliations table
+2020/01/07 16:01:28 [INFO] Initialized sqlite3 database at /home/ubuntu/fab-ca/server/fabric-ca-server.db
+2020/01/07 16:01:28 [DEBUG] Initializing enrollment signer
+2020/01/07 16:01:28 [DEBUG] validating configuration
+2020/01/07 16:01:28 [DEBUG] validate local profile
+2020/01/07 16:01:28 [DEBUG] profile is valid
+2020/01/07 16:01:28 [DEBUG] validate local profile
+2020/01/07 16:01:28 [DEBUG] profile is valid
+2020/01/07 16:01:28 [DEBUG] validate local profile
+2020/01/07 16:01:28 [DEBUG] profile is valid
+2020/01/07 16:01:28 [DEBUG] CA initialization successful
+2020/01/07 16:01:28 [DEBUG] Initializing Idemix issuer...
+2020/01/07 16:01:28 [INFO] The Idemix issuer public and secret key files already exist
+2020/01/07 16:01:28 [INFO]    secret key file location: /home/ubuntu/fab-ca/server/msp/keystore/IssuerSecretKey
+2020/01/07 16:01:28 [INFO]    public key file location: /home/ubuntu/fab-ca/server/IssuerPublicKey
+2020/01/07 16:01:28 [DEBUG] Intializing revocation authority for issuer ''
+2020/01/07 16:01:28 [DEBUG] Initialize Idemix issuer revocation key material
+2020/01/07 16:01:28 [INFO] The Idemix issuer revocation public and secret key files already exist
+2020/01/07 16:01:28 [INFO]    private key file location: /home/ubuntu/fab-ca/server/msp/keystore/IssuerRevocationPrivateKey
+2020/01/07 16:01:28 [INFO]    public key file location: /home/ubuntu/fab-ca/server/IssuerRevocationPublicKey
+2020/01/07 16:01:28 [DEBUG] Intializing nonce manager for issuer ''
+2020/01/07 16:01:28 [INFO] Home directory for default CA: /home/ubuntu/fab-ca/server
+2020/01/07 16:01:28 [DEBUG] 1 CA instance(s) running on server
+2020/01/07 16:01:28 [INFO] Operation Server Listening on 127.0.0.1:9443
+2020/01/07 16:01:28 [INFO] Listening on http://0.0.0.0:7054
+
+Not Working with "default: PKCS11
+ fabric-ca-server start -b admin:adminpw --loglevel debug
+2020/01/07 16:04:05 [DEBUG] Home directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:04:05 [INFO] Configuration file location: /home/ubuntu/fab-ca/server/fabric-ca-server-config.yaml
+2020/01/07 16:04:05 [INFO] Starting server in home directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:04:05 [DEBUG] Set log level: debug
+2020/01/07 16:04:05 [INFO] Server Version: 2.0.0-snapshot-d780eb0
+2020/01/07 16:04:05 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+2020/01/07 16:04:05 [DEBUG] Making server filenames absolute
+2020/01/07 16:04:05 [DEBUG] Initializing default CA in directory /home/ubuntu/fab-ca/server
+2020/01/07 16:04:05 [DEBUG] Init CA with home /home/ubuntu/fab-ca/server and config {Version:2.0.0-snapshot-d780eb0 Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name: Keyfile: Certfile:ca-cert.pem Chainfile:ca-chain.pem} Signing:0xc000045ca0 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[ip-172-31-85-208 localhost] KeyRequest:0xc000343a60 CA:0xc000343ae0 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.AffiliationMgr:1 hf.GenCRL:1 hf.IntermediateCA:1 hf.Registrar.Attributes:* hf.Registrar.DelegateRoles:* hf.Registrar.Roles:* hf.Revoker:1]  }]} Affiliations:map[org1:[department1 department2] org2:[department1]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:sqlite3 Datasource:fabric-ca-server.db TLS:{false [] { }}  } CSP:0xc000342620 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:1000 NonceExpiration:15s NonceSweepInterval:15m}}
+2020/01/07 16:04:05 [DEBUG] CA Home Directory: /home/ubuntu/fab-ca/server
+2020/01/07 16:04:05 [DEBUG] Checking configuration file version '2.0.0-snapshot-d780eb0' against server version: '2.0.0-snapshot-d780eb0'
+2020/01/07 16:04:05 [DEBUG] Initializing BCCSP: &{ProviderName:pkcs11 SwOpts:0xc000080940 Pkcs11Opts:0xc0004c89c0}
+2020/01/07 16:04:05 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc000045790 DummyKeystore:<nil> InmemKeystore:<nil>}
+2020/01/07 16:04:05 [DEBUG] Initializing BCCSP with PKCS11 options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false Library:/usr/local/lib/softhsm/libsofthsm2.so Label:ForFabric Pin:98765432 SoftVerify:false Immutable:false}
+2020/01/07 16:04:05 [DEBUG] Closing server DBs
+Error: Failed to initialize BCCSP Factories: %!s(<nil>)
+Could not find default `pkcs11` BCCSP
+
+ PKCS#11 command is run on the SoftHSM. The "-t" switch is used to test the mechanism of SoftHSM.
+
+ubuntu@ip-172-31-85-208:~/fab-ca/server$ pkcs11-tool --module /usr/local/lib/softhsm/libsofthsm2.so -l -t
+Using slot 0 with a present token (0xeb0f89e)
+Logging in to "ForFabric".
+Please enter User PIN: 
+C_SeedRandom() and C_GenerateRandom():
+  seems to be OK
+Digests:
+  all 4 digest functions seem to work
+  MD5: OK
+  SHA-1: OK
+Signatures: not implemented
+Verify (currently only for RSA):
+  No private key found for testing
+Unwrap: not implemented
+Decryption (RSA)
+No errors

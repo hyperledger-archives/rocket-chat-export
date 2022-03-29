@@ -1,0 +1,40 @@
+2020-05-19 13:21:57.037 -03 [endorser] ProcessProposal -> DEBU 225 Entering: request from 10.244.2.1:14033
+2020-05-19 13:21:57.037 -03 [protoutils] ValidateProposalMessage -> DEBU 226 ValidateProposalMessage starts for signed proposal 0xc00050a910
+2020-05-19 13:21:57.037 -03 [protoutils] validateChannelHeader -> DEBU 227 validateChannelHeader info: header type 3
+2020-05-19 13:21:57.038 -03 [protoutils] checkSignatureFromCreator -> DEBU 228 begin
+2020-05-19 13:21:57.038 -03 [protoutils] checkSignatureFromCreator -> DEBU 229 creator is &{Org1MSP f64362327503bf518d5f3c1ce60797e2e9249bb8f905803bce5161f07fbf4f1a}
+2020-05-19 13:21:57.040 -03 [protoutils] checkSignatureFromCreator -> DEBU 22a creator is valid
+2020-05-19 13:21:57.046 -03 [protoutils] checkSignatureFromCreator -> DEBU 22b exits successfully
+2020-05-19 13:21:57.047 -03 [protoutils] validateChaincodeProposalMessage -> DEBU 22c validateChaincodeProposalMessage starts for proposal 0xc0005400e0, header 0xc00050ad20
+2020-05-19 13:21:57.047 -03 [protoutils] validateChaincodeProposalMessage -> DEBU 22d validateChaincodeProposalMessage info: header extension references chaincode name:"test_cc"
+2020-05-19 13:21:57.047 -03 [endorser] preProcess -> DEBU 22e [mychannel][895e9a93] processing txid: 895e9a932fae6c415236143e684a8c8c0d9299ea556ffb95f93ba9fa2a96a21a
+2020-05-19 13:21:57.047 -03 [fsblkstorage] retrieveTransactionByID -> DEBU 22f retrieveTransactionByID() - txId = [895e9a932fae6c415236143e684a8c8c0d9299ea556ffb95f93ba9fa2a96a21a]
+2020-05-19 13:21:57.047 -03 [aclmgmt] CheckACL -> DEBU 230 acl policy not found in config for resource peer/Propose
+2020-05-19 13:21:57.050 -03 [lockbasedtxmgr] NewTxSimulator -> DEBU 231 constructing new tx simulator
+2020-05-19 13:21:57.050 -03 [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 232 constructing new tx simulator txid = [895e9a932fae6c415236143e684a8c8c0d9299ea556ffb95f93ba9fa2a96a21a]
+2020-05-19 13:21:57.050 -03 [endorser] SimulateProposal -> DEBU 233 [mychannel][895e9a93] Entry chaincode: name:"test_cc"
+2020-05-19 13:21:57.051 -03 [stateleveldb] GetState -> DEBU 234 GetState(). ns=lscc, key=test_cc
+2020-05-19 13:21:57.051 -03 [endorser] SimulateProposal -> DEBU 235 [mychannel][895e9a93] Exit
+2020-05-19 13:21:57.051 -03 [lockbasedtxmgr] Done -> DEBU 236 Done with transaction simulation / query execution [895e9a932fae6c415236143e684a8c8c0d9299ea556ffb95f93ba9fa2a96a21a]
+2020-05-19 13:21:57.051 -03 [endorser] func1 -> DEBU 237 Exit: request from 10.244.2.1:14033
+2020-05-19 13:21:57.051 -03 [comm.grpc.server] 1 -> INFO 238 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=10.244.2.1:14033 grpc.code=OK grpc.call_duration=15.151ms
+2020-05-19 13:56:03.270 -03 [endorser] ProcessProposal -> DEBU 239 Entering: request from 10.244.2.1:38774
+2020-05-19 13:56:03.270 -03 [protoutils] ValidateProposalMessage -> DEBU 23a ValidateProposalMessage starts for signed proposal 0xc0002f0820
+2020-05-19 13:56:03.270 -03 [protoutils] validateChannelHeader -> DEBU 23b validateChannelHeader info: header type 3
+2020-05-19 13:56:03.270 -03 [protoutils] checkSignatureFromCreator -> DEBU 23c begin
+2020-05-19 13:56:03.271 -03 [protoutils] checkSignatureFromCreator -> DEBU 23d creator is &{Org1MSP f64362327503bf518d5f3c1ce60797e2e9249bb8f905803bce5161f07fbf4f1a}
+2020-05-19 13:56:03.272 -03 [protoutils] checkSignatureFromCreator -> DEBU 23e creator is valid
+2020-05-19 13:56:03.298 -03 [protoutils] checkSignatureFromCreator -> DEBU 23f exits successfully
+2020-05-19 13:56:03.299 -03 [protoutils] validateChaincodeProposalMessage -> DEBU 240 validateChaincodeProposalMessage starts for proposal 0xc000166af0, header 0xc0002f0cd0
+2020-05-19 13:56:03.303 -03 [protoutils] validateChaincodeProposalMessage -> DEBU 241 validateChaincodeProposalMessage info: header extension references chaincode name:"lscc"
+2020-05-19 13:56:03.304 -03 [endorser] preProcess -> DEBU 242 [][eac61d28] processing txid: eac61d286c606255314a4e4d28cff88c906235a6e6848aba3e53f1ab108a47ad
+2020-05-19 13:56:03.305 -03 [endorser] SimulateProposal -> DEBU 243 [][eac61d28] Entry chaincode: name:"lscc"
+2020-05-19 13:56:03.305 -03 [endorser] callChaincode -> INFO 244 [][eac61d28] Entry chaincode: name:"lscc"
+2020-05-19 13:56:03.305 -03 [chaincode] Execute -> DEBU 245 Entry
+2020-05-19 13:56:03.321 -03 [chaincode] handleMessage -> DEBU 246 [eac61d28] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2020-05-19 13:56:03.321 -03 [chaincode] Notify -> DEBU 247 [eac61d28] notifying Txid:eac61d286c606255314a4e4d28cff88c906235a6e6848aba3e53f1ab108a47ad, channelID:
+2020-05-19 13:56:03.322 -03 [chaincode] Execute -> DEBU 248 Exit
+2020-05-19 13:56:03.322 -03 [endorser] callChaincode -> INFO 249 [][eac61d28] Exit chaincode: name:"lscc"  (16ms)
+2020-05-19 13:56:03.322 -03 [endorser] SimulateProposal -> DEBU 24a [][eac61d28] Exit
+2020-05-19 13:56:03.322 -03 [endorser] func1 -> DEBU 24b Exit: request from 10.244.2.1:38774
+2020-05-19 13:56:03.322 -03 [comm.grpc.server] 1 -> INFO 24c unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=10.244.2.1:38774 grpc.code=OK grpc.call_duration=53.5421ms

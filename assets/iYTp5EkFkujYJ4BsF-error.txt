@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red33\green162\blue175;\red208\green242\blue243;\red0\green0\blue0;
+\red170\green29\blue21;}
+{\*\expandedcolortbl;;\cssrgb\c12845\c69022\c74026;\csgenericrgb\c81670\c95095\c95466;\csgenericrgb\c0\c0\c0;
+\cssrgb\c73281\c18621\c10222;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww32080\viewh14060\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 \CocoaLigature0 2018-07-02 00:01:23.085 UTC [chaincode] launch -> DEBU 790\cf4  start container: mycc:1.0(networkid:dev,peerid:peer0.org1.example.com)\
+\cf2 2018-07-02 00:01:23.085 UTC [chaincode] launch -> DEBU 791\cf4  start container with args: chaincode -peer.address=peer0.org1.example.com:7052\
+\cf2 2018-07-02 00:01:23.085 UTC [chaincode] launch -> DEBU 792\cf4  start container with env:\
+	CORE_CHAINCODE_ID_NAME=mycc:1.0\
+	CORE_PEER_TLS_ENABLED=true\
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key\
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt\
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt\
+	CORE_CHAINCODE_LOGGING_LEVEL=info\
+	CORE_CHAINCODE_LOGGING_SHIM=warning\
+	CORE_CHAINCODE_LOGGING_FORMAT=%\{color\}%\{time:2006-01-02 15:04:05.000 MST\} [%\{module\}] %\{shortfunc\} -> %\{level:.4s\} %\{id:03x\}%\{color:reset\} %\{message\}\
+\cf2 2018-07-02 00:01:23.085 UTC [container] lockContainer -> DEBU 793\cf4  waiting for container(dev-peer0.org1.example.com-mycc-1.0) lock\
+\cf2 2018-07-02 00:01:23.085 UTC [container] lockContainer -> DEBU 794\cf4  got container (dev-peer0.org1.example.com-mycc-1.0) lock\
+\cf2 2018-07-02 00:01:23.087 UTC [dockercontroller] Start -> DEBU 795\cf4  Cleanup container dev-peer0.org1.example.com-mycc-1.0\
+\cf2 2018-07-02 00:01:23.091 UTC [dockercontroller] stopInternal -> DEBU 796\cf4  Stop container dev-peer0.org1.example.com-mycc-1.0(No such container: dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:01:23.094 UTC [dockercontroller] stopInternal -> DEBU 797\cf4  Kill container dev-peer0.org1.example.com-mycc-1.0 (No such container: dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:01:23.096 UTC [dockercontroller] stopInternal -> DEBU 798\cf4  Remove container dev-peer0.org1.example.com-mycc-1.0 (No such container: dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:01:23.096 UTC [dockercontroller] Start -> DEBU 799\cf4  Start container dev-peer0.org1.example.com-mycc-1.0\
+\cf2 2018-07-02 00:01:23.096 UTC [dockercontroller] createContainer -> DEBU 79a\cf4  Create container: dev-peer0.org1.example.com-mycc-1.0\
+\cf2 2018-07-02 00:01:23.189 UTC [dockercontroller] createContainer -> DEBU 79b\cf4  Created container: dev-peer0.org1.example.com-mycc-1.0-384f11f484b9302df90b453200cfb25174305fce8f53f4e94d45ee3b6cab0ce9\
+\cf2 2018-07-02 00:01:24.800 UTC [dockercontroller] Start -> DEBU 79c\cf4  Started container dev-peer0.org1.example.com-mycc-1.0\
+\cf2 2018-07-02 00:01:24.808 UTC [container] unlockContainer -> DEBU 79d\cf4  container lock deleted(dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:06:23.084 UTC [chaincode] launchAndWaitForRegister -> DEBU 79e\cf4  stopping due to error while launching: timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.example.com,tx:71371c63e5709fa88eb2f7454641bd52d7cfb66348c79c7023bbeb64b429fc9e)\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).launchAndWaitForRegister\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:569\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:731\
+github.com/hyperledger/fabric/core/chaincode.Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:45\
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:83\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:164\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:265\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:491\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31\
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler\
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551\
+runtime.goexit\
+	/opt/go/src/runtime/asm_amd64.s:2337\
+\cf2 2018-07-02 00:06:23.084 UTC [container] lockContainer -> DEBU 79f\cf4  waiting for container(dev-peer0.org1.example.com-mycc-1.0) lock\
+\cf2 2018-07-02 00:06:23.084 UTC [container] lockContainer -> DEBU 7a0\cf4  got container (dev-peer0.org1.example.com-mycc-1.0) lock\
+\cf2 2018-07-02 00:06:23.088 UTC [dockercontroller] stopInternal -> DEBU 7a1\cf4  Stop container dev-peer0.org1.example.com-mycc-1.0(Container not running: dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:06:23.095 UTC [dockercontroller] stopInternal -> DEBU 7a2\cf4  Kill container dev-peer0.org1.example.com-mycc-1.0 (API error (409): \{"message":"Cannot kill container: dev-peer0.org1.example.com-mycc-1.0: Container 5adf8e34a4da72b4a5e43f85ec2cffb21d50011747922f401889b23240f8735a is not running"\}\
+)\
+\cf2 2018-07-02 00:06:23.123 UTC [dockercontroller] stopInternal -> DEBU 7a3\cf4  Removed container dev-peer0.org1.example.com-mycc-1.0\
+\cf2 2018-07-02 00:06:23.123 UTC [container] unlockContainer -> DEBU 7a4\cf4  container lock deleted(dev-peer0.org1.example.com-mycc-1.0)\
+\cf2 2018-07-02 00:06:23.123 UTC [chaincode] func1 -> DEBU 7a5\cf4  chaincode mycc:1.0 launch seq completed\
+\cf5 2018-07-02 00:06:23.124 UTC [chaincode] Launch -> ERRO 7a6\cf4  launchAndWaitForRegister failed: timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.example.com,tx:71371c63e5709fa88eb2f7454641bd52d7cfb66348c79c7023bbeb64b429fc9e)\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).launchAndWaitForRegister\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:569\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:731\
+github.com/hyperledger/fabric/core/chaincode.Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:45\
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:83\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:164\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:265\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:491\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31\
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler\
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551\
+runtime.goexit\
+	/opt/go/src/runtime/asm_amd64.s:2337\
+\cf2 2018-07-02 00:06:23.124 UTC [endorser] callChaincode -> DEBU 7a7\cf4  [ekycchannel][71371c63] Exit\
+\cf5 2018-07-02 00:06:23.124 UTC [endorser] simulateProposal -> ERRO 7a8\cf4  [ekycchannel][71371c63] failed to invoke chaincode name:"lscc" , error: timeout expired while starting chaincode mycc:1.0(networkid:dev,peerid:peer0.org1.example.com,tx:71371c63e5709fa88eb2f7454641bd52d7cfb66348c79c7023bbeb64b429fc9e)\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).launchAndWaitForRegister\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:569\
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:731\
+github.com/hyperledger/fabric/core/chaincode.Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:45\
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:83\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:164\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:265\
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:491\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61\
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal\
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31\
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler\
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981\
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1\
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551\
+runtime.goexit\
+	/opt/go/src/runtime/asm_amd64.s:2337\
+\cf2 2018-07-02 00:06:23.124 UTC [endorser] simulateProposal -> DEBU 7a9\cf4  [ekycchannel][71371c63] Exit\
+\cf2 2018-07-02 00:06:23.124 UTC [lockbasedtxmgr] Done -> DEBU 7aa\cf4  Done with transaction simulation / query execution [71371c63e5709fa88eb2f7454641bd52d7cfb66348c79c7023bbeb64b429fc9e]\
+\cf2 2018-07-02 00:06:23.124 UTC [endorser] ProcessProposal -> DEBU 7ab\cf4  Exit: request from%!(EXTRA string=10.0.0.93:42636)}

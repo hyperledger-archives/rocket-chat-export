@@ -1,0 +1,145 @@
+---
+# Source: hlf-config/templates/artifacts/configtx.yaml
+
+Organizations:
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/example.com/msp
+        # AdminPrincipal: Role.ADMIN
+
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
+        # AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: blockchain-org1peer1
+              Port: 7110
+            - Host: blockchain-org1peer2
+              Port: 7120
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp
+        # AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: blockchain-org2peer1
+              Port: 7210
+            - Host: blockchain-org2peer2
+              Port: 7220
+Orderer: &OrdererDefaults
+    OrdererType: kafka
+    Addresses:
+        - blockchain-orderer1:7050
+        - blockchain-orderer2:7050
+        - blockchain-orderer3:7050
+    
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+    Kafka:
+        Brokers:
+            - kafka-0.broker.default:9092
+            - kafka-1.broker.default:9092
+            - kafka-2.broker.default:9092
+            - kafka-3.broker.default:9092
+            
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        # BlockValidation specifies what signatures must be included in the block
+        # from the orderer for the peer to validate it.
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+
+Application: &ApplicationDefaults
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V1_4_1: true
+        V1_3: false
+        V1_1: false
+
+    Orderer: &OrdererCapabilities
+        V1_4_1: true
+        V1_1: false
+
+    Application: &ApplicationCapabilities
+        V1_4_1: true
+        V1_3: false
+        V1_2: false
+        V1_1: false
+
+Channel: &ChannelDefaults
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+    Capabilities:
+        <<: *ChannelCapabilities
+
+Profiles:
+    MultiOrgsOrdererGenesis:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Capabilities:
+                <<: *OrdererCapabilities
+            OrdererType: kafka
+            Kafka:
+                Brokers:
+                    - kafka-0.broker.default:9092
+                    - kafka-1.broker.default:9092
+                    - kafka-2.broker.default:9092
+                    - kafka-3.broker.default:9092
+            Organizations:
+                - *OrdererOrg
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+            - <<: *OrdererOrg
+        Consortiums:
+            CoopConsortium:
+                Organizations:
+                    - *Org1
+                    - *Org2
+    
+    CoopChannel:
+        Consortium: CoopConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+               - *Org1
+               - *Org2
+            Capabilities:
+                <<: *ApplicationCapabilities

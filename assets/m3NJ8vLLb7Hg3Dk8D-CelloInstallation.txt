@@ -1,0 +1,62 @@
+﻿Used this user manual: https://github.com/yeasy/cello/blob/master/docs/deployment.md
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install --no-install-recommends     apt-transport-https     curl     software-properties-common
+
+curl -fsSL 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add -
+sudo add-apt-repository    "deb https://packages.docker.com/1.13/apt/repo/ \
+ubuntu-$(lsb_release -cs) \
+main"
+
+sudo apt-get update
+sudo apt-get -y install docker-engine
+sudo docker info
+sudo systemctl status docker
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo vim /etc/systemd/system/docker.service.d/override.conf
+
+File content>
+[Service]
+DOCKER_OPTS="$DOCKER_OPTS -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --api-cors-header='*' --default-ulimit=nofile=8192:16384 --default-ulimit=nproc=8192:16384"
+EnvironmentFile=-/etc/default/docker
+ExecStart=
+ExecStart=/usr/bin/dockerd
+
+>I have removed this from the file:  -H fd:// $DOCKER_OPTS
+
+sudo vim /etc/docker/daemon.json
+
+File content (per https://stackoverflow.com/questions/44411828/cannot-connect-to-the-docker-daemon-port-2375?noredirect=1#44412406)>
+{"hosts": ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
+sudo usermod -aG docker ${USER}
+>log off / log in user
+
+docker pull hyperledger/fabric-peer:x86_64-0.6.1-preview \
+  && docker pull hyperledger/fabric-membersrvc:x86_64-0.6.1-preview \
+  && docker pull yeasy/blockchain-explorer:latest \
+  && docker tag hyperledger/fabric-peer:x86_64-0.6.1-preview hyperledger/fabric-peer \
+  && docker tag hyperledger/fabric-peer:x86_64-0.6.1-preview hyperledger/fabric-baseimage \
+  && docker tag hyperledger/fabric-membersrvc:x86_64-0.6.1-preview hyperledger/fabric-membersrvc
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo apt install git make -y
+mkdir cello
+git clone https://github.com/yeasy/cello && cd cello
+
+docker pull python:3.5 \
+	&& docker pull mongo:3.2 \
+	&& docker pull yeasy/nginx:latest \
+	&& docker pull mongo-express:0.30
+
+make setup
+make restart
+
+>browser: hostname:8080
+user: admin
+password: pass

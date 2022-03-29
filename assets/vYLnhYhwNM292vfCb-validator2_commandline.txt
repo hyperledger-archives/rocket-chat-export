@@ -1,0 +1,135 @@
+sudo -u sawtooth sawtooth-validator -vv --bind component:tcp://127.0.0.1:4004 --bind network:tcp://10.0.2.16:8800 --endpoint tcp://10.0.2.16:8800 --peers tcp://10.0.2.15:8800
+[2019-02-05 10:33:30.426 WARNING  (unknown file)] [src/pylogger.rs: 40] Started logger at level DEBUG
+[2019-02-05 10:33:30.849 DEBUG    ffi] loading library libsawtooth_validator.so
+[2019-02-05 10:33:30.853 DEBUG    ffi] loading library libsawtooth_validator.so
+[2019-02-05 10:33:31.127 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+[2019-02-05 10:33:31.127 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+[2019-02-05 10:33:31.127 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+[2019-02-05 10:33:31.133 INFO     cli] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[2019-02-05 10:33:31.141 INFO     cli] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[2019-02-05 10:33:31.141 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[2019-02-05 10:33:31.143 DEBUG    state_verifier] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[2019-02-05 10:33:31.144 DEBUG    state_verifier] block store file is /var/lib/sawtooth/block-00.lmdb
+[2019-02-05 10:33:31.144 INFO     state_verifier] Skipping state verification: chain head's state root is present
+[2019-02-05 10:33:31.146 INFO     cli] Starting validator with serial scheduler
+[2019-02-05 10:33:31.146 DEBUG    core] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[2019-02-05 10:33:31.146 DEBUG    core] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[2019-02-05 10:33:31.147 DEBUG    core] block store file is /var/lib/sawtooth/block-00.lmdb
+[2019-02-05 10:33:31.147 DEBUG    threadpool] Creating thread pool executor Component
+[2019-02-05 10:33:31.150 DEBUG    threadpool] Creating thread pool executor Network
+[2019-02-05 10:33:31.150 DEBUG    threadpool] Creating thread pool executor Client
+[2019-02-05 10:33:31.151 DEBUG    threadpool] Creating thread pool executor Signature
+[2019-02-05 10:33:31.151 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:33:31.151 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:33:31.152 DEBUG    threadpool] Creating thread pool executor Executing
+[2019-02-05 10:33:31.162 DEBUG    threadpool] Creating thread pool executor Consensus
+[2019-02-05 10:33:31.162 DEBUG    threadpool] Creating thread pool executor FutureCallback
+[2019-02-05 10:33:31.164 DEBUG    threadpool] Creating thread pool executor Instrumented
+[2019-02-05 10:33:31.173 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:31.174 INFO     interconnect] Listening on tcp://127.0.0.1:4004
+[2019-02-05 10:33:31.174 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:33:31.174 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:33:31.175 DEBUG    genesis] genesis_batch_file: not found
+[2019-02-05 10:33:31.178 DEBUG    genesis] block_chain_id: not yet specified
+[2019-02-05 10:33:31.179 INFO     genesis] No chain head and not the genesis node: starting in peering mode
+[2019-02-05 10:33:31.180 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:31.181 INFO     interconnect] Listening on tcp://127.0.0.1:5050
+[2019-02-05 10:33:31.182 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:33:31.182 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:33:31.187 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:31.189 INFO     interconnect] Listening on tcp://10.0.2.16:8800
+[2019-02-05 10:33:31.194 DEBUG    dispatch] Added send_message function for connection ServerThread
+[2019-02-05 10:33:31.194 DEBUG    dispatch] Added send_last_message function for connection ServerThread
+[2019-02-05 10:33:31.196 DEBUG    gossip] Endpoint has not completed authorization in 10 seconds: tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.206 DEBUG    gossip] attempting to peer with tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.206 DEBUG    interconnect] Adding connection to tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.206 DEBUG    selector_events] Using selector: ZMQSelector
+[2019-02-05 10:33:31.210 DEBUG    dispatch] Added send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.212 DEBUG    dispatch] Added send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.222 DEBUG    interconnect] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was acknowledged
+[2019-02-05 10:33:31.226 DEBUG    handlers] got connect message from 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958. sending ack
+[2019-02-05 10:33:31.227 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.230 DEBUG    permission_verifier] Chain head is not set yet. Permit all.
+[2019-02-05 10:33:31.230 DEBUG    gossip] Endpoint has completed authorization: tcp://10.0.2.15:8800 (id: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958)
+[2019-02-05 10:33:31.238 DEBUG    gossip] Connection to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 succeeded
+[2019-02-05 10:33:31.240 DEBUG    handlers] Connection: 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 is approved
+[2019-02-05 10:33:31.259 DEBUG    gossip] Peering request to 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 was successful
+[2019-02-05 10:33:31.260 DEBUG    gossip] Added connection_id 05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958 with endpoint tcp://10.0.2.15:8800, connected identities are now {'05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958': 'tcp://10.0.2.15:8800'}
+[2019-02-05 10:33:31.262 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74. Using default max occupancy: 10
+[2019-02-05 10:33:31.262 INFO     processor_handlers] registered transaction processor: connection_id=a38aa303b0af2c0f2d1b5ed92845548c8269dcb1db4b600f3458270b3962237ded7e1a0f049c83cd4973c4ba5b59518aa17ea3044638d3594ef78481efab4c74, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[2019-02-05 10:33:31.264 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159. Using default max occupancy: 10
+[2019-02-05 10:33:31.266 INFO     processor_handlers] registered transaction processor: connection_id=db8acbc7ada1a0c89f6ed237c3ca2b247cd3a33183cd847a095bf1e207d82a6faee55e8372bda538bab4c993a8d2480a18cb49cd7234e8d7bc42a8c4332df159, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[2019-02-05 10:33:31.267 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa. Using default max occupancy: 10
+[2019-02-05 10:33:31.268 INFO     processor_handlers] registered transaction processor: connection_id=7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[2019-02-05 10:33:31.274 DEBUG    handlers] got connect message from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65. sending ack
+[2019-02-05 10:33:31.274 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.15:8800
+[2019-02-05 10:33:31.274 DEBUG    interconnect] Determining whether inbound connection should be allowed. num connections: 2 max 100
+[2019-02-05 10:33:31.275 DEBUG    handlers] Allowing incoming connection: 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65
+[2019-02-05 10:33:31.278 DEBUG    permission_verifier] Chain head is not set yet. Permit all.
+[2019-02-05 10:33:31.278 DEBUG    handlers] Connection: 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 is approved
+[2019-02-05 10:33:31.297 WARNING  processor_handlers] Max occupancy was not provided by transaction processor: 7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa. Using default max occupancy: 10
+[2019-02-05 10:33:31.297 INFO     processor_handlers] registered transaction processor: connection_id=7f2c5682e17aaf8d04896ac5ce84abdf429da4fb203be0f05decef9bc25a1529a4298afe803f96e2e3c782714c06409f13c24a6467ab49433b544141b77f3afa, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'], max_occupancy=10
+[2019-02-05 10:33:31.330 DEBUG    permission_verifier] Chain head is not set yet. Permit all.
+[2019-02-05 10:33:31.381 DEBUG    completer] Request missing predecessor: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836
+[2019-02-05 10:33:31.391 DEBUG    permission_verifier] Chain head is not set yet. Permit all.
+[2019-02-05 10:33:32.194 INFO     (unknown file)] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836, block_num: 0, state_root_hash: 64352345e067bd772812ea4fdafc8f42b6415958453407e076c0bd75db7c3f13, previous_block_id: 0000000000000000)
+[2019-02-05 10:33:32.203 DEBUG    block_validator] Adding block 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19 for processing
+[2019-02-05 10:33:32.964 INFO     block_validator] Block 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19 (block_num:1, state:248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id:1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836) passed validation
+[2019-02-05 10:33:32.965 DEBUG    block_validator] Removing block from processing 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19
+[2019-02-05 10:33:46.647 INFO     handlers] Consensus engine registered: PoET 0.1
+[2019-02-05 10:33:46.704 ERROR    handlers] ConsensusStateGet
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/handlers.py", line 547, in handle_request
+    request.block_id, request.addresses)
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 183, in state_get
+    self._get_blocks([block_id])[0].get_state_view(
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in _get_blocks
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/consensus/proxy.py", line 212, in <listcomp>
+    for block_id in block_ids
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/journal/block_cache.py", line 69, in __getitem__
+    raise ValueError("None or empty block_id is an invalid identifier")
+ValueError: None or empty block_id is an invalid identifier
+[2019-02-05 10:33:47.477 INFO     (unknown file)] [src/journal/chain.rs: 258] Building fork resolution for chain head 'Block(id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836, block_num: 0, state_root_hash: 64352345e067bd772812ea4fdafc8f42b6415958453407e076c0bd75db7c3f13, previous_block_id: 0000000000000000)' against new block 'Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)'
+[2019-02-05 10:33:47.515 INFO     (unknown file)] [src/journal/chain.rs: 634] Chain head updated to Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:33:47.533 INFO     (unknown file)] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)
+[2019-02-05 10:33:51.211 DEBUG    interconnect] No response from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 in 19.933665990829468 seconds - beginning heartbeat pings.
+[2019-02-05 10:33:51.725 DEBUG    block_validator] Adding block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f for processing
+[2019-02-05 10:33:51.774 INFO     block_validator] Block 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f (block_num:2, state:9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id:0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19) passed validation
+[2019-02-05 10:33:51.774 DEBUG    block_validator] Removing block from processing 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f
+[2019-02-05 10:33:51.930 INFO     (unknown file)] [src/journal/chain.rs: 258] Building fork resolution for chain head 'Block(id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19, block_num: 1, state_root_hash: 248de4dfd77f87ac3591f09ea40a325c59d98f13232e9e2cc0c1ede2d7a5bfee, previous_block_id: 1231ae25b92930a47f91839180e1775346801535d72ab263f9e4bb4556daaa621c46d516ef2e6442759897bfb61dc9b724f5d19ff30c8e834b6be94970774836)' against new block 'Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)'
+[2019-02-05 10:33:51.932 INFO     (unknown file)] [src/journal/chain.rs: 634] Chain head updated to Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[2019-02-05 10:33:51.932 INFO     (unknown file)] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f, block_num: 2, state_root_hash: 9732ffe9ceb11378aac51180ae585b6e49913b13dd5f30e7cc94daacf33421ba, previous_block_id: 0b9132c29bb4213016c479ccb714c6505a8b55d0ca76f3d994d9d415de76f4b02c5d91458b425ad1a302e7ca579defccdf880798e1921a6e3a63067426cd9a19)
+[2019-02-05 10:33:58.164 DEBUG    handlers] got connect message from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97. sending ack
+[2019-02-05 10:33:58.164 DEBUG    handlers] Endpoint of connecting node is tcp://10.0.2.15:8800
+[2019-02-05 10:33:58.165 DEBUG    interconnect] Determining whether inbound connection should be allowed. num connections: 3 max 100
+[2019-02-05 10:33:58.165 DEBUG    handlers] Allowing incoming connection: 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97
+[2019-02-05 10:33:58.170 DEBUG    handlers] Connection: 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 is approved
+[2019-02-05 10:33:58.186 DEBUG    gossip_handlers] Got peer register message from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 (tcp://10.0.2.15:8800, protocol v1)
+[2019-02-05 10:33:58.189 DEBUG    gossip] Added connection_id 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 with endpoint tcp://10.0.2.15:8800, connected identities are now {'05472bde0bded520450ac194d9d22c77b37d343c8da9a99414ebe004c3b360ee5e337925528e24968c5eeff40c66fa4dc29781629fdf0310b06e6b1e19f91958': 'tcp://10.0.2.15:8800', '5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97': 'tcp://10.0.2.15:8800'}
+[2019-02-05 10:33:58.225 DEBUG    responder] Responding to block requests: 7fee523b48ac0e567c137b1d0dd48d47223a0c2d1e113cb1f4bcb0ccfafa59404a52ec184d459ec98d1421e20ff8cf48c9326be67ec97cd1336c9a3ac5fe410f
+[2019-02-05 10:34:11.225 DEBUG    interconnect] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 12.99444842338562 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:01.266 DEBUG    interconnect] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 17.189827919006348 seconds - beginning heartbeat pings.
+[2019-02-05 10:35:41.279 INFO     interconnect] No response from 67774a186511ddbe7ad6bebdbef4f06840d1b5c75f9f6270e97c69f5209ef4165ab378d6d21863fc272a9a429730b8f170f6cccc432578baa0b6079c5cb44d65 in 130.00165629386902 seconds - removing connection.
+[2019-02-05 10:35:51.280 DEBUG    interconnect] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 10.902607679367065 seconds - beginning heartbeat pings.
+[2019-02-05 10:37:41.369 INFO     interconnect] No response from 5df178cfceb6f082f5f75a2b827cf6b2837a45c1079d8e68db1c56d88c08beedc89896397f09cc131d20e2e2fdf5bee3dacd3db40986812be9128f2f7ab07f97 in 120.9918200969696 seconds - removing connection.
+^C[2019-02-05 10:38:43.827 INFO     cli] Initiating graceful shutdown (press Ctrl+C again to force)
+[2019-02-05 10:38:43.828 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:43.829 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:43.829 DEBUG    dispatch] Removed send_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[2019-02-05 10:38:43.829 DEBUG    dispatch] Removed send_last_message function for connection OutboundConnectionThread-tcp://10.0.2.15:8800
+[2019-02-05 10:38:43.830 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:43.830 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:43.832 DEBUG    dispatch] Removed send_message function for connection ServerThread
+[2019-02-05 10:38:43.832 DEBUG    dispatch] Removed send_last_message function for connection ServerThread
+[2019-02-05 10:38:43.842 WARNING  dispatch] Attempted to remove send_message function for connection ServerThread, but no send_message function was registered
+[2019-02-05 10:38:43.842 WARNING  dispatch] Attempted to remove send_last_message function for connection ServerThread, but no send_last_message function was registered
+[2019-02-05 10:38:43.911 WARNING  (unknown file)] [src/journal/publisher.rs: 564] PublisherThread exiting
+^C[2019-02-05 10:38:44.053 ERROR    (unknown file)] error executing main
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/cli.py", line 290, in main
+    validator.stop()
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/server/core.py", line 492, in stop
+    time.sleep(1)
+KeyboardInterrupt
+

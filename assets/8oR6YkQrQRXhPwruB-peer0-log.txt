@@ -1,0 +1,345 @@
+2018-09-18 14:54:10.392 UTC [endorser] ProcessProposal -> DEBU 5dd Entering: request from 172.18.0.1:55688
+2018-09-18 14:54:10.392 UTC [protoutils] ValidateProposalMessage -> DEBU 5de ValidateProposalMessage starts for signed proposal 0xc42231e360
+2018-09-18 14:54:10.393 UTC [protoutils] validateChannelHeader -> DEBU 5df validateChannelHeader info: header type 3
+2018-09-18 14:54:10.393 UTC [protoutils] checkSignatureFromCreator -> DEBU 5e0 begin
+2018-09-18 14:54:10.393 UTC [protoutils] checkSignatureFromCreator -> DEBU 5e1 creator is &{MediaoceanMSP dedf60fbb607c879a0a503c9366bff08bc2b3d931052f0eb3f4d9bd1ca125115}
+2018-09-18 14:54:10.393 UTC [protoutils] checkSignatureFromCreator -> DEBU 5e2 creator is valid
+2018-09-18 14:54:10.393 UTC [protoutils] checkSignatureFromCreator -> DEBU 5e3 exits successfully
+2018-09-18 14:54:10.393 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 5e4 validateChaincodeProposalMessage starts for proposal 0xc422ac8be0, header 0xc42231e6c0
+2018-09-18 14:54:10.393 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 5e5 validateChaincodeProposalMessage info: header extension references chaincode name:"lscc" 
+2018-09-18 14:54:10.393 UTC [endorser] preProcess -> DEBU 5e6 [ibm-block-channel][78f231d1] processing txid: 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739
+2018-09-18 14:54:10.393 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 5e7 retrieveTransactionByID() - txId = [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739]
+2018-09-18 14:54:10.393 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 5e8 constructing new tx simulator
+2018-09-18 14:54:10.393 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 5e9 constructing new tx simulator txid = [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739]
+2018-09-18 14:54:10.393 UTC [endorser] SimulateProposal -> DEBU 5ea [ibm-block-channel][78f231d1] Entry chaincode: name:"lscc" 
+2018-09-18 14:54:10.394 UTC [endorser] DisableJavaCCInst -> DEBU 5eb java chaincode disabled
+2018-09-18 14:54:10.394 UTC [endorser] callChaincode -> DEBU 5ec [ibm-block-channel][78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739] Entry chaincode: name:"lscc"  version: 1.2.0
+2018-09-18 14:54:10.394 UTC [ccprovider] NewCCContext -> DEBU 5ed NewCCCC(chain=ibm-block-channel,chaincode=lscc,version=1.2.0,txid=78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739,syscc=true,proposal=0xc422ac8be0,canname=lscc:1.2.0)
+2018-09-18 14:54:10.394 UTC [chaincode] execute -> DEBU 5ee canonical name: lscc:1.2.0
+2018-09-18 14:54:10.394 UTC [chaincode] Execute -> DEBU 5ef Entry
+2018-09-18 14:54:10.394 UTC [shim] func1 -> DEBU 5f0 [78f231d1]Received message TRANSACTION from peer
+2018-09-18 14:54:10.394 UTC [shim] handleMessage -> DEBU 5f1 [78f231d1] Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-09-18 14:54:10.394 UTC [shim] handleReady -> DEBU 5f2 [78f231d1] Received TRANSACTION, invoking transaction on chaincode(state:ready)
+2018-09-18 14:54:10.401 UTC [shim] handleGetState -> DEBU 5f3 [78f231d1] Sending GET_STATE
+2018-09-18 14:54:10.401 UTC [chaincode] handleMessage -> DEBU 5f4 [78f231d1] Fabric side handling ChaincodeMessage of type: GET_STATE in state ready
+2018-09-18 14:54:10.401 UTC [chaincode] HandleTransaction -> DEBU 5f5 [78f231d1] handling GET_STATE from chaincode
+2018-09-18 14:54:10.401 UTC [chaincode] HandleGetState -> DEBU 5f6 [78f231d1] getting state for chaincode lscc, key aacc, channel ibm-block-channel
+2018-09-18 14:54:10.401 UTC [statecouchdb] GetState -> DEBU 5f7 GetState(). ns=lscc, key=aacc
+2018-09-18 14:54:10.401 UTC [couchdb] ReadDoc -> DEBU 5f8 Entering ReadDoc()  id=[aacc]
+2018-09-18 14:54:10.401 UTC [couchdb] encodePathElement -> DEBU 5f9 Entering encodePathElement()  string=aacc
+2018-09-18 14:54:10.401 UTC [couchdb] encodePathElement -> DEBU 5fa Exiting encodePathElement()  encodedStr=aacc
+2018-09-18 14:54:10.402 UTC [couchdb] handleRequest -> DEBU 5fb Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/aacc?attachments=true
+2018-09-18 14:54:10.402 UTC [couchdb] handleRequest -> DEBU 5fc HTTP Request: GET /ibm-block-channel_lscc/aacc?attachments=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:10.418 UTC [gossip/discovery] periodicalSendAlive -> DEBU 5fd Sleeping 5s
+2018-09-18 14:54:10.434 UTC [couchdb] handleRequest -> DEBU 5fe Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-18 14:54:10.434 UTC [couchdb] ReadDoc -> DEBU 5ff Document not found (404), returning nil value instead of 404 error
+2018-09-18 14:54:10.434 UTC [chaincode] HandleGetState -> DEBU 600 [78f231d1] No state associated with key: 
+aacc. Sending RESPONSE with an empty payload
+2018-09-18 14:54:10.434 UTC [chaincode] HandleTransaction -> DEBU 601 [78f231d1] Completed GET_STATE. Sending RESPONSE
+2018-09-18 14:54:10.434 UTC [shim] func1 -> DEBU 602 [78f231d1]Received message RESPONSE from peer
+2018-09-18 14:54:10.434 UTC [shim] handleMessage -> DEBU 603 [78f231d1] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-18 14:54:10.434 UTC [shim] sendChannel -> DEBU 604 [78f231d1] before send
+2018-09-18 14:54:10.434 UTC [shim] sendChannel -> DEBU 605 [78f231d1] after send
+2018-09-18 14:54:10.434 UTC [shim] handleReady -> DEBU 606 [78f231d1] Received RESPONSE, communicated (state:ready)
+2018-09-18 14:54:10.434 UTC [shim] handleGetState -> DEBU 607 [78f231d1] GetState received payload RESPONSE
+2018-09-18 14:54:10.435 UTC [shim] handlePutState -> DEBU 608 [78f231d1] Sending PUT_STATE
+2018-09-18 14:54:10.435 UTC [chaincode] handleMessage -> DEBU 609 [78f231d1] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-18 14:54:10.435 UTC [chaincode] HandleTransaction -> DEBU 60a [78f231d1] handling PUT_STATE from chaincode
+2018-09-18 14:54:10.435 UTC [chaincode] HandleTransaction -> DEBU 60b [78f231d1] Completed PUT_STATE. Sending RESPONSE
+2018-09-18 14:54:10.436 UTC [shim] func1 -> DEBU 60c [78f231d1]Received message RESPONSE from peer
+2018-09-18 14:54:10.436 UTC [shim] handleMessage -> DEBU 60d [78f231d1] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-18 14:54:10.436 UTC [shim] sendChannel -> DEBU 60e [78f231d1] before send
+2018-09-18 14:54:10.436 UTC [shim] sendChannel -> DEBU 60f [78f231d1] after send
+2018-09-18 14:54:10.436 UTC [shim] handleReady -> DEBU 610 [78f231d1] Received RESPONSE, communicated (state:ready)
+2018-09-18 14:54:10.436 UTC [shim] handlePutState -> DEBU 611 [78f231d1] Received RESPONSE. Successfully updated state
+2018-09-18 14:54:10.436 UTC [shim] handlePutState -> DEBU 612 [78f231d1] Sending PUT_STATE
+2018-09-18 14:54:10.436 UTC [chaincode] handleMessage -> DEBU 613 [78f231d1] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2018-09-18 14:54:10.436 UTC [chaincode] HandleTransaction -> DEBU 614 [78f231d1] handling PUT_STATE from chaincode
+2018-09-18 14:54:10.436 UTC [chaincode] HandleTransaction -> DEBU 615 [78f231d1] Completed PUT_STATE. Sending RESPONSE
+2018-09-18 14:54:10.437 UTC [shim] func1 -> DEBU 616 [78f231d1]Received message RESPONSE from peer
+2018-09-18 14:54:10.437 UTC [shim] handleMessage -> DEBU 617 [78f231d1] Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-09-18 14:54:10.437 UTC [shim] sendChannel -> DEBU 618 [78f231d1] before send
+2018-09-18 14:54:10.437 UTC [shim] sendChannel -> DEBU 619 [78f231d1] after send
+2018-09-18 14:54:10.437 UTC [shim] handleReady -> DEBU 61a [78f231d1] Received RESPONSE, communicated (state:ready)
+2018-09-18 14:54:10.437 UTC [shim] handlePutState -> DEBU 61b [78f231d1] Received RESPONSE. Successfully updated state
+2018-09-18 14:54:10.437 UTC [shim] func1 -> DEBU 61c [78f231d1] Transaction completed. Sending COMPLETED
+2018-09-18 14:54:10.437 UTC [shim] triggerNextState -> DEBU 61d [78f231d1] send state message COMPLETED
+2018-09-18 14:54:10.437 UTC [chaincode] handleMessage -> DEBU 61e [78f231d1] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-18 14:54:10.437 UTC [chaincode] Notify -> DEBU 61f [78f231d1] notifying Txid:78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739, channelID:ibm-block-channel
+2018-09-18 14:54:10.437 UTC [chaincode] Execute -> DEBU 620 Exit
+2018-09-18 14:54:10.445 UTC [ccprovider] NewCCContext -> DEBU 621 NewCCCC(chain=ibm-block-channel,chaincode=aacc,version=1.0,txid=78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739,syscc=false,proposal=0xc422ac8be0,canname=aacc:1.0)
+2018-09-18 14:54:10.448 UTC [chaincode] func1 -> DEBU 622 chaincode aacc:1.0 is being launched
+2018-09-18 14:54:10.449 UTC [chaincode] LaunchConfig -> DEBU 623 launchConfig: executable:"chaincode",Args:[chaincode,-peer.address=peer0.mediaocean.com:7052],Envs:[CORE_CHAINCODE_LOGGING_LEVEL=info,CORE_CHAINCODE_LOGGING_SHIM=warning,CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message},CORE_CHAINCODE_ID_NAME=aacc:1.0,CORE_PEER_TLS_ENABLED=true,CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key,CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt,CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt],Files:[/etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/peer.crt]
+2018-09-18 14:54:10.449 UTC [chaincode] Start -> DEBU 624 start container: aacc:1.0
+2018-09-18 14:54:10.449 UTC [chaincode] Start -> DEBU 625 start container with args: chaincode -peer.address=peer0.mediaocean.com:7052
+2018-09-18 14:54:10.449 UTC [chaincode] Start -> DEBU 626 start container with env:
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+	CORE_CHAINCODE_ID_NAME=aacc:1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+2018-09-18 14:54:10.450 UTC [container] lockContainer -> DEBU 627 waiting for container(aacc-1.0) lock
+2018-09-18 14:54:10.450 UTC [container] lockContainer -> DEBU 628 got container (aacc-1.0) lock
+2018-09-18 14:54:10.450 UTC [dockercontroller] Start -> DEBU 629 Cleanup container dcn_dcn-peer0.mediaocean.com-aacc-1.0
+2018-09-18 14:54:10.452 UTC [dockercontroller] stopInternal -> DEBU 62a Stop container dcn_dcn-peer0.mediaocean.com-aacc-1.0(No such container: dcn_dcn-peer0.mediaocean.com-aacc-1.0)
+2018-09-18 14:54:10.458 UTC [dockercontroller] stopInternal -> DEBU 62b Kill container dcn_dcn-peer0.mediaocean.com-aacc-1.0 (No such container: dcn_dcn-peer0.mediaocean.com-aacc-1.0)
+2018-09-18 14:54:10.459 UTC [dockercontroller] stopInternal -> DEBU 62c Remove container dcn_dcn-peer0.mediaocean.com-aacc-1.0 (No such container: dcn_dcn-peer0.mediaocean.com-aacc-1.0)
+2018-09-18 14:54:10.459 UTC [dockercontroller] Start -> DEBU 62d Start container dcn_dcn-peer0.mediaocean.com-aacc-1.0
+2018-09-18 14:54:10.459 UTC [dockercontroller] getDockerHostConfig -> DEBU 62e docker container hostconfig NetworkMode: dcn_dcn
+2018-09-18 14:54:10.460 UTC [dockercontroller] createContainer -> DEBU 62f Create container: dcn_dcn-peer0.mediaocean.com-aacc-1.0
+2018-09-18 14:54:10.466 UTC [dockercontroller] Start -> DEBU 630 start-could not find image <dcn_dcn-peer0.mediaocean.com-aacc-1.0-a1ed3f6ba26172e9d6dd8cb75f64be81e131c0a5ee8efb44f9e78ad87b729a21> (container id <dcn_dcn-peer0.mediaocean.com-aacc-1.0>), because of <no such image>...attempt to recreate image
+2018-09-18 14:54:10.466 UTC [chaincode-platform] generateDockerfile -> DEBU 631 
+FROM hyperledger/fabric-baseos:amd64-0.4.10
+ADD binpackage.tar /usr/local/bin
+LABEL org.hyperledger.fabric.chaincode.id.name="aacc" \
+      org.hyperledger.fabric.chaincode.id.version="1.0" \
+      org.hyperledger.fabric.chaincode.type="GOLANG" \
+      org.hyperledger.fabric.version="1.2.0" \
+      org.hyperledger.fabric.base.version="0.4.10"
+ENV CORE_CHAINCODE_BUILDLEVEL=1.2.0
+2018-09-18 14:54:10.470 UTC [golang-platform] GenerateDockerBuild -> INFO 632 building chaincode with ldflagsOpt: '-ldflags "-linkmode external -extldflags '-static'"'
+2018-09-18 14:54:10.470 UTC [golang-platform] GenerateDockerBuild -> INFO 633 building chaincode with tags: 
+2018-09-18 14:54:10.470 UTC [util] DockerBuild -> DEBU 634 Attempting build with image hyperledger/fabric-ccenv:latest
+2018-09-18 14:54:11.219 UTC [gossip/election] waitForInterrupt -> DEBU 635 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:11.219 UTC [gossip/election] IsLeader -> DEBU 636 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:11.220 UTC [gossip/election] waitForInterrupt -> DEBU 637 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:15.383 UTC [gossip/discovery] periodicalSendAlive -> DEBU 638 Sleeping 5s
+2018-09-18 14:54:16.185 UTC [gossip/election] waitForInterrupt -> DEBU 639 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:16.185 UTC [gossip/election] IsLeader -> DEBU 63a [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:16.188 UTC [gossip/election] waitForInterrupt -> DEBU 63b [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:20.384 UTC [gossip/discovery] periodicalSendAlive -> DEBU 63c Sleeping 5s
+2018-09-18 14:54:21.188 UTC [gossip/election] waitForInterrupt -> DEBU 63d [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:21.188 UTC [gossip/election] IsLeader -> DEBU 63e [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:21.189 UTC [gossip/election] waitForInterrupt -> DEBU 63f [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:25.385 UTC [gossip/discovery] periodicalSendAlive -> DEBU 640 Sleeping 5s
+2018-09-18 14:54:26.190 UTC [gossip/election] waitForInterrupt -> DEBU 641 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:26.190 UTC [gossip/election] IsLeader -> DEBU 642 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:26.190 UTC [gossip/election] waitForInterrupt -> DEBU 643 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:30.147 UTC [gossip/discovery] periodicalReconnectToDead -> DEBU 644 Sleeping 25s
+2018-09-18 14:54:30.387 UTC [gossip/discovery] periodicalSendAlive -> DEBU 645 Sleeping 5s
+2018-09-18 14:54:31.190 UTC [gossip/election] waitForInterrupt -> DEBU 646 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:31.190 UTC [gossip/election] IsLeader -> DEBU 647 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:31.191 UTC [gossip/election] waitForInterrupt -> DEBU 648 [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:32.774 UTC [dockercontroller] deployImage -> DEBU 649 Created image: dcn_dcn-peer0.mediaocean.com-aacc-1.0-a1ed3f6ba26172e9d6dd8cb75f64be81e131c0a5ee8efb44f9e78ad87b729a21
+2018-09-18 14:54:32.774 UTC [dockercontroller] Start -> DEBU 64a start-recreated image successfully
+2018-09-18 14:54:32.774 UTC [dockercontroller] createContainer -> DEBU 64b Create container: dcn_dcn-peer0.mediaocean.com-aacc-1.0
+2018-09-18 14:54:32.893 UTC [dockercontroller] createContainer -> DEBU 64c Created container: dcn_dcn-peer0.mediaocean.com-aacc-1.0-a1ed3f6ba26172e9d6dd8cb75f64be81e131c0a5ee8efb44f9e78ad87b729a21
+2018-09-18 14:54:33.612 UTC [dockercontroller] Start -> DEBU 64d Started container dcn_dcn-peer0.mediaocean.com-aacc-1.0
+2018-09-18 14:54:33.612 UTC [container] unlockContainer -> DEBU 64e container lock deleted(aacc-1.0)
+2018-09-18 14:54:33.640 UTC [accessControl] authenticate -> DEBU 64f Chaincode aacc:1.0 's authentication is authorized
+2018-09-18 14:54:33.640 UTC [chaincode] HandleChaincodeStream -> DEBU 650 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2018-09-18 14:54:33.640 UTC [chaincode] handleMessage -> DEBU 651 [] Fabric side handling ChaincodeMessage of type: REGISTER in state created
+2018-09-18 14:54:33.640 UTC [chaincode] HandleRegister -> DEBU 652 Received REGISTER in state created
+2018-09-18 14:54:33.640 UTC [chaincode] Register -> DEBU 653 registered handler complete for chaincode aacc:1.0
+2018-09-18 14:54:33.640 UTC [chaincode] HandleRegister -> DEBU 654 Got REGISTER for chaincodeID = name:"aacc:1.0" , sending back REGISTERED
+2018-09-18 14:54:33.640 UTC [chaincode] HandleRegister -> DEBU 655 Changed state to established for name:"aacc:1.0" 
+2018-09-18 14:54:33.640 UTC [chaincode] sendReady -> DEBU 656 sending READY for chaincode name:"aacc:1.0" 
+2018-09-18 14:54:33.641 UTC [chaincode] sendReady -> DEBU 657 Changed to state ready for chaincode name:"aacc:1.0" 
+2018-09-18 14:54:33.641 UTC [chaincode] Launch -> DEBU 658 launch complete
+2018-09-18 14:54:33.641 UTC [chaincode] execute -> DEBU 659 canonical name: aacc:1.0
+2018-09-18 14:54:33.641 UTC [chaincode] Execute -> DEBU 65a Entry
+2018-09-18 14:54:33.641 UTC [chaincode] handleMessage -> DEBU 65b [78f231d1] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2018-09-18 14:54:33.641 UTC [chaincode] Notify -> DEBU 65c [78f231d1] notifying Txid:78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739, channelID:ibm-block-channel
+2018-09-18 14:54:33.641 UTC [chaincode] Execute -> DEBU 65d Exit
+2018-09-18 14:54:33.641 UTC [endorser] callChaincode -> DEBU 65e [ibm-block-channel][78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739] Exit
+2018-09-18 14:54:33.641 UTC [lockbasedtxmgr] GetTxSimulationResults -> DEBU 65f Simulation completed, getting simulation results
+2018-09-18 14:54:33.641 UTC [lockbasedtxmgr] Done -> DEBU 660 Done with transaction simulation / query execution [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739]
+2018-09-18 14:54:33.642 UTC [endorser] SimulateProposal -> DEBU 661 [ibm-block-channel][78f231d1] Exit
+2018-09-18 14:54:33.642 UTC [endorser] endorseProposal -> DEBU 662 [ibm-block-channel][78f231d1] Entry chaincode: name:"lscc" 
+2018-09-18 14:54:33.642 UTC [endorser] endorseProposal -> DEBU 663 [ibm-block-channel][78f231d1] escc for chaincode name:"lscc"  is escc
+2018-09-18 14:54:33.642 UTC [endorser] EndorseWithPlugin -> DEBU 664 Entering endorsement for {plugin: escc, channel: ibm-block-channel, tx: 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739, chaincode: lscc}
+2018-09-18 14:54:33.642 UTC [endorser] EndorseWithPlugin -> DEBU 665 Exiting {plugin: escc, channel: ibm-block-channel, tx: 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739, chaincode: lscc}
+2018-09-18 14:54:33.642 UTC [endorser] endorseProposal -> DEBU 666 [ibm-block-channel][78f231d1] Exit
+2018-09-18 14:54:33.642 UTC [lockbasedtxmgr] Done -> DEBU 667 Done with transaction simulation / query execution [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739]
+2018-09-18 14:54:33.642 UTC [endorser] ProcessProposal -> DEBU 668 Exit: request from 172.18.0.1:55688
+2018-09-18 14:54:35.388 UTC [gossip/discovery] periodicalSendAlive -> DEBU 669 Sleeping 5s
+2018-09-18 14:54:36.192 UTC [gossip/election] waitForInterrupt -> DEBU 66a [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Exiting
+2018-09-18 14:54:36.192 UTC [gossip/election] IsLeader -> DEBU 66b [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Returning true
+2018-09-18 14:54:36.193 UTC [gossip/election] waitForInterrupt -> DEBU 66c [171 211 167 227 181 238 64 74 37 204 202 20 138 149 169 231 191 48 248 177 232 209 125 91 96 32 116 191 239 111 26 140] : Entering
+2018-09-18 14:54:36.206 UTC [blocksProvider] DeliverBlocks -> DEBU 66d [ibm-block-channel] Adding payload locally, buffer seqNum = [1], peers number [0]
+2018-09-18 14:54:36.207 UTC [committer/txvalidator] Validate -> DEBU 66f START Block Validation
+2018-09-18 14:54:36.207 UTC [committer/txvalidator] Validate -> DEBU 670 expecting 1 block validation responses
+2018-09-18 14:54:36.207 UTC [committer/txvalidator] validateTx -> DEBU 671 validateTx starts for block 0xc422264200 env 0xc422229c50 txn 0
+2018-09-18 14:54:36.207 UTC [protoutils] ValidateTransaction -> DEBU 672 ValidateTransactionEnvelope starts for envelope 0xc422229c50
+2018-09-18 14:54:36.208 UTC [protoutils] ValidateTransaction -> DEBU 673 Header is channel_header:"\010\003\020\001\032\014\010\222\243\204\335\005\020\200\273\271\233\001\"\021ibm-block-channel*@78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739:\010\022\006\022\004lscc" signature_header:"\n\240\006\n\rMediaoceanMSP\022\216\006-----BEGIN CERTIFICATE-----\nMIICEzCCAbmgAwIBAgIQOvzrzX9LVv+oeftwXuSkvjAKBggqhkjOPQQDAjBvMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMObWVkaWFvY2Vhbi5jb20xGjAYBgNVBAMTEWNhLm1l\nZGlhb2NlYW4uY29tMB4XDTE4MDkxODE0MzQwNVoXDTI4MDkxNTE0MzQwNVowWTEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHTAbBgNVBAMMFEFkbWluQG1lZGlhb2NlYW4uY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEHIWXR+kgfKT5MoKo72HHNUj8M8lnfjG72+9ERrpA\nwRjBH7aL0IUHelgwVXJmz43aZ9BEcn6UALfdu+VP9go5sKNNMEswDgYDVR0PAQH/\nBAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgJPEQ47+hBAdImV8gZbea\nah/FQyI0kcV/f6vQJmLEiPcwCgYIKoZIzj0EAwIDSAAwRQIhAMOWRr25Qia+GN/9\nsnurwAGHjnyyREyLA69eas+wHjXvAiAvmwHD1jNE8sXsEvf/1hpUWNVdWGQPH2Pt\nGOQobuOiEA==\n-----END CERTIFICATE-----\n\022\030\306\010\363\363~Dx\372\177\375\242\023D\0312\272\020\320\311\232\312\262\347\315" 
+2018-09-18 14:54:36.208 UTC [protoutils] validateChannelHeader -> DEBU 674 validateChannelHeader info: header type 3
+2018-09-18 14:54:36.208 UTC [protoutils] checkSignatureFromCreator -> DEBU 675 begin
+2018-09-18 14:54:36.208 UTC [protoutils] checkSignatureFromCreator -> DEBU 676 creator is &{MediaoceanMSP dedf60fbb607c879a0a503c9366bff08bc2b3d931052f0eb3f4d9bd1ca125115}
+2018-09-18 14:54:36.208 UTC [protoutils] checkSignatureFromCreator -> DEBU 677 creator is valid
+2018-09-18 14:54:36.207 UTC [blocksProvider] DeliverBlocks -> DEBU 66e [ibm-block-channel] Gossiping block [1], peers number [0]
+2018-09-18 14:54:36.208 UTC [protoutils] checkSignatureFromCreator -> DEBU 678 exits successfully
+2018-09-18 14:54:36.208 UTC [protoutils] validateEndorserTransaction -> DEBU 679 validateEndorserTransaction starts for data 0xc422afa000, header channel_header:"\010\003\020\001\032\014\010\222\243\204\335\005\020\200\273\271\233\001\"\021ibm-block-channel*@78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739:\010\022\006\022\004lscc" signature_header:"\n\240\006\n\rMediaoceanMSP\022\216\006-----BEGIN CERTIFICATE-----\nMIICEzCCAbmgAwIBAgIQOvzrzX9LVv+oeftwXuSkvjAKBggqhkjOPQQDAjBvMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEXMBUGA1UEChMObWVkaWFvY2Vhbi5jb20xGjAYBgNVBAMTEWNhLm1l\nZGlhb2NlYW4uY29tMB4XDTE4MDkxODE0MzQwNVoXDTI4MDkxNTE0MzQwNVowWTEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHTAbBgNVBAMMFEFkbWluQG1lZGlhb2NlYW4uY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEHIWXR+kgfKT5MoKo72HHNUj8M8lnfjG72+9ERrpA\nwRjBH7aL0IUHelgwVXJmz43aZ9BEcn6UALfdu+VP9go5sKNNMEswDgYDVR0PAQH/\nBAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgJPEQ47+hBAdImV8gZbea\nah/FQyI0kcV/f6vQJmLEiPcwCgYIKoZIzj0EAwIDSAAwRQIhAMOWRr25Qia+GN/9\nsnurwAGHjnyyREyLA69eas+wHjXvAiAvmwHD1jNE8sXsEvf/1hpUWNVdWGQPH2Pt\nGOQobuOiEA==\n-----END CERTIFICATE-----\n\022\030\306\010\363\363~Dx\372\177\375\242\023D\0312\272\020\320\311\232\312\262\347\315" 
+2018-09-18 14:54:36.209 UTC [protoutils] validateEndorserTransaction -> DEBU 67a validateEndorserTransaction info: there are 1 actions
+2018-09-18 14:54:36.210 UTC [protoutils] validateEndorserTransaction -> DEBU 67b validateEndorserTransaction info: signature header is valid
+2018-09-18 14:54:36.210 UTC [protoutils] ValidateTransaction -> DEBU 67c ValidateTransactionEnvelope returns err %!s(<nil>)
+2018-09-18 14:54:36.210 UTC [committer/txvalidator] validateTx -> DEBU 67d Transaction is for channel ibm-block-channel
+2018-09-18 14:54:36.211 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 67e retrieveTransactionByID() - txId = [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739]
+2018-09-18 14:54:36.211 UTC [committer/txvalidator] validateTx -> DEBU 67f Validating transaction vscc tx validate
+2018-09-18 14:54:36.211 UTC [committer/txvalidator] VSCCValidateTx -> DEBU 680 VSCCValidateTx starts for bytes 0xc421ec0000
+2018-09-18 14:54:36.212 UTC [committer/txvalidator] VSCCValidateTxForCC -> DEBU 681 Validating Tx 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739, seq 0 out of 1 in block 1 for channel ibm-block-channel with validation plugin vscc with plugin
+2018-09-18 14:54:36.213 UTC [vscc] deduplicateIdentity -> DEBU 682 Signature set is of size 2 out of 2 endorsement(s)
+2018-09-18 14:54:36.216 UTC [vscc] Validate -> DEBU 683 VSCC info: doing special validation for LSCC
+2018-09-18 14:54:36.217 UTC [vscc] ValidateLSCCInvocation -> DEBU 684 VSCC info: ValidateLSCCInvocation acting on deploy [][]uint8{[]uint8{0x69, 0x62, 0x6d, 0x2d, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2d, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c}, []uint8{0xa, 0x27, 0x8, 0x1, 0x12, 0x11, 0xa, 0x4, 0x61, 0x61, 0x63, 0x63, 0x12, 0x4, 0x61, 0x61, 0x63, 0x63, 0x1a, 0x3, 0x31, 0x2e, 0x30, 0x1a, 0x10, 0xa, 0x4, 0x69, 0x6e, 0x69, 0x74, 0xa, 0x4, 0x6a, 0x6f, 0x68, 0x6e, 0xa, 0x2, 0x33, 0x30}, []uint8{0x12, 0x2e, 0x12, 0x2c, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x0, 0x12, 0x2, 0x8, 0x3, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x1, 0x12, 0x2, 0x8, 0x4, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x2, 0x12, 0x2, 0x8, 0x5, 0x1a, 0x11, 0x12, 0xf, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x1a, 0xa, 0x12, 0x8, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x1a, 0x13, 0x12, 0x11, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xe, 0x12, 0xc, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x10, 0x1}, []uint8{}, []uint8{}, []uint8{0xa, 0xa4, 0x1, 0xa, 0xa1, 0x1, 0xa, 0x14, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x85, 0x1, 0xa, 0x82, 0x1, 0x12, 0x20, 0x12, 0x1e, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x4, 0x12, 0x2, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x3, 0x12, 0x2, 0x8, 0x0, 0x1a, 0x11, 0x12, 0xf, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x1a, 0xa, 0x12, 0x8, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x1a, 0x13, 0x12, 0x11, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xe, 0x12, 0xc, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x28, 0x8f, 0x4e}}
+2018-09-18 14:54:36.217 UTC [vscc] ValidateLSCCInvocation -> DEBU 685 VSCC info: validating invocation of lscc function deploy on arguments [][]uint8{[]uint8{0x69, 0x62, 0x6d, 0x2d, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2d, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c}, []uint8{0xa, 0x27, 0x8, 0x1, 0x12, 0x11, 0xa, 0x4, 0x61, 0x61, 0x63, 0x63, 0x12, 0x4, 0x61, 0x61, 0x63, 0x63, 0x1a, 0x3, 0x31, 0x2e, 0x30, 0x1a, 0x10, 0xa, 0x4, 0x69, 0x6e, 0x69, 0x74, 0xa, 0x4, 0x6a, 0x6f, 0x68, 0x6e, 0xa, 0x2, 0x33, 0x30}, []uint8{0x12, 0x2e, 0x12, 0x2c, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x0, 0x12, 0x2, 0x8, 0x3, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x1, 0x12, 0x2, 0x8, 0x4, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x2, 0x12, 0x2, 0x8, 0x5, 0x1a, 0x11, 0x12, 0xf, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x1a, 0xa, 0x12, 0x8, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x1a, 0x13, 0x12, 0x11, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xe, 0x12, 0xc, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x10, 0x1}, []uint8{}, []uint8{}, []uint8{0xa, 0xa4, 0x1, 0xa, 0xa1, 0x1, 0xa, 0x14, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x85, 0x1, 0xa, 0x82, 0x1, 0x12, 0x20, 0x12, 0x1e, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x4, 0x12, 0x2, 0x8, 0x1, 0x12, 0xc, 0x12, 0xa, 0x8, 0x1, 0x12, 0x2, 0x8, 0x3, 0x12, 0x2, 0x8, 0x0, 0x1a, 0x11, 0x12, 0xf, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x1a, 0xa, 0x12, 0x8, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x1a, 0x13, 0x12, 0x11, 0xa, 0xd, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x6f, 0x63, 0x65, 0x61, 0x6e, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xe, 0x12, 0xc, 0xa, 0x8, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x1a, 0xc, 0x12, 0xa, 0xa, 0x6, 0x49, 0x42, 0x4d, 0x4d, 0x53, 0x50, 0x10, 0x1, 0x28, 0x8f, 0x4e}}
+2018-09-18 14:54:36.218 UTC [vscc] ValidateLSCCInvocation -> DEBU 686 Namespace lscc
+2018-09-18 14:54:36.218 UTC [lockbasedtxmgr] newQueryExecutor -> DEBU 687 constructing new query executor txid = [33b26a94-20d9-413a-9e87-72521bc958e0]
+2018-09-18 14:54:36.219 UTC [statecouchdb] GetState -> DEBU 688 GetState(). ns=lscc, key=aacc
+2018-09-18 14:54:36.219 UTC [couchdb] ReadDoc -> DEBU 689 Entering ReadDoc()  id=[aacc]
+2018-09-18 14:54:36.219 UTC [couchdb] encodePathElement -> DEBU 68a Entering encodePathElement()  string=aacc
+2018-09-18 14:54:36.219 UTC [couchdb] encodePathElement -> DEBU 68b Exiting encodePathElement()  encodedStr=aacc
+2018-09-18 14:54:36.220 UTC [couchdb] handleRequest -> DEBU 68c Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/aacc?attachments=true
+2018-09-18 14:54:36.222 UTC [couchdb] handleRequest -> DEBU 68d HTTP Request: GET /ibm-block-channel_lscc/aacc?attachments=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.225 UTC [couchdb] handleRequest -> DEBU 68e Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-18 14:54:36.225 UTC [couchdb] ReadDoc -> DEBU 68f Document not found (404), returning nil value instead of 404 error
+2018-09-18 14:54:36.225 UTC [lockbasedtxmgr] Done -> DEBU 690 Done with transaction simulation / query execution [33b26a94-20d9-413a-9e87-72521bc958e0]
+2018-09-18 14:54:36.225 UTC [vscc] ValidateLSCCInvocation -> DEBU 691 Validating deploy for cc aacc version 1.0
+2018-09-18 14:54:36.225 UTC [lockbasedtxmgr] newQueryExecutor -> DEBU 692 constructing new query executor txid = [ec2d7914-4adb-48ba-b089-a307db86e4d2]
+2018-09-18 14:54:36.225 UTC [statecouchdb] GetState -> DEBU 693 GetState(). ns=lscc, key=aacc~collection
+2018-09-18 14:54:36.225 UTC [couchdb] ReadDoc -> DEBU 694 Entering ReadDoc()  id=[aacc~collection]
+2018-09-18 14:54:36.225 UTC [couchdb] encodePathElement -> DEBU 695 Entering encodePathElement()  string=aacc~collection
+2018-09-18 14:54:36.227 UTC [couchdb] encodePathElement -> DEBU 696 Exiting encodePathElement()  encodedStr=aacc~collection
+2018-09-18 14:54:36.227 UTC [couchdb] handleRequest -> DEBU 697 Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/aacc~collection?attachments=true
+2018-09-18 14:54:36.228 UTC [couchdb] handleRequest -> DEBU 698 HTTP Request: GET /ibm-block-channel_lscc/aacc~collection?attachments=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.260 UTC [couchdb] handleRequest -> DEBU 699 Couch DB Error:not_found,  Status Code:404,  Reason:missing
+2018-09-18 14:54:36.260 UTC [couchdb] ReadDoc -> DEBU 69a Document not found (404), returning nil value instead of 404 error
+2018-09-18 14:54:36.261 UTC [lockbasedtxmgr] Done -> DEBU 69b Done with transaction simulation / query execution [ec2d7914-4adb-48ba-b089-a307db86e4d2]
+2018-09-18 14:54:36.262 UTC [vscc] Validate -> DEBU 69c block 1, namespace: lscc, tx 0 validation results is: <nil>
+2018-09-18 14:54:36.262 UTC [committer/txvalidator] ValidateWithPlugin -> DEBU 69d Transaction 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739 appears to be valid
+2018-09-18 14:54:36.262 UTC [committer/txvalidator] VSCCValidateTx -> DEBU 69e VSCCValidateTx completes env bytes 0xc421ec0000
+2018-09-18 14:54:36.262 UTC [committer/txvalidator] validateTx -> DEBU 69f validateTx completes for block 0xc422264200 env 0xc422229c50 txn 0
+2018-09-18 14:54:36.262 UTC [committer/txvalidator] Validate -> DEBU 6a0 got result for idx 0, code 0
+2018-09-18 14:54:36.262 UTC [committer/txvalidator] Validate -> DEBU 6a1 END Block Validation
+2018-09-18 14:54:36.263 UTC [kvledger] CommitWithPvtData -> DEBU 6a2 Channel [ibm-block-channel]: Validating state for block [1]
+2018-09-18 14:54:36.263 UTC [lockbasedtxmgr] ValidateAndPrepare -> DEBU 6a3 Waiting for purge mgr to finish the background job of computing expirying keys for the block
+2018-09-18 14:54:36.263 UTC [lockbasedtxmgr] ValidateAndPrepare -> DEBU 6a4 Validating new block with num trans = [1]
+2018-09-18 14:54:36.263 UTC [valimpl] ValidateAndPrepareBatch -> DEBU 6a5 ValidateAndPrepareBatch() for block number = [1]
+2018-09-18 14:54:36.263 UTC [valimpl] ValidateAndPrepareBatch -> DEBU 6a6 preprocessing ProtoBlock...
+2018-09-18 14:54:36.263 UTC [valimpl] preprocessProtoBlock -> DEBU 6a7 txType=ENDORSER_TRANSACTION
+2018-09-18 14:54:36.263 UTC [statecouchdb] LoadCommittedVersions -> DEBU 6a8 Load into version cache: lscc~aacc
+2018-09-18 14:54:36.263 UTC [statecouchdb] executeBatches -> DEBU 6a9 Executing batches = [nsMetadataRetriever:ns=lscc, num keys=1]
+2018-09-18 14:54:36.264 UTC [statecouchdb] executeBatches -> DEBU 6aa Executing batches = [subNsMetadataRetriever:ns=, num keys=1]
+2018-09-18 14:54:36.264 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6ab Entering BatchRetrieveDocumentMetadata()  keys=[aacc]
+2018-09-18 14:54:36.264 UTC [couchdb] handleRequest -> DEBU 6ac Entering handleRequest()  method=POST  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/_all_docs?include_docs=true
+2018-09-18 14:54:36.264 UTC [couchdb] handleRequest -> DEBU 6ad HTTP Request: POST /ibm-block-channel_lscc/_all_docs?include_docs=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Content-Length: 17 | Accept: application/json | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Content-Type: application/json | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.276 UTC [couchdb] handleRequest -> DEBU 6ae Exiting handleRequest()
+2018-09-18 14:54:36.277 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6af HTTP Response: HTTP/1.1 200 OK | Transfer-Encoding: chunked | Cache-Control: must-revalidate | Content-Type: application/json | Date: Tue, 18 Sep 2018 14:54:36 GMT | Server: CouchDB/2.1.1 (Erlang OTP/18) | X-Couch-Request-Id: 75dc9e7f28 | X-Couchdb-Body-Time: 0 |  | 
+2018-09-18 14:54:36.277 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6b0 Exiting BatchRetrieveDocumentMetadata()
+2018-09-18 14:54:36.277 UTC [statecouchdb] LoadCommittedVersions -> DEBU 6b1 nsKeysMap=map[lscc:[aacc]]
+2018-09-18 14:54:36.278 UTC [statecouchdb] LoadCommittedVersions -> DEBU 6b2 nsMetadataMap=map[lscc:[%!s(*couchdb.DocMetadata=&{   []})]]
+2018-09-18 14:54:36.279 UTC [statecouchdb] GetCachedVersion -> DEBU 6b3 Retrieving cached version: aacc~lscc
+2018-09-18 14:54:36.279 UTC [statebasedval] validateKVRead -> DEBU 6b4 Comparing versions for key [aacc]: committed version=(*version.Height)(nil) and read version=(*version.Height)(nil)
+2018-09-18 14:54:36.279 UTC [statebasedval] ValidateAndPrepareBatch -> DEBU 6b5 Block [1] Transaction index [0] TxId [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739] marked as valid by state validator
+2018-09-18 14:54:36.279 UTC [valimpl] ValidateAndPrepareBatch -> DEBU 6b6 validating rwset...
+2018-09-18 14:54:36.280 UTC [valimpl] ValidateAndPrepareBatch -> DEBU 6b7 postprocessing ProtoBlock...
+2018-09-18 14:54:36.280 UTC [valimpl] ValidateAndPrepareBatch -> DEBU 6b8 ValidateAndPrepareBatch() complete
+2018-09-18 14:54:36.280 UTC [cceventmgmt] HandleStateUpdates -> DEBU 6b9 Channel [ibm-block-channel]: Handling state updates in LSCC namespace - stateUpdates=[]*kvrwset.KVWrite{(*kvrwset.KVWrite)(0xc42211acc0), (*kvrwset.KVWrite)(0xc42211acf0)}
+2018-09-18 14:54:36.280 UTC [cceventmgmt] HandleStateUpdates -> INFO 6ba Channel [ibm-block-channel]: Handling LSCC state update for chaincode [aacc]
+2018-09-18 14:54:36.280 UTC [cceventmgmt] HandleChaincodeDeploy -> DEBU 6bb Channel [ibm-block-channel]: Handling chaincode deploy event for chaincode [[Name=aacc, Version=1.0, Hash=[]byte{0x6d, 0x49, 0x53, 0xeb, 0x35, 0x1d, 0xec, 0x57, 0xa0, 0xa8, 0x5, 0x1d, 0x1, 0x38, 0x0, 0x1b, 0xfd, 0xb7, 0xbc, 0x79, 0xeb, 0x32, 0x78, 0x2c, 0x25, 0x10, 0x60, 0x3b, 0x71, 0xef, 0xf1, 0xd4}]]
+2018-09-18 14:54:36.284 UTC [chaincode-metadata] GetMetadataAsTarEntries -> DEBU 6bc Created metadata tar
+2018-09-18 14:54:36.284 UTC [discovery/lifecycle] HandleChaincodeDeploy -> DEBU 6bd Channel ibm-block-channel got a new deployment: Name=aacc, Version=1.0, Hash=[]byte{0x6d, 0x49, 0x53, 0xeb, 0x35, 0x1d, 0xec, 0x57, 0xa0, 0xa8, 0x5, 0x1d, 0x1, 0x38, 0x0, 0x1b, 0xfd, 0xb7, 0xbc, 0x79, 0xeb, 0x32, 0x78, 0x2c, 0x25, 0x10, 0x60, 0x3b, 0x71, 0xef, 0xf1, 0xd4}
+2018-09-18 14:54:36.284 UTC [cceventmgmt] HandleChaincodeDeploy -> DEBU 6be Channel [ibm-block-channel]: Handled chaincode deploy event for chaincode [[Name=aacc, Version=1.0, Hash=[]byte{0x6d, 0x49, 0x53, 0xeb, 0x35, 0x1d, 0xec, 0x57, 0xa0, 0xa8, 0x5, 0x1d, 0x1, 0x38, 0x0, 0x1b, 0xfd, 0xb7, 0xbc, 0x79, 0xeb, 0x32, 0x78, 0x2c, 0x25, 0x10, 0x60, 0x3b, 0x71, 0xef, 0xf1, 0xd4}]]
+2018-09-18 14:54:36.284 UTC [lockbasedtxmgr] invokeNamespaceListeners -> DEBU 6bf Invoking listener for state changes:&{}
+2018-09-18 14:54:36.285 UTC [confighistory] add -> DEBU 6c0 add() - {lscc, aacc~collection, 1}
+2018-09-18 14:54:36.285 UTC [lockbasedtxmgr] invokeNamespaceListeners -> DEBU 6c1 Invoking listener for state changes:&{%!s(*confighistory.dbProvider=&{0xc4203a2300})}
+2018-09-18 14:54:36.286 UTC [kvledger] CommitWithPvtData -> DEBU 6c2 Channel [ibm-block-channel]: Committing block [1] to storage
+2018-09-18 14:54:36.286 UTC [pvtdatastorage] Prepare -> DEBU 6c3 Saved 0 private data write sets for block [1]
+2018-09-18 14:54:36.288 UTC [fsblkstorage] indexBlock -> DEBU 6c4 Indexing block [blockNum=1, blockHash=[]byte{0x23, 0x2e, 0x5a, 0x57, 0xb8, 0xc2, 0x3c, 0x2b, 0x6c, 0xf, 0x6, 0xad, 0xeb, 0x4, 0xa6, 0xb, 0x1c, 0x53, 0x2c, 0xed, 0xad, 0xf, 0x94, 0x57, 0x57, 0x99, 0x72, 0x9, 0x46, 0x97, 0x14, 0xa1} txOffsets=
+txId=78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739 locPointer=offset=70, bytesLength=5020
+]
+2018-09-18 14:54:36.288 UTC [fsblkstorage] indexBlock -> DEBU 6c5 Adding txLoc [fileSuffixNum=0, offset=18526, bytesLength=5020] for tx ID: [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739] to txid-index
+2018-09-18 14:54:36.289 UTC [fsblkstorage] indexBlock -> DEBU 6c6 Adding txLoc [fileSuffixNum=0, offset=18526, bytesLength=5020] for tx number:[0] ID: [78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739] to blockNumTranNum index
+2018-09-18 14:54:36.289 UTC [fsblkstorage] updateCheckpoint -> DEBU 6c7 Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[25342], isChainEmpty=[false], lastBlockNumber=[1]
+2018-09-18 14:54:36.289 UTC [pvtdatastorage] Commit -> DEBU 6c8 Committing private data for block [1]
+2018-09-18 14:54:36.289 UTC [fsblkstorage] waitForBlock -> DEBU 6c9 Came out of wait. maxAvailaBlockNumber=[1]
+2018-09-18 14:54:36.290 UTC [pvtdatastorage] Commit -> DEBU 6ca Committed private data for block [1]
+2018-09-18 14:54:36.290 UTC [kvledger] CommitWithPvtData -> INFO 6cb Channel [ibm-block-channel]: Committed block [1] with 1 transaction(s)
+2018-09-18 14:54:36.290 UTC [kvledger] CommitWithPvtData -> DEBU 6cc Channel [ibm-block-channel]: Committing block [1] transactions to state database
+2018-09-18 14:54:36.290 UTC [lockbasedtxmgr] Commit -> DEBU 6cd Committing updates to state database
+2018-09-18 14:54:36.290 UTC [pvtstatepurgemgmt] buildExpirySchedule -> DEBU 6ce Building the expiry schedules based on the update batch
+2018-09-18 14:54:36.290 UTC [lockbasedtxmgr] Commit -> DEBU 6cf Write lock acquired for committing updates to state database
+2018-09-18 14:54:36.290 UTC [statecouchdb] executeBatches -> DEBU 6d0 Executing batches = [%!s(*statecouchdb.nsCommittersBuilder=&{map[aacc:0xc4223e7080 aacc~collection:0xc4223e70a0] 0xc421e204a0 map[aacc:] []})]
+2018-09-18 14:54:36.290 UTC [statecouchdb] addRevisionsForMissingKeys -> DEBU 6d1 Pulling revisions for the [1] keys for namsespace [ibm-block-channel_lscc] that were not part of the readset
+2018-09-18 14:54:36.291 UTC [statecouchdb] executeBatches -> DEBU 6d2 Executing batches = [subNsMetadataRetriever:ns=, num keys=1]
+2018-09-18 14:54:36.291 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6d3 Entering BatchRetrieveDocumentMetadata()  keys=[aacc~collection]
+2018-09-18 14:54:36.291 UTC [couchdb] handleRequest -> DEBU 6d4 Entering handleRequest()  method=POST  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/_all_docs?include_docs=true
+2018-09-18 14:54:36.291 UTC [couchdb] handleRequest -> DEBU 6d5 HTTP Request: POST /ibm-block-channel_lscc/_all_docs?include_docs=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Content-Length: 28 | Accept: application/json | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Content-Type: application/json | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.292 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 6d6 Remaining bytes=[6886], Going to peek [8] bytes
+2018-09-18 14:54:36.292 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 6d7 Returning blockbytes - length=[6884], placementInfo={fileNum=[0], startOffset=[18456], bytesOffset=[18458]}
+2018-09-18 14:54:36.292 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 6d8 blockbytes [6884] read from file [0]
+2018-09-18 14:54:36.303 UTC [couchdb] handleRequest -> DEBU 6d9 Exiting handleRequest()
+2018-09-18 14:54:36.303 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6da HTTP Response: HTTP/1.1 200 OK | Transfer-Encoding: chunked | Cache-Control: must-revalidate | Content-Type: application/json | Date: Tue, 18 Sep 2018 14:54:36 GMT | Server: CouchDB/2.1.1 (Erlang OTP/18) | X-Couch-Request-Id: c6d2e94e4c | X-Couchdb-Body-Time: 0 |  | 
+2018-09-18 14:54:36.303 UTC [couchdb] BatchRetrieveDocumentMetadata -> DEBU 6db Exiting BatchRetrieveDocumentMetadata()
+2018-09-18 14:54:36.304 UTC [statecouchdb] executeBatches -> DEBU 6dc Executing batches = [%!s(*statecouchdb.subNsCommitter=&{0xc421e204a0 map[aacc:0xc42218af80 aacc~collection:0xc42218b000]})]
+2018-09-18 14:54:36.304 UTC [couchdb] BatchUpdateDocuments -> DEBU 6dd Entering BatchUpdateDocuments()  document ids=[aacc,aacc~collection]
+2018-09-18 14:54:36.304 UTC [couchdb] handleRequest -> DEBU 6de Entering handleRequest()  method=POST  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/_bulk_docs
+2018-09-18 14:54:36.305 UTC [couchdb] handleRequest -> DEBU 6df HTTP Request: POST /ibm-block-channel_lscc/_bulk_docs HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Content-Length: 937 | Accept: application/json | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Content-Type: application/json | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.343 UTC [couchdb] handleRequest -> DEBU 6e0 Exiting handleRequest()
+2018-09-18 14:54:36.343 UTC [couchdb] BatchUpdateDocuments -> DEBU 6e1 HTTP Response: HTTP/1.1 201 Created | Content-Length: 147 | Cache-Control: must-revalidate | Content-Type: application/json | Date: Tue, 18 Sep 2018 14:54:36 GMT | Server: CouchDB/2.1.1 (Erlang OTP/18) | X-Couch-Request-Id: 3a6567f0e9 | X-Couchdb-Body-Time: 0 |  | 
+2018-09-18 14:54:36.343 UTC [couchdb] BatchUpdateDocuments -> DEBU 6e2 Exiting BatchUpdateDocuments() _bulk_docs response=[[{"ok":true,"id":"aacc","rev":"1-0fb522f3fb5e8e732b2d93f508bd70bd"},{"ok":true,"id":"aacc~collection","rev":"1-c7e96319158e1b185816d59e88f24a98"}]
+]
+2018-09-18 14:54:36.343 UTC [statecouchdb] executeBatches -> DEBU 6e3 Executing batches = [%!s(*statecouchdb.nsFlusher=&{0xc421e204a0})]
+2018-09-18 14:54:36.344 UTC [couchdb] EnsureFullCommit -> DEBU 6e4 Entering EnsureFullCommit()
+2018-09-18 14:54:36.344 UTC [couchdb] handleRequest -> DEBU 6e5 Entering handleRequest()  method=POST  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/_ensure_full_commit
+2018-09-18 14:54:36.344 UTC [couchdb] handleRequest -> DEBU 6e6 HTTP Request: POST /ibm-block-channel_lscc/_ensure_full_commit HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Content-Length: 0 | Accept: application/json | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Content-Type: application/json | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.349 UTC [couchdb] handleRequest -> DEBU 6e7 Exiting handleRequest()
+2018-09-18 14:54:36.349 UTC [couchdb] EnsureFullCommit -> DEBU 6e8 _ensure_full_commit database ibm-block-channel_lscc 
+2018-09-18 14:54:36.350 UTC [couchdb] EnsureFullCommit -> DEBU 6e9 Exiting EnsureFullCommit()
+2018-09-18 14:54:36.350 UTC [couchdb] SaveDoc -> DEBU 6ea Entering SaveDoc()  id=[statedb_savepoint]
+2018-09-18 14:54:36.350 UTC [couchdb] WarmIndexAllIndexes -> DEBU 6ec Entering WarmIndexAllIndexes()
+2018-09-18 14:54:36.350 UTC [couchdb] ListIndex -> DEBU 6ed Entering ListIndex()
+2018-09-18 14:54:36.350 UTC [couchdb] handleRequest -> DEBU 6ee Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/_index/
+2018-09-18 14:54:36.350 UTC [couchdb] encodePathElement -> DEBU 6eb Entering encodePathElement()  string=statedb_savepoint
+2018-09-18 14:54:36.351 UTC [couchdb] encodePathElement -> DEBU 6ef Exiting encodePathElement()  encodedStr=statedb_savepoint
+2018-09-18 14:54:36.351 UTC [couchdb] handleRequest -> DEBU 6f1 HTTP Request: GET /ibm-block-channel_lscc/_index/ HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.351 UTC [couchdb] SaveDoc -> DEBU 6f0   rev=
+2018-09-18 14:54:36.351 UTC [couchdb] ReadDoc -> DEBU 6f2 Entering ReadDoc()  id=[statedb_savepoint]
+2018-09-18 14:54:36.351 UTC [couchdb] encodePathElement -> DEBU 6f3 Entering encodePathElement()  string=statedb_savepoint
+2018-09-18 14:54:36.353 UTC [couchdb] encodePathElement -> DEBU 6f4 Exiting encodePathElement()  encodedStr=statedb_savepoint
+2018-09-18 14:54:36.353 UTC [couchdb] handleRequest -> DEBU 6f5 Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_/statedb_savepoint?attachments=true
+2018-09-18 14:54:36.355 UTC [couchdb] handleRequest -> DEBU 6f6 HTTP Request: GET /ibm-block-channel_/statedb_savepoint?attachments=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.365 UTC [couchdb] handleRequest -> DEBU 6f7 Exiting handleRequest()
+2018-09-18 14:54:36.365 UTC [couchdb] ListIndex -> DEBU 6f8 Exiting ListIndex()
+2018-09-18 14:54:36.366 UTC [couchdb] WarmIndexAllIndexes -> DEBU 6f9 Exiting WarmIndexAllIndexes()
+2018-09-18 14:54:36.372 UTC [couchdb] handleRequest -> DEBU 6fa Exiting handleRequest()
+2018-09-18 14:54:36.372 UTC [couchdb] ReadDoc -> DEBU 6fb Exiting ReadDoc()
+2018-09-18 14:54:36.372 UTC [couchdb] handleRequest -> DEBU 6fc Entering handleRequest()  method=PUT  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_/statedb_savepoint
+2018-09-18 14:54:36.373 UTC [couchdb] handleRequest -> DEBU 6fd HTTP Request: PUT /ibm-block-channel_/statedb_savepoint HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Content-Length: 24 | Accept: application/json | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Content-Type: application/json | If-Match: 1-e4f4f8a3e2d4053a7d9b54186eb8f322 | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.458 UTC [couchdb] handleRequest -> DEBU 6fe Exiting handleRequest()
+2018-09-18 14:54:36.458 UTC [couchdb] SaveDoc -> DEBU 6ff Exiting SaveDoc()
+2018-09-18 14:54:36.459 UTC [lockbasedtxmgr] Commit -> DEBU 700 Updates committed to state database
+2018-09-18 14:54:36.459 UTC [statecouchdb] ClearCachedVersions -> DEBU 701 Clear Cache
+2018-09-18 14:54:36.459 UTC [lockbasedtxmgr] newQueryExecutor -> DEBU 703 constructing new query executor txid = [d3c78491-92c7-483a-9999-66f149499066]
+2018-09-18 14:54:36.459 UTC [discovery/lifecycle] queryChaincodeDefinitions -> DEBU 705 Chaincode {aacc 1.0 [109 73 83 235 53 29 236 87 160 168 5 29 1 56 0 27 253 183 188 121 235 50 120 44 37 16 96 59 113 239 241 212]} 's version is 1.0 and Id is [109 73 83 235 53 29 236 87 160 168 5 29 1 56 0 27 253 183 188 121 235 50 120 44 37 16 96 59 113 239 241 212]
+2018-09-18 14:54:36.459 UTC [statecouchdb] GetState -> DEBU 706 GetState(). ns=lscc, key=aacc
+2018-09-18 14:54:36.460 UTC [couchdb] ReadDoc -> DEBU 707 Entering ReadDoc()  id=[aacc]
+2018-09-18 14:54:36.459 UTC [lockbasedtxmgr] func1 -> DEBU 704 Cleared version cache and launched the background routine for preparing keys to purge with the next block
+2018-09-18 14:54:36.460 UTC [kvledger] CommitWithPvtData -> DEBU 709 Channel [ibm-block-channel]: Committing block [1] transactions to history database
+2018-09-18 14:54:36.460 UTC [historyleveldb] Commit -> DEBU 70a Channel [ibm-block-channel]: Updating history database for blockNo [1] with [1] transactions
+2018-09-18 14:54:36.459 UTC [pvtstatepurgemgmt] prepareWorkingsetFor -> DEBU 702 Preparing potential purge list working-set for expiringAtBlk [2]
+2018-09-18 14:54:36.460 UTC [leveldbhelper] GetIterator -> DEBU 70b Getting iterator for range [[]byte{0x69, 0x62, 0x6d, 0x2d, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2d, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x2f, 0x30, 0x0, 0x31, 0x1, 0x2, 0x0}] - [[]byte{0x69, 0x62, 0x6d, 0x2d, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2d, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x2f, 0x30, 0x0, 0x31, 0x1, 0x3, 0x0}]
+2018-09-18 14:54:36.460 UTC [couchdb] encodePathElement -> DEBU 708 Entering encodePathElement()  string=aacc
+2018-09-18 14:54:36.461 UTC [couchdb] encodePathElement -> DEBU 70d Exiting encodePathElement()  encodedStr=aacc
+2018-09-18 14:54:36.461 UTC [couchdb] handleRequest -> DEBU 70e Entering handleRequest()  method=GET  url=http://mediaoceancouchdbpeer0:5984/ibm-block-channel_lscc/aacc?attachments=true
+2018-09-18 14:54:36.461 UTC [historyleveldb] Commit -> DEBU 70f Channel [ibm-block-channel]: Updates committed to history database for blockNo [1]
+2018-09-18 14:54:36.461 UTC [common/deliver] deliverBlocks -> DEBU 711 [channel: ibm-block-channel] Delivering block for (0xc421d327c0) for 172.18.0.1:55686
+2018-09-18 14:54:36.461 UTC [fsblkstorage] waitForBlock -> DEBU 712 Going to wait for newer blocks. maxAvailaBlockNumber=[1], waitForBlockNum=[2]
+2018-09-18 14:54:36.460 UTC [statecouchdb] executeBatches -> DEBU 70c Executing batches = []
+2018-09-18 14:54:36.461 UTC [statecouchdb] LoadCommittedVersions -> DEBU 713 nsKeysMap=map[]
+2018-09-18 14:54:36.461 UTC [statecouchdb] LoadCommittedVersions -> DEBU 714 nsMetadataMap=map[]
+2018-09-18 14:54:36.462 UTC [pvtstatepurgemgmt] prepareWorkingsetFor -> DEBU 715 No expiry entry found for expiringAtBlk [2]
+2018-09-18 14:54:36.461 UTC [eventhub_producer] CreateBlockEvents -> DEBU 710 Channel [ibm-block-channel]: Block event for block number [1] contains transaction id: 78f231d109cf8797fa0ed3ebb14775548a83e3b9a6650e0c155d434b0c96a739
+2018-09-18 14:54:36.462 UTC [couchdb] handleRequest -> DEBU 716 HTTP Request: GET /ibm-block-channel_lscc/aacc?attachments=true HTTP/1.1 | Host: mediaoceancouchdbpeer0:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic bWVkaWFvY2VhbnBlZXIwOm1lZGlhb2NlYW5wZWVyMHBhc3N3b3Jk | Accept-Encoding: gzip |  | 
+2018-09-18 14:54:36.462 UTC [eventhub_producer] Send -> DEBU 717 Event added to event processor queue
+2018-09-18 14:54:36.463 UTC [eventhub_producer] Send -> DEBU 718 Event added to event processor queue
+2018-09-18 14:54:36.469 UTC [couchdb] handleRequest -> DEBU 719 Exiting handleRequest()
+2018-09-18 14:54:36.469 UTC [couchdb] ReadDoc -> DEBU 71a part header=map[Content-Type:[application/json]]
+2018-09-18 14:54:36.471 UTC [couchdb] ReadDoc -> DEBU 71b part header=map[Content-Encoding:[gzip] Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[257]]
+2018-09-18 14:54:36.474 UTC [couchdb] ReadDoc -> DEBU 71c Retrieved attachment data
+2018-09-18 14:54:36.474 UTC [discovery/lifecycle] DeployedChaincodes -> DEBU 71d Returning [{aacc 1.0 [18 46 18 44 8 1 18 12 18 10 8 1 18 2 8 0 18 2 8 3 18 12 18 10 8 1 18 2 8 1 18 2 8 4 18 12 18 10 8 1 18 2 8 2 18 2 8 5 26 17 18 15 10 13 77 101 100 105 97 111 99 101 97 110 77 83 80 26 12 18 10 10 8 66 108 111 99 107 77 83 80 26 10 18 8 10 6 73 66 77 77 83 80 26 19 18 17 10 13 77 101 100 105 97 111 99 101 97 110 77 83 80 16 1 26 14 18 12 10 8 66 108 111 99 107 77 83 80 16 1 26 12 18 10 10 6 73 66 77 77 83 80 16 1] [109 73 83 235 53 29 236 87 160 168 5 29 1 56 0 27 253 183 188 121 235 50 120 44 37 16 96 59 113 239 241 212] []}]
+2018-09-18 14:54:36.475 UTC [lockbasedtxmgr] Done -> DEBU 71e Done with transaction simulation / query execution [d3c78491-92c7-483a-9999-66f149499066]
+2018-09-18 14:54:36.475 UTC [discovery/lifecycle] processPendingUpdate -> DEBU 71f Updating channel ibm-block-channel with [name:"aacc" version:"1.0" ]
+2018-09-18 14:54:36.475 UTC [discovery/lifecycle] fireChangeListeners -> DEBU 720 Listeners for channel ibm-block-channel invoked
+2018-09-18 14:54:40.391 UTC [gossip/discovery] periodicalSendAlive -> DEBU 721 Sleeping 5s

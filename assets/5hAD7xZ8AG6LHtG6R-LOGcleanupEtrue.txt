@@ -1,0 +1,128 @@
+[zilic@pc112 mywork]$ ./minifab cleanup
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=mychannel
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=go
+    CHAINCODE_NAME=simple
+    CHAINCODE_VERSION=1.0
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=true
+    CURRENT_ORG=org0.example.com
+    HOST_ADDRESSES=160.99.71.177
+    WORKING_DIRECTORY: /home/zilic/mywork
+...
+# Preparing for the following operations: *********************
+  verify options, shutdown network, cleanup working directory
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  shutdown network
+.........
+# Running operation: ******************************************
+  cleanup working directory
+....
+
+# STATS *******************************************************
+minifab: ok=30  failed=0
+
+real    0m27.381s
+user    0m12.501s
+sys     0m3.844s
+[zilic@pc112 mywork]$ (date;./minifab up -e true;date) | tee LOGafterCleanUp-up-etrue.log
+Sun Aug 16 08:15:23 EDT 2020
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=mychannel
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=go
+    CHAINCODE_NAME=simple
+    CHAINCODE_VERSION=1.0
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="init","a","200","b","300"
+    CHAINCODE_PRIVATE=false
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=true
+    CURRENT_ORG=org0.example.com
+    HOST_ADDRESSES=160.99.71.177
+    WORKING_DIRECTORY: /home/zilic/mywork
+...
+# Preparing for the following operations: *********************
+  verify options, download images, generate certificates, start network, network status, channel create, channel join, anchor update, profile generation, cc install, cc approve, cc commit, cc initialize, discover
+.................
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  download images
+............
+# Running operation: ******************************************
+  generate certificates
+.............
+# Running operation: ******************************************
+  start network
+....................
+# Running operation: ******************************************
+  network status
+......
+# Docker node status ******************************************
+  ab1d229f5e_cli : Up Less than a second
+  ca1.org1.example.com : Up 2 seconds
+  ca1.org0.example.com : Up 5 seconds
+  orderer3.example.com : Up 7 seconds
+  orderer2.example.com : Up 9 seconds
+  orderer1.example.com : Up 11 seconds
+  peer2.org1.example.com : Up 14 seconds
+  peer1.org1.example.com : Up 16 seconds
+  peer2.org0.example.com : Up 19 seconds
+  peer1.org0.example.com : Up 21 seconds
+
+# Fabric network peer and orderer node health status **********
+  peer1.org0.example.com "OK"
+  peer2.org0.example.com "OK"
+  peer1.org1.example.com "OK"
+  peer2.org1.example.com "OK"
+  orderer1.example.com "OK"
+  orderer2.example.com "OK"
+  orderer3.example.com "OK"
+
+# Running operation: ******************************************
+  channel create
+.....
+# Run the channel creation script on cli container ************
+  non-zero return code
+  2020-08-16 12:16:16.419 UTC [common.tools.configtxgen] main -> INFO 001 Loading configuration
+  2020-08-16 12:16:16.456 UTC [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /vars/configtx.yaml
+  2020-08-16 12:16:16.456 UTC [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 003 Generating new channel configtx
+  2020-08-16 12:16:16.459 UTC [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 004 Writing new channel tx
+  Error: failed to create deliver client for orderer: orderer client failed to connect to 160.99.71.177:7007: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp 160.99.71.177:7007: connect: no route to host"
+
+# STATS *******************************************************
+minifab: ok=103 failed=1
+
+real    0m52.635s
+user    0m22.494s
+sys     0m6.541s
+Sun Aug 16 08:16:18 EDT 2020
+[zilic@pc112 mywork]$ docker ps -a
+CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+5a5f43170321        hyperledger/fabric-tools:2.2.0     "/bin/sh"                2 minutes ago       Up 2 minutes                                                         ab1d229f5e_cli
+7fe9f3656a7f        hyperledger/fabric-ca:1.4          "/bin/sh -c 'fabric-…"   2 minutes ago       Up 2 minutes        0.0.0.0:7001->7054/tcp                           ca1.org1.example.com
+cfae34f12945        hyperledger/fabric-ca:1.4          "/bin/sh -c 'fabric-…"   2 minutes ago       Up 2 minutes        0.0.0.0:7000->7054/tcp                           ca1.org0.example.com
+689bfb8e44f1        hyperledger/fabric-orderer:2.2.0   "orderer"                2 minutes ago       Up 2 minutes        0.0.0.0:7008->7050/tcp, 0.0.0.0:8008->7060/tcp   orderer3.example.com
+b1333acad56c        hyperledger/fabric-orderer:2.2.0   "orderer"                2 minutes ago       Up 2 minutes        0.0.0.0:7007->7050/tcp, 0.0.0.0:8007->7060/tcp   orderer2.example.com
+04c9449cd5c3        hyperledger/fabric-orderer:2.2.0   "orderer"                2 minutes ago       Up 2 minutes        0.0.0.0:7006->7050/tcp, 0.0.0.0:8006->7060/tcp   orderer1.example.com
+eb6781013af8        hyperledger/fabric-peer:2.2.0      "peer node start"        2 minutes ago       Up 2 minutes        0.0.0.0:7005->7051/tcp, 0.0.0.0:8005->7061/tcp   peer2.org1.example.com
+c945bc11f1c0        hyperledger/fabric-peer:2.2.0      "peer node start"        2 minutes ago       Up 2 minutes        0.0.0.0:7004->7051/tcp, 0.0.0.0:8004->7061/tcp   peer1.org1.example.com
+bb988b3868ca        hyperledger/fabric-peer:2.2.0      "peer node start"        2 minutes ago       Up 2 minutes        0.0.0.0:7003->7051/tcp, 0.0.0.0:8003->7061/tcp   peer2.org0.example.com
+52bf308d4dca        hyperledger/fabric-peer:2.2.0      "peer node start"        2 minutes ago       Up 2 minutes        0.0.0.0:7002->7051/tcp, 0.0.0.0:8002->7061/tcp   peer1.org0.example.com
+[zilic@pc112 mywork]$

@@ -1,0 +1,36 @@
+version: '2.0'
+
+services:
+  rca-org0:
+      container_name: rca-org0
+      network_mode: "host"
+      image: hyperledger/fabric-ca:1.4.3
+      command: /bin/bash -c 'fabric-ca-server start -d -b rca-org0-admin:rca-org0-adminpw --port 7054'
+      environment:
+         - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/crypto
+         - FABRIC_CA_SERVER_TLS_ENABLED=true
+         - FABRIC_CA_SERVER_CSR_CN=rca-org0
+         - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+         - FABRIC_CA_SERVER_DEBUG=true
+         - FABRIC_CA_SERVER_OPERATIONS_LISTENADDRESS=127.0.0.1:8443
+         - FABRIC_CA_SERVER_DB_TYPE=postgres
+         - FABRIC_CA_SERVER_DB_DATASOURCE=host=127.0.0.1 port=5432 user=postgres password=caDbPass12345 dbname=fabriccaserver sslmode=disable
+      volumes:
+         - /home/ranjan/hyperledger_postgres/org0/ca:/tmp/hyperledger/fabric-ca
+      ports:
+         - 7054:7054
+      depends_on:
+         - db-postgres
+         
+  db-postgres:
+      container_name: db-postgres
+      network_mode: "host"
+      image: postgres:latest
+      environment:
+         - POSTGRES_PASSWORD=caDbPass12345
+         - POSTGRES_USER=postgres
+         - POSTGRES_DB=fabriccaserver
+      volumes:
+         - ./postgres-test-data:/var/lib/postgresql/data
+      ports:
+         - 5432:5432

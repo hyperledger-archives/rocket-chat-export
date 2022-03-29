@@ -1,0 +1,171 @@
+Good morning everyone. Has anyone tested the privatemarbles chaincode since the update? I've been trying to run it all morning. I seem to be getting an endosement error, even after I approved it to the channel via org0.example.com,
+
+```
+$ ./minifab approve,commit,initialize -p ''
+Using default spec file
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=mychannel
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=go
+    CHAINCODE_NAME=privatemarbles
+    CHAINCODE_VERSION=1.0
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS=
+    CHAINCODE_PRIVATE=true
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=org0.example.com
+    HOST_ADDRESSES=172.23.0.248
+    WORKING_DIRECTORY: /home/hendreh/episodic-demo-v5.0
+...
+# Preparing for the following operations: *********************
+  verify options, cc approve, cc commit, cc initialize
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc approve
+......
+# Running operation: ******************************************
+  cc commit
+.............
+# Running operation: ******************************************
+  cc initialize
+......
+
+# STATS *******************************************************
+minifab: ok=44	failed=0	
+
+real	0m17.363s
+user	0m8.427s
+sys	0m1.412s
+```
+
+Then I set the variable ` $ MARBLE=$( echo '{"name":"marble1","color":"blue","size":35,"owner":"tom","price":99}' | base64 | tr -d \\n ) `, followed by
+
+```
+$ ./minifab invoke -p '"initMarble"' -t '{"marble":"'$MARBLE'"}'
+Using default spec file
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=mychannel
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=go
+    CHAINCODE_NAME=privatemarbles
+    CHAINCODE_VERSION=1.0
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS="initMarble"
+    CHAINCODE_PRIVATE=true
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA={"marble":"eyJuYW1lIjoibWFyYmxlMSIsImNvbG9yIjoiYmx1ZSIsInNpemUiOjM1LCJvd25lciI6InRvbSIsInByaWNlIjo5OX0K"}
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=org0.example.com
+    HOST_ADDRESSES=172.23.0.248
+    WORKING_DIRECTORY: /home/hendreh/episodic-demo-v5.0
+...
+# Preparing for the following operations: *********************
+  verify options, cc invoke
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc invoke
+.............
+# Run the chaincode invoke script on cli container ************
+  non-zero return code
+  Error: endorsement failure during invoke. response: status:500 message:"Failed to get marble: GET_STATE failed: transaction ID: 2bbfc466805270bb350bd150f5be407892d9fa9a069aac1f2470e6caf29e3aad: collection mychannel/privatemarbles/collectionMarbles could not be found"
+
+# STATS *******************************************************
+minifab: ok=28	failed=1	
+
+real	0m5.375s
+user	0m4.757s
+sys	0m0.983s
+```
+
+If I change the *privatemarbles_collection_config.json* I get errors about the config but that goes away if I change the config back to the original that minifab spits out :
+```
+$ ./minifab approve,commit,initialize -p ''
+Using default spec file
+Minifab Execution Context:
+    FABRIC_RELEASE=2.2.0
+    CHANNEL_NAME=mychannel
+    PEER_DATABASE_TYPE=golevel
+    CHAINCODE_LANGUAGE=go
+    CHAINCODE_NAME=privatemarbles
+    CHAINCODE_VERSION=1.0
+    CHAINCODE_INIT_REQUIRED=true
+    CHAINCODE_PARAMETERS=
+    CHAINCODE_PRIVATE=true
+    CHAINCODE_POLICY=
+    TRANSIENT_DATA=
+    BLOCK_NUMBER=newest
+    EXPOSE_ENDPOINTS=false
+    CURRENT_ORG=org0.example.com
+    HOST_ADDRESSES=172.23.0.248
+    WORKING_DIRECTORY: /home/hendreh/episodic-demo-v5.0
+...
+# Preparing for the following operations: *********************
+  verify options, cc approve, cc commit, cc initialize
+.......
+# Running operation: ******************************************
+  verify options
+.
+# Running operation: ******************************************
+  cc approve
+.....
+# Run the channel signing off script on cli container *********
+  non-zero return code
+  Error: proposal failed with status: 500 - failed to invoke backing implementation of 'ApproveChaincodeDefinitionForMyOrg': error validating chaincode definition: collection-name: collectionMarbles -- collection member 'org0examplecom' is not part of the channel
+  Error: proposal failed with status: 500 - failed to invoke backing implementation of 'ApproveChaincodeDefinitionForMyOrg': error validating chaincode definition: collection-name: collectionMarbles -- collection member 'org0examplecom' is not part of the channel
+
+# STATS *******************************************************
+minifab: ok=22	failed=1	
+
+real	0m5.147s
+user	0m4.486s
+sys	0m0.774s
+```
+
+Also, after the `discover` command, I get this as my *channel endorsement policy*
+```
+{
+  "Chaincode": "privatemarbles",
+  "EndorsersByGroups": {
+    "G0": [
+      {
+        "MSPID": "org1-example-com",
+        "Endpoint": "peer1.org1.example.com:7051"
+      },
+      {
+        "MSPID": "org1-example-com",
+        "Endpoint": "peer2.org1.example.com:7051"
+      }
+    ],
+    "G1": [
+      {
+        "MSPID": "org0-example-com",
+        "Endpoint": "peer1.org0.example.com:7051"
+      },
+      {
+        "MSPID": "org0-example-com",
+        "Endpoint": "peer2.org0.example.com:7051"
+      }
+    ]
+  },
+  "Layouts": [
+    {
+      "quantities_by_group": {
+        "G0": 1,
+        "G1": 1
+      }
+    }
+  ]
+}
+```

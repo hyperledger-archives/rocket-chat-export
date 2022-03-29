@@ -1,0 +1,200 @@
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"strconv"
+	"time"
+	"github.com/hyperledger/fabric/core/chaincode/shim"
+	pb "github.com/hyperledger/fabric/protos/peer"
+)
+
+type SimpleChaincode struct {
+}
+
+func main() {
+	err := shim.Start(new(SimpleChaincode))
+	if err != nil {
+		fmt.Printf("Error starting Simple chaincode: %s", err)
+	}
+}
+func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
+	return shim.Success(nil)
+}
+func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
+	function, args := stub.GetFunctionAndParameters()
+	fmt.Println("invoke is running " + function)
+	fmt.Println(args)
+	arg0 := args[0]
+	args2 := args[1:len(args)]
+	if arg0 == "init" {
+		return t.init(stub, args2)
+	} else if arg0 == "delete" {
+		return t.delete(stub, args2)
+	} else if arg0 == "update" {
+		return t.update(stub, args2)
+	} else if arg0 == "read" {
+		return t.read(stub, args2)
+	} else if arg0 == "query" {
+		return t.query(stub, args2)
+	} else if arg0 == "getHistory" {
+		return t.getHistory(stub, args2)
+	}
+	return shim.Error("Received unknown function invocation")
+}
+func (t *SimpleChaincode) init(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	indexName := "id-owner-dc"
+	key, err := stub.CreateCompositeKey(indexName, args[0:len(args)-1])
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	value := args[len(args)-1]
+	err = stub.PutState(key, []byte(value))
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success(nil)
+}
+func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	var err error
+	var jsonResp string
+	indexName := "id-owner-dc"
+	key, err := stub.CreateCompositeKey(indexName, args)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	valAsbytes, err := stub.GetState(key)
+	if err != nil {
+		jsonResp = "{\"Error\":\"Failed to get state for " + key + "\"}"
+		return shim.Error(jsonResp)
+	} else if valAsbytes == nil {
+		jsonResp = "{\"Error\":\"Data does not exist: " + key + "\"}"
+		return shim.Error(jsonResp)
+	}
+	err = stub.DelState(key) //remove the marble from chaincode state
+	if err != nil {
+		return shim.Error("Failed to delete state:" + err.Error())
+	}
+	return shim.Success(nil)
+}
+func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	var jsonResp string
+	var err error
+	indexName := "id-owner-dc"
+	key, err := stub.CreateCompositeKey(indexName, args)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	valAsbytes, err := stub.GetState(key)
+	if err != nil {
+		jsonResp = "{\"Error\":\"Failed to get state for " + key + "\"}"
+		return shim.Error(jsonResp)
+	} else if valAsbytes == nil {
+		jsonResp = "{\"Error\":\"Data does not exist: " + key + "\"}"
+		return shim.Error(jsonResp)
+	}
+	return shim.Success(valAsbytes)
+}
+func (t *SimpleChaincode) update(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	indexName := "id-owner-dc"
+	key, err := stub.CreateCompositeKey(indexName, args[0:len(args)-1])
+	value := args[len(args)-1]
+	marbleAsBytes, err := stub.GetState(key)
+	if err != nil {
+		return shim.Error("Failed to get marble:" + err.Error())
+	} else if marbleAsBytes == nil {
+		return shim.Error("Data does not exist")
+	}
+	err = stub.PutState(key, []byte(value))
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success(nil)
+}
+
+func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	queryString := args[0]
+	queryResults, err := getQueryResultForQueryString(stub, queryString)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success(queryResults)
+}
+func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, queryString string) ([]byte, error) {
+	fmt.Printf("- getQueryResultForQueryString queryString:\n%s\n", queryString)
+	resultsIterator, err := stub.GetQueryResult(queryString)
+	if err != nil {
+		return nil, err
+	}
+	defer resultsIterator.Close()
+	var buffer bytes.Buffer
+	buffer.WriteString("[")
+	bArrayMemberAlreadyWritten := false
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		fmt.Printf("response:\n%s\n", queryResponse.String())
+		if err != nil {
+			return nil, err
+		}
+		if bArrayMemberAlreadyWritten == true {
+			buffer.WriteString(",")
+		}
+		buffer.WriteString("{\"Key\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(queryResponse.Key)
+		buffer.WriteString("\"")
+		buffer.WriteString(", \"Record\":")
+		// Record is a JSON object, so we write as-is
+		buffer.WriteString(string(queryResponse.Value))
+		buffer.WriteString("}")
+		bArrayMemberAlreadyWritten = true
+	}
+	buffer.WriteString("]")
+	fmt.Printf("- getQueryResultForQueryString queryResult:\n%s\n", buffer.String())
+	return buffer.Bytes(), nil
+}
+
+func (t *SimpleChaincode) getHistory(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	var err error
+	indexName := "id-owner-dc"
+	key, err := stub.CreateCompositeKey(indexName, args)
+	resultsIterator, err := stub.GetHistoryForKey(key)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	defer resultsIterator.Close()
+	var buffer bytes.Buffer
+	buffer.WriteString("[")
+	bArrayMemberAlreadyWritten := false
+	for resultsIterator.HasNext() {
+		response, err := resultsIterator.Next()
+		if err != nil {
+			return shim.Error(err.Error())
+		}
+		if bArrayMemberAlreadyWritten == true {
+			buffer.WriteString(",")
+		}
+		buffer.WriteString("{\"TxId\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(response.TxId)
+		buffer.WriteString("\"")
+		buffer.WriteString(", \"Value\":")
+		if response.IsDelete {
+			buffer.WriteString("null")
+		} else {
+			buffer.WriteString(string(response.Value))
+		}
+		buffer.WriteString(", \"Timestamp\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(time.Unix(response.Timestamp.Seconds, int64(response.Timestamp.Nanos)).String())
+		buffer.WriteString("\"")
+		buffer.WriteString(", \"IsDelete\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(strconv.FormatBool(response.IsDelete))
+		buffer.WriteString("\"")
+		buffer.WriteString("}")
+		bArrayMemberAlreadyWritten = true
+	}
+	buffer.WriteString("]")
+	return shim.Success(buffer.Bytes())
+}

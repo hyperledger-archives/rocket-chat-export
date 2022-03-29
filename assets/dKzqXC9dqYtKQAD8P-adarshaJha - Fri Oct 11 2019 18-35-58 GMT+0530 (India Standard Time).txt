@@ -1,0 +1,55 @@
+2019/10/11 12:59:58 [DEBUG] Home directory: /home/fabric-ca-server-config
+2019/10/11 12:59:58 [INFO] Configuration file location: /home/fabric-ca-server-config/fabric-ca-server-config.yaml
+2019/10/11 12:59:58 [INFO] Starting server in home directory: /home/fabric-ca-server-config
+2019/10/11 12:59:58 [WARNING] Unknown provider type: ; metrics disabled
+2019/10/11 12:59:58 [DEBUG] Set log level: 
+2019/10/11 12:59:58 [INFO] Server Version: 1.4.3
+2019/10/11 12:59:58 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+2019/10/11 12:59:58 [DEBUG] Making server filenames absolute
+2019/10/11 12:59:58 [DEBUG] Initializing default CA in directory /home/fabric-ca-server-config
+2019/10/11 12:59:58 [DEBUG] Init CA with home /home/fabric-ca-server-config and config {Version: Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name:CA1 Keyfile:/etc/hyperledger/fabric-ca-server-config/0e729224e8b3f31784c8a93c5b8ef6f4c1c91d9e6e577c45c33163609fe40011_sk Certfile:/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem Chainfile:ca-chain.pem} Signing:0xc00037a800 CSR:{CN:fabric-ca-server Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[29e3f55d3bec localhost] KeyRequest:0xc00015a8c0 CA:0xc00015a940 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.GenCRL:1 hf.Registrar.Attributes:* hf.AffiliatcomnMgr:1 hf.Registrar.Roles:* hf.Registrar.DelegateRoles:* hf.Revoker:1 hf.IntermediateCA:1]  }]} Affiliations:map[] LDAP:{ Enabled:true URL:ldap://****:****@openldap:389/dc=biltilink,dc=com UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[cn gidNumber givenName homeDirectory loginShell mail org objectClass ou sn st userType userRole uid uidNumber memberOf] [{hf.GenCRL attr("memberOf") =~ "cn=Gencrl,ou=groups,dc=biltilink,dc=com" || attr("memberOf") =~ "cn=pkiAdmin,ou=groups,dc=biltilink,dc=com"} {hf.Revoker attr("memberOf") =~ "cn=Revoker,ou=groups,dc=biltilink,dc=com" || attr("memberOf") =~ "cn=pkiAdmin,ou=groups,dc=biltilink,dc=com"} {hf.IntermediateCA attr("memberOf") =~ "cn=Ca,ou=groups,dc=biltilink,dc=com"} {hf.Registrar.Roles map(attr("memberOf"),"roles")}] map[roles:[{cn=Client,ou=groups,dc=biltilink,dc=com client} {cn=User,ou=groups,dc=biltilink,dc=com user} {cn=Peer,ou=groups,dc=biltilink,dc=com peer} {cn=App,ou=groups,dc=biltilink,dc=com app} {cn=Auditor,ou=groups,dc=biltilink,dc=com auditor} {cn=Validator,ou=groups,dc=biltilink,dc=com validator} {cn=pkiAdmin,ou=groups,dc=biltilink,dc=com pkiadmin}]]} TLS:{false [] { }}  } DB:{ Type:postgres ****user=**** password=**** dbname=fabriccaserver sslmode=disable TLS:{false [] { }}  } CSP:0xc00015a040 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:100 NonceExpiration:15s NonceSweepInterval:15m}}
+2019/10/11 12:59:58 [DEBUG] CA Home Directory: /home/fabric-ca-server-config
+2019/10/11 12:59:58 [DEBUG] Checking configuration file version '0' against server version: '1.4.3'
+2019/10/11 12:59:58 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc0001a40c0 PluginOpts:<nil>}
+2019/10/11 12:59:58 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc00019d980 DummyKeystore:<nil> InmemKeystore:<nil>}
+2019/10/11 12:59:58 [DEBUG] Initialize key material
+2019/10/11 12:59:58 [DEBUG] Making CA filenames absolute
+2019/10/11 12:59:58 [INFO] The CA key and certificate files already exist
+2019/10/11 12:59:58 [INFO] Key file location: /etc/hyperledger/fabric-ca-server-config/0e729224e8b3f31784c8a93c5b8ef6f4c1c91d9e6e577c45c33163609fe40011_sk
+2019/10/11 12:59:58 [INFO] Certificate file location: /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
+2019/10/11 12:59:58 [DEBUG] Validating the CA certificate and key
+2019/10/11 12:59:58 [DEBUG] Check CA certificate for valid dates
+2019/10/11 12:59:58 [DEBUG] Check CA certificate for valid usages
+2019/10/11 12:59:58 [DEBUG] Check CA certificate for valid IsCA value
+2019/10/11 12:59:58 [DEBUG] Check that key type is supported
+2019/10/11 12:59:58 [DEBUG] Check that key size is of appropriate length
+2019/10/11 12:59:58 [DEBUG] Check that public key and private key match
+2019/10/11 12:59:58 [DEBUG] Validation of CA certificate and key successful
+2019/10/11 12:59:58 [DEBUG] Loading CN from existing enrollment information
+2019/10/11 12:59:58 [DEBUG] Initializing DB
+2019/10/11 12:59:58 [DEBUG] Initializing 'postgres' database at 'host=127.0.0.1 port=5432 user=**** password=**** dbname=fabriccaserver sslmode=disable'
+2019/10/11 12:59:58 [DEBUG] Using postgres database, connecting to database...
+2019/10/11 12:59:58 [DEBUG] Database Name: fabriccaserver
+2019/10/11 12:59:58 [DEBUG] Connecting to PostgreSQL server, using connection string: host=127.0.0.1 port=5432 user=**** password=**** dbname=fabriccaserver sslmode=disable
+2019/10/11 12:59:58 [WARNING] Failed to connect to database 'fabriccaserver'
+2019/10/11 12:59:58 [DEBUG] Connecting to PostgreSQL server, using connection string: host=127.0.0.1 port=5432 user=**** password=**** dbname=postgres sslmode=disable
+2019/10/11 12:59:58 [WARNING] Failed to connect to database 'postgres'
+2019/10/11 12:59:58 [DEBUG] Connecting to PostgreSQL server, using connection string: host=127.0.0.1 port=5432 user=**** password=**** dbname=template1 sslmode=disable
+2019/10/11 12:59:58 [WARNING] Failed to connect to database 'template1'
+2019/10/11 12:59:58 [ERROR] Error occurred initializing database: Failed to connect to Postgres database. Postgres requires connecting to a specific database, the following databases were tried: [fabriccaserver postgres template1]. Please create one of these database before continuing
+2019/10/11 12:59:58 [DEBUG] Initializing enrollment signer
+2019/10/11 12:59:58 [DEBUG] validating configuration
+2019/10/11 12:59:58 [DEBUG] validate local profile
+2019/10/11 12:59:58 [DEBUG] profile is valid
+2019/10/11 12:59:58 [DEBUG] validate local profile
+2019/10/11 12:59:58 [DEBUG] profile is valid
+2019/10/11 12:59:58 [DEBUG] validate local profile
+2019/10/11 12:59:58 [DEBUG] profile is valid
+2019/10/11 12:59:58 [DEBUG] CA initialization successful
+2019/10/11 12:59:58 [DEBUG] Initializing Idemix issuer...
+2019/10/11 12:59:58 [DEBUG] Returning without initializing Idemix issuer for CA 'CA1' as the database is not initialized
+2019/10/11 12:59:58 [INFO] Home directory for default CA: /home/fabric-ca-server-config
+2019/10/11 12:59:58 [DEBUG] 1 CA instance(s) running on server
+2019/10/11 12:59:58 [INFO] Operation Server Listening on [::]:34065
+2019/10/11 12:59:58 [INFO] Listening on http://0.0.0.0:7054
+

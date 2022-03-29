@@ -1,0 +1,70 @@
+========================== FIRST LAUNCH ===========================
+========================= command log / orderer log ===============
+
+2019-07-01 13:14:58.883 UTC [msp] setupSigningIdentity -> DEBU 035 Signing identity expires at 2029-06-28 13:09:00 +0000 UTC
+2019-07-01 13:14:58.883 UTC [msp] Validate -> DEBU 036 MSP FOOMSP validating identity
+2019-07-01 13:14:58.884 UTC [msp] GetDefaultSigningIdentity -> DEBU 037 Obtaining default signing identity
+2019-07-01 13:14:58.884 UTC [grpc] DialContext -> DEBU 038 parsed scheme: ""
+2019-07-01 13:14:58.884 UTC [grpc] DialContext -> DEBU 039 scheme "" not registered, fallback to default scheme
+2019-07-01 13:14:58.884 UTC [grpc] watcher -> DEBU 03a ccResolverWrapper: sending new addresses to cc: [{orderer.example.com:7050 0  <nil>}]
+2019-07-01 13:14:58.884 UTC [grpc] switchBalancer -> DEBU 03b ClientConn switching balancer to "pick_first"
+2019-07-01 13:14:58.884 UTC [grpc] HandleSubConnStateChange -> DEBU 03c pickfirstBalancer: HandleSubConnStateChange: 0xc00012fd10, CONNECTING
+2019-07-01 13:14:58.888 UTC [grpc] HandleSubConnStateChange -> DEBU 03d pickfirstBalancer: HandleSubConnStateChange: 0xc00012fd10, READY
+2019-07-01 13:14:58.889 UTC [channelCmd] InitCmdFactory -> INFO 03e Endorser and orderer connections initialized
+2019-07-01 13:14:58.889 UTC [msp] GetDefaultSigningIdentity -> DEBU 03f Obtaining default signing identity
+2019-07-01 13:14:58.889 UTC [msp] GetDefaultSigningIdentity -> DEBU 040 Obtaining default signing identity
+2019-07-01 13:14:58.889 UTC [msp.identity] Sign -> DEBU 041 Sign: plaintext: 0A91060A065345534D53501286062D2D...53616D706C65436F6E736F727469756D 
+2019-07-01 13:14:58.889 UTC [msp.identity] Sign -> DEBU 042 Sign: digest: 4532C40A56F9D709FA9CD1ABFF92693664E4A6D9E95FB239E9B89D3322BA9AA4 
+2019-07-01 13:14:58.889 UTC [msp] GetDefaultSigningIdentity -> DEBU 043 Obtaining default signing identity
+2019-07-01 13:14:58.889 UTC [msp] GetDefaultSigningIdentity -> DEBU 044 Obtaining default signing identity
+2019-07-01 13:14:58.889 UTC [msp.identity] Sign -> DEBU 045 Sign: plaintext: 0AC8060A1508021A0608D28EE8E80522...B4FA21A5959A9FFBBB8745D0911217F7 
+2019-07-01 13:14:58.889 UTC [msp.identity] Sign -> DEBU 046 Sign: digest: 5B887E1384BA2994FC731503CC0E1CFC151C71DE4E28616B7E4A1909F7A2412C 
+2019-07-01 13:14:58.890 UTC [grpc] DialContext -> DEBU 047 parsed scheme: ""
+2019-07-01 13:14:58.890 UTC [grpc] DialContext -> DEBU 048 scheme "" not registered, fallback to default scheme
+2019-07-01 13:14:58.890 UTC [grpc] watcher -> DEBU 049 ccResolverWrapper: sending new addresses to cc: [{orderer.example.com:7050 0  <nil>}]
+2019-07-01 13:14:58.890 UTC [grpc] switchBalancer -> DEBU 04a ClientConn switching balancer to "pick_first"
+2019-07-01 13:14:58.890 UTC [grpc] HandleSubConnStateChange -> DEBU 04b pickfirstBalancer: HandleSubConnStateChange: 0xc000340ec0, CONNECTING
+2019-07-01 13:14:58.911 UTC [grpc] HandleSubConnStateChange -> DEBU 04c pickfirstBalancer: HandleSubConnStateChange: 0xc000340ec0, READY
+Error: got unexpected status: FORBIDDEN -- implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+
+2019-07-01 13:14:02.182 UTC [orderer.common.server] Start -> INFO 007 Beginning to serve requests
+2019-07-01 13:14:58.928 UTC [orderer.common.broadcast] ProcessMessage -> WARN 008 [channel: mychannel] Rejecting broadcast of config message from 10.0.0.27:54828 because of error: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+2019-07-01 13:14:58.929 UTC [comm.grpc.server] 1 -> INFO 009 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.0.0.27:54828 grpc.code=OK grpc.call_duration=16.885391ms
+2019-07-01 13:14:58.931 UTC [common.deliver] Handle -> WARN 00a Error reading from 10.0.0.27:54826: rpc error: code = Canceled desc = context canceled
+
+
+========================= SECOND LAUNCH ===========================
+========================= command log / orderer log ===============
+
+2019-07-01 13:39:06.759 UTC [msp] setupSigningIdentity -> DEBU 035 Signing identity expires at 2029-06-28 13:21:00 +0000 UTC
+2019-07-01 13:39:06.759 UTC [msp] Validate -> DEBU 036 MSP FOOMSP validating identity
+2019-07-01 13:39:06.760 UTC [msp] GetDefaultSigningIdentity -> DEBU 037 Obtaining default signing identity
+2019-07-01 13:39:06.760 UTC [grpc] DialContext -> DEBU 038 parsed scheme: ""
+2019-07-01 13:39:06.760 UTC [grpc] DialContext -> DEBU 039 scheme "" not registered, fallback to default scheme
+2019-07-01 13:39:06.760 UTC [grpc] watcher -> DEBU 03a ccResolverWrapper: sending new addresses to cc: [{orderer.example.com:7050 0  <nil>}]
+2019-07-01 13:39:06.760 UTC [grpc] switchBalancer -> DEBU 03b ClientConn switching balancer to "pick_first"
+2019-07-01 13:39:06.760 UTC [grpc] HandleSubConnStateChange -> DEBU 03c pickfirstBalancer: HandleSubConnStateChange: 0xc00013c3b0, CONNECTING
+2019-07-01 13:39:06.773 UTC [grpc] HandleSubConnStateChange -> DEBU 03d pickfirstBalancer: HandleSubConnStateChange: 0xc00013c3b0, READY
+2019-07-01 13:39:06.773 UTC [channelCmd] InitCmdFactory -> INFO 03e Endorser and orderer connections initialized
+2019-07-01 13:39:06.773 UTC [msp] GetDefaultSigningIdentity -> DEBU 03f Obtaining default signing identity
+2019-07-01 13:39:06.773 UTC [msp] GetDefaultSigningIdentity -> DEBU 040 Obtaining default signing identity
+2019-07-01 13:39:06.773 UTC [msp.identity] Sign -> DEBU 041 Sign: plaintext: 0A91060A065345534D53501286062D2D...53616D706C65436F6E736F727469756D 
+2019-07-01 13:39:06.773 UTC [msp.identity] Sign -> DEBU 042 Sign: digest: 8E3531E6FA04B1BB0C23A1822231BB6564CA93F8C3A6A54DECB2D5221A0F29C1 
+2019-07-01 13:39:06.773 UTC [msp] GetDefaultSigningIdentity -> DEBU 043 Obtaining default signing identity
+2019-07-01 13:39:06.774 UTC [msp] GetDefaultSigningIdentity -> DEBU 044 Obtaining default signing identity
+2019-07-01 13:39:06.774 UTC [msp.identity] Sign -> DEBU 045 Sign: plaintext: 0AC8060A1508021A0608FA99E8E80522...F56A32E2E769336EAE26E622D0C4691C 
+2019-07-01 13:39:06.774 UTC [msp.identity] Sign -> DEBU 046 Sign: digest: 463FABB843239C2A1CFA9D2C3CF9A526EEED0D03DB682B468550DD9401FB0674 
+2019-07-01 13:39:06.774 UTC [grpc] DialContext -> DEBU 047 parsed scheme: ""
+2019-07-01 13:39:06.774 UTC [grpc] DialContext -> DEBU 048 scheme "" not registered, fallback to default scheme
+2019-07-01 13:39:06.774 UTC [grpc] watcher -> DEBU 049 ccResolverWrapper: sending new addresses to cc: [{orderer.example.com:7050 0  <nil>}]
+2019-07-01 13:39:06.774 UTC [grpc] switchBalancer -> DEBU 04a ClientConn switching balancer to "pick_first"
+2019-07-01 13:39:06.774 UTC [grpc] HandleSubConnStateChange -> DEBU 04b pickfirstBalancer: HandleSubConnStateChange: 0xc000072fc0, CONNECTING
+2019-07-01 13:39:06.777 UTC [grpc] HandleSubConnStateChange -> DEBU 04c pickfirstBalancer: HandleSubConnStateChange: 0xc000072fc0, READY
+Error: got unexpected status: BAD_REQUEST -- error validating channel creation transaction for new channel 'mychannel', could not succesfully apply update to template configuration: error authorizing update: error validating DeltaSet: policy for [Group]  /Channel/Application not satisfied: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Admins' sub-policies to be satisfied
+
+2019-07-01 13:28:54.742 UTC [orderer.common.server] Start -> INFO 008 Beginning to serve requests
+2019-07-01 13:39:06.786 UTC [cauthdsl] deduplicate -> ERRO 009 Principal deserialization failure (the supplied identity is not valid: x509: certificate signed by unknown authority) for identity 0
+2019-07-01 13:39:06.786 UTC [cauthdsl] deduplicate -> ERRO 00a Principal deserialization failure (the supplied identity is not valid: x509: certificate signed by unknown authority) for identity 0
+2019-07-01 13:39:06.786 UTC [orderer.common.broadcast] ProcessMessage -> WARN 00b [channel: mychannel] Rejecting broadcast of config message from 10.0.0.218:49962 because of error: error validating channel creation transaction for new channel 'mychannel', could not succesfully apply update to template configuration: error authorizing update: error validating DeltaSet: policy for [Group]  /Channel/Application not satisfied: implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Admins' sub-policies to be satisfied
+2019-07-01 13:39:06.787 UTC [comm.grpc.server] 1 -> INFO 00c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=10.0.0.218:49962 grpc.code=OK grpc.call_duration=9.014693ms
+2019-07-01 13:39:06.790 UTC [common.deliver] Handle -> WARN 00d Error reading from 10.0.0.218:49960: rpc error: code = Canceled desc = context canceled

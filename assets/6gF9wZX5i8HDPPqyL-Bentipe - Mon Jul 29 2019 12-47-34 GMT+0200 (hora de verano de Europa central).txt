@@ -1,0 +1,71 @@
+ty messer, this is the logs of the peer, the cli just says 500 error:
+```
+2019-07-29 10:45:29.295 UTC [cauthdsl] func2 -> DEBU 1b60 0xc0000a4ec0 principal evaluation succeeds for identity 0
+2019-07-29 10:45:29.295 UTC [cauthdsl] func1 -> DEBU 1b61 0xc0000a4ec0 gate 1564397129294778393 evaluation succeeds
+2019-07-29 10:45:29.296 UTC [chaincode] handleMessage -> DEBU 1b62 [afb9a951] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+2019-07-29 10:45:29.296 UTC [chaincode] HandleTransaction -> DEBU 1b63 [afb9a951] handling PUT_STATE from chaincode
+2019-07-29 10:45:29.296 UTC [chaincode] HandleTransaction -> DEBU 1b64 [afb9a951] Completed PUT_STATE. Sending RESPONSE
+2019-07-29 10:45:29.296 UTC [lscc] putChaincodeCollectionData -> DEBU 1b65 No collection configuration specified
+2019-07-29 10:45:29.296 UTC [chaincode] handleMessage -> DEBU 1b66 [afb9a951] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+2019-07-29 10:45:29.296 UTC [chaincode] Notify -> DEBU 1b67 [afb9a951] notifying Txid:afb9a951b9b38bb708aff2c759f8d8754fdc1d7cd9bb21bd5f5db00a6d8b3441, channelID:examplechannel
+2019-07-29 10:45:29.296 UTC [chaincode] Execute -> DEBU 1b68 Exit
+2019-07-29 10:45:29.341 UTC [chaincode] LaunchConfig -> DEBU 1b69 launchConfig: executable:"/root/chaincode-java/start",Args:[/root/chaincode-java/start,--peerAddress,peer0.example.app:7052],Envs:[CORE_CHAINCODE_LOGGING_LEVEL=debug,CORE_CHAINCODE_LOGGING_SHIM=warning,CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message},CORE_CHAINCODE_ID_NAME=processchaincode:1.4.0,CORE_PEER_TLS_ENABLED=true,CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key,CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt,CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt],Files:[/etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/peer.crt]
+2019-07-29 10:45:29.341 UTC [chaincode] Start -> DEBU 1b6a start container: processchaincode:1.4.0
+2019-07-29 10:45:29.341 UTC [chaincode] Start -> DEBU 1b6b start container with args: /root/chaincode-java/start --peerAddress peer0.example.app:7052
+2019-07-29 10:45:29.341 UTC [chaincode] Start -> DEBU 1b6c start container with env:
+        CORE_CHAINCODE_LOGGING_LEVEL=debug
+        CORE_CHAINCODE_LOGGING_SHIM=warning
+        CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+        CORE_CHAINCODE_ID_NAME=processchaincode:1.4.0
+        CORE_PEER_TLS_ENABLED=true
+        CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+        CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+        CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+2019-07-29 10:45:29.341 UTC [container] lockContainer -> DEBU 1b6d waiting for container(processchaincode-1.4.0) lock
+2019-07-29 10:45:29.341 UTC [container] lockContainer -> DEBU 1b6e got container (processchaincode-1.4.0) lock
+2019-07-29 10:45:29.342 UTC [dockercontroller] stopInternal -> DEBU 1b6f stopping container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:29.343 UTC [dockercontroller] stopInternal -> DEBU 1b70 stop container result error="No such container: dev-peer0.example.app-processchaincode-1.4.0"
+2019-07-29 10:45:29.343 UTC [dockercontroller] stopInternal -> DEBU 1b71 killing container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:29.343 UTC [dockercontroller] stopInternal -> DEBU 1b72 kill container result id=dev-peer0.example.app-processchaincode-1.4.0 error="No such container: dev-peer0.example.app-processchaincode-1.4.0"
+2019-07-29 10:45:29.343 UTC [dockercontroller] stopInternal -> DEBU 1b73 removing container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:29.344 UTC [dockercontroller] stopInternal -> DEBU 1b74 remove container result id=dev-peer0.example.app-processchaincode-1.4.0 error="No such container: dev-peer0.example.app-processchaincode-1.4.0"
+2019-07-29 10:45:29.344 UTC [dockercontroller] createContainer -> DEBU 1b75 create container imageID=dev-peer0.example.app-processchaincode-1.4.0-fbf56c030b92bdfb04741ff6b84c0e8caabc43bd41668c4172fb66c786e49e91 containerID=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:29.344 UTC [dockercontroller] getDockerHostConfig -> DEBU 1b76 docker container hostconfig NetworkMode: traceability
+2019-07-29 10:45:29.421 UTC [dockercontroller] createContainer -> DEBU 1b77 created container imageID=dev-peer0.example.app-processchaincode-1.4.0-fbf56c030b92bdfb04741ff6b84c0e8caabc43bd41668c4172fb66c786e49e91 containerID=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:29.859 UTC [msp] GetDefaultSigningIdentity -> DEBU 1b78 Obtaining default signing identity
+2019-07-29 10:45:29.859 UTC [msp.identity] Sign -> DEBU 1b79 Sign: plaintext: 18012A4A0A390A1570656572302E6B61...4C120D08D0C0CCB8CCB3F6DA1510FE04 
+2019-07-29 10:45:29.859 UTC [msp.identity] Sign -> DEBU 1b7a Sign: digest: 51861717746F75A06CFFF6C4F7DCC128377C607436503BA6220EFC351CBB7F5C 
+2019-07-29 10:45:29.859 UTC [msp] GetDefaultSigningIdentity -> DEBU 1b7b Obtaining default signing identity
+2019-07-29 10:45:29.859 UTC [msp.identity] Sign -> DEBU 1b7c Sign: plaintext: 0A1570656572302E6B617974656B2E6170703A37303531 
+2019-07-29 10:45:29.859 UTC [msp.identity] Sign -> DEBU 1b7d Sign: digest: 0B7296F626C25AED1A1CB1F1AE6CBDEE1608AF28C2F32B03918AADA541C38057 
+2019-07-29 10:45:29.859 UTC [gossip.discovery] periodicalSendAlive -> DEBU 1b7e Sleeping 5s
+2019-07-29 10:45:30.380 UTC [dockercontroller] Start -> DEBU 1b7f Started container dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:30.380 UTC [container] unlockContainer -> DEBU 1b80 container lock deleted(processchaincode-1.4.0)
+2019-07-29 10:45:30.380 UTC [container] lockContainer -> DEBU 1b81 waiting for container(processchaincode-1.4.0) lock
+2019-07-29 10:45:30.380 UTC [container] lockContainer -> DEBU 1b82 got container (processchaincode-1.4.0) lock
+2019-07-29 10:45:30.380 UTC [container] unlockContainer -> DEBU 1b83 container lock deleted(processchaincode-1.4.0)
+2019-07-29 10:45:30.962 UTC [chaincode] Launch -> DEBU 1b84 stopping due to error while launching: container exited with 1
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch.func1
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:63
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:1333
+chaincode registration failed
+2019-07-29 10:45:30.962 UTC [container] lockContainer -> DEBU 1b85 waiting for container(processchaincode-1.4.0) lock
+2019-07-29 10:45:30.962 UTC [container] lockContainer -> DEBU 1b86 got container (processchaincode-1.4.0) lock
+2019-07-29 10:45:30.962 UTC [dockercontroller] stopInternal -> DEBU 1b87 stopping container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:30.963 UTC [dockercontroller] stopInternal -> DEBU 1b88 stop container result error="Container not running: dev-peer0.example.app-processchaincode-1.4.0"
+2019-07-29 10:45:30.964 UTC [dockercontroller] stopInternal -> DEBU 1b89 killing container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:30.964 UTC [dockercontroller] stopInternal -> DEBU 1b8a kill container result id=dev-peer0.example.app-processchaincode-1.4.0 error="Container not running: dev-peer0.example.app-processchaincode-1.4.0"
+2019-07-29 10:45:30.964 UTC [dockercontroller] stopInternal -> DEBU 1b8b removing container id=dev-peer0.example.app-processchaincode-1.4.0
+2019-07-29 10:45:30.986 UTC [dockercontroller] stopInternal -> DEBU 1b8c remove container result id=dev-peer0.example.app-processchaincode-1.4.0 error=null
+2019-07-29 10:45:30.986 UTC [container] unlockContainer -> DEBU 1b8d container lock deleted(processchaincode-1.4.0)
+2019-07-29 10:45:30.986 UTC [chaincode] Launch -> DEBU 1b8e launch complete
+2019-07-29 10:45:30.986 UTC [chaincode] Deregister -> DEBU 1b8f deregister handler: processchaincode:1.4.0
+2019-07-29 10:45:30.986 UTC [endorser] callChaincode -> INFO 1b90 [examplechannel][afb9a951] Exit chaincode: name:"lscc"  (1724ms)
+2019-07-29 10:45:30.986 UTC [endorser] SimulateProposal -> ERRO 1b91 [examplechannel][afb9a951] failed to invoke chaincode name:"lscc" , error: container exited with 1
+github.com/hyperledger/fabric/core/chaincode.(*RuntimeLauncher).Launch.func1
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/runtime_launcher.go:63
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:1333
+chaincode registration failed
+```

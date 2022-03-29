@@ -1,0 +1,63 @@
+Hi all, I got this error when running fabric-sample/first-network with etcdraft consensus
+```orderer.example.com       | 2019-06-14 08:27:07.143 UTC [orderer.common.server] replicateDisabledChains -> INFO 00c Found 1 inactive chains: [byfn-sys-channel]
+orderer.example.com       | 2019-06-14 08:27:07.143 UTC [orderer.common.cluster] ReplicateChains -> INFO 00d Will now replicate chains [byfn-sys-channel]
+orderer.example.com       | 2019-06-14 08:27:07.149 UTC [orderer.common.cluster] discoverChannels -> INFO 00e Discovered 1 channels: [byfn-sys-channel]
+orderer.example.com       | 2019-06-14 08:27:07.149 UTC [orderer.common.cluster] channelsToPull -> INFO 00f Evaluating channels to pull: [byfn-sys-channel]
+orderer.example.com       | 2019-06-14 08:27:07.149 UTC [orderer.common.cluster] channelsToPull -> INFO 010 Probing whether I should pull channel byfn-sys-channel
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 011 Failed connecting to orderer4.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer4.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 012 Failed connecting to orderer3.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer3.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] func1 -> WARN 013 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer4.example.com on 127.0.0.11:53: no such host"' from orderer4.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] func1 -> WARN 014 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer3.example.com on 127.0.0.11:53: no such host"' from orderer3.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 015 Failed connecting to orderer2.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer2.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:07.156 UTC [orderer.common.cluster.replication] func1 -> WARN 016 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer2.example.com on 127.0.0.11:53: no such host"' from orderer2.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:07.157 UTC [core.comm] ServerHandshake -> ERRO 017 TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58786
+orderer.example.com       | 2019-06-14 08:27:07.283 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 018 Failed connecting to orderer5.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer5.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:07.283 UTC [orderer.common.cluster.replication] func1 -> WARN 019 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer5.example.com on 127.0.0.11:53: no such host"' from orderer5.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:08.155 UTC [core.comm] ServerHandshake -> ERRO 01a TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58788
+orderer.example.com       | 2019-06-14 08:27:09.575 UTC [core.comm] ServerHandshake -> ERRO 01b TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58790
+orderer.example.com       | 2019-06-14 08:27:11.727 UTC [core.comm] ServerHandshake -> ERRO 01c TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58796
+orderer.example.com       | 2019-06-14 08:27:14.150 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 01d Failed connecting to orderer.example.com:7050: failed to create new connection: context deadline exceeded
+orderer.example.com       | 2019-06-14 08:27:14.151 UTC [orderer.common.cluster.replication] func1 -> WARN 01e Received error of type 'failed to create new connection: context deadline exceeded' from orderer.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:14.151 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 01f Returning the heights of OSNs mapped by endpoints map[]
+orderer.example.com       | 2019-06-14 08:27:14.151 UTC [orderer.common.cluster] channelsToPull -> WARN 020 Could not obtain blocks needed for classifying whether I am in the channel,skipping the retrieval of the chan byfn-sys-channel
+orderer.example.com       | 2019-06-14 08:27:14.151 UTC [orderer.common.cluster] ReplicateChains -> INFO 021 Found myself in 0 channels out of 1 : {[] [{byfn-sys-channel 0xc000154840}]}
+orderer.example.com       | 2019-06-14 08:27:14.152 UTC [orderer.common.cluster] appendBlock -> INFO 022 Skipping commit of block [0] for channel byfn-sys-channel because height is at 1
+orderer.example.com       | 2019-06-14 08:27:14.152 UTC [orderer.common.cluster] PullChannel -> INFO 023 Pulling channel byfn-sys-channel
+orderer.example.com       | 2019-06-14 08:27:14.163 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 024 Failed connecting to orderer5.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer5.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:14.164 UTC [orderer.common.cluster.replication] func1 -> WARN 025 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer5.example.com on 127.0.0.11:53: no such host"' from orderer5.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:14.164 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 026 Failed connecting to orderer3.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer3.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:14.164 UTC [orderer.common.cluster.replication] func1 -> WARN 027 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer3.example.com on 127.0.0.11:53: no such host"' from orderer3.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:14.165 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 028 Failed connecting to orderer4.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer4.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:14.166 UTC [orderer.common.cluster.replication] func1 -> WARN 029 Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer4.example.com on 127.0.0.11:53: no such host"' from orderer4.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:14.166 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 02a Failed connecting to orderer2.example.com:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer2.example.com on 127.0.0.11:53: no such host"
+orderer.example.com       | 2019-06-14 08:27:14.167 UTC [orderer.common.cluster.replication] func1 -> WARN 02b Received error of type 'failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp: lookup orderer2.example.com on 127.0.0.11:53: no such host"' from orderer2.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:14.167 UTC [core.comm] ServerHandshake -> ERRO 02c TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58800
+orderer.example.com       | 2019-06-14 08:27:15.162 UTC [core.comm] ServerHandshake -> ERRO 02d TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58804
+orderer.example.com       | 2019-06-14 08:27:16.700 UTC [core.comm] ServerHandshake -> ERRO 02e TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58808
+orderer.example.com       | 2019-06-14 08:27:19.079 UTC [core.comm] ServerHandshake -> ERRO 02f TLS handshake failed with error remote error: tls: bad certificate server=Orderer remoteaddress=172.27.0.3:58810
+orderer.example.com       | 2019-06-14 08:27:21.157 UTC [orderer.common.cluster.replication] probeEndpoint -> WARN 030 Failed connecting to orderer.example.com:7050: failed to create new connection: context deadline exceeded
+orderer.example.com       | 2019-06-14 08:27:21.157 UTC [orderer.common.cluster.replication] func1 -> WARN 031 Received error of type 'failed to create new connection: context deadline exceeded' from orderer.example.com:7050
+orderer.example.com       | 2019-06-14 08:27:21.157 UTC [orderer.common.cluster.replication] HeightsByEndpoints -> INFO 032 Returning the heights of OSNs mapped by endpoints map[]
+orderer.example.com       | 2019-06-14 08:27:21.157 UTC [orderer.common.cluster] ReplicateChains -> PANI 033 Failed pulling system channel: failed obtaining the latest block for channel byfn-sys-channel
+orderer.example.com       | panic: Failed pulling system channel: failed obtaining the latest block for channel byfn-sys-channel
+orderer.example.com       | 
+orderer.example.com       | goroutine 31 [running]:
+orderer.example.com       | github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc0000efe40, 0x0, 0x0, 0x0)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:229 +0x515
+orderer.example.com       | github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).log(0xc00000e0a8, 0x1134304, 0x102ff4c, 0x21, 0xc00083bc00, 0x1, 0x1, 0x0, 0x0, 0x0)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0xf6
+orderer.example.com       | github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).Panicf(0xc00000e0a8, 0x102ff4c, 0x21, 0xc00083bc00, 0x1, 0x1)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159 +0x79
+orderer.example.com       | github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panicf(0xc00000e0b0, 0x102ff4c, 0x21, 0xc00083bc00, 0x1, 0x1)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/common/flogging/zap.go:74 +0x60
+orderer.example.com       | github.com/hyperledger/fabric/orderer/common/cluster.(*Replicator).ReplicateChains(0xc00030d980, 0x1061d48, 0xc0005b09a0, 0xc00030d980)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/cluster/replication.go:155 +0x4c2
+orderer.example.com       | github.com/hyperledger/fabric/orderer/common/server.(*replicationInitiator).ReplicateChains(0xc00030d860, 0xc000150400, 0xc000386000, 0x1, 0x1, 0x0, 0x0, 0x0)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/onboarding.go:120 +0x20a
+orderer.example.com       | github.com/hyperledger/fabric/orderer/common/server.(*inactiveChainReplicator).replicateDisabledChains(0xc0000b6d20)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/onboarding.go:224 +0x1f5
+orderer.example.com       | github.com/hyperledger/fabric/orderer/common/server.(*inactiveChainReplicator).run(0xc0000b6d20)
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/onboarding.go:202 +0x42
+orderer.example.com       | created by github.com/hyperledger/fabric/orderer/common/server.initializeEtcdraftConsenter
+orderer.example.com       | 	/opt/gopath/src/github.com/hyperledger/fabric/orderer/common/server/main.go:637 +0x3fc
+orderer.example.com exited with code 2```

@@ -1,0 +1,52 @@
+[20:13:49.414 [MainThread] cli INFO] sawtooth-validator (Hyperledger Sawtooth) version 1.1.2
+[20:13:49.415 [MainThread] cli INFO] config [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"
+[20:13:49.416 [MainThread] cli WARNING] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+[20:13:49.422 [MainThread] state_verifier DEBUG] verifying state in /var/lib/sawtooth/merkle-00.lmdb
+[20:13:49.423 [MainThread] state_verifier DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[20:13:49.425 [MainThread] state_verifier INFO] Skipping state verification: chain head's state root is present
+[20:13:49.426 [MainThread] cli INFO] Starting validator with serial scheduler
+[20:13:49.427 [MainThread] core DEBUG] global state database file is /var/lib/sawtooth/merkle-00.lmdb
+[20:13:49.428 [MainThread] core DEBUG] txn receipt store file is /var/lib/sawtooth/txn_receipts-00.lmdb
+[20:13:49.430 [MainThread] core DEBUG] block store file is /var/lib/sawtooth/block-00.lmdb
+[20:13:49.431 [MainThread] threadpool DEBUG] Creating thread pool executor Component
+[20:13:49.432 [MainThread] threadpool DEBUG] Creating thread pool executor Network
+[20:13:49.433 [MainThread] threadpool DEBUG] Creating thread pool executor Client
+[20:13:49.434 [MainThread] threadpool DEBUG] Creating thread pool executor Signature
+[20:13:49.434 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[20:13:49.435 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[20:13:49.438 [MainThread] threadpool DEBUG] Creating thread pool executor Executing
+[20:13:49.438 [MainThread] threadpool DEBUG] Creating thread pool executor Consensus
+[20:13:49.439 [MainThread] threadpool DEBUG] Creating thread pool executor FutureCallback
+[20:13:49.441 [MainThread] threadpool DEBUG] Creating thread pool executor Instrumented
+[20:13:49.444 [InterconnectThread-1] selector_events DEBUG] Using selector: ZMQSelector
+[20:13:49.446 [InterconnectThread-1] interconnect INFO] Listening on tcp://127.0.0.1:4004
+[20:13:49.447 [InterconnectThread-1] dispatch DEBUG] Added send_message function for connection ServerThread
+[20:13:49.447 [InterconnectThread-1] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[20:13:49.449 [MainThread] genesis DEBUG] genesis_batch_file: /var/lib/sawtooth/genesis.batch
+[20:13:49.449 [MainThread] genesis DEBUG] block_chain_id: not yet specified
+[20:13:49.450 [MainThread] genesis INFO] Producing genesis block from /var/lib/sawtooth/genesis.batch
+[20:13:49.450 [MainThread] genesis DEBUG] Adding 1 batches
+[20:15:22.042 [Thread-3] client_handlers DEBUG] Unable to get chain head from block store
+[20:19:25.560 [Thread-4] processor_handlers WARNING] Max occupancy was not provided by transaction processor: 5e4a7c62d6d49b78f74ebb10a38f2d81c12b1d478a738d2288d5a8ff453b36ed8e7adbbd7d6378ab7adcebd92002897651d8267ba729e84c54cf5db55b09524a. Using default max occupancy: 10
+[20:19:25.561 [Thread-4] processor_handlers INFO] registered transaction processor: connection_id=5e4a7c62d6d49b78f74ebb10a38f2d81c12b1d478a738d2288d5a8ff453b36ed8e7adbbd7d6378ab7adcebd92002897651d8267ba729e84c54cf5db55b09524a, family=sawtooth_settings, version=1.0, namespaces=['000000'], max_occupancy=10
+[20:19:25.575 [MainThread] genesis DEBUG] Produced state hash 85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d for genesis block.
+[20:19:25.579 [MainThread] genesis INFO] Genesis block created: 12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72 (block_num:0, state:85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d, previous_block_id:0000000000000000)
+[20:19:25.581 [Dummy-11] (unknown file) DEBUG] [src/journal/chain.rs: 764] Attempting to queue block Block(id: 12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72, block_num: 0, state_root_hash: 85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d, previous_block_id: 0000000000000000) before chain controller is started; Ignoring
+[20:19:25.582 [MainThread] chain_id_manager DEBUG] writing block chain id
+[20:19:25.583 [MainThread] genesis DEBUG] Deleting genesis data.
+[20:19:25.584 [InterconnectThread-12] selector_events DEBUG] Using selector: ZMQSelector
+[20:19:25.585 [InterconnectThread-12] interconnect INFO] Listening on tcp://127.0.0.1:5050
+[20:19:25.586 [InterconnectThread-12] dispatch DEBUG] Added send_message function for connection ServerThread
+[20:19:25.587 [InterconnectThread-12] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[20:19:25.589 [InterconnectThread-13] selector_events DEBUG] Using selector: ZMQSelector
+[20:19:25.590 [InterconnectThread-13] interconnect INFO] Listening on tcp://127.0.0.1:8800
+[20:19:25.591 [InterconnectThread-13] dispatch DEBUG] Added send_message function for connection ServerThread
+[20:19:25.592 [InterconnectThread-13] dispatch DEBUG] Added send_last_message function for connection ServerThread
+[20:19:25.594 [MainThread] ffi INFO] [src/journal/chain.rs: 785] Chain controller initialized with chain head: Block(id: 12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72, block_num: 0, state_root_hash: 85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d, previous_block_id: 0000000000000000)
+[20:19:25.595 [MainThread] ffi INFO] [src/journal/publisher.rs: 164] Now building on top of block, Block(id: 12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72, block_num: 0, state_root_hash: 85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d, previous_block_id: 0000000000000000)
+[20:19:25.762 [Thread-14] handlers INFO] Consensus engine registered: Devmode 0.1
+[20:21:00.513 [Thread-5] processor_handlers WARNING] Max occupancy was not provided by transaction processor: 7ac09bc2a60c000315633d7e3e280ce8ac1f12a6be6cf0a668050d474d872a934520df301e2fd64bc7dd4cec86a64bbfe2a2a567f5342724069b8b12c690c2ad. Using default max occupancy: 10
+[20:21:00.513 [Thread-5] processor_handlers INFO] registered transaction processor: connection_id=7ac09bc2a60c000315633d7e3e280ce8ac1f12a6be6cf0a668050d474d872a934520df301e2fd64bc7dd4cec86a64bbfe2a2a567f5342724069b8b12c690c2ad, family=intkey, version=1.0, namespaces=['1cf126'], max_occupancy=10
+[20:21:20.938 [Dummy-29] block_validator DEBUG] Adding block e3919bac266ef4afb20242731812e41989f20a499060fc3cd67cab7e76dab1652a15cbe98f77fe7b24d60fea011ce056808d98c91735eba60f6ddd18b80ad761 for processing
+[20:21:20.942 [Thread-30] block_validator WARNING] Block e3919bac266ef4afb20242731812e41989f20a499060fc3cd67cab7e76dab1652a15cbe98f77fe7b24d60fea011ce056808d98c91735eba60f6ddd18b80ad761 (block_num:1, state:0cf7b0aaa4589377daa83a3b1e5b739b3df55a34e5edfbf065e5f8cc46f4fbda, previous_block_id:12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72) failed validation: Block e3919bac266ef4afb20242731812e41989f20a499060fc3cd67cab7e76dab1652a15cbe98f77fe7b24d60fea011ce056808d98c91735eba60f6ddd18b80ad761 (block_num:1, state:0cf7b0aaa4589377daa83a3b1e5b739b3df55a34e5edfbf065e5f8cc46f4fbda, previous_block_id:12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72) rejected due to invalid predecessor 12be0ea6e839dc7c3c1944e2f5bdbbb999d3fbcbf21e63a3f305122710851df63e89728c72864ba894b775e4820b2de851ac625630522f028e6321a5ebe7be72 (block_num:0, state:85394c9b1c87a97dea275677f5cd82bf9d8a2a6bc96d5535d148994d32664c6d, previous_block_id:0000000000000000)
+[20:21:20.942 [Thread-30] block_validator DEBUG] Removing block from processing e3919bac266ef4afb20242731812e41989f20a499060fc3cd67cab7e76dab1652a15cbe98f77fe7b24d60fea011ce056808d98c91735eba60f6ddd18b80ad761

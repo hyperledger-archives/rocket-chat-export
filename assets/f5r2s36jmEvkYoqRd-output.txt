@@ -1,0 +1,59 @@
+
+1. Creating Crypto Materials
+    $ cryptogen generate --config=./crypto-config.yaml
+        org0
+        org1
+        org2
+        org3
+   
+    Output: crypto-config directory will be created will all peers and orderer
+
+
+2. Creating Orderer Genesis Block
+    $ configtxgen -profile FourOrgsOrdererGenesis -outputBlock genesis.block
+    2018-01-31 07:22:18.966 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:22:19.044 UTC [common/tools/configtxgen] doOutputBlock -> INFO 002 Generating genesis block
+    2018-01-31 07:22:19.047 UTC [common/tools/configtxgen] doOutputBlock -> INFO 003 Writing genesis block
+
+    Output: genesis.block file will be generated
+
+3. Creating Channel Configuration Transaction
+    $ configtxgen -profile FourOrgsChannel -outputCreateChannelTx ch1.tx -channelID ch1
+    2018-01-31 07:22:38.910 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:22:38.929 UTC [common/tools/configtxgen] doOutputChannelCreateTx -> INFO 002 Generating new channel configtx
+    2018-01-31 07:22:38.931 UTC [common/tools/configtxgen] doOutputChannelCreateTx -> INFO 003 Writing new channel tx
+   
+    Output:  ch1.tx file will be created
+
+
+4. Creating Anchor peer configuration Transaction for each organization
+    $ configtxgen -profile FourOrgsChannel -outputAnchorPeersUpdate Org0MSPanchors.tx -channelID ch1 -asOrg Org0MSP
+    2018-01-31 07:22:54.387 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:22:54.434 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+    2018-01-31 07:22:54.435 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+
+    Output:   Org0MSPanchors.tx  file will be created
+
+
+    $ configtxgen -profile FourOrgsChannel -outputAnchorPeersUpdate Org1MSPanchors.tx -channelID ch1 -asOrg Org1MSP
+    2018-01-31 07:23:07.321 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:23:07.339 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+    2018-01-31 07:23:07.340 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+
+    Output:  Org1MSPanchors.tx file will be created
+
+
+    $ configtxgen -profile FourOrgsChannel -outputAnchorPeersUpdate Org2MSPanchors.tx -channelID ch1 -asOrg Org2MSP
+    2018-01-31 07:23:17.401 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:23:17.422 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+    2018-01-31 07:23:17.423 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+
+    Output:  Org2MSPanchors.tx file will be created
+
+    $ configtxgen -profile FourOrgsChannel -outputAnchorPeersUpdate Org3MSPanchors.tx -channelID ch1 -asOrg Org3MSP
+    2018-01-31 07:23:30.266 UTC [common/tools/configtxgen] main -> INFO 001 Loading configuration
+    2018-01-31 07:23:30.283 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+    2018-01-31 07:23:30.285 UTC [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
+   
+    Output:   Org3MSPanchors.tx file will be created
+

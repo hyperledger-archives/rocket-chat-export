@@ -1,0 +1,1045 @@
+2020-02-11 11:42:05.759 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+2020-02-11 11:42:07.270 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+        General.LedgerType = "file"
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = []
+        General.Cluster.ListenAddress = ""
+        General.Cluster.ListenPort = 0
+        General.Cluster.ServerCertificate = ""
+        General.Cluster.ServerPrivateKey = ""
+        General.Cluster.ClientCertificate = ""
+        General.Cluster.ClientPrivateKey = ""
+        General.Cluster.RootCAs = []
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+        General.Cluster.ReplicationMaxRetries = 12
+        General.Cluster.SendBufferSize = 10
+        General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+        General.Cluster.TLSHandshakeTimeShift = 0s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.ConnectionTimeout = 0s
+        General.GenesisMethod = "file"
+        General.GenesisProfile = "SampleInsecureSolo"
+        General.SystemChannel = "test-system-channel-name"
+        General.GenesisFile = "/var/hyperledger/orderer/orderer.genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+        General.LocalMSPID = "AndykeMSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.Ephemeral = false
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.BCCSP.PluginOpts =
+        General.Authentication.TimeWindow = 15m0s
+        General.Authentication.NoExpirationChecks = false
+        FileLedger.Location = "/var/hyperledger/production/orderer"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        RAMLedger.HistorySize = 1000
+        Kafka.Retry.ShortInterval = 5s
+        Kafka.Retry.ShortTotal = 10m0s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = false
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = false
+        Kafka.TLS.PrivateKey = ""
+        Kafka.TLS.Certificate = ""
+        Kafka.TLS.RootCAs = []
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 3
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+        Operations.ListenAddress = "127.0.0.1:8443"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+2020-02-11 11:42:09.058 UTC [orderer.common.server] extractSysChanLastConfig -> INFO 003 Bootstrapping because no existing channels
+2020-02-11 11:42:09.492 UTC [orderer.common.server] initializeServerConfig -> INFO 004 Starting orderer with TLS enabled
+2020-02-11 11:42:09.537 UTC [orderer.common.server] configureClusterListener -> INFO 005 Cluster listener is not configured, defaulting to use the general listener on port 7050
+2020-02-11 11:42:09.542 UTC [fsblkstorage] newBlockfileMgr -> INFO 006 Getting block information from block storage
+2020-02-11 11:42:11.146 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 007 EvictionSuspicion not set, defaulting to 10m0s
+2020-02-11 11:42:11.216 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 008 No WAL data found, creating new WAL at path '/var/hyperledger/production/orderer/etcdraft/wal/banktransaction' channel=banktransaction node=1
+2020-02-11 11:42:12.593 UTC [orderer.commmon.multichannel] Initialize -> INFO 009 Starting system channel 'banktransaction' with genesis block hash a3b7890cea844cdc125f97e0734bf41d29be86e049cd806020dc82c2486b9a4f and orderer type etcdraft
+2020-02-11 11:42:12.597 UTC [orderer.consensus.etcdraft] Start -> INFO 00a Starting Raft node channel=banktransaction node=1
+2020-02-11 11:42:12.600 UTC [orderer.common.cluster] Configure -> INFO 00b Entering, channel: banktransaction, nodes: [ID: 3,
+Endpoint: orderer2.andyke.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICPjCCAeWgAwIBAgIRALfa2VJIziDUCujr1TWstwAwCgYIKoZIzj0EAwIwXTEL
+MAkGA1UEBhMCTkcxDjAMBgNVBAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTETMBEG
+A1UEChMKYW5keWtlLmNvbTEZMBcGA1UEAxMQdGxzY2EuYW5keWtlLmNvbTAeFw0y
+MDAyMTExMTMyMDBaFw0zMDAyMDgxMTMyMDBaMEsxCzAJBgNVBAYTAk5HMQ4wDAYD
+VQQIEwVMYWdvczEOMAwGA1UEBxMFTGVra2kxHDAaBgNVBAMTE29yZGVyZXIyLmFu
+ZHlrZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT2uAep+mCqUkwPK30K
+JlTGaPFiBpTHTEnwR9nlCr7Awe2tBENzUDHSFGzqfGx2oxSO9H643evfXo4cwXy9
+0eXeo4GXMIGUMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwDAYDVR0TAQH/BAIwADArBgNVHSMEJDAigCDgxGzVsZ+APyeG0gOc
+IABQ6WMY+flbd+QUxPeIycd8OjAoBgNVHREEITAfghNvcmRlcmVyMi5hbmR5a2Uu
+Y29tgghvcmRlcmVyMjAKBggqhkjOPQQDAgNHADBEAiBh+/5899graxuvwbJVgtNR
+wuXwPNxw57fwS0IOp1xV3QIgeTSooBwtbTeARR6VDH5VgbxTue3KayG1xHKuLRL3
++jU=
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICPjCCAeWgAwIBAgIRALfa2VJIziDUCujr1TWstwAwCgYIKoZIzj0EAwIwXTEL
+MAkGA1UEBhMCTkcxDjAMBgNVBAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTETMBEG
+A1UEChMKYW5keWtlLmNvbTEZMBcGA1UEAxMQdGxzY2EuYW5keWtlLmNvbTAeFw0y
+MDAyMTExMTMyMDBaFw0zMDAyMDgxMTMyMDBaMEsxCzAJBgNVBAYTAk5HMQ4wDAYD
+VQQIEwVMYWdvczEOMAwGA1UEBxMFTGVra2kxHDAaBgNVBAMTE29yZGVyZXIyLmFu
+ZHlrZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT2uAep+mCqUkwPK30K
+JlTGaPFiBpTHTEnwR9nlCr7Awe2tBENzUDHSFGzqfGx2oxSO9H643evfXo4cwXy9
+0eXeo4GXMIGUMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwDAYDVR0TAQH/BAIwADArBgNVHSMEJDAigCDgxGzVsZ+APyeG0gOc
+IABQ6WMY+flbd+QUxPeIycd8OjAoBgNVHREEITAfghNvcmRlcmVyMi5hbmR5a2Uu
+Y29tgghvcmRlcmVyMjAKBggqhkjOPQQDAgNHADBEAiBh+/5899graxuvwbJVgtNR
+wuXwPNxw57fwS0IOp1xV3QIgeTSooBwtbTeARR6VDH5VgbxTue3KayG1xHKuLRL3
++jU=
+-----END CERTIFICATE-----
+ ID: 4,
+Endpoint: orderer3.andyke.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICPTCCAeSgAwIBAgIQFjjNsoUTuhZTXTpMy7x+kzAKBggqhkjOPQQDAjBdMQsw
+CQYDVQQGEwJORzEOMAwGA1UECBMFTGFnb3MxDjAMBgNVBAcTBUxla2tpMRMwEQYD
+VQQKEwphbmR5a2UuY29tMRkwFwYDVQQDExB0bHNjYS5hbmR5a2UuY29tMB4XDTIw
+MDIxMTExMzIwMFoXDTMwMDIwODExMzIwMFowSzELMAkGA1UEBhMCTkcxDjAMBgNV
+BAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTEcMBoGA1UEAxMTb3JkZXJlcjMuYW5k
+eWtlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBD1QwKIuumDqRT9ywq3
+mxHRR/GY3JqVc68hKzF0H0EaAi/GKeSalF5iDBbcWGPX6x7sGG6FN1O0JERlHhPb
+aZKjgZcwgZQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAMBgNVHRMBAf8EAjAAMCsGA1UdIwQkMCKAIODEbNWxn4A/J4bSA5wg
+AFDpYxj5+Vt35BTE94jJx3w6MCgGA1UdEQQhMB+CE29yZGVyZXIzLmFuZHlrZS5j
+b22CCG9yZGVyZXIzMAoGCCqGSM49BAMCA0cAMEQCIEnFDUGRV3WsaJbC/50YpJI6
+jd6HR8JQRs0fHqeR1yADAiBERMOYTxX2wyonZ/bse1jh59GnogwimNXdfTwphBwv
+vw==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICPTCCAeSgAwIBAgIQFjjNsoUTuhZTXTpMy7x+kzAKBggqhkjOPQQDAjBdMQsw
+CQYDVQQGEwJORzEOMAwGA1UECBMFTGFnb3MxDjAMBgNVBAcTBUxla2tpMRMwEQYD
+VQQKEwphbmR5a2UuY29tMRkwFwYDVQQDExB0bHNjYS5hbmR5a2UuY29tMB4XDTIw
+MDIxMTExMzIwMFoXDTMwMDIwODExMzIwMFowSzELMAkGA1UEBhMCTkcxDjAMBgNV
+BAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTEcMBoGA1UEAxMTb3JkZXJlcjMuYW5k
+eWtlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBD1QwKIuumDqRT9ywq3
+mxHRR/GY3JqVc68hKzF0H0EaAi/GKeSalF5iDBbcWGPX6x7sGG6FN1O0JERlHhPb
+aZKjgZcwgZQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAMBgNVHRMBAf8EAjAAMCsGA1UdIwQkMCKAIODEbNWxn4A/J4bSA5wg
+AFDpYxj5+Vt35BTE94jJx3w6MCgGA1UdEQQhMB+CE29yZGVyZXIzLmFuZHlrZS5j
+b22CCG9yZGVyZXIzMAoGCCqGSM49BAMCA0cAMEQCIEnFDUGRV3WsaJbC/50YpJI6
+jd6HR8JQRs0fHqeR1yADAiBERMOYTxX2wyonZ/bse1jh59GnogwimNXdfTwphBwv
+vw==
+-----END CERTIFICATE-----
+ ID: 5,
+Endpoint: orderer4.andyke.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICPTCCAeSgAwIBAgIQWlVYgADUXsQ6pp1vVqK06zAKBggqhkjOPQQDAjBdMQsw
+CQYDVQQGEwJORzEOMAwGA1UECBMFTGFnb3MxDjAMBgNVBAcTBUxla2tpMRMwEQYD
+VQQKEwphbmR5a2UuY29tMRkwFwYDVQQDExB0bHNjYS5hbmR5a2UuY29tMB4XDTIw
+MDIxMTExMzIwMFoXDTMwMDIwODExMzIwMFowSzELMAkGA1UEBhMCTkcxDjAMBgNV
+BAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTEcMBoGA1UEAxMTb3JkZXJlcjQuYW5k
+eWtlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGvAafEing1sYONs3MLF
+HLsUMl4JzcM4+4xOS+bMDWr0jxNUlB6p0pNLNlq2mAFLDUPV+VMLqqOaO91ag79w
+8gGjgZcwgZQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAMBgNVHRMBAf8EAjAAMCsGA1UdIwQkMCKAIODEbNWxn4A/J4bSA5wg
+AFDpYxj5+Vt35BTE94jJx3w6MCgGA1UdEQQhMB+CE29yZGVyZXI0LmFuZHlrZS5j
+b22CCG9yZGVyZXI0MAoGCCqGSM49BAMCA0cAMEQCIAcispccrnGNawgQwfw3N8qr
+ZSd7algjhfASA6LxIfJJAiBKuPI88rKKXmSlUO7qQW7iOAlhc3fNtObCgpLRxxZf
+BQ==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICPTCCAeSgAwIBAgIQWlVYgADUXsQ6pp1vVqK06zAKBggqhkjOPQQDAjBdMQsw
+CQYDVQQGEwJORzEOMAwGA1UECBMFTGFnb3MxDjAMBgNVBAcTBUxla2tpMRMwEQYD
+VQQKEwphbmR5a2UuY29tMRkwFwYDVQQDExB0bHNjYS5hbmR5a2UuY29tMB4XDTIw
+MDIxMTExMzIwMFoXDTMwMDIwODExMzIwMFowSzELMAkGA1UEBhMCTkcxDjAMBgNV
+BAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTEcMBoGA1UEAxMTb3JkZXJlcjQuYW5k
+eWtlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGvAafEing1sYONs3MLF
+HLsUMl4JzcM4+4xOS+bMDWr0jxNUlB6p0pNLNlq2mAFLDUPV+VMLqqOaO91ag79w
+8gGjgZcwgZQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAMBgNVHRMBAf8EAjAAMCsGA1UdIwQkMCKAIODEbNWxn4A/J4bSA5wg
+AFDpYxj5+Vt35BTE94jJx3w6MCgGA1UdEQQhMB+CE29yZGVyZXI0LmFuZHlrZS5j
+b22CCG9yZGVyZXI0MAoGCCqGSM49BAMCA0cAMEQCIAcispccrnGNawgQwfw3N8qr
+ZSd7algjhfASA6LxIfJJAiBKuPI88rKKXmSlUO7qQW7iOAlhc3fNtObCgpLRxxZf
+BQ==
+-----END CERTIFICATE-----
+ ID: 2,
+Endpoint: orderer1.andyke.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICPjCCAeWgAwIBAgIRAM48rc/eGbFwLL46WBVZWDowCgYIKoZIzj0EAwIwXTEL
+MAkGA1UEBhMCTkcxDjAMBgNVBAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTETMBEG
+A1UEChMKYW5keWtlLmNvbTEZMBcGA1UEAxMQdGxzY2EuYW5keWtlLmNvbTAeFw0y
+MDAyMTExMTMyMDBaFw0zMDAyMDgxMTMyMDBaMEsxCzAJBgNVBAYTAk5HMQ4wDAYD
+VQQIEwVMYWdvczEOMAwGA1UEBxMFTGVra2kxHDAaBgNVBAMTE29yZGVyZXIxLmFu
+ZHlrZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARnKh5/e4xZuGQM40nK
+AM4p3nyGztcJzjdQZa6Wj/mhWk+OkeMh+hPowAsf1B74ZYTl/9vKD7LTLQ2KqR4M
+TFoQo4GXMIGUMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwDAYDVR0TAQH/BAIwADArBgNVHSMEJDAigCDgxGzVsZ+APyeG0gOc
+IABQ6WMY+flbd+QUxPeIycd8OjAoBgNVHREEITAfghNvcmRlcmVyMS5hbmR5a2Uu
+Y29tgghvcmRlcmVyMTAKBggqhkjOPQQDAgNHADBEAiAByG+5RH575dOGjFmBsylQ
+DHY/KL4CK7w3IGJ9ay4JQwIgCWgM88jr4718ydixf6mYlKnOP8HWi/vuXneGQXZR
+R3Y=
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICPjCCAeWgAwIBAgIRAM48rc/eGbFwLL46WBVZWDowCgYIKoZIzj0EAwIwXTEL
+MAkGA1UEBhMCTkcxDjAMBgNVBAgTBUxhZ29zMQ4wDAYDVQQHEwVMZWtraTETMBEG
+A1UEChMKYW5keWtlLmNvbTEZMBcGA1UEAxMQdGxzY2EuYW5keWtlLmNvbTAeFw0y
+MDAyMTExMTMyMDBaFw0zMDAyMDgxMTMyMDBaMEsxCzAJBgNVBAYTAk5HMQ4wDAYD
+VQQIEwVMYWdvczEOMAwGA1UEBxMFTGVra2kxHDAaBgNVBAMTE29yZGVyZXIxLmFu
+ZHlrZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARnKh5/e4xZuGQM40nK
+AM4p3nyGztcJzjdQZa6Wj/mhWk+OkeMh+hPowAsf1B74ZYTl/9vKD7LTLQ2KqR4M
+TFoQo4GXMIGUMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwDAYDVR0TAQH/BAIwADArBgNVHSMEJDAigCDgxGzVsZ+APyeG0gOc
+IABQ6WMY+flbd+QUxPeIycd8OjAoBgNVHREEITAfghNvcmRlcmVyMS5hbmR5a2Uu
+Y29tgghvcmRlcmVyMTAKBggqhkjOPQQDAgNHADBEAiAByG+5RH575dOGjFmBsylQ
+DHY/KL4CK7w3IGJ9ay4JQwIgCWgM88jr4718ydixf6mYlKnOP8HWi/vuXneGQXZR
+R3Y=
+-----END CERTIFICATE-----
+]
+2020-02-11 11:42:12.601 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00c Allocating a new stub for node 3 with endpoint of orderer2.andyke.com:7050 for channel banktransaction
+2020-02-11 11:42:12.602 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00d Deactivating node 3 in channel banktransaction with endpoint of orderer2.andyke.com:7050 due to TLS certificate change
+2020-02-11 11:42:12.889 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00e Allocating a new stub for node 4 with endpoint of orderer3.andyke.com:7050 for channel banktransaction
+2020-02-11 11:42:12.890 UTC [orderer.common.cluster] updateStubInMapping -> INFO 00f Deactivating node 4 in channel banktransaction with endpoint of orderer3.andyke.com:7050 due to TLS certificate change
+2020-02-11 11:42:12.891 UTC [orderer.common.cluster] updateStubInMapping -> INFO 010 Allocating a new stub for node 5 with endpoint of orderer4.andyke.com:7050 for channel banktransaction
+2020-02-11 11:42:12.891 UTC [orderer.common.cluster] updateStubInMapping -> INFO 011 Deactivating node 5 in channel banktransaction with endpoint of orderer4.andyke.com:7050 due to TLS certificate change
+2020-02-11 11:42:12.892 UTC [orderer.common.cluster] updateStubInMapping -> INFO 012 Allocating a new stub for node 2 with endpoint of orderer1.andyke.com:7050 for channel banktransaction
+2020-02-11 11:42:12.892 UTC [orderer.common.cluster] updateStubInMapping -> INFO 013 Deactivating node 2 in channel banktransaction with endpoint of orderer1.andyke.com:7050 due to TLS certificate change
+2020-02-11 11:42:12.893 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 014 4 exists in both old and new membership for channel banktransaction , skipping its deactivation
+2020-02-11 11:42:12.894 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 015 5 exists in both old and new membership for channel banktransaction , skipping its deactivation
+2020-02-11 11:42:12.894 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 016 2 exists in both old and new membership for channel banktransaction , skipping its deactivation
+2020-02-11 11:42:12.895 UTC [orderer.common.cluster] applyMembershipConfig -> INFO 017 3 exists in both old and new membership for channel banktransaction , skipping its deactivation
+2020-02-11 11:42:12.896 UTC [orderer.common.cluster] Configure -> INFO 018 Exiting
+2020-02-11 11:42:12.896 UTC [orderer.consensus.etcdraft] start -> INFO 019 Starting raft node as part of a new channel channel=banktransaction node=1
+2020-02-11 11:42:12.897 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 01a 1 became follower at term 0 channel=banktransaction node=1
+2020-02-11 11:42:12.905 UTC [orderer.consensus.etcdraft] newRaft -> INFO 01b newRaft 1 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=banktransaction node=1
+2020-02-11 11:42:12.906 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 01c 1 became follower at term 1 channel=banktransaction node=1
+2020-02-11 11:42:12.906 UTC [orderer.common.server] Start -> INFO 01d Starting orderer:
+ Version: 1.4.4
+ Commit SHA: 7917a40
+ Go version: go1.12.12
+ OS/Arch: linux/amd64
+2020-02-11 11:42:12.907 UTC [orderer.common.server] Start -> INFO 01e Beginning to serve requests
+2020-02-11 11:42:13.492 UTC [orderer.consensus.etcdraft] apply -> INFO 01f Applied config change to add node 1, current nodes in channel: [1 2 3 4 5] channel=banktransaction node=1
+2020-02-11 11:42:13.498 UTC [orderer.consensus.etcdraft] apply -> INFO 020 Applied config change to add node 2, current nodes in channel: [1 2 3 4 5] channel=banktransaction node=1
+2020-02-11 11:42:13.499 UTC [orderer.consensus.etcdraft] apply -> INFO 021 Applied config change to add node 3, current nodes in channel: [1 2 3 4 5] channel=banktransaction node=1
+2020-02-11 11:42:13.501 UTC [orderer.consensus.etcdraft] apply -> INFO 022 Applied config change to add node 4, current nodes in channel: [1 2 3 4 5] channel=banktransaction node=1
+2020-02-11 11:42:13.502 UTC [orderer.consensus.etcdraft] apply -> INFO 023 Applied config change to add node 5, current nodes in channel: [1 2 3 4 5] channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] Step -> INFO 024 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 025 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] poll -> INFO 026 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 027 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 028 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 029 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 02a 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:18.430 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02b Failed to send StepRequest to 2, because: connection to 2(orderer1.andyke.com:7050) is in state CONNECTING channel=banktransaction node=1
+2020-02-11 11:42:18.431 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02c Failed to send StepRequest to 3, because: connection to 3(orderer2.andyke.com:7050) is in state CONNECTING channel=banktransaction node=1
+2020-02-11 11:42:18.431 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02d Failed to send StepRequest to 4, because: connection to 4(orderer3.andyke.com:7050) is in state CONNECTING channel=banktransaction node=1
+2020-02-11 11:42:18.431 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 02e Failed to send StepRequest to 5, because: connection to 5(orderer4.andyke.com:7050) is in state CONNECTING channel=banktransaction node=1
+2020-02-11 11:42:23.930 UTC [orderer.consensus.etcdraft] Step -> INFO 02f 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 030 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.930 UTC [orderer.consensus.etcdraft] poll -> INFO 031 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 032 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 033 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 034 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:23.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 035 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.429 UTC [orderer.consensus.etcdraft] Step -> INFO 036 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 037 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] poll -> INFO 038 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 039 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 03a 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 03b 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:29.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 03c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.930 UTC [orderer.consensus.etcdraft] Step -> INFO 03d 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 03e 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.931 UTC [orderer.consensus.etcdraft] poll -> INFO 03f 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 040 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 041 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 042 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:34.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 043 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.429 UTC [orderer.consensus.etcdraft] Step -> INFO 044 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 045 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.431 UTC [orderer.consensus.etcdraft] poll -> INFO 046 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 047 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 048 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 049 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:40.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 04a 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.930 UTC [orderer.consensus.etcdraft] Step -> INFO 04b 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 04c 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.930 UTC [orderer.consensus.etcdraft] poll -> INFO 04d 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 04e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 04f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 050 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:45.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 051 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.430 UTC [orderer.consensus.etcdraft] Step -> INFO 052 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 053 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.430 UTC [orderer.consensus.etcdraft] poll -> INFO 054 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 055 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 056 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 057 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:51.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 058 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.930 UTC [orderer.consensus.etcdraft] Step -> INFO 059 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 05a 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.931 UTC [orderer.consensus.etcdraft] poll -> INFO 05b 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 05c 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 05d 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 05e 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:42:56.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 05f 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.430 UTC [orderer.consensus.etcdraft] Step -> INFO 060 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 061 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.430 UTC [orderer.consensus.etcdraft] poll -> INFO 062 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.430 UTC [orderer.consensus.etcdraft] campaign -> INFO 063 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 064 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 065 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:02.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 066 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.930 UTC [orderer.consensus.etcdraft] Step -> INFO 067 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 068 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.930 UTC [orderer.consensus.etcdraft] poll -> INFO 069 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 06a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 06b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 06c 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:07.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 06d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.430 UTC [orderer.consensus.etcdraft] Step -> INFO 06e 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.431 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 06f 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.431 UTC [orderer.consensus.etcdraft] poll -> INFO 070 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 071 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 072 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 073 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:13.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 074 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.930 UTC [orderer.consensus.etcdraft] Step -> INFO 075 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 076 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.931 UTC [orderer.consensus.etcdraft] poll -> INFO 077 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 078 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 079 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 07a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:18.932 UTC [orderer.consensus.etcdraft] campaign -> INFO 07b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.434 UTC [orderer.consensus.etcdraft] Step -> INFO 07c 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 07d 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.435 UTC [orderer.consensus.etcdraft] poll -> INFO 07e 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 07f 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 080 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 081 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:24.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 082 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.929 UTC [orderer.consensus.etcdraft] Step -> INFO 083 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 084 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.939 UTC [orderer.consensus.etcdraft] poll -> INFO 085 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.947 UTC [orderer.consensus.etcdraft] campaign -> INFO 086 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.950 UTC [orderer.consensus.etcdraft] campaign -> INFO 087 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.952 UTC [orderer.consensus.etcdraft] campaign -> INFO 088 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:29.956 UTC [orderer.consensus.etcdraft] campaign -> INFO 089 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.430 UTC [orderer.consensus.etcdraft] Step -> INFO 08a 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 08b 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.437 UTC [orderer.consensus.etcdraft] poll -> INFO 08c 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 08d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 08e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 08f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:35.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 090 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.932 UTC [orderer.consensus.etcdraft] Step -> INFO 091 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.937 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 092 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.947 UTC [orderer.consensus.etcdraft] poll -> INFO 093 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.952 UTC [orderer.consensus.etcdraft] campaign -> INFO 094 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.952 UTC [orderer.consensus.etcdraft] campaign -> INFO 095 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.953 UTC [orderer.consensus.etcdraft] campaign -> INFO 096 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:40.953 UTC [orderer.consensus.etcdraft] campaign -> INFO 097 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.429 UTC [orderer.consensus.etcdraft] Step -> INFO 098 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 099 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.437 UTC [orderer.consensus.etcdraft] poll -> INFO 09a 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 09b 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 09c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.449 UTC [orderer.consensus.etcdraft] campaign -> INFO 09d 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:46.451 UTC [orderer.consensus.etcdraft] campaign -> INFO 09e 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.930 UTC [orderer.consensus.etcdraft] Step -> INFO 09f 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0a0 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.934 UTC [orderer.consensus.etcdraft] poll -> INFO 0a1 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a2 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a3 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a4 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:51.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a5 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.430 UTC [orderer.consensus.etcdraft] Step -> INFO 0a6 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.431 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0a7 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.431 UTC [orderer.consensus.etcdraft] poll -> INFO 0a8 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 0a9 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 0aa 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ab 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:43:57.433 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ac 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.930 UTC [orderer.consensus.etcdraft] Step -> INFO 0ad 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0ae 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.936 UTC [orderer.consensus.etcdraft] poll -> INFO 0af 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b0 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b1 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b2 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:02.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b3 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.430 UTC [orderer.consensus.etcdraft] Step -> INFO 0b4 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0b5 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.435 UTC [orderer.consensus.etcdraft] poll -> INFO 0b6 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b7 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b8 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 0b9 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:08.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ba 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.930 UTC [orderer.consensus.etcdraft] Step -> INFO 0bb 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0bc 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.934 UTC [orderer.consensus.etcdraft] poll -> INFO 0bd 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 0be 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 0bf 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c0 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:13.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c1 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.430 UTC [orderer.consensus.etcdraft] Step -> INFO 0c2 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0c3 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.437 UTC [orderer.consensus.etcdraft] poll -> INFO 0c4 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c5 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c6 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.446 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c7 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:19.447 UTC [orderer.consensus.etcdraft] campaign -> INFO 0c8 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.929 UTC [orderer.consensus.etcdraft] Step -> INFO 0c9 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0ca 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.936 UTC [orderer.consensus.etcdraft] poll -> INFO 0cb 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 0cc 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 0cd 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ce 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:24.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 0cf 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.430 UTC [orderer.consensus.etcdraft] Step -> INFO 0d0 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0d1 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.437 UTC [orderer.consensus.etcdraft] poll -> INFO 0d2 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d3 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d4 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d5 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:30.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 0d6 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.930 UTC [orderer.consensus.etcdraft] Step -> INFO 0d7 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.938 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0d8 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.938 UTC [orderer.consensus.etcdraft] poll -> INFO 0d9 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 0da 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 0db 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 0dc 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:35.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 0dd 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.432 UTC [orderer.consensus.etcdraft] Step -> INFO 0de 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0df 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.438 UTC [orderer.consensus.etcdraft] poll -> INFO 0e0 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.445 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e1 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.446 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e2 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.447 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e3 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:41.522 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e4 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.929 UTC [orderer.consensus.etcdraft] Step -> INFO 0e5 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.935 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0e6 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.935 UTC [orderer.consensus.etcdraft] poll -> INFO 0e7 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e8 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 0e9 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ea 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:46.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 0eb 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.429 UTC [orderer.consensus.etcdraft] Step -> INFO 0ec 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0ed 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.435 UTC [orderer.consensus.etcdraft] poll -> INFO 0ee 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ef 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f0 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f1 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:52.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f2 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.930 UTC [orderer.consensus.etcdraft] Step -> INFO 0f3 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0f4 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.934 UTC [orderer.consensus.etcdraft] poll -> INFO 0f5 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f6 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f7 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f8 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:44:57.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 0f9 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.429 UTC [orderer.consensus.etcdraft] Step -> INFO 0fa 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 0fb 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.435 UTC [orderer.consensus.etcdraft] poll -> INFO 0fc 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 0fd 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 0fe 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 0ff 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:03.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 100 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.930 UTC [orderer.consensus.etcdraft] Step -> INFO 101 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 102 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.934 UTC [orderer.consensus.etcdraft] poll -> INFO 103 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 104 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 105 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 106 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:08.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 107 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.430 UTC [orderer.consensus.etcdraft] Step -> INFO 108 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 109 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.436 UTC [orderer.consensus.etcdraft] poll -> INFO 10a 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 10b 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 10c 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 10d 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:14.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 10e 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.938 UTC [orderer.consensus.etcdraft] Step -> INFO 10f 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.945 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 110 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.949 UTC [orderer.consensus.etcdraft] poll -> INFO 111 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.949 UTC [orderer.consensus.etcdraft] campaign -> INFO 112 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.949 UTC [orderer.consensus.etcdraft] campaign -> INFO 113 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.949 UTC [orderer.consensus.etcdraft] campaign -> INFO 114 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:19.949 UTC [orderer.consensus.etcdraft] campaign -> INFO 115 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.430 UTC [orderer.consensus.etcdraft] Step -> INFO 116 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 117 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.436 UTC [orderer.consensus.etcdraft] poll -> INFO 118 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 119 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 11a 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 11b 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:25.445 UTC [orderer.consensus.etcdraft] campaign -> INFO 11c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.929 UTC [orderer.consensus.etcdraft] Step -> INFO 11d 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 11e 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.935 UTC [orderer.consensus.etcdraft] poll -> INFO 11f 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 120 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 121 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 122 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:30.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 123 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.429 UTC [orderer.consensus.etcdraft] Step -> INFO 124 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 125 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.437 UTC [orderer.consensus.etcdraft] poll -> INFO 126 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 127 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 128 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 129 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:36.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 12a 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.930 UTC [orderer.consensus.etcdraft] Step -> INFO 12b 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.938 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 12c 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.947 UTC [orderer.consensus.etcdraft] poll -> INFO 12d 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.952 UTC [orderer.consensus.etcdraft] campaign -> INFO 12e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.953 UTC [orderer.consensus.etcdraft] campaign -> INFO 12f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.961 UTC [orderer.consensus.etcdraft] campaign -> INFO 130 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:41.962 UTC [orderer.consensus.etcdraft] campaign -> INFO 131 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.429 UTC [orderer.consensus.etcdraft] Step -> INFO 132 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 133 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.436 UTC [orderer.consensus.etcdraft] poll -> INFO 134 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 135 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 136 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 137 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:47.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 138 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.929 UTC [orderer.consensus.etcdraft] Step -> INFO 139 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 13a 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.934 UTC [orderer.consensus.etcdraft] poll -> INFO 13b 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 13c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 13d 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 13e 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:52.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 13f 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.429 UTC [orderer.consensus.etcdraft] Step -> INFO 140 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 141 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.435 UTC [orderer.consensus.etcdraft] poll -> INFO 142 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 143 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 144 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 145 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:45:58.444 UTC [orderer.consensus.etcdraft] campaign -> INFO 146 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.929 UTC [orderer.consensus.etcdraft] Step -> INFO 147 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 148 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.942 UTC [orderer.consensus.etcdraft] poll -> INFO 149 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 14a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 14b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.943 UTC [orderer.consensus.etcdraft] campaign -> INFO 14c 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:03.943 UTC [orderer.consensus.etcdraft] campaign -> INFO 14d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.430 UTC [orderer.consensus.etcdraft] Step -> INFO 14e 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.436 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 14f 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.438 UTC [orderer.consensus.etcdraft] poll -> INFO 150 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 151 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 152 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 153 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:09.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 154 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.930 UTC [orderer.consensus.etcdraft] Step -> INFO 155 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 156 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.936 UTC [orderer.consensus.etcdraft] poll -> INFO 157 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 158 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 159 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 15a 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:14.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 15b 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.430 UTC [orderer.consensus.etcdraft] Step -> INFO 15c 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.430 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 15d 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.431 UTC [orderer.consensus.etcdraft] poll -> INFO 15e 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 15f 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.431 UTC [orderer.consensus.etcdraft] campaign -> INFO 160 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 161 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:20.432 UTC [orderer.consensus.etcdraft] campaign -> INFO 162 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.929 UTC [orderer.consensus.etcdraft] Step -> INFO 163 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 164 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.936 UTC [orderer.consensus.etcdraft] poll -> INFO 165 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 166 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.943 UTC [orderer.consensus.etcdraft] campaign -> INFO 167 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.946 UTC [orderer.consensus.etcdraft] campaign -> INFO 168 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:25.949 UTC [orderer.consensus.etcdraft] campaign -> INFO 169 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.430 UTC [orderer.consensus.etcdraft] Step -> INFO 16a 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 16b 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.435 UTC [orderer.consensus.etcdraft] poll -> INFO 16c 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 16d 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 16e 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 16f 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:31.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 170 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.929 UTC [orderer.consensus.etcdraft] Step -> INFO 171 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 172 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] poll -> INFO 173 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] campaign -> INFO 174 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] campaign -> INFO 175 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] campaign -> INFO 176 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:36.934 UTC [orderer.consensus.etcdraft] campaign -> INFO 177 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.430 UTC [orderer.consensus.etcdraft] Step -> INFO 178 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.436 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 179 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.437 UTC [orderer.consensus.etcdraft] poll -> INFO 17a 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 17b 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 17c 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 17d 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:42.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 17e 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.929 UTC [orderer.consensus.etcdraft] Step -> INFO 17f 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.930 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 180 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.930 UTC [orderer.consensus.etcdraft] poll -> INFO 181 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 182 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 183 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.930 UTC [orderer.consensus.etcdraft] campaign -> INFO 184 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:47.931 UTC [orderer.consensus.etcdraft] campaign -> INFO 185 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.429 UTC [orderer.consensus.etcdraft] Step -> INFO 186 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 187 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.437 UTC [orderer.consensus.etcdraft] poll -> INFO 188 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 189 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 18a 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 18b 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:53.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 18c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.929 UTC [orderer.consensus.etcdraft] Step -> INFO 18d 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 18e 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.936 UTC [orderer.consensus.etcdraft] poll -> INFO 18f 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 190 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 191 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 192 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:46:58.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 193 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.429 UTC [orderer.consensus.etcdraft] Step -> INFO 194 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 195 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.435 UTC [orderer.consensus.etcdraft] poll -> INFO 196 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 197 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 198 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 199 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:04.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 19a 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.930 UTC [orderer.consensus.etcdraft] Step -> INFO 19b 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 19c 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.936 UTC [orderer.consensus.etcdraft] poll -> INFO 19d 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 19e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 19f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a0 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:09.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a1 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.429 UTC [orderer.consensus.etcdraft] Step -> INFO 1a2 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1a3 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.435 UTC [orderer.consensus.etcdraft] poll -> INFO 1a4 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a5 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a6 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a7 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:15.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 1a8 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.929 UTC [orderer.consensus.etcdraft] Step -> INFO 1a9 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1aa 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.935 UTC [orderer.consensus.etcdraft] poll -> INFO 1ab 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ac 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ad 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ae 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:20.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 1af 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.430 UTC [orderer.consensus.etcdraft] Step -> INFO 1b0 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1b1 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.435 UTC [orderer.consensus.etcdraft] poll -> INFO 1b2 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1b3 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 1b4 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 1b5 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:26.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 1b6 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.929 UTC [orderer.consensus.etcdraft] Step -> INFO 1b7 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1b8 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.935 UTC [orderer.consensus.etcdraft] poll -> INFO 1b9 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ba 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 1bb 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 1bc 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:31.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 1bd 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.429 UTC [orderer.consensus.etcdraft] Step -> INFO 1be 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1bf 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.434 UTC [orderer.consensus.etcdraft] poll -> INFO 1c0 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c1 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c2 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c3 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:37.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c4 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.929 UTC [orderer.consensus.etcdraft] Step -> INFO 1c5 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1c6 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.935 UTC [orderer.consensus.etcdraft] poll -> INFO 1c7 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c8 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 1c9 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ca 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:42.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1cb 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.429 UTC [orderer.consensus.etcdraft] Step -> INFO 1cc 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1cd 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.438 UTC [orderer.consensus.etcdraft] poll -> INFO 1ce 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 1cf 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d0 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d1 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:48.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d2 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.929 UTC [orderer.consensus.etcdraft] Step -> INFO 1d3 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1d4 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.944 UTC [orderer.consensus.etcdraft] poll -> INFO 1d5 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d6 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d7 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.946 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d8 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:53.946 UTC [orderer.consensus.etcdraft] campaign -> INFO 1d9 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.430 UTC [orderer.consensus.etcdraft] Step -> INFO 1da 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1db 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.436 UTC [orderer.consensus.etcdraft] poll -> INFO 1dc 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1dd 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1de 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 1df 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:47:59.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 1e0 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.929 UTC [orderer.consensus.etcdraft] Step -> INFO 1e1 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.931 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1e2 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.935 UTC [orderer.consensus.etcdraft] poll -> INFO 1e3 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 1e4 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1e5 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 1e6 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:04.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 1e7 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.441 UTC [orderer.consensus.etcdraft] Step -> INFO 1e8 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.447 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1e9 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.451 UTC [orderer.consensus.etcdraft] poll -> INFO 1ea 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.452 UTC [orderer.consensus.etcdraft] campaign -> INFO 1eb 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.452 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ec 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.452 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ed 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:10.453 UTC [orderer.consensus.etcdraft] campaign -> INFO 1ee 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.939 UTC [orderer.consensus.etcdraft] Step -> INFO 1ef 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.939 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1f0 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.939 UTC [orderer.consensus.etcdraft] poll -> INFO 1f1 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 1f2 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 1f3 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 1f4 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:15.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 1f5 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.429 UTC [orderer.consensus.etcdraft] Step -> INFO 1f6 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1f7 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.434 UTC [orderer.consensus.etcdraft] poll -> INFO 1f8 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 1f9 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 1fa 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1fb 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:21.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 1fc 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.930 UTC [orderer.consensus.etcdraft] Step -> INFO 1fd 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 1fe 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.937 UTC [orderer.consensus.etcdraft] poll -> INFO 1ff 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 200 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 201 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 202 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:26.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 203 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.441 UTC [orderer.consensus.etcdraft] Step -> INFO 204 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.447 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 205 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.606 UTC [orderer.consensus.etcdraft] poll -> INFO 206 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.607 UTC [orderer.consensus.etcdraft] campaign -> INFO 207 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.607 UTC [orderer.consensus.etcdraft] campaign -> INFO 208 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.607 UTC [orderer.consensus.etcdraft] campaign -> INFO 209 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:32.607 UTC [orderer.consensus.etcdraft] campaign -> INFO 20a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.066 UTC [orderer.consensus.etcdraft] Step -> INFO 20b 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.079 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 20c 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.079 UTC [orderer.consensus.etcdraft] poll -> INFO 20d 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.080 UTC [orderer.consensus.etcdraft] campaign -> INFO 20e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.082 UTC [orderer.consensus.etcdraft] campaign -> INFO 20f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.082 UTC [orderer.consensus.etcdraft] campaign -> INFO 210 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:38.083 UTC [orderer.consensus.etcdraft] campaign -> INFO 211 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.429 UTC [orderer.consensus.etcdraft] Step -> INFO 212 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 213 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.435 UTC [orderer.consensus.etcdraft] poll -> INFO 214 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 215 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 216 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 217 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:43.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 218 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.929 UTC [orderer.consensus.etcdraft] Step -> INFO 219 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 21a 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.937 UTC [orderer.consensus.etcdraft] poll -> INFO 21b 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 21c 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 21d 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 21e 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:48.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 21f 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.433 UTC [orderer.consensus.etcdraft] Step -> INFO 220 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.476 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 221 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.477 UTC [orderer.consensus.etcdraft] poll -> INFO 222 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.478 UTC [orderer.consensus.etcdraft] campaign -> INFO 223 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.485 UTC [orderer.consensus.etcdraft] campaign -> INFO 224 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.487 UTC [orderer.consensus.etcdraft] campaign -> INFO 225 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:54.488 UTC [orderer.consensus.etcdraft] campaign -> INFO 226 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.932 UTC [orderer.consensus.etcdraft] Step -> INFO 227 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.937 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 228 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.938 UTC [orderer.consensus.etcdraft] poll -> INFO 229 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 22a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 22b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 22c 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:48:59.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 22d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.429 UTC [orderer.consensus.etcdraft] Step -> INFO 22e 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 22f 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.435 UTC [orderer.consensus.etcdraft] poll -> INFO 230 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.435 UTC [orderer.consensus.etcdraft] campaign -> INFO 231 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 232 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 233 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:05.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 234 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.930 UTC [orderer.consensus.etcdraft] Step -> INFO 235 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 236 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.936 UTC [orderer.consensus.etcdraft] poll -> INFO 237 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 238 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 239 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 23a 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:10.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 23b 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.430 UTC [orderer.consensus.etcdraft] Step -> INFO 23c 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 23d 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.437 UTC [orderer.consensus.etcdraft] poll -> INFO 23e 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 23f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 240 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 241 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:16.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 242 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.181 UTC [orderer.consensus.etcdraft] Step -> INFO 243 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.191 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 244 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.201 UTC [orderer.consensus.etcdraft] poll -> INFO 245 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.384 UTC [orderer.consensus.etcdraft] campaign -> INFO 246 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.384 UTC [orderer.consensus.etcdraft] campaign -> INFO 247 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.384 UTC [orderer.consensus.etcdraft] campaign -> INFO 248 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:22.384 UTC [orderer.consensus.etcdraft] campaign -> INFO 249 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.430 UTC [orderer.consensus.etcdraft] Step -> INFO 24a 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 24b 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.437 UTC [orderer.consensus.etcdraft] poll -> INFO 24c 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.441 UTC [orderer.consensus.etcdraft] campaign -> INFO 24d 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 24e 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 24f 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:27.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 250 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.929 UTC [orderer.consensus.etcdraft] Step -> INFO 251 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 252 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.935 UTC [orderer.consensus.etcdraft] poll -> INFO 253 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 254 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 255 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 256 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:32.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 257 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.430 UTC [orderer.consensus.etcdraft] Step -> INFO 258 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 259 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.437 UTC [orderer.consensus.etcdraft] poll -> INFO 25a 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 25b 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 25c 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.463 UTC [orderer.consensus.etcdraft] campaign -> INFO 25d 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:38.485 UTC [orderer.consensus.etcdraft] campaign -> INFO 25e 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.929 UTC [orderer.consensus.etcdraft] Step -> INFO 25f 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 260 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.936 UTC [orderer.consensus.etcdraft] poll -> INFO 261 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 262 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 263 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 264 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:43.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 265 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.430 UTC [orderer.consensus.etcdraft] Step -> INFO 266 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.437 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 267 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.438 UTC [orderer.consensus.etcdraft] poll -> INFO 268 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 269 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 26a 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 26b 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:49.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 26c 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.929 UTC [orderer.consensus.etcdraft] Step -> INFO 26d 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 26e 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.934 UTC [orderer.consensus.etcdraft] poll -> INFO 26f 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 270 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 271 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 272 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:49:54.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 273 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.430 UTC [orderer.consensus.etcdraft] Step -> INFO 274 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.433 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 275 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.437 UTC [orderer.consensus.etcdraft] poll -> INFO 276 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 277 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 278 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 279 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:00.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 27a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.929 UTC [orderer.consensus.etcdraft] Step -> INFO 27b 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.935 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 27c 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.935 UTC [orderer.consensus.etcdraft] poll -> INFO 27d 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 27e 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 27f 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 280 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:05.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 281 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.429 UTC [orderer.consensus.etcdraft] Step -> INFO 282 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.431 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 283 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.435 UTC [orderer.consensus.etcdraft] poll -> INFO 284 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 285 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 286 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.444 UTC [orderer.consensus.etcdraft] campaign -> INFO 287 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:11.445 UTC [orderer.consensus.etcdraft] campaign -> INFO 288 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.930 UTC [orderer.consensus.etcdraft] Step -> INFO 289 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 28a 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.943 UTC [orderer.consensus.etcdraft] poll -> INFO 28b 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 28c 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 28d 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 28e 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:16.946 UTC [orderer.consensus.etcdraft] campaign -> INFO 28f 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.430 UTC [orderer.consensus.etcdraft] Step -> INFO 290 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.454 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 291 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.484 UTC [orderer.consensus.etcdraft] poll -> INFO 292 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.488 UTC [orderer.consensus.etcdraft] campaign -> INFO 293 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.509 UTC [orderer.consensus.etcdraft] campaign -> INFO 294 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.510 UTC [orderer.consensus.etcdraft] campaign -> INFO 295 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:22.510 UTC [orderer.consensus.etcdraft] campaign -> INFO 296 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.929 UTC [orderer.consensus.etcdraft] Step -> INFO 297 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 298 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.934 UTC [orderer.consensus.etcdraft] poll -> INFO 299 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 29a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 29b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 29c 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:27.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 29d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.431 UTC [orderer.consensus.etcdraft] Step -> INFO 29e 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 29f 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.437 UTC [orderer.consensus.etcdraft] poll -> INFO 2a0 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a1 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a2 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a3 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:33.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a4 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.929 UTC [orderer.consensus.etcdraft] Step -> INFO 2a5 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2a6 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.934 UTC [orderer.consensus.etcdraft] poll -> INFO 2a7 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.934 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a8 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.936 UTC [orderer.consensus.etcdraft] campaign -> INFO 2a9 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 2aa 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:38.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ab 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.435 UTC [orderer.consensus.etcdraft] Step -> INFO 2ac 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.442 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2ad 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.443 UTC [orderer.consensus.etcdraft] poll -> INFO 2ae 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 2af 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.444 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b0 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.444 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b1 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:44.445 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b2 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.929 UTC [orderer.consensus.etcdraft] Step -> INFO 2b3 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2b4 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.934 UTC [orderer.consensus.etcdraft] poll -> INFO 2b5 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b6 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b7 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b8 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:49.935 UTC [orderer.consensus.etcdraft] campaign -> INFO 2b9 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.429 UTC [orderer.consensus.etcdraft] Step -> INFO 2ba 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2bb 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.436 UTC [orderer.consensus.etcdraft] poll -> INFO 2bc 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 2bd 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 2be 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2bf 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:50:55.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2c0 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.930 UTC [orderer.consensus.etcdraft] Step -> INFO 2c1 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2c2 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.938 UTC [orderer.consensus.etcdraft] poll -> INFO 2c3 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 2c4 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 2c5 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 2c6 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:00.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 2c7 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.429 UTC [orderer.consensus.etcdraft] Step -> INFO 2c8 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2c9 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.439 UTC [orderer.consensus.etcdraft] poll -> INFO 2ca 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.443 UTC [orderer.consensus.etcdraft] campaign -> INFO 2cb 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.447 UTC [orderer.consensus.etcdraft] campaign -> INFO 2cc 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.448 UTC [orderer.consensus.etcdraft] campaign -> INFO 2cd 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:06.448 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ce 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.929 UTC [orderer.consensus.etcdraft] Step -> INFO 2cf 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2d0 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.936 UTC [orderer.consensus.etcdraft] poll -> INFO 2d1 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 2d2 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 2d3 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 2d4 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:11.945 UTC [orderer.consensus.etcdraft] campaign -> INFO 2d5 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.429 UTC [orderer.consensus.etcdraft] Step -> INFO 2d6 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.431 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2d7 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.436 UTC [orderer.consensus.etcdraft] poll -> INFO 2d8 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 2d9 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2da 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 2db 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:17.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 2dc 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.929 UTC [orderer.consensus.etcdraft] Step -> INFO 2dd 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.934 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2de 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.940 UTC [orderer.consensus.etcdraft] poll -> INFO 2df 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.944 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e0 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.951 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e1 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.954 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e2 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:22.954 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e3 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.430 UTC [orderer.consensus.etcdraft] Step -> INFO 2e4 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.432 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2e5 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.435 UTC [orderer.consensus.etcdraft] poll -> INFO 2e6 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e7 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e8 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.438 UTC [orderer.consensus.etcdraft] campaign -> INFO 2e9 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:28.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ea 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.930 UTC [orderer.consensus.etcdraft] Step -> INFO 2eb 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2ec 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.936 UTC [orderer.consensus.etcdraft] poll -> INFO 2ed 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.937 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ee 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ef 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f0 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:33.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f1 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.430 UTC [orderer.consensus.etcdraft] Step -> INFO 2f2 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2f3 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.439 UTC [orderer.consensus.etcdraft] poll -> INFO 2f4 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.439 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f5 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f6 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f7 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:39.440 UTC [orderer.consensus.etcdraft] campaign -> INFO 2f8 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.929 UTC [orderer.consensus.etcdraft] Step -> INFO 2f9 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 2fa 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.936 UTC [orderer.consensus.etcdraft] poll -> INFO 2fb 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 2fc 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 2fd 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 2fe 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:44.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 2ff 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.430 UTC [orderer.consensus.etcdraft] Step -> INFO 300 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.434 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 301 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.443 UTC [orderer.consensus.etcdraft] poll -> INFO 302 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.446 UTC [orderer.consensus.etcdraft] campaign -> INFO 303 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.446 UTC [orderer.consensus.etcdraft] campaign -> INFO 304 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.447 UTC [orderer.consensus.etcdraft] campaign -> INFO 305 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:50.449 UTC [orderer.consensus.etcdraft] campaign -> INFO 306 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.930 UTC [orderer.consensus.etcdraft] Step -> INFO 307 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.932 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 308 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.936 UTC [orderer.consensus.etcdraft] poll -> INFO 309 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.938 UTC [orderer.consensus.etcdraft] campaign -> INFO 30a 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 30b 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 30c 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:51:55.940 UTC [orderer.consensus.etcdraft] campaign -> INFO 30d 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.436 UTC [orderer.consensus.etcdraft] Step -> INFO 30e 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 30f 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] poll -> INFO 310 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 311 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 312 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 313 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:01.442 UTC [orderer.consensus.etcdraft] campaign -> INFO 314 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.930 UTC [orderer.consensus.etcdraft] Step -> INFO 315 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.933 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 316 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.935 UTC [orderer.consensus.etcdraft] poll -> INFO 317 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.939 UTC [orderer.consensus.etcdraft] campaign -> INFO 318 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.941 UTC [orderer.consensus.etcdraft] campaign -> INFO 319 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 31a 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:06.942 UTC [orderer.consensus.etcdraft] campaign -> INFO 31b 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.429 UTC [orderer.consensus.etcdraft] Step -> INFO 31c 1 is starting a new election at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.435 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 31d 1 became pre-candidate at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.436 UTC [orderer.consensus.etcdraft] poll -> INFO 31e 1 received MsgPreVoteResp from 1 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 31f 1 [logterm: 1, index: 5] sent MsgPreVote request to 2 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.436 UTC [orderer.consensus.etcdraft] campaign -> INFO 320 1 [logterm: 1, index: 5] sent MsgPreVote request to 3 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 321 1 [logterm: 1, index: 5] sent MsgPreVote request to 4 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:12.437 UTC [orderer.consensus.etcdraft] campaign -> INFO 322 1 [logterm: 1, index: 5] sent MsgPreVote request to 5 at term 1 channel=banktransaction node=1
+2020-02-11 11:52:13.170 UTC [orderer.consensus.etcdraft] confirmSuspicion -> INFO 323 Suspecting our own eviction from the channel for 10m0.263905955s channel=banktransaction node=1
+2020-02-11 11:52:13.585 UTC [orderer.consensus.etcdraft] confirmSuspicion -> PANI 324 Failed creating a block puller channel=banktransaction node=1
+panic: Failed creating a block puller
+
+goroutine 339 [running]:
+github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc0000b9c30, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:229 +0x546
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).log(0xc000ac4438, 0x4, 0x1548e9c, 0x1e, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0x101
+github.com/hyperledger/fabric/vendor/go.uber.org/zap.(*SugaredLogger).Panicf(...)
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159
+github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panicf(...)
+        /opt/gopath/src/github.com/hyperledger/fabric/common/flogging/zap.go:74
+github.com/hyperledger/fabric/orderer/consensus/etcdraft.(*evictionSuspector).confirmSuspicion(0xc000294000, 0x8bc28452a3)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/consensus/etcdraft/util.go:604 +0xbd2
+github.com/hyperledger/fabric/orderer/consensus/etcdraft.(*PeriodicCheck).conditionFulfilled(0xc000294050)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/consensus/etcdraft/util.go:566 +0xa2
+github.com/hyperledger/fabric/orderer/consensus/etcdraft.(*PeriodicCheck).check(0xc000294050)
+        /opt/gopath/src/github.com/hyperledger/fabric/orderer/consensus/etcdraft/util.go:546 +0xf4
+created by time.goFunc
+        /opt/go/src/time/sleep.go:169 +0x44

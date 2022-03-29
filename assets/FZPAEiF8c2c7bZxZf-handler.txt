@@ -1,0 +1,40 @@
+const { createHash } = require('crypto')
+const { TransactionHandler } = require('sawtooth-sdk/processor')
+const { InvalidTransaction } = require('sawtooth-sdk/processor/exceptions')
+const { TransactionHeader } = require('sawtooth-sdk/protobuf')
+
+..............
+
+.........
+
+class JSONHandler extends TransactionHandler {
+  constructor () {
+    console.log('Initializing JSON handler for Sawtooth ')
+    super(FAMILY, '0.0', 'application/json', [PREFIX])
+  }
+
+  apply (txn, state) {
+    //console.log('In handler.js apply function...');
+    // return false;
+    // Parse the transaction header and payload
+    const header = TransactionHeader.decode(txn.header)
+    const signer = header.signerPubkey
+    const { action, asset, owner } = JSON.parse(txn.payload)
+
+    // Call the appropriate function based on the payload's action
+    console.log(`Handling transaction:  ${action} > ${asset}`,
+                owner ? `> ${owner.slice(0, 8)}... ` : '',
+                `:: ${signer.slice(0, 8)}...`)
+
+    if (action === 'create') return createAsset(asset, signer, state)
+    if (action === 'transfer') return transferAsset(asset, owner, signer, state)
+    if (action === 'accept') return acceptTransfer(asset, signer, state)
+    if (action === 'reject') return rejectTransfer(asset, signer, state)
+
+    return Promise.resolve().then(() => {
+      throw new InvalidTransaction(
+        'Action must be "create", "transfer", "accept", or "reject"'
+      )
+    })
+  }
+}

@@ -1,0 +1,108 @@
+```
+Faber      | 2021-01-05 19:06:44,057 aries_cloudagent.core.dispatcher ERROR Handler error: connections_create_invitation
+Faber      | 
+Faber      | =================
+Faber      | Traceback (most recent call last):
+
+EVENT: Agent called controller webhook: handle_connections with payload: 
+{
+    "alias": "Hello Alice 1",
+    "rfc23_state": "invitation-sent",
+    "state": "invitation",
+    "routing_state": "none",
+    "accept": "manual",
+    "connection_id": "57780e48-8b50-4d82-9bd8-82f55a1e6d86",
+    "updated_at": "2021-01-05 19:06:44.049893Z",
+    "their_role": "invitee",
+    "created_at": "2021-01-05 19:06:44.049893Z",
+    "invitation_mode": "once",
+    "invitation_key": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+}
+
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 105, in get_record
+Faber      |     self._wallet.handle, record_type, record_id, options_json
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/non_secrets.py", line 319, in get_wallet_record
+Faber      |     get_wallet_record.cb)
+Faber      | indy.error.WalletItemNotFound
+Faber      | 
+Faber      | The above exception was the direct cause of the following exception:
+Faber      | 
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/routes.py", line 469, in connections_create_invitation
+Faber      |     mediation_id=mediation_id,
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 220, in create_invitation
+Faber      |     mediation_record = await self.mediation_record_if_id(mediation_id)
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 79, in mediation_record_if_id
+Faber      |     self._session, mediation_id
+Faber      |   File "/home/indy/aries_cloudagent/messaging/models/base_record.py", line 203, in retrieve_by_id
+Faber      |     cls.RECORD_TYPE, record_id, {"retrieveTags": False}
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 111, in get_record
+Faber      |     ) from x_indy
+Faber      | aries_cloudagent.storage.error.StorageNotFoundError: mediation_requests record not found: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+Faber      | 2021-01-05 19:06:44,061 aries_cloudagent.admin.server ERROR Handler error with exception: mediation_requests record not found: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 105, in get_record
+Faber      |     self._wallet.handle, record_type, record_id, options_json
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/non_secrets.py", line 319, in get_wallet_record
+Faber      |     get_wallet_record.cb)
+Faber      | indy.error.WalletItemNotFound
+Faber      | 
+Faber      | The above exception was the direct cause of the following exception:
+Faber      | 
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 154, in ready_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 191, in debug_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 352, in setup_context
+Faber      |     return await task
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/routes.py", line 469, in connections_create_invitation
+Faber      |     mediation_id=mediation_id,
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 220, in create_invitation
+Faber      |     mediation_record = await self.mediation_record_if_id(mediation_id)
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 79, in mediation_record_if_id
+Faber      |     self._session, mediation_id
+Faber      |   File "/home/indy/aries_cloudagent/messaging/models/base_record.py", line 203, in retrieve_by_id
+Faber      |     cls.RECORD_TYPE, record_id, {"retrieveTags": False}
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 111, in get_record
+Faber      |     ) from x_indy
+Faber      | aries_cloudagent.storage.error.StorageNotFoundError: mediation_requests record not found: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+Faber      | 2021-01-05 19:06:44,064 aiohttp.server ERROR Error handling request
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 105, in get_record
+Faber      |     self._wallet.handle, record_type, record_id, options_json
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/indy/non_secrets.py", line 319, in get_wallet_record
+Faber      |     get_wallet_record.cb)
+Faber      | indy.error.WalletItemNotFound
+Faber      | 
+Faber      | The above exception was the direct cause of the following exception:
+Faber      | 
+Faber      | Traceback (most recent call last):
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 418, in start
+Faber      |     resp = await task
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_app.py", line 458, in _handle
+Faber      |     resp = await handler(request)
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp/web_middlewares.py", line 119, in impl
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 154, in ready_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 191, in debug_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/.pyenv/versions/3.6.9/lib/python3.6/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+Faber      |     return await handler(request)
+Faber      |   File "/home/indy/aries_cloudagent/admin/server.py", line 352, in setup_context
+Faber      |     return await task
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/routes.py", line 469, in connections_create_invitation
+Faber      |     mediation_id=mediation_id,
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 220, in create_invitation
+Faber      |     mediation_record = await self.mediation_record_if_id(mediation_id)
+Faber      |   File "/home/indy/aries_cloudagent/protocols/connections/v1_0/manager.py", line 79, in mediation_record_if_id
+Faber      |     self._session, mediation_id
+Faber      |   File "/home/indy/aries_cloudagent/messaging/models/base_record.py", line 203, in retrieve_by_id
+Faber      |     cls.RECORD_TYPE, record_id, {"retrieveTags": False}
+Faber      |   File "/home/indy/aries_cloudagent/storage/indy.py", line 111, in get_record
+Faber      |     ) from x_indy
+Faber      | aries_cloudagent.storage.error.StorageNotFoundError: mediation_requests record not found: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+```

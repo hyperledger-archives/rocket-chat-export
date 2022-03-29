@@ -1,0 +1,16 @@
+ry$ wget https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/darwin-amd64-1.0.0-rc1/hyperledger-fabric-darwin-amd64-1.0.0-rc1.tar.gz
+2017-06-29 11:31:17 (1.37 MB/s) - ‘hyperledger-fabric-darwin-amd64-1.0.0-rc1.tar.gz’ saved [17840955/17840955]
+ry$ ls -l
+total 34848
+-rw-r--r--  1 ry  staff  17840955 Jun 23 15:11 hyperledger-fabric-darwin-amd64-1.0.0-rc1.tar.gz
+ry$ tar xf hyperledger-fabric-darwin-amd64-1.0.0-rc1.tar.gz 
+ry$ bin/peer
+panic: Fatal error when initializing core config : Error when reading core config file: Unsupported Config Type ""
+
+
+goroutine 1 [running]:
+panic(0x7929c0, 0xc420221030)
+	/opt/go/go1.7.linux.amd64/src/runtime/panic.go:500 +0x1a1
+main.main()
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/peer/main.go:94 +0x852
+ry$ 

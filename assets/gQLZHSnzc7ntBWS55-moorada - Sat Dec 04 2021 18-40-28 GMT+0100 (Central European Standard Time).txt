@@ -1,0 +1,109 @@
+sawset proposal create -k /etc/sawtooth/keys/validator.priv \
+> sawtooth.consensus.algorithm=poet \
+> sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/ias_rk_pub.pem)" \
+> sawtooth.poet.valid_enclave_measurements=$(poet enclave --enclave-module sgx measurement) \
+> sawtooth.poet.valid_enclave_basenames=$(poet enclave --enclave-module sgx basename) \
+> sawtooth.poet.enclave_module_name=sawtooth_poet_sgx.poet_enclave_sgx.poet_enclave \
+> -o config.batch
+[17:36:10 WARNING poet_enclave] SGX PoET enclave initialized.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 560, in urlopen
+    body=body, headers=headers)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 787, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 266, in connect
+    ssl_version=resolved_ssl_version)
+  File "/usr/lib/python3/dist-packages/urllib3/util/ssl_.py", line 303, in ssl_wrap_socket
+    context.load_cert_chain(certfile, keyfile)
+ssl.SSLError: [SSL] PEM lib (_ssl.c:2850)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 376, in send
+    timeout=timeout
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 589, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: [SSL] PEM lib (_ssl.c:2850)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/main.py", line 133, in main_wrapper
+    main()
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/main.py", line 125, in main
+    do_enclave(args)
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/enclave.py", line 57, in do_enclave
+    data_dir=config.get_data_dir()) as poet_enclave_module:
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/poet_enclave_module_wrapper.py", line 58, in __init__
+    self._poet_enclave_module.initialize(config_dir, data_dir)
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_sgx/poet_enclave_sgx/poet_enclave.py", line 534, in initialize
+    update_sig_rl()
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_sgx/poet_enclave_sgx/poet_enclave.py", line 464, in update_sig_rl
+    sig_rl = _ias.get_signature_revocation_lists(_epid_group)
+  File "/usr/lib/python3/dist-packages/sawtooth_ias_client/ias_client.py", line 51, in get_signature_revocation_lists
+    result = requests.get(url, cert=self._cert, timeout=self._timeout)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 67, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 53, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 480, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 588, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 447, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: [SSL] PEM lib (_ssl.c:2850)
+[17:36:10 WARNING poet_enclave] SGX PoET enclave initialized.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 560, in urlopen
+    body=body, headers=headers)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 787, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 266, in connect
+    ssl_version=resolved_ssl_version)
+  File "/usr/lib/python3/dist-packages/urllib3/util/ssl_.py", line 303, in ssl_wrap_socket
+    context.load_cert_chain(certfile, keyfile)
+ssl.SSLError: [SSL] PEM lib (_ssl.c:2850)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 376, in send
+    timeout=timeout
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 589, in urlopen
+    raise SSLError(e)
+requests.packages.urllib3.exceptions.SSLError: [SSL] PEM lib (_ssl.c:2850)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/main.py", line 133, in main_wrapper
+    main()
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/main.py", line 125, in main
+    do_enclave(args)
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/enclave.py", line 57, in do_enclave
+    data_dir=config.get_data_dir()) as poet_enclave_module:
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_cli/poet_enclave_module_wrapper.py", line 58, in __init__
+    self._poet_enclave_module.initialize(config_dir, data_dir)
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_sgx/poet_enclave_sgx/poet_enclave.py", line 534, in initialize
+    update_sig_rl()
+  File "/usr/lib/python3/dist-packages/sawtooth_poet_sgx/poet_enclave_sgx/poet_enclave.py", line 464, in update_sig_rl
+    sig_rl = _ias.get_signature_revocation_lists(_epid_group)
+  File "/usr/lib/python3/dist-packages/sawtooth_ias_client/ias_client.py", line 51, in get_signature_revocation_lists
+    result = requests.get(url, cert=self._cert, timeout=self._timeout)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 67, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 53, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 480, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 588, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 447, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: [SSL] PEM lib (_ssl.c:2850)

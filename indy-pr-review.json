@@ -1,0 +1,618 @@
+{"msg":"nage","username":"rjones","ts":"2017-07-11T23:33:33.124Z","type":"subscription-role-added"}
+{"msg":"Has joined the channel.","username":"VipinB","ts":"2017-07-12T15:04:45.043Z","type":"uj"}
+{"msg":"Thanks @rjones!","username":"nage","ts":"2017-07-12T15:06:21.748Z"}
+{"msg":"Has joined the channel.","username":"wightman","ts":"2017-07-12T15:07:39.926Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"alexander.shekhovcov","ts":"2017-07-12T15:17:06.447Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"LoveshHarchandani","ts":"2017-07-12T15:28:26.386Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"stevetolman","ts":"2017-07-12T15:29:36.475Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"tharmon","ts":"2017-07-12T15:44:11.444Z","type":"uj"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/270","username":"alexander.shekhovcov","ts":"2017-07-12T16:14:20.730Z"}
+{"msg":"Catchup if 3pc messages are missed, INDY-335: https://github.com/hyperledger/indy-plenum/pull/270","username":"alexander.shekhovcov","ts":"2017-07-12T16:14:20.730Z"}
+{"msg":"Has joined the channel.","username":"peacekeeper","ts":"2017-07-12T16:25:09.016Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"mark.hadley","ts":"2017-07-12T16:52:35.203Z","type":"uj"}
+{"msg":"Addressed issues with PR, ready for review.\nAddressed issues with previous PR, https://github.com/hyperledger/indy-plenum/pull/267","username":"mark.hadley","ts":"2017-07-12T16:53:10.508Z"}
+{"msg":"Has joined the channel.","username":"ashcherbakov","ts":"2017-07-13T06:50:29.856Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"avkrishnan","ts":"2017-07-13T08:43:13.262Z","type":"uj"}
+{"msg":"Minor cleanup on view change pr, https://github.com/hyperledger/indy-plenum/pull/273","username":"LoveshHarchandani","ts":"2017-07-13T08:59:54.481Z"}
+{"msg":"@gudkov my idea for IS-201 is something like this:\n```\n\n\tpublic interface ListenerObserver {\n\n\t\tpublic ConnectionObserver onListener(Agent.Listener listener);\n\t}\n\n\tpublic interface ConnectionObserver {\n\n\t\tpublic MessageObserver onConnection(Agent.Listener listener, Agent.Connection connection, String senderDid, String receiverDid);\n\t}\n\n\tpublic interface MessageObserver {\n\n\t\tpublic void onMessage(Agent.Connection connection, String message);\n\t}\n\n```","username":"peacekeeper","ts":"2017-07-13T09:26:29.542Z"}
+{"msg":"@gudkov my idea for IS-202 is something like this:\n```\n\n\tpublic interface ListenerObserver {\n\n\t\tpublic ConnectionObserver onListener(Agent.Listener listener);\n\t}\n\n\tpublic interface ConnectionObserver {\n\n\t\tpublic MessageObserver onConnection(Agent.Listener listener, Agent.Connection connection, String senderDid, String receiverDid);\n\t}\n\n\tpublic interface MessageObserver {\n\n\t\tpublic void onMessage(Agent.Connection connection, String message);\n\t}\n\n```","username":"peacekeeper","ts":"2017-07-13T09:26:29.542Z"}
+{"msg":"Has joined the channel.","username":"gudkov","ts":"2017-07-13T09:26:29.578Z","type":"uj"}
+{"msg":"so e.g. when there is a new connection, ConnectionObserver.onConnection() is called, and the library user has to return a MessageObserver for messages that arrive on that connection","username":"peacekeeper","ts":"2017-07-13T09:27:05.098Z"}
+{"msg":"and when a listener is opened, ListenerObserver.onListener() is called, and the library user has to return a ConnectionObserver for new connections on that listener","username":"peacekeeper","ts":"2017-07-13T09:27:47.956Z"}
+{"msg":"not sure if it's the best approach, maybe you prefer a different design","username":"peacekeeper","ts":"2017-07-13T09:29:17.994Z"}
+{"msg":"I am not sure that we need ListenerObserver. Agent.Listener must be returned as resilt of Future in agentListen call.","username":"gudkov","ts":"2017-07-13T09:56:19.298Z"}
+{"msg":"According to ConnectionObserver and MessageObserver  let's try to follow this way.","username":"gudkov","ts":"2017-07-13T09:57:45.018Z"}
+{"msg":"Has joined the channel.","username":"sergey.minaev","ts":"2017-07-13T10:11:21.723Z","type":"uj"}
+{"msg":"Catchup if 3pc messages are missed, INDY-335: https://github.com/hyperledger/indy-plenum/pull/270","username":"alexander.shekhovcov","ts":"2017-07-13T12:18:36.679Z"}
+{"msg":"Review: \"Catchup if 3pc messages are missed, INDY-335\" https://github.com/hyperledger/indy-plenum/pull/270","username":"alexander.shekhovcov","ts":"2017-07-13T12:18:36.679Z"}
+{"msg":"Has joined the channel.","username":"danielhardman","ts":"2017-07-13T13:44:58.847Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"dsurnin","ts":"2017-07-13T14:07:38.579Z","type":"uj"}
+{"msg":"Review please\nhttps://github.com/hyperledger/indy-plenum/pull/275","username":"dsurnin","ts":"2017-07-13T14:08:10.486Z"}
+{"msg":"https://github.com/hyperledger/indy-node/pull/228\nRewrote test to verify that the exception caught was actually the one we were looking for.\nPlease review.","username":"mark.hadley","ts":"2017-07-13T15:38:35.446Z"}
+{"msg":"@here Review https://github.com/hyperledger/indy-plenum/pull/278","username":"LoveshHarchandani","ts":"2017-07-13T16:12:07.889Z"}
+{"msg":"https://github.com/hyperledger/indy-client/pull/233\nJust needs a quick review","username":"mark.hadley","ts":"2017-07-13T19:45:35.357Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=ueApfuzbscej4x8oj) @mark.hadley done","username":"danielhardman","ts":"2017-07-13T20:24:05.724Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=ueApfuzbscej4x8oj","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=ueApfuzbscej4x8oj","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=CpWcHgKbiCbKHSfDy) @LoveshHarchandani please have a look at my comments","username":"ashcherbakov","ts":"2017-07-14T07:53:02.100Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=CpWcHgKbiCbKHSfDy","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=CpWcHgKbiCbKHSfDy","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Has joined the channel.","username":"srottem","ts":"2017-07-15T08:16:39.929Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"spivachuk","ts":"2017-07-17T07:35:48.087Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"alexeykoren","ts":"2017-07-17T08:48:01.166Z","type":"uj"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/236","username":"spivachuk","ts":"2017-07-17T10:35:41.271Z"}
+{"msg":"@here https://github.com/hyperledger/indy-plenum/pull/283","username":"LoveshHarchandani","ts":"2017-07-17T10:45:05.954Z"}
+{"msg":"@here review https://github.com/hyperledger/indy-plenum/pull/284","username":"LoveshHarchandani","ts":"2017-07-17T22:27:43.128Z"}
+{"msg":"Has joined the channel.","username":"farooq_m_khan","ts":"2017-07-18T09:07:37.852Z","type":"uj"}
+{"msg":"review https://github.com/hyperledger/indy-plenum/pull/287","username":"LoveshHarchandani","ts":"2017-07-18T14:25:59.721Z"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/288","username":"LoveshHarchandani","ts":"2017-07-19T09:35:59.373Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/246","username":"wightman","ts":"2017-07-19T16:29:03.184Z"}
+{"msg":"For review:\nhttps://github.com/hyperledger/indy-node/pull/247\nhttps://github.com/hyperledger/indy-plenum/pull/292\n\nThese are both related to INDY-218.","username":"mark.hadley","ts":"2017-07-19T20:34:57.062Z"}
+{"msg":"Optimisation in ledger: https://github.com/hyperledger/indy-plenum/pull/293","username":"LoveshHarchandani","ts":"2017-07-20T06:13:11.194Z"}
+{"msg":"Has joined the channel.","username":"faisal00813","ts":"2017-07-20T06:41:28.447Z","type":"uj"}
+{"msg":"some updates to perf test script for local https://github.com/hyperledger/indy-node/pull/248","username":"LoveshHarchandani","ts":"2017-07-20T07:25:07.000Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-node/pull/250","username":"dsurnin","ts":"2017-07-20T12:11:15.020Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-plenum/pull/292","username":"mark.hadley","ts":"2017-07-20T17:19:13.704Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-plenum/pull/292 - THIS IS CLOSED. Please see PR 296 (link below)","username":"mark.hadley","ts":"2017-07-20T17:19:13.704Z"}
+{"msg":"pull requests and code reviews for Hyperledger Indy code bases -- please escalate in #indy if things aren&#39;t getting any attention","username":"nage","ts":"2017-07-20T17:42:31.097Z","type":"room_changed_topic"}
+{"msg":"Has joined the channel.","username":"mzk-vct","ts":"2017-07-20T18:09:20.810Z","type":"uj"}
+{"msg":"Review please \nReview please https://github.com/hyperledger/indy-plenum/pull/295","username":"mzk-vct","ts":"2017-07-20T18:09:30.775Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-plenum/pull/296 ","username":"mark.hadley","ts":"2017-07-20T20:46:32.372Z"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/297","username":"LoveshHarchandani","ts":"2017-07-21T09:19:20.031Z"}
+{"msg":"small PR for java wrapper: https://github.com/hyperledger/indy-sdk/pull/122","username":"peacekeeper","ts":"2017-07-21T10:10:52.656Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=SifiTx7b5Dj9fanfm) @peacekeeper done","username":"gudkov","ts":"2017-07-21T11:07:33.211Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=SifiTx7b5Dj9fanfm","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=SifiTx7b5Dj9fanfm","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"PR for java register_wallet_type, i haven't tested it thoroughly, maybe someone can review/improve.. https://github.com/hyperledger/indy-sdk/pull/127","username":"peacekeeper","ts":"2017-07-21T13:39:37.282Z"}
+{"msg":"Has joined the channel.","username":"andrey.goncharov","ts":"2017-07-21T13:58:41.324Z","type":"uj"}
+{"msg":"PR for .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/128","username":"srottem","ts":"2017-07-21T14:35:43.495Z"}
+{"msg":"PR for a bugfix https://github.com/hyperledger/indy-plenum/pull/300","username":"LoveshHarchandani","ts":"2017-07-21T20:06:20.863Z"}
+{"msg":"peacekeeper","username":"rjones","ts":"2017-07-23T20:33:11.690Z","type":"subscription-role-added"}
+{"msg":"peacekeeper","username":"rjones","ts":"2017-07-23T20:33:15.289Z","type":"subscription-role-added"}
+{"msg":"Please review (PR for INDY-389)\nhttps://github.com/hyperledger/indy-plenum/pull/301","username":"ashcherbakov","ts":"2017-07-24T07:56:23.850Z"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/302","username":"LoveshHarchandani","ts":"2017-07-24T08:12:19.753Z"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/303/","username":"LoveshHarchandani","ts":"2017-07-24T10:01:26.473Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/246","username":"wightman","ts":"2017-07-24T14:56:15.855Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/304","username":"mark.hadley","ts":"2017-07-24T15:06:41.176Z"}
+{"msg":"Please review a hot fix for INDY-334:\nhttps://github.com/hyperledger/indy-plenum/pull/305","username":"ashcherbakov","ts":"2017-07-24T16:40:27.953Z"}
+{"msg":"Has left the channel.","username":"rjones","ts":"2017-07-24T18:45:26.986Z","type":"ul"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/260","username":"mark.hadley","ts":"2017-07-24T22:56:41.385Z"}
+{"msg":"Has joined the channel.","username":"devin-fisher","ts":"2017-07-24T22:59:29.658Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"ryanmarsh","ts":"2017-07-25T17:31:06.399Z","type":"uj"}
+{"msg":"@danielhardman Please review: https://github.com/hyperledger/indy-plenum/pull/308","username":"devin-fisher","ts":"2017-07-26T01:01:31.942Z"}
+{"msg":"@danielhardman  Please review https://github.com/hyperledger/indy-anoncreds/pull/80","username":"devin-fisher","ts":"2017-07-26T04:04:32.653Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/306","username":"ryanmarsh","ts":"2017-07-26T13:43:34.009Z"}
+{"msg":"Made changes and is ready for review: https://github.com/hyperledger/indy-plenum/pull/306","username":"ryanmarsh","ts":"2017-07-26T20:22:05.429Z"}
+{"msg":"For review: https://github.com/hyperledger/indy-node/pull/264","username":"wightman","ts":"2017-07-27T03:48:44.249Z"}
+{"msg":"Review please\nhttps://github.com/hyperledger/indy-plenum/pull/311","username":"dsurnin","ts":"2017-07-27T14:08:58.136Z"}
+{"msg":"Has joined the channel.","username":"edge","ts":"2017-07-27T19:14:26.643Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/143","username":"srottem","ts":"2017-07-28T08:02:40.841Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=XgyikRKQ6eWkKf397) @srottem reviewed+merged","username":"peacekeeper","ts":"2017-07-28T14:13:58.354Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=XgyikRKQ6eWkKf397","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=XgyikRKQ6eWkKf397","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/315","username":"mark.hadley","ts":"2017-07-28T18:51:32.348Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/268   This will not be able to pass integration tests until plenum PR 315 is merged.","username":"mark.hadley","ts":"2017-07-28T18:57:11.582Z"}
+{"msg":"Has left the channel.","username":"edge","ts":"2017-07-28T18:57:14.818Z","type":"ul"}
+{"msg":"For review: https://github.com/hyperledger/indy-node/pull/270","username":"wightman","ts":"2017-07-28T19:54:59.526Z"}
+{"msg":"Has joined the channel.","username":"TechWritingWhiz","ts":"2017-07-28T20:03:16.340Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/269","username":"TechWritingWhiz","ts":"2017-07-28T20:04:20.501Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/146","username":"srottem","ts":"2017-07-28T20:24:50.811Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=T6R8WGxxSztLDKbEk) Replaced with new pull request - please review this instead: https://github.com/hyperledger/indy-sdk/pull/147","username":"srottem","ts":"2017-07-29T07:12:00.970Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=T6R8WGxxSztLDKbEk","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=T6R8WGxxSztLDKbEk","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/316","username":"ashcherbakov","ts":"2017-07-31T13:33:26.489Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/317","username":"ashcherbakov","ts":"2017-07-31T14:58:16.936Z"}
+{"msg":"Do we have anyone online that can code review Alex's PR above? This bug that this PR is fixing will fix my PR.","username":"mark.hadley","ts":"2017-07-31T19:25:36.003Z"}
+{"msg":"Please Review: https://github.com/hyperledger/indy-node/pull/272","username":"TechWritingWhiz","ts":"2017-07-31T19:52:12.909Z"}
+{"msg":"Please Review: https://github.com/hyperledger/indy-node/pull/272  This fixes a broken link in the menu items in the Getting Started Guide.","username":"TechWritingWhiz","ts":"2017-07-31T19:52:12.909Z"}
+{"msg":"Please review https://github.com/sovrin-foundation/sovrin/pull/9","username":"stevetolman","ts":"2017-08-01T00:27:01.704Z"}
+{"msg":"Please review PR to update the STN’s genesis transaction files: https://github.com/sovrin-foundation/sovrin/pull/10","username":"tharmon","ts":"2017-08-02T04:44:27.328Z"}
+{"msg":"Reproducible build, INDY-346  https://github.com/hyperledger/indy-anoncreds/pull/84","username":"alexander.shekhovcov","ts":"2017-08-02T10:02:46.148Z"}
+{"msg":"Reproducible build, INDY-346 https://github.com/hyperledger/indy-plenum/pull/313","username":"alexander.shekhovcov","ts":"2017-08-02T10:04:56.070Z"}
+{"msg":"Reproducible build, INDY-346 https://github.com/hyperledger/indy-node/pull/267","username":"alexander.shekhovcov","ts":"2017-08-02T10:05:45.649Z"}
+{"msg":"Please review: https://github.com/sovrin-foundation/sovrin/pull/11    INDY-704 Release Notes - Adds Additional Info\n\nAdding additional information to cover time stamps, terminology changes\nin the CLI, a new emergency command for Trustees and keyring to wallet\ndirectory information.","username":"TechWritingWhiz","ts":"2017-08-02T20:36:29.249Z"}
+{"msg":"Please Review: https://github.com/hyperledger/indy-node/pull/278","username":"TechWritingWhiz","ts":"2017-08-02T21:03:26.027Z"}
+{"msg":"Please Review: https://github.com/hyperledger/indy-node/pull/278  INDY 440- Updated the file name for Faber in the Getting Started Guide per INDY-457. See comments.","username":"TechWritingWhiz","ts":"2017-08-02T21:03:26.027Z"}
+{"msg":"Please review (fixed a typo): https://github.com/hyperledger/indy-node/pull/280","username":"avkrishnan","ts":"2017-08-04T05:43:54.402Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-anoncreds/pull/86","username":"spivachuk","ts":"2017-08-04T10:10:47.177Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-anoncreds/pull/86\nINDY-378: Corrected getting of values from wallet","username":"spivachuk","ts":"2017-08-04T10:10:47.177Z"}
+{"msg":"Please review (move marshalling to Java WalletType): https://github.com/hyperledger/indy-sdk/pull/160","username":"srottem","ts":"2017-08-04T11:06:31.714Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/281\nINDY-378: Corrected getting of values from repo","username":"spivachuk","ts":"2017-08-04T14:26:22.035Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/283    CS-144 Updates to the Getting Started Guide where it was \"target\" and is now \"remote\".","username":"TechWritingWhiz","ts":"2017-08-04T16:45:16.572Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-plenum/pull/322","username":"dsurnin","ts":"2017-08-07T11:59:02.010Z"}
+{"msg":"PR for adding a note about Java 8: https://github.com/hyperledger/indy-sdk/pull/165","username":"peacekeeper","ts":"2017-08-08T03:57:29.613Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/287","username":"mark.hadley","ts":"2017-08-08T22:48:51.296Z"}
+{"msg":"*pep8 fixes* https://github.com/hyperledger/indy-plenum/pull/324","username":"alexander.shekhovcov","ts":"2017-08-09T09:19:50.781Z"}
+{"msg":"I have this PR for platform-independent loading of libindy: https://github.com/hyperledger/indy-sdk/pull/169","username":"peacekeeper","ts":"2017-08-09T11:43:47.897Z"}
+{"msg":"Please review https://github.com/hyperledger/indy-plenum/pull/326","username":"mzk-vct","ts":"2017-08-09T13:01:11.679Z"}
+{"msg":"PR to bring .NET tests into line with Java tests - please review: https://github.com/hyperledger/indy-sdk/pull/170","username":"srottem","ts":"2017-08-09T13:31:48.830Z"}
+{"msg":"*Speed up the plenum tests* https://github.com/hyperledger/indy-plenum/pull/319","username":"alexander.shekhovcov","ts":"2017-08-09T15:55:50.841Z"}
+{"msg":"*Speed up the indy-plenum tests* https://github.com/hyperledger/indy-plenum/pull/319","username":"alexander.shekhovcov","ts":"2017-08-09T15:55:50.841Z"}
+{"msg":"*Speed up the indy-node tests*  https://github.com/hyperledger/indy-node/pull/289/files","username":"alexander.shekhovcov","ts":"2017-08-09T16:22:57.899Z"}
+{"msg":"*Speed up the indy-node tests*  https://github.com/hyperledger/indy-node/pull/289","username":"alexander.shekhovcov","ts":"2017-08-09T16:22:57.899Z"}
+{"msg":"Please (re)review:\nhttps://github.com/hyperledger/indy-node/pull/287","username":"mark.hadley","ts":"2017-08-09T18:18:13.045Z"}
+{"msg":"@gudkov As discussed today on the call, maybe you can review+merge this (https://github.com/hyperledger/indy-sdk/pull/173) first, which should make custom wallets working. And then @srottem + I and others can further discuss higher-level functionality for custom wallets (https://github.com/hyperledger/indy-sdk/pull/160)","username":"peacekeeper","ts":"2017-08-10T10:13:47.527Z"}
+{"msg":"PR for a bug i encountered where `testValidatorSuspensionByTrustee` regularly fails, https://github.com/hyperledger/indy-plenum/pull/329","username":"LoveshHarchandani","ts":"2017-08-10T10:28:38.968Z"}
+{"msg":"INDY-373: ledger serialization (in plenum): \nhttps://github.com/hyperledger/indy-plenum/pull/331","username":"ashcherbakov","ts":"2017-08-10T11:19:44.156Z"}
+{"msg":"*Fix pep8 errors* https://github.com/hyperledger/indy-anoncreds/pull/90","username":"alexander.shekhovcov","ts":"2017-08-10T12:38:34.088Z"}
+{"msg":"For review: https://github.com/hyperledger/indy-node/pull/297","username":"wightman","ts":"2017-08-10T22:29:05.749Z"}
+{"msg":"please review\nhttps://github.com/hyperledger/indy-node/pull/298","username":"dsurnin","ts":"2017-08-11T07:31:43.667Z"}
+{"msg":"PR for sign and verify changes ported to .NET: https://github.com/hyperledger/indy-sdk/pull/180","username":"srottem","ts":"2017-08-11T08:25:53.281Z"}
+{"msg":"INDY-373: ledger serialization (indy-node part):\nhttps://github.com/hyperledger/indy-node/pull/300","username":"ashcherbakov","ts":"2017-08-11T10:17:32.568Z"}
+{"msg":"INDY-373: changes in serialization format of genesis txns:\nhttps://github.com/sovrin-foundation/sovrin/pull/16","username":"ashcherbakov","ts":"2017-08-11T13:21:45.834Z"}
+{"msg":"please review\nhttps://github.com/hyperledger/indy-plenum/pull/335","username":"dsurnin","ts":"2017-08-14T11:53:27.198Z"}
+{"msg":"https://github.com/hyperledger/indy-plenum/pull/340","username":"LoveshHarchandani","ts":"2017-08-16T08:10:39.386Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/336\nINDY-484: Made some corrections","username":"spivachuk","ts":"2017-08-17T10:13:07.440Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/343\nINDY-484: Added a script for filtering a log","username":"spivachuk","ts":"2017-08-17T10:13:35.341Z"}
+{"msg":"PR correcting .NET tests: https://github.com/hyperledger/indy-sdk/pull/194","username":"srottem","ts":"2017-08-17T11:34:11.419Z"}
+{"msg":"PR make variable names consistent btw .NET and Rust: https://github.com/hyperledger/indy-sdk/pull/197","username":"srottem","ts":"2017-08-17T20:45:47.218Z"}
+{"msg":"INDY-419: *pep8+pyflake fixes* https://github.com/hyperledger/indy-plenum/pull/339","username":"alexander.shekhovcov","ts":"2017-08-18T09:59:25.773Z"}
+{"msg":"INDY-419: *pep8+pyflake fixes* https://github.com/hyperledger/indy-node/pull/315","username":"alexander.shekhovcov","ts":"2017-08-18T13:22:11.452Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/348\nINDY-484: Added level arg to filter_log script","username":"spivachuk","ts":"2017-08-18T16:04:46.381Z"}
+{"msg":"Please review (a fix in migration):\nhttps://github.com/hyperledger/indy-node/pull/316","username":"ashcherbakov","ts":"2017-08-18T16:41:17.651Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=riZsuQp4MCACgrqSh) @srottem Replaced with PR 201: https://github.com/hyperledger/indy-sdk/pull/201","username":"srottem","ts":"2017-08-19T08:10:57.387Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=riZsuQp4MCACgrqSh","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=riZsuQp4MCACgrqSh","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"PR to remove incorrect tracking of unmanaged memory in custom wallet: https://github.com/hyperledger/indy-sdk/pull/202","username":"srottem","ts":"2017-08-19T08:11:54.348Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/350\nINDY-484: Added script gathering statistics on log","username":"spivachuk","ts":"2017-08-21T10:46:17.511Z"}
+{"msg":"PR correcting bug causing unit test to fail: https://github.com/hyperledger/indy-sdk/pull/212","username":"srottem","ts":"2017-08-22T12:43:21.916Z"}
+{"msg":"PR to pull SDK revocation changes into .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/214","username":"srottem","ts":"2017-08-23T08:11:05.912Z"}
+{"msg":"INDY-446: *Node promotion failed if pool is restarted and the primary node does not start* https://github.com/hyperledger/indy-plenum/pull/353","username":"alexander.shekhovcov","ts":"2017-08-23T12:15:17.849Z"}
+{"msg":"INDY-465: *Log failure to post txn* https://github.com/hyperledger/indy-plenum/pull/355","username":"alexander.shekhovcov","ts":"2017-08-24T10:17:04.163Z"}
+{"msg":"INDY-465: *Log failure to post txn* https://github.com/hyperledger/indy-node/pull/319","username":"alexander.shekhovcov","ts":"2017-08-24T10:18:22.788Z"}
+{"msg":"PR to fix .NET custom wallet list problem: https://github.com/hyperledger/indy-sdk/pull/221","username":"srottem","ts":"2017-08-24T12:31:17.291Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/357\nhttps://github.com/hyperledger/indy-node/pull/320\nINDY-733: Implemented wallet migration mechanism","username":"spivachuk","ts":"2017-08-24T15:48:11.427Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/358","username":"ashcherbakov","ts":"2017-08-25T13:10:33.803Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/360\nINDY-733: Added renaming of wallets base directory","username":"spivachuk","ts":"2017-08-25T17:42:36.379Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/323\nINDY-733: Added renaming of wallets base directory","username":"spivachuk","ts":"2017-08-25T18:23:11.813Z"}
+{"msg":"PR for a new RC (into stable branch):\nhttps://github.com/hyperledger/indy-plenum/pull/361","username":"ashcherbakov","ts":"2017-08-28T08:16:05.226Z"}
+{"msg":"https://github.com/hyperledger/indy-node/pull/324","username":"ashcherbakov","ts":"2017-08-28T12:37:56.190Z"}
+{"msg":"INDY-715: *Validator info tool* https://github.com/hyperledger/indy-plenum/pull/359","username":"alexander.shekhovcov","ts":"2017-08-28T12:50:51.158Z"}
+{"msg":"INDY-715: *Validator info tool* https://github.com/hyperledger/indy-node/pull/322","username":"alexander.shekhovcov","ts":"2017-08-28T12:51:03.973Z"}
+{"msg":"Has joined the channel.","username":"darrell.odonnell","ts":"2017-08-28T20:14:45.105Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"jljordan_bcgov","ts":"2017-08-28T20:22:55.777Z","type":"uj"}
+{"msg":"https://github.com/hyperledger-archives/indy-client/pulls some pulls that update the Getting Started \"Alice Script\"","username":"jljordan_bcgov","ts":"2017-08-28T20:23:36.931Z"}
+{"msg":"I'm running through it again and noticing a few more changes needed .. so if the pull is merged I can review and revise as needed","username":"jljordan_bcgov","ts":"2017-08-28T20:24:07.045Z"}
+{"msg":"Message from @LoveshHarchandani State proof generation and verification https://github.com/hyperledger/indy-plenum/pull/364","username":"avkrishnan","ts":"2017-08-29T11:05:53.467Z"}
+{"msg":"PR  for .NET test fixes: https://github.com/hyperledger/indy-sdk/pull/234","username":"srottem","ts":"2017-08-29T13:25:57.590Z"}
+{"msg":"@jljordan_bcgov it looks like you're PR is against the hyperledger-archives, what link or project did you use to get you there?  (indy-client is retired, and that information and code should now exist inside of indy-node)","username":"nage","ts":"2017-08-29T21:05:20.016Z"}
+{"msg":"@nage ... I wondered about that ... I should go and do the changes again (if they apply) to the indy-node repo","username":"jljordan_bcgov","ts":"2017-08-29T21:51:32.601Z"}
+{"msg":"my bad :) learning all the repos!","username":"jljordan_bcgov","ts":"2017-08-29T21:52:45.350Z"}
+{"msg":"That would help the pull request get the attention it deserves (sorry I didn't catch that earlier)","username":"nage","ts":"2017-08-29T22:06:33.334Z"}
+{"msg":"NP","username":"jljordan_bcgov","ts":"2017-08-29T23:32:20.166Z"}
+{"msg":"INDY-796 : Release Notes for Sovrin Aries 1.0.4 https://github.com/sovrin-foundation/sovrin/pull/19","username":"TechWritingWhiz","ts":"2017-08-30T22:35:28.144Z"}
+{"msg":"INDY-765: *Limit length of batches* https://github.com/hyperledger/indy-plenum/pull/367","username":"alexander.shekhovcov","ts":"2017-08-31T12:36:49.610Z"}
+{"msg":"Has joined the channel.","username":"lmrln","ts":"2017-09-01T10:09:47.305Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"andkononykhin","ts":"2017-09-01T12:15:09.676Z","type":"uj"}
+{"msg":"https://github.com/evernym/sovrin-environments/pull/20 to fix a formatting error I caused .. thanks @sklump ","username":"jljordan_bcgov","ts":"2017-09-01T20:54:23.323Z"}
+{"msg":"Has joined the channel.","username":"sklump","ts":"2017-09-01T20:54:23.576Z","type":"uj"}
+{"msg":"PR for improving documentation for the .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/245","username":"srottem","ts":"2017-09-03T17:48:34.681Z"}
+{"msg":"Has joined the channel.","username":"marek.dapps","ts":"2017-09-04T13:13:53.394Z","type":"uj"}
+{"msg":"PR fixes validator-info https://github.com/hyperledger/indy-node/pull/336","username":"andkononykhin","ts":"2017-09-04T16:15:33.845Z"}
+{"msg":"Hello all - I don't see a tab/space convention in the bash scripts that have emerged around the pool-network for sovrin-environments/docker.\n\nIt's hardly the most important thing, but I'd propose 4 spaces if it were my product.","username":"sklump","ts":"2017-09-06T11:13:23.115Z"}
+{"msg":"Hello all - I don't see a tab/space convention in the bash scripts that have emerged around the pool-network for sovrin-environments/docker.\n\nIt's hardly the most important thing, but I'd propose 4 spaces if it were my product. The team may have already been through this and decided it's more trouble than it's worth to standardize.","username":"sklump","ts":"2017-09-06T11:13:23.115Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-sdk/pull/250\nMade python wrapper compatible with Python 3.5","username":"spivachuk","ts":"2017-09-06T18:26:34.608Z"}
+{"msg":"PR for making the .NET wrapper platform independent: https://github.com/hyperledger/indy-sdk/pull/254","username":"srottem","ts":"2017-09-07T16:57:53.717Z"}
+{"msg":"Please review PR for INDY-761: https://github.com/hyperledger/indy-plenum/pull/362","username":"mzk-vct","ts":"2017-09-08T09:43:22.671Z"}
+{"msg":"A few pull requests waiting for merge\nhttps://github.com/evernym/sovrin-environments/pulls","username":"jljordan_bcgov","ts":"2017-09-08T18:02:41.291Z"}
+{"msg":"#21 is for vagrant deployment, no conflict with #20 which is all about docker","username":"sklump","ts":"2017-09-08T18:23:51.440Z"}
+{"msg":"@here anything you can do to push for the pulls @danielhardman ?","username":"darrell.odonnell","ts":"2017-09-08T20:53:14.335Z"}
+{"msg":"@tharmon ^^^ (pull requests on sovrin-environments)","username":"nage","ts":"2017-09-11T15:17:55.263Z"}
+{"msg":"Merged #21. I'm waiting for a slight modification or explanation on #20.","username":"tharmon","ts":"2017-09-12T14:26:07.200Z"}
+{"msg":"@sklump ^^^","username":"tharmon","ts":"2017-09-12T14:26:09.727Z"}
+{"msg":"@tharmon, I made that change as requested last week, do you not see it?","username":"sklump","ts":"2017-09-12T14:33:21.431Z"}
+{"msg":"@sklump Interesting. It didn't notify me that there was a new commit into the PR, so I was waiting for a comment to that effect. Looking at it now.","username":"tharmon","ts":"2017-09-12T14:40:20.416Z"}
+{"msg":"Merged. Thank you.","username":"tharmon","ts":"2017-09-12T14:41:03.707Z"}
+{"msg":"Has joined the channel.","username":"bendon","ts":"2017-09-12T14:49:05.817Z","type":"uj"}
+{"msg":"Hi there. Working on INDY-580, I came across some broken link and missing commands in Sovrin_Running_Locally guide.","username":"bendon","ts":"2017-09-12T14:50:48.946Z"}
+{"msg":"With the help of Sovrin support and an other doc (https://github.com/evernym/sovrin-environments/blob/master/vagrant/training/vb-multi-vm/TestSovrinClusterSetup.md), I've managed to connect the dots and submitted PR 344.","username":"bendon","ts":"2017-09-12T14:53:51.653Z"}
+{"msg":"Here: https://github.com/hyperledger/indy-node/pull/344","username":"bendon","ts":"2017-09-12T14:54:32.611Z"}
+{"msg":"PR to fix resource release on finalization on .NET: https://github.com/hyperledger/indy-sdk/pull/258","username":"srottem","ts":"2017-09-13T08:56:26.077Z"}
+{"msg":"PR fixing .NET cross platform regression error introduced during previous merge: https://github.com/hyperledger/indy-sdk/pull/259","username":"srottem","ts":"2017-09-13T09:01:40.515Z"}
+{"msg":"PR to update the release notes with all the new information contained in INDY-850 and INDY-812 in one combined pull request: https://github.com/sovrin-foundation/sovrin/pull/24","username":"TechWritingWhiz","ts":"2017-09-15T21:10:52.010Z"}
+{"msg":"PR for .NET sample project to mirror the Java one: https://github.com/hyperledger/indy-sdk/pull/266","username":"srottem","ts":"2017-09-19T08:04:26.279Z"}
+{"msg":"A small update to correctly link to Rocket.Chat from the README: https://github.com/hyperledger/indy-sdk/pull/271","username":"tharmon","ts":"2017-09-20T16:33:09.036Z"}
+{"msg":"PR to fix miscellaneous packaging API and documentation problems with .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/272","username":"srottem","ts":"2017-09-21T12:43:21.562Z"}
+{"msg":"PR implementing granular .NET exceptions: https://github.com/hyperledger/indy-sdk/pull/274","username":"srottem","ts":"2017-09-21T15:14:41.236Z"}
+{"msg":"BLS Multi-sigs and State proofs PR:\nhttps://github.com/hyperledger/indy-plenum/pull/385","username":"ashcherbakov","ts":"2017-09-22T13:00:22.450Z"}
+{"msg":"BLS multi-sig (and partially state proofs) PR:\nhttps://github.com/hyperledger/indy-node/pull/358","username":"ashcherbakov","ts":"2017-09-25T13:30:44.869Z"}
+{"msg":"Checking state proof on client side\nhttps://github.com/hyperledger/indy-plenum/pull/394","username":"mzk-vct","ts":"2017-09-25T16:15:10.564Z"}
+{"msg":" Reformat attr data before saving\nhttps://github.com/hyperledger/indy-node/pull/360","username":"mzk-vct","ts":"2017-09-26T15:31:24.771Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/402\nINDY-830: Rebranding migration for wallet","username":"spivachuk","ts":"2017-10-02T15:20:17.422Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/351\nINDY-830: Removed Evernym and Sovrin brands","username":"spivachuk","ts":"2017-10-02T15:38:22.098Z"}
+{"msg":"Please review:\nhttps://github.com/sovrin-foundation/sovrin/pull/25\nINDY-880: Support Indy branding in sovrin package","username":"spivachuk","ts":"2017-10-03T09:20:57.684Z"}
+{"msg":"Has joined the channel.","username":"bryanhuang","ts":"2017-10-04T02:40:47.272Z","type":"uj"}
+{"msg":"Please review:\nhttps://github.com/evernym/sovrin-environments/pull/28\nINDY-891: Support rebranding in Docker environment","username":"spivachuk","ts":"2017-10-04T10:18:18.703Z"}
+{"msg":"Please Review: ","username":"TechWritingWhiz","ts":"2017-10-04T20:14:35.153Z"}
+{"msg":"Please Review: https://github.com/hyperledger-archives/indy-client/pull/265","username":"TechWritingWhiz","ts":"2017-10-04T20:14:35.153Z"}
+{"msg":"Please Review: \nhttps://github.com/hyperledger-archives/indy-client/pull/265\nUpdates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.","username":"TechWritingWhiz","ts":"2017-10-04T20:14:35.153Z"}
+{"msg":"INDY-877: Protocol version support in Plenum:\nhttps://github.com/hyperledger/indy-plenum/pull/407","username":"ashcherbakov","ts":"2017-10-06T08:12:41.489Z"}
+{"msg":"INDY-877: Protocol version support in Indy-Node:\nhttps://github.com/hyperledger/indy-node/pull/379","username":"ashcherbakov","ts":"2017-10-06T09:43:33.325Z"}
+{"msg":"INDY-580: Improve packaging before supporting CentOS in Indy-Node\nhttps://github.com/hyperledger/indy-node/pull/381\nREM: ci pr-merge test failed on evernym server, but I can't access it to investigate.","username":"bendon","ts":"2017-10-06T10:39:51.777Z"}
+{"msg":"Has joined the channel.","username":"tbrooke","ts":"2017-10-06T13:25:33.239Z","type":"uj"}
+{"msg":"Please Review: https://github.com/hyperledger/indy-node/pull/386","username":"TechWritingWhiz","ts":"2017-10-06T19:20:01.418Z"}
+{"msg":"INDY-894 Update verbiage in Getting Started Guide\nPlease Review: https://github.com/hyperledger/indy-node/pull/386\n\nUpdates verbiage in Getting Started Guide to reflect small changes due\nto removing branding from Sovrin to Indy. I also updated verbiage\nthroughout to reflect actors specifically, where it made sense to do\nso for the sake of clarity. Example, instead of just saying \"Indy\", I\nchanged it to \"Indy code base\" or \"the ledger\" or \"the network.\"","username":"TechWritingWhiz","ts":"2017-10-06T19:20:01.418Z"}
+{"msg":"Bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/303","username":"srottem","ts":"2017-10-08T13:27:56.045Z"}
+{"msg":"PR for bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/303","username":"srottem","ts":"2017-10-08T13:27:56.045Z"}
+{"msg":"PR for bug fix correcting issues with release of unmanaged resources held by .NET class instances: https://github.com/hyperledger/indy-sdk/pull/304","username":"srottem","ts":"2017-10-08T13:27:56.045Z"}
+{"msg":"PR for IS-368 (also referenced in the ticket): https://github.com/hyperledger/indy-sdk/pull/301","username":"srottem","ts":"2017-10-08T13:29:02.002Z"}
+{"msg":"PR updating NET samples to bring them into line with the state-proof changes: https://github.com/hyperledger/indy-sdk/pull/300","username":"srottem","ts":"2017-10-08T13:29:50.964Z"}
+{"msg":"Please review: \nIndy 894 Update verbiage in Getting Started Guide #391\n\nThis is a resubmit of pull request 386 which has been closed.","username":"TechWritingWhiz","ts":"2017-10-09T18:57:38.015Z"}
+{"msg":"Please review: \nIndy 894 Update verbiage in Getting Started Guide #391\n\nThis is a resubmit of pull request 386 which has been closed.","username":"TechWritingWhiz","ts":"2017-10-09T18:57:38.015Z"}
+{"msg":"Please review: \nIndy 894 Update verbiage in Getting Started Guide #391\n\nhttps://github.com/hyperledger/indy-node/pull/391\n\nThis is a resubmit of pull request 386 which has been closed.","username":"TechWritingWhiz","ts":"2017-10-09T18:57:38.015Z"}
+{"msg":"PR adding guard clauses to public methods in the Java wrapper: https://github.com/hyperledger/indy-sdk/pull/312","username":"srottem","ts":"2017-10-10T19:52:03.066Z"}
+{"msg":"Please review: \nREADME_update Updates pathing to Getting Started Guide\n\nhttps://github.com/hyperledger/indy-node/pull/393","username":"TechWritingWhiz","ts":"2017-10-10T20:04:22.827Z"}
+{"msg":"--2nd Request--\n\nThis is the second request for the following pull request. There will be more done to this repository as some documents in the current Indy repositories, still point there. The documents in there have the incorrect location to the Getting Started Guide. Again, 2nd request: \n\nPlease Review: \nhttps://github.com/hyperledger-archives/indy-client/pull/265\nUpdates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.","username":"TechWritingWhiz","ts":"2017-10-10T20:07:35.251Z"}
+{"msg":"--2nd Request for the Pull Request listed below--\n\nThis is the second request for the following pull request. There will be more done to this repository as some documents in the current Indy repositories, still point there. The documents in there have the incorrect location to the Getting Started Guide. Again, 2nd request: \n\nPlease Review: \nhttps://github.com/hyperledger-archives/indy-client/pull/265\nUpdates the path of the Getting Started Guide to the correct location and also notes in this version of the Getting Started Guide that it is not the correct version with a pointer to the correct location.","username":"TechWritingWhiz","ts":"2017-10-10T20:07:35.251Z"}
+{"msg":"Has left the channel.","username":"stevetolman","ts":"2017-10-10T21:04:09.102Z","type":"ul"}
+{"msg":"Please Review: \nhttps://github.com/hyperledger-archives/indy-common/pull/125\nUpdates the path of the Getting Started Guide in the setup.md file in this location. This set of instructions is referenced in one of the documents in the current Indy repositories. ","username":"TechWritingWhiz","ts":"2017-10-10T22:12:50.531Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/394\nINDY-157: Fixed bug with wrong cancel messages","username":"spivachuk","ts":"2017-10-11T11:30:36.414Z"}
+{"msg":"PR adding pairwise to .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/314","username":"srottem","ts":"2017-10-11T12:15:05.282Z"}
+{"msg":"PR adding sealed encryption to .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/316","username":"srottem","ts":"2017-10-12T14:35:09.957Z"}
+{"msg":"PR with fixes for regression errors introduced by recent merges and test refactoring to simplify maintenance: https://github.com/hyperledger/indy-sdk/pull/317","username":"srottem","ts":"2017-10-12T21:17:16.848Z"}
+{"msg":"PR with .NET fixes for  regression errors introduced by recent merges and test refactoring to simplify maintenance: https://github.com/hyperledger/indy-sdk/pull/317","username":"srottem","ts":"2017-10-12T21:17:16.848Z"}
+{"msg":"PR porting indy_issuer_revoke_claim tests to Java and .NET wrappers: https://github.com/hyperledger/indy-sdk/pull/319","username":"srottem","ts":"2017-10-13T12:35:40.048Z"}
+{"msg":"Following up on this PR. Not yet merged. Please review: Please review: \nREADME_update Updates pathing to Getting Started Guide\n\nhttps://github.com/hyperledger/indy-node/pull/393","username":"TechWritingWhiz","ts":"2017-10-13T16:46:39.241Z"}
+{"msg":"PR implementing granular exceptions in Java wrapper: https://github.com/hyperledger/indy-sdk/pull/321","username":"srottem","ts":"2017-10-14T09:03:58.239Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/399\n","username":"TechWritingWhiz","ts":"2017-10-16T21:39:11.807Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/399\nAdds a link to the Hyperledger Wiki-Indy page within the README.md file\nin an effort to consolidate and encourage the wiki page to be the \nmain \"hub\" starting point for the Indy documentation.\n","username":"TechWritingWhiz","ts":"2017-10-16T21:39:11.807Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-sdk/pull/324\nAdds a link to the Hyperledger Wiki-Indy page within the README.md file\nin an effort to consolidate and encourage the wiki page to be the \nmain \"hub\" starting point for the Indy documentation.","username":"TechWritingWhiz","ts":"2017-10-16T21:54:44.208Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-anoncreds/pull/105\nAdds a link to the Hyperledger Wiki-Indy page within the README.md file\nin an effort to consolidate and encourage the wiki page to be the \nmain \"hub\" starting point for the Indy documentation.","username":"TechWritingWhiz","ts":"2017-10-16T22:16:02.316Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-crypto/pull/38\nAdds a link to the Hyperledger Wiki-Indy page within the README.md file\nin an effort to consolidate and encourage the wiki page to be the \nmain \"hub\" starting point for the Indy documentation.","username":"TechWritingWhiz","ts":"2017-10-16T22:25:28.559Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/402\nINDY-869: Prevented upgrade to a lower version","username":"spivachuk","ts":"2017-10-17T17:38:48.226Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/403","username":"TechWritingWhiz","ts":"2017-10-17T22:12:38.178Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/403\nUpdates the link to the Vagrant Setup Guide","username":"TechWritingWhiz","ts":"2017-10-17T22:12:38.178Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/403\nUpdates the link to the Vagrant Setup Guide in the Getting Started Guide.","username":"TechWritingWhiz","ts":"2017-10-17T22:12:38.178Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/424\nINDY-382: Added isTxnForced util function","username":"spivachuk","ts":"2017-10-20T11:03:48.455Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/425","username":"ashcherbakov","ts":"2017-10-20T15:43:08.513Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/422","username":"andkononykhin","ts":"2017-10-20T16:45:22.530Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/408\nINDY-382: Fixed bug with forced config txns","username":"spivachuk","ts":"2017-10-20T19:38:40.106Z"}
+{"msg":"PR bringing .NET wrapper exceptions into line with Java wrapper: https://github.com/hyperledger/indy-sdk/pull/337","username":"srottem","ts":"2017-10-22T20:16:39.813Z"}
+{"msg":"INDY-905: https://github.com/hyperledger/indy-node/pull/410 - added new tests","username":"ashcherbakov","ts":"2017-10-23T08:52:19.489Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/413\n\nUpdates links to the Getting Started Guide and Setup docs to the stable branch vs. master.","username":"TechWritingWhiz","ts":"2017-10-23T16:16:38.876Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/416\nINDY-917: Fixed bug in Upgrader.get_upgrade_txn","username":"spivachuk","ts":"2017-10-24T12:56:05.204Z"}
+{"msg":"Please review\nhttps://github.com/hyperledger/indy-plenum/pull/427","username":"ashcherbakov","ts":"2017-10-24T14:35:47.180Z"}
+{"msg":"2nd Request: \n\nPlease review: \nhttps://github.com/hyperledger/indy-crypto/pull/38\nAdds a link to the Hyperledger Wiki-Indy page within the README.md file\nin an effort to consolidate and encourage the wiki page to be the \nmain \"hub\" starting point for the Indy documentation.","username":"TechWritingWhiz","ts":"2017-10-24T17:14:31.034Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/418\nINDY-917: Added a test for the fix","username":"spivachuk","ts":"2017-10-24T17:46:36.605Z"}
+{"msg":"Has joined the channel.","username":"codenamedmitri","ts":"2017-10-24T18:02:37.456Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"ChristianSmith","ts":"2017-10-24T18:08:31.910Z","type":"uj"}
+{"msg":"Please Review: \n\nhttps://github.com/hyperledger/indy-node/pull/421\nAdds a link to instructions on setting up a Developer Environment from the Getting Started Guide.","username":"TechWritingWhiz","ts":"2017-10-25T21:07:27.690Z"}
+{"msg":"PR implementing agent2agent v2 changes in .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/349","username":"srottem","ts":"2017-10-27T14:06:56.957Z"}
+{"msg":"PR implementing crypto api: https://github.com/hyperledger/indy-sdk/pull/352","username":"srottem","ts":"2017-10-28T20:06:21.692Z"}
+{"msg":"@sergey.minaev Would you review the SQLCypher PR from @MALodder and take the appropriate action?","username":"nage","ts":"2017-10-30T22:06:39.013Z"}
+{"msg":"Has joined the channel.","username":"MALodder","ts":"2017-10-30T22:06:39.099Z","type":"uj"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h) @nage I've already done it (if we are talking about https://github.com/hyperledger/indy-sdk/pull/342- about of week ago). There was 2 comments from me. One was fixed, another one - no. So we waiting for @MALodder fix or comment for the second problem.","username":"sergey.minaev","ts":"2017-10-31T07:52:59.136Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h) @nage I've already done it (if we are talking about https://github.com/hyperledger/indy-sdk/pull/342). There was 2 comments from me. One was fixed, another one - no. So we waiting for @MALodder fix or comment for the second problem.","username":"sergey.minaev","ts":"2017-10-31T07:52:59.136Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=HZXDLaYNMZukd553h","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@MALodder please ask me any questions, if comments or build checks in the PR are not clear.","username":"sergey.minaev","ts":"2017-10-31T07:56:30.291Z"}
+{"msg":"Please review:\nINDY-754: Updating documentation\nhttps://github.com/hyperledger/indy-node/pull/427","username":"ashcherbakov","ts":"2017-11-01T12:39:02.347Z"}
+{"msg":"Has joined the channel.","username":"stevetolman","ts":"2017-11-01T13:22:26.886Z","type":"uj"}
+{"msg":"Has left the channel.","username":"mark.hadley","ts":"2017-11-02T16:10:55.266Z","type":"ul"}
+{"msg":"Has left the channel.","username":"alexeykoren","ts":"2017-11-03T11:15:47.547Z","type":"ul"}
+{"msg":"Has joined the channel.","username":"anikitinDSR","ts":"2017-11-08T09:03:59.456Z","type":"uj"}
+{"msg":"PR propagating changes to the signus functionality into .the NET wrapper: https://github.com/hyperledger/indy-sdk/pull/373","username":"srottem","ts":"2017-11-09T23:43:24.555Z"}
+{"msg":"PR refactoring crypto tests and fixing other failing .NET tests: https://github.com/hyperledger/indy-sdk/pull/374","username":"srottem","ts":"2017-11-09T23:59:29.740Z"}
+{"msg":"PR updating Agent demo tests and samples in .NET wrapper: https://github.com/hyperledger/indy-sdk/pull/391","username":"srottem","ts":"2017-11-21T23:41:30.473Z"}
+{"msg":"PR improving .NET docs and linking them from the Readme.md: https://github.com/hyperledger/indy-sdk/pull/392","username":"srottem","ts":"2017-11-22T00:34:06.845Z"}
+{"msg":"Has joined the channel.","username":"turmewr3ck","ts":"2017-11-22T15:16:00.835Z","type":"uj"}
+{"msg":"Please review:\nINDY-960: Fixed bug with missed return statement\nhttps://github.com/hyperledger/indy-node/pull/474","username":"spivachuk","ts":"2017-11-24T12:42:41.044Z"}
+{"msg":"Please review:\nINDY-960: Fixed bug with missed return statement\nhttps://github.com/hyperledger/indy-node/pull/474","username":"spivachuk","ts":"2017-11-24T12:43:37.888Z"}
+{"msg":"Please Review: \nINDY-966 Release notes for 1.1.7\nhttps://github.com/sovrin-foundation/sovrin/pull/40","username":"TechWritingWhiz","ts":"2017-11-28T21:58:10.076Z"}
+{"msg":"Has joined the channel.","username":"the_identity_guy","ts":"2017-12-04T21:33:10.929Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"Audrius","ts":"2017-12-05T21:09:33.937Z","type":"uj"}
+{"msg":"A Pull Request with proposed Observer Nodes Design:\nhttps://github.com/hyperledger/indy-plenum/pull/478","username":"ashcherbakov","ts":"2017-12-11T12:53:22.424Z"}
+{"msg":"Has joined the channel.","username":"gvvishwanath","ts":"2017-12-15T05:22:06.552Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"calvinx","ts":"2017-12-15T06:29:24.980Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"nghia47","ts":"2017-12-18T04:01:21.838Z","type":"uj"}
+{"msg":"@spivachuk Please review https://github.com/hyperledger/indy-node/pull/456","username":"nghia47","ts":"2017-12-18T08:35:31.209Z"}
+{"msg":"Please review PR https://github.com/hyperledger/indy-plenum/pull/485 in the context of INDY-938 (Resolve licensing issues)","username":"bendon","ts":"2017-12-19T08:41:23.240Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=f74nu7EMsnQwKsSnf) @nghia47 Please see my comments in the PR.","username":"spivachuk","ts":"2017-12-19T10:41:05.343Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=f74nu7EMsnQwKsSnf","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=f74nu7EMsnQwKsSnf","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@spivachuk thanks for your comments. Please take a look on my update. https://github.com/hyperledger/indy-node/pull/456 ","username":"nghia47","ts":"2017-12-21T03:39:31.013Z"}
+{"msg":"Please review: Updates to Getting Started Guide  -- \nhttps://github.com/hyperledger/indy-node/pull/503","username":"TechWritingWhiz","ts":"2017-12-21T21:25:11.941Z"}
+{"msg":"Please review: \nhttps://github.com/hyperledger/indy-node/pull/504","username":"TechWritingWhiz","ts":"2017-12-21T22:16:00.006Z"}
+{"msg":"Please review: INDY-1059\nhttps://github.com/hyperledger/indy-node/pull/504","username":"TechWritingWhiz","ts":"2017-12-21T22:16:00.006Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR) @nghia47 \nPlease fix those findings that have still not been fixed and also see my new comments in the PR.","username":"spivachuk","ts":"2017-12-25T19:12:23.305Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR) @nghia47 Please fix those findings that have still not been fixed and also see my new comments in the PR.","username":"spivachuk","ts":"2017-12-25T19:12:23.305Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=JXoRzqTzBK4mnZLKR","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@spivachuk Please take a look on latest committed code.","username":"nghia47","ts":"2017-12-26T15:28:04.371Z"}
+{"msg":"@ashcherbakov Please take a look on the latest commit for your request change https://github.com/hyperledger/indy-node/pull/456","username":"nghia47","ts":"2017-12-26T15:29:23.396Z"}
+{"msg":"@spivachuk ^","username":"ashcherbakov","ts":"2017-12-26T15:30:13.453Z"}
+{"msg":"I will approve once Nikita approves.","username":"ashcherbakov","ts":"2017-12-26T15:34:03.492Z"}
+{"msg":"@ashcherbakov Please review https://github.com/hyperledger/indy-sdk/pull/432","username":"nghia47","ts":"2017-12-26T15:37:03.279Z"}
+{"msg":"Please review a PR with new documentation and diagrams:\nhttps://github.com/hyperledger/indy-node/pull/508","username":"ashcherbakov","ts":"2017-12-27T11:16:08.144Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=aZioqK7fxJRT3EP69) @nghia47 Please see the comment in the PR about the content of `indy-node/acceptance/pool.txn`.","username":"spivachuk","ts":"2017-12-27T11:26:07.848Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=aZioqK7fxJRT3EP69","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=aZioqK7fxJRT3EP69","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/510\nINDY-1055: moving environment scripts from sovrin-environment repo to indy-node","username":"ashcherbakov","ts":"2017-12-28T13:40:45.568Z"}
+{"msg":"Please Review: \nINDY-1062 Updates to the Getting Started Guide\n\nhttps://github.com/hyperledger/indy-node/pull/511","username":"TechWritingWhiz","ts":"2018-01-04T17:37:33.266Z"}
+{"msg":"Please Review: \nINDY-1060 Corrections to TechSovrinClusterSetup.md\nhttps://github.com/hyperledger/indy-node/pull/512","username":"TechWritingWhiz","ts":"2018-01-04T21:46:23.865Z"}
+{"msg":"Has joined the channel.","username":"Derashe","ts":"2018-01-15T16:08:18.710Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"Rickzan","ts":"2018-01-16T19:23:47.267Z","type":"uj"}
+{"msg":"Has left the channel.","username":"sklump","ts":"2018-01-17T17:48:56.555Z","type":"ul"}
+{"msg":"Please review: \nINDY-892\nhttps://github.com/hyperledger/indy-node/pull/526","username":"TechWritingWhiz","ts":"2018-01-17T20:11:25.387Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=8eM6aT6HK2dLGwp2L) Nobody to review this old PR?","username":"bendon","ts":"2018-01-18T13:55:05.061Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=8eM6aT6HK2dLGwp2L","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=8eM6aT6HK2dLGwp2L","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@bendon As I know, INDY-938 was potponed due to some negotiations and agreements between Sovrin and Hyperledger.\n@nage do you have some updates regarding this?\n","username":"ashcherbakov","ts":"2018-01-18T14:00:45.361Z"}
+{"msg":"@ashcherbakov Thanks for the heads up","username":"bendon","ts":"2018-01-18T14:01:26.731Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/505","username":"spivachuk","ts":"2018-01-18T18:22:20.932Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/505\nINDY-1081: Fixed update of last caught up 3PC-key","username":"spivachuk","ts":"2018-01-18T18:22:20.932Z"}
+{"msg":"@bendon and @ashcherbakov I believe it was hung up by the agreement between Evernym and the Sovrin Foundation, not Hyperledger (as far as I know).  @Sean_Bohan is reaching out to @tkuhrt and @jlaw 1 to get it resolved correctly.","username":"nage","ts":"2018-01-18T21:02:56.161Z"}
+{"msg":"Has joined the channel.","username":"Sean_Bohan","ts":"2018-01-18T21:02:56.429Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"tkuhrt","ts":"2018-01-18T21:02:56.462Z","type":"uj"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/529\nINDY-1081: Updated indy-plenum dependency","username":"spivachuk","ts":"2018-01-19T10:24:38.131Z"}
+{"msg":"Has joined the channel.","username":"zhigunenko.dsr","ts":"2018-01-24T09:20:06.934Z","type":"uj"}
+{"msg":"SeanBohan_Sovrin","username":"tkuhrt","ts":"2018-01-26T12:45:52.285Z","type":"subscription-role-added"}
+{"msg":"Has joined the channel.","username":"nmellal","ts":"2018-01-30T09:56:50.979Z","type":"uj"}
+{"msg":"Please review \nhttps://github.com/hyperledger/indy-node/pull/541\n[INDY-1057] Getting rid of raet stuff ","username":"Derashe","ts":"2018-01-31T07:59:42.447Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/510\nINDY-1095: Fix issue with checkpoint bounds shift","username":"spivachuk","ts":"2018-01-31T10:53:15.188Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/544\nINDY-1095: Updated indy-plenum-dev dependency","username":"spivachuk","ts":"2018-01-31T13:01:18.054Z"}
+{"msg":"Has joined the channel.","username":"ianco","ts":"2018-02-01T16:49:26.145Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"pimotte","ts":"2018-02-02T07:30:47.235Z","type":"uj"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-plenum/pull/523\nINDY-1081: Fixed handling of requested PREPARE","username":"spivachuk","ts":"2018-02-08T14:27:50.891Z"}
+{"msg":"Please review:\nhttps://github.com/hyperledger/indy-node/pull/557\nINDY-1081: Updated indy-plenum dependency","username":"spivachuk","ts":"2018-02-08T16:05:16.820Z"}
+{"msg":"Has joined the channel.","username":"Drew 42","ts":"2018-02-16T21:36:47.560Z","type":"uj"}
+{"msg":"Please Review: ","username":"TechWritingWhiz","ts":"2018-02-19T22:05:19.232Z"}
+{"msg":"Please Review: \nhttps://github.com/hyperledger/indy-sdk/pull/541","username":"TechWritingWhiz","ts":"2018-02-19T22:05:19.232Z"}
+{"msg":"Please Review: \nhttps://github.com/hyperledger/indy-sdk/pull/541\nCleans up the New Getting Started Guide","username":"TechWritingWhiz","ts":"2018-02-19T22:05:19.232Z"}
+{"msg":"Has joined the channel.","username":"Comuto","ts":"2018-02-21T12:34:39.455Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/551\nAdds the scripts for Indy SDK getting started guides.","username":"nghia47","ts":"2018-02-26T10:02:37.281Z"}
+{"msg":"Has joined the channel.","username":"sergey.khoroshavin","ts":"2018-02-27T10:27:12.207Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"Toktar","ts":"2018-02-27T14:15:16.393Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"SergeyPalamarchuk","ts":"2018-02-28T08:00:49.814Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"brycecurtis","ts":"2018-03-02T18:36:00.797Z","type":"uj"}
+{"msg":"Please review:  https://github.com/hyperledger/indy-node/pull/589\nINDY 1207: Add Docker getting started configuration","username":"brycecurtis","ts":"2018-03-02T18:37:31.578Z"}
+{"msg":"@ashcherbakov Please review https://github.com/hyperledger/indy-node/pull/589","username":"brycecurtis","ts":"2018-03-06T15:19:43.993Z"}
+{"msg":"Hi @brycecurtis. @andkononykhin is going to review this PR as he's already familiar with these changes.","username":"ashcherbakov","ts":"2018-03-07T08:05:20.313Z"}
+{"msg":"Has joined the channel.","username":"mboyd","ts":"2018-03-16T22:29:35.214Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/582\nINDY-1211","username":"TechWritingWhiz","ts":"2018-03-20T19:33:43.800Z"}
+{"msg":"Please disregard Pull request #582  at https://github.com/hyperledger/indy-sdk/pull/582. I've closed it oout.","username":"TechWritingWhiz","ts":"2018-03-20T20:02:15.930Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/583\nINDY-1211","username":"TechWritingWhiz","ts":"2018-03-20T20:22:32.810Z"}
+{"msg":"Please disregard Pull request #583 at https://github.com/hyperledger/indy-sdk/pull/583\n","username":"TechWritingWhiz","ts":"2018-03-20T20:52:21.001Z"}
+{"msg":"Has joined the channel.","username":"ShikarSharma","ts":"2018-03-20T22:49:11.628Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"smithbk","ts":"2018-03-29T20:27:27.657Z","type":"uj"}
+{"msg":"Pls review https://github.com/hyperledger/indy-node/pull/588 - adds support for supervisord","username":"smithbk","ts":"2018-03-29T20:28:16.922Z"}
+{"msg":"Has joined the channel.","username":"esplinr","ts":"2018-04-09T22:36:16.061Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"Steve-Boyd","ts":"2018-04-20T02:16:58.301Z","type":"uj"}
+{"msg":"Hi Channel, found a typo in a readme. please review: https://github.com/hyperledger/indy-node/pull/658","username":"Steve-Boyd","ts":"2018-04-20T02:37:29.453Z"}
+{"msg":"Also I'm not quite sure what to do with the JIRA ticket. I've changed status to code review but don't know who to reasign the ticket to, please advise.","username":"Steve-Boyd","ts":"2018-04-20T02:39:18.695Z"}
+{"msg":"Thanks fro the PR Steve.","username":"esplinr","ts":"2018-04-20T15:22:24.432Z"}
+{"msg":"Thanks fro the PR @Steve-Boyd ","username":"esplinr","ts":"2018-04-20T15:22:24.432Z"}
+{"msg":"Not a problem @esplinr. This is a great project and I want to get involved however I can. Even if it's simple PRs for now.","username":"Steve-Boyd","ts":"2018-04-20T15:31:00.734Z"}
+{"msg":"Not a problem @esplinr. This is a great project and I want to get involved however I can. ","username":"Steve-Boyd","ts":"2018-04-20T15:31:00.734Z"}
+{"msg":"CI seems to be hanging","username":"Steve-Boyd","ts":"2018-04-20T16:00:01.497Z"}
+{"msg":"Has joined the channel.","username":"KitHat","ts":"2018-04-23T08:53:20.919Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"trthhrtz","ts":"2018-04-25T07:23:29.485Z","type":"uj"}
+{"msg":"Added a Contributor Resources page and a How to Sign Commits page in the indy-sdk repository. Let me know if these are intuitive to you: https://github.com/hyperledger/indy-sdk/pull/706","username":"mboyd","ts":"2018-05-02T18:04:55.492Z"}
+{"msg":"I also improved the main Indy-SDK readme based on my experience interacting with it and helping onboard multiple Sovrin developers. I've added the correct getting started guide to the top, and added a couple more current resources for understanding how the ecosystem works. Would love any of your feedback: https://github.com/hyperledger/indy-sdk/pull/701","username":"mboyd","ts":"2018-05-02T18:06:53.084Z"}
+{"msg":"@mboyd Great work!","username":"esplinr","ts":"2018-05-03T14:30:06.653Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=f7Z6WnedWGhetMKZG) @Steve-Boyd CI for now requires manual triggering. ","username":"gudkov","ts":"2018-05-04T11:09:50.386Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=f7Z6WnedWGhetMKZG","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=f7Z6WnedWGhetMKZG","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=jwf6N35TvsDghnhYi) @gudkov Good to know thanks. Is there a team that works on DevOps stuff for the projects? I'd be interested to help with that if there is a need.","username":"Steve-Boyd","ts":"2018-05-04T17:44:21.947Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=jwf6N35TvsDghnhYi","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=jwf6N35TvsDghnhYi","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Thanks for volunteering @Steve-Boyd. Currently devops is hosted by Evernym. A great first task would be to research what other Hyperledger projects are doing. We would like to move CI / CD to a shared platform and give more people access to assist with it.","username":"esplinr","ts":"2018-05-04T20:48:18.477Z"}
+{"msg":"Please review:\nIS-680: Re-struct rotate key how-to in Python #723 \nhttps://github.com/hyperledger/indy-sdk/pull/723","username":"trthhrtz","ts":"2018-05-07T07:00:01.701Z"}
+{"msg":"Please review:\nIS-680: Re-struct rotate key how-to in Python\nhttps://github.com/hyperledger/indy-sdk/pull/723","username":"trthhrtz","ts":"2018-05-07T07:00:01.701Z"}
+{"msg":"Has joined the channel.","username":"SteveGoob","ts":"2018-05-11T19:47:14.903Z","type":"uj"}
+{"msg":"Ready for review:","username":"SteveGoob","ts":"2018-05-11T19:47:33.010Z"}
+{"msg":"Ready for review: IS-686 https://github.com/hyperledger/indy-sdk/pull/747","username":"SteveGoob","ts":"2018-05-11T19:47:33.010Z"}
+{"msg":"Please review:\nIS-687: Add structure to the 'Save Schema and Credential Definition' how-to in Python\nhttps://github.com/hyperledger/indy-sdk/pull/749","username":"trthhrtz","ts":"2018-05-14T06:55:10.117Z"}
+{"msg":"Has joined the channel.","username":"jeremi 24","ts":"2018-05-25T07:06:27.338Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"burdettadam","ts":"2018-05-29T19:16:31.154Z","type":"uj"}
+{"msg":"Ready for review: IS-707 https://github.com/hyperledger/indy-sdk/pull/812","username":"SteveGoob","ts":"2018-05-29T19:18:52.674Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/842.  Once merged I will release a new package on nuget.","username":"srottem","ts":"2018-06-06T16:07:27.132Z"}
+{"msg":"Changes have been addressed. Requesting review again: IS-707 https://github.com/hyperledger/indy-sdk/pull/812","username":"SteveGoob","ts":"2018-06-06T20:07:02.500Z"}
+{"msg":"Has joined the channel.","username":"abraham","ts":"2018-06-08T05:19:45.912Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/762 \nSimple repin of plenum to pick up fixes.","username":"devin-fisher","ts":"2018-06-13T20:25:33.004Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/769","username":"devin-fisher","ts":"2018-06-15T22:09:16.484Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-plenum/pull/752","username":"devin-fisher","ts":"2018-06-15T22:28:50.326Z"}
+{"msg":"Has joined the channel.","username":"haggs","ts":"2018-07-06T23:51:20.952Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"salmanbaset","ts":"2018-07-11T18:27:25.689Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"Sergey.Kupryushin","ts":"2018-07-19T14:01:27.784Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"slr","ts":"2018-07-19T19:57:48.616Z","type":"uj"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/835\nAm I the only one that uses this channel.","username":"devin-fisher","ts":"2018-07-20T21:36:51.261Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-node/pull/835\nAm I the only one that uses this channel?","username":"devin-fisher","ts":"2018-07-20T21:36:51.261Z"}
+{"msg":"Please review: https://github.com/hyperledger/indy-sdk/pull/958","username":"burdettadam","ts":"2018-07-23T17:34:54.070Z"}
+{"msg":"Has joined the channel.","username":"vladan.divac","ts":"2018-07-26T15:45:11.211Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"herveblanc","ts":"2018-08-07T08:09:31.746Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"NataliaDracheva","ts":"2018-08-09T12:54:06.374Z","type":"uj"}
+{"msg":"A trivial PR against the SDK--just changes the wording of an error message to fix a grammar problem. https://github.com/hyperledger/indy-sdk/pull/1074","username":"danielhardman","ts":"2018-08-14T22:32:36.697Z"}
+{"msg":"Has joined the channel.","username":"sureshtedla","ts":"2018-08-31T17:30:12.161Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"kenebert","ts":"2018-09-12T16:57:08.228Z","type":"uj"}
+{"msg":"Trivial PR against the ubuntu-build doc. Inform new users that they need to fill in the actual path in the sample script. https://github.com/hyperledger/indy-sdk/pull/1137 Jira ticket IS-937","username":"kenebert","ts":"2018-09-12T21:54:08.462Z"}
+{"msg":"Has joined the channel.","username":"MattRaffel","ts":"2018-09-18T16:44:15.220Z","type":"uj"}
+{"msg":"PR lots of fixes to dotnet wrapper unit testing.  please read PR description. https://github.com/hyperledger/indy-sdk/pull/1147","username":"MattRaffel","ts":"2018-09-19T23:21:26.803Z"}
+{"msg":"Hi folks, added PR https://github.com/hyperledger/indy-sdk/pull/1151 update to indy-cli to support storage_credentials for wallet create, open and import commands.  It's my first PR to indy-sdk so let me know if there's anything I need to do.  Thanks!!!","username":"ianco","ts":"2018-09-20T20:46:17.426Z"}
+{"msg":"^^ @esplinr ","username":"jljordan_bcgov","ts":"2018-09-23T04:29:27.412Z"}
+{"msg":"Has joined the channel.","username":"karthick15v","ts":"2018-09-28T06:20:36.265Z","type":"uj"}
+{"msg":"As discussed in our weekly indy working group call today, we want to help more dev know about the call, so we have added a line to the indy-sdk readme inviting them to it. Simple PR request: https://github.com/hyperledger/indy-sdk/pull/1167","username":"mboyd","ts":"2018-09-28T17:28:20.617Z"}
+{"msg":"Thank you @mboyd ","username":"esplinr","ts":"2018-10-01T15:29:52.191Z"}
+{"msg":"Added PR for wallet unit testing and refactor inmem storage as shared library (demonstrated at the working group a couple of weeks ago):  https://github.com/hyperledger/indy-sdk/pull/1175","username":"ianco","ts":"2018-10-02T20:37:28.623Z"}
+{"msg":"Has joined the channel.","username":"brycebudd","ts":"2018-10-08T16:10:59.861Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"osesov","ts":"2018-10-09T14:21:51.739Z","type":"uj"}
+{"msg":"Hi guys. Just added PR for fixing android build script \njira: https://jira.hyperledger.org/browse/IS-1033\nPR: https://github.com/hyperledger/indy-sdk/pull/1206","username":"osesov","ts":"2018-10-09T14:23:25.377Z"}
+{"msg":"Thank you for all the PRs @ianco and @osesov ","username":"esplinr","ts":"2018-10-10T17:02:18.255Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=sQmQ3mumzY6pj5ZNL) @esplinr My pleasure!  Let me know if there are any comments re PR 1175 (wallet testing and inmem re-factor) - I'm working on a Postgres wallet storage plug-in so this one (inmem) was kind of a trial run ...  It may be worth a HIPE on how to structure/test wallet storage plug-ins","username":"ianco","ts":"2018-10-10T17:05:10.705Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=sQmQ3mumzY6pj5ZNL","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=sQmQ3mumzY6pj5ZNL","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Will do. I want them to provide feedback on your PR in the next sprint (change-over is tomorrow). Thanks for your patience. We are trying to get faster at this.","username":"esplinr","ts":"2018-10-10T17:09:32.359Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=FKzbTM5tjRvzyZ7Nu) @osesov @osesov Thank you for fixing this.","username":"faisal00813","ts":"2018-10-12T06:32:43.299Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=FKzbTM5tjRvzyZ7Nu","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=FKzbTM5tjRvzyZ7Nu","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Hi guys - I've submitted a PR to implement logging in the .NET wrapper, completely refactor of the test suite to match the current Java one and fix issues that were uncovered. https://github.com/hyperledger/indy-sdk/pull/1217.  Please review.","username":"srottem","ts":"2018-10-15T06:12:14.984Z"}
+{"msg":"Has joined the channel.","username":"mark.hadley","ts":"2018-10-17T16:21:01.768Z","type":"uj"}
+{"msg":"PR https://github.com/hyperledger/indy-sdk/pull/1222\nFixes libvcx python tests\nFixes bug in setup.py\nFixes bug EN-870\nAdds 2 new Error Codes (and to both Python and Node Wrappers)","username":"mark.hadley","ts":"2018-10-17T16:23:57.803Z"}
+{"msg":"I've updated the above PR to address the concerns of the python wrappers test suite for libvcx:\nhttps://github.com/hyperledger/indy-sdk/pull/1222\n@wightman @gudkov ","username":"mark.hadley","ts":"2018-10-19T17:36:45.322Z"}
+{"msg":"PR 1222 is updated per @wightman requests\nhttps://github.com/hyperledger/indy-sdk/pull/1222","username":"mark.hadley","ts":"2018-10-22T21:48:23.584Z"}
+{"msg":"PR 1238 for the Postgres Wallet Plug-in https://github.com/hyperledger/indy-sdk/pull/1238, and HIPE PR 49 https://github.com/hyperledger/indy-hipe/pull/49 describing some general plug-in questions/issues/suggestions that I'd like to table for discussion.  (Note that PR 1238 supersedes my previous PR 1175 for the in-mem wallet, as this latest PR includes everything from the previous PR.)","username":"ianco","ts":"2018-10-22T21:50:51.253Z"}
+{"msg":"Just want to bump https://github.com/hyperledger/indy-sdk/pull/1222\nIs reviewed and ready to be merged.","username":"mark.hadley","ts":"2018-10-23T16:07:43.460Z"}
+{"msg":"PR 1247 for Postgres Wallet (https://github.com/hyperledger/indy-sdk/pull/1247) replaces 1238 (closed) and signs off commits.","username":"ianco","ts":"2018-10-25T01:36:32.234Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=n2hMB3yvk8DGbC37Y) @ianco See my comments in your HIPE about wallet storage test harness. ","username":"gudkov","ts":"2018-10-25T07:02:50.178Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=n2hMB3yvk8DGbC37Y","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=n2hMB3yvk8DGbC37Y","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=Ytg5QRFAYCYETgTry) @gudkov Thanks for the feedback I'll take a look!","username":"ianco","ts":"2018-10-25T15:08:26.489Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=Ytg5QRFAYCYETgTry","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=Ytg5QRFAYCYETgTry","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=rpi77edQAbubo6pS9) I've added JIRA tickets for each issue/topic in the PR and HIPE so we can address them individually.","username":"ianco","ts":"2018-10-28T20:42:45.712Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=rpi77edQAbubo6pS9","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=rpi77edQAbubo6pS9","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"PR #1222 \nhttps://github.com/hyperledger/indy-sdk/pull/1222\nUpdated and ready for merge.  \n","username":"mark.hadley","ts":"2018-10-29T13:52:49.303Z"}
+{"msg":"Has joined the channel.","username":"kdenhartog","ts":"2018-10-29T15:50:46.105Z","type":"uj"}
+{"msg":"https://github.com/hyperledger/indy-crypto/pull/132","username":"MALodder","ts":"2018-11-03T18:51:03.375Z"}
+{"msg":"Inequality predicates","username":"MALodder","ts":"2018-11-03T18:52:53.830Z"}
+{"msg":"@gudkov ^^","username":"MALodder","ts":"2018-11-05T13:40:04.028Z"}
+{"msg":"@wightman @ryanmarsh \nhttps://github.com/hyperledger/indy-sdk/pull/1275\nPR That Implements a new customizable logger for libvcx.","username":"mark.hadley","ts":"2018-11-08T23:40:28.263Z"}
+{"msg":"https://github.com/hyperledger/indy-sdk/pull/1273 = bug fix for liindy storage plug-in (see IS-1045)\nhttps://github.com/hyperledger/indy-sdk/pull/1282 = postgres storage plug-in (depends on 1273)\n\nThese are also included in PR 1247, but I;ve segregated them out for ease of review/merge.\n\nPR 1247 also includes updates to python wrapper and CLI to support storage plug-ins, and plug-in test harness.  I will create separate PR's for those once 1273 and 1282 are accepted/merged.","username":"ianco","ts":"2018-11-09T16:11:37.703Z"}
+{"msg":"https://github.com/hyperledger/indy-sdk/pull/1273 = bug fix for liindy storage plug-in (see IS-1045)\nhttps://github.com/hyperledger/indy-sdk/pull/1282 = postgres storage plug-in (depends on PR 1273)\n\nThese are also included in PR 1247, but I;ve segregated them out for ease of review/merge.\n\nPR 1247 also includes updates to python wrapper and CLI to support storage plug-ins, and plug-in test harness.  I will create separate PR's for those once 1273 and 1282 are accepted/merged.","username":"ianco","ts":"2018-11-09T16:11:37.703Z"}
+{"msg":"@gudkov  ^^^","username":"ianco","ts":"2018-11-09T16:12:12.331Z"}
+{"msg":"Has joined the channel.","username":"janl","ts":"2018-11-09T16:32:05.409Z","type":"uj"}
+{"msg":"@JanL (I think I have the right handle) wanted to socialize a HIPE proposal that was built around the concept of consent receipts, but was having trouble with Rocket Chat--so I said I'd drop a link here. https://github.com/hyperledger/indy-hipe/pull/55","username":"danielhardman","ts":"2018-11-09T16:59:59.423Z"}
+{"msg":"Has joined the channel.","username":"mxs1491","ts":"2018-11-15T10:30:52.156Z","type":"uj"}
+{"msg":"https://github.com/hyperledger/indy-agent/pull/41","username":"haggs","ts":"2018-11-16T00:47:53.434Z"}
+{"msg":"Small PR to allow command line arguments when setting up an agent walletname and walletpassphrase","username":"haggs","ts":"2018-11-16T00:48:28.588Z"}
+{"msg":"@sergey.minaev I got the changes that you and @gudkov proposed for IS-1094. There's a few problems I ran into though, so I detailed them in the comment section of the PR. I wanted to confirm this was an acceptable refactor for the function names.","username":"kdenhartog","ts":"2018-11-27T11:56:39.831Z"}
+{"msg":"https://github.com/hyperledger/indy-hipe/pull/63\nnew HIPE proposing a multi-repository readthedocs site for Indy","username":"mboyd","ts":"2018-11-28T21:50:58.972Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv) @kdenhartog @gudkov https://github.com/hyperledger/indy-sdk/pull/1314","username":"sergey.minaev","ts":"2018-11-29T11:33:14.072Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv) @kdenhartog @gudkov https://github.com/hyperledger/indy-sdk/pull/1314#issuecomment-442801548","username":"sergey.minaev","ts":"2018-11-29T11:33:14.072Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=EexnM5uNdbxKezKxv","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compile suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I didn't understand what the implications might be. Would you suggest that I add these? ","username":"kdenhartog","ts":"2018-11-29T11:39:35.471Z"}
+{"msg":"@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I didn't understand what the implications might be. Would you suggest that I add these? ","username":"kdenhartog","ts":"2018-11-29T11:39:35.471Z"}
+{"msg":"@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I thought that they may not be used for new crypto_types.","username":"kdenhartog","ts":"2018-11-29T11:39:35.471Z"}
+{"msg":"@sergey.minaev @gudkov when I was building on top of this, I ended up having to change the functions in the trait. I wasn't able to figure out why, but the compiler suggested it, so I did and it worked. I decided not to add the new functions to the crypto_type because I thought that they may not be used for new crypto_types. If I should change this then I can do that.","username":"kdenhartog","ts":"2018-11-29T11:39:35.471Z"}
+{"msg":"@gudkov   updates made to postgres wallet storage https://github.com/hyperledger/indy-sdk/pull/1282 ...  There has also been a suggestion to move this to a separate repo, rather than adding to indy-sdk, let me know if I should create a separate repo for this or if it will be merged into indy-sdk","username":"ianco","ts":"2018-12-06T15:31:40.707Z"}
+{"msg":"@gudkov   updates made to postgres wallet storage https://github.com/hyperledger/indy-sdk/pull/1282 ...  There has also been a suggestion to move this to a separate repo, rather than adding to indy-sdk, let me know if I should create a separate repo for this or if it will be merged into indy-sdk  @esplinr ","username":"ianco","ts":"2018-12-06T15:31:40.707Z"}
+{"msg":"^^^ @sergey.minaev ","username":"esplinr","ts":"2018-12-06T22:11:22.727Z"}
+{"msg":"@ianco thank you for update, there is a good chance, that Slava will be able to start reviewing new changes today.","username":"sergey.minaev","ts":"2018-12-10T09:51:01.902Z"}
+{"msg":"Great thanks!","username":"ianco","ts":"2018-12-10T19:07:24.887Z"}
+{"msg":"Has joined the channel.","username":"sam-kaw","ts":"2018-12-11T22:05:51.804Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"yisheng","ts":"2018-12-12T03:40:50.077Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"olegwb","ts":"2018-12-12T14:18:23.954Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"sasiedu","ts":"2018-12-13T08:29:35.836Z","type":"uj"}
+{"msg":"Hi guys, how do I get access to the JIRA board?","username":"sasiedu","ts":"2018-12-13T08:30:08.962Z"}
+{"msg":"Pull request. URL: https://github.com/hyperledger/indy-sdk/pull/1355, JIRA-REF: IS-1111 ","username":"sasiedu","ts":"2018-12-13T11:37:13.652Z"}
+{"msg":"@sergey.minaev  Pull request. URL: https://github.com/hyperledger/indy-sdk/pull/1355, JIRA-REF: IS-1111 ","username":"sasiedu","ts":"2018-12-13T11:37:13.652Z"}
+{"msg":"@Artemkaaas As we discussed yesterday, the ticket IS-1112 is created with the topic outlined.","username":"olegwb","ts":"2018-12-13T14:58:51.864Z"}
+{"msg":"Has joined the channel.","username":"Artemkaaas","ts":"2018-12-13T14:58:52.302Z","type":"uj"}
+{"msg":"@sasiedu Which JIRA board? And what is your need for it?","username":"esplinr","ts":"2018-12-13T21:41:45.339Z"}
+{"msg":"@esplinr indysdk board, under community contribution. It's a golang wrapper for indysdk","username":"sasiedu","ts":"2018-12-14T05:50:07.547Z"}
+{"msg":"@sasiedu I think you just have to be a logged in user to access the IndySDK board. Are you not seeing it?","username":"esplinr","ts":"2018-12-14T15:12:24.303Z"}
+{"msg":"I see that you created an epic for the golang wrapper (thank you!). Is your concern that you want it to be tracked as an in-progress community contribution?","username":"esplinr","ts":"2018-12-14T15:13:38.673Z"}
+{"msg":"@esplinr KitHat moved it to community contribution. but I have submitted a pull request for that task. It should be in review","username":"sasiedu","ts":"2018-12-14T15:53:56.252Z"}
+{"msg":"@esplinr I have moved it to Community Contribution from our EV sprint, I thought it is a correct place, isn't it?","username":"KitHat","ts":"2018-12-14T16:03:43.235Z"}
+{"msg":"Yes it is.","username":"esplinr","ts":"2018-12-14T16:03:55.968Z"}
+{"msg":"@esplinr I don't have a problem with it. Just not sure who to tag for review","username":"sasiedu","ts":"2018-12-14T16:16:43.973Z"}
+{"msg":"We need to figure out the best way to handle wrappers that aren't directly required by the SDK. They don't get the same level of attention as the ones that are integrated into the CI / CD.","username":"esplinr","ts":"2018-12-14T16:18:02.950Z"}
+{"msg":"My opinion is that they should live in their own repositories, and we should create a list of such wrappers in the Hyperledger wiki so that they are easy to find.","username":"esplinr","ts":"2018-12-14T16:18:30.482Z"}
+{"msg":"My team doesn't have experience with Go, so we aren't well positioned to provide feedback on the wrapper or to help maintain it.","username":"esplinr","ts":"2018-12-14T16:19:09.074Z"}
+{"msg":"@sasiedu I'm glad you wrote the wrapper and I expect it will be useful to many people. But should it live within the SDK repository?","username":"esplinr","ts":"2018-12-14T16:19:43.408Z"}
+{"msg":"If you keep it in a separate GitHub repository, how do we help people find it? Is it best to have a wiki page, or to have a file in the SDK repo that lists recommended wrappers?","username":"esplinr","ts":"2018-12-14T16:20:52.811Z"}
+{"msg":"We've debated these questions off and on over the last few months, and your wrapper gives us a good opportunity to decide on a policy.","username":"esplinr","ts":"2018-12-14T16:21:16.781Z"}
+{"msg":"@esplinr I don't mind if sits outside of the SDK repo and have file in the repo that lists recommended wrappers and later added to the repo. The problem is if it doesn't match up to the indysdk wrapper standards","username":"sasiedu","ts":"2018-12-14T18:23:29.609Z"}
+{"msg":"and are the dotnet, node, java and python official wrappers??","username":"sasiedu","ts":"2018-12-14T18:25:07.703Z"}
+{"msg":"Has joined the channel.","username":"TelegramSam","ts":"2018-12-14T18:26:33.761Z","type":"uj"}
+{"msg":"We don't really talk in terms of \"official\".","username":"esplinr","ts":"2018-12-14T19:36:53.550Z"}
+{"msg":"The question is who maintains something.","username":"esplinr","ts":"2018-12-14T19:37:00.196Z"}
+{"msg":".NET has no clear maintainer at the moment, so we have been talking about taking it out of the repo. Node and Java are maintained by Evernym. Python is used by Indy Node and so is required for the CI / CD to complete and is maintained by the team.","username":"esplinr","ts":"2018-12-14T19:37:16.999Z"}
+{"msg":"We are discussing whether we should remove from the repo wrappers that are not required for CI / CD, but Node and Java are required for the current reference agents so that might mean they should stay.","username":"esplinr","ts":"2018-12-14T19:38:03.572Z"}
+{"msg":"okay, then I will create an external repo and send link, if someone wants to use it","username":"sasiedu","ts":"2018-12-15T16:20:26.008Z"}
+{"msg":"@sasiedu We discussed it as a team at Evernym, and we are in favor of adding the link in the README inside the official SDK repo. If you do the PR, you will appear as GitHub an official contributor (with perks like being able to vote in the next Hyperledger election).","username":"esplinr","ts":"2018-12-17T20:32:29.204Z"}
+{"msg":"Thank you for making this wrapper avaiable.","username":"esplinr","ts":"2018-12-17T20:32:41.039Z"}
+{"msg":"Thank you for making this wrapper available.","username":"esplinr","ts":"2018-12-17T20:32:41.039Z"}
+{"msg":"indy-sdk docs PR here: https://github.com/hyperledger/indy-sdk/pull/1365","username":"mboyd","ts":"2018-12-18T04:48:30.239Z"}
+{"msg":"enabled readthedocs for:\n-  indy-node: https://github.com/hyperledger/indy-node/pull/1101\n- indy-plenum: https://github.com/hyperledger/indy-plenum/pull/1037\n- indy-hipe: https://github.com/hyperledger/indy-hipe/pull/74\n","username":"mboyd","ts":"2018-12-18T22:39:58.107Z"}
+{"msg":"Has joined the channel.","username":"MayukhGhosh","ts":"2018-12-21T09:58:55.839Z","type":"uj"}
+{"msg":"@esplinr okay, i will do that","username":"sasiedu","ts":"2018-12-22T11:18:38.558Z"}
+{"msg":"Postgres storage cleanup https://github.com/hyperledger/indy-sdk/pull/1371 is updated per feedback @gudkov ","username":"ianco","ts":"2019-01-02T17:13:48.790Z"}
+{"msg":"VCX pluggable wallets https://github.com/hyperledger/indy-sdk/pull/1404 - is W.I.P. but has some VCX questions if a VCXpert has some time to look :-)","username":"ianco","ts":"2019-01-15T14:20:58.537Z"}
+{"msg":"@sergey.minaev just added a doc about libindy's architecture in PR #1417. Can you review it and verify everything's correct and add additional detail if needed? Here's a link to the doc https://github.com/kdenhartog/indy-sdk/tree/libindy-doc/doc/design/012-libindy-architecture-overview ","username":"kdenhartog","ts":"2019-01-17T19:50:32.514Z"}
+{"msg":"Has joined the channel.","username":"Yair","ts":"2019-01-18T11:01:07.847Z","type":"uj"}
+{"msg":"@kdenhartog  so glad you started that doc.  ","username":"MattRaffel","ts":"2019-01-18T15:49:52.948Z"}
+{"msg":"Has joined the channel.","username":"coderintherye","ts":"2019-01-25T23:11:55.864Z","type":"uj"}
+{"msg":"very minor PR for doc fix https://github.com/hyperledger/indy-node/pull/1141","username":"coderintherye","ts":"2019-01-25T23:12:39.430Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=SxhxMgJLXZHF2XoqA) https://jira.hyperledger.org/browse/INDY-1964","username":"coderintherye","ts":"2019-01-25T23:13:11.497Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=SxhxMgJLXZHF2XoqA","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=SxhxMgJLXZHF2XoqA","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"Hi all, I'm hoping to have the docs/ folders with support for readthedocs ready by Friday. All of the remaining merge conflicts have been resolved. The Hyperledger admins are meeting with me to configure the site with their RTD account. Would the respective maintainers be able to review these PRs when convenient? \n\n@sergey.minaev \n@danielhardman \nRepos still left to merge:\n- Indy SDK: https://github.com/hyperledger/indy-sdk/pull/1365\n- Indy Node: https://github.com/hyperledger/indy-node/pull/1101\n- Indy HIPE: https://github.com/hyperledger/indy-hipe/pull/74","username":"mboyd","ts":"2019-01-30T20:25:12.686Z"}
+{"msg":"I'm in favor of merging the one for Indy HIPE. Let me see if other maintainers agree.","username":"danielhardman","ts":"2019-01-30T20:43:44.382Z"}
+{"msg":"https://github.com/hyperledger/indy-sdk/pull/1446 - primarily adds wallet plug-in support to VCX, but also fixes the annoying segfault that occurs after Alice (successfully) sends a proof request","username":"ianco","ts":"2019-02-01T18:28:31.305Z"}
+{"msg":"Has joined the channel.","username":"nanspro","ts":"2019-02-06T15:29:32.420Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"rasviitanen","ts":"2019-02-18T10:55:36.928Z","type":"uj"}
+{"msg":"Has left the channel.","username":"nanspro","ts":"2019-02-23T02:11:49.051Z","type":"ul"}
+{"msg":"Has joined the channel.","username":"theoturner","ts":"2019-03-08T16:32:48.651Z","type":"uj"}
+{"msg":"https://github.com/hyperledger/indy-sdk/pull/1521 https://jira.hyperledger.org/browse/IS-1214 @MattRaffel MacOS installer","username":"theoturner","ts":"2019-03-08T16:42:08.405Z"}
+{"msg":"https://github.com/hyperledger/indy-sdk/pull/1528","username":"MattRaffel","ts":"2019-03-13T19:10:53.642Z"}
+{"msg":"@sergey.minaev This is a trivial PR that should only take 30 secs to review. It just fixes a broken hyperlink in the docs. Can you approve? https://github.com/hyperledger/indy-sdk/pull/1544","username":"danielhardman","ts":"2019-03-18T16:28:50.466Z"}
+{"msg":"I approved it  @danielhardman ","username":"MALodder","ts":"2019-03-18T16:30:45.202Z"}
+{"msg":"Has joined the channel.","username":"Ryan2","ts":"2019-03-26T04:48:55.370Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"cobear25","ts":"2019-04-08T15:09:32.552Z","type":"uj"}
+{"msg":"Hi there, I just submitted a PR for the iOS wrapper. I don't have access to JIRA though so I haven't added a ticket there. Here's the PR: https://github.com/hyperledger/indy-sdk/pull/1582","username":"cobear25","ts":"2019-04-08T15:10:16.094Z"}
+{"msg":"@cobear25 Thank you for the PR. The maintainers are short handed at the moment due to vacations and other projects, but we'll review it when we can.","username":"esplinr","ts":"2019-04-08T19:57:56.948Z"}
+{"msg":"@cobear25 What prevents you from accessing Jira?","username":"esplinr","ts":"2019-04-08T19:58:09.764Z"}
+{"msg":"@cobear25 Out of curiosity, what prevents you from accessing Jira?","username":"esplinr","ts":"2019-04-08T19:58:09.764Z"}
+{"msg":"@esplinr I can view all the issues but I don't have login credentials, which I'm guessing are needed to add issues?","username":"cobear25","ts":"2019-04-08T20:56:16.408Z"}
+{"msg":"Also, how long are you thinking it would take before a maintainer can look at it?","username":"cobear25","ts":"2019-04-08T20:57:42.056Z"}
+{"msg":"@cobear25 You can get a login by signing up for a free Linux Foundation account.","username":"esplinr","ts":"2019-04-08T21:35:43.335Z"}
+{"msg":"One maintainer got back from vacation today, and one left last Friday. I'll have to ask them.","username":"esplinr","ts":"2019-04-08T21:36:05.079Z"}
+{"msg":"One maintainer left last Friday, and one got back from vacation today. I'll have to ask.","username":"esplinr","ts":"2019-04-08T21:36:05.079Z"}
+{"msg":"But it's currently taking us a few weeks.","username":"esplinr","ts":"2019-04-08T21:36:16.192Z"}
+{"msg":"We recently did some work on the iOS wrapper, so we might already have the environments necessary to test.","username":"esplinr","ts":"2019-04-08T21:37:12.474Z"}
+{"msg":"Yeah, I saw the changes that went in last week and they were super helpful to get it up and running on the latest iOS and swift version. The wrapper just didn't have all the functionality we need at the moment.","username":"cobear25","ts":"2019-04-08T21:53:15.485Z"}
+{"msg":"Your contribution will speed that along a lot. Thank you again.","username":"esplinr","ts":"2019-04-08T22:10:07.327Z"}
+{"msg":"Has joined the channel.","username":"helengarneau","ts":"2019-04-16T16:52:39.666Z","type":"uj"}
+{"msg":"[IS-754](https://jira.hyperledger.org/browse/IS-754) Just submitted a [pull request](https://github.com/hyperledger/indy-sdk/pull/1591). Ping me if you have any questions about it","username":"SteveGoob","ts":"2019-04-19T20:12:51.988Z"}
+{"msg":"[IS-754](https://jira.hyperledger.org/browse/IS-754) Just submitted a [pull request](https://github.com/hyperledger/indy-sdk/pull/1591) for adding test coverage reports to the project. Ping me if you have any questions about it","username":"SteveGoob","ts":"2019-04-19T20:12:51.988Z"}
+{"msg":"Hi, Just submitted: https://github.com/hyperledger/indy-sdk/pull/1639 Jira issue: https://jira.hyperledger.org/browse/IS-825","username":"rasviitanen","ts":"2019-05-21T11:44:16.790Z"}
+{"msg":"Has joined the channel.","username":"ilya1w","ts":"2019-05-22T03:52:41.455Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"dbluhm","ts":"2019-07-15T16:01:50.512Z","type":"uj"}
+{"msg":"Just submitted: https://github.com/hyperledger/indy-sdk/pull/1728\n\nI don't think it is controversial but happy to discuss more if others feel differently. It introduces much more convenient error handling in the python wrapper.","username":"dbluhm","ts":"2019-07-15T16:03:54.324Z"}
+{"msg":"Just submitted: https://github.com/hyperledger/indy-sdk/pull/1728\n\nI don't think it is controversial but happy to discuss more if others feel differently. It introduces much more convenient error handling when using the python wrapper.","username":"dbluhm","ts":"2019-07-15T16:03:54.324Z"}
+{"msg":"@esplinr https://github.com/hyperledger/indy-sdk/pull/1775 https://jira.hyperledger.org/browse/IS-1340 MacOS installer fix","username":"theoturner","ts":"2019-07-31T17:25:07.576Z"}
+{"msg":"Has joined the channel.","username":"JeromeK","ts":"2019-08-12T09:34:11.771Z","type":"uj"}
+{"msg":"Just created a new Jira-Ticket and PR\n\nhttps://github.com/hyperledger/indy-sdk/pull/1803\nhttps://github.com/hyperledger/indy-sdk/pull/1803\n(Some Ideas for upgrading the Python-Wrapper)\nFeel free to ask anything if you have any questions.","username":"JeromeK","ts":"2019-08-12T09:34:12.497Z"}
+{"msg":"Just created a new Jira-Ticket and PR\n\nhttps://github.com/hyperledger/indy-sdk/pull/1803\nhttps://jira.hyperledger.org/browse/IS-1350\n(Some Ideas for upgrading the Python-Wrapper)\nFeel free to ask anything if you have any questions.","username":"JeromeK","ts":"2019-08-12T09:34:12.497Z"}
+{"msg":"Really impressive! Is a `pass` really all that is needed for those methods when the `LibindyCommand` decorator is used?","username":"dbluhm","ts":"2019-08-12T13:18:57.197Z"}
+{"msg":"I think we should use this structure for the python wrapper as we migrate to Aries SDK. cc @esplinr ","username":"dbluhm","ts":"2019-08-12T13:22:16.382Z"}
+{"msg":"Hey dbluhm\nYes!\nOnly if youre adding new data-types you will need to add a bit more. But everything else is really that easy ;)","username":"JeromeK","ts":"2019-08-12T13:25:25.010Z"}
+{"msg":"@JeromeK what was the motivation for grouping the functions into classes as static methods as opposed to just having a module with plain functions?","username":"dbluhm","ts":"2019-08-12T13:53:34.950Z"}
+{"msg":"@dbluhm \nIts just because of the importing, you could also do with plain functions - does not matter ;)","username":"JeromeK","ts":"2019-08-12T14:14:57.438Z"}
+{"msg":"@dbluhm \nIt's just because of the importing, you could also do it with plain functions - does not matter ;)","username":"JeromeK","ts":"2019-08-12T14:14:57.438Z"}
+{"msg":"@dbluhm \nIt's just because of the importing, you could also do it with plain functions - does not matter.","username":"JeromeK","ts":"2019-08-12T14:14:57.438Z"}
+{"msg":"cc @sergey.minaev ","username":"esplinr","ts":"2019-08-14T20:03:26.039Z"}
+{"msg":"Has joined the channel.","username":"jadhavajay","ts":"2019-09-19T18:45:49.251Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"DibbsZA","ts":"2019-09-27T10:17:41.563Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"ajayjadhav","ts":"2019-10-18T13:37:17.233Z","type":"uj"}
+{"msg":"Any word on this?\n\nhttps://github.com/hyperledger/indy-sdk/pull/1893","username":"jljordan_bcgov","ts":"2019-10-22T17:37:08.534Z"}
+{"msg":"^^ @esplinr ","username":"jljordan_bcgov","ts":"2019-10-22T17:37:19.668Z"}
+{"msg":"Has joined the channel.","username":"Rick","ts":"2019-10-24T13:47:40.716Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"aaronr","ts":"2020-01-28T17:36:16.775Z","type":"uj"}
+{"msg":"Just submitted https://github.com/hyperledger/indy-sdk/pull/2028 for Jira issue https://jira.hyperledger.org/browse/IS-1443\n\nIt allows the postgres wallet plugin to be configured to use a specific database name when running in multiwallet mode.  Please ping me if you have questions about it.","username":"aaronr","ts":"2020-01-28T17:36:17.513Z"}
+{"msg":"rs_schema_handler PR in indy-node is ready for code review. https://github.com/hyperledger/indy-node/pull/1513","username":"burdettadam","ts":"2020-01-28T21:44:22.935Z"}
+{"msg":"rs_encoding_handler PR in indy_node is ready for code review. https://github.com/hyperledger/indy-node/pull/1575","username":"burdettadam","ts":"2020-01-29T22:41:08.555Z"}
+{"msg":"Has left the channel.","username":"DibbsZA","ts":"2020-02-01T08:47:21.083Z","type":"ul"}
+{"msg":"documentation improvement PR in indy_node is ready for code review. https://github.com/hyperledger/indy-node/pull/1587","username":"burdettadam","ts":"2020-02-27T22:10:56.933Z"}
+{"msg":"Has joined the channel.","username":"thomas_kim","ts":"2020-03-16T10:26:54.862Z","type":"uj"}
+{"msg":"@sergey.minaev Just created a new Jira issue and PR.\n\nhttps://jira.hyperledger.org/browse/IS-1528\nhttps://github.com/hyperledger/indy-sdk/pull/2132\n\nDocumentation improvement PR for Android. ","username":"thomas_kim","ts":"2020-03-16T10:26:56.050Z"}
+{"msg":"@sergey.minaev Just created a new Jira issue and PR.\n\nhttps://jira.hyperledger.org/browse/IS-1528\nhttps://github.com/hyperledger/indy-sdk/pull/2132\n\nTrivial documentation update PR for Android. ","username":"thomas_kim","ts":"2020-03-16T10:26:56.050Z"}
+{"msg":"@sergey.minaev Just created a new Jira issue and PR.\n\nhttps://jira.hyperledger.org/browse/IS-1528\nhttps://github.com/hyperledger/indy-sdk/pull/2132\nTrivial documentation update PR for Android. ","username":"thomas_kim","ts":"2020-03-16T10:26:56.050Z"}
+{"msg":"[ ](https://chat.hyperledger.org/channel/indy-pr-review?msg=vyEQA9YS4JoJBXqjP) @ Thank you! Will review it soon","username":"sergey.minaev","ts":"2020-03-17T08:48:14.926Z","attachments":[{"message_link":"https://chat.hyperledger.org/channel/indy-pr-review?msg=vyEQA9YS4JoJBXqjP","url":"https://chat.hyperledger.org/channel/indy-pr-review?msg=vyEQA9YS4JoJBXqjP","remote":true,"fileId":null,"fileName":null}]}
+{"msg":"@sergey.minaev I just have created a new Jira issue and PR\nhttps://jira.hyperledger.org/browse/IS-1551\nhttps://github.com/hyperledger/indy-sdk/pull/2156\nSome fixes in LibVCX of Java wrapper","username":"thomas_kim","ts":"2020-04-22T09:21:06.387Z"}
+{"msg":"@sergey.minaev Jenkins build is failed, but I don't have a permission to get into the Jenkins... Can you please let me know the reason why a build is failed for the PR https://github.com/hyperledger/indy-sdk/pull/2132. When I built the project in my local machine, there was no problem. ","username":"thomas_kim","ts":"2020-04-23T02:11:03.656Z"}
+{"msg":"@sergey.minaev I just created another PR. Always, many thanks to maintainers. \nhttps://jira.hyperledger.org/browse/IS-1554\nhttps://github.com/hyperledger/indy-sdk/pull/2161\nIn this PR I created the sample Android demo application for Alice, and documented findings I have found while I was struggling with native libraries and NDK issues. ","username":"thomas_kim","ts":"2020-04-24T10:44:20.461Z"}
+{"msg":"Hi maintainers~ I have created the PR for LibVCX.\nhttps://github.com/hyperledger/indy-sdk/pull/2172\nThis PR is about deleting a credential from the wallet and in the memory for V3","username":"thomas_kim","ts":"2020-05-21T06:27:54.946Z"}
+{"msg":"Very cool. Thank you!","username":"esplinr","ts":"2020-05-22T20:50:29.791Z"}
+{"msg":"Very cool @thomas_kim . Thank you!","username":"esplinr","ts":"2020-05-22T20:50:29.791Z"}
+{"msg":"My pleasure. ","username":"thomas_kim","ts":"2020-05-25T00:19:07.406Z"}
+{"msg":"Indy gurus, I'd appreciate some feedback on this PR:  https://github.com/hyperledger/indy-sdk/pull/2179 ...  It adds support to proof validation so that predicates can support restrictions of the form `\"restrictions\": [{ ..., \"attr::name::value\": \"Alex\" }]` (currently with these kinds of restrictions in predicates the proof process will work up to the validation step and then fail)","username":"ianco","ts":"2020-05-29T21:35:43.548Z"}
+{"msg":"The issue is logged here:  https://jira.hyperledger.org/browse/IS-1557","username":"ianco","ts":"2020-05-29T21:36:00.954Z"}
+{"msg":"(The PR is a work in progress, I don't want to put too much work into it if I'm already out in left field)","username":"ianco","ts":"2020-05-29T21:36:31.583Z"}
+{"msg":"@sergey.minaev I have created the PR for VCX iOS wrapper. \nhttps://github.com/hyperledger/indy-sdk/pull/2187\nI have added APIs needed to use V3 protocol.","username":"thomas_kim","ts":"2020-06-08T02:48:57.098Z"}
+{"msg":"Here is another PR about VCX iOS wrapper. I added more APIs\nhttps://github.com/hyperledger/indy-sdk/pull/2195","username":"thomas_kim","ts":"2020-06-17T08:06:52.007Z"}
+{"msg":"I just created a PR about VCX wallet APIs (add/update/delete_tags, open_search, fetch_next, close_search)\nhttps://github.com/hyperledger/indy-sdk/pull/2209","username":"thomas_kim","ts":"2020-06-25T11:08:04.631Z"}
+{"msg":"Has joined the channel.","username":"hcsatish","ts":"2020-07-07T16:41:41.045Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"JakeZ2020","ts":"2020-08-07T18:25:05.514Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"sheru","ts":"2020-09-30T11:59:12.012Z","type":"uj"}
+{"msg":"Has joined the channel.","username":"shimizut","ts":"2020-10-05T05:15:57.707Z","type":"uj"}
+{"msg":"Hello everyone. I'm new here.\nI created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.\n\nhttps://jira.hyperledger.org/browse/IS-1561\nhttps://github.com/hyperledger/indy-sdk/pull/2238","username":"shimizut","ts":"2020-10-05T05:15:58.272Z"}
+{"msg":"Hello everyone. I'm new here.\nI created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.\n\nhttps://jira.hyperledger.org/browse/IS-1561\nhttps://github.com/hyperledger/indy-sdk/pull/2238\n\nI do now know whom I should tag to review. Sorry.","username":"shimizut","ts":"2020-10-05T05:15:58.272Z"}
+{"msg":"Hello everyone. I'm new here.\nI created a PR for improving perfomance of listMyDidsWithMeta API. As far as I know, there is no test for listMyDidsWithMeta. I added some.\n\nhttps://jira.hyperledger.org/browse/IS-1561\nhttps://github.com/hyperledger/indy-sdk/pull/2238\n\nI do not know whom I should tag to review. Sorry.","username":"shimizut","ts":"2020-10-05T05:15:58.272Z"}
+{"msg":"@sergey.minaev Can you look at this?","username":"esplinr","ts":"2020-10-05T14:44:34.676Z"}
+{"msg":"@shimizut That's an impressive first contribution!","username":"esplinr","ts":"2020-10-05T14:44:47.268Z"}
+{"msg":"As a note, we are moving the project away from Jira toward GitHub issues.-","username":"esplinr","ts":"2020-10-05T14:45:06.032Z"}
+{"msg":"As a note, we are moving the project away from Jira toward GitHub issues.","username":"esplinr","ts":"2020-10-05T14:45:06.032Z"}
+{"msg":"Yes I can.","username":"shimizut","ts":"2020-10-06T01:12:44.651Z"}
+{"msg":"@esplinr \nThank you. I made an issue on Jira according to https://docs.google.com/presentation/d/1zbb1-4TjH1-iYN7LnFZyPWvB1w-YcoUwKYCfByugSE0/edit#slide=id.g23d83a3667_0_55 .\nI would greatly appreciate it if you could tell me what to do. Should I close that on Jira and submit an issue on GitHub?","username":"shimizut","ts":"2020-10-06T01:25:16.929Z"}
+{"msg":"I am sorry that indentation of a line was not good. I have corrected and pushed.","username":"shimizut","ts":"2020-10-06T06:20:25.761Z"}
+{"msg":"No worries.","username":"esplinr","ts":"2020-10-08T05:01:41.641Z"}
+{"msg":"I don't think you an additional GitHub issue is necessary.","username":"esplinr","ts":"2020-10-08T05:01:50.213Z"}
+{"msg":"Sorry about the out-of-date contributor documentation.","username":"esplinr","ts":"2020-10-08T05:02:00.443Z"}
+{"msg":"Thank you for review and merging my pull request.\nBy the way, I pointed out that the implementation does not match the specification in","username":"shimizut","ts":"2020-10-15T04:33:32.139Z"}
+{"msg":"Thank you for review and merging my pull request.\nBy the way, I pointed out that the implementation does not match the specification in https://github.com/hyperledger/indy-sdk/pull/2238, but there was no response. Because I am not sure the specification is correct or not, I did not add document change in the last pull request.\nThen, I created a new issue about it and a pull request.\nAccording to the esplinr's mention, I did not create the issue on Jira but on GitHub.\nI would be grateful if you could let me know if the procedure is not correct.","username":"shimizut","ts":"2020-10-15T04:33:32.139Z"}
+{"msg":"Thank you for review and merging my pull request.\nBy the way, I pointed out that the implementation does not match the specification in https://github.com/hyperledger/indy-sdk/pull/2238, but there was no response. Because I am not sure the specification is correct or not, I did not add document change in the last pull request.\nThen, I created a new issue about it and a pull request https://github.com/hyperledger/indy-sdk/issues/2249.\nAccording to the esplinr's mention, I did not create the issue on Jira but on GitHub.\nI would be grateful if you could let me know if the procedure is not correct.","username":"shimizut","ts":"2020-10-15T04:33:32.139Z"}
+{"msg":"Thank you!","username":"esplinr","ts":"2020-10-26T22:30:52.033Z"}
+{"msg":"This is great. Thank you!","username":"esplinr","ts":"2020-10-26T22:31:10.613Z"}
+{"msg":"Has joined the channel.","username":"mccown","ts":"2021-10-13T16:51:44.033Z","type":"uj"}
+{"msg":"I noticed that the indy-sdk's Rust language wrapper was written for Rust 2015, so I updated it to Rust 2018 and created a PR.  However, I'm hung up on the DCO process.  I'm getting a message that says: \n\n\"remote: Permission to hyperledger/indy-sdk.git denied to mccown.\nfatal: unable to access 'https://github.com/hyperledger/indy-sdk.git/': The requested URL returned error: 403\"\n\nAny pointers on how to proceed?\n\nHere is the PR that I'm trying to submit:\n\nhttps://github.com/hyperledger/indy-sdk/pull/2435","username":"mccown","ts":"2021-10-13T16:51:44.448Z"}
+{"msg":"You need to DCO sign all your commits (`git commit -s ...` or `git commit --signoff ...` I think ...)","username":"ianco","ts":"2021-10-13T16:55:35.578Z"}
+{"msg":"Thanks for the tip.  I fixed the DCO.  It sure is easier to do that on the initial commit rather than trying to correct that later.","username":"mccown","ts":"2021-10-13T18:00:07.075Z"}
+{"msg":"Looks like you now have a conflict in your PR","username":"ianco","ts":"2021-10-13T18:13:11.849Z"}
+{"msg":"I see the conflict of \"libindy/Cargo.lock\".  I didn't have one in my PR (I think), so I don't know how to delete it.  It says \"Only those with write access to this repository can merge pull requests.\"","username":"mccown","ts":"2021-10-13T18:16:01.134Z"}
+{"msg":"I see the conflict of \"libindy/Cargo.lock\".  I didn't have one in my PR (I think), so I don't know how to delete it.  It says \"Only those with write access to this repository can merge pull requests.\"\n\nAny idea on what I need to do to fix it?","username":"mccown","ts":"2021-10-13T18:16:01.134Z"}
+{"msg":"It usually means there are updates on the main branch that you haven't merged into your fork","username":"ianco","ts":"2021-10-13T18:44:06.910Z"}
+{"msg":"Try merging the latest code into your fork and see if you get a local conclict","username":"ianco","ts":"2021-10-13T18:44:32.746Z"}
+{"msg":"Try merging the latest code into your fork and see if you get a local conflict","username":"ianco","ts":"2021-10-13T18:44:32.746Z"}
+{"msg":"I'm reading through both main and my PR and I think what's happening is that main has a libindy/Cargo.lock file, while I deleted it from my PR.  Since cargo rebuilds the lock files, I didn't think it was a problem.  Now, I'm not sure how to go about fixing it...","username":"mccown","ts":"2021-10-13T18:55:26.308Z"}
+{"msg":"I just tested building libindy locally and verified that cargo recreates the .lock files and the build finishes successfully.","username":"mccown","ts":"2021-10-13T19:03:27.706Z"}
+{"msg":"I figured out the DCO issue.  I hadn't signed the PR before I submitted it, so I had to figure out how to sign after submission.  Now, it's held up on a Cargo.lock file problem in the Jenkins process.  I removed the Cargo.lock files before submitting my PR, since cargo rebuilds them.  I guess that's causing a problem.  I don't have merge access, so I can't resolve it.  Any help is appreciated. \n\nhttps://github.com/hyperledger/indy-sdk/pull/2435","username":"mccown","ts":"2021-10-14T18:40:14.905Z"}
+{"msg":"Your indy-sdk fork is showing as `6 commits behind hyperledger:master`, so you need to catch up your local fork first.  I suspect that will give you the conflict locally, so then when you fix it locally it will fix the PR","username":"ianco","ts":"2021-10-14T18:59:09.955Z"}
+{"msg":"@ianco got it.  Since I don't use github / jenkins often, I ended up closing the previous PR and created an updated one, which should be ready to go.\n\nhttps://github.com/hyperledger/indy-sdk/pull/2437","username":"mccown","ts":"2021-10-14T21:54:35.310Z"}
+{"msg":"Has joined the channel.","username":"rjones","ts":"2022-02-12T22:00:25.969Z","type":"uj"}
+{"msg":"[Please move to Discord](https://discord.com/channels/905194001349627914/905205711850594336)","username":"rjones","ts":"2022-02-12T22:00:26.427Z"}
+{"msg":"[Please get an account on the Hyperledger discord](https://discord.gg), then [join Indy](https://discord.com/channels/905194001349627914/905205711850594336)","username":"rjones","ts":"2022-02-12T22:00:26.427Z"}
+{"msg":"Has left the channel.","username":"rjones","ts":"2022-02-13T01:33:54.636Z","type":"ul"}

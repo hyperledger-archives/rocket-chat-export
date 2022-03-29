@@ -1,0 +1,87 @@
+Any idea what is failing the unit tests when setting up development environment for fabric2.3
+
+make dist-clean all
+All files have SPDX-License-Identifier headers
+Building github.com/client9/misspell/cmd/misspell -> misspell
+Checking changed go files for spelling errors ...
+spell checker passed
+Checking for go:generate parent path references
+Checking trailing spaces ...
+DEP: Checking for dependency issues..
+./scripts/check_deps.sh
+Building golang.org/x/tools/cmd/goimports -> goimports
+Building mvdan.cc/gofumpt -> gofumpt
+Building honnef.co/go/tools/cmd/staticcheck -> staticcheck
+LINT: Running code checks..
+./scripts/golinter.sh
+Checking with goimports
+Checking with gofumpt
+Checking for golang.org/x/net/context
+Checking for github.com/gogo/protobuf
+Checking with go vet
+Checking with staticcheck
+METRICS: Checking for outdated reference documentation..
+./scripts/metrics_doc.sh check
+Building github.com/go-swagger/go-swagger/cmd/swagger -> swagger
+SWAGGER: Checking for outdated swagger...
+./scripts/swagger.sh check
+docker pull couchdb:3.1.1
+3.1.1: Pulling from library/couchdb
+Digest: sha256:b422509b1648306dee1038f41756a982aefa17f986fa8ba18f6cd80e433dafdf
+Status: Image is up to date for couchdb:3.1.1
+docker.io/library/couchdb:3.1.1
+./scripts/run-unit-tests.sh
+ok  	github.com/hyperledger/fabric/gossip/api	0.018s	coverage: 97.4% of statements
+?   	github.com/hyperledger/fabric/gossip/api/mocks	[no test files]
+ok  	github.com/hyperledger/fabric/gossip/comm	54.517s	coverage: 93.9% of statements
+ok  	github.com/hyperledger/fabric/gossip/comm/mock	0.036s	coverage: 81.1% of statements
+?   	github.com/hyperledger/fabric/gossip/comm/mocks	[no test files]
+ok  	github.com/hyperledger/fabric/gossip/common	0.011s	coverage: 80.0% of statements
+ok  	github.com/hyperledger/fabric/gossip/discovery	254.084s	coverage: 87.4% of statements
+ok  	github.com/hyperledger/fabric/gossip/election	36.229s	coverage: 94.4% of statements
+ok  	github.com/hyperledger/fabric/gossip/filter	0.040s	coverage: 100.0% of statements
+ok  	github.com/hyperledger/fabric/gossip/gossip	146.409s	coverage: 85.3% of statements
+ok  	github.com/hyperledger/fabric/gossip/gossip/algo	19.162s	coverage: 96.9% of statements
+^[[1;5Dok  	github.com/hyperledger/fabric/gossip/gossip/channel	51.866s	coverage: 94.1% of statements
+ok  	github.com/hyperledger/fabric/gossip/gossip/msgstore	20.051s	coverage: 100.0% of statements
+ok  	github.com/hyperledger/fabric/gossip/gossip/pull	3.428s	coverage: 92.5% of statements
+ok  	github.com/hyperledger/fabric/gossip/identity	12.044s	coverage: 100.0% of statements
+ok  	github.com/hyperledger/fabric/gossip/metrics	0.005s	coverage: 100.0% of statements
+?   	github.com/hyperledger/fabric/gossip/metrics/mocks	[no test files]
+ok  	github.com/hyperledger/fabric/gossip/privdata	35.560s	coverage: 85.1% of statements
+?   	github.com/hyperledger/fabric/gossip/privdata/common	[no test files]
+?   	github.com/hyperledger/fabric/gossip/privdata/mocks	[no test files]
+ok  	github.com/hyperledger/fabric/gossip/protoext	0.014s	coverage: 95.5% of statements
+ok  	github.com/hyperledger/fabric/gossip/service	85.579s	coverage: 86.1% of statements
+?   	github.com/hyperledger/fabric/gossip/service/mocks	[no test files]
+2021-09-29 15:33:05.780 IST 0001 ERRO [gossip.state] directMessage -> Got nil message via end-to-end channel, should not happen!
+2021-09-29 15:33:05.785 IST 0002 ERRO [gossip.state] handleStateRequest -> State request validation failed, Invalid sequence interval [10...8).. Ignoring request...
+2021-09-29 15:33:26.433 IST 0003 WARN [gossip.gossip#p0] New -> External endpoint is empty, peer will not be accessible outside of its organization
+panic: send on closed channel
+
+goroutine 677 [running]:
+github.com/hyperledger/fabric/gossip/state.TestOverPopulation.func1(0xc000202830, 0x1, 0x1)
+	/home/my_user/github.com/my_user/fabric/gossip/state/state_test.go:672 +0x5b
+github.com/stretchr/testify/mock.(*Mock).MethodCalled(0xc00043c230, 0xf5ad1b, 0xc, 0xc000202830, 0x1, 0x1, 0xc0002957c0, 0x4, 0x4)
+	/home/my_user/github.com/my_user/fabric/vendor/github.com/stretchr/testify/mock/mock.go:452 +0xa1a
+github.com/stretchr/testify/mock.(*Mock).Called(0xc00043c230, 0xc000202830, 0x1, 0x1, 0x419df8, 0x1, 0xc7daa0)
+	/home/my_user/github.com/my_user/fabric/vendor/github.com/stretchr/testify/mock/mock.go:383 +0x1ab
+github.com/hyperledger/fabric/gossip/state.(*mockCommitter).CommitLegacy(0xc00008e440, 0xc00000eb10, 0xc0003c3bc8, 0x0, 0xc000128fa0)
+	/home/my_user/github.com/my_user/fabric/gossip/state/state_test.go:206 +0xbd
+github.com/hyperledger/fabric/gossip/privdata.(*coordinator).StoreBlock(0xc000154800, 0xc0002afe00, 0x0, 0x0, 0x0, 0x10, 0xc00021dec8)
+	/home/my_user/github.com/my_user/fabric/gossip/privdata/coordinator.go:227 +0xabf
+github.com/hyperledger/fabric/gossip/state.(*GossipStateProviderImpl).commitBlock(0xc00025b680, 0xc0002afe00, 0x0, 0x0, 0x0, 0x3, 0x0)
+	/home/my_user/github.com/my_user/fabric/gossip/state/state.go:795 +0xac
+github.com/hyperledger/fabric/gossip/state.(*GossipStateProviderImpl).deliverPayloads(0xc00025b680)
+	/home/my_user/github.com/my_user/fabric/gossip/state/state.go:569 +0x3b9
+created by github.com/hyperledger/fabric/gossip/state.NewGossipStateProvider
+	/home/my_user/github.com/my_user/fabric/gossip/state/state.go:267 +0x8e5
+FAIL	github.com/hyperledger/fabric/gossip/state	22.823s
+ok  	github.com/hyperledger/fabric/gossip/state/mocks	0.039s	coverage: 55.6% of statements
+ok  	github.com/hyperledger/fabric/gossip/util	4.060s	coverage: 73.6% of statements
+FAIL
+
+real	13m26.659s
+user	2m29.131s
+sys	2m30.147s
+make: *** [Makefile:157: unit-test] Error 1

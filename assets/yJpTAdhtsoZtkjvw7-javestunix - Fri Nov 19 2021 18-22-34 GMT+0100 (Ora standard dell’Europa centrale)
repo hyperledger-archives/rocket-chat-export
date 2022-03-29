@@ -1,0 +1,76 @@
+Hello everyone, I have an issue when I query an asset that should exist. I have apparently successfully written a json asset using my chaincode and I can see the transaction using HL explorer too, but when I try to query the ledger using the same key, I have an error back stating that the asset doesn't exists.
+My HL version is 2.3.1.  For which reason an asset created with a key then cannot be found using a simple query ? 
+
+This is the error I have in the log stating that the asset doesn't exists:
+hread[fabric-txinvoke:3,5,main] 07:27:08:726 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got invoke routing request
+Thread[fabric-txinvoke:3,5,main] 07:27:08:727 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got the invoke request for:TrackingContract:readAsset [I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4]
+Thread[fabric-txinvoke:3,5,main] 07:27:08:727 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got routing:readAsset:com.celeris.cef0023.TrackingContract
+Thread[fabric-txinvoke:3,5,main] 07:27:08:730 SEVERE  org.hyperledger.fabric.Logger error                                              Error during contract method executionorg.hyperledger.fabric.contract.ContractRuntimeException: Error during contract method execution
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:79)
+at org.hyperledger.fabric.contract.ContractRouter.processRequest(ContractRouter.java:115)
+at org.hyperledger.fabric.contract.ContractRouter.invoke(ContractRouter.java:126)
+at org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask.call(ChaincodeInvocationTask.java:100)
+at org.hyperledger.fabric.shim.impl.InvocationTaskManager.lambda$newTask$17(InvocationTaskManager.java:255)
+at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not exist
+at com.celeris.cef0023.TrackingContract.readAsset(TrackingContract.java:68)
+at jdk.internal.reflect.GeneratedMethodAccessor14.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:61)
+... 8 more
+.. caused by ..The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not existjava.lang.RuntimeException: The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not exist
+at com.celeris.cef0023.TrackingContract.readAsset(TrackingContract.java:68)
+at jdk.internal.reflect.GeneratedMethodAccessor14.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:61)
+at org.hyperledger.fabric.contract.ContractRouter.processRequest(ContractRouter.java:115)
+at org.hyperledger.fabric.contract.ContractRouter.invoke(ContractRouter.java:126)
+at org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask.call(ChaincodeInvocationTask.java:100)
+at org.hyperledger.fabric.shim.impl.InvocationTaskManager.lambda$newTask$17(InvocationTaskManager.java:255)
+at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+2021-11-19T07:27:08.731768019Z 
+Thread[fabric-txinvoke:3,5,main] 07:27:08:731 SEVERE  org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask call                    [81e6c4c0] Invoke failed with error code 500. Sending ERROR
+Thread[fabric-txinvoke:4,5,main] 07:27:18:813 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got invoke routing request
+Thread[fabric-txinvoke:4,5,main] 07:27:18:813 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got the invoke request for:TrackingContract:readAsset [I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4]
+Thread[fabric-txinvoke:4,5,main] 07:27:18:814 INFO    org.hyperledger.fabric.contract.ContractRouter processRequest                    Got routing:readAsset:com.celeris.cef0023.TrackingContract
+Thread[fabric-txinvoke:4,5,main] 07:27:18:817 SEVERE  org.hyperledger.fabric.Logger error                                              Error during contract method executionorg.hyperledger.fabric.contract.ContractRuntimeException: Error during contract method execution
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:79)
+at org.hyperledger.fabric.contract.ContractRouter.processRequest(ContractRouter.java:115)
+at org.hyperledger.fabric.contract.ContractRouter.invoke(ContractRouter.java:126)
+at org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask.call(ChaincodeInvocationTask.java:100)
+at org.hyperledger.fabric.shim.impl.InvocationTaskManager.lambda$newTask$17(InvocationTaskManager.java:255)
+at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not exist
+at com.celeris.cef0023.TrackingContract.readAsset(TrackingContract.java:68)
+at jdk.internal.reflect.GeneratedMethodAccessor14.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:61)
+... 8 more
+.. caused by ..The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not existjava.lang.RuntimeException: The asset I|Invoice|invnr002|2018-07-01|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1|urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4 does not exist
+at com.celeris.cef0023.TrackingContract.readAsset(TrackingContract.java:68)
+at jdk.internal.reflect.GeneratedMethodAccessor14.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.hyperledger.fabric.contract.execution.impl.ContractExecutionService.executeRequest(ContractExecutionService.java:61)
+at org.hyperledger.fabric.contract.ContractRouter.processRequest(ContractRouter.java:115)
+at org.hyperledger.fabric.contract.ContractRouter.invoke(ContractRouter.java:126)
+at org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask.call(ChaincodeInvocationTask.java:100)
+at org.hyperledger.fabric.shim.impl.InvocationTaskManager.lambda$newTask$17(InvocationTaskManager.java:255)
+at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+2021-11-19T07:27:18.818573134Z 
+Thread[fabric-txinvoke:4,5,main] 07:27:18:817 SEVERE  org.hyperledger.fabric.shim.impl.ChaincodeInvocationTask call                    [d5932b88] Invoke failed with error code 500. Sending ERROR

@@ -1,0 +1,313 @@
+
+---
+################################################################################
+#   Section: Organizations
+################################################################################
+
+Organizations:
+    - &originator
+        Name: originatorMSP
+        ID: originatorMSP
+        MSPDir: fabric-ca/originator/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('originatorMSP.admin','originatorMSP.peer', 'originatorMSP.client', 'originatorMSP.orderer')"
+            Writers:
+                Type: Signature
+                Rule: "OR('originatorMSP.admin', 'originatorMSP.client', 'originatorMSP.orderer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('originatorMSP.admin')"
+            Orderers:
+                Type: Signature
+                Rule: "OR('originatorMSP.orderer')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('originatorMSP.peer')"
+        AnchorPeers:
+            - Host: peer.originator.securitization.com
+              Port: 7051
+        OrdererEndpoints:
+            - orderer.originator.securitization.com:7050
+
+    - &farmer
+        Name: farmerMSP
+        ID: farmerMSP
+        MSPDir: fabric-ca/farmer/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('farmerMSP.admin', 'farmerMSP.peer', 'farmerMSP.client', 'farmerMSP.orderer')"
+            Writers:
+                Type: Signature
+                Rule: "OR('farmerMSP.admin', 'farmerMSP.client', 'farmerMSP.orderer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('farmerMSP.admin')"
+            Orderers:
+                Type: Signature
+                Rule: "OR('farmerMSP.orderer')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('farmerMSP.peer')"
+        AnchorPeers:
+            - Host: peer.farmer.securitization.com
+              Port: 7051
+        OrdererEndpoints:
+            - orderer.farmer.securitization.com:7050
+
+    - &ratingagency
+        Name: ratingagencyMSP
+        ID: ratingagencyMSP
+        MSPDir: fabric-ca/ratingagency/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('ratingagencyMSP.admin', 'ratingagencyMSP.peer', 'ratingagencyMSP.client', 'ratingagencyMSP.orderer')"
+            Writers:
+                Type: Signature
+                Rule: "OR('ratingagencyMSP.admin', 'ratingagencyMSP.client', 'ratingagencyMSP.orderer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('ratingagencyMSP.admin')"
+            Orderers:
+                Type: Signature
+                Rule: "OR('ratingagencyMSP.orderer')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('ratingagencyMSP.peer')"
+        AnchorPeers:
+            - Host: peer.ratingagency.securitization.com
+              Port: 7051
+        OrdererEndpoints:
+            - orderer.ratingagency.securitization.com:7050
+
+    - &spv
+        Name: spvMSP
+        ID: spvMSP
+        MSPDir: fabric-ca/spv/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('spvMSP.admin', 'spvMSP.peer', 'spvMSP.client', 'spvMSP.orderer')"
+            Writers:
+                Type: Signature
+                Rule: "OR('spvMSP.admin', 'spvMSP.client', 'spvMSP.orderer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('spvMSP.admin')"
+            Orderers:
+                Type: Signature
+                Rule: "OR('spvMSP.orderer')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('spvMSP.peer')"
+        AnchorPeers:
+            - Host: peer.spv.securitization.com
+              Port: 7051
+        OrdererEndpoints:
+            - orderer.spv.securitization.com:7050
+
+
+    - &investor
+        Name: investorMSP
+        ID: investorMSP
+        MSPDir: fabric-ca/investor/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('investorMSP.admin', 'investorMSP.peer', 'investorMSP.client', 'investorMSP.orderer')"
+            Writers:
+                Type: Signature
+                Rule: "OR('investorMSP.admin', 'investorMSP.client', 'investorMSP.orderer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('investorMSP.admin')"
+            Orderers:
+                Type: Signature
+                Rule: "OR('investorMSP.orderer')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('investorMSP.peer')"
+        AnchorPeers:
+            - Host: peer.investor.securitization.com
+              Port: 7051
+        OrdererEndpoints:
+            - orderer.investor.securitization.com:7050
+
+
+################################################################################
+#   SECTION: Capabilities
+################################################################################
+Capabilities:
+    Channel: &ChannelCapabilities
+        V2_0: true
+
+    Orderer: &OrdererCapabilities
+        V2_0: true
+
+    Application: &ApplicationCapabilities
+        V2_0: true
+
+################################################################################
+#   SECTION: Application
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Application policies, their canonical path is
+    #   /Channel/Application/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+################################################################################
+#   SECTION: Orderer
+################################################################################
+Orderer: &OrdererDefaults
+    # Orderer Type: The orderer consensus algorithm
+    OrdererType: etcdraft
+    EtcdRaft:
+        Consenters:
+        - Host: orderer.originator.securitization.com
+          Port: 7050
+          ClientTLSCert: fabric-ca/originator/orderers/originator-orderer/tls/server.crt
+          ServerTLSCert: fabric-ca/originator/orderers/originator-orderer/tls/server.crt
+        - Host: orderer.farmer.securitization.com
+          Port: 7050
+          ClientTLSCert: fabric-ca/farmer/orderers/farmer-orderer/tls/server.crt
+          ServerTLSCert: fabric-ca/farmer/orderers/farmer-orderer/tls/server.crt
+        - Host: orderer.ratingagency.securitization.com
+          Port: 7050
+          ClientTLSCert: fabric-ca/ratingagency/orderers/ratingagency-orderer/tls/server.crt
+          ServerTLSCert: fabric-ca/ratingagency/orderers/ratingagency-orderer/tls/server.crt
+        - Host: orderer.spv.securitization.com
+          Port: 7050
+          ClientTLSCert: fabric-ca/spv/orderers/spv-orderer/tls/server.crt
+          ServerTLSCert: fabric-ca/spv/orderers/spv-orderer/tls/server.crt
+        - Host: orderer.investor.securitization.com
+          Port: 7050
+          ClientTLSCert: fabric-ca/investor/orderers/investor-orderer/tls/server.crt
+          ServerTLSCert: fabric-ca/investor/orderers/investor-orderer/tls/server.crt
+
+
+    Addresses:
+        - orderer.originator.securitization.com:7050
+        - oderer.farmer.securitization.com:7050
+        - orderer.ratingagency.securitization.com:7050
+        - orderer.spv.securitization.com:7050
+        - orderer.investor.securitization.com:7050
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 500
+        AbsoluteMaxBytes: 10 MB
+        PreferredMaxBytes: 2 MB
+
+
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        # BlockValidation specifies what signatures must be included in the block
+        # from the orderer for the peer to validate it.
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Orderers"
+
+################################################################################
+#
+#   CHANNEL
+#
+#   This section defines the values to encode into a config transaction or
+#   genesis block for channel related parameters.
+#
+################################################################################
+Channel: &ChannelDefaults
+    # Policies defines the set of policies at this level of the config tree
+    # For Channel policies, their canonical path is
+    #   /Channel/<PolicyName>
+    Policies:
+        # Who may invoke the 'Deliver' API
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        # Who may invoke the 'Broadcast' API
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        # By default, who may modify elements at this config level
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+    # Capabilities describes the channel level capabilities, see the
+    # dedicated Capabilities section elsewhere in this file for a full
+    # description
+    Capabilities:
+        <<: *ChannelCapabilities
+
+################################################################################
+#   Profile
+################################################################################
+Profiles:
+
+      FiveOrgsOrdererGenesis:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *originator
+                - *farmer
+                - *ratingagency
+                - *spv
+                - *investor
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *originator
+                    - *farmer
+                    - *ratingagency
+                    - *spv
+                    - *investor
+      FiveOrgsChannel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *originator
+                - *farmer
+                - *ratingagency
+                - *spv
+                - *investor
+            Capabilities:
+                <<: *ApplicationCapabilities

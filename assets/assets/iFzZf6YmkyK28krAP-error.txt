@@ -1,0 +1,137 @@
+2021-11-09T02:11:00Z INFO  alice::setup] provision_cloud_agent
+[2021-11-09T02:11:00Z TRACE aries_vcx::libindy::utils::signus] create_and_store_my_did >>> seed: None, method_name: None
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: agency_did, value: VsKV7grR1BUE29mG2Fm2kX
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: agency_verkey, value: Hezce2UWMZ3wUhVkh2LfKSs8nDzWwzs2Win7EzNN3YaR
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: agency_endpoint, value: https://ariesvcx.agency.staging.absa.id/agency/msg
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: sdk_to_remote_verkey, value: 3gmkHqKjh7oH9yWgGJ9RX9w45F8e63vqpvmpgPC6Etkv
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: sdk_to_remote_did, value: 5voUz6ycYzaBYXcKrSK5rb
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] set_config_value >>> key: remote_to_sdk_verkey, value: Hezce2UWMZ3wUhVkh2LfKSs8nDzWwzs2Win7EzNN3YaR
+[2021-11-09T02:11:00Z INFO  agency_client::agent_utils] onboarding >>> my_did: 5voUz6ycYzaBYXcKrSK5rb, my_vk: 3gmkHqKjh7oH9yWgGJ9RX9w45F8e63vqpvmpgPC6Etkv, agency_did: VsKV7grR1BUE29mG2Fm2kX
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: enable_test_mode
+[2021-11-09T02:11:00Z WARN  agency_client::mocking] Attempting to set mocked decrypted response when mocks are not enabled!
+[2021-11-09T02:11:00Z TRACE agency_client::agent_utils] connect >>> my_did: 5voUz6ycYzaBYXcKrSK5rb, my_vk: 3gmkHqKjh7oH9yWgGJ9RX9w45F8e63vqpvmpgPC6Etkv, agency_did: VsKV7grR1BUE29mG2Fm2kX
+[2021-11-09T02:11:00Z TRACE agency_client::agent_utils] send_message_to_agency >>> message: ..., did: VsKV7grR1BUE29mG2Fm2kX
+[2021-11-09T02:11:00Z TRACE agency_client] pack_for_agency_v2 >>>
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: remote_to_sdk_verkey
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: sdk_to_remote_verkey
+[2021-11-09T02:11:00Z TRACE agency_client::utils::libindy::crypto] pack_message >>> sender_vk: Some("3gmkHqKjh7oH9yWgGJ9RX9w45F8e63vqpvmpgPC6Etkv"), receiver_keys: ["Hezce2UWMZ3wUhVkh2LfKSs8nDzWwzs2Win7EzNN3YaR"], msg: ...
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: enable_test_mode
+[2021-11-09T02:11:00Z TRACE agency_client] prepare_forward_message >>>
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: agency_verkey
+[2021-11-09T02:11:00Z TRACE agency_client::utils::libindy::crypto] pack_message >>> sender_vk: None, receiver_keys: ["Hezce2UWMZ3wUhVkh2LfKSs8nDzWwzs2Win7EzNN3YaR"], msg: ...
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: enable_test_mode
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: agency_endpoint
+[2021-11-09T02:11:00Z TRACE agency_client::agency_settings] get_config_value >>> key: enable_test_mode
+thread 'main' panicked at 'Cannot drop a runtime in a context where blocking is not allowed. This happens when a runtime is dropped from within an asynchronous context.', /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/blocking/shutdown.rs:51:21
+stack backtrace:
+[2021-11-09T02:11:00Z TRACE mio::poll] registering with poller
+[2021-11-09T02:11:00Z TRACE reqwest::blocking::client] (ThreadId(4)) start runtime::block_on
+   0: std::panicking::begin_panic
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/panicking.rs:543:12
+   1: tokio::runtime::blocking::shutdown::Receiver::wait
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/blocking/shutdown.rs:51:21
+   2: tokio::runtime::blocking::pool::BlockingPool::shutdown
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/blocking/pool.rs:138:12
+   3: <tokio::runtime::blocking::pool::BlockingPool as core::ops::drop::Drop>::drop
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/blocking/pool.rs:148:9
+   4: core::ptr::drop_in_place<tokio::runtime::blocking::pool::BlockingPool>
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/ptr/mod.rs:188:1
+   5: core::ptr::drop_in_place<tokio::runtime::Runtime>
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/ptr/mod.rs:188:1
+   6: reqwest::blocking::wait::enter
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.10.10/src/blocking/wait.rs:74:26
+   7: reqwest::blocking::wait::timeout
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.10.10/src/blocking/wait.rs:14:5
+   8: reqwest::blocking::client::ClientHandle::new
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.10.10/src/blocking/client.rs:811:15
+   9: reqwest::blocking::client::ClientBuilder::build
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.10.10/src/blocking/client.rs:96:9
+  10: agency_client::httpclient::post_message
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/agency_client/src/httpclient.rs:34:18
+  11: agency_client::utils::comm::post_to_agency
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/agency_client/src/utils/comm.rs:6:5
+  12: agency_client::agent_utils::send_message_to_agency
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/agency_client/src/agent_utils.rs:243:20
+  13: agency_client::agent_utils::connect
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/agency_client/src/agent_utils.rs:151:24
+  14: agency_client::agent_utils::onboarding
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/agency_client/src/agent_utils.rs:174:30
+  15: aries_vcx::utils::provision::provision_cloud_agent
+             at /home/agent/.cargo/git/checkouts/aries-vcx-046471cd83c0bb14/a318ce2/aries_vcx/src/utils/provision.rs:38:33
+  16: alice::setup::initialize::{{closure}}
+             at ./src/setup.rs:118:25
+  17: <core::future::from_generator::GenFuture<T> as core::future::future::Future>::poll
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/future/mod.rs:80:19
+  18: alice::main::{{closure}}
+             at ./src/main.rs:132:18
+  19: <core::future::from_generator::GenFuture<T> as core::future::future::Future>::poll
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/future/mod.rs:80:19
+  20: <tokio::task::local::RunUntil<T> as core::future::future::Future>::poll::{{closure}}::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:528:65
+  21: tokio::coop::with_budget::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:127:9
+  22: std::thread::local::LocalKey<T>::try_with
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/thread/local.rs:399:16
+  23: std::thread::local::LocalKey<T>::with
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/thread/local.rs:375:9
+  24: tokio::coop::with_budget
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:120:5
+  25: tokio::coop::budget
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:96:5
+  26: <tokio::task::local::RunUntil<T> as core::future::future::Future>::poll::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:528:42
+  27: tokio::macros::scoped_tls::ScopedKey<T>::set
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/macros/scoped_tls.rs:63:9
+  28: tokio::task::local::LocalSet::with
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:442:9
+  29: <tokio::task::local::RunUntil<T> as core::future::future::Future>::poll
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:518:9
+  30: tokio::task::local::LocalSet::run_until::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:392:9
+  31: <core::future::from_generator::GenFuture<T> as core::future::future::Future>::poll
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/future/mod.rs:80:19
+  32: tokio::runtime::basic_scheduler::BasicScheduler<P>::block_on::{{closure}}::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/basic_scheduler.rs:131:58
+  33: tokio::coop::with_budget::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:127:9
+  34: std::thread::local::LocalKey<T>::try_with
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/thread/local.rs:399:16
+  35: std::thread::local::LocalKey<T>::with
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/std/src/thread/local.rs:375:9
+  36: tokio::coop::with_budget
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:120:5
+  37: tokio::coop::budget
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/coop.rs:96:5
+  38: tokio::runtime::basic_scheduler::BasicScheduler<P>::block_on::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/basic_scheduler.rs:131:35
+  39: tokio::runtime::basic_scheduler::enter::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/basic_scheduler.rs:213:29
+  40: tokio::macros::scoped_tls::ScopedKey<T>::set
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/macros/scoped_tls.rs:63:9
+  41: tokio::runtime::basic_scheduler::enter
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/basic_scheduler.rs:213:5
+  42: tokio::runtime::basic_scheduler::BasicScheduler<P>::block_on
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/basic_scheduler.rs:123:9
+  43: tokio::runtime::Runtime::block_on::{{closure}}
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/mod.rs:444:34
+  44: tokio::runtime::context::enter
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/context.rs:72:5
+  45: tokio::runtime::handle::Handle::enter
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/handle.rs:76:9
+  46: tokio::runtime::Runtime::block_on
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/runtime/mod.rs:441:9
+  47: tokio::task::local::LocalSet::block_on
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-0.2.25/src/task/local.rs:353:9
+  48: actix_rt::runtime::Runtime::block_on
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-1.1.1/src/runtime.rs:89:9
+  49: actix_rt::builder::SystemRunner::block_on
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-1.1.1/src/builder.rs:187:19
+  50: alice::main
+             at ./src/main.rs:123:1
+  51: core::ops::function::FnOnce::call_once
+             at /rustc/59eed8a2aac0230a8b53e89d4e99d55912ba6b35/library/core/src/ops/function.rs:227:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+Panic in Arbiter thread.
+[2021-11-09T02:11:01Z TRACE reqwest::blocking::client] (ThreadId(4)) Receiver is shutdown
+[2021-11-09T02:11:01Z TRACE mio::poll] deregistering handle with poller
+[2021-11-09T02:11:01Z TRACE want] signal: Closed

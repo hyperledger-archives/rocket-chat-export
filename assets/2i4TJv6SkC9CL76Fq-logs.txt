@@ -1,0 +1,243 @@
+2018-01-25 11:14:19.361 UTC [endorser] ProcessProposal -> DEBU 2bf6 Entry
+2018-01-25 11:14:19.365 UTC [protoutils] ValidateProposalMessage -> DEBU 2bf7 ValidateProposalMessage starts for signed proposal 0xc4219a8450
+2018-01-25 11:14:19.365 UTC [protoutils] validateChannelHeader -> DEBU 2bf8 validateChannelHeader info: header type 3
+2018-01-25 11:14:19.365 UTC [protoutils] checkSignatureFromCreator -> DEBU 2bf9 checkSignatureFromCreator starts
+2018-01-25 11:14:19.365 UTC [protoutils] checkSignatureFromCreator -> DEBU 2bfa checkSignatureFromCreator info: creator is &{grb-vlaanderen-be-MSP b40831781a56fc33d3238538921f28b3d5a78c553bff999f2d183b2b83929601}
+2018-01-25 11:14:19.365 UTC [protoutils] checkSignatureFromCreator -> DEBU 2bfb checkSignatureFromCreator info: creator is valid
+2018-01-25 11:14:19.365 UTC [protoutils] checkSignatureFromCreator -> DEBU 2bfc checkSignatureFromCreator exists successfully
+2018-01-25 11:14:19.365 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 2bfd validateChaincodeProposalMessage starts for proposal 0xc4216160a0, header 0xc4219a8480
+2018-01-25 11:14:19.365 UTC [protoutils] validateChaincodeProposalMessage -> DEBU 2bfe validateChaincodeProposalMessage info: header extension references chaincode name:"publicchaincode"
+2018-01-25 11:14:19.365 UTC [endorser] ProcessProposal -> DEBU 2bff processing txid: 9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f
+2018-01-25 11:14:19.365 UTC [fsblkstorage] retrieveTransactionByID -> DEBU 2c00 retrieveTransactionByID() - txId = [9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f]
+2018-01-25 11:14:19.370 UTC [lockbasedtxmgr] NewTxSimulator -> DEBU 2c01 constructing new tx simulator
+2018-01-25 11:14:19.370 UTC [lockbasedtxmgr] newLockBasedTxSimulator -> DEBU 2c02 constructing new tx simulator txid = [9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f]
+2018-01-25 11:14:19.370 UTC [endorser] simulateProposal -> DEBU 2c03 Entry - txid: 9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f channel id: publicchannel
+2018-01-25 11:14:19.370 UTC [ccprovider] NewCCContext -> DEBU 2c04 NewCCCC (chain=publicchannel,chaincode=lscc,version=1.1.0-preview,txid=9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f,syscc=true,proposal=0xc4216160a0,canname=lscc:1.1.0-preview
+2018-01-25 11:14:19.370 UTC [chaincode] Launch -> DEBU 2c05 chaincode is running(no need to launch) : lscc:1.1.0-preview
+2018-01-25 11:14:19.370 UTC [chaincode] Execute -> DEBU 2c06 Entry
+2018-01-25 11:14:19.370 UTC [chaincode] Execute -> DEBU 2c07 chaincode canonical name: lscc:1.1.0-preview
+2018-01-25 11:14:19.370 UTC [chaincode] sendExecuteMessage -> DEBU 2c08 [96864199]Inside sendExecuteMessage. Message TRANSACTION
+2018-01-25 11:14:19.370 UTC [chaincode] setChaincodeProposal -> DEBU 2c09 Setting chaincode proposal context...
+2018-01-25 11:14:19.370 UTC [chaincode] setChaincodeProposal -> DEBU 2c0a Proposal different from nil. Creating chaincode proposal context...
+2018-01-25 11:14:19.371 UTC [chaincode] sendExecuteMessage -> DEBU 2c0b [96864199]sendExecuteMsg trigger event TRANSACTION
+2018-01-25 11:14:19.371 UTC [chaincode] processStream -> DEBU 2c0c [96864199]Move state message TRANSACTION
+2018-01-25 11:14:19.371 UTC [chaincode] handleMessage -> DEBU 2c0d [96864199]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2018-01-25 11:14:19.371 UTC [chaincode] filterError -> DEBU 2c0e Ignoring NoTransitionError: no transition
+2018-01-25 11:14:19.371 UTC [chaincode] processStream -> DEBU 2c0f [96864199]sending state message TRANSACTION
+2018-01-25 11:14:19.371 UTC [shim] func1 -> DEBU 2c10 [96864199]Received message TRANSACTION from shim
+2018-01-25 11:14:19.371 UTC [shim] handleMessage -> DEBU 2c11 [96864199]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-01-25 11:14:19.371 UTC [shim] beforeTransaction -> DEBU 2c12 [96864199]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2018-01-25 11:14:19.372 UTC [shim] handleGetState -> DEBU 2c13 [96864199]Sending GET_STATE
+2018-01-25 11:14:19.372 UTC [chaincode] processStream -> DEBU 2c14 [96864199]Received message GET_STATE from shim
+2018-01-25 11:14:19.372 UTC [chaincode] handleMessage -> DEBU 2c15 [96864199]Fabric side Handling ChaincodeMessage of type: GET_STATE in state ready
+2018-01-25 11:14:19.372 UTC [chaincode] afterGetState -> DEBU 2c16 [96864199]Received GET_STATE, invoking get state from ledger
+2018-01-25 11:14:19.372 UTC [chaincode] filterError -> DEBU 2c17 Ignoring NoTransitionError: no transition
+2018-01-25 11:14:19.372 UTC [chaincode] func1 -> DEBU 2c18 [96864199] getting state for chaincode lscc, key publicchaincode, channel publicchannel
+2018-01-25 11:14:19.372 UTC [statecouchdb] GetState -> DEBU 2c19 GetState(). ns=lscc, key=publicchaincode
+2018-01-25 11:14:19.372 UTC [couchdb] ReadDoc -> DEBU 2c1a Entering ReadDoc()  id=[lsccpublicchaincode]
+2018-01-25 11:14:19.373 UTC [couchdb] encodePathElement -> DEBU 2c1b Entering encodePathElement()  string=lsccpublicchaincode
+2018-01-25 11:14:19.373 UTC [couchdb] encodePathElement -> DEBU 2c1c Exiting encodePathElement()  encodedStr=lscc%00publicchaincode
+2018-01-25 11:14:19.373 UTC [couchdb] handleRequest -> DEBU 2c1d Entering handleRequest()  method=GET  url=http://172.17.0.1:5984/publicchannel/lscc%00publicchaincode?attachments=true
+2018-01-25 11:14:19.373 UTC [couchdb] handleRequest -> DEBU 2c1e HTTP Request: GET /publicchannel/lscc%00publicchaincode?attachments=true HTTP/1.1 | Host: 172.17.0.1:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic YWRtaW46cGFzc3dvcmQ= | Accept-Encoding: gzip |  |
+2018-01-25 11:14:19.381 UTC [couchdb] handleRequest -> DEBU 2c1f Exiting handleRequest()
+2018-01-25 11:14:19.384 UTC [couchdb] ReadDoc -> DEBU 2c20 part header=map[Content-Type:[application/json]]
+2018-01-25 11:14:19.384 UTC [couchdb] ReadDoc -> DEBU 2c21 part header=map[Content-Type:[application/octet-stream] Content-Length:[265] Content-Encoding:[gzip] Content-Disposition:[attachment; filename="valueBytes"]]
+2018-01-25 11:14:19.384 UTC [couchdb] ReadDoc -> DEBU 2c22 Retrieved attachment data
+2018-01-25 11:14:19.385 UTC [chaincode] func1 -> DEBU 2c23 [96864199]Got state. Sending RESPONSE
+2018-01-25 11:14:19.385 UTC [chaincode] 1 -> DEBU 2c24 [96864199]handleGetState serial send RESPONSE
+2018-01-25 11:14:19.385 UTC [shim] func1 -> DEBU 2c25 [96864199]Received message RESPONSE from shim
+2018-01-25 11:14:19.385 UTC [shim] handleMessage -> DEBU 2c26 [96864199]Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-01-25 11:14:19.385 UTC [shim] sendChannel -> DEBU 2c27 [96864199]before send
+2018-01-25 11:14:19.385 UTC [shim] sendChannel -> DEBU 2c28 [96864199]after send
+2018-01-25 11:14:19.385 UTC [shim] afterResponse -> DEBU 2c29 [96864199]Received RESPONSE, communicated (state:ready)
+2018-01-25 11:14:19.385 UTC [shim] handleGetState -> DEBU 2c2a [96864199]GetState received payload RESPONSE
+2018-01-25 11:14:19.385 UTC [shim] func1 -> DEBU 2c2b [96864199]Transaction completed. Sending COMPLETED
+2018-01-25 11:14:19.385 UTC [shim] func1 -> DEBU 2c2c [96864199]Move state message COMPLETED
+2018-01-25 11:14:19.385 UTC [shim] handleMessage -> DEBU 2c2d [96864199]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2018-01-25 11:14:19.385 UTC [shim] func1 -> DEBU 2c2e [96864199]send state message COMPLETED
+2018-01-25 11:14:19.385 UTC [chaincode] processStream -> DEBU 2c2f [96864199]Received message COMPLETED from shim
+2018-01-25 11:14:19.385 UTC [chaincode] handleMessage -> DEBU 2c30 [96864199]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2018-01-25 11:14:19.385 UTC [chaincode] handleMessage -> DEBU 2c31 [9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f]HandleMessage- COMPLETED. Notify
+2018-01-25 11:14:19.385 UTC [chaincode] notify -> DEBU 2c32 notifying Txid:9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f
+2018-01-25 11:14:19.385 UTC [chaincode] Execute -> DEBU 2c33 Exit
+2018-01-25 11:14:19.385 UTC [ccprovider] GetChaincodeData -> DEBU 2c34 Getting chaincode data for <publicchaincode, 1.0.4> from cache
+2018-01-25 11:14:19.385 UTC [endorser] callChaincode -> DEBU 2c35 Entry - txid: 9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f channel id: publicchannel version: 1.0.4
+2018-01-25 11:14:19.385 UTC [ccprovider] NewCCContext -> DEBU 2c36 NewCCCC (chain=publicchannel,chaincode=publicchaincode,version=1.0.4,txid=9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f,syscc=false,proposal=0xc4216160a0,canname=publicchaincode:1.0.4
+2018-01-25 11:14:19.385 UTC [ccprovider] NewCCContext -> DEBU 2c37 NewCCCC (chain=publicchannel,chaincode=lscc,version=1.1.0-preview,txid=9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f,syscc=true,proposal=0xc4216160a0,canname=lscc:1.1.0-preview
+2018-01-25 11:14:19.385 UTC [chaincode] Launch -> DEBU 2c38 chaincode is running(no need to launch) : lscc:1.1.0-preview
+2018-01-25 11:14:19.385 UTC [chaincode] Execute -> DEBU 2c39 Entry
+2018-01-25 11:14:19.385 UTC [chaincode] Execute -> DEBU 2c3a chaincode canonical name: lscc:1.1.0-preview
+2018-01-25 11:14:19.385 UTC [chaincode] sendExecuteMessage -> DEBU 2c3b [96864199]Inside sendExecuteMessage. Message TRANSACTION
+2018-01-25 11:14:19.385 UTC [chaincode] setChaincodeProposal -> DEBU 2c3c Setting chaincode proposal context...
+2018-01-25 11:14:19.385 UTC [chaincode] setChaincodeProposal -> DEBU 2c3d Proposal different from nil. Creating chaincode proposal context...
+2018-01-25 11:14:19.385 UTC [chaincode] sendExecuteMessage -> DEBU 2c3e [96864199]sendExecuteMsg trigger event TRANSACTION
+2018-01-25 11:14:19.385 UTC [chaincode] processStream -> DEBU 2c3f [96864199]Move state message TRANSACTION
+2018-01-25 11:14:19.385 UTC [chaincode] handleMessage -> DEBU 2c40 [96864199]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2018-01-25 11:14:19.385 UTC [chaincode] filterError -> DEBU 2c41 Ignoring NoTransitionError: no transition
+2018-01-25 11:14:19.385 UTC [chaincode] processStream -> DEBU 2c42 [96864199]sending state message TRANSACTION
+2018-01-25 11:14:19.385 UTC [shim] func1 -> DEBU 2c43 [96864199]Received message TRANSACTION from shim
+2018-01-25 11:14:19.385 UTC [shim] handleMessage -> DEBU 2c44 [96864199]Handling ChaincodeMessage of type: TRANSACTION(state:ready)
+2018-01-25 11:14:19.385 UTC [shim] beforeTransaction -> DEBU 2c45 [96864199]Received TRANSACTION, invoking transaction on chaincode(Src:ready, Dst:ready)
+2018-01-25 11:14:19.386 UTC [shim] handleGetState -> DEBU 2c46 [96864199]Sending GET_STATE
+2018-01-25 11:14:19.386 UTC [chaincode] processStream -> DEBU 2c47 [96864199]Received message GET_STATE from shim
+2018-01-25 11:14:19.386 UTC [chaincode] handleMessage -> DEBU 2c48 [96864199]Fabric side Handling ChaincodeMessage of type: GET_STATE in state ready
+2018-01-25 11:14:19.386 UTC [chaincode] afterGetState -> DEBU 2c49 [96864199]Received GET_STATE, invoking get state from ledger
+2018-01-25 11:14:19.386 UTC [chaincode] filterError -> DEBU 2c4a Ignoring NoTransitionError: no transition
+2018-01-25 11:14:19.386 UTC [chaincode] func1 -> DEBU 2c4b [96864199] getting state for chaincode lscc, key publicchaincode, channel publicchannel
+2018-01-25 11:14:19.386 UTC [statecouchdb] GetState -> DEBU 2c4c GetState(). ns=lscc, key=publicchaincode
+2018-01-25 11:14:19.386 UTC [couchdb] ReadDoc -> DEBU 2c4d Entering ReadDoc()  id=[lsccpublicchaincode]
+2018-01-25 11:14:19.386 UTC [couchdb] encodePathElement -> DEBU 2c4e Entering encodePathElement()  string=lsccpublicchaincode
+2018-01-25 11:14:19.386 UTC [couchdb] encodePathElement -> DEBU 2c4f Exiting encodePathElement()  encodedStr=lscc%00publicchaincode
+2018-01-25 11:14:19.386 UTC [couchdb] handleRequest -> DEBU 2c50 Entering handleRequest()  method=GET  url=http://172.17.0.1:5984/publicchannel/lscc%00publicchaincode?attachments=true
+2018-01-25 11:14:19.387 UTC [couchdb] handleRequest -> DEBU 2c51 HTTP Request: GET /publicchannel/lscc%00publicchaincode?attachments=true HTTP/1.1 | Host: 172.17.0.1:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic YWRtaW46cGFzc3dvcmQ= | Accept-Encoding: gzip |  |
+2018-01-25 11:14:19.394 UTC [couchdb] handleRequest -> DEBU 2c52 Exiting handleRequest()
+2018-01-25 11:14:19.394 UTC [couchdb] ReadDoc -> DEBU 2c53 part header=map[Content-Type:[application/json]]
+2018-01-25 11:14:19.394 UTC [couchdb] ReadDoc -> DEBU 2c54 part header=map[Content-Disposition:[attachment; filename="valueBytes"] Content-Type:[application/octet-stream] Content-Length:[265] Content-Encoding:[gzip]]
+2018-01-25 11:14:19.394 UTC [couchdb] ReadDoc -> DEBU 2c55 Retrieved attachment data
+2018-01-25 11:14:19.394 UTC [chaincode] func1 -> DEBU 2c56 [96864199]Got state. Sending RESPONSE
+2018-01-25 11:14:19.394 UTC [chaincode] 1 -> DEBU 2c57 [96864199]handleGetState serial send RESPONSE
+2018-01-25 11:14:19.394 UTC [shim] func1 -> DEBU 2c58 [96864199]Received message RESPONSE from shim
+2018-01-25 11:14:19.394 UTC [shim] handleMessage -> DEBU 2c59 [96864199]Handling ChaincodeMessage of type: RESPONSE(state:ready)
+2018-01-25 11:14:19.394 UTC [shim] sendChannel -> DEBU 2c5a [96864199]before send
+2018-01-25 11:14:19.394 UTC [shim] sendChannel -> DEBU 2c5b [96864199]after send
+2018-01-25 11:14:19.394 UTC [shim] afterResponse -> DEBU 2c5c [96864199]Received RESPONSE, communicated (state:ready)
+2018-01-25 11:14:19.394 UTC [shim] handleGetState -> DEBU 2c5d [96864199]GetState received payload RESPONSE
+2018-01-25 11:14:19.394 UTC [shim] func1 -> DEBU 2c5e [96864199]Transaction completed. Sending COMPLETED
+2018-01-25 11:14:19.394 UTC [shim] func1 -> DEBU 2c5f [96864199]Move state message COMPLETED
+2018-01-25 11:14:19.394 UTC [shim] handleMessage -> DEBU 2c60 [96864199]Handling ChaincodeMessage of type: COMPLETED(state:ready)
+2018-01-25 11:14:19.394 UTC [shim] func1 -> DEBU 2c61 [96864199]send state message COMPLETED
+2018-01-25 11:14:19.394 UTC [chaincode] processStream -> DEBU 2c62 [96864199]Received message COMPLETED from shim
+2018-01-25 11:14:19.394 UTC [chaincode] handleMessage -> DEBU 2c63 [96864199]Fabric side Handling ChaincodeMessage of type: COMPLETED in state ready
+2018-01-25 11:14:19.394 UTC [chaincode] handleMessage -> DEBU 2c64 [9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f]HandleMessage- COMPLETED. Notify
+2018-01-25 11:14:19.394 UTC [chaincode] notify -> DEBU 2c65 notifying Txid:9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f
+2018-01-25 11:14:19.394 UTC [chaincode] Execute -> DEBU 2c66 Exit
+2018-01-25 11:14:19.395 UTC [chaincode] launchAndWaitForRegister -> DEBU 2c67 chaincode publicchaincode:1.0.4 is being launched
+2018-01-25 11:14:19.395 UTC [chaincode] getLaunchConfigs -> DEBU 2c68 Executable is /bin/sh
+2018-01-25 11:14:19.395 UTC [chaincode] getLaunchConfigs -> DEBU 2c69 Args [/bin/sh -c cd /usr/local/src; npm start -- --peer.address epeer1.org3.com:7052]
+2018-01-25 11:14:19.395 UTC [chaincode] getLaunchConfigs -> DEBU 2c6a Envs [CORE_CHAINCODE_ID_NAME=publicchaincode:1.0.4 CORE_PEER_TLS_ENABLED=true CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt CORE_CHAINCODE_LOGGING_LEVEL=info CORE_CHAINCODE_LOGGING_SHIM=warning CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}]
+2018-01-25 11:14:19.395 UTC [chaincode] getLaunchConfigs -> DEBU 2c6b FilesToUpload [/etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/client.crt]
+2018-01-25 11:14:19.395 UTC [chaincode] launch -> DEBU 2c6c start container: publicchaincode:1.0.4(networkid:dev,peerid:epeer1.org3.com)
+2018-01-25 11:14:19.395 UTC [chaincode] launch -> DEBU 2c6d start container with args: /bin/sh -c cd /usr/local/src; npm start -- --peer.address epeer1.org3.com:7052
+2018-01-25 11:14:19.395 UTC [chaincode] launch -> DEBU 2c6e start container with env:
+	CORE_CHAINCODE_ID_NAME=publicchaincode:1.0.4
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+2018-01-25 11:14:19.395 UTC [container] lockContainer -> DEBU 2c6f waiting for container(dev-epeer1.org3.com-publicchaincode-1.0.4) lock
+2018-01-25 11:14:19.395 UTC [container] lockContainer -> DEBU 2c70 got container (dev-epeer1.org3.com-publicchaincode-1.0.4) lock
+2018-01-25 11:14:19.395 UTC [dockercontroller] Start -> DEBU 2c71 Cleanup container dev-epeer1.org3.com-publicchaincode-1.0.4
+2018-01-25 11:14:19.401 UTC [dockercontroller] stopInternal -> DEBU 2c72 Stop container dev-epeer1.org3.com-publicchaincode-1.0.4(No such container: dev-epeer1.org3.com-publicchaincode-1.0.4)
+2018-01-25 11:14:19.402 UTC [dockercontroller] stopInternal -> DEBU 2c73 Kill container dev-epeer1.org3.com-publicchaincode-1.0.4 (No such container: dev-epeer1.org3.com-publicchaincode-1.0.4)
+2018-01-25 11:14:19.402 UTC [dockercontroller] stopInternal -> DEBU 2c74 Remove container dev-epeer1.org3.com-publicchaincode-1.0.4 (No such container: dev-epeer1.org3.com-publicchaincode-1.0.4)
+2018-01-25 11:14:19.403 UTC [dockercontroller] Start -> DEBU 2c75 Start container dev-epeer1.org3.com-publicchaincode-1.0.4
+2018-01-25 11:14:19.403 UTC [dockercontroller] createContainer -> DEBU 2c76 Create container: dev-epeer1.org3.com-publicchaincode-1.0.4
+2018-01-25 11:14:19.404 UTC [dockercontroller] Start -> DEBU 2c77 start-could not find image <dev-epeer1.org3.com-publicchaincode-1.0.4-bf65a939d55ce4a97c80d793426c38f41f0b819450798544020530383c5ffab6> (container id <dev-epeer1.org3.com-publicchaincode-1.0.4>), because of <no such image>...attempt to recreate image
+2018-01-25 11:14:19.405 UTC [chaincode-platform] generateDockerfile -> DEBU 2c78
+FROM hyperledger/fabric-baseimage:x86_64-0.4.2
+ADD binpackage.tar /usr/local/src
+LABEL org.hyperledger.fabric.chaincode.id.name="publicchaincode" \
+      org.hyperledger.fabric.chaincode.id.version="1.0.4" \
+      org.hyperledger.fabric.chaincode.type="NODE" \
+      org.hyperledger.fabric.version="1.1.0-preview" \
+      org.hyperledger.fabric.base.version="0.4.2"
+ENV CORE_CHAINCODE_BUILDLEVEL=1.1.0-preview
+ENV CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+COPY peer.crt /etc/hyperledger/fabric/peer.crt
+2018-01-25 11:14:19.406 UTC [util] DockerBuild -> DEBU 2c79 Attempting build with image hyperledger/fabric-ccenv:x86_64-1.1.0-preview
+2018-01-25 11:14:53.392 UTC [dockercontroller] deployImage -> DEBU 2c7a Created image: dev-epeer1.org3.com-publicchaincode-1.0.4-bf65a939d55ce4a97c80d793426c38f41f0b819450798544020530383c5ffab6
+2018-01-25 11:14:53.392 UTC [dockercontroller] Start -> DEBU 2c7b start-recreated image successfully
+2018-01-25 11:14:53.392 UTC [dockercontroller] createContainer -> DEBU 2c7c Create container: dev-epeer1.org3.com-publicchaincode-1.0.4
+2018-01-25 11:14:53.453 UTC [dockercontroller] createContainer -> DEBU 2c7d Created container: dev-epeer1.org3.com-publicchaincode-1.0.4-bf65a939d55ce4a97c80d793426c38f41f0b819450798544020530383c5ffab6
+2018-01-25 11:14:53.837 UTC [dockercontroller] Start -> DEBU 2c7e Started container dev-epeer1.org3.com-publicchaincode-1.0.4
+2018-01-25 11:14:53.837 UTC [container] unlockContainer -> DEBU 2c7f container lock deleted(dev-epeer1.org3.com-publicchaincode-1.0.4)
+2018-01-25 11:14:55.044 UTC [accessControl] authenticate -> DEBU 2c80 Chaincode publicchaincode:1.0.4 's authentication is authorized
+2018-01-25 11:14:55.044 UTC [chaincode] HandleChaincodeStream -> DEBU 2c81 Current context deadline = 0001-01-01 00:00:00 +0000 UTC, ok = false
+2018-01-25 11:14:55.048 UTC [chaincode] processStream -> DEBU 2c82 []Received message REGISTER from shim
+2018-01-25 11:14:55.048 UTC [chaincode] handleMessage -> DEBU 2c83 []Fabric side Handling ChaincodeMessage of type: REGISTER in state created
+2018-01-25 11:14:55.048 UTC [chaincode] beforeRegisterEvent -> DEBU 2c84 Received REGISTER in state created
+2018-01-25 11:14:55.048 UTC [chaincode] registerHandler -> DEBU 2c85 registered handler complete for chaincode publicchaincode:1.0.4
+2018-01-25 11:14:55.048 UTC [chaincode] beforeRegisterEvent -> DEBU 2c86 Got REGISTER for chaincodeID = name:"publicchaincode:1.0.4" , sending back REGISTERED
+2018-01-25 11:14:55.048 UTC [chaincode] notifyDuringStartup -> DEBU 2c87 Notifying during startup
+2018-01-25 11:14:55.048 UTC [chaincode] func1 -> DEBU 2c88 chaincode publicchaincode:1.0.4 launch seq completed
+2018-01-25 11:14:55.048 UTC [chaincode] ready -> DEBU 2c89 sending READY
+2018-01-25 11:14:55.048 UTC [chaincode] setChaincodeProposal -> DEBU 2c8a Setting chaincode proposal context...
+2018-01-25 11:14:55.048 UTC [chaincode] setChaincodeProposal -> DEBU 2c8b Proposal different from nil. Creating chaincode proposal context...
+2018-01-25 11:14:55.048 UTC [chaincode] processStream -> DEBU 2c8c [96864199]Move state message READY
+2018-01-25 11:14:55.048 UTC [chaincode] handleMessage -> DEBU 2c8d [96864199]Fabric side Handling ChaincodeMessage of type: READY in state established
+2018-01-25 11:14:55.048 UTC [chaincode] enterReadyState -> DEBU 2c8e [96864199]Entered state ready
+2018-01-25 11:14:55.048 UTC [chaincode] notify -> DEBU 2c8f notifying Txid:9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f
+2018-01-25 11:14:55.048 UTC [chaincode] processStream -> DEBU 2c90 [96864199]sending state message READY
+2018-01-25 11:14:55.048 UTC [chaincode] Launch -> DEBU 2c91 sending init completed
+2018-01-25 11:14:55.048 UTC [chaincode] Launch -> DEBU 2c92 LaunchChaincode complete
+2018-01-25 11:14:55.048 UTC [chaincode] Execute -> DEBU 2c93 Entry
+2018-01-25 11:14:55.048 UTC [chaincode] Execute -> DEBU 2c94 chaincode canonical name: publicchaincode:1.0.4
+2018-01-25 11:14:55.048 UTC [chaincode] sendExecuteMessage -> DEBU 2c95 [96864199]Inside sendExecuteMessage. Message TRANSACTION
+2018-01-25 11:14:55.048 UTC [chaincode] setChaincodeProposal -> DEBU 2c96 Setting chaincode proposal context...
+2018-01-25 11:14:55.048 UTC [chaincode] setChaincodeProposal -> DEBU 2c97 Proposal different from nil. Creating chaincode proposal context...
+2018-01-25 11:14:55.048 UTC [chaincode] sendExecuteMessage -> DEBU 2c98 [96864199]sendExecuteMsg trigger event TRANSACTION
+2018-01-25 11:14:55.048 UTC [chaincode] processStream -> DEBU 2c99 [96864199]Move state message TRANSACTION
+2018-01-25 11:14:55.049 UTC [chaincode] handleMessage -> DEBU 2c9a [96864199]Fabric side Handling ChaincodeMessage of type: TRANSACTION in state ready
+2018-01-25 11:14:55.049 UTC [chaincode] filterError -> DEBU 2c9b Ignoring NoTransitionError: no transition
+2018-01-25 11:14:55.049 UTC [chaincode] processStream -> DEBU 2c9c [96864199]sending state message TRANSACTION
+2018-01-25 11:15:25.049 UTC [chaincode] Execute -> DEBU 2c9d Exit
+2018-01-25 11:15:25.055 UTC [chaincode] ExecuteChaincode -> ERRO 2c9e timeout expired while executing transaction
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:823
+github.com/hyperledger/fabric/core/chaincode.Execute
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:58
+github.com/hyperledger/fabric/core/chaincode.ExecuteChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:85
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:117
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:262
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:477
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551
+runtime.goexit
+	/opt/go/src/runtime/asm_amd64.s:2337
+failed to execute transaction
+error executing chaincode
+2018-01-25 11:15:25.055 UTC [endorser] callChaincode -> DEBU 2c9f Exit
+2018-01-25 11:15:25.055 UTC [endorser] simulateProposal -> ERRO 2ca0 failed to invoke chaincode name:"publicchaincode"  on transaction 9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f, error: timeout expired while executing transaction
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Execute
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:823
+github.com/hyperledger/fabric/core/chaincode.Execute
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:58
+github.com/hyperledger/fabric/core/chaincode.ExecuteChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincodeexec.go:85
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:117
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:262
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:477
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+	/opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+	/opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+	/opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551
+runtime.goexit
+	/opt/go/src/runtime/asm_amd64.s:2337
+failed to execute transaction
+error executing chaincode
+2018-01-25 11:15:25.055 UTC [endorser] simulateProposal -> DEBU 2ca1 Exit
+2018-01-25 11:15:25.055 UTC [lockbasedtxmgr] Done -> DEBU 2ca2 Done with transaction simulation / query execution [9686419971765fe3381a715088eb449dbc253ad358203222740c1cd0e0e2f84f]
+2018-01-25 11:15:25.055 UTC [endorser] ProcessProposal -> DEBU 2ca3 Exit

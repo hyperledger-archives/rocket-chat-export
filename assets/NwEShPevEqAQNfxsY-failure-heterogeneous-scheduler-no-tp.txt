@@ -1,0 +1,1124 @@
+INFO:__main__:Bringing up with ['docker-compose', '-p', 'latest', '-f', 'integration/sawtooth_integration/docker/test_poet_smoke.yaml', 'up', '--abort-on-container-exit']
+Creating network "latest_default" with the default driver
+Creating latest_rest-api-2_1
+Creating latest_tp-settings-2_1
+Creating latest_tp-validator-registry-2_1
+Creating latest_rest-api-1_1
+Creating latest_rest-api-0_1
+Creating latest_tp-validator-registry-0_1
+Creating latest_validator-0_1
+Creating latest_tp-settings-0_1
+Creating latest_tp-settings-1_1
+Creating latest_tp-validator-registry-1_1
+Creating latest_test-poet-smoke_1
+Creating latest_validator-1_1
+Creating latest_validator-2_1
+rest-api-0_1               | [04:03:48.968 INFO     rest_api] Creating handlers for validator at tcp://validator-0:4004
+rest-api-0_1               | [04:03:48.982 INFO     rest_api] Starting REST API on rest-api-0:8080
+rest-api-1_1               | [04:03:48.388 INFO     rest_api] Creating handlers for validator at tcp://validator-1:4004
+rest-api-1_1               | [04:03:48.404 INFO     rest_api] Starting REST API on rest-api-1:8080
+rest-api-2_1               | [04:03:52.169 INFO     rest_api] Creating handlers for validator at tcp://validator-2:4004
+rest-api-2_1               | [04:03:52.182 INFO     rest_api] Starting REST API on rest-api-2:8080
+validator-0_1              | writing file: /etc/sawtooth/keys/validator.priv
+validator-0_1              | writing file: /etc/sawtooth/keys/validator.pub
+validator-0_1              | Generated config-genesis.batch
+validator-1_1              | writing file: /etc/sawtooth/keys/validator.priv
+validator-1_1              | writing file: /etc/sawtooth/keys/validator.pub
+rest-api-0_1               | [04:04:02.596 INFO     rest_api] Request  36b86b: "GET /blocks" from 172.19.0.18
+validator-2_1              | writing file: /etc/sawtooth/keys/validator.priv
+validator-2_1              | writing file: /etc/sawtooth/keys/validator.pub
+validator-1_1              | [04:04:04.914 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+validator-1_1              | [04:04:04.915 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+validator-1_1              | [04:04:04.935 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+validator-1_1              | [04:04:04.943 INFO     cli] config [path]: config_dir = "/etc/sawtooth"
+validator-1_1              | [04:04:04.943 INFO     cli] config [path]: key_dir = "/etc/sawtooth/keys"
+validator-1_1              | [04:04:04.945 INFO     cli] config [path]: data_dir = "/var/lib/sawtooth"
+validator-1_1              | [04:04:04.947 INFO     cli] config [path]: log_dir = "/var/log/sawtooth"
+validator-1_1              | [04:04:04.949 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+validator-1_1              | [04:04:05.098 INFO     interconnect] Listening on tcp://eth0:4004
+validator-1_1              | [04:04:05.108 INFO     genesis] No chain head and not the genesis node: starting in peering mode
+validator-1_1              | [04:04:05.112 INFO     interconnect] Listening on tcp://eth0:8800
+validator-1_1              | [04:04:05.126 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:04:05.175 INFO     processor_handlers] registered transaction processor: connection_id=5aca9d0a3e46c017346c1128e29949423f3f47722fce3c21ac7fd212d96073c2c82c63a6ec22b7ad319a0749128c26fe8dc2c94938e12fb6d4c3f907eb9653ff, family=sawtooth_validator_registry, version=1.0, encoding=application/protobuf, namespaces=['6a4372']
+validator-1_1              | [04:04:05.181 INFO     processor_handlers] registered transaction processor: connection_id=adfffacc30fc1cf22e19d615757de2a3d815b8b7406a1e94500a5e4e2fe4982690dd868777c69dce27590ccff1265240b40668c0e4be569375902553035a7bca, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+tp-validator-registry-1_1  | [04:04:05 INFO    core] register attempt: OK
+validator-1_1              | [04:04:05.224 INFO     processor_handlers] registered transaction processor: connection_id=8fdedf472e94e73fec6dce500ebf0efadfca3a52d27434e11fea4abb70e53f85135ef53635932419878aa5c7a0cf716ffadbde4db41a6c4b557941c09c92220c, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+validator-1_1              | [04:04:05.242 INFO     processor_handlers] registered transaction processor: connection_id=f2e935decc664792bb1ed31fd3182931e1cd1fe48f4b383be4a05c0fa8e719d4beaf3e60a336bfdcb8a7e7ea86dcec301ea969e77490ff962b5529d269b7f822, family=sawtooth_settings, version=1.0, encoding=application/protobuf, namespaces=['000000']
+tp-settings-1_1            | [04:04:05 INFO    core] register attempt: OK
+validator-2_1              | [04:04:06.504 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+validator-2_1              | [04:04:06.505 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+validator-2_1              | [04:04:06.505 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+validator-2_1              | [04:04:06.507 INFO     cli] config [path]: config_dir = "/etc/sawtooth"
+validator-2_1              | [04:04:06.507 INFO     cli] config [path]: key_dir = "/etc/sawtooth/keys"
+validator-2_1              | [04:04:06.507 INFO     cli] config [path]: data_dir = "/var/lib/sawtooth"
+validator-2_1              | [04:04:06.507 INFO     cli] config [path]: log_dir = "/var/log/sawtooth"
+validator-2_1              | [04:04:06.508 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+validator-2_1              | [04:04:06.514 INFO     interconnect] Listening on tcp://eth0:4004
+validator-2_1              | [04:04:06.516 INFO     genesis] No chain head and not the genesis node: starting in peering mode
+validator-2_1              | [04:04:06.518 INFO     interconnect] Listening on tcp://eth0:8800
+validator-2_1              | [04:04:06.536 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-2_1              | [04:04:06.561 INFO     processor_handlers] registered transaction processor: connection_id=42f6c6faa888c5228889f0e03220be7465d40ddd82ffdc761c30ebc6c629c09849af5554a93bd5e8234ae7237b7c9c050ef05993b4299947126e44d299516db8, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+validator-2_1              | [04:04:06.606 INFO     processor_handlers] registered transaction processor: connection_id=a797829ae207d7f92be00623124acef399f399d8ad4270ea1a47db869740b45c3399edb5a9bacb1c9ff8a74234bb44c98eb45084266eb77d27b76666a88b9248, family=sawtooth_validator_registry, version=1.0, encoding=application/protobuf, namespaces=['6a4372']
+tp-validator-registry-2_1  | [04:04:06 INFO    core] register attempt: OK
+validator-2_1              | [04:04:06.644 INFO     processor_handlers] registered transaction processor: connection_id=8f308925e46b34dfbc8ba1343d82c754b9d72208f7f76b7771653ec31343cf79fdcc962afbd7f173c6ace9f4c1e873472061f6d4a4065240135775ad647cc9cf, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+validator-2_1              | [04:04:06.693 INFO     processor_handlers] registered transaction processor: connection_id=b7f661f8319607e912c8d1b64c2b0ca4961d37737ffbb9466d8f5bf47a4b24d440fbc71900c8e20ca7e6e4c805a61a51685ff1f71e902f6c4dc682f96cd6eb46, family=sawtooth_settings, version=1.0, encoding=application/protobuf, namespaces=['000000']
+tp-settings-2_1            | [04:04:06 INFO    core] register attempt: OK
+validator-0_1              | Writing key state for PoET public key: 034bb2e7...b476c008
+validator-0_1              | Generating poet.batch
+validator-0_1              | Processing config-genesis.batch...
+validator-0_1              | Processing config.batch...
+validator-0_1              | Processing poet.batch...
+validator-0_1              | Generating /var/lib/sawtooth/genesis.batch
+validator-0_1              | [04:04:10.907 INFO     path] Skipping path loading from non-existent config file: /etc/sawtooth/path.toml
+validator-0_1              | [04:04:10.908 INFO     validator] Skipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml
+validator-0_1              | [04:04:10.909 INFO     keys] Loading signing key: /etc/sawtooth/keys/validator.priv
+validator-0_1              | [04:04:10.913 INFO     cli] config [path]: config_dir = "/etc/sawtooth"
+validator-0_1              | [04:04:10.914 INFO     cli] config [path]: key_dir = "/etc/sawtooth/keys"
+validator-0_1              | [04:04:10.914 INFO     cli] config [path]: data_dir = "/var/lib/sawtooth"
+validator-0_1              | [04:04:10.915 INFO     cli] config [path]: log_dir = "/var/log/sawtooth"
+validator-0_1              | [04:04:10.915 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
+validator-0_1              | [04:04:10.921 INFO     interconnect] Listening on tcp://eth0:4004
+validator-0_1              | [04:04:10.924 INFO     genesis] Producing genesis block from /var/lib/sawtooth/genesis.batch
+validator-0_1              | [04:04:10.927 INFO     executor] Waiting for transaction processor (sawtooth_settings, 1.0, application/protobuf)
+validator-0_1              | [04:04:10.978 INFO     processor_handlers] registered transaction processor: connection_id=5de3928d2043af7fd1d02035de208d8ef14fd3ebc1dd24d5076f0658edcd50b0bcea1d63a969d909f1f7e7b5fe97fc17810cd94a85add9e5d64ad696c34ad515, family=sawtooth_settings, version=1.0, encoding=application/protobuf, namespaces=['000000']
+tp-settings-0_1            | [04:04:10 INFO    core] register attempt: OK
+validator-0_1              | [04:04:11.021 INFO     processor_handlers] registered transaction processor: connection_id=4063f478e17871723bb2b52962911fdda3a59f35688309fa93b563e5a888a20a50194e7c9c06a8f9e48bc830348f540bbac744be536ea332ae1ef712874c90ad, family=sawtooth_validator_registry, version=1.0, encoding=application/protobuf, namespaces=['6a4372']
+tp-validator-registry-0_1  | [04:04:11 INFO    core] register attempt: OK
+rest-api-0_1               | [04:04:11.035 INFO     rest_api] Response 36b86b: 503 status, 191B size, in 8.439s
+validator-0_1              | [04:04:11.061 INFO     processor_handlers] registered transaction processor: connection_id=5e2dc119fc0a2de89771b9cb0fc2b91fb92e65366da8b258b50aa1087a1ed99f85dd18fa215bb337c060b0be93b01a261ded5a48d042b62b48ecf2b56d560786, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+validator-0_1              | [04:04:11.074 INFO     processor_handlers] registered transaction processor: connection_id=77e9e8521156321ef0424175fc90f76606ec5a7ca3e8e1fd69a62918919601cb0297084108fa6f8cd5ccb2b5868141919897e3432451c2025081ac6b7f1b55cc, family=intkey, version=1.0, encoding=application/cbor, namespaces=['1cf126']
+tp-settings-0_1            | [04:04:11 INFO    handler] Setting setting sawtooth.settings.vote.authorized_keys changed from None to 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+tp-settings-0_1            | [04:04:11 INFO    handler] Setting setting sawtooth.consensus.algorithm changed from None to poet
+tp-settings-0_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.report_public_key_pem changed from None to -----BEGIN PUBLIC KEY-----
+tp-settings-0_1            | MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+tp-settings-0_1            | 4CvFTiuyid+IN4dP1+mhTnfxX+I/ntt8LUKZMbI1R1izOUoxJRoX6VQ4S9VgDLEC
+tp-settings-0_1            | PW6QlkeLI1eqe4DiYb9+J5ANhq4+XkhwgCUUFwpfqSfXWCHimjaGsZHbavl5nv/6
+tp-settings-0_1            | IbZJL/2YzE37IzJdES16JCfmIUrk6TUqL0WgrWXyweTIoVSbld0M29kToSkMXLsj
+tp-settings-0_1            | 8vbQbTiKwViWhYlzi0cQIo7PiAss66lAW0X6AM7ZJYyAcfSjSLR4guMz76Og8aRk
+tp-settings-0_1            | jtsjEEkq7Ndz5H8hllWUoHpxGDqLhM9O1/h+QdvTz7luZgpeJ5KB92vYL6yOlSxM
+tp-settings-0_1            | fQIDAQAB
+tp-settings-0_1            | -----END PUBLIC KEY-----
+tp-settings-0_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.valid_enclave_measurements changed from None to c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+tp-settings-0_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.valid_enclave_basenames changed from None to b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+tp-validator-registry-0_1  | [04:04:11 INFO    handler] Validator id 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119 was added to the validator_map and set.
+validator-0_1              | [04:04:11.527 INFO     genesis] Genesis block created: 34eb5ad2(0, S:7e49bcc3, P:00000000)
+validator-0_1              | [04:04:11.530 INFO     interconnect] Listening on tcp://eth0:8800
+validator-0_1              | [04:04:11.534 INFO     chain] Chain controller initialized with chain head: 34eb5ad2(0, S:7e49bcc3, P:00000000)
+validator-0_1              | [04:04:11.534 INFO     publisher] Now building on top of block: 34eb5ad2(0, S:7e49bcc3, P:00000000)
+tp-settings-1_1            | [04:04:11 INFO    handler] Setting setting sawtooth.settings.vote.authorized_keys changed from None to 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+tp-settings-2_1            | [04:04:11 INFO    handler] Setting setting sawtooth.settings.vote.authorized_keys changed from None to 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+tp-settings-1_1            | [04:04:11 INFO    handler] Setting setting sawtooth.consensus.algorithm changed from None to poet
+tp-settings-2_1            | [04:04:11 INFO    handler] Setting setting sawtooth.consensus.algorithm changed from None to poet
+tp-settings-1_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.report_public_key_pem changed from None to -----BEGIN PUBLIC KEY-----
+tp-settings-1_1            | MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+tp-settings-1_1            | 4CvFTiuyid+IN4dP1+mhTnfxX+I/ntt8LUKZMbI1R1izOUoxJRoX6VQ4S9VgDLEC
+tp-settings-1_1            | PW6QlkeLI1eqe4DiYb9+J5ANhq4+XkhwgCUUFwpfqSfXWCHimjaGsZHbavl5nv/6
+tp-settings-1_1            | IbZJL/2YzE37IzJdES16JCfmIUrk6TUqL0WgrWXyweTIoVSbld0M29kToSkMXLsj
+tp-settings-1_1            | 8vbQbTiKwViWhYlzi0cQIo7PiAss66lAW0X6AM7ZJYyAcfSjSLR4guMz76Og8aRk
+tp-settings-1_1            | jtsjEEkq7Ndz5H8hllWUoHpxGDqLhM9O1/h+QdvTz7luZgpeJ5KB92vYL6yOlSxM
+tp-settings-1_1            | fQIDAQAB
+tp-settings-1_1            | -----END PUBLIC KEY-----
+tp-settings-2_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.report_public_key_pem changed from None to -----BEGIN PUBLIC KEY-----
+tp-settings-2_1            | MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+tp-settings-2_1            | 4CvFTiuyid+IN4dP1+mhTnfxX+I/ntt8LUKZMbI1R1izOUoxJRoX6VQ4S9VgDLEC
+tp-settings-2_1            | PW6QlkeLI1eqe4DiYb9+J5ANhq4+XkhwgCUUFwpfqSfXWCHimjaGsZHbavl5nv/6
+tp-settings-2_1            | IbZJL/2YzE37IzJdES16JCfmIUrk6TUqL0WgrWXyweTIoVSbld0M29kToSkMXLsj
+tp-settings-2_1            | 8vbQbTiKwViWhYlzi0cQIo7PiAss66lAW0X6AM7ZJYyAcfSjSLR4guMz76Og8aRk
+tp-settings-2_1            | jtsjEEkq7Ndz5H8hllWUoHpxGDqLhM9O1/h+QdvTz7luZgpeJ5KB92vYL6yOlSxM
+tp-settings-2_1            | fQIDAQAB
+tp-settings-2_1            | -----END PUBLIC KEY-----
+tp-settings-1_1            | [04:04:11 INFO    handler] Setting setting sawtooth.poet.valid_enclave_measurements changed from None to c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+tp-settings-2_1            | [04:04:12 INFO    handler] Setting setting sawtooth.poet.valid_enclave_measurements changed from None to c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+validator-0_1              | [04:04:12.014 INFO     poet_enclave_factory] Load PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator
+validator-0_1              | [04:04:12.017 INFO     poet_enclave_factory] Target wait time: 20.000000
+validator-0_1              | [04:04:12.023 INFO     poet_enclave_factory] Initial wait time: 3000.000000
+validator-0_1              | [04:04:12.024 INFO     poet_enclave_factory] Population estimate sample size: 50
+validator-0_1              | [04:04:12.025 INFO     poet_enclave_factory] Minimum wait time: 1.000000
+tp-settings-1_1            | [04:04:12 INFO    handler] Setting setting sawtooth.poet.valid_enclave_basenames changed from None to b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+tp-settings-2_1            | [04:04:12 INFO    handler] Setting setting sawtooth.poet.valid_enclave_basenames changed from None to b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+tp-validator-registry-1_1  | [04:04:12 INFO    handler] Validator id 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119 was added to the validator_map and set.
+validator-1_1              | [04:04:12.624 INFO     publisher] Now building on top of block: 34eb5ad2(0, S:7e49bcc3, P:00000000)
+tp-validator-registry-2_1  | [04:04:12 INFO    handler] Validator id 022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119 was added to the validator_map and set.
+validator-2_1              | [04:04:12.688 INFO     publisher] Now building on top of block: 34eb5ad2(0, S:7e49bcc3, P:00000000)
+validator-1_1              | [04:04:13.012 INFO     poet_enclave_factory] Load PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator
+validator-1_1              | [04:04:13.013 INFO     poet_enclave_factory] Target wait time: 20.000000
+validator-1_1              | [04:04:13.014 INFO     poet_enclave_factory] Initial wait time: 3000.000000
+validator-1_1              | [04:04:13.014 INFO     poet_enclave_factory] Population estimate sample size: 50
+validator-1_1              | [04:04:13.015 INFO     poet_enclave_factory] Minimum wait time: 1.000000
+rest-api-0_1               | [04:04:13.054 INFO     rest_api] Request  3850f2: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:04:13.074 INFO     rest_api] Response 3850f2: 200 status, 16288B size, in 0.020s
+rest-api-1_1               | [04:04:13.080 INFO     rest_api] Request  3851f5: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:04:13.108 INFO     rest_api] Response 3851f5: 200 status, 16288B size, in 0.028s
+rest-api-2_1               | [04:04:13.119 INFO     rest_api] Request  38537a: "GET /blocks" from 172.19.0.18
+validator-2_1              | [04:04:13.162 INFO     poet_enclave_factory] Load PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator
+rest-api-2_1               | [04:04:13.173 INFO     rest_api] Response 38537a: 200 status, 16288B size, in 0.054s
+validator-2_1              | [04:04:13.174 INFO     poet_enclave_factory] Target wait time: 20.000000
+validator-2_1              | [04:04:13.190 INFO     poet_enclave_factory] Initial wait time: 3000.000000
+validator-2_1              | [04:04:13.192 INFO     poet_enclave_factory] Population estimate sample size: 50
+validator-2_1              | [04:04:13.195 INFO     poet_enclave_factory] Minimum wait time: 1.000000
+validator-1_1              | [04:04:13.786 INFO     poet_block_publisher] Register Validator Name=validator-021f79d8, ID=021f79d8...dc09d442, PoET public key=038e7f12...fcd3d04b, Nonce=534b884ad4d3b29d3c8269f06431c288
+validator-1_1              | [04:04:13.793 INFO     poet_block_publisher] Save key state PPK=038e7f12...fcd3d04b => SSD=eyJwb2V0...MDRiIn0=
+validator-2_1              | [04:04:13.858 INFO     poet_block_publisher] Register Validator Name=validator-02a332bc, ID=02a332bc...be79ae1c, PoET public key=02450e6c...ef123297, Nonce=534b884ad4d3b29d3c8269f06431c288
+validator-2_1              | [04:04:13.870 INFO     poet_block_publisher] Save key state PPK=02450e6c...ef123297 => SSD=eyJwb2V0...Mjk3In0=
+tp-validator-registry-0_1  | [04:04:13 INFO    handler] Validator id 021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442 was added to the validator_map and set.
+tp-validator-registry-0_1  | [04:04:13 INFO    handler] Validator id 02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c was added to the validator_map and set.
+validator-0_1              | [04:04:14.711 INFO     publisher] Claimed Block: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-0_1              | [04:04:14.712 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-0_1              | [04:04:14.716 INFO     chain] Starting block validation of : b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.738 INFO     chain] Starting block validation of : b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-1_1              | [04:04:14.738 INFO     chain] Starting block validation of : b80b0713(1, S:7f5778a3, P:34eb5ad2)
+tp-validator-registry-0_1  | [04:04:14 INFO    handler] Validator id 021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442 was added to the validator_map and set.
+tp-validator-registry-1_1  | [04:04:14 INFO    handler] Validator id 021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442 was added to the validator_map and set.
+tp-validator-registry-2_1  | [04:04:14 INFO    handler] Validator id 021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442 was added to the validator_map and set.
+tp-validator-registry-0_1  | [04:04:14 INFO    handler] Validator id 02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c was added to the validator_map and set.
+tp-validator-registry-1_1  | [04:04:14 INFO    handler] Validator id 02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c was added to the validator_map and set.
+validator-0_1              | [04:04:14.900 INFO     poet_fork_resolver] Choose new fork b80b0713: New fork head switches consensus to PoET
+tp-validator-registry-2_1  | [04:04:14 INFO    handler] Validator id 02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c was added to the validator_map and set.
+validator-0_1              | [04:04:14.907 INFO     chain] on_block_validated: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-0_1              | [04:04:14.908 INFO     chain] Chain head updated to: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-0_1              | [04:04:14.909 INFO     publisher] Now building on top of block: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-1_1              | [04:04:14.907 INFO     poet_fork_resolver] Choose new fork b80b0713: New fork head switches consensus to PoET
+validator-1_1              | [04:04:14.909 INFO     chain] on_block_validated: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-1_1              | [04:04:14.910 INFO     chain] Chain head updated to: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-1_1              | [04:04:14.910 INFO     publisher] Now building on top of block: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.939 INFO     poet_fork_resolver] Choose new fork b80b0713: New fork head switches consensus to PoET
+validator-0_1              | [04:04:14.943 INFO     chain] Finished block validation of: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.944 INFO     chain] on_block_validated: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-1_1              | [04:04:14.945 INFO     chain] Finished block validation of: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.947 INFO     chain] Chain head updated to: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.951 INFO     publisher] Now building on top of block: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+validator-2_1              | [04:04:14.974 INFO     chain] Finished block validation of: b80b0713(1, S:7f5778a3, P:34eb5ad2)
+rest-api-0_1               | [04:04:43.200 INFO     rest_api] Request  3cea85: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:04:43.210 INFO     rest_api] Response 3cea85: 200 status, 27284B size, in 0.009s
+test-poet-smoke_1          | test_poet_smoke (sawtooth_integration.tests.test_poet_smoke.TestPoetSmoke) ... INFO:sawtooth_integration.tests.test_poet_smoke:Verifying consensus @ tolerance 2
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-0:8080
+rest-api-0_1               | [04:04:44.876 INFO     rest_api] Request  3d2c00: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:04:44.886 INFO     rest_api] Response 3d2c00: 200 status, 27284B size, in 0.010s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-1:8080
+rest-api-1_1               | [04:04:46.471 INFO     rest_api] Request  3d6a47: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:04:46.482 INFO     rest_api] Response 3d6a47: 200 status, 27284B size, in 0.012s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-2:8080
+rest-api-2_1               | [04:04:48.157 INFO     rest_api] Request  3dac25: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:04:48.172 INFO     rest_api] Response 3dac25: 200 status, 27284B size, in 0.015s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+rest-api-0_1               | [04:04:48.502 INFO     rest_api] Request  3db99d: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:04:48.525 INFO     rest_api] Response 3db99d: 200 status, 27284B size, in 0.024s
+rest-api-0_1               | [04:04:48.538 INFO     rest_api] Request  3dbb07: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:04:48.563 INFO     rest_api] Response 3dbb07: 200 status, 27284B size, in 0.025s
+rest-api-1_1               | [04:04:48.575 INFO     rest_api] Request  3dbc77: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:04:48.590 INFO     rest_api] Response 3dbc77: 200 status, 27284B size, in 0.015s
+rest-api-1_1               | [04:04:48.607 INFO     rest_api] Request  3dbdbe: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:04:48.628 INFO     rest_api] Response 3dbdbe: 200 status, 27284B size, in 0.020s
+rest-api-2_1               | [04:04:48.641 INFO     rest_api] Request  3dbf09: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:04:48.662 INFO     rest_api] Response 3dbf09: 200 status, 27284B size, in 0.021s
+rest-api-2_1               | [04:04:48.681 INFO     rest_api] Request  3dc09b: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:04:48.704 INFO     rest_api] Response 3dc09b: 200 status, 27284B size, in 0.023s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending populate txns
+rest-api-0_1               | [04:04:48.732 INFO     rest_api] Request  3dc29d: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:04:48.775 INFO     rest_api] Response 3dc29d: 202 status, 183B size, in 0.042s
+validator-2_1              | [04:04:49.181 INFO     publisher] Claimed Block: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:49.192 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-2_1              | [04:04:49.208 INFO     chain] Starting block validation of : b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:49.236 INFO     chain] Starting block validation of : b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.322 INFO     chain] Starting block validation of : b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.427 INFO     publisher] Claimed Block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.437 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-2_1              | [04:04:49.678 INFO     poet_fork_resolver] Choose new fork b1623a03: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-2_1              | [04:04:49.693 INFO     chain] on_block_validated: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:49.700 INFO     chain] Chain head updated to: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:49.702 INFO     publisher] Now building on top of block: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:49.768 INFO     poet_fork_resolver] Choose new fork b1623a03: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-1_1              | [04:04:49.771 INFO     chain] on_block_validated: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:49.772 INFO     chain] Chain head updated to: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:49.772 INFO     publisher] Now building on top of block: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:49.779 INFO     chain] Finished block validation of: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:49.780 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-0:8080
+rest-api-0_1               | [04:04:49.823 INFO     rest_api] Request  3ded3a: "POST /batches" from 172.19.0.18
+validator-1_1              | [04:04:49.843 INFO     chain] Finished block validation of: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:49.843 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+rest-api-0_1               | [04:04:49.860 INFO     rest_api] Response 3ded3a: 202 status, 183B size, in 0.037s
+validator-0_1              | [04:04:49.888 INFO     poet_fork_resolver] Choose new fork b1623a03: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-0_1              | [04:04:49.894 INFO     chain] on_block_validated: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.895 INFO     chain] Chain head updated to: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.895 INFO     publisher] Now building on top of block: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.988 INFO     chain] Finished block validation of: b1623a03(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:49.989 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.470 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-2_1              | [04:04:50.529 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.531 INFO     chain] Chain head updated from b80b0713(1, S:7f5778a3, P:34eb5ad2) to b1623a03(2, S:74c04f5a, P:b80b0713) while processing block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.545 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.553 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.555 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork wait duration (7.677914) less than current fork wait duration (7.820245)
+validator-2_1              | [04:04:50.563 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.564 INFO     chain] Chain head updated to: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.566 INFO     publisher] Now building on top of block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.623 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-1_1              | [04:04:50.631 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.631 INFO     chain] Chain head updated from b80b0713(1, S:7f5778a3, P:34eb5ad2) to b1623a03(2, S:74c04f5a, P:b80b0713) while processing block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.638 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.639 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.640 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork wait duration (7.677914) less than current fork wait duration (7.820245)
+validator-1_1              | [04:04:50.642 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.643 INFO     chain] Chain head updated to: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.643 INFO     publisher] Now building on top of block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-1_1              | [04:04:50.716 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-2_1              | [04:04:50.733 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.730 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork aggregate local mean (41.192000) greater than current fork aggregate local mean (20.000000)
+validator-0_1              | [04:04:50.747 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.749 INFO     chain] Chain head updated from b80b0713(1, S:7f5778a3, P:34eb5ad2) to b1623a03(2, S:74c04f5a, P:b80b0713) while processing block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.757 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.758 INFO     chain] Starting block validation of : 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.764 INFO     poet_fork_resolver] Choose new fork 5ac9a03d: New fork wait duration (7.677914) less than current fork wait duration (7.820245)
+validator-0_1              | [04:04:50.769 INFO     chain] on_block_validated: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.773 INFO     chain] Chain head updated to: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.775 INFO     publisher] Now building on top of block: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+validator-0_1              | [04:04:50.858 INFO     chain] Finished block validation of: 5ac9a03d(2, S:74c04f5a, P:b80b0713)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-1:8080
+rest-api-1_1               | [04:04:50.985 INFO     rest_api] Request  3e1a9e: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:04:51.091 INFO     rest_api] Response 3e1a9e: 202 status, 183B size, in 0.106s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-2:8080
+rest-api-2_1               | [04:04:52.118 INFO     rest_api] Request  3e46de: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:04:52.163 INFO     rest_api] Response 3e46de: 202 status, 183B size, in 0.046s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-0:8080
+rest-api-0_1               | [04:04:53.188 INFO     rest_api] Request  3e70ad: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:04:53.252 INFO     rest_api] Response 3e70ad: 202 status, 183B size, in 0.064s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-1:8080
+rest-api-1_1               | [04:04:54.308 INFO     rest_api] Request  3e9c6a: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:04:54.322 INFO     rest_api] Response 3e9c6a: 202 status, 183B size, in 0.015s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-2:8080
+rest-api-2_1               | [04:04:55.371 INFO     rest_api] Request  3ec5f6: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:04:55.477 INFO     rest_api] Response 3ec5f6: 202 status, 183B size, in 0.105s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-0:8080
+rest-api-0_1               | [04:04:56.559 INFO     rest_api] Request  3ef45c: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:04:56.640 INFO     rest_api] Response 3ef45c: 202 status, 183B size, in 0.081s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-1:8080
+rest-api-1_1               | [04:04:57.676 INFO     rest_api] Request  3f1ffd: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:04:57.729 INFO     rest_api] Response 3f1ffd: 202 status, 183B size, in 0.053s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-2:8080
+rest-api-2_1               | [04:04:58.757 INFO     rest_api] Request  3f4a32: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:04:58.879 INFO     rest_api] Response 3f4a32: 202 status, 183B size, in 0.122s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-0:8080
+rest-api-0_1               | [04:04:59.935 INFO     rest_api] Request  3f783e: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:00.094 INFO     rest_api] Response 3f783e: 202 status, 183B size, in 0.159s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:01.125 INFO     rest_api] Request  3fa6b4: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:01.162 INFO     rest_api] Response 3fa6b4: 202 status, 183B size, in 0.037s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:02.202 INFO     rest_api] Request  3fd0c9: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:02.223 INFO     rest_api] Response 3fd0c9: 202 status, 183B size, in 0.021s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:03.250 INFO     rest_api] Request  3ff9b5: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:03.261 INFO     rest_api] Response 3ff9b5: 202 status, 183B size, in 0.011s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:04.277 INFO     rest_api] Request  4021db: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:04.306 INFO     rest_api] Response 4021db: 202 status, 183B size, in 0.029s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:05.325 INFO     rest_api] Request  404aca: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:05.337 INFO     rest_api] Response 404aca: 202 status, 183B size, in 0.011s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:06.360 INFO     rest_api] Request  407333: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:06.377 INFO     rest_api] Response 407333: 202 status, 183B size, in 0.017s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:07.413 INFO     rest_api] Request  409c56: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:07.425 INFO     rest_api] Response 409c56: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:08.453 INFO     rest_api] Request  40c4fa: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:08.481 INFO     rest_api] Response 40c4fa: 202 status, 183B size, in 0.028s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:09.516 INFO     rest_api] Request  40ee7c: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:09.552 INFO     rest_api] Response 40ee7c: 202 status, 183B size, in 0.036s
+validator-2_1              | [04:05:09.890 INFO     publisher] Claimed Block: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-2_1              | [04:05:09.897 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-2_1              | [04:05:09.905 INFO     chain] Starting block validation of : 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-1_1              | [04:05:10.104 INFO     chain] Starting block validation of : 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-0_1              | [04:05:10.167 INFO     chain] Starting block validation of : 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:10.588 INFO     rest_api] Request  41185f: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:10.762 INFO     rest_api] Response 41185f: 202 status, 183B size, in 0.174s
+validator-1_1              | [04:05:11.320 INFO     publisher] Claimed Block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:11.369 INFO     publisher] Block publishing is suspended until new chain head arrives.
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:11.832 INFO     rest_api] Request  4148f4: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:11.940 INFO     rest_api] Response 4148f4: 202 status, 183B size, in 0.108s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:12.989 INFO     rest_api] Request  417626: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:13.096 INFO     rest_api] Response 417626: 202 status, 183B size, in 0.107s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:14.181 INFO     rest_api] Request  41a4b8: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:14.255 INFO     rest_api] Response 41a4b8: 202 status, 183B size, in 0.074s
+validator-2_1              | [04:05:14.997 INFO     poet_fork_resolver] Choose new fork 72fe59d9: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-2_1              | [04:05:15.005 INFO     chain] on_block_validated: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-2_1              | [04:05:15.009 INFO     chain] Chain head updated to: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-2_1              | [04:05:15.021 INFO     publisher] Now building on top of block: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-2_1              | [04:05:15.109 INFO     chain] Finished block validation of: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-2_1              | [04:05:15.109 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:15.216 INFO     poet_fork_resolver] Choose new fork 72fe59d9: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-1_1              | [04:05:15.226 INFO     chain] on_block_validated: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-1_1              | [04:05:15.238 INFO     chain] Chain head updated to: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-1_1              | [04:05:15.238 INFO     publisher] Now building on top of block: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:15.312 INFO     rest_api] Request  41d0e8: "POST /batches" from 172.19.0.18
+validator-1_1              | [04:05:15.378 INFO     chain] Finished block validation of: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-1_1              | [04:05:15.380 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+rest-api-2_1               | [04:05:15.411 INFO     rest_api] Response 41d0e8: 202 status, 183B size, in 0.099s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:16.451 INFO     rest_api] Request  41fd5f: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:16.531 INFO     rest_api] Response 41fd5f: 202 status, 183B size, in 0.081s
+validator-0_1              | [04:05:17.039 INFO     publisher] Claimed Block: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:17.148 INFO     publisher] Block publishing is suspended until new chain head arrives.
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:17.572 INFO     rest_api] Request  42292e: "POST /batches" from 172.19.0.18
+validator-0_1              | [04:05:17.584 INFO     poet_fork_resolver] Choose new fork 72fe59d9: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-0_1              | [04:05:17.592 INFO     chain] on_block_validated: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-0_1              | [04:05:17.596 INFO     chain] Chain head updated to: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-0_1              | [04:05:17.596 INFO     publisher] Now building on top of block: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+rest-api-1_1               | [04:05:17.710 INFO     rest_api] Response 42292e: 202 status, 183B size, in 0.137s
+validator-0_1              | [04:05:17.826 INFO     chain] Finished block validation of: 72fe59d9(3, S:32f4565c, P:5ac9a03d)
+validator-0_1              | [04:05:17.828 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:18.754 INFO     rest_api] Request  425757: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:18.855 INFO     rest_api] Response 425757: 202 status, 183B size, in 0.101s
+validator-1_1              | [04:05:19.389 INFO     publisher] Claimed Block: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-1_1              | [04:05:19.427 INFO     publisher] Block publishing is suspended until new chain head arrives.
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:19.940 INFO     rest_api] Request  4285a9: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:19.973 INFO     rest_api] Response 4285a9: 202 status, 183B size, in 0.033s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:21.035 INFO     rest_api] Request  42b071: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:21.155 INFO     rest_api] Response 42b071: 202 status, 183B size, in 0.120s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:22.255 INFO     rest_api] Request  42e015: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:22.393 INFO     rest_api] Response 42e015: 202 status, 183B size, in 0.138s
+validator-1_1              | [04:05:22.688 INFO     poet_fork_resolver] Choose new fork 46f75366: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-1_1              | [04:05:22.706 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:22.709 INFO     chain] Chain head updated from 5ac9a03d(2, S:74c04f5a, P:b80b0713) to 72fe59d9(3, S:32f4565c, P:5ac9a03d) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:22.718 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:22.720 INFO     chain] Starting block validation of : e0d68377(3, S:009436d0, P:5ac9a03d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:23.494 INFO     rest_api] Request  431081: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:23.739 INFO     rest_api] Response 431081: 202 status, 183B size, in 0.245s
+validator-2_1              | [04:05:24.546 INFO     poet_fork_resolver] Choose new fork 46f75366: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-2_1              | [04:05:24.553 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:24.553 INFO     chain] Chain head updated from 5ac9a03d(2, S:74c04f5a, P:b80b0713) to 72fe59d9(3, S:32f4565c, P:5ac9a03d) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:24.571 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:24.577 INFO     chain] Starting block validation of : e0d68377(3, S:009436d0, P:5ac9a03d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:24.818 INFO     rest_api] Request  434438: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:24.940 INFO     rest_api] Response 434438: 202 status, 183B size, in 0.122s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-2:8080
+validator-0_1              | [04:05:26.006 INFO     poet_fork_resolver] Choose new fork 46f75366: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-0_1              | [04:05:26.025 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:26.034 INFO     chain] Chain head updated from 5ac9a03d(2, S:74c04f5a, P:b80b0713) to 72fe59d9(3, S:32f4565c, P:5ac9a03d) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+rest-api-2_1               | [04:05:26.049 INFO     rest_api] Request  43744b: "POST /batches" from 172.19.0.18
+validator-0_1              | [04:05:26.046 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:26.047 INFO     chain] Starting block validation of : e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-2_1              | [04:05:26.088 INFO     publisher] Claimed Block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:26.196 INFO     publisher] Block publishing is suspended until new chain head arrives.
+rest-api-2_1               | [04:05:26.216 INFO     rest_api] Response 43744b: 202 status, 183B size, in 0.167s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:27.303 INFO     rest_api] Request  43a545: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:27.397 INFO     rest_api] Response 43a545: 202 status, 183B size, in 0.095s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:28.471 INFO     rest_api] Request  43d2e9: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:28.594 INFO     rest_api] Response 43d2e9: 202 status, 183B size, in 0.123s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:29.630 INFO     rest_api] Request  44002c: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:29.735 INFO     rest_api] Response 44002c: 202 status, 183B size, in 0.105s
+validator-1_1              | [04:05:29.873 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (25.717125)
+validator-1_1              | [04:05:29.874 INFO     chain] on_block_validated: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-1_1              | [04:05:29.877 INFO     chain] Rejected new chain head: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-1_1              | [04:05:29.878 INFO     chain] Finished block validation of: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-1_1              | [04:05:29.878 INFO     chain] Starting block validation of : 429dd57d(4, S:009436d0, P:72fe59d9)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:30.790 INFO     rest_api] Request  442d7d: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:30.985 INFO     rest_api] Response 442d7d: 202 status, 183B size, in 0.195s
+validator-1_1              | [04:05:31.764 INFO     poet_fork_resolver] Choose new fork 429dd57d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-1_1              | [04:05:31.767 INFO     chain] on_block_validated: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-1_1              | [04:05:31.769 INFO     chain] Chain head updated to: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-1_1              | [04:05:31.769 INFO     publisher] Now building on top of block: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-1_1              | [04:05:31.893 INFO     chain] Finished block validation of: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-1_1              | [04:05:31.894 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:31.916 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (20.314240)
+validator-1_1              | [04:05:31.930 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:31.931 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:31.938 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:31.954 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-1:8080
+validator-2_1              | [04:05:32.046 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (25.717125)
+validator-2_1              | [04:05:32.046 INFO     chain] on_block_validated: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-2_1              | [04:05:32.047 INFO     chain] Rejected new chain head: e0d68377(3, S:009436d0, P:5ac9a03d)
+rest-api-1_1               | [04:05:32.059 INFO     rest_api] Request  445f10: "POST /batches" from 172.19.0.18
+validator-2_1              | [04:05:32.061 INFO     chain] Finished block validation of: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-2_1              | [04:05:32.065 INFO     chain] Starting block validation of : 429dd57d(4, S:009436d0, P:72fe59d9)
+rest-api-1_1               | [04:05:32.114 INFO     rest_api] Response 445f10: 202 status, 183B size, in 0.056s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:33.142 INFO     rest_api] Request  448961: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:33.221 INFO     rest_api] Response 448961: 202 status, 183B size, in 0.079s
+validator-2_1              | [04:05:34.052 INFO     poet_fork_resolver] Choose new fork 429dd57d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-2_1              | [04:05:34.056 INFO     chain] on_block_validated: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-2_1              | [04:05:34.077 INFO     chain] Chain head updated to: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-2_1              | [04:05:34.079 INFO     publisher] Now building on top of block: 429dd57d(4, S:009436d0, P:72fe59d9)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:34.323 INFO     rest_api] Request  44b780: "POST /batches" from 172.19.0.18
+validator-2_1              | [04:05:34.411 INFO     chain] Finished block validation of: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-2_1              | [04:05:34.416 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:34.434 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (20.314240)
+validator-2_1              | [04:05:34.434 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:34.435 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:34.442 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:34.445 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+rest-api-0_1               | [04:05:34.459 INFO     rest_api] Response 44b780: 202 status, 183B size, in 0.136s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:35.534 INFO     rest_api] Request  44e6ca: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:35.690 INFO     rest_api] Response 44e6ca: 202 status, 183B size, in 0.157s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:36.739 INFO     rest_api] Request  4515db: "POST /batches" from 172.19.0.18
+validator-0_1              | [04:05:36.825 INFO     poet_fork_resolver] Choose new fork e0d68377: New fork aggregate local mean (65.960000) greater than current fork aggregate local mean (41.192000)
+validator-0_1              | [04:05:36.831 INFO     chain] on_block_validated: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:36.844 INFO     chain] Chain head updated from 5ac9a03d(2, S:74c04f5a, P:b80b0713) to 72fe59d9(3, S:32f4565c, P:5ac9a03d) while processing block: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:36.853 INFO     chain] Finished block validation of: e0d68377(3, S:009436d0, P:5ac9a03d)
+rest-api-2_1               | [04:05:36.858 INFO     rest_api] Response 4515db: 202 status, 183B size, in 0.119s
+validator-0_1              | [04:05:36.861 INFO     chain] Starting block validation of : 429dd57d(4, S:009436d0, P:72fe59d9)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:37.912 INFO     rest_api] Request  4543b1: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:37.986 INFO     rest_api] Response 4543b1: 202 status, 183B size, in 0.074s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:39.041 INFO     rest_api] Request  456fd1: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:39.283 INFO     rest_api] Response 456fd1: 202 status, 183B size, in 0.242s
+validator-0_1              | [04:05:39.404 INFO     poet_fork_resolver] Choose new fork 429dd57d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-0_1              | [04:05:39.435 INFO     chain] on_block_validated: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-0_1              | [04:05:39.451 INFO     chain] Chain head updated to: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-0_1              | [04:05:39.453 INFO     publisher] Now building on top of block: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-0_1              | [04:05:39.645 INFO     chain] Finished block validation of: 429dd57d(4, S:009436d0, P:72fe59d9)
+validator-0_1              | [04:05:39.646 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:39.648 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (20.314240)
+validator-0_1              | [04:05:39.649 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:39.649 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:39.654 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:39.658 INFO     poet_fork_resolver] Choose new fork e74ffe2d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-0_1              | [04:05:39.658 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.673 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.673 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.674 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.675 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:39.677 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork aggregate local mean (96.688000) greater than new fork aggregate local mean (65.960000)
+validator-1_1              | [04:05:39.677 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:39.677 INFO     chain] Rejected new chain head: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:39.677 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-1_1              | [04:05:39.678 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.678 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork wait duration (2.251992) less than new fork wait duration (10.708004)
+validator-1_1              | [04:05:39.679 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.679 INFO     chain] Rejected new chain head: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:39.679 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:39.715 INFO     publisher] Claimed Block: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:39.747 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:05:39.990 INFO     chain] Starting block validation of : 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:40.253 INFO     poet_fork_resolver] Choose new fork e74ffe2d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-2_1              | [04:05:40.262 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:40.262 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:40.265 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:40.266 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:40.268 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork aggregate local mean (96.688000) greater than new fork aggregate local mean (65.960000)
+validator-2_1              | [04:05:40.269 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:40.271 INFO     chain] Rejected new chain head: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:40.273 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-2_1              | [04:05:40.273 INFO     chain] Starting block validation of : 219cb4e0(5, S:5ab696b4, P:429dd57d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:40.327 INFO     rest_api] Request  45a20e: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:40.475 INFO     rest_api] Response 45a20e: 202 status, 183B size, in 0.148s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:41.539 INFO     rest_api] Request  45d166: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:41.612 INFO     rest_api] Response 45d166: 202 status, 183B size, in 0.072s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:42.737 INFO     rest_api] Request  46002f: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:42.895 INFO     rest_api] Response 46002f: 202 status, 183B size, in 0.158s
+validator-2_1              | [04:05:42.924 INFO     poet_fork_resolver] Choose new fork 219cb4e0: New fork aggregate local mean (135.760000) greater than current fork aggregate local mean (96.688000)
+validator-2_1              | [04:05:42.927 INFO     chain] on_block_validated: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:42.938 INFO     chain] Chain head updated to: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:42.939 INFO     publisher] Now building on top of block: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:43.152 INFO     chain] Finished block validation of: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-2_1              | [04:05:43.187 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.203 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork wait duration (2.251992) less than new fork wait duration (10.708004)
+validator-2_1              | [04:05:43.203 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.207 INFO     chain] Chain head updated from 429dd57d(4, S:009436d0, P:72fe59d9) to 219cb4e0(5, S:5ab696b4, P:429dd57d) while processing block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.209 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.210 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.213 INFO     poet_fork_resolver] Choose current fork 219cb4e0: Current fork aggregate local mean (135.760000) greater than new fork aggregate local mean (96.688000)
+validator-2_1              | [04:05:43.213 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.214 INFO     chain] Rejected new chain head: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-2_1              | [04:05:43.214 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-1_1              | [04:05:43.651 INFO     poet_fork_resolver] Choose new fork 219cb4e0: New fork aggregate local mean (135.760000) greater than current fork aggregate local mean (96.688000)
+validator-1_1              | [04:05:43.656 INFO     chain] on_block_validated: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-1_1              | [04:05:43.662 INFO     chain] Chain head updated to: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-1_1              | [04:05:43.663 INFO     publisher] Now building on top of block: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:44.058 INFO     rest_api] Request  4633c8: "POST /batches" from 172.19.0.18
+validator-1_1              | [04:05:44.102 INFO     chain] Finished block validation of: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+rest-api-2_1               | [04:05:44.238 INFO     rest_api] Response 4633c8: 202 status, 183B size, in 0.180s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:46.108 INFO     rest_api] Request  4683dc: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:46.199 INFO     rest_api] Response 4683dc: 202 status, 183B size, in 0.091s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:47.244 INFO     rest_api] Request  46b037: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:47.341 INFO     rest_api] Response 46b037: 202 status, 183B size, in 0.098s
+validator-0_1              | [04:05:47.942 INFO     poet_fork_resolver] Choose new fork e74ffe2d: New fork aggregate local mean (96.688000) greater than current fork aggregate local mean (65.960000)
+validator-0_1              | [04:05:47.983 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:47.994 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:48.011 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:48.012 INFO     chain] Starting block validation of : e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:48.013 INFO     poet_fork_resolver] Choose current fork 72fe59d9: Current fork wait duration (18.956178) less than new fork wait duration (25.717125)
+validator-0_1              | [04:05:48.013 INFO     chain] on_block_validated: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:48.013 INFO     chain] Chain head updated from 72fe59d9(3, S:32f4565c, P:5ac9a03d) to 429dd57d(4, S:009436d0, P:72fe59d9) while processing block: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:48.027 INFO     chain] Finished block validation of: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:48.028 INFO     chain] Starting block validation of : 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:48.029 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork aggregate local mean (96.688000) greater than new fork aggregate local mean (65.960000)
+validator-0_1              | [04:05:48.030 INFO     chain] on_block_validated: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:48.031 INFO     chain] Rejected new chain head: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:48.033 INFO     chain] Finished block validation of: 46f75366(3, S:d44c4026, P:5ac9a03d)
+validator-0_1              | [04:05:48.035 INFO     chain] Starting block validation of : 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-1_1              | [04:05:48.146 INFO     publisher] Claimed Block: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-1_1              | [04:05:48.160 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:05:48.182 INFO     chain] Starting block validation of : 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-2_1              | [04:05:48.270 INFO     chain] Starting block validation of : 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:48.394 INFO     rest_api] Request  46dd2c: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:48.520 INFO     rest_api] Response 46dd2c: 202 status, 183B size, in 0.126s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:49.594 INFO     rest_api] Request  470c0a: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:49.713 INFO     rest_api] Response 470c0a: 202 status, 183B size, in 0.119s
+validator-2_1              | [04:05:50.302 INFO     poet_fork_resolver] Choose new fork 7e8a41e6: New fork aggregate local mean (185.560000) greater than current fork aggregate local mean (135.760000)
+validator-2_1              | [04:05:50.303 INFO     chain] on_block_validated: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-2_1              | [04:05:50.306 INFO     chain] Chain head updated to: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-2_1              | [04:05:50.306 INFO     publisher] Now building on top of block: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-2_1              | [04:05:50.328 INFO     chain] Finished block validation of: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:50.975 INFO     rest_api] Request  4741fd: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:51.027 INFO     rest_api] Response 4741fd: 202 status, 183B size, in 0.052s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:52.051 INFO     rest_api] Request  476c04: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:52.106 INFO     rest_api] Response 476c04: 202 status, 183B size, in 0.055s
+validator-1_1              | [04:05:52.320 INFO     poet_fork_resolver] Choose new fork 7e8a41e6: New fork aggregate local mean (185.560000) greater than current fork aggregate local mean (135.760000)
+validator-1_1              | [04:05:52.339 INFO     chain] on_block_validated: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-1_1              | [04:05:52.343 INFO     chain] Chain head updated to: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-1_1              | [04:05:52.343 INFO     publisher] Now building on top of block: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+validator-1_1              | [04:05:52.382 INFO     chain] Finished block validation of: 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:53.178 INFO     rest_api] Request  479804: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:53.284 INFO     rest_api] Response 479804: 202 status, 183B size, in 0.106s
+validator-0_1              | [04:05:53.916 INFO     poet_fork_resolver] Choose new fork 219cb4e0: New fork aggregate local mean (135.760000) greater than current fork aggregate local mean (96.688000)
+validator-0_1              | [04:05:53.922 INFO     chain] on_block_validated: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-0_1              | [04:05:53.928 INFO     chain] Chain head updated to: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-0_1              | [04:05:53.928 INFO     publisher] Now building on top of block: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-0_1              | [04:05:54.018 INFO     chain] Finished block validation of: 219cb4e0(5, S:5ab696b4, P:429dd57d)
+validator-0_1              | [04:05:54.038 INFO     chain] Starting block validation of : e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:54.043 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork wait duration (2.251992) less than new fork wait duration (10.708004)
+validator-0_1              | [04:05:54.044 INFO     chain] on_block_validated: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:54.045 INFO     chain] Chain head updated from 429dd57d(4, S:009436d0, P:72fe59d9) to 219cb4e0(5, S:5ab696b4, P:429dd57d) while processing block: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:54.048 INFO     chain] Finished block validation of: e74ffe2d(4, S:3df0a02d, P:72fe59d9)
+validator-0_1              | [04:05:54.050 INFO     chain] Starting block validation of : e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:54.057 INFO     poet_fork_resolver] Choose current fork 429dd57d: Current fork aggregate local mean (96.688000) greater than new fork aggregate local mean (65.960000)
+validator-0_1              | [04:05:54.057 INFO     chain] on_block_validated: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:54.057 INFO     chain] Chain head updated from 429dd57d(4, S:009436d0, P:72fe59d9) to 219cb4e0(5, S:5ab696b4, P:429dd57d) while processing block: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:54.063 INFO     chain] Finished block validation of: e0d68377(3, S:009436d0, P:5ac9a03d)
+validator-0_1              | [04:05:54.065 INFO     chain] Starting block validation of : 7e8a41e6(6, S:d799cb77, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:54.311 INFO     rest_api] Request  47c44b: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:54.344 INFO     rest_api] Response 47c44b: 202 status, 183B size, in 0.033s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:55.370 INFO     rest_api] Request  47eda9: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:55.399 INFO     rest_api] Response 47eda9: 202 status, 183B size, in 0.029s
+validator-1_1              | [04:05:55.957 INFO     publisher] Claimed Block: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-1_1              | [04:05:55.971 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:05:55.986 INFO     chain] Starting block validation of : e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-2_1              | [04:05:56.114 INFO     chain] Starting block validation of : e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:56.435 INFO     rest_api] Request  481742: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:56.503 INFO     rest_api] Response 481742: 202 status, 183B size, in 0.068s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-1:8080
+rest-api-1_1               | [04:05:57.549 INFO     rest_api] Request  4842c9: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:05:57.672 INFO     rest_api] Response 4842c9: 202 status, 183B size, in 0.122s
+validator-1_1              | [04:05:58.180 INFO     poet_fork_resolver] Choose new fork e12667f8: New fork aggregate local mean (248.472000) greater than current fork aggregate local mean (185.560000)
+validator-1_1              | [04:05:58.183 INFO     chain] on_block_validated: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-1_1              | [04:05:58.185 INFO     chain] Chain head updated to: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-1_1              | [04:05:58.185 INFO     publisher] Now building on top of block: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-1_1              | [04:05:58.231 INFO     chain] Finished block validation of: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-2:8080
+rest-api-2_1               | [04:05:58.730 INFO     rest_api] Request  4870ec: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:05:58.800 INFO     rest_api] Response 4870ec: 202 status, 183B size, in 0.070s
+validator-2_1              | [04:05:59.196 INFO     poet_fork_resolver] Choose new fork e12667f8: New fork aggregate local mean (248.472000) greater than current fork aggregate local mean (185.560000)
+validator-2_1              | [04:05:59.200 INFO     chain] on_block_validated: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-2_1              | [04:05:59.204 INFO     chain] Chain head updated to: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-2_1              | [04:05:59.204 INFO     publisher] Now building on top of block: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+validator-2_1              | [04:05:59.314 INFO     chain] Finished block validation of: e12667f8(7, S:3cc1b16c, P:7e8a41e6)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-0:8080
+rest-api-0_1               | [04:05:59.825 INFO     rest_api] Request  489bac: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:05:59.836 INFO     rest_api] Response 489bac: 202 status, 183B size, in 0.011s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:00.860 INFO     rest_api] Request  48c41c: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:00.872 INFO     rest_api] Response 48c41c: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:01.903 INFO     rest_api] Request  48ecdc: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:01.913 INFO     rest_api] Response 48ecdc: 202 status, 183B size, in 0.010s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:02.928 INFO     rest_api] Request  4914e3: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:02.939 INFO     rest_api] Response 4914e3: 202 status, 183B size, in 0.011s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:03.965 INFO     rest_api] Request  493d64: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:03.977 INFO     rest_api] Response 493d64: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:05.009 INFO     rest_api] Request  49662a: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:05.020 INFO     rest_api] Response 49662a: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:06.038 INFO     rest_api] Request  498e5f: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:06.047 INFO     rest_api] Response 498e5f: 202 status, 183B size, in 0.009s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:07.065 INFO     rest_api] Request  49b67a: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:07.075 INFO     rest_api] Response 49b67a: 202 status, 183B size, in 0.011s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:08.105 INFO     rest_api] Request  49df1a: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:08.121 INFO     rest_api] Response 49df1a: 202 status, 183B size, in 0.016s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:09.152 INFO     rest_api] Request  4a0803: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:09.168 INFO     rest_api] Response 4a0803: 202 status, 183B size, in 0.016s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:10.189 INFO     rest_api] Request  4a3084: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:10.207 INFO     rest_api] Response 4a3084: 202 status, 183B size, in 0.018s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:11.232 INFO     rest_api] Request  4a5943: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:11.242 INFO     rest_api] Response 4a5943: 202 status, 183B size, in 0.010s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:12.271 INFO     rest_api] Request  4a81da: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:12.314 INFO     rest_api] Response 4a81da: 202 status, 183B size, in 0.043s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:13.363 INFO     rest_api] Request  4aac83: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:13.375 INFO     rest_api] Response 4aac83: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:14.408 INFO     rest_api] Request  4ad552: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:14.492 INFO     rest_api] Response 4ad552: 202 status, 183B size, in 0.084s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:15.546 INFO     rest_api] Request  4b01c4: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:15.582 INFO     rest_api] Response 4b01c4: 202 status, 183B size, in 0.037s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:16.613 INFO     rest_api] Request  4b2b76: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:16.629 INFO     rest_api] Response 4b2b76: 202 status, 183B size, in 0.016s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:17.648 INFO     rest_api] Request  4b53e4: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:17.661 INFO     rest_api] Response 4b53e4: 202 status, 183B size, in 0.013s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:18.687 INFO     rest_api] Request  4b7c76: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:18.701 INFO     rest_api] Response 4b7c76: 202 status, 183B size, in 0.014s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-0:8080
+rest-api-0_1               | [04:06:19.721 INFO     rest_api] Request  4ba4dd: "POST /batches" from 172.19.0.18
+rest-api-0_1               | [04:06:19.739 INFO     rest_api] Response 4ba4dd: 202 status, 183B size, in 0.018s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:20.757 INFO     rest_api] Request  4bcd53: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:20.769 INFO     rest_api] Response 4bcd53: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:21.786 INFO     rest_api] Request  4bf589: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:21.822 INFO     rest_api] Response 4bf589: 202 status, 183B size, in 0.036s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:22.840 INFO     rest_api] Request  4c1eb8: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:22.853 INFO     rest_api] Response 4c1eb8: 202 status, 183B size, in 0.012s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:23.874 INFO     rest_api] Request  4c4715: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:23.916 INFO     rest_api] Response 4c4715: 202 status, 183B size, in 0.043s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:24.935 INFO     rest_api] Request  4c708e: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:24.949 INFO     rest_api] Response 4c708e: 202 status, 183B size, in 0.013s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:25.967 INFO     rest_api] Request  4c98d5: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:25.988 INFO     rest_api] Response 4c98d5: 202 status, 183B size, in 0.021s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:27.009 INFO     rest_api] Request  4cc18b: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:27.023 INFO     rest_api] Response 4cc18b: 202 status, 183B size, in 0.014s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:28.041 INFO     rest_api] Request  4ce9e2: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:28.055 INFO     rest_api] Response 4ce9e2: 202 status, 183B size, in 0.013s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:29.078 INFO     rest_api] Request  4d125c: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:29.094 INFO     rest_api] Response 4d125c: 202 status, 183B size, in 0.017s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:30.112 INFO     rest_api] Request  4d3ac7: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:30.127 INFO     rest_api] Response 4d3ac7: 202 status, 183B size, in 0.014s
+validator-0_1              | [04:06:30.982 INFO     publisher] Claimed Block: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-0_1              | [04:06:30.991 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:06:31.123 INFO     chain] Starting block validation of : bf5c67b9(6, S:a63351a5, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:31.153 INFO     rest_api] Request  4d636b: "POST /batches" from 172.19.0.18
+validator-2_1              | [04:06:31.213 INFO     chain] Starting block validation of : bf5c67b9(6, S:a63351a5, P:219cb4e0)
+rest-api-1_1               | [04:06:31.273 INFO     rest_api] Response 4d636b: 202 status, 183B size, in 0.120s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:32.315 INFO     rest_api] Request  4d90d4: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:33.501 INFO     rest_api] Response 4d90d4: 202 status, 183B size, in 1.185s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:34.530 INFO     rest_api] Request  4de755: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:34.621 INFO     rest_api] Response 4de755: 202 status, 183B size, in 0.091s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:35.660 INFO     rest_api] Request  4e1379: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:35.755 INFO     rest_api] Response 4e1379: 202 status, 183B size, in 0.096s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:36.808 INFO     rest_api] Request  4e4050: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:36.895 INFO     rest_api] Response 4e4050: 202 status, 183B size, in 0.087s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:37.947 INFO     rest_api] Request  4e6cd2: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:38.042 INFO     rest_api] Response 4e6cd2: 202 status, 183B size, in 0.095s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:39.068 INFO     rest_api] Request  4e989e: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:39.168 INFO     rest_api] Response 4e989e: 202 status, 183B size, in 0.099s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:40.212 INFO     rest_api] Request  4ec550: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:40.342 INFO     rest_api] Response 4ec550: 202 status, 183B size, in 0.130s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:41.407 INFO     rest_api] Request  4ef3fc: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:41.554 INFO     rest_api] Response 4ef3fc: 202 status, 183B size, in 0.147s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-1:8080
+rest-api-1_1               | [04:06:42.610 INFO     rest_api] Request  4f22f8: "POST /batches" from 172.19.0.18
+rest-api-1_1               | [04:06:42.726 INFO     rest_api] Response 4f22f8: 202 status, 183B size, in 0.116s
+validator-2_1              | [04:06:43.487 INFO     poet_fork_resolver] Choose current fork e12667f8: Current fork aggregate local mean (248.472000) greater than new fork aggregate local mean (185.560000)
+validator-2_1              | [04:06:43.488 INFO     chain] on_block_validated: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-2_1              | [04:06:43.489 INFO     chain] Rejected new chain head: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-2_1              | [04:06:43.492 INFO     chain] Finished block validation of: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-1_1              | [04:06:43.546 INFO     poet_fork_resolver] Choose current fork e12667f8: Current fork aggregate local mean (248.472000) greater than new fork aggregate local mean (185.560000)
+validator-1_1              | [04:06:43.548 INFO     chain] on_block_validated: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-1_1              | [04:06:43.550 INFO     chain] Rejected new chain head: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+validator-1_1              | [04:06:43.552 INFO     chain] Finished block validation of: bf5c67b9(6, S:a63351a5, P:219cb4e0)
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 0 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:43.756 INFO     rest_api] Request  4f4fba: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:43.769 INFO     rest_api] Response 4f4fba: 202 status, 183B size, in 0.013s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 1 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:44.792 INFO     rest_api] Request  4f7830: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:44.812 INFO     rest_api] Response 4f7830: 202 status, 183B size, in 0.021s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 2 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:45.832 INFO     rest_api] Request  4fa0d6: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:45.888 INFO     rest_api] Response 4fa0d6: 202 status, 183B size, in 0.056s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 3 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:46.920 INFO     rest_api] Request  4fcb58: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:46.943 INFO     rest_api] Response 4fcb58: 202 status, 183B size, in 0.022s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 4 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:47.961 INFO     rest_api] Request  4ff400: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:47.978 INFO     rest_api] Response 4ff400: 202 status, 183B size, in 0.017s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 5 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:49.000 INFO     rest_api] Request  501c91: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:49.015 INFO     rest_api] Response 501c91: 202 status, 183B size, in 0.015s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 6 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:50.030 INFO     rest_api] Request  5044cc: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:50.046 INFO     rest_api] Response 5044cc: 202 status, 183B size, in 0.016s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 7 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:51.065 INFO     rest_api] Request  506d3a: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:51.081 INFO     rest_api] Response 506d3a: 202 status, 183B size, in 0.017s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 8 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:52.099 INFO     rest_api] Request  5095a3: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:52.133 INFO     rest_api] Response 5095a3: 202 status, 183B size, in 0.034s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 9 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:53.150 INFO     rest_api] Request  50beae: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:53.170 INFO     rest_api] Response 50beae: 202 status, 183B size, in 0.020s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 10 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:54.188 INFO     rest_api] Request  50e741: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:54.222 INFO     rest_api] Response 50e741: 202 status, 183B size, in 0.034s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 11 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:55.236 INFO     rest_api] Request  51102e: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:55.256 INFO     rest_api] Response 51102e: 202 status, 183B size, in 0.020s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 12 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:56.282 INFO     rest_api] Request  51390b: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:56.340 INFO     rest_api] Response 51390b: 202 status, 183B size, in 0.058s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 13 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:57.359 INFO     rest_api] Request  51631b: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:57.398 INFO     rest_api] Response 51631b: 202 status, 183B size, in 0.039s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 14 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:58.412 INFO     rest_api] Request  518c3b: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:58.428 INFO     rest_api] Response 518c3b: 202 status, 183B size, in 0.016s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 15 @ http://rest-api-2:8080
+rest-api-2_1               | [04:06:59.446 INFO     rest_api] Request  51b4a2: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:06:59.465 INFO     rest_api] Response 51b4a2: 202 status, 183B size, in 0.018s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 16 @ http://rest-api-2:8080
+rest-api-2_1               | [04:07:00.491 INFO     rest_api] Request  51dd6e: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:07:00.521 INFO     rest_api] Response 51dd6e: 202 status, 183B size, in 0.030s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 17 @ http://rest-api-2:8080
+rest-api-2_1               | [04:07:01.538 INFO     rest_api] Request  52065b: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:07:01.558 INFO     rest_api] Response 52065b: 202 status, 183B size, in 0.020s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 18 @ http://rest-api-2:8080
+rest-api-2_1               | [04:07:02.575 INFO     rest_api] Request  522ed6: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:07:02.594 INFO     rest_api] Response 522ed6: 202 status, 183B size, in 0.020s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Sending batch 19 @ http://rest-api-2:8080
+rest-api-2_1               | [04:07:03.613 INFO     rest_api] Request  525767: "POST /batches" from 172.19.0.18
+rest-api-2_1               | [04:07:03.631 INFO     rest_api] Response 525767: 202 status, 183B size, in 0.018s
+rest-api-0_1               | [04:07:34.687 INFO     rest_api] Request  571538: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:07:34.742 INFO     rest_api] Response 571538: 200 status, 290689B size, in 0.055s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Verifying consensus @ tolerance 2
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-0:8080
+rest-api-0_1               | [04:07:35.785 INFO     rest_api] Request  574023: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:07:35.830 INFO     rest_api] Response 574023: 200 status, 290689B size, in 0.044s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-1:8080
+rest-api-1_1               | [04:07:37.109 INFO     rest_api] Request  5773d3: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:07:37.183 INFO     rest_api] Response 5773d3: 200 status, 443879B size, in 0.074s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 7    e12667f84edb7cdb91d6629065230e07258dd36641666c6c05a969ed35837cc453bab3be6495d2dc9035e800036d9670a8366a78dc649f7cf586d04e486617ad  9     45    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 6    7e8a41e6c4fd2c238f5605e2c6105e94a63578979603025a5e0463c417f1f9205c6f11e5c103d3f980c26e3b32951cd9cf18903a5d4810333f75a2228f64f902  12    60    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-2:8080
+rest-api-2_1               | [04:07:38.370 INFO     rest_api] Request  57a51c: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:07:38.450 INFO     rest_api] Response 57a51c: 200 status, 443879B size, in 0.080s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 7    e12667f84edb7cdb91d6629065230e07258dd36641666c6c05a969ed35837cc453bab3be6495d2dc9035e800036d9670a8366a78dc649f7cf586d04e486617ad  9     45    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 6    7e8a41e6c4fd2c238f5605e2c6105e94a63578979603025a5e0463c417f1f9205c6f11e5c103d3f980c26e3b32951cd9cf18903a5d4810333f75a2228f64f902  12    60    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+rest-api-0_1               | [04:07:38.651 INFO     rest_api] Request  57b011: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:07:38.698 INFO     rest_api] Response 57b011: 200 status, 290689B size, in 0.047s
+rest-api-0_1               | [04:07:38.706 INFO     rest_api] Request  57b23a: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:07:38.757 INFO     rest_api] Response 57b23a: 200 status, 290689B size, in 0.050s
+rest-api-1_1               | [04:07:38.767 INFO     rest_api] Request  57b497: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:07:38.848 INFO     rest_api] Response 57b497: 200 status, 443879B size, in 0.081s
+rest-api-1_1               | [04:07:38.858 INFO     rest_api] Request  57b827: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:07:38.921 INFO     rest_api] Response 57b827: 200 status, 443879B size, in 0.063s
+rest-api-2_1               | [04:07:38.936 INFO     rest_api] Request  57bb2f: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:07:39.016 INFO     rest_api] Response 57bb2f: 200 status, 443879B size, in 0.080s
+rest-api-2_1               | [04:07:39.032 INFO     rest_api] Request  57bef6: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:07:39.110 INFO     rest_api] Response 57bef6: 200 status, 443879B size, in 0.077s
+validator-1_1              | [04:07:53.405 INFO     publisher] Claimed Block: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:07:53.433 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-1_1              | [04:07:53.456 INFO     chain] Starting block validation of : 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:07:53.588 INFO     chain] Starting block validation of : 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:00.511 INFO     publisher] Claimed Block: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:00.568 INFO     publisher] Block publishing is suspended until new chain head arrives.
+validator-2_1              | [04:08:05.307 INFO     poet_fork_resolver] Choose new fork 0bf333a0: New fork aggregate local mean (326.880000) greater than current fork aggregate local mean (248.472000)
+validator-2_1              | [04:08:05.308 INFO     chain] on_block_validated: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:05.320 INFO     chain] Chain head updated to: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:05.321 INFO     publisher] Now building on top of block: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:05.343 INFO     poet_fork_resolver] Choose new fork 0bf333a0: New fork aggregate local mean (326.880000) greater than current fork aggregate local mean (248.472000)
+validator-1_1              | [04:08:05.344 INFO     chain] on_block_validated: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:05.352 INFO     chain] Chain head updated to: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:05.352 INFO     publisher] Now building on top of block: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:05.365 INFO     chain] Finished block validation of: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:05.368 INFO     chain] Starting block validation of : 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:05.384 INFO     chain] Finished block validation of: 0bf333a0(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:05.385 INFO     chain] Starting block validation of : 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.251 INFO     poet_fork_resolver] Choose new fork 684da2fb: New fork aggregate local mean (326.880000) greater than current fork aggregate local mean (248.472000)
+validator-2_1              | [04:08:16.254 INFO     chain] on_block_validated: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.254 INFO     chain] Chain head updated from e12667f8(7, S:3cc1b16c, P:7e8a41e6) to 0bf333a0(8, S:74ff9090, P:e12667f8) while processing block: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.256 INFO     chain] Finished block validation of: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.256 INFO     chain] Starting block validation of : 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.258 INFO     poet_fork_resolver] Choose current fork 0bf333a0: Current fork wait duration (114.933579) less than new fork wait duration (120.793027)
+validator-2_1              | [04:08:16.261 INFO     chain] on_block_validated: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.263 INFO     chain] Rejected new chain head: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-2_1              | [04:08:16.265 INFO     chain] Finished block validation of: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.391 INFO     poet_fork_resolver] Choose new fork 684da2fb: New fork aggregate local mean (326.880000) greater than current fork aggregate local mean (248.472000)
+validator-1_1              | [04:08:16.393 INFO     chain] on_block_validated: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.394 INFO     chain] Chain head updated from e12667f8(7, S:3cc1b16c, P:7e8a41e6) to 0bf333a0(8, S:74ff9090, P:e12667f8) while processing block: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.397 INFO     chain] Finished block validation of: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.397 INFO     chain] Starting block validation of : 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.399 INFO     poet_fork_resolver] Choose current fork 0bf333a0: Current fork wait duration (114.933579) less than new fork wait duration (120.793027)
+validator-1_1              | [04:08:16.399 INFO     chain] on_block_validated: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.400 INFO     chain] Rejected new chain head: 684da2fb(8, S:74ff9090, P:e12667f8)
+validator-1_1              | [04:08:16.401 INFO     chain] Finished block validation of: 684da2fb(8, S:74ff9090, P:e12667f8)
+rest-api-0_1               | [04:08:39.147 INFO     rest_api] Request  60eb31: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:08:39.192 INFO     rest_api] Response 60eb31: 200 status, 290689B size, in 0.045s
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Verifying consensus @ tolerance 2
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-0:8080
+rest-api-0_1               | [04:08:40.166 INFO     rest_api] Request  6112fe: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:08:40.228 INFO     rest_api] Response 6112fe: 200 status, 290689B size, in 0.062s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-1:8080
+rest-api-1_1               | [04:08:41.466 INFO     rest_api] Request  6145c5: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:08:41.645 INFO     rest_api] Response 6145c5: 200 status, 896196B size, in 0.179s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 8    0bf333a0690062596c3f3a164d2d0011010c39dad855a56d4ea069e43f5964eb28368df775e55d7b1a4789b149441ca5b702eff07435fc7242753e81acea48bd  63    315   021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 7    e12667f84edb7cdb91d6629065230e07258dd36641666c6c05a969ed35837cc453bab3be6495d2dc9035e800036d9670a8366a78dc649f7cf586d04e486617ad  9     45    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 6    7e8a41e6c4fd2c238f5605e2c6105e94a63578979603025a5e0463c417f1f9205c6f11e5c103d3f980c26e3b32951cd9cf18903a5d4810333f75a2228f64f902  12    60    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | INFO:sawtooth_integration.tests.test_poet_smoke:Blocks @ http://rest-api-2:8080
+rest-api-2_1               | [04:08:42.886 INFO     rest_api] Request  617d40: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:08:43.045 INFO     rest_api] Response 617d40: 200 status, 896196B size, in 0.159s
+test-poet-smoke_1          | NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+test-poet-smoke_1          | 8    0bf333a0690062596c3f3a164d2d0011010c39dad855a56d4ea069e43f5964eb28368df775e55d7b1a4789b149441ca5b702eff07435fc7242753e81acea48bd  63    315   021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 7    e12667f84edb7cdb91d6629065230e07258dd36641666c6c05a969ed35837cc453bab3be6495d2dc9035e800036d9670a8366a78dc649f7cf586d04e486617ad  9     45    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 6    7e8a41e6c4fd2c238f5605e2c6105e94a63578979603025a5e0463c417f1f9205c6f11e5c103d3f980c26e3b32951cd9cf18903a5d4810333f75a2228f64f902  12    60    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 5    219cb4e05e87c93b916502c7de877f75961dbc4c131de43b412e8481b78a8d076d3d521f5cb6d0b43ec07b4055d6165eef2c46cf76c4a8da964c9b5f88e60617  10    50    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 4    429dd57d3c48a28e367790c2b5d622207889b01dea616456cd0b6ff6347b8a0b3cd329f3e0aefd317580439158e95094ab8a3a2ffdb8d96ea9533379ce728c1c  6     30    021f79d8043e3fbcea53fa7ab48fe9fcc4fdccfa56f202f33cfbf8ac6adc09d442
+test-poet-smoke_1          | 3    72fe59d904b04a48a67fb7e2b11d8f0bd39eb27f522a347ec505b99c1e2131927c8137c9a0606051f5f827e5c9f407bd8ec2870247ece926b800b43ec899cbf2  19    95    02a332bc46879554d129445ff1a2bb6eb84032f33c09158237609aed34be79ae1c
+test-poet-smoke_1          | 2    5ac9a03d1480bee74054c1e0eddcb0aa827e5e331deea5aa987378b237ef91451c665190567dd9a581415c519f3809022068d03101019fd2b1100a5d90e9000f  1     5     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 1    b80b07131e61494bba74035cfb3dd39f3031c9d75a406561da853c2db41103f6289a502f5b84aba3910e3697e6ed9fbff7d9ae365f630f0141b8d184d31ad9fb  2     2     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+test-poet-smoke_1          | 0    34eb5ad2c71780af189755aae422b3cc4adefd927724a920f23308340b59b94241dce7c54f3358ea286ba5e9aa5c8330534b884ad4d3b29d3c8269f06431c288  3     6     022f9df5a2cb66ed64aaa2af170f7db44b2585d3298d6f5f28c86b82868e4e0119
+rest-api-0_1               | [04:08:43.244 INFO     rest_api] Request  618b37: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:08:43.287 INFO     rest_api] Response 618b37: 200 status, 290689B size, in 0.044s
+rest-api-0_1               | [04:08:43.299 INFO     rest_api] Request  618d65: "GET /blocks" from 172.19.0.18
+rest-api-0_1               | [04:08:43.349 INFO     rest_api] Response 618d65: 200 status, 290689B size, in 0.049s
+rest-api-1_1               | [04:08:43.362 INFO     rest_api] Request  618fd4: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:08:43.522 INFO     rest_api] Response 618fd4: 200 status, 896196B size, in 0.161s
+rest-api-1_1               | [04:08:43.535 INFO     rest_api] Request  619698: "GET /blocks" from 172.19.0.18
+rest-api-1_1               | [04:08:43.717 INFO     rest_api] Response 619698: 200 status, 896196B size, in 0.183s
+rest-api-2_1               | [04:08:43.751 INFO     rest_api] Request  619f05: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:08:43.942 INFO     rest_api] Response 619f05: 200 status, 896196B size, in 0.191s
+rest-api-2_1               | [04:08:43.955 INFO     rest_api] Request  61a701: "GET /blocks" from 172.19.0.18
+rest-api-2_1               | [04:08:44.098 INFO     rest_api] Response 61a701: 200 status, 896196B size, in 0.143s
+test-poet-smoke_1          | FAIL
+test-poet-smoke_1          | 
+test-poet-smoke_1          | ======================================================================
+test-poet-smoke_1          | FAIL: test_poet_smoke (sawtooth_integration.tests.test_poet_smoke.TestPoetSmoke)
+test-poet-smoke_1          | ----------------------------------------------------------------------
+test-poet-smoke_1          | Traceback (most recent call last):
+test-poet-smoke_1          |   File "/project/sawtooth-core/integration/sawtooth_integration/tests/test_poet_smoke.py", line 100, in assert_consensus
+test-poet-smoke_1          |     self._assert_consensus()
+test-poet-smoke_1          |   File "/project/sawtooth-core/integration/sawtooth_integration/tests/test_poet_smoke.py", line 127, in _assert_consensus
+test-poet-smoke_1          |     'Validators are not in consensus')
+test-poet-smoke_1          |   File "/usr/lib/python3.5/unittest/case.py", line 677, in assertTrue
+test-poet-smoke_1          |     raise self.failureException(msg)
+test-poet-smoke_1          | AssertionError: False is not true : Validators are not in consensus
+test-poet-smoke_1          | 
+test-poet-smoke_1          | During handling of the above exception, another exception occurred:
+test-poet-smoke_1          | 
+test-poet-smoke_1          | Traceback (most recent call last):
+test-poet-smoke_1          |   File "/project/sawtooth-core/integration/sawtooth_integration/tests/test_poet_smoke.py", line 95, in test_poet_smoke
+test-poet-smoke_1          |     self.assert_consensus()
+test-poet-smoke_1          |   File "/project/sawtooth-core/integration/sawtooth_integration/tests/test_poet_smoke.py", line 103, in assert_consensus
+test-poet-smoke_1          |     self._assert_consensus()
+test-poet-smoke_1          |   File "/project/sawtooth-core/integration/sawtooth_integration/tests/test_poet_smoke.py", line 127, in _assert_consensus
+test-poet-smoke_1          |     'Validators are not in consensus')
+test-poet-smoke_1          | AssertionError: False is not true : Validators are not in consensus
+test-poet-smoke_1          | 
+test-poet-smoke_1          | ----------------------------------------------------------------------
+test-poet-smoke_1          | Ran 1 test in 281.551s
+test-poet-smoke_1          | 
+test-poet-smoke_1          | FAILED (failures=1)
+test-poet-smoke_1          | ----------- coverage: platform linux, python 3.5.2-final-0 -----------
+test-poet-smoke_1          | Name                                                                   Stmts   Miss  Cover
+test-poet-smoke_1          | ------------------------------------------------------------------------------------------
+test-poet-smoke_1          | bin/sawtooth                                                              10      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/__init__.py                                               1      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/admin.py                                                 16      5    69%
+test-poet-smoke_1          | cli/sawtooth_cli/admin_command/__init__.py                                 1      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/admin_command/config.py                                  28     21    25%
+test-poet-smoke_1          | cli/sawtooth_cli/admin_command/genesis.py                                 44     32    27%
+test-poet-smoke_1          | cli/sawtooth_cli/admin_command/keygen.py                                  48     37    23%
+test-poet-smoke_1          | cli/sawtooth_cli/batch.py                                                126     84    33%
+test-poet-smoke_1          | cli/sawtooth_cli/block.py                                                 51     22    57%
+test-poet-smoke_1          | cli/sawtooth_cli/cluster.py                                              241    185    23%
+test-poet-smoke_1          | cli/sawtooth_cli/config.py                                               247    169    32%
+test-poet-smoke_1          | cli/sawtooth_cli/exceptions.py                                             2      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/format_utils.py                                          42     13    69%
+test-poet-smoke_1          | cli/sawtooth_cli/keygen.py                                                59     46    22%
+test-poet-smoke_1          | cli/sawtooth_cli/main.py                                                  96     26    73%
+test-poet-smoke_1          | cli/sawtooth_cli/parent_parsers.py                                        15      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/__init__.py                                      0      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/batch_pb2.py                                    27      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/genesis_pb2.py                                  18      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/setting_pb2.py                                  20      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/settings_pb2.py                                 47      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/protobuf/transaction_pb2.py                              25      0   100%
+test-poet-smoke_1          | cli/sawtooth_cli/rest_client.py                                           77     27    65%
+test-poet-smoke_1          | cli/sawtooth_cli/state.py                                                 50     30    40%
+test-poet-smoke_1          | cli/sawtooth_cli/transaction.py                                           53     35    34%
+test-poet-smoke_1          | cli/sawtooth_cli/tty.py                                                   17     10    41%
+test-poet-smoke_1          | integration/sawtooth_integration/__init__.py                               0      0   100%
+test-poet-smoke_1          | integration/sawtooth_integration/tests/__init__.py                         0      0   100%
+test-poet-smoke_1          | integration/sawtooth_integration/tests/integration_tools.py               95     52    45%
+test-poet-smoke_1          | integration/sawtooth_integration/tests/test_poet_smoke.py                 77      0   100%
+test-poet-smoke_1          | manage/__init__.py                                                         0      0   100%
+test-poet-smoke_1          | manage/sawtooth_manage/__init__.py                                         1      0   100%
+test-poet-smoke_1          | manage/sawtooth_manage/docker.py                                         174    147    16%
+test-poet-smoke_1          | manage/sawtooth_manage/exceptions.py                                       4      0   100%
+test-poet-smoke_1          | manage/sawtooth_manage/node.py                                            57     27    53%
+test-poet-smoke_1          | manage/sawtooth_manage/simple.py                                          20      8    60%
+test-poet-smoke_1          | manage/sawtooth_manage/subproc.py                                        129    103    20%
+test-poet-smoke_1          | manage/sawtooth_manage/vnm.py                                             25     17    32%
+test-poet-smoke_1          | manage/setup.py                                                            5      5     0%
+test-poet-smoke_1          | sdk/examples/intkey_python/sawtooth_intkey/__init__.py                     1      0   100%
+test-poet-smoke_1          | sdk/examples/intkey_python/sawtooth_intkey/intkey_message_factory.py      46     19    59%
+test-poet-smoke_1          | sdk/examples/intkey_python/sawtooth_intkey/processor/__init__.py           1      0   100%
+test-poet-smoke_1          | sdk/examples/intkey_python/sawtooth_intkey/processor/handler.py          115     83    28%
+test-poet-smoke_1          | sdk/python/sawtooth_processor_test/__init__.py                             0      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_processor_test/message_factory.py                    100     26    74%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/__init__.py                                        1      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/processor/__init__.py                              1      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/processor/exceptions.py                           10      4    60%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/processor/state.py                                30     21    30%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/__init__.py                               0      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/batch_pb2.py                             27      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/processor_pb2.py                         60      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/state_context_pb2.py                     50      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/transaction_pb2.py                       25      0   100%
+test-poet-smoke_1          | sdk/python/sawtooth_sdk/protobuf/validator_pb2.py                         25      0   100%
+test-poet-smoke_1          | signing/sawtooth_signing/__init__.py                                       2      0   100%
+test-poet-smoke_1          | signing/sawtooth_signing/secp256k1_signer.py                              83     35    58%
+test-poet-smoke_1          | ------------------------------------------------------------------------------------------
+test-poet-smoke_1          | TOTAL                                                                   2525   1289    49%
+latest_test-poet-smoke_1 exited with code 1
+Aborting on container exit...
+Stopping latest_validator-2_1 ... done
+Stopping latest_validator-1_1 ... done
+Stopping latest_tp-validator-registry-1_1 ... done
+Stopping latest_tp-settings-1_1 ... done
+Stopping latest_validator-0_1 ... done
+Stopping latest_rest-api-1_1 ... done
+Stopping latest_tp-settings-0_1 ... done
+Stopping latest_tp-validator-registry-0_1 ... done
+Stopping latest_rest-api-0_1 ... done
+Stopping latest_tp-validator-registry-2_1 ... done
+Stopping latest_tp-settings-2_1 ... done
+Stopping latest_rest-api-2_1 ... done
+INFO:__main__:Getting result with: ['docker', 'inspect', '-f', '{{.State.ExitCode}}', 'latest_test-poet-smoke_1']
+INFO:__main__:Container latest_validator-2_1 ran image sawtooth-validator:latest with install-type mounted
+INFO:__main__:Container latest_validator-1_1 ran image sawtooth-validator:latest with install-type mounted
+INFO:__main__:Container latest_test-poet-smoke_1 ran image sawtooth-dev-python:latest with install-type mounted
+INFO:__main__:Container latest_tp-validator-registry-1_1 ran image sawtooth-tp_validator_registry:latest with install-type mounted
+INFO:__main__:Container latest_tp-settings-1_1 ran image sawtooth-tp_settings:latest with install-type mounted
+INFO:__main__:Container latest_validator-0_1 ran image sawtooth-validator:latest with install-type mounted
+INFO:__main__:Container latest_rest-api-1_1 ran image sawtooth-rest_api:latest with install-type mounted
+INFO:__main__:Container latest_tp-settings-0_1 ran image sawtooth-tp_settings:latest with install-type mounted
+INFO:__main__:Container latest_tp-validator-registry-0_1 ran image sawtooth-tp_validator_registry:latest with install-type mounted
+INFO:__main__:Container latest_rest-api-0_1 ran image sawtooth-rest_api:latest with install-type mounted
+INFO:__main__:Container latest_tp-validator-registry-2_1 ran image sawtooth-tp_validator_registry:latest with install-type mounted
+INFO:__main__:Container latest_tp-settings-2_1 ran image sawtooth-tp_settings:latest with install-type mounted
+INFO:__main__:Container latest_rest-api-2_1 ran image sawtooth-rest_api:latest with install-type mounted
+INFO:__main__:Shutting down with: ['docker-compose', '-p', 'latest', '-f', 'integration/sawtooth_integration/docker/test_poet_smoke.yaml', 'down', '--remove-orphans']
+Removing latest_validator-2_1 ... done
+Removing latest_validator-1_1 ... done
+Removing latest_test-poet-smoke_1 ... done
+Removing latest_tp-validator-registry-1_1 ... done
+Removing latest_tp-settings-1_1 ... done
+Removing latest_validator-0_1 ... done
+Removing latest_rest-api-1_1 ... done
+Removing latest_tp-settings-0_1 ... done
+Removing latest_tp-validator-registry-0_1 ... done
+Removing latest_rest-api-0_1 ... done
+Removing latest_tp-validator-registry-2_1 ... done
+Removing latest_tp-settings-2_1 ... done
+Removing latest_rest-api-2_1 ... done
+Removing network latest_default
+

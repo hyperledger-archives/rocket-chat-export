@@ -1,0 +1,40 @@
+namespace net.biz.my
+
+asset Asset identified by Id {
+  o String   Id
+    --> User   owner
+  o String   someMoreProperties1
+  o String   someMoreProperties2
+  o String   someMoreProperties3
+  o DateTime createdAt
+
+/**
+ * Asset owner
+ */
+participant User identified by UserId {
+  o String UserId
+  o String firstName
+  o String lastName
+  o String SomeMoreInfo
+}
+/**
+ * A Regulator participant
+ */
+
+participant Regulator extends User {
+}
+
+transaction RegisterAsset identified by transactionId{
+  o String transactionId
+}
+
+##############
+ JS file:
+
+
+function RegisterAsset (RegisterAsset) {
+    return get RegisterAsset ('net.biz.my. RegisterAsset ')
+        .then(function(RegisterAssetRegistry) {
+            return RegisterAssetRegistry.update(RegisterAsset.transactionId);
+        });
+}

@@ -1,0 +1,136 @@
+root@ubuntuVMServer7:/opt/scripts/migrate_to_raft# peer channel update -f config_update_in_envelope.pb -c legaldescriptionchannel --orderer $ORDERER_ADDRESS --tls --cafile $CORE_PEER_TLS_ROOTCERT_FILE --clientauth --keyfile $CORE_PEER_TLS_CLIENTKEY_FILE --certfile $CORE_PEER_TLS_CLIENTCERT_FILE
+2019-09-19 09:01:24.205 UTC [viperutil] getKeysRecursively -> DEBU 001 Found map[string]interface{} value for peer.BCCSP
+2019-09-19 09:01:24.206 UTC [viperutil] getKeysRecursively -> DEBU 002 Found map[string]interface{} value for peer.BCCSP.PKCS11
+2019-09-19 09:01:24.206 UTC [viperutil] unmarshalJSON -> DEBU 003 Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.207 UTC [viperutil] getKeysRecursively -> DEBU 004 Found real value for peer.BCCSP.PKCS11.Label setting to <nil> <nil>
+2019-09-19 09:01:24.207 UTC [viperutil] unmarshalJSON -> DEBU 005 Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.207 UTC [viperutil] getKeysRecursively -> DEBU 006 Found real value for peer.BCCSP.PKCS11.Pin setting to <nil> <nil>
+2019-09-19 09:01:24.208 UTC [viperutil] unmarshalJSON -> DEBU 007 Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.208 UTC [viperutil] getKeysRecursively -> DEBU 008 Found real value for peer.BCCSP.PKCS11.Hash setting to <nil> <nil>
+2019-09-19 09:01:24.209 UTC [viperutil] unmarshalJSON -> DEBU 009 Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.209 UTC [viperutil] getKeysRecursively -> DEBU 00a Found real value for peer.BCCSP.PKCS11.Security setting to <nil> <nil>
+2019-09-19 09:01:24.210 UTC [viperutil] getKeysRecursively -> DEBU 00b Found map[string]interface{} value for peer.BCCSP.PKCS11.FileKeyStore
+2019-09-19 09:01:24.210 UTC [viperutil] unmarshalJSON -> DEBU 00c Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.210 UTC [viperutil] getKeysRecursively -> DEBU 00d Found real value for peer.BCCSP.PKCS11.FileKeyStore.KeyStore setting to <nil> <nil>
+2019-09-19 09:01:24.211 UTC [viperutil] unmarshalJSON -> DEBU 00e Unmarshal JSON: value is not a string: <nil>
+2019-09-19 09:01:24.211 UTC [viperutil] getKeysRecursively -> DEBU 00f Found real value for peer.BCCSP.PKCS11.Library setting to <nil> <nil>
+2019-09-19 09:01:24.212 UTC [viperutil] unmarshalJSON -> DEBU 010 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2019-09-19 09:01:24.212 UTC [viperutil] getKeysRecursively -> DEBU 011 Found real value for peer.BCCSP.Default setting to string SW
+2019-09-19 09:01:24.212 UTC [viperutil] getKeysRecursively -> DEBU 012 Found map[string]interface{} value for peer.BCCSP.SW
+2019-09-19 09:01:24.212 UTC [viperutil] unmarshalJSON -> DEBU 013 Unmarshal JSON: value is not a string: 256
+2019-09-19 09:01:24.213 UTC [viperutil] getKeysRecursively -> DEBU 014 Found real value for peer.BCCSP.SW.Security setting to int 256
+2019-09-19 09:01:24.213 UTC [viperutil] getKeysRecursively -> DEBU 015 Found map[string]interface{} value for peer.BCCSP.SW.FileKeyStore
+2019-09-19 09:01:24.213 UTC [viperutil] unmarshalJSON -> DEBU 016 Unmarshal JSON: value cannot be unmarshalled: unexpected end of JSON input
+2019-09-19 09:01:24.214 UTC [viperutil] getKeysRecursively -> DEBU 017 Found real value for peer.BCCSP.SW.FileKeyStore.KeyStore setting to string
+2019-09-19 09:01:24.214 UTC [viperutil] unmarshalJSON -> DEBU 018 Unmarshal JSON: value cannot be unmarshalled: invalid character 'S' looking for beginning of value
+2019-09-19 09:01:24.214 UTC [viperutil] getKeysRecursively -> DEBU 019 Found real value for peer.BCCSP.SW.Hash setting to string SHA2
+2019-09-19 09:01:24.215 UTC [viperutil] EnhancedExactUnmarshalKey -> DEBU 01a map[peer.BCCSP:map[SW:map[FileKeyStore:map[KeyStore:] Hash:SHA2 Security:256] PKCS11:map[Label:<nil> Pin:<nil> Hash:<nil> Security:<nil> FileKeyStore:map[KeyStore:<nil>] Library:<nil>] Default:SW]]
+2019-09-19 09:01:24.215 UTC [bccsp_sw] openKeyStore -> DEBU 01b KeyStore opened at [/var/hyperledger/crypto/org0/admin/msp/keystore]...done
+2019-09-19 09:01:24.215 UTC [bccsp] initBCCSP -> DEBU 01c Initialize BCCSP [SW]
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 01d Reading directory /var/hyperledger/crypto/org0/admin/msp/signcerts
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 01e Inspecting file /var/hyperledger/crypto/org0/admin/msp/signcerts/cert.pem
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 01f Reading directory /var/hyperledger/crypto/org0/admin/msp/cacerts
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 020 Inspecting file /var/hyperledger/crypto/org0/admin/msp/cacerts/0-0-0-0-8054.pem
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 021 Reading directory /var/hyperledger/crypto/org0/admin/msp/admincerts
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 022 Inspecting file /var/hyperledger/crypto/org0/admin/msp/admincerts/cert.pem
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 023 Reading directory /var/hyperledger/crypto/org0/admin/msp/intermediatecerts
+2019-09-19 09:01:24.215 UTC [msp] getMspConfig -> DEBU 024 Intermediate certs folder not found at [/var/hyperledger/crypto/org0/admin/msp/intermediatecerts]. Skipping. [stat /var/hyperledger/crypto/org0/admin/msp/intermediatecerts: no such file or directory]
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 025 Reading directory /var/hyperledger/crypto/org0/admin/msp/tlscacerts
+2019-09-19 09:01:24.215 UTC [msp] getMspConfig -> DEBU 026 TLS CA certs folder not found at [/var/hyperledger/crypto/org0/admin/msp/tlsintermediatecerts]. Skipping and ignoring TLS intermediate CA folder. [stat /var/hyperledger/crypto/org0/admin/msp/tlscacerts: no such file or directory]
+2019-09-19 09:01:24.215 UTC [msp] getPemMaterialFromDir -> DEBU 027 Reading directory /var/hyperledger/crypto/org0/admin/msp/crls
+2019-09-19 09:01:24.215 UTC [msp] getMspConfig -> DEBU 028 crls folder not found at [/var/hyperledger/crypto/org0/admin/msp/crls]. Skipping. [stat /var/hyperledger/crypto/org0/admin/msp/crls: no such file or directory]
+2019-09-19 09:01:24.215 UTC [msp] getMspConfig -> DEBU 029 MSP configuration file not found at [/var/hyperledger/crypto/org0/admin/msp/config.yaml]: [stat /var/hyperledger/crypto/org0/admin/msp/config.yaml: no such file or directory]
+2019-09-19 09:01:24.216 UTC [msp] newBccspMsp -> DEBU 02a Creating BCCSP-based MSP instance
+2019-09-19 09:01:24.216 UTC [msp] New -> DEBU 02b Creating Cache-MSP instance
+2019-09-19 09:01:24.216 UTC [msp] loadLocaMSP -> DEBU 02c Created new local MSP
+2019-09-19 09:01:24.216 UTC [msp] Setup -> DEBU 02d Setting up MSP instance OrdererMSP
+2019-09-19 09:01:24.216 UTC [msp.identity] newIdentity -> DEBU 02e Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICGDCCAb6gAwIBAgIUBVIKqz0qn5QAa0QtkD/x+Z8QNpMwCgYIKoZIzj0EAwIw
+YDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMREwDwYDVQQDEwhpY2Etb3Jn
+MDAeFw0xOTA5MDQwODM1MDBaFw0zNDA4MzEwODM1MDBaMGAxCzAJBgNVBAYTAlVT
+MRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIx
+DzANBgNVBAsTBkZhYnJpYzERMA8GA1UEAxMIaWNhLW9yZzAwWTATBgcqhkjOPQIB
+BggqhkjOPQMBBwNCAATI6Wl8Vjv69yjkEo0gx+MfKhFgiO9fjP4U0bx49uEyJhs8
+kg7Dd9N85TRUceQF1Njsp2oRkDPrN4y5cBI2oZPco1YwVDAOBgNVHQ8BAf8EBAMC
+AQYwEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUdIfgouV80P2m7Lp7zI9p
+RUjZP2AwDwYDVR0RBAgwBocEAAAAADAKBggqhkjOPQQDAgNIADBFAiEAgRY/rwFH
+wbDB06kPCp7nL5zhkIZPT+e0ED1Q3PZW1V4CIEDOokNu1MBbN+igycyc8R0KYjC0
+0UDuIplL1LtziFg/
+-----END CERTIFICATE-----
+2019-09-19 09:01:24.216 UTC [msp.identity] newIdentity -> DEBU 02f Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICwDCCAmegAwIBAgIUExVK0dC8MPpPBk1C9KxLvfw1tigwCgYIKoZIzj0EAwIw
+YDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMREwDwYDVQQDEwhpY2Etb3Jn
+MDAeFw0xOTA5MDQxMjIxMDBaFw0yMDA5MDMxMjI2MDBaMGExCzAJBgNVBAYTAlVT
+MRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIx
+DjAMBgNVBAsTBWFkbWluMRMwEQYDVQQDEwphZG1pbi1vcmcwMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEJjJ9JSc9y92jXjIju5y7unUq48IWWLoKPb7pFyrFnP2L
+jXHAaYvshiBeSuwnhGIrUQ4aA6QztdeNBQEnm3b4gKOB/TCB+jAOBgNVHQ8BAf8E
+BAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU+66LAd3JuIV/K378v/LRKFZ4
+h6YwHwYDVR0jBBgwFoAUdIfgouV80P2m7Lp7zI9pRUjZP2AwGgYDVR0RBBMwEYIP
+dWJ1bnR1Vk1TZXJ2ZXI1MH4GCCoDBAUGBwgBBHJ7ImF0dHJzIjp7ImFiYWMuaW5p
+dCI6InRydWUiLCJhZG1pbiI6InRydWUiLCJoZi5BZmZpbGlhdGlvbiI6IiIsImhm
+LkVucm9sbG1lbnRJRCI6ImFkbWluLW9yZzAiLCJoZi5UeXBlIjoiYWRtaW4ifX0w
+CgYIKoZIzj0EAwIDRwAwRAIgIwuuRyFIvJ5G71OgJPBGA4Si01Ris2zgdwRmZvSM
+/RQCIBdFXSPKZZ5bbrh3ed+p7UjH7aJJTxMCzzgxoTwop4DZ
+-----END CERTIFICATE-----
+2019-09-19 09:01:24.216 UTC [msp.identity] newIdentity -> DEBU 030 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICwDCCAmegAwIBAgIUExVK0dC8MPpPBk1C9KxLvfw1tigwCgYIKoZIzj0EAwIw
+YDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMREwDwYDVQQDEwhpY2Etb3Jn
+MDAeFw0xOTA5MDQxMjIxMDBaFw0yMDA5MDMxMjI2MDBaMGExCzAJBgNVBAYTAlVT
+MRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIx
+DjAMBgNVBAsTBWFkbWluMRMwEQYDVQQDEwphZG1pbi1vcmcwMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEJjJ9JSc9y92jXjIju5y7unUq48IWWLoKPb7pFyrFnP2L
+jXHAaYvshiBeSuwnhGIrUQ4aA6QztdeNBQEnm3b4gKOB/TCB+jAOBgNVHQ8BAf8E
+BAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU+66LAd3JuIV/K378v/LRKFZ4
+h6YwHwYDVR0jBBgwFoAUdIfgouV80P2m7Lp7zI9pRUjZP2AwGgYDVR0RBBMwEYIP
+dWJ1bnR1Vk1TZXJ2ZXI1MH4GCCoDBAUGBwgBBHJ7ImF0dHJzIjp7ImFiYWMuaW5p
+dCI6InRydWUiLCJhZG1pbiI6InRydWUiLCJoZi5BZmZpbGlhdGlvbiI6IiIsImhm
+LkVucm9sbG1lbnRJRCI6ImFkbWluLW9yZzAiLCJoZi5UeXBlIjoiYWRtaW4ifX0w
+CgYIKoZIzj0EAwIDRwAwRAIgIwuuRyFIvJ5G71OgJPBGA4Si01Ris2zgdwRmZvSM
+/RQCIBdFXSPKZZ5bbrh3ed+p7UjH7aJJTxMCzzgxoTwop4DZ
+-----END CERTIFICATE-----
+2019-09-19 09:01:24.218 UTC [msp] setupSigningIdentity -> DEBU 031 Signing identity expires at 2020-09-03 12:26:00 +0000 UTC
+2019-09-19 09:01:24.218 UTC [msp.identity] newIdentity -> DEBU 032 Creating identity instance for cert -----BEGIN CERTIFICATE-----
+MIICwDCCAmegAwIBAgIUExVK0dC8MPpPBk1C9KxLvfw1tigwCgYIKoZIzj0EAwIw
+YDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMREwDwYDVQQDEwhpY2Etb3Jn
+MDAeFw0xOTA5MDQxMjIxMDBaFw0yMDA5MDMxMjI2MDBaMGExCzAJBgNVBAYTAlVT
+MRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIx
+DjAMBgNVBAsTBWFkbWluMRMwEQYDVQQDEwphZG1pbi1vcmcwMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEJjJ9JSc9y92jXjIju5y7unUq48IWWLoKPb7pFyrFnP2L
+jXHAaYvshiBeSuwnhGIrUQ4aA6QztdeNBQEnm3b4gKOB/TCB+jAOBgNVHQ8BAf8E
+BAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU+66LAd3JuIV/K378v/LRKFZ4
+h6YwHwYDVR0jBBgwFoAUdIfgouV80P2m7Lp7zI9pRUjZP2AwGgYDVR0RBBMwEYIP
+dWJ1bnR1Vk1TZXJ2ZXI1MH4GCCoDBAUGBwgBBHJ7ImF0dHJzIjp7ImFiYWMuaW5p
+dCI6InRydWUiLCJhZG1pbiI6InRydWUiLCJoZi5BZmZpbGlhdGlvbiI6IiIsImhm
+LkVucm9sbG1lbnRJRCI6ImFkbWluLW9yZzAiLCJoZi5UeXBlIjoiYWRtaW4ifX0w
+CgYIKoZIzj0EAwIDRwAwRAIgIwuuRyFIvJ5G71OgJPBGA4Si01Ris2zgdwRmZvSM
+/RQCIBdFXSPKZZ5bbrh3ed+p7UjH7aJJTxMCzzgxoTwop4DZ
+-----END CERTIFICATE-----
+2019-09-19 09:01:24.218 UTC [msp] Validate -> DEBU 033 MSP OrdererMSP validating identity
+2019-09-19 09:01:24.219 UTC [msp] GetDefaultSigningIdentity -> DEBU 034 Obtaining default signing identity
+2019-09-19 09:01:24.220 UTC [grpc] DialContext -> DEBU 035 parsed scheme: ""
+2019-09-19 09:01:24.220 UTC [grpc] DialContext -> DEBU 036 scheme "" not registered, fallback to default scheme
+2019-09-19 09:01:24.220 UTC [grpc] watcher -> DEBU 037 ccResolverWrapper: sending new addresses to cc: [{172.23.155.122:7050 0  <nil>}]
+2019-09-19 09:01:24.220 UTC [grpc] switchBalancer -> DEBU 038 ClientConn switching balancer to "pick_first"
+2019-09-19 09:01:24.221 UTC [grpc] HandleSubConnStateChange -> DEBU 039 pickfirstBalancer: HandleSubConnStateChange: 0xc0001c1610, CONNECTING
+2019-09-19 09:01:24.230 UTC [grpc] HandleSubConnStateChange -> DEBU 03a pickfirstBalancer: HandleSubConnStateChange: 0xc0001c1610, READY
+2019-09-19 09:01:24.230 UTC [channelCmd] InitCmdFactory -> INFO 03b Endorser and orderer connections initialized
+2019-09-19 09:01:24.231 UTC [msp] GetDefaultSigningIdentity -> DEBU 03c Obtaining default signing identity
+2019-09-19 09:01:24.231 UTC [msp] GetDefaultSigningIdentity -> DEBU 03d Obtaining default signing identity
+2019-09-19 09:01:24.232 UTC [msp.identity] Sign -> DEBU 03e Sign: plaintext: 0A84080A0A4F7264657265724D535012...05288080800A18011A0641646D696E73
+2019-09-19 09:01:24.232 UTC [msp.identity] Sign -> DEBU 03f Sign: digest: 47024CCB180EB1F4753C00B1208F6FC744278575FEE4B7E12F878D51D515B723
+2019-09-19 09:01:24.233 UTC [msp] GetDefaultSigningIdentity -> DEBU 040 Obtaining default signing identity
+2019-09-19 09:01:24.233 UTC [msp] GetDefaultSigningIdentity -> DEBU 041 Obtaining default signing identity
+2019-09-19 09:01:24.234 UTC [msp.identity] Sign -> DEBU 042 Sign: plaintext: 0AC9080A2308021A0608E4878DEC0522...1F761FCA8E438E727082B1DCB322390F
+2019-09-19 09:01:24.234 UTC [msp.identity] Sign -> DEBU 043 Sign: digest: F46235F2FC38873C1D8DBEC6F3FCF6324B365FEAF3736872CC3B3EFAEF6947B3
+2019-09-19 09:01:24.235 UTC [grpc] DialContext -> DEBU 044 parsed scheme: ""
+2019-09-19 09:01:24.235 UTC [grpc] DialContext -> DEBU 045 scheme "" not registered, fallback to default scheme
+2019-09-19 09:01:24.236 UTC [grpc] watcher -> DEBU 046 ccResolverWrapper: sending new addresses to cc: [{172.23.155.122:7050 0  <nil>}]
+2019-09-19 09:01:24.236 UTC [grpc] switchBalancer -> DEBU 047 ClientConn switching balancer to "pick_first"
+2019-09-19 09:01:24.236 UTC [grpc] HandleSubConnStateChange -> DEBU 048 pickfirstBalancer: HandleSubConnStateChange: 0xc000215cb0, CONNECTING
+2019-09-19 09:01:24.240 UTC [grpc] HandleSubConnStateChange -> DEBU 049 pickfirstBalancer: HandleSubConnStateChange: 0xc000215cb0, READY
+Error: got unexpected status: BAD_REQUEST -- error applying config update to existing channel 'legaldescriptionchannel': attempted to change consensus type from kafka to etcdraft

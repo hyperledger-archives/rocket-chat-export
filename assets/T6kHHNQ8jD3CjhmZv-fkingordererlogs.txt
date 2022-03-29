@@ -1,0 +1,1212 @@
+2017-09-23 17:39:51.264 UTC [orderer/main] main -> INFO 001 Starting orderer:
+ Version: 1.0.2
+ Go version: go1.7.5
+ OS/Arch: linux/amd64
+2017-09-23 17:39:51.370 UTC [bccsp_sw] openKeyStore -> DEBU 002 KeyStore opened at [/var/hyperledger/orderer/msp/keystore]...done
+2017-09-23 17:39:51.374 UTC [bccsp] initBCCSP -> DEBU 003 Initialize BCCSP [SW]
+2017-09-23 17:39:51.376 UTC [msp] getPemMaterialFromDir -> DEBU 004 Reading directory /var/hyperledger/orderer/msp/signcerts
+2017-09-23 17:39:51.402 UTC [msp] getPemMaterialFromDir -> DEBU 005 Inspecting file /var/hyperledger/orderer/msp/signcerts/orderer0.example.com-cert.pem
+2017-09-23 17:39:51.421 UTC [msp] getPemMaterialFromDir -> DEBU 006 Reading directory /var/hyperledger/orderer/msp/cacerts
+2017-09-23 17:39:51.434 UTC [msp] getPemMaterialFromDir -> DEBU 007 Inspecting file /var/hyperledger/orderer/msp/cacerts/ca.example.com-cert.pem
+2017-09-23 17:39:51.444 UTC [msp] getPemMaterialFromDir -> DEBU 008 Reading directory /var/hyperledger/orderer/msp/admincerts
+2017-09-23 17:39:51.458 UTC [msp] getPemMaterialFromDir -> DEBU 009 Inspecting file /var/hyperledger/orderer/msp/admincerts/Admin@example.com-cert.pem
+2017-09-23 17:39:51.462 UTC [msp] getPemMaterialFromDir -> DEBU 00a Reading directory /var/hyperledger/orderer/msp/intermediatecerts
+2017-09-23 17:39:51.463 UTC [msp] getMspConfig -> DEBU 00b Intermediate certs folder not found at [/var/hyperledger/orderer/msp/intermediatecerts]. Skipping. [stat /var/hyperledger/orderer/msp/intermediatecerts: no such file or directory]
+2017-09-23 17:39:51.463 UTC [msp] getPemMaterialFromDir -> DEBU 00c Reading directory /var/hyperledger/orderer/msp/tlscacerts
+2017-09-23 17:39:51.471 UTC [msp] getPemMaterialFromDir -> DEBU 00d Inspecting file /var/hyperledger/orderer/msp/tlscacerts/tlsca.example.com-cert.pem
+2017-09-23 17:39:51.476 UTC [msp] getPemMaterialFromDir -> DEBU 00e Reading directory /var/hyperledger/orderer/msp/tlsintermediatecerts
+2017-09-23 17:39:51.476 UTC [msp] getMspConfig -> DEBU 00f TLS intermediate certs folder not found at [/var/hyperledger/orderer/msp/tlsintermediatecerts]. Skipping. [stat /var/hyperledger/orderer/msp/tlsintermediatecerts: no such file or directory]
+2017-09-23 17:39:51.476 UTC [msp] getPemMaterialFromDir -> DEBU 010 Reading directory /var/hyperledger/orderer/msp/crls
+2017-09-23 17:39:51.477 UTC [msp] getMspConfig -> DEBU 011 crls folder not found at [/var/hyperledger/orderer/msp/crls]. Skipping. [stat /var/hyperledger/orderer/msp/crls: no such file or directory]
+2017-09-23 17:39:51.478 UTC [msp] getMspConfig -> DEBU 012 MSP configuration file not found at [/var/hyperledger/orderer/msp/config.yaml]: [stat /var/hyperledger/orderer/msp/config.yaml: no such file or directory]
+2017-09-23 17:39:51.478 UTC [msp] NewBccspMsp -> DEBU 013 Creating BCCSP-based MSP instance
+2017-09-23 17:39:51.478 UTC [msp] GetLocalMSP -> DEBU 014 Created new local MSP
+2017-09-23 17:39:51.478 UTC [msp] Setup -> DEBU 015 Setting up MSP instance OrdererMSP
+2017-09-23 17:39:51.479 UTC [msp/identity] newIdentity -> DEBU 016 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:51.881 UTC [msp/identity] newIdentity -> DEBU 017 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+
+-----END CERTIFICATE-----
+2017-09-23 17:39:51.911 UTC [msp/identity] newIdentity -> DEBU 018 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:51.934 UTC [msp/identity] newIdentity -> DEBU 019 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+
+-----END CERTIFICATE-----
+2017-09-23 17:39:51.942 UTC [bccsp_sw] loadPrivateKey -> DEBU 01a Loading private key [9d50a1823417c947b51b1603686147b7373a2761867c8683fcb5bf3838a24aef] at [/var/hyperledger/orderer/msp/keystore/9d50a1823417c947b51b1603686147b7373a2761867c8683fcb5bf3838a24aef_sk]...
+2017-09-23 17:39:51.948 UTC [msp/identity] newIdentity -> DEBU 01b Creating identity instance for ID -----BEGIN CERTIFICATE-----
+
+-----END CERTIFICATE-----
+2017-09-23 17:39:51.966 UTC [msp] Validate -> DEBU 01c MSP OrdererMSP validating identity
+2017-09-23 17:39:51.967 UTC [orderer/main] createLedgerFactory -> DEBU 01d Ledger dir: /var/hyperledger/production/orderer
+2017-09-23 17:39:51.968 UTC [kvledger.util] CreateDirIfMissing -> DEBU 01e CreateDirIfMissing [/var/hyperledger/production/orderer/index/]
+2017-09-23 17:39:51.968 UTC [kvledger.util] logDirStatus -> DEBU 01f Before creating dir - [/var/hyperledger/production/orderer/index/] does not exist
+2017-09-23 17:39:51.968 UTC [kvledger.util] logDirStatus -> DEBU 020 After creating dir - [/var/hyperledger/production/orderer/index/] exists
+2017-09-23 17:39:52.140 UTC [fsblkstorage] newBlockfileMgr -> DEBU 021 newBlockfileMgr() initializing file-based block storage for ledger: testchainid 
+2017-09-23 17:39:52.141 UTC [kvledger.util] CreateDirIfMissing -> DEBU 022 CreateDirIfMissing [/var/hyperledger/production/orderer/chains/testchainid/]
+2017-09-23 17:39:52.142 UTC [kvledger.util] logDirStatus -> DEBU 023 Before creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] does not exist
+2017-09-23 17:39:52.144 UTC [kvledger.util] logDirStatus -> DEBU 024 After creating dir - [/var/hyperledger/production/orderer/chains/testchainid/] exists
+2017-09-23 17:39:52.163 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 025 Starting checkpoint=latestFileChunkSuffixNum=[0], latestFileChunksize=[0], isChainEmpty=[true], lastBlockNumber=[0]
+2017-09-23 17:39:52.169 UTC [fsblkstorage] syncCPInfoFromFS -> DEBU 026 status of file [/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000]: exists=[false], size=[0]
+2017-09-23 17:39:52.172 UTC [fsblkstorage] newBlockIndex -> DEBU 027 newBlockIndex() - indexItems:[[BlockNum]]
+2017-09-23 17:39:52.173 UTC [fsblkstorage] newBlockfileStream -> DEBU 028 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-09-23 17:39:52.176 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 029 Finished reading file number [0]
+2017-09-23 17:39:52.178 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02a blockbytes [0] read from file [0]
+2017-09-23 17:39:52.191 UTC [fsblkstorage] indexBlock -> DEBU 02b Indexing block [blockNum=0, blockHash=[]byte{0x11, 0x37, 0xee, 0x6e, 0x63, 0x53, 0x7a, 0x11, 0xae, 0x57, 0xd6, 0x19, 0x10, 0x52, 0x85, 0xeb, 0xcc, 0x3b, 0xb6, 0xea, 0xd8, 0xa7, 0xa4, 0x3c, 0xab, 0xb7, 0x52, 0xa, 0x31, 0xec, 0x41, 0x6} txOffsets=
+txId=a7c4fa26cb52289a0f13a2102215bdca3324cb494083a9538aeb625c035e2ae6 locPointer=offset=38, bytesLength=9142
+]
+2017-09-23 17:39:52.193 UTC [fsblkstorage] updateCheckpoint -> DEBU 02c Broadcasting about update checkpointInfo: latestFileChunkSuffixNum=[0], latestFileChunksize=[9185], isChainEmpty=[false], lastBlockNumber=[0]
+2017-09-23 17:39:52.194 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 02d retrieveBlockByNumber() - blockNum = [0]
+2017-09-23 17:39:52.202 UTC [fsblkstorage] newBlockfileStream -> DEBU 02e newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-09-23 17:39:52.204 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 02f Remaining bytes=[9185], Going to peek [8] bytes
+2017-09-23 17:39:52.222 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 030 Returning blockbytes - length=[9183], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-09-23 17:39:52.240 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 031 retrieveBlockByNumber() - blockNum = [0]
+2017-09-23 17:39:52.244 UTC [fsblkstorage] newBlockfileStream -> DEBU 032 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-09-23 17:39:52.244 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 033 Remaining bytes=[9185], Going to peek [8] bytes
+2017-09-23 17:39:52.244 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 034 Returning blockbytes - length=[9183], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-09-23 17:39:52.244 UTC [common/config] NewStandardValues -> DEBU 035 Initializing protos for *config.ChannelProtos
+2017-09-23 17:39:52.245 UTC [common/config] initializeProtosStruct -> DEBU 036 Processing field: HashingAlgorithm
+2017-09-23 17:39:52.245 UTC [common/config] initializeProtosStruct -> DEBU 037 Processing field: BlockDataHashingStructure
+2017-09-23 17:39:52.245 UTC [common/config] initializeProtosStruct -> DEBU 038 Processing field: OrdererAddresses
+2017-09-23 17:39:52.245 UTC [common/config] initializeProtosStruct -> DEBU 039 Processing field: Consortium
+2017-09-23 17:39:52.250 UTC [common/configtx] addToMap -> DEBU 03a Adding to config map: [Groups] /Channel
+2017-09-23 17:39:52.251 UTC [common/configtx] addToMap -> DEBU 03b Adding to config map: [Groups] /Channel/Orderer
+2017-09-23 17:39:52.252 UTC [common/configtx] addToMap -> DEBU 03c Adding to config map: [Groups] /Channel/Orderer/OrdererOrg
+2017-09-23 17:39:52.252 UTC [common/configtx] addToMap -> DEBU 03d Adding to config map: [Values] /Channel/Orderer/OrdererOrg/MSP
+2017-09-23 17:39:52.252 UTC [common/configtx] addToMap -> DEBU 03e Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Admins
+2017-09-23 17:39:52.252 UTC [common/configtx] addToMap -> DEBU 03f Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Readers
+2017-09-23 17:39:52.252 UTC [common/configtx] addToMap -> DEBU 040 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Writers
+2017-09-23 17:39:52.253 UTC [common/configtx] addToMap -> DEBU 041 Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-09-23 17:39:52.253 UTC [common/configtx] addToMap -> DEBU 042 Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-09-23 17:39:52.253 UTC [common/configtx] addToMap -> DEBU 043 Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-09-23 17:39:52.254 UTC [common/configtx] addToMap -> DEBU 044 Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-09-23 17:39:52.328 UTC [common/configtx] addToMap -> DEBU 045 Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 046 Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 047 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 048 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 049 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04a Adding to config map: [Groups] /Channel/Consortiums
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04b Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04c Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org1MSP
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04d Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org1MSP/MSP
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04e Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Writers
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 04f Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Admins
+2017-09-23 17:39:52.329 UTC [common/configtx] addToMap -> DEBU 050 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org1MSP/Readers
+2017-09-23 17:39:52.377 UTC [common/configtx] addToMap -> DEBU 051 Adding to config map: [Groups] /Channel/Consortiums/SampleConsortium/Org2MSP
+2017-09-23 17:39:52.378 UTC [common/configtx] addToMap -> DEBU 052 Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/Org2MSP/MSP
+2017-09-23 17:39:52.378 UTC [common/configtx] addToMap -> DEBU 053 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Readers
+2017-09-23 17:39:52.389 UTC [common/configtx] addToMap -> DEBU 054 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Writers
+2017-09-23 17:39:52.390 UTC [common/configtx] addToMap -> DEBU 055 Adding to config map: [Policy] /Channel/Consortiums/SampleConsortium/Org2MSP/Admins
+2017-09-23 17:39:52.390 UTC [common/configtx] addToMap -> DEBU 056 Adding to config map: [Values] /Channel/Consortiums/SampleConsortium/ChannelCreationPolicy
+2017-09-23 17:39:52.390 UTC [common/configtx] addToMap -> DEBU 057 Adding to config map: [Policy] /Channel/Consortiums/Admins
+2017-09-23 17:39:52.391 UTC [common/configtx] addToMap -> DEBU 058 Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-09-23 17:39:52.391 UTC [common/configtx] addToMap -> DEBU 059 Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-09-23 17:39:52.392 UTC [common/configtx] addToMap -> DEBU 05a Adding to config map: [Values] /Channel/OrdererAddresses
+2017-09-23 17:39:52.392 UTC [common/configtx] addToMap -> DEBU 05b Adding to config map: [Policy] /Channel/Readers
+2017-09-23 17:39:52.392 UTC [common/configtx] addToMap -> DEBU 05c Adding to config map: [Policy] /Channel/Writers
+2017-09-23 17:39:52.393 UTC [common/configtx] addToMap -> DEBU 05d Adding to config map: [Policy] /Channel/Admins
+2017-09-23 17:39:52.412 UTC [common/configtx] processConfig -> DEBU 05e Beginning new config for channel testchainid
+2017-09-23 17:39:52.412 UTC [common/config] NewStandardValues -> DEBU 05f Initializing protos for *config.ChannelProtos
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 060 Processing field: HashingAlgorithm
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 061 Processing field: BlockDataHashingStructure
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 062 Processing field: OrdererAddresses
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 063 Processing field: Consortium
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 064 Proposed new policy Writers for Channel
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 065 Proposed new policy Admins for Channel
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 066 Proposed new policy Readers for Channel
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 067 Proposed new policy Admins for Consortiums
+2017-09-23 17:39:52.412 UTC [common/config] NewStandardValues -> DEBU 068 Initializing protos for *config.ConsortiumProtos
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 069 Processing field: ChannelCreationPolicy
+2017-09-23 17:39:52.412 UTC [common/config] NewStandardValues -> DEBU 06a Initializing protos for *config.OrganizationProtos
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 06b Processing field: MSP
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 06c Proposed new policy Writers for Org1MSP
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 06d Proposed new policy Admins for Org1MSP
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 06e Proposed new policy Readers for Org1MSP
+2017-09-23 17:39:52.412 UTC [common/config] NewStandardValues -> DEBU 06f Initializing protos for *config.OrganizationProtos
+2017-09-23 17:39:52.412 UTC [common/config] initializeProtosStruct -> DEBU 070 Processing field: MSP
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 071 Proposed new policy Readers for Org2MSP
+2017-09-23 17:39:52.412 UTC [policies] ProposePolicy -> DEBU 072 Proposed new policy Writers for Org2MSP
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 073 Proposed new policy Admins for Org2MSP
+2017-09-23 17:39:52.413 UTC [common/config] NewStandardValues -> DEBU 074 Initializing protos for *config.OrdererProtos
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 075 Processing field: ConsensusType
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 076 Processing field: BatchSize
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 077 Processing field: BatchTimeout
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 078 Processing field: KafkaBrokers
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 079 Processing field: ChannelRestrictions
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 07a Proposed new policy Readers for Orderer
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 07b Proposed new policy Writers for Orderer
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 07c Proposed new policy Admins for Orderer
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 07d Proposed new policy BlockValidation for Orderer
+2017-09-23 17:39:52.413 UTC [common/config] NewStandardValues -> DEBU 07e Initializing protos for *config.OrganizationProtos
+2017-09-23 17:39:52.413 UTC [common/config] initializeProtosStruct -> DEBU 07f Processing field: MSP
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 080 Proposed new policy Writers for OrdererOrg
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 081 Proposed new policy Admins for OrdererOrg
+2017-09-23 17:39:52.413 UTC [policies] ProposePolicy -> DEBU 082 Proposed new policy Readers for OrdererOrg
+2017-09-23 17:39:52.413 UTC [common/config] validateMSP -> DEBU 083 Setting up MSP for org Org1MSP
+2017-09-23 17:39:52.413 UTC [msp] NewBccspMsp -> DEBU 084 Creating BCCSP-based MSP instance
+2017-09-23 17:39:52.413 UTC [msp] Setup -> DEBU 085 Setting up MSP instance Org1MSP
+2017-09-23 17:39:52.414 UTC [msp/identity] newIdentity -> DEBU 086 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.414 UTC [msp/identity] newIdentity -> DEBU 087 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.414 UTC [msp/identity] newIdentity -> DEBU 088 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.415 UTC [msp] Validate -> DEBU 089 MSP Org1MSP validating identity
+2017-09-23 17:39:52.415 UTC [common/config] validateMSP -> DEBU 08a Setting up MSP for org Org2MSP
+2017-09-23 17:39:52.415 UTC [msp] NewBccspMsp -> DEBU 08b Creating BCCSP-based MSP instance
+2017-09-23 17:39:52.415 UTC [msp] Setup -> DEBU 08c Setting up MSP instance Org2MSP
+2017-09-23 17:39:52.443 UTC [msp/identity] newIdentity -> DEBU 08d Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.455 UTC [msp/identity] newIdentity -> DEBU 08e Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.464 UTC [msp/identity] newIdentity -> DEBU 08f Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.470 UTC [msp] Validate -> DEBU 090 MSP Org2MSP validating identity
+2017-09-23 17:39:52.472 UTC [common/config] validateMSP -> DEBU 091 Setting up MSP for org OrdererOrg
+2017-09-23 17:39:52.477 UTC [msp] NewBccspMsp -> DEBU 092 Creating BCCSP-based MSP instance
+2017-09-23 17:39:52.479 UTC [msp] Setup -> DEBU 093 Setting up MSP instance OrdererMSP
+2017-09-23 17:39:52.480 UTC [msp/identity] newIdentity -> DEBU 094 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.486 UTC [msp/identity] newIdentity -> DEBU 095 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.488 UTC [msp/identity] newIdentity -> DEBU 096 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+2017-09-23 17:39:52.489 UTC [msp] Validate -> DEBU 097 MSP OrdererMSP validating identity
+2017-09-23 17:39:52.508 UTC [msp] Setup -> DEBU 098 Setting up the MSP manager (3 msps)
+2017-09-23 17:39:52.508 UTC [msp] Setup -> DEBU 099 MSP manager setup complete, setup 3 msps
+2017-09-23 17:39:52.509 UTC [policies] GetPolicy -> DEBU 09a Returning policy Admins for evaluation
+2017-09-23 17:39:52.509 UTC [policies] CommitProposals -> DEBU 09b In commit adding relative sub-policy Org1MSP/Admins to SampleConsortium
+2017-09-23 17:39:52.510 UTC [policies] GetPolicy -> DEBU 09c Returning policy Readers for evaluation
+2017-09-23 17:39:52.510 UTC [policies] CommitProposals -> DEBU 09d In commit adding relative sub-policy Org1MSP/Readers to SampleConsortium
+2017-09-23 17:39:52.511 UTC [policies] GetPolicy -> DEBU 09e Returning policy Writers for evaluation
+2017-09-23 17:39:52.511 UTC [policies] CommitProposals -> DEBU 09f In commit adding relative sub-policy Org1MSP/Writers to SampleConsortium
+2017-09-23 17:39:52.511 UTC [policies] GetPolicy -> DEBU 0a0 Returning policy Readers for evaluation
+2017-09-23 17:39:52.511 UTC [policies] CommitProposals -> DEBU 0a1 In commit adding relative sub-policy Org2MSP/Readers to SampleConsortium
+2017-09-23 17:39:52.512 UTC [policies] GetPolicy -> DEBU 0a2 Returning policy Writers for evaluation
+2017-09-23 17:39:52.513 UTC [policies] CommitProposals -> DEBU 0a3 In commit adding relative sub-policy Org2MSP/Writers to SampleConsortium
+2017-09-23 17:39:52.514 UTC [policies] GetPolicy -> DEBU 0a4 Returning policy Admins for evaluation
+2017-09-23 17:39:52.514 UTC [policies] CommitProposals -> DEBU 0a5 In commit adding relative sub-policy Org2MSP/Admins to SampleConsortium
+2017-09-23 17:39:52.516 UTC [policies] GetPolicy -> DEBU 0a6 Returning policy Org2MSP/Writers for evaluation
+2017-09-23 17:39:52.559 UTC [policies] CommitProposals -> DEBU 0a7 In commit adding relative sub-policy SampleConsortium/Org2MSP/Writers to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0a8 Returning policy Org2MSP/Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0a9 In commit adding relative sub-policy SampleConsortium/Org2MSP/Admins to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0aa Returning policy Org1MSP/Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0ab In commit adding relative sub-policy SampleConsortium/Org1MSP/Admins to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0ac Returning policy Org1MSP/Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0ad In commit adding relative sub-policy SampleConsortium/Org1MSP/Readers to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0ae Returning policy Org1MSP/Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0af In commit adding relative sub-policy SampleConsortium/Org1MSP/Writers to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b0 Returning policy Org2MSP/Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0b1 In commit adding relative sub-policy SampleConsortium/Org2MSP/Readers to Consortiums
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b2 Returning policy Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0b3 In commit adding relative sub-policy OrdererOrg/Admins to Orderer
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b4 Returning policy Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0b5 In commit adding relative sub-policy OrdererOrg/Readers to Orderer
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b6 Returning policy Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0b7 In commit adding relative sub-policy OrdererOrg/Writers to Orderer
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b8 Returning policy Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0b9 Returning policy Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0ba Returning policy Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0bb Returning policy Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0bc Returning policy OrdererOrg/Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0bd In commit adding relative sub-policy Orderer/OrdererOrg/Readers to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0be Returning policy OrdererOrg/Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0bf In commit adding relative sub-policy Orderer/OrdererOrg/Writers to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0c0 Returning policy Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0c1 In commit adding relative sub-policy Orderer/Readers to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0c2 Returning policy Writers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0c3 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0c4 Returning policy Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0c5 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0c6 Returning policy BlockValidation for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0c7 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0c8 Returning policy OrdererOrg/Admins for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0c9 In commit adding relative sub-policy Orderer/OrdererOrg/Admins to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0ca Returning policy SampleConsortium/Org2MSP/Readers for evaluation
+2017-09-23 17:39:52.564 UTC [policies] CommitProposals -> DEBU 0cb In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Readers to Channel
+2017-09-23 17:39:52.564 UTC [policies] GetPolicy -> DEBU 0cc Returning policy Admins for evaluation
+2017-09-23 17:39:52.581 UTC [policies] CommitProposals -> DEBU 0cd In commit adding relative sub-policy Consortiums/Admins to Channel
+2017-09-23 17:39:52.581 UTC [policies] GetPolicy -> DEBU 0ce Returning policy SampleConsortium/Org2MSP/Writers for evaluation
+2017-09-23 17:39:52.581 UTC [policies] CommitProposals -> DEBU 0cf In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Writers to Channel
+2017-09-23 17:39:52.581 UTC [policies] GetPolicy -> DEBU 0d0 Returning policy SampleConsortium/Org2MSP/Admins for evaluation
+2017-09-23 17:39:52.581 UTC [policies] CommitProposals -> DEBU 0d1 In commit adding relative sub-policy Consortiums/SampleConsortium/Org2MSP/Admins to Channel
+2017-09-23 17:39:52.581 UTC [policies] GetPolicy -> DEBU 0d2 Returning policy SampleConsortium/Org1MSP/Admins for evaluation
+2017-09-23 17:39:52.581 UTC [policies] CommitProposals -> DEBU 0d3 In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Admins to Channel
+2017-09-23 17:39:52.581 UTC [policies] GetPolicy -> DEBU 0d4 Returning policy SampleConsortium/Org1MSP/Readers for evaluation
+2017-09-23 17:39:52.581 UTC [policies] CommitProposals -> DEBU 0d5 In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Readers to Channel
+2017-09-23 17:39:52.581 UTC [policies] GetPolicy -> DEBU 0d6 Returning policy SampleConsortium/Org1MSP/Writers for evaluation
+2017-09-23 17:39:52.582 UTC [policies] CommitProposals -> DEBU 0d7 In commit adding relative sub-policy Consortiums/SampleConsortium/Org1MSP/Writers to Channel
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0d8 Returning dummy reject all policy because Writers could not be found in /Consortiums/Writers
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0d9 Returning policy Writers for evaluation
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0da Returning policy Admins for evaluation
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0db Returning policy Admins for evaluation
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0dc Returning dummy reject all policy because Readers could not be found in /Consortiums/Readers
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0dd Returning policy Readers for evaluation
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0de Returning policy Readers for evaluation
+2017-09-23 17:39:52.582 UTC [policies] CommitProposals -> DEBU 0df As expected, current configuration has policy '/Channel/Readers'
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0e0 Returning policy Writers for evaluation
+2017-09-23 17:39:52.582 UTC [policies] CommitProposals -> DEBU 0e1 As expected, current configuration has policy '/Channel/Writers'
+2017-09-23 17:39:52.582 UTC [policies] GetPolicy -> DEBU 0e2 Returning policy Orderer/BlockValidation for evaluation
+2017-09-23 17:39:52.582 UTC [policies] CommitProposals -> DEBU 0e3 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-09-23 17:39:52.582 UTC [fsblkstorage] retrieveBlockByNumber -> DEBU 0e4 retrieveBlockByNumber() - blockNum = [0]
+2017-09-23 17:39:52.582 UTC [fsblkstorage] newBlockfileStream -> DEBU 0e5 newBlockfileStream(): filePath=[/var/hyperledger/production/orderer/chains/testchainid/blockfile_000000], startOffset=[0]
+2017-09-23 17:39:52.582 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0e6 Remaining bytes=[9185], Going to peek [8] bytes
+2017-09-23 17:39:52.582 UTC [fsblkstorage] nextBlockBytesAndPlacementInfo -> DEBU 0e7 Returning blockbytes - length=[9183], placementInfo={fileNum=[0], startOffset=[0], bytesOffset=[2]}
+2017-09-23 17:39:52.582 UTC [orderer/multichain] newChainSupport -> DEBU 0e8 [channel: testchainid] Retrieved metadata for tip of chain (blockNumber=0, lastConfig=0, lastConfigSeq=0): 
+2017-09-23 17:39:52.583 UTC [orderer/kafka] newChain -> INFO 0e9 [channel: testchainid] Starting chain with last persisted offset -3 and last recorded block 0
+2017-09-23 17:39:52.583 UTC [orderer/multichain] NewManagerImpl -> INFO 0ea Starting with system channel testchainid and orderer type kafka
+2017-09-23 17:39:52.594 UTC [orderer/main] main -> INFO 0eb Beginning to serve requests
+2017-09-23 17:39:52.594 UTC [orderer/kafka] setupProducerForChannel -> INFO 0ec [channel: testchainid] Setting up the producer for this channel...
+2017-09-23 17:39:52.594 UTC [orderer/kafka] try -> DEBU 0ed [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:52.594690 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:52.594706 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.594760 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.594813 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:52.605799 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.605841 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.605863 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.605889 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:52.621744 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.621778 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.621791 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.621817 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:52.628426 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.628465 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.628479 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:52.628491 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:52.628505 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:52.906503 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.906607 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:52.922749 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.922886 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.922906 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.923037 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:52.934750 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.934795 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.934821 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:52.934851 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:52.950949 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.950987 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:52.951004 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:52.951016 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:52.951030 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:53.201223 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.201286 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:53.206069 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.206121 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.206141 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.206177 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:53.219783 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.219823 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.219958 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.219986 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:53.228387 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.228425 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.228517 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:53.228530 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:53.228544 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:53.479619 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.479960 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:53.489188 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.489405 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.489807 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.489940 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:53.493201 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.493358 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.493389 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:53.493456 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:53.500587 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.500714 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:53.500746 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:53.500772 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:53.500868 client.go:187: Closing Client
+2017-09-23 17:39:53.500 UTC [orderer/kafka] try -> DEBU 0ee [channel: testchainid] Retrying every 1s for a total of 30s
+2017-09-23 17:39:54.501 UTC [orderer/kafka] try -> DEBU 0ef [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:54.502339 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:54.502682 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.503303 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.503669 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:54.516874 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.517623 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.517735 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.517814 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:54.545715 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.564127 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.565937 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.567519 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:54.587604 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.589199 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.590185 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:54.591077 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:54.592230 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:54.844145 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.845538 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:54.851369 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.852698 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.856568 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.861060 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.858555 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:54.862180 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.862667 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:54.863192 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:54.865919 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.865977 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:54.866007 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:54.871406 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:54.872108 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:55.122828 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.122889 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:55.126341 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.127951 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.128121 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.128278 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:55.131753 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.131829 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.131954 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.132462 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:55.151343 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.152189 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.152875 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:55.153585 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:55.155578 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:55.407540 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.408305 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:55.443841 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.453119 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.453836 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.454668 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:55.460725 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.461514 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.461836 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.462876 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:55.465798 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.465955 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.467213 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:55.467547 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:55.467736 client.go:187: Closing Client
+2017-09-23 17:39:55.527 UTC [orderer/kafka] try -> DEBU 0f0 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:55.527572 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:55.527702 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.527867 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.527939 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:55.530255 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.530293 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.530411 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.530441 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:55.532705 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.532739 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.532844 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.532869 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:55.536994 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.537132 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.537253 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:55.537269 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:55.537283 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:55.788925 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.789054 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:55.799824 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.799998 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.800129 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.800285 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:55.803241 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.803948 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.804183 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:55.804433 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:55.808127 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.809762 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:55.809947 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:55.810036 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:55.810122 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:56.060587 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.060750 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:56.063969 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.064321 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.064364 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.064535 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:56.066578 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.067027 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.067068 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.067154 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:56.071794 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.072161 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.072347 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:56.072533 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:56.072734 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:56.323363 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.324471 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:56.330604 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.332510 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.333244 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.334200 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:56.340760 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.340821 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.340845 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.341158 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:56.342829 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.343687 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.343861 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:56.344091 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:56.344696 client.go:187: Closing Client
+2017-09-23 17:39:56.501 UTC [orderer/kafka] try -> DEBU 0f1 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:56.501654 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:56.502141 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.503736 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.504589 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:56.510506 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.511057 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.511456 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.511807 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:56.513730 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.514227 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.514395 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.514588 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:56.516956 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.517103 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.517305 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:56.517451 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:56.517634 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:56.768208 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.768685 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:56.774319 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.774931 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.775458 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.775932 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:56.780342 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.780897 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.781400 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:56.781737 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:56.785058 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.788336 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:56.788532 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:56.788725 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:56.788916 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:57.040462 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.041582 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:57.046318 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.047082 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.047412 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.049526 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:57.052428 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.052590 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.052776 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.052839 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:57.055171 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.055219 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.055237 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:57.055349 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:57.055368 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:57.306103 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.307012 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:57.312715 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.313286 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.313602 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.314583 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:57.318006 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.318219 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.318960 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.319061 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:57.322150 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.322309 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.322496 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:57.322541 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:57.322653 client.go:187: Closing Client
+2017-09-23 17:39:57.501 UTC [orderer/kafka] try -> DEBU 0f2 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:57.504895 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:57.506452 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.507797 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.508300 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:57.513293 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.513398 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.513524 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.513802 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:57.516193 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.516299 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.516687 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.516747 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:57.521229 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.521434 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.521687 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:57.521832 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:57.523410 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:57.774094 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.774622 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:57.779056 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.779248 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.779582 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.779902 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:57.782662 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.782816 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.783206 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:57.783364 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:57.789747 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.789832 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:57.789874 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:57.789906 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:57.790018 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:58.040648 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.041392 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:58.045067 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.045269 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.045544 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.045704 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:58.050699 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.051043 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.051327 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.051664 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:58.053917 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.054501 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.054734 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:58.054907 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:58.054960 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:58.305930 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.307306 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:58.316445 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.316768 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.317427 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.317788 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:58.319500 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.328032 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.328182 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.328432 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:58.346047 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.346200 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.346525 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:58.346564 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:58.346688 client.go:187: Closing Client
+2017-09-23 17:39:58.501 UTC [orderer/kafka] try -> DEBU 0f3 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:58.501882 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:58.502391 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.502792 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.503088 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:58.508154 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.508893 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.509467 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.513054 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.510136 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:58.513565 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.513619 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.513931 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:58.515453 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.515575 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.515854 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:58.515902 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:58.516033 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:58.766978 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.767133 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:58.772143 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.772712 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.773293 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.773506 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:58.778533 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.778788 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.778981 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:58.779051 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:58.783603 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.784173 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:58.787864 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:58.788014 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:58.788258 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:39:59.038715 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.040626 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:59.044660 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.048019 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.049254 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.049720 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:59.053304 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.053846 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.054286 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.054622 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:59.060165 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.062929 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.063182 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:59.063387 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:59.063512 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:39:59.314064 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.314706 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:59.318801 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.319866 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.320159 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.320962 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:59.324979 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.325394 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.325545 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.325721 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:59.328798 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.332881 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.333040 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:59.333147 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:59.335028 client.go:187: Closing Client
+2017-09-23 17:39:59.501 UTC [orderer/kafka] try -> DEBU 0f4 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:39:59.503217 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:39:59.503821 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.504538 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.508047 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.508840 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:59.509388 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.510730 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.513999 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:59.514012 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.514504 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.514676 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.516417 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.516559 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:59.516739 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.516906 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:59.517042 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:59.519904 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:39:59.770419 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.770963 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:39:59.774623 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.774829 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.775220 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.775938 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:39:59.782301 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.782729 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.783096 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:39:59.783474 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:39:59.788494 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.788694 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:39:59.788880 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:39:59.788996 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:39:59.789160 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:40:00.040089 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.040748 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:00.044986 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.045494 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.046046 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.046530 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:00.050474 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.050547 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.050574 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.051337 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:00.055235 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.055572 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.055802 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:00.055963 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:00.056110 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:40:00.306882 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.306961 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:00.308716 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.309173 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.309518 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.309869 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:00.316061 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.316301 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.316792 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.317102 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:00.319197 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.319486 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.319673 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:00.319717 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:00.319856 client.go:187: Closing Client
+2017-09-23 17:40:00.501 UTC [orderer/kafka] try -> DEBU 0f5 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:40:00.502409 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:40:00.505790 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.507022 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.507237 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:00.514173 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.514340 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.514503 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.514564 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:00.517951 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.518267 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.518316 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.518366 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:00.524054 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.524372 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.524660 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:00.524789 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:00.525199 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:40:00.777330 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.777783 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:00.781377 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.781582 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.782086 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.782394 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:00.787678 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.787983 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.788211 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:00.788521 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:00.794968 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.795143 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:00.795453 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:00.795505 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:00.795699 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:40:01.046282 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.046361 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:01.063941 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.064403 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.064689 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.065086 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:01.068119 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.068445 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.069573 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.070495 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:01.074308 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.074680 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.074830 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:01.075062 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:01.075114 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:40:01.325721 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.326054 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:01.333664 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.334980 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.335084 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.335254 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:01.338287 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.338346 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.338363 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.338503 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:01.341926 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.342850 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.343033 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:01.343209 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:01.343256 client.go:187: Closing Client
+2017-09-23 17:40:01.501 UTC [orderer/kafka] try -> DEBU 0f6 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:40:01.501473 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:40:01.501782 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.502112 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.502358 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:01.504463 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.504773 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.504904 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.505089 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:01.507295 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.507419 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.507504 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.507553 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:01.509239 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.509286 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.509302 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:01.509503 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:01.509690 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:40:01.761496 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.762003 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:01.766435 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.767087 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.767664 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.769717 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.768198 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:01.770403 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.771047 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:01.772127 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:01.773816 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.773893 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:01.773968 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:01.774127 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:01.774173 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:40:02.024674 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.025987 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:02.032299 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.032793 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.033135 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.033844 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:02.036828 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.037204 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.037359 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.037548 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:02.039364 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.039893 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.043930 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:02.044005 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:02.044036 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:40:02.294613 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.296340 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:02.305070 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.305154 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.305279 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.305352 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:02.307081 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.307153 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.307174 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.307196 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:02.308831 broker.go:96: Failed to connect to broker kafka1:9092: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.308973 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.6:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.309151 client.go:626: client/metadata no available broker to send metadata request to
+[sarama] 2017/09/23 17:40:02.309280 client.go:428: client/brokers resurrecting 3 dead seed brokers
+[sarama] 2017/09/23 17:40:02.309453 client.go:187: Closing Client
+2017-09-23 17:40:02.501 UTC [orderer/kafka] try -> DEBU 0f7 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:40:02.503386 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:40:02.503691 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.504551 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.504746 client.go:601: client/metadata fetching metadata for all topics from broker kafka2:9092
+[sarama] 2017/09/23 17:40:02.509435 broker.go:96: Failed to connect to broker kafka2:9092: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.509643 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.8:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.509994 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.510338 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:02.514784 broker.go:96: Failed to connect to broker kafka0:9092: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.514900 client.go:620: client/metadata got error from broker while fetching metadata: dial tcp 172.19.0.7:9092: getsockopt: connection refused
+[sarama] 2017/09/23 17:40:02.515048 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:02.515197 client.go:601: client/metadata fetching metadata for all topics from broker kafka1:9092
+[sarama] 2017/09/23 17:40:02.517206 broker.go:146: Connected to broker at kafka1:9092 (unregistered)
+[sarama] 2017/09/23 17:40:04.630845 client.go:154: Successfully initialized new client
+2017-09-23 17:40:04.630 UTC [orderer/kafka] try -> DEBU 0f8 [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-23 17:40:04.631 UTC [orderer/kafka] startThread -> INFO 0f9 [channel: testchainid] Producer set up successfully
+2017-09-23 17:40:04.631 UTC [orderer/kafka] sendConnectMessage -> INFO 0fa [channel: testchainid] About to post the CONNECT message...
+2017-09-23 17:40:04.631 UTC [orderer/kafka] try -> DEBU 0fb [channel: testchainid] Attempting to post the CONNECT message...
+[sarama] 2017/09/23 17:40:04.631563 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka1:9092
+[sarama] 2017/09/23 17:40:05.747793 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/23 17:40:05.747852 client.go:590: client/metadata retrying after 250ms... (3 attempts remaining)
+[sarama] 2017/09/23 17:40:05.998974 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka1:9092
+[sarama] 2017/09/23 17:40:06.016514 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/23 17:40:06.017107 client.go:590: client/metadata retrying after 250ms... (2 attempts remaining)
+[sarama] 2017/09/23 17:40:06.268077 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka1:9092
+[sarama] 2017/09/23 17:40:06.294780 client.go:610: client/metadata found some partitions to be leaderless
+[sarama] 2017/09/23 17:40:06.295621 client.go:590: client/metadata retrying after 250ms... (1 attempts remaining)
+[sarama] 2017/09/23 17:40:06.546608 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka1:9092
+[sarama] 2017/09/23 17:40:06.608962 client.go:610: client/metadata found some partitions to be leaderless
+2017-09-23 17:40:06.609 UTC [orderer/kafka] try -> DEBU 0fc [channel: testchainid] Retrying every 1s for a total of 30s
+2017-09-23 17:40:06.684 UTC [orderer/main] Deliver -> DEBU 0fd Starting new Deliver handler
+2017-09-23 17:40:06.684 UTC [orderer/common/deliver] Handle -> DEBU 0fe Starting new deliver loop
+2017-09-23 17:40:06.685 UTC [orderer/common/deliver] Handle -> DEBU 0ff Attempting to read seek info message
+2017-09-23 17:40:06.687 UTC [orderer/main] Broadcast -> DEBU 100 Starting new Broadcast handler
+2017-09-23 17:40:06.687 UTC [orderer/common/broadcast] Handle -> DEBU 101 Starting new broadcast loop
+2017-09-23 17:40:06.687 UTC [orderer/common/broadcast] Handle -> DEBU 102 Preprocessing CONFIG_UPDATE
+2017-09-23 17:40:06.688 UTC [orderer/configupdate] Process -> DEBU 103 Processing channel creation request for channel mychannel
+2017-09-23 17:40:06.695 UTC [msp] GetLocalMSP -> DEBU 104 Returning existing local MSP
+2017-09-23 17:40:06.695 UTC [msp] GetDefaultSigningIdentity -> DEBU 105 Obtaining default signing identity
+2017-09-23 17:40:06.696 UTC [msp] GetLocalMSP -> DEBU 106 Returning existing local MSP
+2017-09-23 17:40:06.696 UTC [msp] GetDefaultSigningIdentity -> DEBU 107 Obtaining default signing identity
+2017-09-23 17:40:06.697 UTC [msp/identity] Sign -> DEBU 108 Sign: plaintext: 0AB6060A1508011A0608F6B89ACE0522...41646D696E7310021A0641646D696E73 
+2017-09-23 17:40:06.697 UTC [msp/identity] Sign -> DEBU 109 Sign: digest: 29C2EE45DC3FA64E7001532E3948267D650CDBD2582AD0F29B2CDE24A8604F51 
+2017-09-23 17:40:06.698 UTC [common/config] NewStandardValues -> DEBU 10a Initializing protos for *config.ChannelProtos
+2017-09-23 17:40:06.699 UTC [common/config] initializeProtosStruct -> DEBU 10b Processing field: HashingAlgorithm
+2017-09-23 17:40:06.700 UTC [common/config] initializeProtosStruct -> DEBU 10c Processing field: BlockDataHashingStructure
+2017-09-23 17:40:06.702 UTC [common/config] initializeProtosStruct -> DEBU 10d Processing field: OrdererAddresses
+2017-09-23 17:40:06.702 UTC [common/config] initializeProtosStruct -> DEBU 10e Processing field: Consortium
+2017-09-23 17:40:06.703 UTC [common/configtx] addToMap -> DEBU 10f Adding to config map: [Groups] /Channel
+2017-09-23 17:40:06.704 UTC [common/configtx] addToMap -> DEBU 110 Adding to config map: [Groups] /Channel/Orderer
+2017-09-23 17:40:06.704 UTC [common/configtx] addToMap -> DEBU 111 Adding to config map: [Groups] /Channel/Orderer/OrdererOrg
+2017-09-23 17:40:06.715 UTC [common/configtx] addToMap -> DEBU 112 Adding to config map: [Values] /Channel/Orderer/OrdererOrg/MSP
+2017-09-23 17:40:06.723 UTC [common/configtx] addToMap -> DEBU 113 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Writers
+2017-09-23 17:40:06.724 UTC [common/configtx] addToMap -> DEBU 114 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Admins
+2017-09-23 17:40:06.724 UTC [common/configtx] addToMap -> DEBU 115 Adding to config map: [Policy] /Channel/Orderer/OrdererOrg/Readers
+2017-09-23 17:40:06.725 UTC [common/configtx] addToMap -> DEBU 116 Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-09-23 17:40:06.725 UTC [common/configtx] addToMap -> DEBU 117 Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-09-23 17:40:06.726 UTC [common/configtx] addToMap -> DEBU 118 Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-09-23 17:40:06.726 UTC [common/configtx] addToMap -> DEBU 119 Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-09-23 17:40:06.726 UTC [common/configtx] addToMap -> DEBU 11a Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-09-23 17:40:06.727 UTC [common/configtx] addToMap -> DEBU 11b Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-09-23 17:40:06.727 UTC [common/configtx] addToMap -> DEBU 11c Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-09-23 17:40:06.727 UTC [common/configtx] addToMap -> DEBU 11d Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-09-23 17:40:06.728 UTC [common/configtx] addToMap -> DEBU 11e Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-09-23 17:40:06.728 UTC [common/configtx] addToMap -> DEBU 11f Adding to config map: [Groups] /Channel/Application
+2017-09-23 17:40:06.728 UTC [common/configtx] addToMap -> DEBU 120 Adding to config map: [Groups] /Channel/Application/Org1MSP
+2017-09-23 17:40:06.728 UTC [common/configtx] addToMap -> DEBU 121 Adding to config map: [Values] /Channel/Application/Org1MSP/MSP
+2017-09-23 17:40:06.729 UTC [common/configtx] addToMap -> DEBU 122 Adding to config map: [Policy] /Channel/Application/Org1MSP/Admins
+2017-09-23 17:40:06.729 UTC [common/configtx] addToMap -> DEBU 123 Adding to config map: [Policy] /Channel/Application/Org1MSP/Readers
+2017-09-23 17:40:06.729 UTC [common/configtx] addToMap -> DEBU 124 Adding to config map: [Policy] /Channel/Application/Org1MSP/Writers
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 125 Adding to config map: [Groups] /Channel/Application/Org2MSP
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 126 Adding to config map: [Values] /Channel/Application/Org2MSP/MSP
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 127 Adding to config map: [Policy] /Channel/Application/Org2MSP/Readers
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 128 Adding to config map: [Policy] /Channel/Application/Org2MSP/Writers
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 129 Adding to config map: [Policy] /Channel/Application/Org2MSP/Admins
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 12a Adding to config map: [Policy] /Channel/Application/ChannelCreationPolicy
+2017-09-23 17:40:06.731 UTC [common/configtx] addToMap -> DEBU 12b Adding to config map: [Values] /Channel/Consortium
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 12c Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 12d Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 12e Adding to config map: [Values] /Channel/OrdererAddresses
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 12f Adding to config map: [Policy] /Channel/Readers
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 130 Adding to config map: [Policy] /Channel/Writers
+2017-09-23 17:40:06.732 UTC [common/configtx] addToMap -> DEBU 131 Adding to config map: [Policy] /Channel/Admins
+2017-09-23 17:40:06.732 UTC [common/configtx] processConfig -> DEBU 132 Beginning new config for channel mychannel
+2017-09-23 17:40:06.732 UTC [common/config] NewStandardValues -> DEBU 133 Initializing protos for *config.ChannelProtos
+2017-09-23 17:40:06.732 UTC [common/config] initializeProtosStruct -> DEBU 134 Processing field: HashingAlgorithm
+2017-09-23 17:40:06.732 UTC [common/config] initializeProtosStruct -> DEBU 135 Processing field: BlockDataHashingStructure
+2017-09-23 17:40:06.732 UTC [common/config] initializeProtosStruct -> DEBU 136 Processing field: OrdererAddresses
+2017-09-23 17:40:06.732 UTC [common/config] initializeProtosStruct -> DEBU 137 Processing field: Consortium
+2017-09-23 17:40:06.732 UTC [policies] ProposePolicy -> DEBU 138 Proposed new policy Readers for Channel
+2017-09-23 17:40:06.734 UTC [policies] ProposePolicy -> DEBU 139 Proposed new policy Writers for Channel
+2017-09-23 17:40:06.735 UTC [policies] ProposePolicy -> DEBU 13a Proposed new policy Admins for Channel
+2017-09-23 17:40:06.735 UTC [common/config] NewStandardValues -> DEBU 13b Initializing protos for *config.OrdererProtos
+2017-09-23 17:40:06.735 UTC [common/config] initializeProtosStruct -> DEBU 13c Processing field: ConsensusType
+2017-09-23 17:40:06.735 UTC [common/config] initializeProtosStruct -> DEBU 13d Processing field: BatchSize
+2017-09-23 17:40:06.735 UTC [common/config] initializeProtosStruct -> DEBU 13e Processing field: BatchTimeout
+2017-09-23 17:40:06.736 UTC [common/config] initializeProtosStruct -> DEBU 13f Processing field: KafkaBrokers
+2017-09-23 17:40:06.736 UTC [common/config] initializeProtosStruct -> DEBU 140 Processing field: ChannelRestrictions
+2017-09-23 17:40:06.737 UTC [policies] ProposePolicy -> DEBU 141 Proposed new policy Writers for Orderer
+2017-09-23 17:40:06.738 UTC [policies] ProposePolicy -> DEBU 142 Proposed new policy Admins for Orderer
+2017-09-23 17:40:06.738 UTC [policies] ProposePolicy -> DEBU 143 Proposed new policy BlockValidation for Orderer
+2017-09-23 17:40:06.738 UTC [policies] ProposePolicy -> DEBU 144 Proposed new policy Readers for Orderer
+2017-09-23 17:40:06.739 UTC [common/config] NewStandardValues -> DEBU 145 Initializing protos for *config.OrganizationProtos
+2017-09-23 17:40:06.739 UTC [common/config] initializeProtosStruct -> DEBU 146 Processing field: MSP
+2017-09-23 17:40:06.740 UTC [policies] ProposePolicy -> DEBU 147 Proposed new policy Admins for OrdererOrg
+2017-09-23 17:40:06.740 UTC [policies] ProposePolicy -> DEBU 148 Proposed new policy Readers for OrdererOrg
+2017-09-23 17:40:06.741 UTC [policies] ProposePolicy -> DEBU 149 Proposed new policy Writers for OrdererOrg
+2017-09-23 17:40:06.742 UTC [common/config] NewStandardValues -> DEBU 14a Initializing protos for *struct {}
+2017-09-23 17:40:06.743 UTC [policies] ProposePolicy -> DEBU 14b Proposed new policy ChannelCreationPolicy for Application
+2017-09-23 17:40:06.743 UTC [common/config] NewStandardValues -> DEBU 14c Initializing protos for *config.OrganizationProtos
+2017-09-23 17:40:06.744 UTC [common/config] initializeProtosStruct -> DEBU 14d Processing field: MSP
+2017-09-23 17:40:06.744 UTC [common/config] NewStandardValues -> DEBU 14e Initializing protos for *config.ApplicationOrgProtos
+2017-09-23 17:40:06.744 UTC [common/config] initializeProtosStruct -> DEBU 14f Processing field: AnchorPeers
+2017-09-23 17:40:06.746 UTC [common/config] NewStandardValues -> DEBU 150 Initializing protos for *config.OrganizationProtos
+2017-09-23 17:40:06.746 UTC [common/config] initializeProtosStruct -> DEBU 151 Processing field: MSP
+2017-09-23 17:40:06.746 UTC [policies] ProposePolicy -> DEBU 152 Proposed new policy Writers for Org1MSP
+2017-09-23 17:40:06.748 UTC [policies] ProposePolicy -> DEBU 153 Proposed new policy Admins for Org1MSP
+2017-09-23 17:40:06.748 UTC [policies] ProposePolicy -> DEBU 154 Proposed new policy Readers for Org1MSP
+2017-09-23 17:40:06.749 UTC [common/config] NewStandardValues -> DEBU 155 Initializing protos for *config.OrganizationProtos
+2017-09-23 17:40:06.749 UTC [common/config] initializeProtosStruct -> DEBU 156 Processing field: MSP
+2017-09-23 17:40:06.749 UTC [common/config] NewStandardValues -> DEBU 157 Initializing protos for *config.ApplicationOrgProtos
+2017-09-23 17:40:06.749 UTC [common/config] initializeProtosStruct -> DEBU 158 Processing field: AnchorPeers
+2017-09-23 17:40:06.750 UTC [common/config] NewStandardValues -> DEBU 159 Initializing protos for *config.OrganizationProtos
+2017-09-23 17:40:06.750 UTC [common/config] initializeProtosStruct -> DEBU 15a Processing field: MSP
+2017-09-23 17:40:06.750 UTC [policies] ProposePolicy -> DEBU 15b Proposed new policy Writers for Org2MSP
+2017-09-23 17:40:06.751 UTC [policies] ProposePolicy -> DEBU 15c Proposed new policy Admins for Org2MSP
+2017-09-23 17:40:06.751 UTC [policies] ProposePolicy -> DEBU 15d Proposed new policy Readers for Org2MSP
+2017-09-23 17:40:06.758 UTC [common/config] validateMSP -> DEBU 15e Setting up MSP for org OrdererOrg
+2017-09-23 17:40:06.759 UTC [msp] NewBccspMsp -> DEBU 15f Creating BCCSP-based MSP instance
+2017-09-23 17:40:06.759 UTC [msp] Setup -> DEBU 160 Setting up MSP instance OrdererMSP
+2017-09-23 17:40:06.760 UTC [msp/identity] newIdentity -> DEBU 161 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICLjCCAdWgAwIBAgIQb7n3sHigQg7gRNtGuvWI1jAKBggqhkjOPQQDAjBpMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xFzAVBgNVBAMTDmNhLmV4YW1w
+bGUuY29tMB4XDTE3MDkyMzE3Mzk0MFoXDTI3MDkyMTE3Mzk0MFowaTELMAkGA1UE
+BhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lz
+Y28xFDASBgNVBAoTC2V4YW1wbGUuY29tMRcwFQYDVQQDEw5jYS5leGFtcGxlLmNv
+bTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABOy9qow48Y/Egi3x23n0pd+VBag7
+gPWUlSTSLHD53uuz5gctpLndqVwe7jJxeNyCFXiMv9CDm5XkW5JV8ukxfOyjXzBd
+MA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAGBgRVHSUAMA8GA1UdEwEB/wQFMAMB
+Af8wKQYDVR0OBCIEIHSIqz3lAomEaWKLgOEMEFNENGBi6iyfBOXO3pTnzgKaMAoG
+CCqGSM49BAMCA0cAMEQCID6wfQuZnwzjxVrdGQIzQdY7v7rfNd7um5eu5WYOQycz
+AiA1sKjjdrcceIMQzrzBfRCbEj2n2IejUsS6qejPVWHAHA==
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.763 UTC [msp/identity] newIdentity -> DEBU 162 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICCTCCAbCgAwIBAgIQNHIkn6vJYcx/ojitfseu+jAKBggqhkjOPQQDAjBpMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xFzAVBgNVBAMTDmNhLmV4YW1w
+bGUuY29tMB4XDTE3MDkyMzE3Mzk0MFoXDTI3MDkyMTE3Mzk0MFowVjELMAkGA1UE
+BhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lz
+Y28xGjAYBgNVBAMMEUFkbWluQGV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZI
+zj0DAQcDQgAEAXPqkTb822Brrk0xvGH4RFnYdl6UtyuXP4NbaYPMtU+M6K8uhKNv
+8XQ/x8CMkWBWve1l2lYBuWIBB8i/BcevFaNNMEswDgYDVR0PAQH/BAQDAgeAMAwG
+A1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgdIirPeUCiYRpYouA4QwQU0Q0YGLqLJ8E
+5c7elOfOApowCgYIKoZIzj0EAwIDRwAwRAIgWkl2y61k+5TRLiM9FkF1geoSIz2n
+geUZmQEKOpP+ffoCIDL3hGr0lgMrV6LPfgAysrduPyFS2QP20a7exuyW147d
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.764 UTC [msp/identity] newIdentity -> DEBU 163 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICCTCCAbCgAwIBAgIQNHIkn6vJYcx/ojitfseu+jAKBggqhkjOPQQDAjBpMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xFzAVBgNVBAMTDmNhLmV4YW1w
+bGUuY29tMB4XDTE3MDkyMzE3Mzk0MFoXDTI3MDkyMTE3Mzk0MFowVjELMAkGA1UE
+BhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lz
+Y28xGjAYBgNVBAMMEUFkbWluQGV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZI
+zj0DAQcDQgAEAXPqkTb822Brrk0xvGH4RFnYdl6UtyuXP4NbaYPMtU+M6K8uhKNv
+8XQ/x8CMkWBWve1l2lYBuWIBB8i/BcevFaNNMEswDgYDVR0PAQH/BAQDAgeAMAwG
+A1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgdIirPeUCiYRpYouA4QwQU0Q0YGLqLJ8E
+5c7elOfOApowCgYIKoZIzj0EAwIDRwAwRAIgWkl2y61k+5TRLiM9FkF1geoSIz2n
+geUZmQEKOpP+ffoCIDL3hGr0lgMrV6LPfgAysrduPyFS2QP20a7exuyW147d
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.767 UTC [msp] Validate -> DEBU 164 MSP OrdererMSP validating identity
+2017-09-23 17:40:06.773 UTC [common/config] Validate -> DEBU 165 Anchor peers for org Org1MSP are 
+2017-09-23 17:40:06.773 UTC [common/config] validateMSP -> DEBU 166 Setting up MSP for org Org1MSP
+2017-09-23 17:40:06.773 UTC [msp] NewBccspMsp -> DEBU 167 Creating BCCSP-based MSP instance
+2017-09-23 17:40:06.773 UTC [msp] Setup -> DEBU 168 Setting up MSP instance Org1MSP
+2017-09-23 17:40:06.775 UTC [msp/identity] newIdentity -> DEBU 169 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICQjCCAemgAwIBAgIQKtegiFRbAzAE4iEkQlsebjAKBggqhkjOPQQDAjBzMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+b3JnMS5leGFtcGxlLmNvbTAeFw0xNzA5MjMxNzM5NDBaFw0yNzA5MjExNzM5NDBa
+MHMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmcxLmV4YW1wbGUuY29tMRwwGgYDVQQD
+ExNjYS5vcmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+nZtIPrAMQrWX2dA1//iQOGe3FxB4RdrnmnPG1mkJ2t7pGFToNeb9OqNZQMhTt31W
+h8WiMXtta6dFu6NMUM9uZaNfMF0wDgYDVR0PAQH/BAQDAgGmMA8GA1UdJQQIMAYG
+BFUdJQAwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQgMtjEw3wVIvlJkTsMoUWH
+yAh02KVovKhu8AVfHwfXQUowCgYIKoZIzj0EAwIDRwAwRAIgI+I5bvq3yX8xNOXf
+yzusWTSxX2b8qv8CI3zlBDkkySoCIGnIMmVySHiqhsXLPft9EpumBYHli2MxEqiM
+EQ9+mCED
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.776 UTC [msp/identity] newIdentity -> DEBU 16a Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICGTCCAb+gAwIBAgIQR3+RXtgZyvUnsTDy10Gb7TAKBggqhkjOPQQDAjBzMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+b3JnMS5leGFtcGxlLmNvbTAeFw0xNzA5MjMxNzM5NDBaFw0yNzA5MjExNzM5NDBa
+MFsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMR8wHQYDVQQDDBZBZG1pbkBvcmcxLmV4YW1wbGUuY29tMFkw
+EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpZ9OQLngSsbDiKnv/SwRs6i2NRrDg/TL
+dIcEkAx5FJHjuy1zMXbIlaTyLsR3LJGej698SEeDZ32Yy0F3CXPogKNNMEswDgYD
+VR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgMtjEw3wVIvlJ
+kTsMoUWHyAh02KVovKhu8AVfHwfXQUowCgYIKoZIzj0EAwIDSAAwRQIhAIbXx72K
+nXV6iU8GZkVA+6kSGU10SoyK4/8SwkPJTAdSAiAKSwju182ERM6m5CnAImiDWzPm
+dW8qC4HW6ATx3Clwfg==
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.777 UTC [msp/identity] newIdentity -> DEBU 16b Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICGTCCAb+gAwIBAgIQR3+RXtgZyvUnsTDy10Gb7TAKBggqhkjOPQQDAjBzMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+b3JnMS5leGFtcGxlLmNvbTAeFw0xNzA5MjMxNzM5NDBaFw0yNzA5MjExNzM5NDBa
+MFsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMR8wHQYDVQQDDBZBZG1pbkBvcmcxLmV4YW1wbGUuY29tMFkw
+EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpZ9OQLngSsbDiKnv/SwRs6i2NRrDg/TL
+dIcEkAx5FJHjuy1zMXbIlaTyLsR3LJGej698SEeDZ32Yy0F3CXPogKNNMEswDgYD
+VR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgMtjEw3wVIvlJ
+kTsMoUWHyAh02KVovKhu8AVfHwfXQUowCgYIKoZIzj0EAwIDSAAwRQIhAIbXx72K
+nXV6iU8GZkVA+6kSGU10SoyK4/8SwkPJTAdSAiAKSwju182ERM6m5CnAImiDWzPm
+dW8qC4HW6ATx3Clwfg==
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.779 UTC [msp] Validate -> DEBU 16c MSP Org1MSP validating identity
+2017-09-23 17:40:06.780 UTC [common/config] Validate -> DEBU 16d Anchor peers for org Org2MSP are 
+2017-09-23 17:40:06.780 UTC [common/config] validateMSP -> DEBU 16e Setting up MSP for org Org2MSP
+2017-09-23 17:40:06.781 UTC [msp] NewBccspMsp -> DEBU 16f Creating BCCSP-based MSP instance
+2017-09-23 17:40:06.781 UTC [msp] Setup -> DEBU 170 Setting up MSP instance Org2MSP
+2017-09-23 17:40:06.784 UTC [msp/identity] newIdentity -> DEBU 171 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICRDCCAeqgAwIBAgIRALAkp39vyZF2VCXu2ZsmzHcwCgYIKoZIzj0EAwIwczEL
+MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+cmFuY2lzY28xGTAXBgNVBAoTEG9yZzIuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh
+Lm9yZzIuZXhhbXBsZS5jb20wHhcNMTcwOTIzMTczOTQwWhcNMjcwOTIxMTczOTQw
+WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN
+U2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQb3JnMi5leGFtcGxlLmNvbTEcMBoGA1UE
+AxMTY2Eub3JnMi5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
+BPchtVAyIsQUnW6UtBu9GqCLuZk76ocPcZtKysW6egx5XQjBcLGBog7sGl5wEZlR
+I4M33S9dXqJBixRLvkzUae6jXzBdMA4GA1UdDwEB/wQEAwIBpjAPBgNVHSUECDAG
+BgRVHSUAMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIMi014gjPOGlLxb6fhPp
+IoKbdUC3bPBBPHSnaY+Jn8RAMAoGCCqGSM49BAMCA0gAMEUCIQD7KNyd3TP3vDdy
+ddC8PHtNyC4MVdCuyBt9K1KYSA2xMwIgTLnANWAuuayqh/o59NG8GqVgM0/mTItE
+HbD1RZ4gg5M=
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.786 UTC [msp/identity] newIdentity -> DEBU 172 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICGTCCAb+gAwIBAgIQS7JY0ZIBBwraIUnBtI7A6jAKBggqhkjOPQQDAjBzMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEZMBcGA1UEChMQb3JnMi5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+b3JnMi5leGFtcGxlLmNvbTAeFw0xNzA5MjMxNzM5NDBaFw0yNzA5MjExNzM5NDBa
+MFsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMR8wHQYDVQQDDBZBZG1pbkBvcmcyLmV4YW1wbGUuY29tMFkw
+EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4y5loazm+GbRZFs2hFB/yzfEYJFy2aTE
+Bo6i4lqpgDbDP0+gQghidCG/vW+2pqdtCi681+GxxYDgUqNOVDWpbqNNMEswDgYD
+VR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgyLTXiCM84aUv
+Fvp+E+kigpt1QLds8EE8dKdpj4mfxEAwCgYIKoZIzj0EAwIDSAAwRQIhAIcn4lV2
+7Ky6e2YBDEBttR+6UMR214SYTRcHBNI0Wys8AiBkbSgxJkEQPAkJSq39c/qS8Eh9
+gG/EmNviMtZFKbqXFg==
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.787 UTC [msp/identity] newIdentity -> DEBU 173 Creating identity instance for ID -----BEGIN CERTIFICATE-----
+MIICGTCCAb+gAwIBAgIQS7JY0ZIBBwraIUnBtI7A6jAKBggqhkjOPQQDAjBzMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEZMBcGA1UEChMQb3JnMi5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+b3JnMi5leGFtcGxlLmNvbTAeFw0xNzA5MjMxNzM5NDBaFw0yNzA5MjExNzM5NDBa
+MFsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMR8wHQYDVQQDDBZBZG1pbkBvcmcyLmV4YW1wbGUuY29tMFkw
+EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4y5loazm+GbRZFs2hFB/yzfEYJFy2aTE
+Bo6i4lqpgDbDP0+gQghidCG/vW+2pqdtCi681+GxxYDgUqNOVDWpbqNNMEswDgYD
+VR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgyLTXiCM84aUv
+Fvp+E+kigpt1QLds8EE8dKdpj4mfxEAwCgYIKoZIzj0EAwIDSAAwRQIhAIcn4lV2
+7Ky6e2YBDEBttR+6UMR214SYTRcHBNI0Wys8AiBkbSgxJkEQPAkJSq39c/qS8Eh9
+gG/EmNviMtZFKbqXFg==
+-----END CERTIFICATE-----
+2017-09-23 17:40:06.788 UTC [msp] Validate -> DEBU 174 MSP Org2MSP validating identity
+2017-09-23 17:40:06.789 UTC [msp] Setup -> DEBU 175 Setting up the MSP manager (3 msps)
+2017-09-23 17:40:06.790 UTC [msp] Setup -> DEBU 176 MSP manager setup complete, setup 3 msps
+2017-09-23 17:40:06.790 UTC [policies] GetPolicy -> DEBU 177 Returning policy Admins for evaluation
+2017-09-23 17:40:06.790 UTC [policies] CommitProposals -> DEBU 178 In commit adding relative sub-policy OrdererOrg/Admins to Orderer
+2017-09-23 17:40:06.790 UTC [policies] GetPolicy -> DEBU 179 Returning policy Readers for evaluation
+2017-09-23 17:40:06.791 UTC [policies] CommitProposals -> DEBU 17a In commit adding relative sub-policy OrdererOrg/Readers to Orderer
+2017-09-23 17:40:06.791 UTC [policies] GetPolicy -> DEBU 17b Returning policy Writers for evaluation
+2017-09-23 17:40:06.791 UTC [policies] CommitProposals -> DEBU 17c In commit adding relative sub-policy OrdererOrg/Writers to Orderer
+2017-09-23 17:40:06.792 UTC [policies] GetPolicy -> DEBU 17d Returning policy Writers for evaluation
+2017-09-23 17:40:06.792 UTC [policies] GetPolicy -> DEBU 17e Returning policy Admins for evaluation
+2017-09-23 17:40:06.792 UTC [policies] GetPolicy -> DEBU 17f Returning policy Writers for evaluation
+2017-09-23 17:40:06.792 UTC [policies] GetPolicy -> DEBU 180 Returning policy Readers for evaluation
+2017-09-23 17:40:06.793 UTC [policies] GetPolicy -> DEBU 181 Returning policy Writers for evaluation
+2017-09-23 17:40:06.794 UTC [policies] CommitProposals -> DEBU 182 In commit adding relative sub-policy Org1MSP/Writers to Application
+2017-09-23 17:40:06.794 UTC [policies] GetPolicy -> DEBU 183 Returning policy Admins for evaluation
+2017-09-23 17:40:06.794 UTC [policies] CommitProposals -> DEBU 184 In commit adding relative sub-policy Org1MSP/Admins to Application
+2017-09-23 17:40:06.794 UTC [policies] GetPolicy -> DEBU 185 Returning policy Readers for evaluation
+2017-09-23 17:40:06.794 UTC [policies] CommitProposals -> DEBU 186 In commit adding relative sub-policy Org1MSP/Readers to Application
+2017-09-23 17:40:06.796 UTC [policies] GetPolicy -> DEBU 187 Returning policy Readers for evaluation
+2017-09-23 17:40:06.796 UTC [policies] CommitProposals -> DEBU 188 In commit adding relative sub-policy Org2MSP/Readers to Application
+2017-09-23 17:40:06.798 UTC [policies] GetPolicy -> DEBU 189 Returning policy Writers for evaluation
+2017-09-23 17:40:06.798 UTC [policies] CommitProposals -> DEBU 18a In commit adding relative sub-policy Org2MSP/Writers to Application
+2017-09-23 17:40:06.798 UTC [policies] GetPolicy -> DEBU 18b Returning policy Admins for evaluation
+2017-09-23 17:40:06.799 UTC [policies] CommitProposals -> DEBU 18c In commit adding relative sub-policy Org2MSP/Admins to Application
+2017-09-23 17:40:06.799 UTC [policies] GetPolicy -> DEBU 18d Returning policy Admins for evaluation
+2017-09-23 17:40:06.799 UTC [policies] GetPolicy -> DEBU 18e Returning policy Admins for evaluation
+2017-09-23 17:40:06.799 UTC [policies] GetPolicy -> DEBU 18f Returning policy OrdererOrg/Readers for evaluation
+2017-09-23 17:40:06.799 UTC [policies] CommitProposals -> DEBU 190 In commit adding relative sub-policy Orderer/OrdererOrg/Readers to Channel
+2017-09-23 17:40:06.799 UTC [policies] GetPolicy -> DEBU 191 Returning policy OrdererOrg/Writers for evaluation
+2017-09-23 17:40:06.800 UTC [policies] CommitProposals -> DEBU 192 In commit adding relative sub-policy Orderer/OrdererOrg/Writers to Channel
+2017-09-23 17:40:06.800 UTC [policies] GetPolicy -> DEBU 193 Returning policy Writers for evaluation
+2017-09-23 17:40:06.800 UTC [policies] CommitProposals -> DEBU 194 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-09-23 17:40:06.800 UTC [policies] GetPolicy -> DEBU 195 Returning policy Admins for evaluation
+2017-09-23 17:40:06.801 UTC [policies] CommitProposals -> DEBU 196 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-09-23 17:40:06.801 UTC [policies] GetPolicy -> DEBU 197 Returning policy BlockValidation for evaluation
+2017-09-23 17:40:06.802 UTC [policies] CommitProposals -> DEBU 198 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-09-23 17:40:06.802 UTC [policies] GetPolicy -> DEBU 199 Returning policy Readers for evaluation
+2017-09-23 17:40:06.803 UTC [policies] CommitProposals -> DEBU 19a In commit adding relative sub-policy Orderer/Readers to Channel
+2017-09-23 17:40:06.803 UTC [policies] GetPolicy -> DEBU 19b Returning policy OrdererOrg/Admins for evaluation
+2017-09-23 17:40:06.804 UTC [policies] CommitProposals -> DEBU 19c In commit adding relative sub-policy Orderer/OrdererOrg/Admins to Channel
+2017-09-23 17:40:06.804 UTC [policies] GetPolicy -> DEBU 19d Returning policy ChannelCreationPolicy for evaluation
+2017-09-23 17:40:06.805 UTC [policies] CommitProposals -> DEBU 19e In commit adding relative sub-policy Application/ChannelCreationPolicy to Channel
+2017-09-23 17:40:06.805 UTC [policies] GetPolicy -> DEBU 19f Returning policy Org1MSP/Writers for evaluation
+2017-09-23 17:40:06.805 UTC [policies] CommitProposals -> DEBU 1a0 In commit adding relative sub-policy Application/Org1MSP/Writers to Channel
+2017-09-23 17:40:06.805 UTC [policies] GetPolicy -> DEBU 1a1 Returning policy Org1MSP/Admins for evaluation
+2017-09-23 17:40:06.806 UTC [policies] CommitProposals -> DEBU 1a2 In commit adding relative sub-policy Application/Org1MSP/Admins to Channel
+2017-09-23 17:40:06.806 UTC [policies] GetPolicy -> DEBU 1a3 Returning policy Org1MSP/Readers for evaluation
+2017-09-23 17:40:06.806 UTC [policies] CommitProposals -> DEBU 1a4 In commit adding relative sub-policy Application/Org1MSP/Readers to Channel
+2017-09-23 17:40:06.806 UTC [policies] GetPolicy -> DEBU 1a5 Returning policy Org2MSP/Readers for evaluation
+2017-09-23 17:40:06.807 UTC [policies] CommitProposals -> DEBU 1a6 In commit adding relative sub-policy Application/Org2MSP/Readers to Channel
+2017-09-23 17:40:06.807 UTC [policies] GetPolicy -> DEBU 1a7 Returning policy Org2MSP/Writers for evaluation
+2017-09-23 17:40:06.807 UTC [policies] CommitProposals -> DEBU 1a8 In commit adding relative sub-policy Application/Org2MSP/Writers to Channel
+2017-09-23 17:40:06.807 UTC [policies] GetPolicy -> DEBU 1a9 Returning policy Org2MSP/Admins for evaluation
+2017-09-23 17:40:06.807 UTC [policies] CommitProposals -> DEBU 1aa In commit adding relative sub-policy Application/Org2MSP/Admins to Channel
+2017-09-23 17:40:06.807 UTC [policies] GetPolicy -> DEBU 1ab Returning policy Readers for evaluation
+2017-09-23 17:40:06.807 UTC [policies] GetPolicy -> DEBU 1ac Returning dummy reject all policy because Readers could not be found in /Application/Readers
+2017-09-23 17:40:06.808 UTC [policies] GetPolicy -> DEBU 1ad Returning policy Writers for evaluation
+2017-09-23 17:40:06.808 UTC [policies] GetPolicy -> DEBU 1ae Returning dummy reject all policy because Writers could not be found in /Application/Writers
+2017-09-23 17:40:06.808 UTC [policies] GetPolicy -> DEBU 1af Returning policy Admins for evaluation
+2017-09-23 17:40:06.808 UTC [policies] GetPolicy -> DEBU 1b0 Returning dummy reject all policy because Admins could not be found in /Application/Admins
+2017-09-23 17:40:06.809 UTC [common/configtx] addToMap -> DEBU 1b1 Adding to config map: [Groups] /Channel
+2017-09-23 17:40:06.809 UTC [common/configtx] addToMap -> DEBU 1b2 Adding to config map: [Groups] /Channel/Application
+2017-09-23 17:40:06.809 UTC [common/configtx] addToMap -> DEBU 1b3 Adding to config map: [Groups] /Channel/Application/Org1MSP
+2017-09-23 17:40:06.809 UTC [common/configtx] addToMap -> DEBU 1b4 Adding to config map: [Groups] /Channel/Application/Org2MSP
+2017-09-23 17:40:06.809 UTC [common/configtx] addToMap -> DEBU 1b5 Adding to config map: [Values] /Channel/Consortium
+2017-09-23 17:40:06.810 UTC [common/configtx] addToMap -> DEBU 1b6 Adding to config map: [Groups] /Channel
+2017-09-23 17:40:06.810 UTC [common/configtx] addToMap -> DEBU 1b7 Adding to config map: [Groups] /Channel/Application
+2017-09-23 17:40:06.810 UTC [common/configtx] addToMap -> DEBU 1b8 Adding to config map: [Groups] /Channel/Application/Org1MSP
+2017-09-23 17:40:06.811 UTC [common/configtx] addToMap -> DEBU 1b9 Adding to config map: [Groups] /Channel/Application/Org2MSP
+2017-09-23 17:40:06.811 UTC [common/configtx] addToMap -> DEBU 1ba Adding to config map: [Policy] /Channel/Application/Admins
+2017-09-23 17:40:06.812 UTC [common/configtx] addToMap -> DEBU 1bb Adding to config map: [Policy] /Channel/Application/Writers
+2017-09-23 17:40:06.812 UTC [common/configtx] addToMap -> DEBU 1bc Adding to config map: [Policy] /Channel/Application/Readers
+2017-09-23 17:40:06.812 UTC [common/configtx] addToMap -> DEBU 1bd Adding to config map: [Values] /Channel/Consortium
+2017-09-23 17:40:06.818 UTC [orderer/common/broadcast] Handle -> WARN 1be Rejecting CONFIG_UPDATE because: Error authorizing update: Error validating DeltaSet: invalid mod_policy for element [Policy] /Channel/Application/Admins: mod_policy not set
+2017-09-23 17:40:06.818 UTC [orderer/main] func1 -> DEBU 1bf Closing Broadcast stream
+2017-09-23 17:40:06.822 UTC [grpc] Printf -> DEBU 1c0 transport: http2Server.HandleStreams failed to read frame: read tcp 172.19.0.9:7050->172.19.0.16:34726: read: connection reset by peer
+2017-09-23 17:40:06.822 UTC [orderer/common/deliver] Handle -> WARN 1c1 Error reading from stream: rpc error: code = Canceled desc = context canceled
+2017-09-23 17:40:06.822 UTC [orderer/main] func1 -> DEBU 1c2 Closing Deliver stream
+2017-09-23 17:40:07.609 UTC [orderer/kafka] try -> DEBU 1c3 [channel: testchainid] Attempting to post the CONNECT message...
+[sarama] 2017/09/23 17:40:07.610527 client.go:599: client/metadata fetching metadata for [testchainid] from broker kafka1:9092
+[sarama] 2017/09/23 17:40:07.732638 client.go:397: client/brokers registered new broker #0 at f0b747c37d99:9092
+[sarama] 2017/09/23 17:40:07.732687 client.go:397: client/brokers registered new broker #1 at 21c376b8de9f:9092
+[sarama] 2017/09/23 17:40:07.732706 client.go:397: client/brokers registered new broker #2 at cb6f9b936572:9092
+[sarama] 2017/09/23 17:40:07.732724 client.go:397: client/brokers registered new broker #3 at 030f936c0959:9092
+[sarama] 2017/09/23 17:40:07.732910 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:07.733396 async_producer.go:584: producer/broker/1 starting up
+[sarama] 2017/09/23 17:40:07.733436 async_producer.go:596: producer/broker/1 state change to [open] on testchainid/0
+[sarama] 2017/09/23 17:40:07.737553 broker.go:144: Connected to broker at 21c376b8de9f:9092 (registered as #1)
+2017-09-23 17:40:08.106 UTC [orderer/kafka] try -> DEBU 1c4 [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-23 17:40:08.106 UTC [orderer/kafka] startThread -> INFO 1c5 [channel: testchainid] CONNECT message posted successfully
+2017-09-23 17:40:08.106 UTC [orderer/kafka] setupParentConsumerForChannel -> INFO 1c6 [channel: testchainid] Setting up the parent consumer for this channel...
+2017-09-23 17:40:08.107 UTC [orderer/kafka] try -> DEBU 1c7 [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:40:08.107415 client.go:110: Initializing new client
+[sarama] 2017/09/23 17:40:08.107584 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:08.107770 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:08.108018 client.go:601: client/metadata fetching metadata for all topics from broker kafka0:9092
+[sarama] 2017/09/23 17:40:08.112818 broker.go:146: Connected to broker at kafka0:9092 (unregistered)
+[sarama] 2017/09/23 17:40:08.115816 client.go:397: client/brokers registered new broker #0 at f0b747c37d99:9092
+[sarama] 2017/09/23 17:40:08.115979 client.go:397: client/brokers registered new broker #1 at 21c376b8de9f:9092
+[sarama] 2017/09/23 17:40:08.116061 client.go:397: client/brokers registered new broker #2 at cb6f9b936572:9092
+[sarama] 2017/09/23 17:40:08.116153 client.go:397: client/brokers registered new broker #3 at 030f936c0959:9092
+[sarama] 2017/09/23 17:40:08.116323 client.go:154: Successfully initialized new client
+2017-09-23 17:40:08.116 UTC [orderer/kafka] try -> DEBU 1c8 [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-23 17:40:08.116 UTC [orderer/kafka] startThread -> INFO 1c9 [channel: testchainid] Parent consumer set up successfully
+2017-09-23 17:40:08.116 UTC [orderer/kafka] setupChannelConsumerForChannel -> INFO 1ca [channel: testchainid] Setting up the channel consumer for this channel (start offset: -2)...
+2017-09-23 17:40:08.116 UTC [orderer/kafka] try -> DEBU 1cb [channel: testchainid] Connecting to the Kafka cluster
+[sarama] 2017/09/23 17:40:08.117154 config.go:329: ClientID is the default of 'sarama', you should consider setting it to something application-specific.
+[sarama] 2017/09/23 17:40:08.119202 broker.go:144: Connected to broker at 21c376b8de9f:9092 (registered as #1)
+2017-09-23 17:40:08.144 UTC [orderer/kafka] try -> DEBU 1cc [channel: testchainid] Error is nil, breaking the retry loop
+2017-09-23 17:40:08.145 UTC [orderer/kafka] startThread -> INFO 1cd [channel: testchainid] Channel consumer set up successfully
+2017-09-23 17:40:08.145 UTC [orderer/kafka] startThread -> INFO 1ce [channel: testchainid] Start phase completed successfully
+[sarama] 2017/09/23 17:40:08.145698 consumer.go:648: consumer/broker/1 added subscription to testchainid/0
+2017-09-23 17:40:08.168 UTC [orderer/kafka] processMessagesToBlocks -> DEBU 1cf [channel: testchainid] Successfully unmarshalled consumed message, offset is 0. Inspecting type...
+2017-09-23 17:40:08.169 UTC [orderer/kafka] processConnect -> DEBU 1d0 [channel: testchainid] It's a connect message - ignoring
+2017-09-23 17:40:08.170 UTC [orderer/kafka] processMessagesToBlocks -> DEBU 1d1 [channel: testchainid] Successfully unmarshalled consumed message, offset is 1. Inspecting type...
+2017-09-23 17:40:08.170 UTC [orderer/kafka] processConnect -> DEBU 1d2 [channel: testchainid] It's a connect message - ignoring
+2017-09-23 17:40:08.171 UTC [orderer/kafka] processMessagesToBlocks -> DEBU 1d3 [channel: testchainid] Successfully unmarshalled consumed message, offset is 2. Inspecting type...
+2017-09-23 17:40:08.171 UTC [orderer/kafka] processConnect -> DEBU 1d4 [channel: testchainid] It's a connect message - ignoring

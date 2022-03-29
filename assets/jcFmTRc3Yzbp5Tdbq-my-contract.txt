@@ -1,0 +1,206 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+'use strict';
+
+const { Contract } = require('fabric-contract-api');
+//const  { ClientIdentity } = require(‘fabric-shim’).ClientIdentity;
+
+
+class MyContract extends Contract {
+
+    //var DEFAULT_IMAGE = 'IMAGE';
+    
+    async init(ctx) {
+        console.info('instantiate');
+        await ctx.stub.putState('PPRDUCT_COUNT',"0");
+        await ctx.stub.putState('SELLAR_COUNT',"0");
+        await ctx.stub.putState('BUYER_COUNT',"0");         
+    } 
+
+    async getproductcount(ctx){
+          var ProdcutCount =  await ctx.stub.getState('PPRDUCT_COUNT');
+          var PPRDUCT_COUNT= ProdcutCount.toString('utf8');
+          PPRDUCT_COUNT++;
+          var ProKey="PRO"+PPRDUCT_COUNT;
+         return JSON.stringify(ProKey);   
+     } 
+     async setproductcount(ctx){
+        await ctx.stub.putState('PPRDUCT_COUNT',"hello   hello");
+     }  
+    
+
+
+    async createProduct(ctx,user_productid, name , sellar ,image , categpry , type , price , status ) {  
+        //let cid = new ClientIdentity(stub);
+       // if (cid.assertAttributeValue('type', "sellar"))
+        {
+         console.info("============= START : create Product  ===========");
+
+        const product  = {
+           user_productid,
+           name,
+           sellar,
+           image  ,
+           categpry,
+           type,
+           price,
+           status, 
+           buyer : ''
+        };
+
+        var  PPRDUCTCOUNT = await  ctx.stub.getState('PPRDUCT_COUNT');
+        var PPRDUCT_COUNT= PPRDUCTCOUNT.toString('utf8');
+        PPRDUCT_COUNT++;
+        var ProKey="PRO"+PPRDUCT_COUNT;
+        await ctx.stub.putState('PPRDUCT_COUNT',Buffer.from(JSON.stringify(PPRDUCT_COUNT)));
+        await ctx.stub.putState(ProKey.toString(), Buffer.from(JSON.stringify(product)));
+        console.info('============= END : create Product  ===========');
+  
+        }
+        // else{
+        //       throw new Error("You are not authorised to be a sellar :contact registrar for proper authentication");
+        // }
+    }
+    async queryProduct(ctx, product_id) {
+        const productAsBytes = await ctx.stub.getState(product_id); // get the car from chaincode state
+        if (!productAsBytes || productAsBytes.length === 0) {
+            throw new Error(`${product_id} does not exist`);
+        }
+        console.info(productAsBytes.toString());
+        return productAsBytes.toString();
+    }
+
+
+    async queryAllProduct(ctx) {
+        var ProdcutCount =  await ctx.stub.getState('PPRDUCT_COUNT');
+        const startKey = 'PRO0';
+        const endKey = 'PRO99';
+
+        const iterator = await ctx.stub.getStateByRange(startKey, endKey);
+
+        const allResults = [];
+        while (true) {
+            const res = await iterator.next();
+
+            if (res.value && res.value.value.toString()) {
+                console.info(res.value.value.toString('utf8'));
+
+                const Key = res.value.key;
+                let Record;
+                try {
+                    Record = JSON.parse(res.value.value.toString('utf8'));
+                } catch (err) {
+                    console.info(err);
+                    Record = res.value.value.toString('utf8');
+                }
+                allResults.push({ Key, Record });
+            }
+            if (res.done) {
+                console.info('end of data');
+                await iterator.close();
+                console.info(allResults);
+                return JSON.stringify(allResults);
+            }
+        }
+    }
+
+
+
+ async getProductStatus(ctx, product_id){
+  //  var ProdcutObtained =  await ctx.stub.InvokeChaincode(this,"queryProduct","product_id);
+    console.info("Inside productStatus API ")
+    console.info("status for product :",ProdcutObtained.status);
+    return ProdcutObtained.status;     
+ }  
+
+ async setProductStatus(ctx, product_id, status){ 
+    //  let cid = new ClientIdentity(stub);
+    //     if (cid.assertAttributeValue('type', "sellar"))
+         {
+            var ProdcutObtained = await  queryProduct( ctx, product_id)
+            ProdcutObtained.status=status
+            await ctx.stub.putState(product_id, Buffer.from(JSON.stringify(ProdcutObtained)));
+            console.info("Inside setproductStatus API ");
+            console.info(" set the status for product :",ProdcutObtained);
+        }
+        // else{
+        //     throw new Error("You are not authorised to be a sellar :contact registrar for proper authentication");
+        // }
+
+ }
+ 
+
+
+ async purchaseProduct(ctx,buyer_id , product_id){ 
+    //    let cid = new ClientIdentity(stub);
+    //     if (cid.assertAttributeValue('type', "buyer"))
+         {
+            var ProductInfo  = await  queryProduct(product_id);
+            ProductInfo.status="sold"
+            ProductInfo.buyer=buyer_id; 
+            await ctx.stub.putState(product_id, Buffer.from(JSON.stringify(ProductInfo)));
+            console.info("purchased Product",ProductInfo)
+            console.info("Buyer info",buyer_id) 
+            console.info("product sold out ")
+        }
+        //  else{
+        //     throw new Error("You are not authorised to be a Buyer = :contact registrar for proper authentication");
+        // }
+
+ } 
+
+ async registerUser(ctx,name , email, conatact_no , address ,userkey, authentication_proof ,type  ){ 
+        //    let cid = new ClientIdentity(stub);
+        // if (cid.assertAttributeValue('type', "admin")) 
+        {
+            console.info('============= Inside : create user  ===========');
+            var user_type;
+            var  BUYER_COUNT ,SELLAR_COUNT;
+            if(type.toString().toLowerCase().trim()=="buyer")
+            { 
+                user_type='buyer';
+                 BUYER_COUNT= await ctx.stub.getState('BUYER_COUNT');
+                 BUYER_COUNT= BUYER_COUNT.toString('utf8')
+                BUYER_COUNT++;
+                await ctx.stub.putState('BUYER_COUNT', Buffer.from(JSON.stringify(BUYER_COUNT)));
+            }
+            else  if(type.toString().toLowerCase().trim()=="sellar"){
+                user_type='sellar'; 
+                SELLAR_COUNT= await ctx.stub.getState('SELLAR_COUNT');
+                SELLAR_COUNT= SELLAR_COUNT.toString('utf8')
+                SELLAR_COUNT++; 
+                await ctx.stub.putState('SELLAR_COUNT', Buffer.from(JSON.stringify(SELLAR_COUNT)));
+                }
+                  else{
+                throw new Error(`Invalid user type `);
+            } 
+            var user={
+                name,
+                email,
+                conatact_no,
+                address,
+                userkey,
+                authentication_proof,
+                type
+            }
+              await ctx.stub.putState("USER1", Buffer.from(JSON.stringify(user)));
+            console.info('============= END : create user  ===========');
+        }
+        // else {
+        //     throw new Error("You are not authorised to be a admin  = :contact registrar for proper authentication");           
+        // }
+ }  
+
+ async getUser(ctx){
+    var User  =  await ctx.stub.getState('USER1');
+    var Userdata= User.toString('utf8');
+   return JSON.stringify(Userdata);   
+} 
+
+
+
+}
+
+module.exports = MyContract;

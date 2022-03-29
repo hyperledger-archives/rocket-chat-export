@@ -1,0 +1,108 @@
+caliper@caliper-VirtualBox:~/caliper-benchmarks$ npx caliper launch master     --caliper-workspace .     --caliper-benchconfig benchmarks/scenario/simple/config.yaml     --caliper-networkconfig networks/ethereum/1node/ethereum.json 
+2020.10.01-01:31:42.734 info  [caliper] [cli-launch-master] 	Set workspace path: /home/caliper/caliper-benchmarks
+2020.10.01-01:31:42.738 info  [caliper] [cli-launch-master] 	Set benchmark configuration path: /home/caliper/caliper-benchmarks/benchmarks/scenario/simple/config.yaml
+2020.10.01-01:31:42.738 info  [caliper] [cli-launch-master] 	Set network configuration path: /home/caliper/caliper-benchmarks/networks/ethereum/1node/ethereum.json
+2020.10.01-01:31:42.739 info  [caliper] [cli-launch-master] 	Set SUT type: ethereum
+2020.10.01-01:31:43.766 info  [caliper] [benchmark-validator] 	No observer specified, will default to `none`
+2020.10.01-01:31:43.767 info  [caliper] [caliper-engine] 	Starting benchmark flow
+2020.10.01-01:31:43.847 info  [caliper] [caliper-utils] 	Executing command: cd .; docker-compose -f networks/ethereum/1node/docker-compose.yml up -d && sleep 3
+Creating network "1node_default" with the default driver
+Building node
+Step 1/5 : FROM ethereum/client-go:stable
+ ---> a75aa12d09b8
+Step 2/5 : COPY ./data/ /root/
+ ---> 2c1c834d7fdf
+Step 3/5 : VOLUME [ "/root/.ethereum/keystore/" ]
+ ---> Running in 0169f740ec02
+Removing intermediate container 0169f740ec02
+ ---> b8e13c22329d
+Step 4/5 : RUN geth --nousb init /root/genesis.json && geth --nousb import /root/bc.dat && geth --nousb makedag 0 /root/.ethash && geth --nousb makedag 30000 /root/.ethash
+ ---> Running in 058621a08ce0
+INFO [09-30|22:31:51.740] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [09-30|22:31:51.740] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [09-30|22:31:51.742] Set global gas cap                       cap=25000000
+INFO [09-30|22:31:51.742] Allocated cache and file handles         database=/root/.ethereum/geth/chaindata cache=16.00MiB handles=16
+INFO [09-30|22:31:51.753] Writing custom genesis block 
+INFO [09-30|22:31:51.755] Persisted trie from memory database      nodes=1 size=171.00B time="115.206µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [09-30|22:31:51.756] Successfully wrote genesis state         database=chaindata                      hash="cbc198…847427"
+INFO [09-30|22:31:51.756] Allocated cache and file handles         database=/root/.ethereum/geth/lightchaindata cache=16.00MiB handles=16
+INFO [09-30|22:31:51.824] Writing custom genesis block 
+INFO [09-30|22:31:51.825] Persisted trie from memory database      nodes=1 size=171.00B time="79.041µs"  gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [09-30|22:31:51.825] Successfully wrote genesis state         database=lightchaindata                      hash="cbc198…847427"
+INFO [09-30|22:31:51.911] Maximum peer count                       ETH=50 LES=0 total=50
+INFO [09-30|22:31:51.912] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [09-30|22:31:51.914] Set global gas cap                       cap=25000000
+INFO [09-30|22:31:51.915] Allocated cache and file handles         database=/root/.ethereum/geth/chaindata cache=512.00MiB handles=524288
+INFO [09-30|22:31:51.957] Opened ancient database                  database=/root/.ethereum/geth/chaindata/ancient
+INFO [09-30|22:31:51.958] Disk storage enabled for ethash caches   dir=/root/.ethereum/geth/ethash count=3
+INFO [09-30|22:31:51.958] Disk storage enabled for ethash DAGs     dir=/root/.ethash               count=2
+INFO [09-30|22:31:51.960] Loaded most recent local header          number=0 hash="cbc198…847427" td=524288 age=1y5mo3d
+INFO [09-30|22:31:51.960] Loaded most recent local full block      number=0 hash="cbc198…847427" td=524288 age=1y5mo3d
+INFO [09-30|22:31:51.960] Loaded most recent local fast block      number=0 hash="cbc198…847427" td=524288 age=1y5mo3d
+INFO [09-30|22:31:51.961] Importing blockchain                     file=/root/bc.dat
+Import done in 11.273757ms.
+
+Compactions
+ Level |   Tables   |    Size(MB)   |    Time(sec)  |    Read(MB)   |   Write(MB)
+-------+------------+---------------+---------------+---------------+---------------
+   0   |          1 |       0.00077 |       0.00000 |       0.00000 |       0.00000
+-------+------------+---------------+---------------+---------------+---------------
+ Total |          1 |       0.00077 |       0.00000 |       0.00000 |       0.00000
+
+Read(MB):0.00247 Write(MB):0.00098
+Object memory: 130.440 MB current, 130.339 MB peak
+System memory: 334.841 MB current, 334.841 MB peak
+Allocations:   0.022 million
+GC pause:      398.955µs
+
+Compacting entire database...
+ERROR[09-30|22:31:51.971] 
+########## BAD BLOCK #########
+Chain config: {ChainID: 21194 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: 0 EIP155: 0 EIP158: 0 Byzantium: 0 Constantinople: 0 Petersburg: 0 Istanbul: 0, Muir Glacier: <nil>, YOLO v1: <nil>, Engine: ethash}
+
+Number: 1
+Hash: 0x0f34a5d81e4a0c7a8cd84b5a96ed026086cad450b51eb425cdc0cde28e087b7d
+
+
+Error: unknown ancestor
+##############################
+ 
+ERROR[09-30|22:31:51.972] Import error                             err="invalid block 18: unknown ancestor"
+INFO [09-30|22:31:51.972] Blockchain stopped 
+invalid block 18: unknown ancestor
+Compaction done in 92.916458ms.
+
+Compactions
+ Level |   Tables   |    Size(MB)   |    Time(sec)  |    Read(MB)   |   Write(MB)
+-------+------------+---------------+---------------+---------------+---------------
+   1   |          1 |       0.00077 |       0.01986 |       0.00077 |       0.00077
+-------+------------+---------------+---------------+---------------+---------------
+ Total |          1 |       0.00077 |       0.01986 |       0.00077 |       0.00077
+
+Read(MB):0.00247 Write(MB):0.00189
+Service 'node' failed to build: The command '/bin/sh -c geth --nousb init /root/genesis.json && geth --nousb import /root/bc.dat && geth --nousb makedag 0 /root/.ethash && geth --nousb makedag 30000 /root/.ethash' returned a non-zero code: 1
+2020.10.01-01:31:52.841 error [caliper] [caliper-utils] 	Unsuccessful command execution. Error code: 1. Terminating signal: null
+2020.10.01-01:31:52.842 error [caliper] [caliper-engine] 	An error occurred while executing the start command: Error: Command failed: cd .; docker-compose -f networks/ethereum/1node/docker-compose.yml up -d && sleep 3
+Creating network "1node_default" with the default driver
+Building node
+Service 'node' failed to build: The command '/bin/sh -c geth --nousb init /root/genesis.json && geth --nousb import /root/bc.dat && geth --nousb makedag 0 /root/.ethash && geth --nousb makedag 30000 /root/.ethash' returned a non-zero code: 1
+
+2020.10.01-01:31:52.843 info  [caliper] [caliper-engine] 	Executed start command in 8.997 seconds
+2020.10.01-01:31:52.843 info  [caliper] [caliper-utils] 	Executing command: cd .; docker-compose -f networks/ethereum/1node/docker-compose.yml down
+Removing network 1node_default
+2020.10.01-01:31:54.723 info  [caliper] [caliper-engine] 	Executed end command in 1.88 seconds
+2020.10.01-01:31:54.724 error [caliper] [cli-launch-master] 	Benchmark failed with error code 3
+Usage:
+ caliper launch master --caliper-bind-sut fabric:1.4.1 [other options]
+
+Options:
+  --help, -h           Show usage information  [boolean]
+  --version            Show version information  [boolean]
+  --caliper-bind-sut   The name and version of the platform to bind to  [string]
+  --caliper-bind-cwd   The working directory for performing the SDK install  [string]
+  --caliper-bind-args  Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter  [string]
+  --caliper-bind-file  Yaml file to override default (supported) package versions when binding an SDK  [string]
+
+Error: Benchmark failed with error code 3
+    at Function.handler (/home/caliper/caliper-benchmarks/node_modules/@hyperledger/caliper-cli/lib/launch/lib/launchMaster.js:70:23)
+    at process._tickCallback (internal/process/next_tick.js:68:7)

@@ -1,0 +1,166 @@
+rue)
+2018-08-24 10:06:21,181 ERROR 42 nodejs.AppWorkerDiedError: [master] app_worker#1:58 died (code: 1, signal: null, suicide: false, state: dead), current workers: []
+    at Master.onAppExit (/node_modules/egg-cluster/lib/master.js:388:21)
+    at emitOne (events.js:116:13)
+    at Master.emit (events.js:211:7)
+    at Messenger.sendToMaster (/node_modules/egg-cluster/lib/utils/messenger.js:122:17)
+    at Messenger.send (/node_modules/egg-cluster/lib/utils/messenger.js:87:12)
+    at EventEmitter.cluster.on (/node_modules/egg-cluster/lib/master.js:265:22)
+    at emitThree (events.js:141:20)
+    at EventEmitter.emit (events.js:217:7)
+    at ChildProcess.worker.process.once (internal/cluster/master.js:185:13)
+    at Object.onceWrapper (events.js:317:30)
+name: "AppWorkerDiedError"
+pid: 42
+hostname: cello-user-dashboard
+
+2018-08-24 10:06:21,182 ERROR 42 [master] app_worker#1:58 start fail, exiting with code:1
+2018-08-24 10:06:21,183 ERROR 42 [master] exit with code:1
+2018-08-24 10:06:21,186 ERROR 48 [agent_worker] receive disconnect event on child_process fork mode, exiting with code:110
+2018-08-24 10:06:21,189 ERROR 48 [agent_worker] exit with code:110
+⚠️  Error: /node_modules/egg-bin/lib/start-cluster {"stricky":true,"port":8081,"baseDir":"/var/www","framework":"/var/www/node_modules/egg","workers":1} exit with code 1
+⚠️  Command Error, enable `DEBUG=common-bin` for detail
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start:dev: `egg-bin dev --stricky --port 8081`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start:dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-08-24T10_06_21_198Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start: `if-env NODE_ENV=production && npm run start:prod || npm run start:dev`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-08-24T10_06_21_221Z-debug.log
+test@cellomaster1:~/cellostable/cello$ clear
+test@cellomaster1:~/cellostable/cello$ docker logs e58cf6624d79
+bash: line 0: cd: /usr/app/src: No such file or directory
+
+> user-dashboard@1.0.0 start /var/www
+> if-env NODE_ENV=production && npm run start:prod || npm run start:dev
+
+
+> user-dashboard@1.0.0 start:dev /var/www
+> egg-bin dev --stricky --port 8081
+
+2018-08-24 10:06:19,015 INFO 42 [master] node version v8.9.4
+2018-08-24 10:06:19,017 INFO 42 [master] egg version 2.10.0
+2018-08-24 10:06:19,607 INFO 42 [master] agent_worker#1:48 started (586ms)
+2018-08-24 10:06:21,117 ERROR 58 [egg-mongoose] mongodb://undefined:27017/undefined disconnected
+2018-08-24 10:06:21,166 ERROR 58 nodejs.MongoError: [egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]
+    at Pool.<anonymous> (/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+name: "MongoError"
+message: "[egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]"
+pid: 58
+hostname: cello-user-dashboard
+
+2018-08-24 10:06:21,170 ERROR 58 [-/127.0.0.1/-/1ms GET /] nodejs.MongoError: [egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]
+    at Pool.<anonymous> (/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+name: "MongoError"
+message: "[egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]"
+pid: 58
+hostname: cello-user-dashboard
+
+2018-08-24 10:06:21,170 ERROR 58 nodejs.MongoError: [egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]
+    at Pool.<anonymous> (/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+name: "MongoError"
+message: "[egg-mongoose]failed to connect to server [undefined:27017] on first connect [MongoError: getaddrinfo ENOTFOUND undefined undefined:27017]"
+pid: 58
+hostname: cello-user-dashboard
+
+2018-08-24 10:06:21,170 ERROR 58 [app_worker] start error, exiting with code:1
+2018-08-24 10:06:21,171 ERROR 58 [app_worker] exit with code:1
+2018-08-24 10:06:21,178 WARN 48 [ClusterClient:Connection] socket is closed by other side while there were still unhandled data in the socket buffer
+[2018-08-24 10:06:21.178] [cfork:master:42] worker:58 disconnect (exitedAfterDisconnect: false, state: disconnected, isDead: false, worker.disableRefork: true)
+[2018-08-24 10:06:21.179] [cfork:master:42] don't fork, because worker:58 will be kill soon
+2018-08-24 10:06:21,179 INFO 42 [master] app_worker#1:58 disconnect, suicide: false, state: disconnected, current workers: ["1"]
+[2018-08-24 10:06:21.180] [cfork:master:42] worker:58 exit (code: 1, exitedAfterDisconnect: false, state: dead, isDead: true, isExpected: false, worker.disableRefork: true)
+2018-08-24 10:06:21,181 ERROR 42 nodejs.AppWorkerDiedError: [master] app_worker#1:58 died (code: 1, signal: null, suicide: false, state: dead), current workers: []
+    at Master.onAppExit (/node_modules/egg-cluster/lib/master.js:388:21)
+    at emitOne (events.js:116:13)
+    at Master.emit (events.js:211:7)
+    at Messenger.sendToMaster (/node_modules/egg-cluster/lib/utils/messenger.js:122:17)
+    at Messenger.send (/node_modules/egg-cluster/lib/utils/messenger.js:87:12)
+    at EventEmitter.cluster.on (/node_modules/egg-cluster/lib/master.js:265:22)
+    at emitThree (events.js:141:20)
+    at EventEmitter.emit (events.js:217:7)
+    at ChildProcess.worker.process.once (internal/cluster/master.js:185:13)
+    at Object.onceWrapper (events.js:317:30)
+name: "AppWorkerDiedError"
+pid: 42
+hostname: cello-user-dashboard
+
+2018-08-24 10:06:21,182 ERROR 42 [master] app_worker#1:58 start fail, exiting with code:1
+2018-08-24 10:06:21,183 ERROR 42 [master] exit with code:1
+2018-08-24 10:06:21,186 ERROR 48 [agent_worker] receive disconnect event on child_process fork mode, exiting with code:110
+2018-08-24 10:06:21,189 ERROR 48 [agent_worker] exit with code:110
+⚠️  Error: /node_modules/egg-bin/lib/start-cluster {"stricky":true,"port":8081,"baseDir":"/var/www","framework":"/var/www/node_modules/egg","workers":1} exit with code 1
+⚠️  Command Error, enable `DEBUG=common-bin` for detail
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start:dev: `egg-bin dev --stricky --port 8081`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start:dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-08-24T10_06_21_198Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start: `if-env NODE_ENV=production && npm run start:prod || npm run start:dev`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-08-24T10_06_21_221Z-debug.log
+test@cellomaster1:~/cellostable/cello$

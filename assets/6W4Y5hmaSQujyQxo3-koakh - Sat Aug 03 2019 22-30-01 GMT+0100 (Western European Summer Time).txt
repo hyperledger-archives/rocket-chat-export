@@ -1,0 +1,58 @@
+log: 
+$ sudo docker-compose logs -f peer0.org1.example.com
+
+Attaching to peer0.org1.example.com
+peer0.org1.example.com    | 2019-08-03 21:01:08.033 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.org1.example.com    |  Version: 1.4.2
+peer0.org1.example.com    |  Commit SHA: c6cc550
+peer0.org1.example.com    |  Go version: go1.11.5
+peer0.org1.example.com    |  OS/Arch: linux/amd64
+peer0.org1.example.com    |  Chaincode:
+peer0.org1.example.com    |   Base Image Version: 0.4.15
+peer0.org1.example.com    |   Base Docker Namespace: hyperledger
+peer0.org1.example.com    |   Base Docker Label: org.hyperledger.fabric
+peer0.org1.example.com    |   Docker Namespace: hyperledger
+peer0.org1.example.com    | 2019-08-03 21:01:08.033 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.org1.example.com    | 2019-08-03 21:01:08.033 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer0.org1.example.com    | 2019-08-03 21:01:08.045 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer0.org1.example.com    | 2019-08-03 21:01:08.109 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 005 Created state database _users
+peer0.org1.example.com    | 2019-08-03 21:01:08.127 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 006 Created state database _replicator
+peer0.org1.example.com    | 2019-08-03 21:01:08.128 UTC [ledgermgmt] initialize -> INFO 007 ledger mgmt initialized
+peer0.org1.example.com    | 2019-08-03 21:01:08.128 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 192.168.48.7:7051
+peer0.org1.example.com    | 2019-08-03 21:01:08.128 UTC [peer] func1 -> INFO 009 Returning peer0.org1.example.com:7051
+peer0.org1.example.com    | 2019-08-03 21:01:08.128 UTC [peer] func1 -> INFO 00a Auto-detected peer address: 192.168.48.7:7051
+peer0.org1.example.com    | 2019-08-03 21:01:08.128 UTC [peer] func1 -> INFO 00b Returning peer0.org1.example.com:7051
+peer0.org1.example.com    | 2019-08-03 21:01:08.129 UTC [nodeCmd] serve -> INFO 00c Starting peer with TLS enabled
+peer0.org1.example.com    | 2019-08-03 21:01:08.130 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00d Entering computeChaincodeEndpoint with peerHostname: peer0.org1.example.com
+peer0.org1.example.com    | 2019-08-03 21:01:08.130 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00e Exit with ccEndpoint: peer0.org1.example.com:7052
+peer0.org1.example.com    | 2019-08-03 21:01:08.131 UTC [sccapi] registerSysCC -> INFO 00f system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer0.org1.example.com    | 2019-08-03 21:01:08.131 UTC [sccapi] registerSysCC -> INFO 010 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer0.org1.example.com    | 2019-08-03 21:01:08.131 UTC [sccapi] registerSysCC -> INFO 011 system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer0.org1.example.com    | 2019-08-03 21:01:08.131 UTC [sccapi] registerSysCC -> INFO 012 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer0.org1.example.com    | 2019-08-03 21:01:08.133 UTC [gossip.service] func1 -> INFO 013 Initialize gossip with endpoint peer0.org1.example.com:7051 and bootstrap set [peer1.org1.example.com:8051]
+peer0.org1.example.com    | 2019-08-03 21:01:08.135 UTC [gossip.gossip] NewGossipService -> INFO 014 Creating gossip service with self membership of Endpoint: peer0.org1.example.com:7051, InternalEndpoint: peer0.org1.example.com:7051, PKI-ID: 6435bea603804078a62ce45683da583d48b7f143f67b83b39067bf9214fdaeea, Metadata: 
+peer0.org1.example.com    | 2019-08-03 21:01:08.136 UTC [gossip.gossip] start -> INFO 015 Gossip instance peer0.org1.example.com:7051 started
+peer0.org1.example.com    | 2019-08-03 21:01:08.136 UTC [sccapi] deploySysCC -> INFO 016 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.org1.example.com    | 2019-08-03 21:01:08.137 UTC [cscc] Init -> INFO 017 Init CSCC
+peer0.org1.example.com    | 2019-08-03 21:01:08.137 UTC [sccapi] deploySysCC -> INFO 018 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.org1.example.com    | 2019-08-03 21:01:08.138 UTC [qscc] Init -> INFO 019 Init QSCC
+peer0.org1.example.com    | 2019-08-03 21:01:08.138 UTC [sccapi] deploySysCC -> INFO 01a system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.org1.example.com    | 2019-08-03 21:01:08.138 UTC [sccapi] deploySysCC -> INFO 01b system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.org1.example.com    | 2019-08-03 21:01:08.138 UTC [nodeCmd] serve -> INFO 01c Deployed system chaincodes
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [discovery] NewService -> INFO 01d Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [nodeCmd] registerDiscoveryService -> INFO 01e Discovery service activated
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [nodeCmd] serve -> INFO 01f Starting peer with ID=[name:"peer0.org1.example.com" ], network ID=[dev], address=[peer0.org1.example.com:7051]
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [nodeCmd] serve -> INFO 020 Started peer with ID=[name:"peer0.org1.example.com" ], network ID=[dev], address=[peer0.org1.example.com:7051]
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [kvledger] LoadPreResetHeight -> INFO 022 Loading prereset height from path [/var/hyperledger/production/ledgersData/chains]
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [fsblkstorage] LoadPreResetHeight -> INFO 023 Loading Pre-reset heights
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [fsblkstorage] preRestHtFiles -> INFO 024 Dir [/var/hyperledger/production/ledgersData/chains/chains] missing... exiting
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [fsblkstorage] LoadPreResetHeight -> INFO 025 Pre-reset heights loaded
+peer0.org1.example.com    | 2019-08-03 21:01:08.139 UTC [nodeCmd] func7 -> INFO 021 Starting profiling server with listenAddress = 0.0.0.0:6060
+peer0.org1.example.com    | fatal error: unexpected signal during runtime execution
+peer0.org1.example.com    | [signal SIGSEGV: segmentation violation code=0x1 addr=0x63 pc=0x7f44dedef259]
+peer0.org1.example.com    | 
+peer0.org1.example.com    | runtime stack:
+peer0.org1.example.com    | runtime.throw(0x1289ac1, 0x2a)
+peer0.org1.example.com    | 	/opt/go/src/runtime/panic.go:608 +0x72
+peer0.org1.example.com    | runtime.sigpanic()
+peer0.org1.example.com    | 	/opt/go/src/runtime/signal_unix.go:374 +0x2f2

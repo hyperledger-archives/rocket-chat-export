@@ -1,0 +1,31 @@
+async verify_proof(proof_request_json, proof_json, schemas, credential_defs, revoc_reg_defs, revoc_regs, success)
+{
+    var app = this;
+    try
+    {
+      pretty.log(proof_request_json);
+      pretty.log(proof_json);
+      pretty.log(schemas);      
+      pretty.log(credential_defs);
+      pretty.log(revoc_reg_defs);
+      pretty.log(revoc_regs);
+
+      const revocRegs = {};
+      const revRegs = {};
+
+      var verified = await indy.verifierVerifyProof(proof_request_json, proof_json, schemas, credential_defs, revocRegs, revRegs);
+
+      console.log("verified:");
+      console.log(verified);
+
+      if(success != null)
+      {
+        success(verified);
+      }
+    }
+    catch(error)
+    {
+      console.log(error);
+    }
+  }
+};

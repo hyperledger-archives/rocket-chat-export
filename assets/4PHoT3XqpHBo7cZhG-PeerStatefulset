@@ -1,0 +1,176 @@
+```apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: peer0-org1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: peer0-org1
+      type: peer
+  serviceName: peer0-org1
+  template:
+    metadata:
+      labels:
+        k8s-app: peer0-org1
+        type: peer
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: type
+                  operator: In
+                  values:
+                  - peer
+              topologyKey: kubernetes.io/hostname
+            weight: 1
+      containers:
+      - args:
+        - dockerd
+        - -H tcp://0.0.0.0:2375
+        image: docker:dind
+        name: dind
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: "1"
+            memory: 1Gi
+        securityContext:
+          privileged: true
+      - args:
+        - node
+        - start
+        command:
+        - peer
+        env:
+        - name: CORE_VM_ENDPOINT
+          value: localhost:2375
+        - name: CORE_PEER_LISTENADDRESS
+          value: 0.0.0.0:31000
+        - name: CORE_PEER_CHAINCODELISTENADDRESS
+          value: 0.0.0.0:7052
+        - name: CORE_PEER_GOSSIP_STATE_ENABLED
+          value: "false"
+        - name: CORE_PEER_GOSSIP_USELEADERELECTION
+          value: "false"
+        - name: CORE_PEER_GOSSIP_ORGLEADER
+          value: "true"
+        - name: CORE_PEER_TLS_ENABLED
+          value: "True"
+        - name: FABRIC_LOGGING_SPEC
+          value: error
+        - name: CORE_PEER_TLS_CERT_FILE
+          value: /etc/hyperledger/fabric/artifacts/tls/server.crt
+        - name: CORE_PEER_TLS_KEY_FILE
+          value: /etc/hyperledger/fabric/artifacts/tls/server.key
+        - name: CORE_PEER_TLS_ROOTCERT_FILE
+          value: /etc/hyperledger/fabric/artifacts/msp/tlscacerts/tlsca.org1-cert.pem
+        - name: CORE_PEER_ID
+          value: peer0-org1
+        - name: CORE_PEER_GOSSIP_EXTERNALENDPOINT
+          value: 161.35.124.131:31000
+        - name: CORE_PEER_ADDRESS
+          value: peer0-org1:31000
+        - name: CORE_PEER_CHAINCODEADDRESS
+          value: localhost:7052
+        - name: CORE_CHAINCODE_EXECUTETIMEOUT
+          value: 1500s
+        - name: CORE_PEER_LOCALMSPID
+          value: Org1ExampleCom
+        - name: CORE_PEER_MSPCONFIGPATH
+          value: /etc/hyperledger/fabric/artifacts/msp
+        - name: CORE_PEER_FILESYSTEMPATH
+          value: /shared/data
+        - name: CORE_PEER_GOSSIP_BOOTSTRAP
+          value: peer0-org1:31000
+        - name: CORE_OPERATIONS_LISTENADDRESS
+          value: :9443
+        - name: CORE_CHAINCODE_BUILDER
+          value: hyperledger-fabric.jfrog.io/fabric-ccenv:amd64-2.1-stable
+        - name: CORE_CHAINCODE_GOLANG_RUNTIME
+          value: hyperledger-fabric.jfrog.io/fabric-baseos:amd64-2.1-stable
+        - name: CORE_CHAINCODE_JAVA_RUNTIME
+          value: hyperledger-fabric.jfrog.io/fabric-javaenv:amd64-2.1-stable
+        - name: CORE_CHAINCODE_NODE_RUNTIME
+          value: hyperledger-fabric.jfrog.io/fabric-nodeenv:amd64-2.1-stable
+        - name: CORE_LEDGER_STATE_STATEDATABASE
+          value: CouchDB
+        - name: CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS
+          value: localhost:5984
+        image: hyperledger-fabric.jfrog.io/fabric-peer:amd64-2.1-stable
+        imagePullPolicy: Always
+        name: peer0-org1
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: 2Gi
+          requests:
+            cpu: "0.5"
+            memory: 2Gi
+        volumeMounts:
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/admincerts/
+          name: admincerts
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/cacerts/
+          name: cacerts
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/signcerts/
+          name: signcerts
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/keystore/
+          name: keystore
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/tlscacerts/
+          name: tlscacerts
+        - mountPath: /etc/hyperledger/fabric/artifacts/tls/
+          name: tls
+        - mountPath: /etc/hyperledger/fabric/artifacts/msp/
+          name: config
+      - image: hyperledger/fabric-couchdb
+        imagePullPolicy: Always
+        name: couchdb-peer0-org1
+        resources:
+          limits:
+            cpu: "0.2"
+            memory: 1Gi
+          requests:
+            cpu: "0.1"
+            memory: 1Gi
+      volumes:
+      - configMap:
+          items:
+          - key: cacerts
+            path: ca.org1-cert.pem
+          name: peer0-org1-msp
+        name: cacerts
+      - configMap:
+          items:
+          - key: signcerts
+            path: peer0-org1.org1-cert.pem
+          name: peer0-org1-msp
+        name: signcerts
+      - configMap:
+          items:
+          - key: tlscacerts
+            path: tlsca.org1-cert.pem
+          name: peer0-org1-msp
+        name: tlscacerts
+      - configMap:
+          items:
+          - key: keystore
+            path: priv_sk
+          name: peer0-org1-msp
+        name: keystore
+      - configMap:
+          name: peer0-org1-tls
+        name: tls
+      - configMap:
+          name: org1-admincerts
+        name: admincerts
+      - configMap:
+          items:
+          - key: config
+            path: config.yaml
+          name: peer0-org1-msp
+        name: config```

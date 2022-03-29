@@ -1,0 +1,229 @@
+user@ubuntu:~/cello-0.9.0$ docker logs cello-user-dashboard
+
+> user-dashboard@1.0.0 start /var/www
+> if-env NODE_ENV=production && npm run start:prod || npm run start:dev
+
+
+> user-dashboard@1.0.0 start:prod /var/www
+> egg-scripts start --title=user-dashboard --env prod --stricky --port 8081
+
+[egg-scripts] Starting egg application at /var/www
+[egg-scripts] Run node /node_modules/egg-scripts/lib/start-cluster {"title":"user-dashboard","stricky":true,"port":8081,"baseDir":"/var/www","framework":"/var/www/node_modules/egg"} --title=user-dashboard
+2019-08-17 14:53:45,922 INFO 55 [master] =================== egg start =====================
+2019-08-17 14:53:45,930 INFO 55 [master] node version v8.9.4
+2019-08-17 14:53:45,930 INFO 55 [master] egg version 2.20.1
+2019-08-17 14:53:45,931 INFO 55 [master] start with options:
+{
+  "framework": "/var/www/node_modules/egg",
+  "baseDir": "/var/www",
+  "port": 8081,
+  "workers": 2,
+  "plugins": null,
+  "https": false,
+  "title": "user-dashboard",
+  "stricky": true
+}
+2019-08-17 14:53:45,931 INFO 55 [master] start with env: isProduction: true, EGG_SERVER_ENV: prod, NODE_ENV: production
+2019-08-17 14:53:45,955 INFO 55 [master] agent_worker#1:61 start with clusterPort:39195
+2019-08-17 14:53:47,319 INFO 61 Plugin development is disabled by env unmatched, require env(local) but got env is prod
+2019-08-17 14:53:47,436 INFO 61 [egg:core] App root: /var/www
+2019-08-17 14:53:47,437 INFO 61 [egg:core] All *.log files save on "/root/logs/user-dashboard"
+2019-08-17 14:53:47,437 INFO 61 [egg:core] Loaded enabled plugin [{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-session","version":"3.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":[],"optionalDependencies":["session"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-security","version":"2.5.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-jsonp","version":"2.0.0"},{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":["jsonp"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-onerror","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-i18n","version":"2.0.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-watcher","version":"3.1.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-schedule","version":"3.6.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":["schedule"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-multipart","version":"2.4.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-logrotator","version":"3.0.7"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-static","version":"2.2.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-view","version":"2.1.2"},{"enable":true,"package":"egg-passport","name":"passport","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport","version":"2.0.1"},{"enable":true,"package":"egg-passport-oauth2","name":"passportOauth2","dependencies":["passport"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport-oauth2","version":"1.0.2"},{"enable":true,"package":"egg-view-nunjucks","name":"nunjucks","dependencies":["security","view"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-view-nunjucks","version":"2.2.0"},{"enable":true,"package":"egg-socket.io","name":"io","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-socket.io","version":"4.1.5"},{"enable":true,"package":"egg-mongoose","name":"mongoose","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-mongoose","version":"2.2.1"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-validate","version":"1.1.1"}]
+2019-08-17 14:53:47,448 INFO 61 [egg:logger] init all loggers with options: {"dir":"/root/logs/user-dashboard","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"user-dashboard-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"type":"agent"}
+2019-08-17 14:53:47,920 INFO 61 [egg:core] dump config after load, 20ms
+2019-08-17 14:53:48,094 INFO 61 [egg-watcher:agent] watcher start success
+2019-08-17 14:53:48,138 INFO 61 [egg:core:ready_stat] end ready task /node_modules/egg-schedule/agent.js:12:9, remain ["/node_modules/egg-watcher/lib/init.js:15:14"]
+2019-08-17 14:53:48,139 WARN 61 [egg-watcher] defaultEventSource watcher will NOT take effect
+2019-08-17 14:53:48,139 INFO 61 [egg:core:ready_stat] end ready task /node_modules/egg-watcher/lib/init.js:15:14, remain []
+2019-08-17 14:53:48,142 INFO 55 [master] agent_worker#1:61 started (2196ms)
+2019-08-17 14:53:48,142 INFO 55 [master] start appWorker with args ["{\"framework\":\"/var/www/node_modules/egg\",\"baseDir\":\"/var/www\",\"port\":8081,\"workers\":2,\"plugins\":null,\"https\":false,\"title\":\"user-dashboard\",\"stricky\":true,\"clusterPort\":39195}"]
+2019-08-17 14:53:48,179 INFO 55 [master] app_worker#1:71 start, state: none, current workers: ["1","2"]
+2019-08-17 14:53:48,181 INFO 55 [master] app_worker#2:72 start, state: none, current workers: ["1","2"]
+2019-08-17 14:53:50,280 INFO 72 Plugin development is disabled by env unmatched, require env(local) but got env is prod
+2019-08-17 14:53:50,435 INFO 72 [egg:core] App root: /var/www
+2019-08-17 14:53:50,439 INFO 72 [egg:core] All *.log files save on "/root/logs/user-dashboard"
+2019-08-17 14:53:50,439 INFO 72 [egg:core] Loaded enabled plugin [{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-session","version":"3.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":[],"optionalDependencies":["session"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-security","version":"2.5.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-jsonp","version":"2.0.0"},{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":["jsonp"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-onerror","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-i18n","version":"2.0.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-watcher","version":"3.1.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-schedule","version":"3.6.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":["schedule"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-multipart","version":"2.4.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-logrotator","version":"3.0.7"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-static","version":"2.2.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-view","version":"2.1.2"},{"enable":true,"package":"egg-passport","name":"passport","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport","version":"2.0.1"},{"enable":true,"package":"egg-passport-oauth2","name":"passportOauth2","dependencies":["passport"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport-oauth2","version":"1.0.2"},{"enable":true,"package":"egg-view-nunjucks","name":"nunjucks","dependencies":["security","view"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-view-nunjucks","version":"2.2.0"},{"enable":true,"package":"egg-socket.io","name":"io","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-socket.io","version":"4.1.5"},{"enable":true,"package":"egg-mongoose","name":"mongoose","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-mongoose","version":"2.2.1"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-validate","version":"1.1.1"}]
+2019-08-17 14:53:50,614 INFO 71 Plugin development is disabled by env unmatched, require env(local) but got env is prod
+2019-08-17 14:53:50,648 INFO 71 [egg:core] App root: /var/www
+2019-08-17 14:53:50,648 INFO 71 [egg:core] All *.log files save on "/root/logs/user-dashboard"
+2019-08-17 14:53:50,648 INFO 71 [egg:core] Loaded enabled plugin [{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-session","version":"3.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":[],"optionalDependencies":["session"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-security","version":"2.5.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-jsonp","version":"2.0.0"},{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":["jsonp"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-onerror","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-i18n","version":"2.0.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-watcher","version":"3.1.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-schedule","version":"3.6.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":["schedule"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-multipart","version":"2.4.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-logrotator","version":"3.0.7"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-static","version":"2.2.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-view","version":"2.1.2"},{"enable":true,"package":"egg-passport","name":"passport","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport","version":"2.0.1"},{"enable":true,"package":"egg-passport-oauth2","name":"passportOauth2","dependencies":["passport"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport-oauth2","version":"1.0.2"},{"enable":true,"package":"egg-view-nunjucks","name":"nunjucks","dependencies":["security","view"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-view-nunjucks","version":"2.2.0"},{"enable":true,"package":"egg-socket.io","name":"io","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-socket.io","version":"4.1.5"},{"enable":true,"package":"egg-mongoose","name":"mongoose","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-mongoose","version":"2.2.1"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-validate","version":"1.1.1"}]
+2019-08-17 14:53:52,397 INFO 72 [egg:logger] init all loggers with options: {"dir":"/root/logs/user-dashboard","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"user-dashboard-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"type":"application"}
+2019-08-17 14:53:52,402 INFO 71 [egg:logger] init all loggers with options: {"dir":"/root/logs/user-dashboard","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"user-dashboard-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"type":"application"}
+2019-08-17 14:53:52,495 INFO 71 [egg-multipart] stream mode enable
+2019-08-17 14:53:52,526 INFO 72 [egg-multipart] stream mode enable
+/node_modules/egg/lib/application.js:70
+      throw e;
+      ^
+
+AssertionError [ERR_ASSERTION]: [egg-passport-oauth2] config.passportOauth2.key required
+    at module.exports.app (/node_modules/egg-passport-oauth2/app.js:10:3)
+    at Hook.configDidLoad (/node_modules/egg-core/lib/lifecycle.js:92:9)
+    at Lifecycle.triggerConfigDidLoad (/node_modules/egg-core/lib/lifecycle.js:143:14)
+    at Lifecycle.triggerConfigWillLoad (/node_modules/egg-core/lib/lifecycle.js:137:10)
+    at AppWorkerLoader.loadCustomApp (/node_modules/egg-core/lib/loader/mixin/custom.js:37:20)
+    at AppWorkerLoader.load (/node_modules/egg/lib/loader/app_worker_loader.js:33:10)
+    at new Application (/node_modules/egg/lib/application.js:66:19)
+    at Object.<anonymous> (/node_modules/egg-cluster/lib/app_worker.js:19:13)
+    at Module._compile (module.js:643:30)
+    at Object.Module._extensions..js (module.js:654:10)
+/node_modules/egg/lib/application.js:70
+      throw e;
+      ^
+
+AssertionError [ERR_ASSERTION]: [egg-passport-oauth2] config.passportOauth2.key required
+    at module.exports.app (/node_modules/egg-passport-oauth2/app.js:10:3)
+    at Hook.configDidLoad (/node_modules/egg-core/lib/lifecycle.js:92:9)
+    at Lifecycle.triggerConfigDidLoad (/node_modules/egg-core/lib/lifecycle.js:143:14)
+    at Lifecycle.triggerConfigWillLoad (/node_modules/egg-core/lib/lifecycle.js:137:10)
+    at AppWorkerLoader.loadCustomApp (/node_modules/egg-core/lib/loader/mixin/custom.js:37:20)
+    at AppWorkerLoader.load (/node_modules/egg/lib/loader/app_worker_loader.js:33:10)
+    at new Application (/node_modules/egg/lib/application.js:66:19)
+    at Object.<anonymous> (/node_modules/egg-cluster/lib/app_worker.js:19:13)
+    at Module._compile (module.js:643:30)
+    at Object.Module._extensions..js (module.js:654:10)
+[2019-08-17 14:53:52.561] [cfork:master:55] worker:71 disconnect (exitedAfterDisconnect: false, state: disconnected, isDead: false, worker.disableRefork: true)
+[2019-08-17 14:53:52.562] [cfork:master:55] don't fork, because worker:71 will be kill soon
+2019-08-17 14:53:52,562 INFO 55 [master] app_worker#1:71 disconnect, suicide: false, state: disconnected, current workers: ["1","2"]
+[2019-08-17 14:53:52.562] [cfork:master:55] worker:72 disconnect (exitedAfterDisconnect: false, state: disconnected, isDead: false, worker.disableRefork: true)
+[2019-08-17 14:53:52.563] [cfork:master:55] don't fork, because worker:72 will be kill soon
+2019-08-17 14:53:52,563 INFO 55 [master] app_worker#2:72 disconnect, suicide: false, state: disconnected, current workers: ["1","2"]
+[2019-08-17 14:53:52.564] [cfork:master:55] worker:71 exit (code: 1, exitedAfterDisconnect: false, state: dead, isDead: true, isExpected: false, worker.disableRefork: true)
+2019-08-17 14:53:52,566 ERROR 55 nodejs.AppWorkerDiedError: [master] app_worker#1:71 died (code: 1, signal: null, suicide: false, state: dead), current workers: ["2"]
+    at Master.onAppExit (/node_modules/egg-cluster/lib/master.js:408:21)
+    at emitOne (events.js:116:13)
+    at Master.emit (events.js:211:7)
+    at Messenger.sendToMaster (/node_modules/egg-cluster/lib/utils/messenger.js:137:17)
+    at Messenger.send (/node_modules/egg-cluster/lib/utils/messenger.js:102:12)
+    at EventEmitter.cluster.on (/node_modules/egg-cluster/lib/master.js:277:22)
+    at emitThree (events.js:141:20)
+    at EventEmitter.emit (events.js:217:7)
+    at ChildProcess.worker.process.once (internal/cluster/master.js:185:13)
+    at Object.onceWrapper (events.js:317:30)
+name: "AppWorkerDiedError"
+pid: 55
+hostname: cello-user-dashboard
+
+2019-08-17 14:53:52,568 ERROR 55 [master] app_worker#1:71 start fail, exiting with code:1
+2019-08-17 14:53:52,569 ERROR 55 [master] exit with code:1
+2019-08-17 14:53:52,575 ERROR 61 [agent_worker] receive disconnect event on child_process fork mode, exiting with code:110
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn node /node_modules/egg-scripts/lib/start-cluster {"title":"user-dashboard","stricky":true,"port":8081,"baseDir":"/var/www","framework":"/var/www/node_modules/egg"} --title=user-dashboard fail, exit code: 1
+    at ChildProcess.child.once.code (/node_modules/egg-scripts/lib/cmd/start.js:179:31)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at ChildProcess.emit (events.js:214:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:198:12)
+2019-08-17 14:53:52,582 INFO 61 [agent_worker] beforeExit success
+2019-08-17 14:53:52,583 ERROR 61 [agent_worker] exit with code:110
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start:prod: `egg-scripts start --title=user-dashboard --env prod --stricky --port 8081`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start:prod script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-08-17T14_53_52_609Z-debug.log
+
+> user-dashboard@1.0.0 start:dev /var/www
+> egg-bin dev --stricky --port 8081
+
+2019-08-17 14:53:54,464 INFO 108 [master] =================== egg start =====================
+2019-08-17 14:53:54,465 INFO 108 [master] node version v8.9.4
+2019-08-17 14:53:54,466 INFO 108 [master] egg version 2.20.1
+2019-08-17 14:53:54,466 INFO 108 [master] start with options:
+{
+  "framework": "/var/www/node_modules/egg",
+  "baseDir": "/var/www",
+  "port": 8081,
+  "workers": 1,
+  "plugins": null,
+  "https": false,
+  "stricky": true
+}
+2019-08-17 14:53:54,466 INFO 108 [master] start with env: isProduction: true, EGG_SERVER_ENV: undefined, NODE_ENV: production
+2019-08-17 14:53:54,477 INFO 108 [master] agent_worker#1:114 start with clusterPort:46779
+2019-08-17 14:53:55,123 INFO 114 Plugin development is disabled by env unmatched, require env(local) but got env is prod
+2019-08-17 14:53:55,154 INFO 114 [egg:core] App root: /var/www
+2019-08-17 14:53:55,154 INFO 114 [egg:core] All *.log files save on "/root/logs/user-dashboard"
+2019-08-17 14:53:55,154 INFO 114 [egg:core] Loaded enabled plugin [{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-session","version":"3.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":[],"optionalDependencies":["session"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-security","version":"2.5.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-jsonp","version":"2.0.0"},{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":["jsonp"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-onerror","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-i18n","version":"2.0.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-watcher","version":"3.1.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-schedule","version":"3.6.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":["schedule"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-multipart","version":"2.4.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-logrotator","version":"3.0.7"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-static","version":"2.2.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-view","version":"2.1.2"},{"enable":true,"package":"egg-passport","name":"passport","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport","version":"2.0.1"},{"enable":true,"package":"egg-passport-oauth2","name":"passportOauth2","dependencies":["passport"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport-oauth2","version":"1.0.2"},{"enable":true,"package":"egg-view-nunjucks","name":"nunjucks","dependencies":["security","view"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-view-nunjucks","version":"2.2.0"},{"enable":true,"package":"egg-socket.io","name":"io","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-socket.io","version":"4.1.5"},{"enable":true,"package":"egg-mongoose","name":"mongoose","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-mongoose","version":"2.2.1"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-validate","version":"1.1.1"}]
+2019-08-17 14:53:55,161 INFO 114 [egg:logger] init all loggers with options: {"dir":"/root/logs/user-dashboard","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"user-dashboard-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"type":"agent"}
+2019-08-17 14:53:55,393 INFO 114 [egg:core] dump config after load, 10ms
+2019-08-17 14:53:55,461 INFO 114 [egg-watcher:agent] watcher start success
+2019-08-17 14:53:55,492 INFO 114 [egg:core:ready_stat] end ready task /node_modules/egg-schedule/agent.js:12:9, remain ["/node_modules/egg-watcher/lib/init.js:15:14"]
+2019-08-17 14:53:55,492 WARN 114 [egg-watcher] defaultEventSource watcher will NOT take effect
+2019-08-17 14:53:55,493 INFO 114 [egg:core:ready_stat] end ready task /node_modules/egg-watcher/lib/init.js:15:14, remain []
+2019-08-17 14:53:55,495 INFO 108 [master] agent_worker#1:114 started (1024ms)
+2019-08-17 14:53:55,496 INFO 108 [master] start appWorker with args ["{\"framework\":\"/var/www/node_modules/egg\",\"baseDir\":\"/var/www\",\"port\":8081,\"workers\":1,\"plugins\":null,\"https\":false,\"stricky\":true,\"clusterPort\":46779}"]
+2019-08-17 14:53:55,521 INFO 108 [master] app_worker#1:124 start, state: none, current workers: ["1"]
+2019-08-17 14:53:56,496 INFO 124 Plugin development is disabled by env unmatched, require env(local) but got env is prod
+2019-08-17 14:53:56,555 INFO 124 [egg:core] App root: /var/www
+2019-08-17 14:53:56,555 INFO 124 [egg:core] All *.log files save on "/root/logs/user-dashboard"
+2019-08-17 14:53:56,555 INFO 124 [egg:core] Loaded enabled plugin [{"enable":true,"package":"egg-session","name":"session","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-session","version":"3.1.0"},{"enable":true,"package":"egg-security","name":"security","dependencies":[],"optionalDependencies":["session"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-security","version":"2.5.0"},{"enable":true,"package":"egg-jsonp","name":"jsonp","dependencies":[],"optionalDependencies":["security"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-jsonp","version":"2.0.0"},{"enable":true,"package":"egg-onerror","name":"onerror","dependencies":[],"optionalDependencies":["jsonp"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-onerror","version":"2.1.0"},{"enable":true,"package":"egg-i18n","name":"i18n","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-i18n","version":"2.0.0"},{"enable":true,"package":"egg-watcher","name":"watcher","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-watcher","version":"3.1.0"},{"enable":true,"package":"egg-schedule","name":"schedule","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-schedule","version":"3.6.0"},{"enable":true,"package":"egg-multipart","name":"multipart","dependencies":[],"optionalDependencies":["schedule"],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-multipart","version":"2.4.0"},{"enable":true,"package":"egg-logrotator","name":"logrotator","dependencies":["schedule"],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-logrotator","version":"3.0.7"},{"enable":true,"package":"egg-static","name":"static","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-static","version":"2.2.0"},{"enable":true,"package":"egg-view","name":"view","dependencies":[],"optionalDependencies":[],"env":[],"from":"/node_modules/egg/config/plugin.js","path":"/node_modules/egg-view","version":"2.1.2"},{"enable":true,"package":"egg-passport","name":"passport","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport","version":"2.0.1"},{"enable":true,"package":"egg-passport-oauth2","name":"passportOauth2","dependencies":["passport"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-passport-oauth2","version":"1.0.2"},{"enable":true,"package":"egg-view-nunjucks","name":"nunjucks","dependencies":["security","view"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-view-nunjucks","version":"2.2.0"},{"enable":true,"package":"egg-socket.io","name":"io","dependencies":["session"],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-socket.io","version":"4.1.5"},{"enable":true,"package":"egg-mongoose","name":"mongoose","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-mongoose","version":"2.2.1"},{"enable":true,"package":"egg-validate","name":"validate","dependencies":[],"optionalDependencies":[],"env":[],"from":"/var/www/config/plugin.js","path":"/node_modules/egg-validate","version":"1.1.1"}]
+2019-08-17 14:53:57,032 INFO 124 [egg:logger] init all loggers with options: {"dir":"/root/logs/user-dashboard","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"user-dashboard-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"type":"application"}
+2019-08-17 14:53:57,102 INFO 124 [egg-multipart] stream mode enable
+/node_modules/egg/lib/application.js:70
+      throw e;
+      ^
+
+AssertionError [ERR_ASSERTION]: [egg-passport-oauth2] config.passportOauth2.key required
+    at module.exports.app (/node_modules/egg-passport-oauth2/app.js:10:3)
+    at Hook.configDidLoad (/node_modules/egg-core/lib/lifecycle.js:92:9)
+    at Lifecycle.triggerConfigDidLoad (/node_modules/egg-core/lib/lifecycle.js:143:14)
+    at Lifecycle.triggerConfigWillLoad (/node_modules/egg-core/lib/lifecycle.js:137:10)
+    at AppWorkerLoader.loadCustomApp (/node_modules/egg-core/lib/loader/mixin/custom.js:37:20)
+    at AppWorkerLoader.load (/node_modules/egg/lib/loader/app_worker_loader.js:33:10)
+    at new Application (/node_modules/egg/lib/application.js:66:19)
+    at Object.<anonymous> (/node_modules/egg-cluster/lib/app_worker.js:19:13)
+    at Module._compile (module.js:643:30)
+    at Object.Module._extensions..js (module.js:654:10)
+[2019-08-17 14:53:57.112] [cfork:master:108] worker:124 disconnect (exitedAfterDisconnect: false, state: disconnected, isDead: false, worker.disableRefork: true)
+[2019-08-17 14:53:57.112] [cfork:master:108] don't fork, because worker:124 will be kill soon
+2019-08-17 14:53:57,112 INFO 108 [master] app_worker#1:124 disconnect, suicide: false, state: disconnected, current workers: ["1"]
+[2019-08-17 14:53:57.113] [cfork:master:108] worker:124 exit (code: 1, exitedAfterDisconnect: false, state: dead, isDead: true, isExpected: false, worker.disableRefork: true)
+2019-08-17 14:53:57,115 ERROR 108 nodejs.AppWorkerDiedError: [master] app_worker#1:124 died (code: 1, signal: null, suicide: false, state: dead), current workers: []
+    at Master.onAppExit (/node_modules/egg-cluster/lib/master.js:408:21)
+    at emitOne (events.js:116:13)
+    at Master.emit (events.js:211:7)
+    at Messenger.sendToMaster (/node_modules/egg-cluster/lib/utils/messenger.js:137:17)
+    at Messenger.send (/node_modules/egg-cluster/lib/utils/messenger.js:102:12)
+    at EventEmitter.cluster.on (/node_modules/egg-cluster/lib/master.js:277:22)
+    at emitThree (events.js:141:20)
+    at EventEmitter.emit (events.js:217:7)
+    at ChildProcess.worker.process.once (internal/cluster/master.js:185:13)
+    at Object.onceWrapper (events.js:317:30)
+name: "AppWorkerDiedError"
+pid: 108
+hostname: cello-user-dashboard
+
+2019-08-17 14:53:57,116 ERROR 108 [master] app_worker#1:124 start fail, exiting with code:1
+2019-08-17 14:53:57,116 ERROR 108 [master] exit with code:1
+2019-08-17 14:53:57,127 INFO 114 [agent_worker] beforeExit success
+2019-08-17 14:53:57,125 ERROR 114 [agent_worker] receive disconnect event on child_process fork mode, exiting with code:110
+⚠️  Error: /node_modules/egg-bin/lib/start-cluster {"stricky":true,"port":8081,"baseDir":"/var/www","workers":1,"framework":"/var/www/node_modules/egg"} exit with code 1
+⚠️  Command Error, enable `DEBUG=common-bin` for detail
+2019-08-17 14:53:57,128 ERROR 114 [agent_worker] exit with code:110
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start:dev: `egg-bin dev --stricky --port 8081`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start:dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-08-17T14_53_57_141Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! user-dashboard@1.0.0 start: `if-env NODE_ENV=production && npm run start:prod || npm run start:dev`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the user-dashboard@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-08-17T14_53_57_243Z-debug.log

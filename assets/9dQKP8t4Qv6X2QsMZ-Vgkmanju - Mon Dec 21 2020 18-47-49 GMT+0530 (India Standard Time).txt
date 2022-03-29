@@ -1,0 +1,192 @@
+`{
+  "name": "Bankema",
+  "version": "1.0.0",
+  "client": {
+    "tlsEnable": true,
+    "adminCredential": {
+      "id": "exploreradmin",
+      "password": "exploreradminpw"
+    },
+    "enableAuthentication": true,
+    "organization": "factor",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "bankemachannel": {
+      "peers": {
+        "peer0.bankema-net.x.y.z.com": {
+          "ledgerQuery": true
+        },
+        "peer0.vendor-net.x.y.z.com": {
+          "ledgerQuery": true
+        },
+        "peer0.factor-net.x.y.z.com": {
+          "ledgerQuery": true
+        },
+        "peer0.corg-net.x.y.z.com": {
+          "ledgerQuery": true
+        },
+        "peer0.insurer-net.x.y.z.com": {
+          "ledgerQuery": true
+        },
+        "peer0.investor3-net.x.y.z.com": {
+          "ledgerQuery": true
+        }
+      },
+      "connection": {
+        "timeout": {
+          "peer": {
+            "endorser": "6000",
+            "eventHub": "6000",
+            "eventReg": "6000"
+          }
+        }
+      }
+    }
+  },
+  "organizations": {
+    "bankema": {
+      "mspid": "bankemaMSP",
+      "peers": ["peer0.bankema-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/signcerts/bankema.pem"
+      }
+    },
+    "vendor": {
+      "mspid": "vendorMSP",
+      "peers": ["peer0.vendor-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/signcerts/vendor.pem"
+      }
+    },
+    "factor": {
+      "mspid": "factorMSP",
+      "peers": ["peer0.factor-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/signcerts/factor.pem"
+      }
+    },
+    "corg": {
+      "mspid": "corgMSP",
+      "peers": ["peer0.corg-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/signcerts/corg.pem"
+      }
+    },
+    "insurer": {
+      "mspid": "insurerMSP",
+      "peers": ["peer0.insurer-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/signcerts/insurer.pem"
+      }
+    },
+    "investor3": {
+      "mspid": "investor3MSP",
+      "peers": ["peer0.investor3-net.x.y.z.com"],
+      "fullpath": true,
+      "adminPrivateKey": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/keystore/priv_sk"
+      },
+      "signedCert": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/signcerts/investor3.pem"
+      }
+    }
+  },
+  "peers": {
+    "peer0.bankema-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.bankema-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.bankema-net.x.y.z.com"
+      }
+    },
+    "peer0.vendor-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.vendor-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.vendor-net.x.y.z.com"
+      }
+    },
+    "peer0.factor-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.factor-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.factor-net.x.y.z.com"
+      }
+    },
+    "peer0.corg-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.corg-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.corg-net.x.y.z.com"
+      }
+    },
+    "peer0.insurer-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.insurer-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.insurer-net.x.y.z.com"
+      }
+    },
+    "peer0.investor3-net.x.y.z.com": {
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/tlscacerts/tlsca.crt"
+      },
+      "url": "grpcs://peer0.investor3-net.x.y.z.com:443",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.investor3-net.x.y.z.com"
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.ordorg-net": {
+      "url": "grpcs://orderer1.ordorg-net:7050",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer1.ordorg-net"
+      },
+      "tlsCACerts": {
+        "path": "/mnt/fabric/crypto-config/ordererOrganizations/ordorg-net/orderers/orderer1.ordorg-net/tls/ca.crt"
+      }
+    }
+  },
+  "configtxgenToolPath": "/mnt/fabric/fabric-samples/bin",
+  "license": "Apache-2.0"
+}
+`

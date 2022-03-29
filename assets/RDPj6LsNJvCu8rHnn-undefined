@@ -1,0 +1,160 @@
+**********************************************************************************************************************************************
+* Initial fail on npm install -g composer-cli as non-root
+**********************************************************************************************************************************************
+mcasile@mcasile:~$ npm install -g composer-cli
+npm WARN deprecated node-uuid@1.4.7: use uuid module instead
+npm WARN checkPermissions Missing write access to /usr/lib/node_modules/composer-cli/node_modules/asn1
+npm WARN checkPermissions Missing write access to /usr/lib/node_modules/composer-cli
+npm WARN checkPermissions Missing write access to /usr/lib/node_modules/composer-cli/node_modules
+npm WARN checkPermissions Missing write access to /usr/lib/node_modules
+/usr/lib
+└─┬ composer-cli@0.4.4
+  └─┬ composer-admin@0.4.4
+    └─┬ composer-connector-hlf@0.4.4
+      └─┬ hfc@0.6.5
+        └── asn1@0.2.3  (git+https://github.com/mcavage/node-asn1.git#2c2a19e285a609adfca36a0114bb5b86cf4ac61b)
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/composer-cli/node_modules/chokidar/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.1: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm ERR! Linux 4.4.0-51-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "composer-cli"
+npm ERR! node v6.10.0
+npm ERR! npm  v4.3.0
+npm ERR! path /usr/lib/node_modules/composer-cli/node_modules/asn1
+npm ERR! code EACCES
+npm ERR! errno -13
+npm ERR! syscall access
+
+npm ERR! Error: EACCES: permission denied, access '/usr/lib/node_modules/composer-cli/node_modules/asn1'
+npm ERR!     at Error (native)
+npm ERR!  { Error: EACCES: permission denied, access '/usr/lib/node_modules/composer-cli/node_modules/asn1'
+npm ERR!     at Error (native)
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   syscall: 'access',
+npm ERR!   path: '/usr/lib/node_modules/composer-cli/node_modules/asn1' }
+npm ERR!
+npm ERR! Please try running this command again as root/Administrator.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/mcasile/.npm/_logs/2017-02-27T16_11_24_415Z-debug.log
+
+**********************************************************************************************************************************************
+* Checked and saw that it was globally installed (from root I assume), so I tried moving forward
+**********************************************************************************************************************************************
+mcasile@mcasile:~$ npm list -g --depth=0
+/usr/lib
+├── composer-cli@0.4.4
+└── npm@4.3.0
+
+**********************************************************************************************************************************************
+* git clone worked fine
+**********************************************************************************************************************************************
+mcasile@mcasile:~$ git clone https://github.com/fabric-composer/sample-applications.git
+Cloning into 'sample-applications'...
+remote: Counting objects: 147, done.
+remote: Compressing objects: 100% (33/33), done.
+remote: Total 147 (delta 18), reused 0 (delta 0), pack-reused 109
+Receiving objects: 100% (147/147), 33.28 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (69/69), done.
+Checking connectivity... done.
+mcasile@mcasile:~$ cd sample-applications/packages/getting-started
+
+**********************************************************************************************************************************************
+* but npm install failed. Could not find docker which is at:
+* mcasile@mcasile:~/sample-applications/packages/getting-started$ ps -ef | grep docker
+* root     31598     1  0 Feb24 ?        00:06:08 /usr/bin/dockerd -H fd://
+* root     31610 31598  0 Feb24 ?        00:03:48 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout 2m --state-dir /var/run/docker/libcontainerd/containerd --shim docker-containerd-shim --runtime docker-runc
+* 
+**********************************************************************************************************************************************
+mcasile@mcasile:~/sample-applications/packages/getting-started$ npm install
+npm WARN deprecated node-uuid@1.4.7: use uuid module instead
+npm WARN prefer global marked@0.3.6 should be installed with -g
+
+> hashtable@2.0.2 install /home/mcasile/sample-applications/packages/getting-started/node_modules/hashtable
+> node-gyp configure build
+
+make: Entering directory '/home/mcasile/sample-applications/packages/getting-started/node_modules/hashtable/build'
+  CXX(target) Release/obj.target/native/src/hashtable.o
+  SOLINK_MODULE(target) Release/obj.target/native.node
+  COPY Release/native.node
+make: Leaving directory '/home/mcasile/sample-applications/packages/getting-started/node_modules/hashtable/build'
+
+> sleep@3.0.1 install /home/mcasile/sample-applications/packages/getting-started/node_modules/sleep
+> node-gyp rebuild
+
+make: Entering directory '/home/mcasile/sample-applications/packages/getting-started/node_modules/sleep/build'
+  CXX(target) Release/obj.target/node_sleep/sleep.o
+  SOLINK_MODULE(target) Release/obj.target/node_sleep.node
+  COPY Release/node_sleep.node
+make: Leaving directory '/home/mcasile/sample-applications/packages/getting-started/node_modules/sleep/build'
+
+> grpc@1.0.0 install /home/mcasile/sample-applications/packages/getting-started/node_modules/grpc
+> node-pre-gyp install --fallback-to-build
+
+[grpc] Success: "/home/mcasile/sample-applications/packages/getting-started/node_modules/grpc/src/node/extension_binary/grpc_node.node" is installed via remote
+
+> protobufjs@6.6.3 postinstall /home/mcasile/sample-applications/packages/getting-started/node_modules/protobufjs
+> node scripts/postinstall
+
+
+> getting-started@1.0.0 install /home/mcasile/sample-applications/packages/getting-started
+> scripts/download-hyperledger.sh && scripts/start-hyperledger.sh && npm run deployNetwork
+
+
+# Grab the current directory.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+ cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd
+ dirname "${BASH_SOURCE[0]}"
+
+# Shut down the Docker containers that might be currently running.
+cd "${DIR}"/scripts
+docker-compose kill && docker-compose down
+ERROR: Couldn't connect to Docker daemon at http+docker://localunixsocket - is it running?
+
+If it's at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
+
+# TODO change this to alter the default profile which is, by convention, a local running hyperledger fabric
+rm -rf ~/.composer-connection-profiles/defaultProfile/*
+rm -rf ~/.composer-credentials/*
+
+
+# delete all existing containers and images
+# This is not used in general usage but this might
+#read -p "Press y to delete all docker containers images" -n 1 -r
+#echo    # (optional) move to a new line
+#if [[ $REPLY =~ ^[Yy]$ ]]
+#then
+#  docker rm $(docker ps -a -q) -f
+#  docker rmi $(docker images -q) -f
+#fi
+
+# Pull and tag the latest Hyperledger Fabric base image.
+docker pull hyperledger/fabric-baseimage:x86_64-0.1.0
+Warning: failed to get default registry endpoint from daemon (Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/info: dial unix /var/run/docker.sock: connect: permission denied). Using system default: https://index.docker.io/v1/
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/create?fromImage=hyperledger%2Ffabric-baseimage&tag=x86_64-0.1.0: dial unix /var/run/docker.sock: connect: permission denied
+
+npm ERR! Linux 4.4.0-51-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "install"
+npm ERR! node v6.10.0
+npm ERR! npm  v4.3.0
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! getting-started@1.0.0 install: `scripts/download-hyperledger.sh && scripts/start-hyperledger.sh && npm run deployNetwork`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the getting-started@1.0.0 install script 'scripts/download-hyperledger.sh && scripts/start-hyperledger.sh && npm run deployNetwork'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the getting-started package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     scripts/download-hyperledger.sh && scripts/start-hyperledger.sh && npm run deployNetwork
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs getting-started
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls getting-started
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/mcasile/.npm/_logs/2017-02-27T16_16_45_978Z-debug.log
+

@@ -1,0 +1,86 @@
+
+Event hub code extract:
+
+const eventHubs = channel.getChannelEventHubsForOrg();
+eventHubs.forEach(eh => {
+     this.logger.debug(`invokeEventPromise - setting up event: ${eh.getPeerAddr()}`);
+     const invokeEventPromise = new Promise((resolve, reject) => {
+      const eventTimeout = setTimeout(() => {
+       const message = `REQUEST_TIMEOUT: ${eh.getPeerAddr()}`;
+       this.logger.debug(`message receieved ${message}`);
+       eh.disconnect();
+       reject(new Error(message));
+      }, 300000);
+      eh.registerTxEvent(
+       txIdString,
+       (tx, code, blockNum) => {
+        this.logger.debug(`The chaincode invoke chaincode transaction has been committed on peer
+                ${eh.getPeerAddr()}`);
+        clearTimeout(eventTimeout);
+        eh.unregisterTxEvent(txIdString);
+
+        if (code !== 'VALID') {
+         const message = `The invoke chaincode transaction was invalidcode: ${code}`;
+         this.logger.debug(message);
+         reject(new Error(message));
+        } else {
+         const message = 'The invoke chaincode transaction was valid.';
+         this.logger.debug(message);
+         resolve(message);
+        }
+       },
+       err => {
+        clearTimeout(eventTimeout);
+        eh.unregisterTxEvent(txIdString);
+        const message = `Problem setting up the event hub : ${err.toString()}`;
+        this.logger.debug(message);
+        reject(new Error(message));
+       }
+      );
+     });
+
+     // ================================================================================================
+     // Build the promise to register a event listener with the NodeSDK.
+     // The NodeSDK will then send a request to the peer's channel-based event
+     // service to start sending blocks. The blocks will be inspected to see if
+     // there is a match with a chaincode event listener.
+     const chaincodeEventMonitor = new Promise((resolve, reject) => {
+      let regid = null;
+      const handle = setTimeout(() => {
+       if (regid) {
+        // might need to do the clean up this listener
+        eh.unregisterChaincodeEvent(regid);
+        this.logger.debug('Timeout - Failed to receive the chaincode event');
+       }
+       reject(new Error('Timed out waiting for chaincode event'));
+      }, 300000);
+      this.logger.debug(`Registering chaincode ${chaincodeName.toString()}`);
+      regid = eh.registerChaincodeEvent(
+       chaincodeName.toString(),
+       'CHAINCODE_EVENT',
+       event => {
+       
+        this.logger.debug(`regid: ${regid}`);
+        this.logger.debug('eventPayload: ' + event.payload);
+        const eventPayload = event.payload.toString('utf8');
+        responseOutput = eventPayload;
+
+        this.logger.debug(`eventPayload: ${eventPayload}`);
+        eh.unregisterChaincodeEvent(regid);
+        resolve('RECEIVED');
+       },
+       error => {
+        clearTimeout(handle);
+        this.logger.error(`Failed to receive the chaincode event :: ${error}`);
+        reject(error);
+       }
+       
+      );
+     });
+
+     promises.push(invokeEventPromise);
+     promises.push(chaincodeEventMonitor);
+
+     eh.connect(true);
+
+    });

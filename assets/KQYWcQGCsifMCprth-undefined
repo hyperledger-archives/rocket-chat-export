@@ -1,0 +1,694 @@
+2017-04-07 07:31:42.394 UTC [orderer/main] Deliver -> DEBU 452 Starting new Deliver handler
+2017-04-07 07:31:42.395 UTC [orderer/common/deliver] Handle -> DEBU 453 Starting new deliver loop
+2017-04-07 07:31:42.395 UTC [orderer/common/deliver] Handle -> DEBU 454 Attempting to read seek info message
+2017-04-07 07:31:42.760 UTC [orderer/main] Broadcast -> DEBU 455 Starting new Broadcast handler
+2017-04-07 07:31:42.959 UTC [orderer/common/broadcast] Handle -> DEBU 456 Preprocessing CONFIG_UPDATE
+2017-04-07 07:31:42.959 UTC [orderer/multichain] Process -> DEBU 457 Processing channel creation request for channel testing
+2017-04-07 07:31:42.960 UTC [msp] GetLocalMSP -> DEBU 458 Returning existing local MSP
+2017-04-07 07:31:42.960 UTC [msp] GetDefaultSigningIdentity -> DEBU 459 Obtaining default signing identity
+2017-04-07 07:31:42.960 UTC [msp] GetLocalMSP -> DEBU 45a Returning existing local MSP
+2017-04-07 07:31:42.960 UTC [msp] GetDefaultSigningIdentity -> DEBU 45b Obtaining default signing identity
+2017-04-07 07:31:42.961 UTC [msp] Sign -> DEBU 45c Sign: plaintext: 0AE8080A1308011A0608DE809DC70522...617475726512097369676E6174757265 
+2017-04-07 07:31:42.961 UTC [msp] Sign -> DEBU 45d Sign: digest: 7629719B1E75061E7D59B4F9CFB6A8B5196B13E9B79722377B0377A9DEA8ECA0 
+2017-04-07 07:31:42.961 UTC [msp] GetLocalMSP -> DEBU 45e Returning existing local MSP
+2017-04-07 07:31:42.961 UTC [msp] GetDefaultSigningIdentity -> DEBU 45f Obtaining default signing identity
+2017-04-07 07:31:42.961 UTC [msp] GetLocalMSP -> DEBU 460 Returning existing local MSP
+2017-04-07 07:31:42.961 UTC [msp] GetDefaultSigningIdentity -> DEBU 461 Obtaining default signing identity
+2017-04-07 07:31:42.962 UTC [msp] Sign -> DEBU 462 Sign: plaintext: 0AE8080A1308041A0608DE809DC70522...AD6149FF34A43009A3D6EBAB947728F3 
+2017-04-07 07:31:42.962 UTC [msp] Sign -> DEBU 463 Sign: digest: FAFB196089BFB2A324F078BFBD13815C9F4196C5E98BC607E490003B099D17DA 
+2017-04-07 07:31:42.962 UTC [orderer/common/broadcast] Handle -> DEBU 464 Broadcast is filtering message of type 4 for channel passkit
+2017-04-07 07:31:42.963 UTC [common/policies] GetPolicy -> DEBU 465 Returning policy Writers for evaluation
+2017-04-07 07:31:42.963 UTC [cauthdsl] func1 -> DEBU 466 Gate evaluation starts: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:42.963 UTC [cauthdsl] func2 -> DEBU 467 Principal evaluation starts: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:42.963 UTC [msp] newIdentity -> DEBU 468 Creating identity instance for ID &{PASSKITINC DEFAULT}
+2017-04-07 07:31:42.963 UTC [cauthdsl] func2 -> DEBU 469 Principal evaluation fails: (&{%!s(int32=0)})%!(EXTRA []bool=[false])
+2017-04-07 07:31:42.963 UTC [cauthdsl] func1 -> DEBU 46a Gate evaluation fails: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:42.964 UTC [cauthdsl] func1 -> DEBU 46b Gate evaluation starts: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:42.964 UTC [cauthdsl] func2 -> DEBU 46c Principal evaluation starts: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:42.964 UTC [msp] newIdentity -> DEBU 46d Creating identity instance for ID &{PASSKITINC DEFAULT}
+2017-04-07 07:31:42.964 UTC [msp] Validate -> DEBU 46e MSP PASSKITINC validating identity
+2017-04-07 07:31:42.965 UTC [msp] Verify -> DEBU 46f Verify: digest = 00000000  fa fb 19 60 89 bf b2 a3  24 f0 78 bf bd 13 81 5c  |...`....$.x....\|
+00000010  9f 41 96 c5 e9 8b c6 07  e4 90 00 3b 09 9d 17 da  |.A.........;....|
+2017-04-07 07:31:42.965 UTC [msp] Verify -> DEBU 470 Verify: sig = 00000000  30 45 02 21 00 bd 1b cd  56 74 bb 40 28 8c cd 58  |0E.!....Vt.@(..X|
+00000010  c6 a7 26 43 55 ba b0 32  80 dc b9 2e 31 23 1e 86  |..&CU..2....1#..|
+00000020  ee 67 23 d1 6f 02 20 1d  fc 51 fe e5 d4 a4 d0 e5  |.g#.o. ..Q......|
+00000030  7c 6e da d9 47 98 60 5e  d3 e0 e2 a4 3e d9 8b 1a  ||n..G.`^....>...|
+00000040  0d 2d ce fe b0 28 c6                              |.-...(.|
+2017-04-07 07:31:42.966 UTC [cauthdsl] func2 -> DEBU 471 Principal evaluation succeeds: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:42.966 UTC [cauthdsl] func1 -> DEBU 472 Gate evaluation succeeds: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:42.966 UTC [orderer/common/sigfilter] Apply -> DEBU 473 Forwarding validly signed message for policy &{%!s(*common.ImplicitMetaPolicy=&{Writers 0}) %!s(int=1) [%!s(*policies.implicitMetaPolicy=&{0xc4203aac20 1 [0xc4201345d8]}) %!s(*policies.implicitMetaPolicy=&{0xc42025ea40 1 [0xc4201346e0]})]}
+2017-04-07 07:31:42.967 UTC [common/policies] GetPolicy -> DEBU 474 Returning policy AcceptAllPolicy for evaluation
+2017-04-07 07:31:42.967 UTC [cauthdsl] func1 -> DEBU 475 Gate evaluation starts: (&{})
+2017-04-07 07:31:42.968 UTC [cauthdsl] func1 -> DEBU 476 Gate evaluation succeeds: (&{})
+2017-04-07 07:31:42.968 UTC [common/config] NewStandardValues -> DEBU 477 Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:42.968 UTC [common/config] initializeProtosStruct -> DEBU 478 Processing field: HashingAlgorithm
+2017-04-07 07:31:42.968 UTC [common/config] initializeProtosStruct -> DEBU 479 Processing field: BlockDataHashingStructure
+2017-04-07 07:31:42.968 UTC [common/config] initializeProtosStruct -> DEBU 47a Processing field: OrdererAddresses
+2017-04-07 07:31:42.969 UTC [common/configtx] addToMap -> DEBU 47b Adding to config map: [Groups] /Channel
+2017-04-07 07:31:42.970 UTC [common/configtx] addToMap -> DEBU 47c Adding to config map: [Groups] /Channel/Application
+2017-04-07 07:31:42.970 UTC [common/configtx] addToMap -> DEBU 47d Adding to config map: [Groups] /Channel/Application/PASSKIT
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 47e Adding to config map: [Values] /Channel/Application/PASSKIT/MSP
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 47f Adding to config map: [Values] /Channel/Application/PASSKIT/AnchorPeers
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 480 Adding to config map: [Policy] /Channel/Application/PASSKIT/Readers
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 481 Adding to config map: [Policy] /Channel/Application/PASSKIT/Writers
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 482 Adding to config map: [Policy] /Channel/Application/PASSKIT/Admins
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 483 Adding to config map: [Policy] /Channel/Application/Writers
+2017-04-07 07:31:42.972 UTC [common/configtx] addToMap -> DEBU 484 Adding to config map: [Policy] /Channel/Application/Admins
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 485 Adding to config map: [Policy] /Channel/Application/Readers
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 486 Adding to config map: [Groups] /Channel/Orderer
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 487 Adding to config map: [Groups] /Channel/Orderer/PASSKITINC
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 488 Adding to config map: [Values] /Channel/Orderer/PASSKITINC/MSP
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 489 Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Admins
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 48a Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Readers
+2017-04-07 07:31:42.973 UTC [common/configtx] addToMap -> DEBU 48b Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Writers
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 48c Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 48d Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 48e Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 48f Adding to config map: [Values] /Channel/Orderer/CreationPolicy
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 490 Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 491 Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-04-07 07:31:42.974 UTC [common/configtx] addToMap -> DEBU 492 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 493 Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 494 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 495 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 496 Adding to config map: [Values] /Channel/OrdererAddresses
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 497 Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 498 Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-04-07 07:31:42.975 UTC [common/configtx] addToMap -> DEBU 499 Adding to config map: [Policy] /Channel/Admins
+2017-04-07 07:31:42.976 UTC [common/configtx] addToMap -> DEBU 49a Adding to config map: [Policy] /Channel/AcceptAllPolicy
+2017-04-07 07:31:42.976 UTC [common/configtx] addToMap -> DEBU 49b Adding to config map: [Policy] /Channel/Readers
+2017-04-07 07:31:42.976 UTC [common/configtx] addToMap -> DEBU 49c Adding to config map: [Policy] /Channel/Writers
+2017-04-07 07:31:42.976 UTC [common/configtx] processConfig -> DEBU 49d Beginning new config for channel testing
+2017-04-07 07:31:42.976 UTC [common/config] NewStandardValues -> DEBU 49e Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:42.976 UTC [common/config] initializeProtosStruct -> DEBU 49f Processing field: HashingAlgorithm
+2017-04-07 07:31:42.976 UTC [common/config] initializeProtosStruct -> DEBU 4a0 Processing field: BlockDataHashingStructure
+2017-04-07 07:31:42.976 UTC [common/config] initializeProtosStruct -> DEBU 4a1 Processing field: OrdererAddresses
+2017-04-07 07:31:42.976 UTC [common/policies] ProposePolicy -> DEBU 4a2 Proposed new policy Writers for Channel
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a3 Proposed new policy Admins for Channel
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a4 Proposed new policy AcceptAllPolicy for Channel
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a5 Proposed new policy Readers for Channel
+2017-04-07 07:31:42.977 UTC [common/config] NewStandardValues -> DEBU 4a6 Initializing protos for *struct {}
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a7 Proposed new policy Admins for Application
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a8 Proposed new policy Readers for Application
+2017-04-07 07:31:42.977 UTC [common/policies] ProposePolicy -> DEBU 4a9 Proposed new policy Writers for Application
+2017-04-07 07:31:42.977 UTC [common/config] NewStandardValues -> DEBU 4aa Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:42.977 UTC [common/config] initializeProtosStruct -> DEBU 4ab Processing field: MSP
+2017-04-07 07:31:42.977 UTC [common/config] NewStandardValues -> DEBU 4ac Initializing protos for *config.ApplicationOrgProtos
+2017-04-07 07:31:42.977 UTC [common/config] initializeProtosStruct -> DEBU 4ad Processing field: AnchorPeers
+2017-04-07 07:31:42.977 UTC [common/config] NewStandardValues -> DEBU 4ae Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:42.978 UTC [common/config] initializeProtosStruct -> DEBU 4af Processing field: MSP
+2017-04-07 07:31:42.978 UTC [common/policies] ProposePolicy -> DEBU 4b0 Proposed new policy Admins for PASSKIT
+2017-04-07 07:31:42.978 UTC [common/policies] ProposePolicy -> DEBU 4b1 Proposed new policy Readers for PASSKIT
+2017-04-07 07:31:42.978 UTC [common/policies] ProposePolicy -> DEBU 4b2 Proposed new policy Writers for PASSKIT
+2017-04-07 07:31:42.978 UTC [common/config] Validate -> DEBU 4b3 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:42.978 UTC [common/config] validateMSP -> DEBU 4b4 Setting up MSP for org PASSKIT
+2017-04-07 07:31:42.978 UTC [msp] NewBccspMsp -> DEBU 4b5 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.978 UTC [msp] Setup -> DEBU 4b6 Setting up MSP instance PASSKIT
+2017-04-07 07:31:42.979 UTC [msp] newIdentity -> DEBU 4b7 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.979 UTC [msp] newIdentity -> DEBU 4b8 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.979 UTC [msp] newIdentity -> DEBU 4b9 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.980 UTC [common/config] Validate -> DEBU 4ba Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:42.980 UTC [common/config] validateMSP -> DEBU 4bb Setting up MSP for org PASSKIT
+2017-04-07 07:31:42.980 UTC [msp] NewBccspMsp -> DEBU 4bc Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.980 UTC [msp] Setup -> DEBU 4bd Setting up MSP instance PASSKIT
+2017-04-07 07:31:42.980 UTC [msp] newIdentity -> DEBU 4be Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.981 UTC [msp] newIdentity -> DEBU 4bf Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.981 UTC [msp] newIdentity -> DEBU 4c0 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.981 UTC [common/config] NewStandardValues -> DEBU 4c1 Initializing protos for *config.OrdererProtos
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c2 Processing field: ConsensusType
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c3 Processing field: BatchSize
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c4 Processing field: BatchTimeout
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c5 Processing field: ChainCreationPolicyNames
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c6 Processing field: KafkaBrokers
+2017-04-07 07:31:42.981 UTC [common/config] initializeProtosStruct -> DEBU 4c7 Processing field: CreationPolicy
+2017-04-07 07:31:42.982 UTC [common/config] initializeProtosStruct -> DEBU 4c8 Processing field: ChannelRestrictions
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4c9 Proposed new policy Writers for Orderer
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4ca Proposed new policy Admins for Orderer
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4cb Proposed new policy BlockValidation for Orderer
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4cc Proposed new policy Readers for Orderer
+2017-04-07 07:31:42.982 UTC [common/config] NewStandardValues -> DEBU 4cd Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:42.982 UTC [common/config] initializeProtosStruct -> DEBU 4ce Processing field: MSP
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4cf Proposed new policy Admins for PASSKITINC
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4d0 Proposed new policy Readers for PASSKITINC
+2017-04-07 07:31:42.982 UTC [common/policies] ProposePolicy -> DEBU 4d1 Proposed new policy Writers for PASSKITINC
+2017-04-07 07:31:42.982 UTC [common/config] validateMSP -> DEBU 4d2 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:42.983 UTC [msp] NewBccspMsp -> DEBU 4d3 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.983 UTC [msp] Setup -> DEBU 4d4 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:42.983 UTC [msp] newIdentity -> DEBU 4d5 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.983 UTC [msp] newIdentity -> DEBU 4d6 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.984 UTC [msp] newIdentity -> DEBU 4d7 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.984 UTC [msp] newIdentity -> DEBU 4d8 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.984 UTC [common/config] validateMSP -> DEBU 4d9 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:42.984 UTC [msp] NewBccspMsp -> DEBU 4da Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.984 UTC [msp] Setup -> DEBU 4db Setting up MSP instance PASSKITINC
+2017-04-07 07:31:42.985 UTC [msp] newIdentity -> DEBU 4dc Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.985 UTC [msp] newIdentity -> DEBU 4dd Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.985 UTC [msp] newIdentity -> DEBU 4de Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.986 UTC [msp] newIdentity -> DEBU 4df Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.986 UTC [common/config] Validate -> DEBU 4e0 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:42.986 UTC [common/config] validateMSP -> DEBU 4e1 Setting up MSP for org PASSKIT
+2017-04-07 07:31:42.986 UTC [msp] NewBccspMsp -> DEBU 4e2 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.986 UTC [msp] Setup -> DEBU 4e3 Setting up MSP instance PASSKIT
+2017-04-07 07:31:42.987 UTC [msp] newIdentity -> DEBU 4e4 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.987 UTC [msp] newIdentity -> DEBU 4e5 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.988 UTC [msp] newIdentity -> DEBU 4e6 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.988 UTC [common/config] validateMSP -> DEBU 4e7 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:42.988 UTC [msp] NewBccspMsp -> DEBU 4e8 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.988 UTC [msp] Setup -> DEBU 4e9 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:42.988 UTC [msp] newIdentity -> DEBU 4ea Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.989 UTC [msp] newIdentity -> DEBU 4eb Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.989 UTC [msp] newIdentity -> DEBU 4ec Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.989 UTC [msp] newIdentity -> DEBU 4ed Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.990 UTC [common/config] Validate -> DEBU 4ee Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:42.990 UTC [common/config] validateMSP -> DEBU 4ef Setting up MSP for org PASSKIT
+2017-04-07 07:31:42.990 UTC [msp] NewBccspMsp -> DEBU 4f0 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.990 UTC [msp] Setup -> DEBU 4f1 Setting up MSP instance PASSKIT
+2017-04-07 07:31:42.990 UTC [msp] newIdentity -> DEBU 4f2 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.991 UTC [msp] newIdentity -> DEBU 4f3 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.991 UTC [msp] newIdentity -> DEBU 4f4 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:42.991 UTC [common/config] validateMSP -> DEBU 4f5 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:42.991 UTC [msp] NewBccspMsp -> DEBU 4f6 Creating BCCSP-based MSP instance
+2017-04-07 07:31:42.991 UTC [msp] Setup -> DEBU 4f7 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:42.992 UTC [msp] newIdentity -> DEBU 4f8 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.992 UTC [msp] newIdentity -> DEBU 4f9 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.992 UTC [msp] newIdentity -> DEBU 4fa Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.993 UTC [msp] newIdentity -> DEBU 4fb Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:42.993 UTC [msp] Setup -> DEBU 4fc Setting up the MSP manager (2 msps)
+2017-04-07 07:31:42.993 UTC [msp] Setup -> DEBU 4fd MSP manager setup complete, setup 2 msps
+2017-04-07 07:31:42.993 UTC [common/policies] GetPolicy -> DEBU 4fe Returning policy Admins for evaluation
+2017-04-07 07:31:42.993 UTC [common/policies] CommitProposals -> DEBU 4ff In commit adding relative sub-policy PASSKIT/Admins to Application
+2017-04-07 07:31:42.993 UTC [common/policies] GetPolicy -> DEBU 500 Returning policy Readers for evaluation
+2017-04-07 07:31:42.993 UTC [common/policies] CommitProposals -> DEBU 501 In commit adding relative sub-policy PASSKIT/Readers to Application
+2017-04-07 07:31:42.993 UTC [common/policies] GetPolicy -> DEBU 502 Returning policy Writers for evaluation
+2017-04-07 07:31:42.993 UTC [common/policies] CommitProposals -> DEBU 503 In commit adding relative sub-policy PASSKIT/Writers to Application
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 504 Returning policy Admins for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 505 Returning policy Readers for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 506 Returning policy Writers for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 507 Returning policy Readers for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] CommitProposals -> DEBU 508 In commit adding relative sub-policy PASSKITINC/Readers to Orderer
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 509 Returning policy Writers for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] CommitProposals -> DEBU 50a In commit adding relative sub-policy PASSKITINC/Writers to Orderer
+2017-04-07 07:31:42.994 UTC [common/policies] GetPolicy -> DEBU 50b Returning policy Admins for evaluation
+2017-04-07 07:31:42.994 UTC [common/policies] CommitProposals -> DEBU 50c In commit adding relative sub-policy PASSKITINC/Admins to Orderer
+2017-04-07 07:31:42.995 UTC [common/policies] GetPolicy -> DEBU 50d Returning policy Writers for evaluation
+2017-04-07 07:31:42.995 UTC [common/policies] GetPolicy -> DEBU 50e Returning policy Admins for evaluation
+2017-04-07 07:31:42.995 UTC [common/policies] GetPolicy -> DEBU 50f Returning policy Writers for evaluation
+2017-04-07 07:31:42.995 UTC [common/policies] GetPolicy -> DEBU 510 Returning policy Readers for evaluation
+2017-04-07 07:31:42.995 UTC [common/policies] GetPolicy -> DEBU 511 Returning policy PASSKIT/Readers for evaluation
+2017-04-07 07:31:42.995 UTC [common/policies] CommitProposals -> DEBU 512 In commit adding relative sub-policy Application/PASSKIT/Readers to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 513 Returning policy PASSKIT/Writers for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 514 In commit adding relative sub-policy Application/PASSKIT/Writers to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 515 Returning policy Admins for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 516 In commit adding relative sub-policy Application/Admins to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 517 Returning policy Readers for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 518 In commit adding relative sub-policy Application/Readers to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 519 Returning policy Writers for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 51a In commit adding relative sub-policy Application/Writers to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 51b Returning policy PASSKIT/Admins for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 51c In commit adding relative sub-policy Application/PASSKIT/Admins to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 51d Returning policy Writers for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 51e In commit adding relative sub-policy Orderer/Writers to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 51f Returning policy Admins for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 520 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 521 Returning policy BlockValidation for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 522 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-04-07 07:31:42.996 UTC [common/policies] GetPolicy -> DEBU 523 Returning policy Readers for evaluation
+2017-04-07 07:31:42.996 UTC [common/policies] CommitProposals -> DEBU 524 In commit adding relative sub-policy Orderer/Readers to Channel
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 525 Returning policy PASSKITINC/Readers for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] CommitProposals -> DEBU 526 In commit adding relative sub-policy Orderer/PASSKITINC/Readers to Channel
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 527 Returning policy PASSKITINC/Writers for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] CommitProposals -> DEBU 528 In commit adding relative sub-policy Orderer/PASSKITINC/Writers to Channel
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 529 Returning policy PASSKITINC/Admins for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] CommitProposals -> DEBU 52a In commit adding relative sub-policy Orderer/PASSKITINC/Admins to Channel
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 52b Returning policy Writers for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 52c Returning policy Writers for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 52d Returning policy Admins for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 52e Returning policy Admins for evaluation
+2017-04-07 07:31:42.997 UTC [common/policies] GetPolicy -> DEBU 52f Returning policy Readers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 530 Returning policy Readers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 531 Returning policy Readers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 532 As expected, current configuration has policy '/Channel/Readers'
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 533 Returning policy Writers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 534 As expected, current configuration has policy '/Channel/Writers'
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 535 Returning policy Application/Readers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 536 As expected, current configuration has policy '/Channel/Application/Readers'
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 537 Returning policy Application/Writers for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 538 As expected, current configuration has policy '/Channel/Application/Writers'
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 539 Returning policy Application/Admins for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 53a As expected, current configuration has policy '/Channel/Application/Admins'
+2017-04-07 07:31:42.998 UTC [common/policies] GetPolicy -> DEBU 53b Returning policy Orderer/BlockValidation for evaluation
+2017-04-07 07:31:42.998 UTC [common/policies] CommitProposals -> DEBU 53c As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-04-07 07:31:42.999 UTC [orderer/kafka] Enqueue -> DEBU 53d [channel: passkit] Enqueueing envelope...
+2017-04-07 07:31:43.065 UTC [orderer/kafka] loop -> DEBU 53e [channel: passkit] Successfully unmarshalled consumed message. Inspecting type...
+2017-04-07 07:31:43.066 UTC [common/policies] GetPolicy -> DEBU 53f Returning policy Writers for evaluation
+2017-04-07 07:31:43.066 UTC [cauthdsl] func1 -> DEBU 540 Gate evaluation starts: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:43.066 UTC [cauthdsl] func2 -> DEBU 541 Principal evaluation starts: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:43.067 UTC [msp] newIdentity -> DEBU 542 Creating identity instance for ID &{PASSKITINC DEFAULT}
+2017-04-07 07:31:43.067 UTC [cauthdsl] func2 -> DEBU 543 Principal evaluation fails: (&{%!s(int32=0)})%!(EXTRA []bool=[false])
+2017-04-07 07:31:43.067 UTC [cauthdsl] func1 -> DEBU 544 Gate evaluation fails: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:43.067 UTC [cauthdsl] func1 -> DEBU 545 Gate evaluation starts: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:43.067 UTC [cauthdsl] func2 -> DEBU 546 Principal evaluation starts: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:43.068 UTC [msp] newIdentity -> DEBU 547 Creating identity instance for ID &{PASSKITINC DEFAULT}
+2017-04-07 07:31:43.068 UTC [msp] Validate -> DEBU 548 MSP PASSKITINC validating identity
+2017-04-07 07:31:43.069 UTC [msp] Verify -> DEBU 549 Verify: digest = 00000000  fa fb 19 60 89 bf b2 a3  24 f0 78 bf bd 13 81 5c  |...`....$.x....\|
+00000010  9f 41 96 c5 e9 8b c6 07  e4 90 00 3b 09 9d 17 da  |.A.........;....|
+2017-04-07 07:31:43.069 UTC [msp] Verify -> DEBU 54a Verify: sig = 00000000  30 45 02 21 00 bd 1b cd  56 74 bb 40 28 8c cd 58  |0E.!....Vt.@(..X|
+00000010  c6 a7 26 43 55 ba b0 32  80 dc b9 2e 31 23 1e 86  |..&CU..2....1#..|
+00000020  ee 67 23 d1 6f 02 20 1d  fc 51 fe e5 d4 a4 d0 e5  |.g#.o. ..Q......|
+00000030  7c 6e da d9 47 98 60 5e  d3 e0 e2 a4 3e d9 8b 1a  ||n..G.`^....>...|
+00000040  0d 2d ce fe b0 28 c6                              |.-...(.|
+2017-04-07 07:31:43.070 UTC [cauthdsl] func2 -> DEBU 54b Principal evaluation succeeds: (&{%!s(int32=0)}) (used [%!s(bool=false)])
+2017-04-07 07:31:43.070 UTC [cauthdsl] func1 -> DEBU 54c Gate evaluation succeeds: (&{n:1 policies:<signed_by:0 > })
+2017-04-07 07:31:43.070 UTC [orderer/common/sigfilter] Apply -> DEBU 54d Forwarding validly signed message for policy &{%!s(*common.ImplicitMetaPolicy=&{Writers 0}) %!s(int=1) [%!s(*policies.implicitMetaPolicy=&{0xc4203aac20 1 [0xc4201345d8]}) %!s(*policies.implicitMetaPolicy=&{0xc42025ea40 1 [0xc4201346e0]})]}
+2017-04-07 07:31:43.071 UTC [common/policies] GetPolicy -> DEBU 54e Returning policy AcceptAllPolicy for evaluation
+2017-04-07 07:31:43.071 UTC [cauthdsl] func1 -> DEBU 54f Gate evaluation starts: (&{})
+2017-04-07 07:31:43.071 UTC [cauthdsl] func1 -> DEBU 550 Gate evaluation succeeds: (&{})
+2017-04-07 07:31:43.071 UTC [common/config] NewStandardValues -> DEBU 551 Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:43.071 UTC [common/config] initializeProtosStruct -> DEBU 552 Processing field: HashingAlgorithm
+2017-04-07 07:31:43.071 UTC [common/config] initializeProtosStruct -> DEBU 553 Processing field: BlockDataHashingStructure
+2017-04-07 07:31:43.071 UTC [common/config] initializeProtosStruct -> DEBU 554 Processing field: OrdererAddresses
+2017-04-07 07:31:43.071 UTC [common/configtx] addToMap -> DEBU 555 Adding to config map: [Groups] /Channel
+2017-04-07 07:31:43.072 UTC [common/configtx] addToMap -> DEBU 556 Adding to config map: [Groups] /Channel/Application
+2017-04-07 07:31:43.072 UTC [common/configtx] addToMap -> DEBU 557 Adding to config map: [Groups] /Channel/Application/PASSKIT
+2017-04-07 07:31:43.072 UTC [common/configtx] addToMap -> DEBU 558 Adding to config map: [Values] /Channel/Application/PASSKIT/MSP
+2017-04-07 07:31:43.072 UTC [common/configtx] addToMap -> DEBU 559 Adding to config map: [Values] /Channel/Application/PASSKIT/AnchorPeers
+2017-04-07 07:31:43.072 UTC [common/configtx] addToMap -> DEBU 55a Adding to config map: [Policy] /Channel/Application/PASSKIT/Admins
+2017-04-07 07:31:43.073 UTC [common/configtx] addToMap -> DEBU 55b Adding to config map: [Policy] /Channel/Application/PASSKIT/Readers
+2017-04-07 07:31:43.074 UTC [common/configtx] addToMap -> DEBU 55c Adding to config map: [Policy] /Channel/Application/PASSKIT/Writers
+2017-04-07 07:31:43.074 UTC [common/configtx] addToMap -> DEBU 55d Adding to config map: [Policy] /Channel/Application/Writers
+2017-04-07 07:31:43.074 UTC [common/configtx] addToMap -> DEBU 55e Adding to config map: [Policy] /Channel/Application/Admins
+2017-04-07 07:31:43.074 UTC [common/configtx] addToMap -> DEBU 55f Adding to config map: [Policy] /Channel/Application/Readers
+2017-04-07 07:31:43.075 UTC [common/configtx] addToMap -> DEBU 560 Adding to config map: [Groups] /Channel/Orderer
+2017-04-07 07:31:43.075 UTC [orderer/kafka] Send -> DEBU 561 [channel passkit] Posted blob to the Kafka cluster (offset number: 4)
+2017-04-07 07:31:43.075 UTC [orderer/kafka] Enqueue -> DEBU 562 [channel: passkit] Envelope enqueued successfully
+2017-04-07 07:31:43.075 UTC [orderer/common/broadcast] Handle -> DEBU 563 Broadcast has successfully enqueued message of type 4 for chain passkit
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 564 Adding to config map: [Groups] /Channel/Orderer/PASSKITINC
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 565 Adding to config map: [Values] /Channel/Orderer/PASSKITINC/MSP
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 566 Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Admins
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 567 Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Readers
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 568 Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Writers
+2017-04-07 07:31:43.076 UTC [common/configtx] addToMap -> DEBU 569 Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-04-07 07:31:43.077 UTC [common/configtx] addToMap -> DEBU 56a Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-04-07 07:31:43.077 UTC [common/configtx] addToMap -> DEBU 56b Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-04-07 07:31:43.077 UTC [common/configtx] addToMap -> DEBU 56c Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-04-07 07:31:43.077 UTC [common/configtx] addToMap -> DEBU 56d Adding to config map: [Values] /Channel/Orderer/CreationPolicy
+2017-04-07 07:31:43.077 UTC [common/configtx] addToMap -> DEBU 56e Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 56f Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 570 Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 571 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 572 Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 573 Adding to config map: [Values] /Channel/OrdererAddresses
+2017-04-07 07:31:43.078 UTC [common/configtx] addToMap -> DEBU 574 Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-04-07 07:31:43.079 UTC [common/configtx] addToMap -> DEBU 575 Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-04-07 07:31:43.079 UTC [common/configtx] addToMap -> DEBU 576 Adding to config map: [Policy] /Channel/Admins
+2017-04-07 07:31:43.079 UTC [common/configtx] addToMap -> DEBU 577 Adding to config map: [Policy] /Channel/AcceptAllPolicy
+2017-04-07 07:31:43.079 UTC [common/configtx] addToMap -> DEBU 578 Adding to config map: [Policy] /Channel/Readers
+2017-04-07 07:31:43.079 UTC [common/configtx] addToMap -> DEBU 579 Adding to config map: [Policy] /Channel/Writers
+2017-04-07 07:31:43.079 UTC [common/configtx] processConfig -> DEBU 57a Beginning new config for channel testing
+2017-04-07 07:31:43.079 UTC [common/config] NewStandardValues -> DEBU 57b Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:43.080 UTC [common/config] initializeProtosStruct -> DEBU 57c Processing field: HashingAlgorithm
+2017-04-07 07:31:43.080 UTC [common/config] initializeProtosStruct -> DEBU 57d Processing field: BlockDataHashingStructure
+2017-04-07 07:31:43.080 UTC [common/config] initializeProtosStruct -> DEBU 57e Processing field: OrdererAddresses
+2017-04-07 07:31:43.080 UTC [common/policies] ProposePolicy -> DEBU 57f Proposed new policy Writers for Channel
+2017-04-07 07:31:43.080 UTC [common/policies] ProposePolicy -> DEBU 580 Proposed new policy Admins for Channel
+2017-04-07 07:31:43.080 UTC [common/policies] ProposePolicy -> DEBU 581 Proposed new policy AcceptAllPolicy for Channel
+2017-04-07 07:31:43.080 UTC [common/policies] ProposePolicy -> DEBU 582 Proposed new policy Readers for Channel
+2017-04-07 07:31:43.081 UTC [common/config] NewStandardValues -> DEBU 583 Initializing protos for *struct {}
+2017-04-07 07:31:43.081 UTC [common/policies] ProposePolicy -> DEBU 584 Proposed new policy Writers for Application
+2017-04-07 07:31:43.081 UTC [common/policies] ProposePolicy -> DEBU 585 Proposed new policy Admins for Application
+2017-04-07 07:31:43.081 UTC [common/policies] ProposePolicy -> DEBU 586 Proposed new policy Readers for Application
+2017-04-07 07:31:43.081 UTC [common/config] NewStandardValues -> DEBU 587 Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.081 UTC [common/config] initializeProtosStruct -> DEBU 588 Processing field: MSP
+2017-04-07 07:31:43.081 UTC [common/config] NewStandardValues -> DEBU 589 Initializing protos for *config.ApplicationOrgProtos
+2017-04-07 07:31:43.081 UTC [common/config] initializeProtosStruct -> DEBU 58a Processing field: AnchorPeers
+2017-04-07 07:31:43.082 UTC [common/config] NewStandardValues -> DEBU 58b Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.082 UTC [common/config] initializeProtosStruct -> DEBU 58c Processing field: MSP
+2017-04-07 07:31:43.082 UTC [common/policies] ProposePolicy -> DEBU 58d Proposed new policy Readers for PASSKIT
+2017-04-07 07:31:43.082 UTC [common/policies] ProposePolicy -> DEBU 58e Proposed new policy Writers for PASSKIT
+2017-04-07 07:31:43.082 UTC [common/policies] ProposePolicy -> DEBU 58f Proposed new policy Admins for PASSKIT
+2017-04-07 07:31:43.082 UTC [common/config] Validate -> DEBU 590 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.082 UTC [common/config] validateMSP -> DEBU 591 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.082 UTC [msp] NewBccspMsp -> DEBU 592 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.083 UTC [msp] Setup -> DEBU 593 Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.083 UTC [msp] newIdentity -> DEBU 594 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.084 UTC [msp] newIdentity -> DEBU 595 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.084 UTC [msp] newIdentity -> DEBU 596 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.084 UTC [common/config] Validate -> DEBU 597 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.084 UTC [common/config] validateMSP -> DEBU 598 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.084 UTC [msp] NewBccspMsp -> DEBU 599 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.085 UTC [msp] Setup -> DEBU 59a Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.085 UTC [msp] newIdentity -> DEBU 59b Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.086 UTC [msp] newIdentity -> DEBU 59c Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.086 UTC [msp] newIdentity -> DEBU 59d Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.086 UTC [common/config] NewStandardValues -> DEBU 59e Initializing protos for *config.OrdererProtos
+2017-04-07 07:31:43.086 UTC [common/config] initializeProtosStruct -> DEBU 59f Processing field: ConsensusType
+2017-04-07 07:31:43.086 UTC [common/config] initializeProtosStruct -> DEBU 5a0 Processing field: BatchSize
+2017-04-07 07:31:43.086 UTC [common/config] initializeProtosStruct -> DEBU 5a1 Processing field: BatchTimeout
+2017-04-07 07:31:43.086 UTC [common/config] initializeProtosStruct -> DEBU 5a2 Processing field: ChainCreationPolicyNames
+2017-04-07 07:31:43.086 UTC [common/config] initializeProtosStruct -> DEBU 5a3 Processing field: KafkaBrokers
+2017-04-07 07:31:43.087 UTC [common/config] initializeProtosStruct -> DEBU 5a4 Processing field: CreationPolicy
+2017-04-07 07:31:43.087 UTC [common/config] initializeProtosStruct -> DEBU 5a5 Processing field: ChannelRestrictions
+2017-04-07 07:31:43.087 UTC [common/policies] ProposePolicy -> DEBU 5a6 Proposed new policy Writers for Orderer
+2017-04-07 07:31:43.087 UTC [common/policies] ProposePolicy -> DEBU 5a7 Proposed new policy Admins for Orderer
+2017-04-07 07:31:43.087 UTC [common/policies] ProposePolicy -> DEBU 5a8 Proposed new policy BlockValidation for Orderer
+2017-04-07 07:31:43.087 UTC [common/policies] ProposePolicy -> DEBU 5a9 Proposed new policy Readers for Orderer
+2017-04-07 07:31:43.087 UTC [common/config] NewStandardValues -> DEBU 5aa Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.087 UTC [common/config] initializeProtosStruct -> DEBU 5ab Processing field: MSP
+2017-04-07 07:31:43.087 UTC [common/policies] ProposePolicy -> DEBU 5ac Proposed new policy Admins for PASSKITINC
+2017-04-07 07:31:43.088 UTC [common/policies] ProposePolicy -> DEBU 5ad Proposed new policy Readers for PASSKITINC
+2017-04-07 07:31:43.088 UTC [common/policies] ProposePolicy -> DEBU 5ae Proposed new policy Writers for PASSKITINC
+2017-04-07 07:31:43.088 UTC [common/config] validateMSP -> DEBU 5af Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.088 UTC [msp] NewBccspMsp -> DEBU 5b0 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.088 UTC [msp] Setup -> DEBU 5b1 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.089 UTC [msp] newIdentity -> DEBU 5b2 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.089 UTC [msp] newIdentity -> DEBU 5b3 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.089 UTC [msp] newIdentity -> DEBU 5b4 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.090 UTC [msp] newIdentity -> DEBU 5b5 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.090 UTC [common/config] validateMSP -> DEBU 5b6 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.090 UTC [msp] NewBccspMsp -> DEBU 5b7 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.090 UTC [msp] Setup -> DEBU 5b8 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.091 UTC [msp] newIdentity -> DEBU 5b9 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.091 UTC [msp] newIdentity -> DEBU 5ba Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.091 UTC [msp] newIdentity -> DEBU 5bb Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.092 UTC [msp] newIdentity -> DEBU 5bc Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.092 UTC [common/config] Validate -> DEBU 5bd Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.093 UTC [common/config] validateMSP -> DEBU 5be Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.093 UTC [msp] NewBccspMsp -> DEBU 5bf Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.093 UTC [msp] Setup -> DEBU 5c0 Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.093 UTC [msp] newIdentity -> DEBU 5c1 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.094 UTC [msp] newIdentity -> DEBU 5c2 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.094 UTC [msp] newIdentity -> DEBU 5c3 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.094 UTC [common/config] validateMSP -> DEBU 5c4 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.094 UTC [msp] NewBccspMsp -> DEBU 5c5 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.094 UTC [msp] Setup -> DEBU 5c6 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.095 UTC [msp] newIdentity -> DEBU 5c7 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.095 UTC [msp] newIdentity -> DEBU 5c8 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.096 UTC [msp] newIdentity -> DEBU 5c9 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.096 UTC [msp] newIdentity -> DEBU 5ca Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.097 UTC [common/config] Validate -> DEBU 5cb Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.097 UTC [common/config] validateMSP -> DEBU 5cc Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.097 UTC [msp] NewBccspMsp -> DEBU 5cd Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.097 UTC [msp] Setup -> DEBU 5ce Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.098 UTC [msp] newIdentity -> DEBU 5cf Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.098 UTC [msp] newIdentity -> DEBU 5d0 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.098 UTC [msp] newIdentity -> DEBU 5d1 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.098 UTC [common/config] validateMSP -> DEBU 5d2 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.099 UTC [msp] NewBccspMsp -> DEBU 5d3 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.099 UTC [msp] Setup -> DEBU 5d4 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.101 UTC [msp] newIdentity -> DEBU 5d5 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.104 UTC [msp] newIdentity -> DEBU 5d6 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.104 UTC [msp] newIdentity -> DEBU 5d7 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.105 UTC [msp] newIdentity -> DEBU 5d8 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.105 UTC [msp] Setup -> DEBU 5d9 Setting up the MSP manager (2 msps)
+2017-04-07 07:31:43.105 UTC [msp] Setup -> DEBU 5da MSP manager setup complete, setup 2 msps
+2017-04-07 07:31:43.105 UTC [common/policies] GetPolicy -> DEBU 5db Returning policy Readers for evaluation
+2017-04-07 07:31:43.105 UTC [common/policies] CommitProposals -> DEBU 5dc In commit adding relative sub-policy PASSKIT/Readers to Application
+2017-04-07 07:31:43.105 UTC [common/policies] GetPolicy -> DEBU 5dd Returning policy Writers for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] CommitProposals -> DEBU 5de In commit adding relative sub-policy PASSKIT/Writers to Application
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5df Returning policy Admins for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] CommitProposals -> DEBU 5e0 In commit adding relative sub-policy PASSKIT/Admins to Application
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5e1 Returning policy Writers for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5e2 Returning policy Admins for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5e3 Returning policy Readers for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5e4 Returning policy Admins for evaluation
+2017-04-07 07:31:43.106 UTC [common/policies] CommitProposals -> DEBU 5e5 In commit adding relative sub-policy PASSKITINC/Admins to Orderer
+2017-04-07 07:31:43.106 UTC [common/policies] GetPolicy -> DEBU 5e6 Returning policy Readers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] CommitProposals -> DEBU 5e7 In commit adding relative sub-policy PASSKITINC/Readers to Orderer
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5e8 Returning policy Writers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] CommitProposals -> DEBU 5e9 In commit adding relative sub-policy PASSKITINC/Writers to Orderer
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5ea Returning policy Writers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5eb Returning policy Admins for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5ec Returning policy Writers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5ed Returning policy Readers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5ee Returning policy Writers for evaluation
+2017-04-07 07:31:43.107 UTC [common/policies] CommitProposals -> DEBU 5ef In commit adding relative sub-policy Application/Writers to Channel
+2017-04-07 07:31:43.107 UTC [common/policies] GetPolicy -> DEBU 5f0 Returning policy Admins for evaluation
+2017-04-07 07:31:43.108 UTC [common/policies] CommitProposals -> DEBU 5f1 In commit adding relative sub-policy Application/Admins to Channel
+2017-04-07 07:31:43.108 UTC [common/policies] GetPolicy -> DEBU 5f2 Returning policy Readers for evaluation
+2017-04-07 07:31:43.108 UTC [common/policies] CommitProposals -> DEBU 5f3 In commit adding relative sub-policy Application/Readers to Channel
+2017-04-07 07:31:43.108 UTC [common/policies] GetPolicy -> DEBU 5f4 Returning policy PASSKIT/Readers for evaluation
+2017-04-07 07:31:43.108 UTC [common/policies] CommitProposals -> DEBU 5f5 In commit adding relative sub-policy Application/PASSKIT/Readers to Channel
+2017-04-07 07:31:43.108 UTC [common/policies] GetPolicy -> DEBU 5f6 Returning policy PASSKIT/Writers for evaluation
+2017-04-07 07:31:43.108 UTC [common/policies] CommitProposals -> DEBU 5f7 In commit adding relative sub-policy Application/PASSKIT/Writers to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 5f8 Returning policy PASSKIT/Admins for evaluation
+2017-04-07 07:31:43.109 UTC [common/policies] CommitProposals -> DEBU 5f9 In commit adding relative sub-policy Application/PASSKIT/Admins to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 5fa Returning policy BlockValidation for evaluation
+2017-04-07 07:31:43.109 UTC [common/policies] CommitProposals -> DEBU 5fb In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 5fc Returning policy Readers for evaluation
+2017-04-07 07:31:43.109 UTC [common/policies] CommitProposals -> DEBU 5fd In commit adding relative sub-policy Orderer/Readers to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 5fe Returning policy PASSKITINC/Admins for evaluation
+2017-04-07 07:31:43.109 UTC [common/policies] CommitProposals -> DEBU 5ff In commit adding relative sub-policy Orderer/PASSKITINC/Admins to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 600 Returning policy PASSKITINC/Readers for evaluation
+2017-04-07 07:31:43.109 UTC [common/policies] CommitProposals -> DEBU 601 In commit adding relative sub-policy Orderer/PASSKITINC/Readers to Channel
+2017-04-07 07:31:43.109 UTC [common/policies] GetPolicy -> DEBU 602 Returning policy PASSKITINC/Writers for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] CommitProposals -> DEBU 603 In commit adding relative sub-policy Orderer/PASSKITINC/Writers to Channel
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 604 Returning policy Writers for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] CommitProposals -> DEBU 605 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 606 Returning policy Admins for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] CommitProposals -> DEBU 607 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 608 Returning policy Writers for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 609 Returning policy Writers for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 60a Returning policy Admins for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 60b Returning policy Admins for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 60c Returning policy Readers for evaluation
+2017-04-07 07:31:43.110 UTC [common/policies] GetPolicy -> DEBU 60d Returning policy Readers for evaluation
+2017-04-07 07:31:43.111 UTC [common/policies] GetPolicy -> DEBU 60e Returning policy Readers for evaluation
+2017-04-07 07:31:43.111 UTC [common/policies] CommitProposals -> DEBU 60f As expected, current configuration has policy '/Channel/Readers'
+2017-04-07 07:31:43.111 UTC [common/policies] GetPolicy -> DEBU 610 Returning policy Writers for evaluation
+2017-04-07 07:31:43.111 UTC [common/policies] CommitProposals -> DEBU 611 As expected, current configuration has policy '/Channel/Writers'
+2017-04-07 07:31:43.111 UTC [common/policies] GetPolicy -> DEBU 612 Returning policy Application/Readers for evaluation
+2017-04-07 07:31:43.111 UTC [common/policies] CommitProposals -> DEBU 613 As expected, current configuration has policy '/Channel/Application/Readers'
+2017-04-07 07:31:43.111 UTC [common/policies] GetPolicy -> DEBU 614 Returning policy Application/Writers for evaluation
+2017-04-07 07:31:43.111 UTC [common/policies] CommitProposals -> DEBU 615 As expected, current configuration has policy '/Channel/Application/Writers'
+2017-04-07 07:31:43.111 UTC [common/policies] GetPolicy -> DEBU 616 Returning policy Application/Admins for evaluation
+2017-04-07 07:31:43.112 UTC [common/policies] CommitProposals -> DEBU 617 As expected, current configuration has policy '/Channel/Application/Admins'
+2017-04-07 07:31:43.112 UTC [common/policies] GetPolicy -> DEBU 618 Returning policy Orderer/BlockValidation for evaluation
+2017-04-07 07:31:43.112 UTC [common/policies] CommitProposals -> DEBU 619 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-04-07 07:31:43.112 UTC [orderer/common/blockcutter] Ordered -> DEBU 61a Found message which requested to be isolated, cutting into its own batch
+2017-04-07 07:31:43.112 UTC [orderer/kafka] loop -> DEBU 61b [channel: passkit] Ordering results: batches: [[payload:"\n\350\010\n\023\010\004\032\006\010\336\200\235\307\005\"\007passkit\022\320\010\n\263\010\n\nPASSKITINC\022\244\010-----BEGIN -----\nMIIC8zCCApigAwIBAgIURLCA/fF4nAzPgZaWUZqPspkRA/0wCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI1\nMDUwMDAwWhcNMjcwMzI1MDUwMDAwWjCBojELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEfMB0GA1UEAxMWT3JkZXJlci9BV1MvdXMtZWFzdC0yYTBZMBMG\nByqGSM49AgEGCCqGSM49AwEHA0IABJViEO4JLc764IOas7rq6BBNWv0HG4Ui7wi6\nrIPOyvOPsSRyAmX3T0PDzO9PNfCJ9mNnTYndIUbCxbW9HCtt0lCjgZcwgZQwDgYD\nVR0PAQH/BAQDAgIEMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFM9h+lVXC2MeH+US\n1CbCt43GLE6QMB8GA1UdIwQYMBaAFCMboEI047uhYCv9do/yAaCFacTnMDQGA1Ud\nEQQtMCuCGCouYmxvY2tjaGFpbi5wYXNza2l0LmNvbYIPICoudnBjLmJjLnd0Lmlz\nMAoGCCqGSM49BAMCA0kAMEYCIQC4GMwskOeVqkNwcgGXKWIJ58a7IkLnufpb56c/\neQT6jQIhANYKLi9ND0cMKGo0o1lljqpEhc+kzccYbu7Me2jzzalR\n-----END -----\n\022\030^\031\316\235\240\303r\026\033\t\366\274\200\372\226~\350\023\237\211\342$x1\022\267\323\001\n\352\322\001\n\350\010\n\023\010\001\032\006\010\336\200\235\307\005\"\007testing\022\320\010\n\263\010\n\nPASSKITINC\022\244\010-----BEGIN -----\nMIIC8zCCApigAwIBAgIURLCA/fF4nAzPgZaWUZqPspkRA/0wCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI1\nMDUwMDAwWhcNMjcwMzI1MDUwMDAwWjCBojELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEfMB0GA1UEAxMWT3JkZXJlci9BV1MvdXMtZWFzdC0yYTBZMBMG\nByqGSM49AgEGCCqGSM49AwEHA0IABJViEO4JLc764IOas7rq6BBNWv0HG4Ui7wi6\nrIPOyvOPsSRyAmX3T0PDzO9PNfCJ9mNnTYndIUbCxbW9HCtt0lCjgZcwgZQwDgYD\nVR0PAQH/BAQDAgIEMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFM9h+lVXC2MeH+US\n1CbCt43GLE6QMB8GA1UdIwQYMBaAFCMboEI047uhYCv9do/yAaCFacTnMDQGA1Ud\nEQQtMCuCGCouYmxvY2tjaGFpbi5wYXNza2l0LmNvbYIPICoudnBjLmJjLnd0Lmlz\nMAoGCCqGSM49BAMCA0kAMEYCIQC4GMwskOeVqkNwcgGXKWIJ58a7IkLnufpb56c/\neQT6jQIhANYKLi9ND0cMKGo0o1lljqpEhc+kzccYbu7Me2jzzalR\n-----END -----\n\022\030{\005\302\276\246\032\342\313jD\327j\"7\027\342\341\362Y]2\213^\371\022\373\311\001\n\227d\022\224d\022\326(\n\013Application\022\306(\022\327'\n\007PASSKIT\022\313'\032\214%\n\003MSP\022\204%\022\371$\022\366$\n\007PASSKIT\022\237\016-----BEGIN CERTIFICATE-----\nMIICszCCAlmgAwIBAgICEAAwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMDQ2WhcNMzcwMzIwMDYxMDQ2WjCBtDELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczExMC8GA1UEAwwoUGFzc0tpdCwgSW5jLiBCbG9ja2No\nYWluIEludGVybWVkaWF0ZSBDQTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGg2\n+QBKZyexWaf6GotQz5lLBbx1R1jnS3cK49xrVBI0YHRnUE3kWlSKcDcXcp7rlUPc\njT5QcJ6zPE5vZBdjkbGjgaAwgZ0wHQYDVR0OBBYEFCMboEI047uhYCv9do/yAaCF\nacTnMB8GA1UdIwQYMBaAFHI8YOCD8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQI\nMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBz\nOi8vc3NsLnBhc3NraXQuY29tL2Vjcm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0gA\nMEUCIGh+okHRNmokDm3fQ/Zk0u99j6zPny0DWLe5lWF0WdJuAiEAgAYqgRnnOsJL\n9IohIwJOShwHiTYmzGjnQ2IaTmyypto=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\243\016-----BEGIN CERTIFICATE-----\nMIICtTCCAlugAwIBAgICEAEwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTExWhcNMzcwMzIwMDYxMTExWjCBtjELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczEzMDEGA1UEAwwqQmxvY2tjaGFpbiBUcnVzdGVkIFBh\ncnRpZXMgSW50ZXJtZWRpYXRlIENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nDrwh2PTtty3lF9piAUYgBT+m6/4jI3xwkgrH+nKsR1DrFDDy2+U/egqiA604g9PB\nAjTfcZDLE1foqOWZKNYXoaOBoDCBnTAdBgNVHQ4EFgQUV0YQmZ3oN03grLGoaVNI\nXPuhUJcwHwYDVR0jBBgwFoAUcjxg4IPykJNTWSTuyPJZb2Z9CYowEgYDVR0TAQH/\nBAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNwYDVR0fBDAwLjAsoCqgKIYmaHR0\ncHM6Ly9zc2wucGFzc2tpdC5jb20vZWNyb290LmNybC5wZW0wCgYIKoZIzj0EAwID\nSAAwRQIgZHqm4mpWwthxkvix6avGpnPtMSA3GTFrpdCtHvp5Me4CIQDuJH6ekJzz\nAiZaiqGLPxgzlKfnHtPbhznXHBLAEfdkHQ==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\"\242\010-----BEGIN CERTIFICATE-----\nMIIC4DCCAoegAwIBAgIUNNn+HNagYDjticKcwHAbFZdK1ZowCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI2\nMDQwOTAwWhcNMjcwMzI2MDQwOTAwWjCBkTELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEOMAwGA1UEAxMFYWRtaW4wWTATBgcqhkjOPQIBBggqhkjOPQMB\nBwNCAASjuSsKnYt1jgntzhOt9Q88qOVPIlw+OrNx5HgwpumNjH2f8FMROnPUYYrV\nkIUSIDX9U6S8C5pyKMvnf/wXSLQ2o4GXMIGUMA4GA1UdDwEB/wQEAwICBDAMBgNV\nHRMBAf8EAjAAMB0GA1UdDgQWBBQ28HmyP7DhqCjb1JJ8iXl5RBX01TAfBgNVHSME\nGDAWgBQjG6BCNOO7oWAr/XaP8gGghWnE5zA0BgNVHREELTArghgqLmJsb2NrY2hh\naW4ucGFzc2tpdC5jb22CDyAqLnZwYy5iYy53dC5pczAKBggqhkjOPQQDAgNHADBE\nAiAJswj/IKPluddX3BndI/yhTx5b/7+ydCq/xEjL9EEb/QIga4x2tGYSs8w8Riu5\nLTJxMIycLDD16Yk3wb43a9JiuSs=\n-----END CERTIFICATE-----\n\032\006Admins\032\242\001\n\013AnchorPeers\022\222\001\022\207\001\n+\n&peer-us-east-2a.blockchain.passkit.com\020\2137\n+\n&peer-us-east-2b.blockchain.passkit.com\020\2137\n+\n&peer-us-east-2c.blockchain.passkit.com\020\2137\032\006Admins\"1\n\006Admins\022'\022\035\010\001\022\031\022\010\022\006\010\001\022\002\010\000\032\r\022\013\n\007PASSKIT\020\001\032\006Admins\"0\n\007Readers\022%\022\033\010\001\022\027\022\010\022\006\010\001\022\002\010\000\032\013\022\t\n\007PASSKIT\032\006Admins\"0\n\007Writers\022%\022\033\010\001\022\027\022\010\022\006\010\001\022\002\010\000\032\013\022\t\n\007PASSKIT\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\022\2648\n\007Orderer\022\2508\022\3074\n\nPASSKITINC\022\2704\032\2253\n\003MSP\022\2153\022\2023\022\3772\n\nPASSKITINC\022\237\016-----BEGIN CERTIFICATE-----\nMIICszCCAlmgAwIBAgICEAAwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMDQ2WhcNMzcwMzIwMDYxMDQ2WjCBtDELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczExMC8GA1UEAwwoUGFzc0tpdCwgSW5jLiBCbG9ja2No\nYWluIEludGVybWVkaWF0ZSBDQTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGg2\n+QBKZyexWaf6GotQz5lLBbx1R1jnS3cK49xrVBI0YHRnUE3kWlSKcDcXcp7rlUPc\njT5QcJ6zPE5vZBdjkbGjgaAwgZ0wHQYDVR0OBBYEFCMboEI047uhYCv9do/yAaCF\nacTnMB8GA1UdIwQYMBaAFHI8YOCD8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQI\nMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBz\nOi8vc3NsLnBhc3NraXQuY29tL2Vjcm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0gA\nMEUCIGh+okHRNmokDm3fQ/Zk0u99j6zPny0DWLe5lWF0WdJuAiEAgAYqgRnnOsJL\n9IohIwJOShwHiTYmzGjnQ2IaTmyypto=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\243\016-----BEGIN CERTIFICATE-----\nMIICtTCCAlugAwIBAgICEAEwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTExWhcNMzcwMzIwMDYxMTExWjCBtjELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczEzMDEGA1UEAwwqQmxvY2tjaGFpbiBUcnVzdGVkIFBh\ncnRpZXMgSW50ZXJtZWRpYXRlIENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nDrwh2PTtty3lF9piAUYgBT+m6/4jI3xwkgrH+nKsR1DrFDDy2+U/egqiA604g9PB\nAjTfcZDLE1foqOWZKNYXoaOBoDCBnTAdBgNVHQ4EFgQUV0YQmZ3oN03grLGoaVNI\nXPuhUJcwHwYDVR0jBBgwFoAUcjxg4IPykJNTWSTuyPJZb2Z9CYowEgYDVR0TAQH/\nBAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNwYDVR0fBDAwLjAsoCqgKIYmaHR0\ncHM6Ly9zc2wucGFzc2tpdC5jb20vZWNyb290LmNybC5wZW0wCgYIKoZIzj0EAwID\nSAAwRQIgZHqm4mpWwthxkvix6avGpnPtMSA3GTFrpdCtHvp5Me4CIQDuJH6ekJzz\nAiZaiqGLPxgzlKfnHtPbhznXHBLAEfdkHQ==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\203\016-----BEGIN CERTIFICATE-----\nMIICnTCCAkSgAwIBAgICEAIwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTU4WhcNMzcwMzIwMDYxMTU4WjCBnzELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMRYwFAYDVQQLDA1Mb29weSBM\nb3lhbHR5MSYwJAYDVQQDDB1Mb29weSBMb3lhbHR5IEludGVybWVkaWF0ZSBDQTBZ\nMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIp3IndLJfG/2eDhK1TS1OLqPGiH9oBN\ntXBYy/tL0o27mfUZE4SHVMFVXVruNsyjJoCXX/x380WrgGAPNlN0B+yjgaAwgZ0w\nHQYDVR0OBBYEFPHZdWrOmRnZb2tpxgR19MDXljjwMB8GA1UdIwQYMBaAFHI8YOCD\n8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQIMAYBAf8CAQAwDgYDVR0PAQH/BAQD\nAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBzOi8vc3NsLnBhc3NraXQuY29tL2Vj\ncm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0cAMEQCIBhOWgl0rupu+LP6w8Lgsyv/\nRwJ80rKpXNkg/nraZEdvAiBlfFfUcb9tFr5vP7ZBKtJtoXK/2o8qvLVP45t8vW4X\n/g==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\"\242\010-----BEGIN CERTIFICATE-----\nMIIC4DCCAoegAwIBAgIUNNn+HNagYDjticKcwHAbFZdK1ZowCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI2\nMDQwOTAwWhcNMjcwMzI2MDQwOTAwWjCBkTELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEOMAwGA1UEAxMFYWRtaW4wWTATBgcqhkjOPQIBBggqhkjOPQMB\nBwNCAASjuSsKnYt1jgntzhOt9Q88qOVPIlw+OrNx5HgwpumNjH2f8FMROnPUYYrV\nkIUSIDX9U6S8C5pyKMvnf/wXSLQ2o4GXMIGUMA4GA1UdDwEB/wQEAwICBDAMBgNV\nHRMBAf8EAjAAMB0GA1UdDgQWBBQ28HmyP7DhqCjb1JJ8iXl5RBX01TAfBgNVHSME\nGDAWgBQjG6BCNOO7oWAr/XaP8gGghWnE5zA0BgNVHREELTArghgqLmJsb2NrY2hh\naW4ucGFzc2tpdC5jb22CDyAqLnZwYy5iYy53dC5pczAKBggqhkjOPQQDAgNHADBE\nAiAJswj/IKPluddX3BndI/yhTx5b/7+ydCq/xEjL9EEb/QIga4x2tGYSs8w8Riu5\nLTJxMIycLDD16Yk3wb43a9JiuSs=\n-----END CERTIFICATE-----\n\032\006Admins\"4\n\006Admins\022*\022 \010\001\022\034\022\010\022\006\010\001\022\002\010\000\032\020\022\016\n\nPASSKITINC\020\001\032\006Admins\"3\n\007Readers\022(\022\036\010\001\022\032\022\010\022\006\010\001\022\002\010\000\032\016\022\014\n\nPASSKITINC\032\006Admins\"3\n\007Writers\022(\022\036\010\001\022\032\022\010\022\006\010\001\022\002\010\000\032\016\022\014\n\nPASSKITINC\032\006Admins\032\"\n\rConsensusType\022\021\022\007\n\005kafka\032\006Admins\032\"\n\tBatchSize\022\025\022\013\010\n\020\200\200\3001\030\200\200 \032\006Admins\032\036\n\014BatchTimeout\022\016\022\004\n\0022s\032\006Admins\032%\n\016CreationPolicy\022\023\022\021\n\017AcceptAllPolicy\032\037\n\023ChannelRestrictions\022\010\032\006Admins\032\223\001\n\014KafkaBrokers\022\202\001\022x\n&us-east-2a.blockchain.passkit.com:9093\n&us-east-2b.blockchain.passkit.com:9093\n&us-east-2c.blockchain.passkit.com:9093\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"*\n\017BlockValidation\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\032\227\001\n\020OrdererAddresses\022\202\001\022x\n&us-east-2a.blockchain.passkit.com:7050\n&us-east-2b.blockchain.passkit.com:7050\n&us-east-2c.blockchain.passkit.com:7050\032\006Admins\032&\n\020HashingAlgorithm\022\022\022\010\n\006SHA256\032\006Admins\032-\n\031BlockDataHashingStructure\022\020\022\006\010\377\377\377\377\017\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"%\n\017AcceptAllPolicy\022\022\022\010\010\001\022\004\022\002\022\000\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\022\336e\n\320e\ny\nU\010\002\032\006\010\252\240\234\307\005\"\007testing*@10e604bc87eff1494b5eb997791421f9b9036d869cc2234d55718b54597357d3\022 \n\004cert\022\030g\366_\340\271\210\016\342\250\365g\204\033\032Rs\321\363\203\225U\305L\265\022\322d\n\240d\n\007testing\032\224d\022\2648\n\007Orderer\022\2508\022\3074\n\nPASSKITINC\022\2704\032\2253\n\003MSP\022\2153\022\2023\022\3772\n\nPASSKITINC\022\237\016-----BEGIN CERTIFICATE-----\nMIICszCCAlmgAwIBAgICEAAwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMDQ2WhcNMzcwMzIwMDYxMDQ2WjCBtDELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczExMC8GA1UEAwwoUGFzc0tpdCwgSW5jLiBCbG9ja2No\nYWluIEludGVybWVkaWF0ZSBDQTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGg2\n+QBKZyexWaf6GotQz5lLBbx1R1jnS3cK49xrVBI0YHRnUE3kWlSKcDcXcp7rlUPc\njT5QcJ6zPE5vZBdjkbGjgaAwgZ0wHQYDVR0OBBYEFCMboEI047uhYCv9do/yAaCF\nacTnMB8GA1UdIwQYMBaAFHI8YOCD8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQI\nMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBz\nOi8vc3NsLnBhc3NraXQuY29tL2Vjcm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0gA\nMEUCIGh+okHRNmokDm3fQ/Zk0u99j6zPny0DWLe5lWF0WdJuAiEAgAYqgRnnOsJL\n9IohIwJOShwHiTYmzGjnQ2IaTmyypto=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\243\016-----BEGIN CERTIFICATE-----\nMIICtTCCAlugAwIBAgICEAEwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTExWhcNMzcwMzIwMDYxMTExWjCBtjELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczEzMDEGA1UEAwwqQmxvY2tjaGFpbiBUcnVzdGVkIFBh\ncnRpZXMgSW50ZXJtZWRpYXRlIENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nDrwh2PTtty3lF9piAUYgBT+m6/4jI3xwkgrH+nKsR1DrFDDy2+U/egqiA604g9PB\nAjTfcZDLE1foqOWZKNYXoaOBoDCBnTAdBgNVHQ4EFgQUV0YQmZ3oN03grLGoaVNI\nXPuhUJcwHwYDVR0jBBgwFoAUcjxg4IPykJNTWSTuyPJZb2Z9CYowEgYDVR0TAQH/\nBAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNwYDVR0fBDAwLjAsoCqgKIYmaHR0\ncHM6Ly9zc2wucGFzc2tpdC5jb20vZWNyb290LmNybC5wZW0wCgYIKoZIzj0EAwID\nSAAwRQIgZHqm4mpWwthxkvix6avGpnPtMSA3GTFrpdCtHvp5Me4CIQDuJH6ekJzz\nAiZaiqGLPxgzlKfnHtPbhznXHBLAEfdkHQ==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\203\016-----BEGIN CERTIFICATE-----\nMIICnTCCAkSgAwIBAgICEAIwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTU4WhcNMzcwMzIwMDYxMTU4WjCBnzELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMRYwFAYDVQQLDA1Mb29weSBM\nb3lhbHR5MSYwJAYDVQQDDB1Mb29weSBMb3lhbHR5IEludGVybWVkaWF0ZSBDQTBZ\nMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIp3IndLJfG/2eDhK1TS1OLqPGiH9oBN\ntXBYy/tL0o27mfUZE4SHVMFVXVruNsyjJoCXX/x380WrgGAPNlN0B+yjgaAwgZ0w\nHQYDVR0OBBYEFPHZdWrOmRnZb2tpxgR19MDXljjwMB8GA1UdIwQYMBaAFHI8YOCD\n8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQIMAYBAf8CAQAwDgYDVR0PAQH/BAQD\nAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBzOi8vc3NsLnBhc3NraXQuY29tL2Vj\ncm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0cAMEQCIBhOWgl0rupu+LP6w8Lgsyv/\nRwJ80rKpXNkg/nraZEdvAiBlfFfUcb9tFr5vP7ZBKtJtoXK/2o8qvLVP45t8vW4X\n/g==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\"\242\010-----BEGIN CERTIFICATE-----\nMIIC4DCCAoegAwIBAgIUNNn+HNagYDjticKcwHAbFZdK1ZowCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI2\nMDQwOTAwWhcNMjcwMzI2MDQwOTAwWjCBkTELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEOMAwGA1UEAxMFYWRtaW4wWTATBgcqhkjOPQIBBggqhkjOPQMB\nBwNCAASjuSsKnYt1jgntzhOt9Q88qOVPIlw+OrNx5HgwpumNjH2f8FMROnPUYYrV\nkIUSIDX9U6S8C5pyKMvnf/wXSLQ2o4GXMIGUMA4GA1UdDwEB/wQEAwICBDAMBgNV\nHRMBAf8EAjAAMB0GA1UdDgQWBBQ28HmyP7DhqCjb1JJ8iXl5RBX01TAfBgNVHSME\nGDAWgBQjG6BCNOO7oWAr/XaP8gGghWnE5zA0BgNVHREELTArghgqLmJsb2NrY2hh\naW4ucGFzc2tpdC5jb22CDyAqLnZwYy5iYy53dC5pczAKBggqhkjOPQQDAgNHADBE\nAiAJswj/IKPluddX3BndI/yhTx5b/7+ydCq/xEjL9EEb/QIga4x2tGYSs8w8Riu5\nLTJxMIycLDD16Yk3wb43a9JiuSs=\n-----END CERTIFICATE-----\n\032\006Admins\"4\n\006Admins\022*\022 \010\001\022\034\022\010\022\006\010\001\022\002\010\000\032\020\022\016\n\nPASSKITINC\020\001\032\006Admins\"3\n\007Readers\022(\022\036\010\001\022\032\022\010\022\006\010\001\022\002\010\000\032\016\022\014\n\nPASSKITINC\032\006Admins\"3\n\007Writers\022(\022\036\010\001\022\032\022\010\022\006\010\001\022\002\010\000\032\016\022\014\n\nPASSKITINC\032\006Admins\032%\n\016CreationPolicy\022\023\022\021\n\017AcceptAllPolicy\032\037\n\023ChannelRestrictions\022\010\032\006Admins\032\223\001\n\014KafkaBrokers\022\202\001\022x\n&us-east-2a.blockchain.passkit.com:9093\n&us-east-2b.blockchain.passkit.com:9093\n&us-east-2c.blockchain.passkit.com:9093\032\006Admins\032\"\n\rConsensusType\022\021\022\007\n\005kafka\032\006Admins\032\"\n\tBatchSize\022\025\022\013\010\n\020\200\200\3001\030\200\200 \032\006Admins\032\036\n\014BatchTimeout\022\016\022\004\n\0022s\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"*\n\017BlockValidation\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\022\326(\n\013Application\022\306(\022\327'\n\007PASSKIT\022\313'\032\214%\n\003MSP\022\204%\022\371$\022\366$\n\007PASSKIT\022\237\016-----BEGIN CERTIFICATE-----\nMIICszCCAlmgAwIBAgICEAAwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMDQ2WhcNMzcwMzIwMDYxMDQ2WjCBtDELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczExMC8GA1UEAwwoUGFzc0tpdCwgSW5jLiBCbG9ja2No\nYWluIEludGVybWVkaWF0ZSBDQTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGg2\n+QBKZyexWaf6GotQz5lLBbx1R1jnS3cK49xrVBI0YHRnUE3kWlSKcDcXcp7rlUPc\njT5QcJ6zPE5vZBdjkbGjgaAwgZ0wHQYDVR0OBBYEFCMboEI047uhYCv9do/yAaCF\nacTnMB8GA1UdIwQYMBaAFHI8YOCD8pCTU1kk7sjyWW9mfQmKMBIGA1UdEwEB/wQI\nMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHBz\nOi8vc3NsLnBhc3NraXQuY29tL2Vjcm9vdC5jcmwucGVtMAoGCCqGSM49BAMCA0gA\nMEUCIGh+okHRNmokDm3fQ/Zk0u99j6zPny0DWLe5lWF0WdJuAiEAgAYqgRnnOsJL\n9IohIwJOShwHiTYmzGjnQ2IaTmyypto=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\022\243\016-----BEGIN CERTIFICATE-----\nMIICtTCCAlugAwIBAgICEAEwCgYIKoZIzj0EAwIwbTELMAkGA1UEBhMCVVMxETAP\nBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYDVQQKDA1Q\nYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3QgQ0EwHhcN\nMTcwMzIwMDYxMTExWhcNMzcwMzIwMDYxMTExWjCBtjELMAkGA1UEBhMCSEsxIzAh\nBgNVBAgMGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHDApTaGV1\nbmcgV2FuMRYwFAYDVQQKDA1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLDBdCbG9ja2No\nYWluIEFwcGxpY2F0aW9uczEzMDEGA1UEAwwqQmxvY2tjaGFpbiBUcnVzdGVkIFBh\ncnRpZXMgSW50ZXJtZWRpYXRlIENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\nDrwh2PTtty3lF9piAUYgBT+m6/4jI3xwkgrH+nKsR1DrFDDy2+U/egqiA604g9PB\nAjTfcZDLE1foqOWZKNYXoaOBoDCBnTAdBgNVHQ4EFgQUV0YQmZ3oN03grLGoaVNI\nXPuhUJcwHwYDVR0jBBgwFoAUcjxg4IPykJNTWSTuyPJZb2Z9CYowEgYDVR0TAQH/\nBAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNwYDVR0fBDAwLjAsoCqgKIYmaHR0\ncHM6Ly9zc2wucGFzc2tpdC5jb20vZWNyb290LmNybC5wZW0wCgYIKoZIzj0EAwID\nSAAwRQIgZHqm4mpWwthxkvix6avGpnPtMSA3GTFrpdCtHvp5Me4CIQDuJH6ekJzz\nAiZaiqGLPxgzlKfnHtPbhznXHBLAEfdkHQ==\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIICNTCCAdqgAwIBAgIJALHluA9TnUZ5MAoGCCqGSM49BAMCMG0xCzAJBgNVBAYT\nAlVTMREwDwYDVQQIDAhEZWxhd2FyZTETMBEGA1UEBwwKV2lsbWluZ3RvbjEWMBQG\nA1UECgwNUGFzc0tpdCwgSW5jLjEeMBwGA1UEAwwVUGFzc0tpdCwgSW5jLiBSb290\nIENBMB4XDTE3MDMyMDA1MTE0NFoXDTQ3MDMyMDA1MTE0NFowbTELMAkGA1UEBhMC\nVVMxETAPBgNVBAgMCERlbGF3YXJlMRMwEQYDVQQHDApXaWxtaW5ndG9uMRYwFAYD\nVQQKDA1QYXNzS2l0LCBJbmMuMR4wHAYDVQQDDBVQYXNzS2l0LCBJbmMuIFJvb3Qg\nQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQdIjBVypxFzbsuHs77dq4QywLd\nqFqrVi5RITD7KXb8pGDv7L4QizFRi7Qwcst6tPRed03ixwJnUZkiOw5Wz3sxo2Mw\nYTAdBgNVHQ4EFgQUcjxg4IPykJNTWSTuyPJZb2Z9CYowHwYDVR0jBBgwFoAUcjxg\n4IPykJNTWSTuyPJZb2Z9CYowDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAQYwCgYIKoZIzj0EAwIDSQAwRgIhAK2GIoq/RFWFSJ1R0S4xu031TmeXGmbK5gGO\nrZsUssfvAiEAh+O35goZmhCpwOMhdOj23mtTD5snvw/s1frtHSSWMuU=\n-----END CERTIFICATE-----\n\"\242\010-----BEGIN CERTIFICATE-----\nMIIC4DCCAoegAwIBAgIUNNn+HNagYDjticKcwHAbFZdK1ZowCgYIKoZIzj0EAwIw\ngbQxCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYgV2VzdGVybiBEaXN0\ncmljdDETMBEGA1UEBwwKU2hldW5nIFdhbjEWMBQGA1UECgwNUGFzc0tpdCwgSW5j\nLjEgMB4GA1UECwwXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMxMTAvBgNVBAMMKFBh\nc3NLaXQsIEluYy4gQmxvY2tjaGFpbiBJbnRlcm1lZGlhdGUgQ0EwHhcNMTcwMzI2\nMDQwOTAwWhcNMjcwMzI2MDQwOTAwWjCBkTELMAkGA1UEBhMCSEsxIzAhBgNVBAgM\nGkNlbnRyYWwgJiBXZXN0ZXJuIERpc3RyaWN0MRMwEQYDVQQHEwpTaGV1bmcgV2Fu\nMRYwFAYDVQQKEw1QYXNzS2l0LCBJbmMuMSAwHgYDVQQLExdCbG9ja2NoYWluIEFw\ncGxpY2F0aW9uczEOMAwGA1UEAxMFYWRtaW4wWTATBgcqhkjOPQIBBggqhkjOPQMB\nBwNCAASjuSsKnYt1jgntzhOt9Q88qOVPIlw+OrNx5HgwpumNjH2f8FMROnPUYYrV\nkIUSIDX9U6S8C5pyKMvnf/wXSLQ2o4GXMIGUMA4GA1UdDwEB/wQEAwICBDAMBgNV\nHRMBAf8EAjAAMB0GA1UdDgQWBBQ28HmyP7DhqCjb1JJ8iXl5RBX01TAfBgNVHSME\nGDAWgBQjG6BCNOO7oWAr/XaP8gGghWnE5zA0BgNVHREELTArghgqLmJsb2NrY2hh\naW4ucGFzc2tpdC5jb22CDyAqLnZwYy5iYy53dC5pczAKBggqhkjOPQQDAgNHADBE\nAiAJswj/IKPluddX3BndI/yhTx5b/7+ydCq/xEjL9EEb/QIga4x2tGYSs8w8Riu5\nLTJxMIycLDD16Yk3wb43a9JiuSs=\n-----END CERTIFICATE-----\n\032\006Admins\032\242\001\n\013AnchorPeers\022\222\001\022\207\001\n+\n&peer-us-east-2a.blockchain.passkit.com\020\2137\n+\n&peer-us-east-2b.blockchain.passkit.com\020\2137\n+\n&peer-us-east-2c.blockchain.passkit.com\020\2137\032\006Admins\"1\n\006Admins\022'\022\035\010\001\022\031\022\010\022\006\010\001\022\002\010\000\032\r\022\013\n\007PASSKIT\020\001\032\006Admins\"0\n\007Readers\022%\022\033\010\001\022\027\022\010\022\006\010\001\022\002\010\000\032\013\022\t\n\007PASSKIT\032\006Admins\"0\n\007Writers\022%\022\033\010\001\022\027\022\010\022\006\010\001\022\002\010\000\032\013\022\t\n\007PASSKIT\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\032&\n\020HashingAlgorithm\022\022\022\010\n\006SHA256\032\006Admins\032-\n\031BlockDataHashingStructure\022\020\022\006\010\377\377\377\377\017\032\006Admins\032\227\001\n\020OrdererAddresses\022\202\001\022x\n&us-east-2a.blockchain.passkit.com:7050\n&us-east-2b.blockchain.passkit.com:7050\n&us-east-2c.blockchain.passkit.com:7050\032\006Admins\"\"\n\006Admins\022\030\022\016\010\003\022\n\n\006Admins\020\002\032\006Admins\"%\n\017AcceptAllPolicy\022\022\022\010\010\001\022\004\022\002\022\000\032\006Admins\"\"\n\007Readers\022\027\022\r\010\003\022\t\n\007Readers\032\006Admins\"\"\n\007Writers\022\027\022\r\010\003\022\t\n\007Writers\032\006Admins\022-\n \n\004cert\022\030\231\376\301g\201i\250\333%\037\\\3518\355\202\023\367\243C\007\021p\364\377\022\tsignature\022\tsignature\022G0E\002!\000\313j\216\302 \365\206%\002\377\0041aV\323\260\356s\033\227\212\336\275\005\021@\224\275\236g\036\226\002 $\250\362\371/\372\324\376*\334{J@\206\245m\255aI\3774\2440\t\243\326\353\253\224w(\363" signature:"0E\002!\000\275\033\315Vt\273@(\214\315X\306\247&CU\272\2602\200\334\271.1#\036\206\356g#\321o\002 \035\374Q\376\345\324\244\320\345|n\332\331G\230`^\323\340\342\244>\331\213\032\r-\316\376\260(\306" ]], ok: true
+2017-04-07 07:31:43.115 UTC [common/config] NewStandardValues -> DEBU 61c Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:43.116 UTC [common/config] initializeProtosStruct -> DEBU 61d Processing field: HashingAlgorithm
+2017-04-07 07:31:43.116 UTC [common/config] initializeProtosStruct -> DEBU 61e Processing field: BlockDataHashingStructure
+2017-04-07 07:31:43.116 UTC [common/config] initializeProtosStruct -> DEBU 61f Processing field: OrdererAddresses
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 620 Adding to config map: [Groups] /Channel
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 621 Adding to config map: [Groups] /Channel/Application
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 622 Adding to config map: [Groups] /Channel/Application/PASSKIT
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 623 Adding to config map: [Values] /Channel/Application/PASSKIT/MSP
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 624 Adding to config map: [Values] /Channel/Application/PASSKIT/AnchorPeers
+2017-04-07 07:31:43.117 UTC [common/configtx] addToMap -> DEBU 625 Adding to config map: [Policy] /Channel/Application/PASSKIT/Admins
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 626 Adding to config map: [Policy] /Channel/Application/PASSKIT/Readers
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 627 Adding to config map: [Policy] /Channel/Application/PASSKIT/Writers
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 628 Adding to config map: [Policy] /Channel/Application/Writers
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 629 Adding to config map: [Policy] /Channel/Application/Admins
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 62a Adding to config map: [Policy] /Channel/Application/Readers
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 62b Adding to config map: [Groups] /Channel/Orderer
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 62c Adding to config map: [Groups] /Channel/Orderer/PASSKITINC
+2017-04-07 07:31:43.118 UTC [common/configtx] addToMap -> DEBU 62d Adding to config map: [Values] /Channel/Orderer/PASSKITINC/MSP
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 62e Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Admins
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 62f Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Readers
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 630 Adding to config map: [Policy] /Channel/Orderer/PASSKITINC/Writers
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 631 Adding to config map: [Values] /Channel/Orderer/ConsensusType
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 632 Adding to config map: [Values] /Channel/Orderer/BatchSize
+2017-04-07 07:31:43.119 UTC [common/configtx] addToMap -> DEBU 633 Adding to config map: [Values] /Channel/Orderer/BatchTimeout
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 634 Adding to config map: [Values] /Channel/Orderer/CreationPolicy
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 635 Adding to config map: [Values] /Channel/Orderer/ChannelRestrictions
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 636 Adding to config map: [Values] /Channel/Orderer/KafkaBrokers
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 637 Adding to config map: [Policy] /Channel/Orderer/Writers
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 638 Adding to config map: [Policy] /Channel/Orderer/Admins
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 639 Adding to config map: [Policy] /Channel/Orderer/BlockValidation
+2017-04-07 07:31:43.120 UTC [common/configtx] addToMap -> DEBU 63a Adding to config map: [Policy] /Channel/Orderer/Readers
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 63b Adding to config map: [Values] /Channel/OrdererAddresses
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 63c Adding to config map: [Values] /Channel/HashingAlgorithm
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 63d Adding to config map: [Values] /Channel/BlockDataHashingStructure
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 63e Adding to config map: [Policy] /Channel/Admins
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 63f Adding to config map: [Policy] /Channel/AcceptAllPolicy
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 640 Adding to config map: [Policy] /Channel/Readers
+2017-04-07 07:31:43.121 UTC [common/configtx] addToMap -> DEBU 641 Adding to config map: [Policy] /Channel/Writers
+2017-04-07 07:31:43.121 UTC [common/configtx] processConfig -> DEBU 642 Beginning new config for channel testing
+2017-04-07 07:31:43.121 UTC [common/config] NewStandardValues -> DEBU 643 Initializing protos for *config.ChannelProtos
+2017-04-07 07:31:43.121 UTC [common/config] initializeProtosStruct -> DEBU 644 Processing field: HashingAlgorithm
+2017-04-07 07:31:43.122 UTC [common/config] initializeProtosStruct -> DEBU 645 Processing field: BlockDataHashingStructure
+2017-04-07 07:31:43.122 UTC [common/config] initializeProtosStruct -> DEBU 646 Processing field: OrdererAddresses
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 647 Proposed new policy Admins for Channel
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 648 Proposed new policy AcceptAllPolicy for Channel
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 649 Proposed new policy Readers for Channel
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 64a Proposed new policy Writers for Channel
+2017-04-07 07:31:43.122 UTC [common/config] NewStandardValues -> DEBU 64b Initializing protos for *struct {}
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 64c Proposed new policy Writers for Application
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 64d Proposed new policy Admins for Application
+2017-04-07 07:31:43.122 UTC [common/policies] ProposePolicy -> DEBU 64e Proposed new policy Readers for Application
+2017-04-07 07:31:43.123 UTC [common/config] NewStandardValues -> DEBU 64f Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.123 UTC [common/config] initializeProtosStruct -> DEBU 650 Processing field: MSP
+2017-04-07 07:31:43.123 UTC [common/config] NewStandardValues -> DEBU 651 Initializing protos for *config.ApplicationOrgProtos
+2017-04-07 07:31:43.123 UTC [common/config] initializeProtosStruct -> DEBU 652 Processing field: AnchorPeers
+2017-04-07 07:31:43.123 UTC [common/config] NewStandardValues -> DEBU 653 Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.123 UTC [common/config] initializeProtosStruct -> DEBU 654 Processing field: MSP
+2017-04-07 07:31:43.123 UTC [common/policies] ProposePolicy -> DEBU 655 Proposed new policy Admins for PASSKIT
+2017-04-07 07:31:43.123 UTC [common/policies] ProposePolicy -> DEBU 656 Proposed new policy Readers for PASSKIT
+2017-04-07 07:31:43.123 UTC [common/policies] ProposePolicy -> DEBU 657 Proposed new policy Writers for PASSKIT
+2017-04-07 07:31:43.123 UTC [common/config] Validate -> DEBU 658 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.123 UTC [common/config] validateMSP -> DEBU 659 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.123 UTC [msp] NewBccspMsp -> DEBU 65a Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.123 UTC [msp] Setup -> DEBU 65b Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.124 UTC [msp] newIdentity -> DEBU 65c Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.124 UTC [msp] newIdentity -> DEBU 65d Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.126 UTC [msp] newIdentity -> DEBU 65e Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.126 UTC [common/config] Validate -> DEBU 65f Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.126 UTC [common/config] validateMSP -> DEBU 660 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.126 UTC [msp] NewBccspMsp -> DEBU 661 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.126 UTC [msp] Setup -> DEBU 662 Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.127 UTC [msp] newIdentity -> DEBU 663 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.127 UTC [msp] newIdentity -> DEBU 664 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.127 UTC [msp] newIdentity -> DEBU 665 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.128 UTC [common/config] NewStandardValues -> DEBU 666 Initializing protos for *config.OrdererProtos
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 667 Processing field: ConsensusType
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 668 Processing field: BatchSize
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 669 Processing field: BatchTimeout
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 66a Processing field: ChainCreationPolicyNames
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 66b Processing field: KafkaBrokers
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 66c Processing field: CreationPolicy
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 66d Processing field: ChannelRestrictions
+2017-04-07 07:31:43.128 UTC [common/policies] ProposePolicy -> DEBU 66e Proposed new policy Admins for Orderer
+2017-04-07 07:31:43.128 UTC [common/policies] ProposePolicy -> DEBU 66f Proposed new policy BlockValidation for Orderer
+2017-04-07 07:31:43.128 UTC [common/policies] ProposePolicy -> DEBU 670 Proposed new policy Readers for Orderer
+2017-04-07 07:31:43.128 UTC [common/policies] ProposePolicy -> DEBU 671 Proposed new policy Writers for Orderer
+2017-04-07 07:31:43.128 UTC [common/config] NewStandardValues -> DEBU 672 Initializing protos for *config.OrganizationProtos
+2017-04-07 07:31:43.128 UTC [common/config] initializeProtosStruct -> DEBU 673 Processing field: MSP
+2017-04-07 07:31:43.129 UTC [common/policies] ProposePolicy -> DEBU 674 Proposed new policy Readers for PASSKITINC
+2017-04-07 07:31:43.129 UTC [common/policies] ProposePolicy -> DEBU 675 Proposed new policy Writers for PASSKITINC
+2017-04-07 07:31:43.129 UTC [common/policies] ProposePolicy -> DEBU 676 Proposed new policy Admins for PASSKITINC
+2017-04-07 07:31:43.129 UTC [common/config] validateMSP -> DEBU 677 Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.129 UTC [msp] NewBccspMsp -> DEBU 678 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.129 UTC [msp] Setup -> DEBU 679 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.129 UTC [msp] newIdentity -> DEBU 67a Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.130 UTC [msp] newIdentity -> DEBU 67b Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.130 UTC [msp] newIdentity -> DEBU 67c Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.131 UTC [msp] newIdentity -> DEBU 67d Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.131 UTC [common/config] validateMSP -> DEBU 67e Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.131 UTC [msp] NewBccspMsp -> DEBU 67f Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.131 UTC [msp] Setup -> DEBU 680 Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.131 UTC [msp] newIdentity -> DEBU 681 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.132 UTC [msp] newIdentity -> DEBU 682 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.132 UTC [msp] newIdentity -> DEBU 683 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.133 UTC [msp] newIdentity -> DEBU 684 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.134 UTC [common/config] Validate -> DEBU 685 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.134 UTC [common/config] validateMSP -> DEBU 686 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.134 UTC [msp] NewBccspMsp -> DEBU 687 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.134 UTC [msp] Setup -> DEBU 688 Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.134 UTC [msp] newIdentity -> DEBU 689 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.136 UTC [msp] newIdentity -> DEBU 68a Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.137 UTC [msp] newIdentity -> DEBU 68b Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.137 UTC [common/config] validateMSP -> DEBU 68c Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.137 UTC [msp] NewBccspMsp -> DEBU 68d Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.137 UTC [msp] Setup -> DEBU 68e Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.137 UTC [msp] newIdentity -> DEBU 68f Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.138 UTC [msp] newIdentity -> DEBU 690 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.138 UTC [msp] newIdentity -> DEBU 691 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.139 UTC [msp] newIdentity -> DEBU 692 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.139 UTC [common/config] Validate -> DEBU 693 Anchor peers for org PASSKIT are anchor_peers:<host:"peer-us-east-2a.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2b.blockchain.passkit.com" port:7051 > anchor_peers:<host:"peer-us-east-2c.blockchain.passkit.com" port:7051 > 
+2017-04-07 07:31:43.140 UTC [common/config] validateMSP -> DEBU 694 Setting up MSP for org PASSKIT
+2017-04-07 07:31:43.140 UTC [msp] NewBccspMsp -> DEBU 695 Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.140 UTC [msp] Setup -> DEBU 696 Setting up MSP instance PASSKIT
+2017-04-07 07:31:43.140 UTC [msp] newIdentity -> DEBU 697 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.141 UTC [msp] newIdentity -> DEBU 698 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.141 UTC [msp] newIdentity -> DEBU 699 Creating identity instance for ID &{PASSKIT IDENTITY}
+2017-04-07 07:31:43.141 UTC [common/config] validateMSP -> DEBU 69a Setting up MSP for org PASSKITINC
+2017-04-07 07:31:43.141 UTC [msp] NewBccspMsp -> DEBU 69b Creating BCCSP-based MSP instance
+2017-04-07 07:31:43.141 UTC [msp] Setup -> DEBU 69c Setting up MSP instance PASSKITINC
+2017-04-07 07:31:43.142 UTC [msp] newIdentity -> DEBU 69d Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.142 UTC [msp] newIdentity -> DEBU 69e Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.143 UTC [msp] newIdentity -> DEBU 69f Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.143 UTC [msp] newIdentity -> DEBU 6a0 Creating identity instance for ID &{PASSKITINC IDENTITY}
+2017-04-07 07:31:43.144 UTC [msp] Setup -> DEBU 6a1 Setting up the MSP manager (2 msps)
+2017-04-07 07:31:43.144 UTC [msp] Setup -> DEBU 6a2 MSP manager setup complete, setup 2 msps
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6a3 Returning policy Admins for evaluation
+2017-04-07 07:31:43.144 UTC [common/policies] CommitProposals -> DEBU 6a4 In commit adding relative sub-policy PASSKIT/Admins to Application
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6a5 Returning policy Readers for evaluation
+2017-04-07 07:31:43.144 UTC [common/policies] CommitProposals -> DEBU 6a6 In commit adding relative sub-policy PASSKIT/Readers to Application
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6a7 Returning policy Writers for evaluation
+2017-04-07 07:31:43.144 UTC [common/policies] CommitProposals -> DEBU 6a8 In commit adding relative sub-policy PASSKIT/Writers to Application
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6a9 Returning policy Writers for evaluation
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6aa Returning policy Admins for evaluation
+2017-04-07 07:31:43.144 UTC [common/policies] GetPolicy -> DEBU 6ab Returning policy Readers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6ac Returning policy Readers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] CommitProposals -> DEBU 6ad In commit adding relative sub-policy PASSKITINC/Readers to Orderer
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6ae Returning policy Writers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] CommitProposals -> DEBU 6af In commit adding relative sub-policy PASSKITINC/Writers to Orderer
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b0 Returning policy Admins for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] CommitProposals -> DEBU 6b1 In commit adding relative sub-policy PASSKITINC/Admins to Orderer
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b2 Returning policy Admins for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b3 Returning policy Writers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b4 Returning policy Readers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b5 Returning policy Writers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] GetPolicy -> DEBU 6b6 Returning policy Writers for evaluation
+2017-04-07 07:31:43.145 UTC [common/policies] CommitProposals -> DEBU 6b7 In commit adding relative sub-policy Application/Writers to Channel
+2017-04-07 07:31:43.146 UTC [common/policies] GetPolicy -> DEBU 6b8 Returning policy Admins for evaluation
+2017-04-07 07:31:43.146 UTC [common/policies] CommitProposals -> DEBU 6b9 In commit adding relative sub-policy Application/Admins to Channel
+2017-04-07 07:31:43.146 UTC [common/policies] GetPolicy -> DEBU 6ba Returning policy Readers for evaluation
+2017-04-07 07:31:43.146 UTC [common/policies] CommitProposals -> DEBU 6bb In commit adding relative sub-policy Application/Readers to Channel
+2017-04-07 07:31:43.146 UTC [common/policies] GetPolicy -> DEBU 6bc Returning policy PASSKIT/Admins for evaluation
+2017-04-07 07:31:43.146 UTC [common/policies] CommitProposals -> DEBU 6bd In commit adding relative sub-policy Application/PASSKIT/Admins to Channel
+2017-04-07 07:31:43.146 UTC [common/policies] GetPolicy -> DEBU 6be Returning policy PASSKIT/Readers for evaluation
+2017-04-07 07:31:43.146 UTC [common/policies] CommitProposals -> DEBU 6bf In commit adding relative sub-policy Application/PASSKIT/Readers to Channel
+2017-04-07 07:31:43.146 UTC [common/policies] GetPolicy -> DEBU 6c0 Returning policy PASSKIT/Writers for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6c1 In commit adding relative sub-policy Application/PASSKIT/Writers to Channel
+2017-04-07 07:31:43.147 UTC [common/policies] GetPolicy -> DEBU 6c2 Returning policy Admins for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6c3 In commit adding relative sub-policy Orderer/Admins to Channel
+2017-04-07 07:31:43.147 UTC [common/policies] GetPolicy -> DEBU 6c4 Returning policy BlockValidation for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6c5 In commit adding relative sub-policy Orderer/BlockValidation to Channel
+2017-04-07 07:31:43.147 UTC [common/policies] GetPolicy -> DEBU 6c6 Returning policy Readers for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6c7 In commit adding relative sub-policy Orderer/Readers to Channel
+2017-04-07 07:31:43.147 UTC [common/policies] GetPolicy -> DEBU 6c8 Returning policy Writers for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6c9 In commit adding relative sub-policy Orderer/Writers to Channel
+2017-04-07 07:31:43.147 UTC [common/policies] GetPolicy -> DEBU 6ca Returning policy PASSKITINC/Readers for evaluation
+2017-04-07 07:31:43.147 UTC [common/policies] CommitProposals -> DEBU 6cb In commit adding relative sub-policy Orderer/PASSKITINC/Readers to Channel
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6cc Returning policy PASSKITINC/Writers for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] CommitProposals -> DEBU 6cd In commit adding relative sub-policy Orderer/PASSKITINC/Writers to Channel
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6ce Returning policy PASSKITINC/Admins for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] CommitProposals -> DEBU 6cf In commit adding relative sub-policy Orderer/PASSKITINC/Admins to Channel
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6d0 Returning policy Admins for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6d1 Returning policy Admins for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6d2 Returning policy Readers for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6d3 Returning policy Readers for evaluation
+2017-04-07 07:31:43.148 UTC [common/policies] GetPolicy -> DEBU 6d4 Returning policy Writers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6d5 Returning policy Writers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6d6 Returning policy Readers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] CommitProposals -> DEBU 6d7 As expected, current configuration has policy '/Channel/Readers'
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6d8 Returning policy Writers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] CommitProposals -> DEBU 6d9 As expected, current configuration has policy '/Channel/Writers'
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6da Returning policy Application/Readers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] CommitProposals -> DEBU 6db As expected, current configuration has policy '/Channel/Application/Readers'
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6dc Returning policy Application/Writers for evaluation
+2017-04-07 07:31:43.149 UTC [common/policies] CommitProposals -> DEBU 6dd As expected, current configuration has policy '/Channel/Application/Writers'
+2017-04-07 07:31:43.149 UTC [common/policies] GetPolicy -> DEBU 6de Returning policy Application/Admins for evaluation
+2017-04-07 07:31:43.150 UTC [common/policies] CommitProposals -> DEBU 6df As expected, current configuration has policy '/Channel/Application/Admins'
+2017-04-07 07:31:43.150 UTC [common/policies] GetPolicy -> DEBU 6e0 Returning policy Orderer/BlockValidation for evaluation
+2017-04-07 07:31:43.150 UTC [common/policies] CommitProposals -> DEBU 6e1 As expected, current configuration has policy '/Channel/Orderer/BlockValidation'
+2017-04-07 07:31:43.150 UTC [orderer/ramledger] appendBlock -> DEBU 6e2 Sending signal that block 18446744073709551615 has a successor
+2017-04-07 07:31:43.150 UTC [orderer/ramledger] Iterator -> DEBU 6e3 Attempting to return block 0
+2017-04-07 07:31:43.150 UTC [orderer/multichain] newChainSupport -> DEBU 6e4 [channel: testing] Retrieved metadata for tip of chain (block #0): 
+2017-04-07 07:31:43.151 UTC [orderer/kafka] newChain -> DEBU 6e5 [channel: testing] Starting chain with last persisted offset -3 and last recorded block 0
+2017-04-07 07:31:45.278 UTC [orderer/common/deliver] Handle -> DEBU 6e6 Client request for channel testing not found
+2017-04-07 07:31:46.152 UTC [orderer/kafka] newProducer -> DEBU 6e7 Connecting to Kafka cluster: [us-east-2a.blockchain.passkit.com:9093 us-east-2b.blockchain.passkit.com:9093 us-east-2c.blockchain.passkit.com:9093]
+2017-04-07 07:31:46.193 UTC [orderer/kafka] newProducer -> DEBU 6e8 Connected to the Kafka cluster
+2017-04-07 07:31:46.193 UTC [orderer/multichain] newChain -> INFO 6e9 Created and starting new chain testing
+2017-04-07 07:31:46.193 UTC [orderer/kafka] Start -> DEBU 6ea [channel: testing] Posting the CONNECT message...
+2017-04-07 07:31:46.267 UTC [orderer/kafka] Send -> DEBU 6eb [channel testing] Posted blob to the Kafka cluster (offset number: 2)
+2017-04-07 07:31:46.267 UTC [orderer/kafka] Start -> DEBU 6ec [channel: testing] CONNECT message posted successfully
+2017-04-07 07:31:46.325 UTC [orderer/kafka] newConsumer -> DEBU 6ed [channel: testing] Created new consumer for session (beginning offset: -2)
+2017-04-07 07:31:46.325 UTC [orderer/multichain] addBlockSignature -> DEBU 6ee &{ledgerResources:0xc4203ce440 chain:0xc4203d0f30 cutter:0xc420417b30 filters:0xc4203ce4a0 signer:0x1152308 lastConfig:0 lastConfigSeq:0}
+2017-04-07 07:31:46.325 UTC [orderer/multichain] addBlockSignature -> DEBU 6ef &{}
+2017-04-07 07:31:46.325 UTC [msp] GetLocalMSP -> DEBU 6f0 Returning existing local MSP
+2017-04-07 07:31:46.325 UTC [msp] GetDefaultSigningIdentity -> DEBU 6f1 Obtaining default signing identity
+2017-04-07 07:31:46.325 UTC [msp] GetLocalMSP -> DEBU 6f2 Returning existing local MSP
+2017-04-07 07:31:46.325 UTC [msp] GetDefaultSigningIdentity -> DEBU 6f3 Obtaining default signing identity
+2017-04-07 07:31:46.325 UTC [msp] Sign -> DEBU 6f4 Sign: plaintext: 0AB3080A0A504153534B4954494E4312...0B45A45390730A17530485313FD7918F 
+2017-04-07 07:31:46.325 UTC [msp] Sign -> DEBU 6f5 Sign: digest: 42C7CAF65FFD7F0D444C8CCCDCA9FC49304795AFBEC7DA7B433DD84842C99E6E 
+2017-04-07 07:31:46.326 UTC [msp] GetLocalMSP -> DEBU 6f6 Returning existing local MSP
+2017-04-07 07:31:46.326 UTC [msp] GetDefaultSigningIdentity -> DEBU 6f7 Obtaining default signing identity
+2017-04-07 07:31:46.326 UTC [msp] GetLocalMSP -> DEBU 6f8 Returning existing local MSP
+2017-04-07 07:31:46.326 UTC [msp] GetDefaultSigningIdentity -> DEBU 6f9 Obtaining default signing identity
+2017-04-07 07:31:46.326 UTC [msp] Sign -> DEBU 6fa Sign: plaintext: 0AB3080A0A504153534B4954494E4312...0B45A45390730A17530485313FD7918F 
+2017-04-07 07:31:46.326 UTC [msp] Sign -> DEBU 6fb Sign: digest: 147C091CEDB3082802BA47FF5F9CFD81EE11F5AE4D0677D08D14D386083113D7 
+2017-04-07 07:31:46.326 UTC [orderer/ramledger] appendBlock -> DEBU 6fc Sending signal that block 1 has a successor
+2017-04-07 07:31:46.326 UTC [orderer/kafka] loop -> DEBU 6fd [channel: passkit] Batch filled, just cut block 2

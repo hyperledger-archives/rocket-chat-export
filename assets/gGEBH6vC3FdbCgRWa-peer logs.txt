@@ -1,0 +1,90 @@
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.812 -03 [cceventmgmt] HandleChaincodeInstall -> DEBU d82 HandleChaincodeInstall() - chaincodeDefinition=&cceventmgmt.ChaincodeDefinition{Name:"mycc4", Hash:[]uint8{0x5f, 0xeb, 0x40, 0xc6, 0xc6, 0x53, 0x44, 0x2e, 0x7d, 0x54, 0xff, 0xc0, 0xd6, 0x8a, 0xa1, 0xe9, 0x3c, 0x10, 0x41, 0x68, 0x9e, 0xd5, 0x9d, 0x4b, 0x35, 0x6, 0x13, 0xeb, 0x6, 0x13, 0xbd, 0x98}, Version:"1.0", CollectionConfigs:(*common.CollectionConfigPackage)(nil)}
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.812 -03 [cceventmgmt] HandleChaincodeInstall -> DEBU d83 Channel [mychannel]: Handling chaincode install event for chaincode [Name=mycc4, Version=1.0, Hash=[]byte{0x5f, 0xeb, 0x40, 0xc6, 0xc6, 0x53, 0x44, 0x2e, 0x7d, 0x54, 0xff, 0xc0, 0xd6, 0x8a, 0xa1, 0xe9, 0x3c, 0x10, 0x41, 0x68, 0x9e, 0xd5, 0x9d, 0x4b, 0x35, 0x6, 0x13, 0xeb, 0x6, 0x13, 0xbd, 0x98}]
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.813 -03 [statecouchdb] GetState -> DEBU d85 GetState(). ns=lscc, key=mycc4
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.813 -03 [couchdb] ReadDoc -> DEBU d86 [mychannel_lscc] Entering ReadDoc()  id=[mycc4]
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.813 -03 [couchdb] handleRequest -> DEBU d88 Request URL: http://localhost:5984/mychannel_lscc/mycc4?attachments=true
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.814 -03 [couchdb] handleRequest -> DEBU d89 HTTP Request: GET /mychannel_lscc/mycc4?attachments=true HTTP/1.1 | Host: localhost:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic aHlwZXJsZWRnZXJ1c2VyOmh5cGVybGVkZ2VycGFzcw== | Accept-Encoding: gzip |  | 
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g couchdb notice [notice] 2020-04-29T13:49:01.820182Z nonode@nohost <0.16452.17> d3d7bfce8d localhost:5984 127.0.0.1 hyperledgeruser GET /mychannel_lscc/mycc4?attachments=true 404 ok 4
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.820 -03 [cceventmgmt] HandleChaincodeInstall -> DEBU d8d Channel [mychannel]: Chaincode [Name=mycc4, Version=1.0, Hash=[]byte{0x5f, 0xeb, 0x40, 0xc6, 0xc6, 0x53, 0x44, 0x2e, 0x7d, 0x54, 0xff, 0xc0, 0xd6, 0x8a, 0xa1, 0xe9, 0x3c, 0x10, 0x41, 0x68, 0x9e, 0xd5, 0x9d, 0x4b, 0x35, 0x6, 0x13, 0xeb, 0x6, 0x13, 0xbd, 0x98}] is not deployed on channel hence not creating chaincode artifacts.
+Apr 29 09:49:01 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:01.820 -03 [lscc] executeInstall -> INFO d8e Installed Chaincode [mycc4] Version [1.0] to peer
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.364 -03 [chaincode] HandleGetState -> DEBU 1267 [5368a82a] getting state for chaincode lscc, key mycc4, channel mychannel
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.364 -03 [statecouchdb] GetState -> DEBU 1268 GetState(). ns=lscc, key=mycc4
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.365 -03 [couchdb] ReadDoc -> DEBU 1269 [mychannel_lscc] Entering ReadDoc()  id=[mycc4]
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.365 -03 [couchdb] handleRequest -> DEBU 126b Request URL: http://localhost:5984/mychannel_lscc/mycc4?attachments=true
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.366 -03 [couchdb] handleRequest -> DEBU 126c HTTP Request: GET /mychannel_lscc/mycc4?attachments=true HTTP/1.1 | Host: localhost:5984 | User-Agent: Go-http-client/1.1 | Accept: multipart/related | Authorization: Basic aHlwZXJsZWRnZXJ1c2VyOmh5cGVybGVkZ2VycGFzcw== | Accept-Encoding: gzip |  | 
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g couchdb notice [notice] 2020-04-29T13:49:30.369036Z nonode@nohost <0.16452.17> 76f92bd42d localhost:5984 127.0.0.1 hyperledgeruser GET /mychannel_lscc/mycc4?attachments=true 404 ok 2
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.370 -03 [chaincode] HandleGetState -> DEBU 126f [5368a82a] No state associated with key: mycc4. Sending RESPONSE with an empty payload
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.379 -03 [chaincode] LaunchConfig -> DEBU 1284 launchConfig: executable:"chaincode",Args:[chaincode,-peer.address=172.30.97.68:7052],Envs:[CORE_CHAINCODE_LOGGING_LEVEL=info,CORE_CHAINCODE_LOGGING_SHIM=warning,CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message},CORE_CHAINCODE_ID_NAME=mycc4:1.0,CORE_PEER_TLS_ENABLED=true,CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key,CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt,CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt],Files:[/etc/hyperledger/fabric/client.crt /etc/hyperledger/fabric/client.key /etc/hyperledger/fabric/peer.crt]
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.379 -03 [chaincode] Start -> DEBU 1285 start container: mycc4:1.0
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.379 -03 [chaincode] Start -> DEBU 1287 start container with env:
+	CORE_CHAINCODE_LOGGING_LEVEL=info
+	CORE_CHAINCODE_LOGGING_SHIM=warning
+	CORE_CHAINCODE_LOGGING_FORMAT=%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}
+	CORE_CHAINCODE_ID_NAME=mycc4:1.0
+	CORE_PEER_TLS_ENABLED=true
+	CORE_TLS_CLIENT_KEY_PATH=/etc/hyperledger/fabric/client.key
+	CORE_TLS_CLIENT_CERT_PATH=/etc/hyperledger/fabric/client.crt
+	CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/peer.crt
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.379 -03 [container] lockContainer -> DEBU 1288 waiting for container(mycc4-1.0) lock
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.379 -03 [container] lockContainer -> DEBU 1289 got container (mycc4-1.0) lock
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.380 -03 [dockercontroller] stopInternal -> DEBU 128a stopping container id=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g dind error time="2020-04-29T13:49:30.383348242Z" level=error msg="Handler for POST /containers/dev-peer0.org1.example.com-mycc4-1.0/stop returned error: No such container: dev-peer0.org1.example.com-mycc4-1.0" 
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.383 -03 [dockercontroller] stopInternal -> DEBU 128b stop container result error="No such container: dev-peer0.org1.example.com-mycc4-1.0"
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g dind error time="2020-04-29T13:49:30.384468760Z" level=error msg="Handler for POST /containers/dev-peer0.org1.example.com-mycc4-1.0/kill returned error: Cannot kill container dev-peer0.org1.example.com-mycc4-1.0: No such container: dev-peer0.org1.example.com-mycc4-1.0" 
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g dind error time="2020-04-29T13:49:30.385210401Z" level=error msg="Handler for DELETE /containers/dev-peer0.org1.example.com-mycc4-1.0 returned error: No such container: dev-peer0.org1.example.com-mycc4-1.0" 
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.383 -03 [dockercontroller] stopInternal -> DEBU 128c killing container id=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.384 -03 [dockercontroller] stopInternal -> DEBU 128d kill container result id=dev-peer0.org1.example.com-mycc4-1.0 error="No such container: dev-peer0.org1.example.com-mycc4-1.0"
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.384 -03 [dockercontroller] stopInternal -> DEBU 128e removing container id=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.385 -03 [dockercontroller] stopInternal -> DEBU 128f remove container result id=dev-peer0.org1.example.com-mycc4-1.0 error="No such container: dev-peer0.org1.example.com-mycc4-1.0"
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:49:30.385 -03 [dockercontroller] createContainer -> DEBU 1290 create container imageID=dev-peer0.org1.example.com-mycc4-1.0-8301c3e26b494059b6421773ad1a1fc4920b58a069c4bd3b6e0ff7cd141e9234 containerID=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g dind error time="2020-04-29T13:49:30.388028558Z" level=error msg="Handler for POST /containers/create returned error: No such image: dev-peer0.org1.example.com-mycc4-1.0-8301c3e26b494059b6421773ad1a1fc4920b58a069c4bd3b6e0ff7cd141e9234:latest" 
+Apr 29 09:49:30 org1peer0-6cc44d8ccd-tv77g peer LABEL org.hyperledger.fabric.chaincode.id.name="mycc4" \
+      org.hyperledger.fabric.chaincode.id.version="1.0" \
+      org.hyperledger.fabric.chaincode.type="GOLANG" \
+      org.hyperledger.fabric.version="1.4.6" \
+      org.hyperledger.fabric.base.version="0.4.18"
+Apr 29 09:50:02 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:02.001 -03 [dockercontroller] deployImage -> DEBU 1839 Created image: dev-peer0.org1.example.com-mycc4-1.0-8301c3e26b494059b6421773ad1a1fc4920b58a069c4bd3b6e0ff7cd141e9234
+Apr 29 09:50:02 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:02.002 -03 [dockercontroller] createContainer -> DEBU 183a create container imageID=dev-peer0.org1.example.com-mycc4-1.0-8301c3e26b494059b6421773ad1a1fc4920b58a069c4bd3b6e0ff7cd141e9234 containerID=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:50:02 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:02.970 -03 [dockercontroller] createContainer -> DEBU 1869 created container imageID=dev-peer0.org1.example.com-mycc4-1.0-8301c3e26b494059b6421773ad1a1fc4920b58a069c4bd3b6e0ff7cd141e9234 containerID=dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.120 -03 [gossip.comm] sendToEndpoint -> DEBU 1897 Exiting
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.414 -03 [dockercontroller] Start -> DEBU 1898 Started container dev-peer0.org1.example.com-mycc4-1.0
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.415 -03 [container] unlockContainer -> DEBU 1899 container lock deleted(mycc4-1.0)
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.415 -03 [container] lockContainer -> DEBU 189a waiting for container(mycc4-1.0) lock
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.415 -03 [container] lockContainer -> DEBU 189b got container (mycc4-1.0) lock
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.415 -03 [container] unlockContainer -> DEBU 189c container lock deleted(mycc4-1.0)
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode.accesscontrol] authenticate -> DEBU 189d Chaincode mycc4:1.0 's authentication is authorized
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] handleMessage -> DEBU 189e [] Fabric side handling ChaincodeMessage of type: REGISTER in state created
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] HandleRegister -> DEBU 189f Received REGISTER in state created
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] Register -> DEBU 18a0 registered handler complete for chaincode mycc4:1.0
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] HandleRegister -> DEBU 18a1 Got REGISTER for chaincodeID = name:"mycc4:1.0" , sending back REGISTERED
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] HandleRegister -> DEBU 18a2 Changed state to established for name:"mycc4:1.0" 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] sendReady -> DEBU 18a3 sending READY for chaincode name:"mycc4:1.0" 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] sendReady -> DEBU 18a4 Changed to state ready for chaincode name:"mycc4:1.0" 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] Launch -> DEBU 18a5 launch complete
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.455 -03 [chaincode] Execute -> DEBU 18a6 Entry
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.458 -03 [chaincode] handleMessage -> DEBU 18a7 [5368a82a] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.458 -03 [chaincode] HandleTransaction -> DEBU 18a8 [5368a82a] handling PUT_STATE from chaincode
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.458 -03 [chaincode] HandleTransaction -> DEBU 18a9 [5368a82a] Completed PUT_STATE. Sending RESPONSE
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.458 -03 [peer.chaincode.dev-peer0.org1.example.com-mycc4-1.0] func2 -> INFO 18aa ex02 Init
+ Wednesday, Apr 29th 2020, 9:50am
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.458 -03 [peer.chaincode.dev-peer0.org1.example.com-mycc4-1.0] func2 -> INFO 18ab Aval = 100, Bval = 200
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.459 -03 [chaincode] handleMessage -> DEBU 18ac [5368a82a] Fabric side handling ChaincodeMessage of type: PUT_STATE in state ready
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.459 -03 [chaincode] HandleTransaction -> DEBU 18ad [5368a82a] handling PUT_STATE from chaincode
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.460 -03 [chaincode] HandleTransaction -> DEBU 18ae [5368a82a] Completed PUT_STATE. Sending RESPONSE
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.460 -03 [chaincode] handleMessage -> DEBU 18af [5368a82a] Fabric side handling ChaincodeMessage of type: COMPLETED in state ready
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [chaincode] Notify -> DEBU 18b0 [5368a82a] notifying Txid:5368a82aafe656ea44403af3db482122cd1ed5fe62786df08b0b2dfe64237e51, channelID:mychannel
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [chaincode] Execute -> DEBU 18b1 Exit
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [endorser] callChaincode -> INFO 18b2 [mychannel][5368a82a] Exit chaincode: name:"lscc"  (33098ms)
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [lockbasedtxmgr] GetTxSimulationResults -> DEBU 18b3 Simulation completed, getting simulation results
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [lockbasedtxmgr] Done -> DEBU 18b4 Done with transaction simulation / query execution [5368a82aafe656ea44403af3db482122cd1ed5fe62786df08b0b2dfe64237e51]
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [endorser] SimulateProposal -> DEBU 18b5 [mychannel][5368a82a] Exit
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.461 -03 [endorser] endorseProposal -> DEBU 18b6 [mychannel][5368a82a] Entry chaincode: name:"lscc" 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [endorser] endorseProposal -> DEBU 18b7 [mychannel][5368a82a] escc for chaincode name:"lscc"  is escc
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [endorser] EndorseWithPlugin -> DEBU 18b8 Entering endorsement for {plugin: escc, channel: mychannel, tx: 5368a82aafe656ea44403af3db482122cd1ed5fe62786df08b0b2dfe64237e51, chaincode: lscc}
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [msp.identity] Sign -> DEBU 18b9 Sign: plaintext: 0A20ED7E54C4F55BC29D3D76D919F79E...455254494649434154452D2D2D2D2D0A 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [msp.identity] Sign -> DEBU 18ba Sign: digest: B862BF4CA09B6957C24F410326AC444F1B6CA332409BC6903660936478FEB84F 
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [endorser] EndorseWithPlugin -> DEBU 18bb Exiting {plugin: escc, channel: mychannel, tx: 5368a82aafe656ea44403af3db482122cd1ed5fe62786df08b0b2dfe64237e51, chaincode: lscc}
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.462 -03 [endorser] endorseProposal -> DEBU 18bc [mychannel][5368a82a] Exit
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.463 -03 [lockbasedtxmgr] Done -> DEBU 18bd Done with transaction simulation / query execution [5368a82aafe656ea44403af3db482122cd1ed5fe62786df08b0b2dfe64237e51]
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.463 -03 [endorser] func1 -> DEBU 18be Exit: request from 10.177.30.84:36432
+Apr 29 09:50:03 org1peer0-6cc44d8ccd-tv77g peer 2020-04-29 10:50:03.463 -03 [comm.grpc.server] 1 -> INFO 18bf unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=10.177.30.84:36432 grpc.code=OK grpc.call_duration=33.108323646s

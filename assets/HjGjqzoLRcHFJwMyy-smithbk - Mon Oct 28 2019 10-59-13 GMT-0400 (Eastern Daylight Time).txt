@@ -1,0 +1,70 @@
+Anyone, I'm getting the following error when the log level is set to 'trace'.  ```TRACE|indy::commands::non_secrets   |        src/commands/non_secrets.rs:245 | open_search >>> wallet_handle: WalletHandle(2), type_: "connection", query_json: "{\"$or\":[{\"state\":{\"$like\":\"inbound_offer\"}},{\"state\":{\"$like\":\"outbound_offer\"}}]}", options_json: "{\"retrieveRecords\":true,\"retrieveTotalCount\":true,\"retrieveType\":true,\"retrieveValue\":true,\"retrieveTags\":true}"
+TRACE|indy::api::non_secrets        |             src/api/non_secrets.rs:426 | prepare_result_1: >>> Err(IndyError { inner: stack backtrace:
+   0: failure::backtrace::internal::InternalBacktrace::new::h58a50641e4dd08a0 (0x7f89d5be5312)
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/failure-0.1.5/src/backtrace/internal.rs:44
+   1: failure::backtrace::Backtrace::new::h7013b9d4fd78f2f3 (0x7f89d5be504d)
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/failure-0.1.5/src/backtrace/mod.rs:111
+   2: failure::context::Context<D>::new::h95d0e237acd3d9c3 (0x7f89d58a9041)
+             at /home/agent/.cargo/registry/src/github.com-1ecc6299db9ec823/failure-0.1.5/src/context.rs:84
+   3: indy::errors::IndyError::from_msg::he7a01937adb021ad (0x7f89d53a560d)
+             at src/errors/mod.rs:153
+   4: indy::errors::err_msg::ha257b38939746bd6 (0x7f89d53a5c7d)
+             at src/errors/mod.rs:176
+   5: indy::services::wallet::language::parse_single_operator::h49c79a7bde8224f1 (0x7f89d48751ac)
+             at src/services/wallet/language.rs:295
+   6: indy::services::wallet::language::parse_operator::h47e7d64054b11a71 (0x7f89d4872645)
+             at src/services/wallet/language.rs:246
+   7: indy::services::wallet::language::parse::hf7ad48c11c8deabd (0x7f89d4870d33)
+             at src/services/wallet/language.rs:196
+   8: indy::services::wallet::language::parse_operator::h47e7d64054b11a71 (0x7f89d4871da0)
+             at src/services/wallet/language.rs:227
+   9: indy::services::wallet::language::parse::hf7ad48c11c8deabd (0x7f89d4870d33)
+             at src/services/wallet/language.rs:196
+  10: indy::services::wallet::language::parse_from_json::h79e0940d0d4999a0 (0x7f89d48705c2)
+             at src/services/wallet/language.rs:185
+  11: indy::services::wallet::wallet::Wallet::search::h39b5f6ea6890cc45 (0x7f89d5147191)
+             at src/services/wallet/wallet.rs:192
+  12: indy::services::wallet::WalletService::search_records::hfe745f3268b3bef3 (0x7f89d512d3ea)
+             at src/services/wallet/mod.rs:370
+  13: indy::commands::non_secrets::NonSecretsCommandExecutor::open_search::hdf512a94259bfae9 (0x7f89d4ea7fcd)
+             at src/commands/non_secrets.rs:252
+  14: indy::commands::non_secrets::NonSecretsCommandExecutor::execute::h107bc94ec0ff669a (0x7f89d4ea1888)
+             at src/commands/non_secrets.rs:106
+  15: indy::commands::CommandExecutor::new::{{closure}}::he7b3630b8502785e (0x7f89d4ac7916)
+             at src/commands/mod.rs:157
+  16: std::sys_common::backtrace::__rust_begin_short_backtrace::hc6a72bce275be83b (0x7f89d4bf234a)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/sys_common/backtrace.rs:136
+  17: std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h012e07368887a7d4 (0x7f89d51249fd)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/thread/mod.rs:470
+  18: <std::panic::AssertUnwindSafe<F> as core::ops::function::FnOnce<()>>::call_once::h658c00cee8a4be73 (0x7f89d4d0bf8d)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/panic.rs:315
+  19: std::panicking::try::do_call::hbec0a03941a098dd (0x7f89d528e6a4)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/panicking.rs:293
+  20: __rust_maybe_catch_panic (0x7f89d5c421d9)
+             at src/libpanic_unwind/lib.rs:85
+  21: std::panicking::try::hd1e2e3adf0dfc36d (0x7f89d528e495)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/panicking.rs:272
+  22: std::panic::catch_unwind::he2c3ed3a5a5d46a4 (0x7f89d4d0c05d)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/panic.rs:394
+  23: std::thread::Builder::spawn_unchecked::{{closure}}::h09d8d2dc9b5aaed2 (0x7f89d512444d)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libstd/thread/mod.rs:469
+  24: core::ops::function::FnOnce::call_once{{vtable.shim}}::h1ece12697bfc93a6 (0x7f89d50aa5f3)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/libcore/ops/function.rs:231
+  25: <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h805c3cc89d534c05 (0x7f89d5c30f5e)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/liballoc/boxed.rs:704
+  26: <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h9ebda9db5f03daf3 (0x7f89d5c4156f)
+             at /rustc/a53f9df32fbb0b5f4382caaad8f1a46f36ea887c/src/liballoc/boxed.rs:704
+      std::sys_common::thread::start_thread::ha32838ccbb8a8179
+             at src/libstd/sys_common/thread.rs:13
+      std::sys::unix::thread::Thread::new::thread_start::h6f10b78f26c98dc6
+             at src/libstd/sys/unix/thread.rs:79
+  27: start_thread (0x7f89d993f6b9)
+  28: clone (0x7f89d967541c)
+  29: <unknown> (0x0)
+
+$like must be used only for nonencrypted tag```
+I'd like to get the `$like must be used only for nonencrypted tag` part of the error message from the IndyError object without being at 'trace' level.  Is there a way to do this?
+
+Also, I was surprised that there is not a '$eq' operator supported.   Could that be added?
+
+Thanks

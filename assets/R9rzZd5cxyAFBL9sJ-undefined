@@ -1,0 +1,1028 @@
+$ make unit-test
+cd unit-test && docker-compose down
+WARNING: The TEST_PKGS variable is not set. Defaulting to a blank string.
+cd unit-test && docker-compose up --abort-on-container-exit --force-recreate && docker-compose down
+WARNING: The TEST_PKGS variable is not set. Defaulting to a blank string.
+Creating couchdb
+Creating unittest_vp_1
+Creating unittest_unit-tests_1
+Attaching to unittest_vp_1, couchdb, unittest_unit-tests_1
+vp_1          | WARNING: no logs are available with the 'none' log driver
+couchdb       | WARNING: no logs are available with the 'none' log driver
+unit-tests_1  | Obtaining list of tests to run for the following packages: github.com/hyperledger/fabric/...DONE!
+unit-tests_1  | Running tests...
+unit-tests_1  | ?   	github.com/hyperledger/fabric/bccsp	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/bccsp/factory	0.007s	coverage: 37.7% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/bccsp/mocks	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/bccsp/pkcs11	43.672s	coverage: 61.1% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/bccsp/signer	0.023s	coverage: 100.0% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/bccsp/sw	35.580s	coverage: 89.4% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/bccsp/sw/mocks	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/bccsp/utils	0.052s	coverage: 87.0% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/cauthdsl	0.025s	coverage: 74.9% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/config	0.088s	coverage: 69.8% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/config/msp	0.073s	coverage: 50.6% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/configtx	0.027s	coverage: 73.1% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/configtx/api	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/configtx/tool/configtxgen	0.076s	coverage: 65.4% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/configtx/tool/localconfig	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/configtx/tool/provisional	0.069s	coverage: 76.7% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/crypto	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/errors	0.010s	coverage: 98.4% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/flogging	0.009s	coverage: 93.6% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/genesis	0.032s	coverage: 89.5% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/ledger	[no test files]
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/ledger/blkstorage	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/ledger/blkstorage/fsblkstorage	10.044s	coverage: 84.2% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/ledger/util	0.075s	coverage: 89.9% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/ledger/util/leveldbhelper	0.197s	coverage: 90.4% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/localmsp	0.073s	coverage: 76.2% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/metadata	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/policies	0.035s	coverage: 65.6% of statements
+unit-tests_1  | ?   	github.com/hyperledger/fabric/common/tools/cryptogen	[no test files]
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/tools/cryptogen/ca	0.026s	coverage: 96.4% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/tools/cryptogen/csp	0.024s	coverage: 100.0% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/tools/cryptogen/msp	0.029s	coverage: 84.1% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/util	2.024s	coverage: 68.3% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/common/viperutil	0.180s	coverage: 84.1% of statements
+unit-tests_1  | ok  	github.com/hyperledger/fabric/core	0.024s	coverage: 20.5% of statements
+unit-tests_1  | 2017-05-11 11:47:54.065 UTC [msp] getMspConfig -> INFO 001 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.065 UTC [msp] getMspConfig -> INFO 002 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.095 UTC [ledgermgmt] Close -> INFO 003 Closing ledger mgmt
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:47:54.096 UTC [ledgermgmt] initialize -> INFO 004 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:47:54.096 UTC [kvledger] NewProvider -> INFO 005 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:47:54.133 UTC [kvledger] NewProvider -> INFO 006 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:47:54.133 UTC [ledgermgmt] initialize -> INFO 007 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:47:54.141 UTC [chaincode] NewChaincodeSupport -> INFO 008 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:47:54.141 UTC [chaincode] NewChaincodeSupport -> ERRO 009 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:47:54.142 UTC [sccapi] RegisterSysCC -> INFO 00a system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:47:54.142 UTC [sccapi] RegisterSysCC -> INFO 00b system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:47:54.142 UTC [sccapi] RegisterSysCC -> INFO 00c system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:47:54.142 UTC [sccapi] RegisterSysCC -> INFO 00d system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:47:54.142 UTC [sccapi] RegisterSysCC -> INFO 00e system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:47:54.170 UTC [msp] getMspConfig -> INFO 00f intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.170 UTC [msp] getMspConfig -> INFO 010 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.197 UTC [msp] getMspConfig -> INFO 011 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.197 UTC [msp] getMspConfig -> INFO 012 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:47:54.209 UTC [ledgermgmt] CreateLedger -> INFO 013 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:47:54.235 UTC [kvledger] Commit -> INFO 014 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:47:54.242 UTC [ledgermgmt] CreateLedger -> INFO 015 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:47:54.243 UTC [cscc] Init -> INFO 016 Init CSCC
+unit-tests_1  | 2017-05-11 11:47:54.243 UTC [sccapi] deploySysCC -> INFO 017 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:47:54.243 UTC [sccapi] deploySysCC -> INFO 018 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:47:54.244 UTC [escc] Init -> INFO 019 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:47:54.244 UTC [sccapi] deploySysCC -> INFO 01a system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:47:54.244 UTC [sccapi] deploySysCC -> INFO 01b system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:47:54.245 UTC [sccapi] deploySysCC -> INFO 01c system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"cc_go_213006" version:"1.0.0.0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:47:54.253 UTC [golang-platform] writeGopathSrc -> INFO 01d rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:47:54.253 UTC [container] WriteFolderToTarPackage -> INFO 01e rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:48:20.522 UTC [kvledger] Commit -> INFO 01f Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:48:21.633 UTC [chaincode] processStream -> ERRO 020 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:48:21.645 UTC [dockercontroller] func2 -> INFO 021 Container dev-jdoe-cc_go_213006-1.0.0.0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:48:21.800 UTC [dockercontroller] Destroy -> ERRO 022 error while destroying image: no such image
+unit-tests_1  | 2017-05-11 11:48:22.251 UTC [kvledger] Commit -> INFO 023 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | Got string: 90
+unit-tests_1  | Aval = 90, Bval = 210
+unit-tests_1  | 2017-05-11 11:48:22.259 UTC [kvledger] Commit -> INFO 024 Channel [testchainid]: Created block [3] with 1 transaction(s)
+unit-tests_1  | Invoke test passed
+unit-tests_1  | 2017-05-11 11:48:22.334 UTC [chaincode] processStream -> ERRO 025 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:48:22.347 UTC [dockercontroller] func2 -> INFO 026 Container dev-jdoe-cc_go_213006-1.0.0.0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func2 -> ERRO 027 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func1 -> ERRO 028 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func2 -> ERRO 029 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func2 -> ERRO 02a chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func2 -> ERRO 02b chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func1 -> ERRO 02d chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func1 -> ERRO 02c chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:22.495 UTC [inproccontroller] func1 -> ERRO 02e chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:24.496 UTC [ledgermgmt] Close -> INFO 02f Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:24.497 UTC [ledgermgmt] Close -> INFO 030 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:48:24.502 UTC [ledgermgmt] Close -> INFO 031 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:24.502 UTC [ledgermgmt] Close -> INFO 032 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:48:24.503 UTC [ledgermgmt] initialize -> INFO 033 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:24.503 UTC [kvledger] NewProvider -> INFO 034 Initializing ledgeer
+unit-tests_1  | 2017-05-11 11:48:24.552 UTC [kvledger] NewProvider -> INFO 035 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:48:24.552 UTC [ledgermgmt] initialize -> INFO 036 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:48:24.559 UTC [chaincode] NewChaincodeSupport -> INFO 037 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:48:24.559 UTC [chaincode] NewChaincodeSupport -> ERRO 038 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:48:24.560 UTC [sccapi] RegisterSysCC -> INFO 039 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:48:24.560 UTC [sccapi] RegisterSysCC -> INFO 03a system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:48:24.560 UTC [sccapi] RegisterSysCC -> INFO 03b system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:48:24.560 UTC [sccapi] RegisterSysCC -> INFO 03c system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:48:24.560 UTC [sccapi] RegisterSysCC -> INFO 03d system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:48:24.585 UTC [msp] getMspConfig -> INFO 03e intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:24.586 UTC [msp] getMspConfig -> INFO 03f crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:24.607 UTC [msp] getMspConfig -> INFO 040 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:24.607 UTC [msp] getMspConfig -> INFO 041 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:24.616 UTC [ledgermgmt] CreateLedger -> INFO 042 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:48:24.647 UTC [kvledger] Commit -> INFO 043 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:48:24.654 UTC [ledgermgmt] CreateLedger -> INFO 044 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:48:24.655 UTC [cscc] Init -> INFO 045 Init CSCC
+unit-tests_1  | 2017-05-11 11:48:24.655 UTC [sccapi] deploySysCC -> INFO 046 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:48:24.655 UTC [sccapi] deploySysCC -> INFO 047 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:48:24.656 UTC [escc] Init -> INFO 048 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:48:24.656 UTC [sccapi] deploySysCC -> INFO 049 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:48:24.656 UTC [sccapi] deploySysCC -> INFO 04a system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:48:24.657 UTC [sccapi] deploySysCC -> INFO 04b system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:JAVA chaincode_id:<path:"../../examples/chaincode/java/chaincode_example02" name:"cc_java_976098" version:"1.0.0.0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:48:24.669 UTC [container] WriteFolderToTarPackage -> INFO 04c rootDirectory = ../../examples/chaincode/java/chaincode_example02
+unit-tests_1  | 2017-05-11 11:48:51.561 UTC [dockercontroller] func2 -> INFO 04d Container dev-jdoe-cc_java_976098-1.0.0.0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:48:51.728 UTC [chaincode] Launch -> ERRO 04e launchAndWaitForRegister failed Timeout expired while starting chaincode cc_java_976098:1.0.0.0(networkid:dev,peerid:jdoe,tx:45e9c1a4-91c2-4304-b37b-0b32d8366c98)
+unit-tests_1  | 2017-05-11 11:48:51.728 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 04f ExecuteWithErrorFilter cc_java_976098 error: Timeout expired while starting chaincode cc_java_976098:1.0.0.0(networkid:dev,peerid:jdoe,tx:45e9c1a4-91c2-4304-b37b-0b32d8366c98)
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func2 -> ERRO 050 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func1 -> ERRO 051 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func2 -> ERRO 052 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func2 -> ERRO 053 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func1 -> ERRO 054 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func1 -> ERRO 056 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func2 -> ERRO 055 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:48:51.732 UTC [inproccontroller] func1 -> ERRO 057 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:48:53.733 UTC [ledgermgmt] Close -> INFO 058 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:53.733 UTC [ledgermgmt] Close -> INFO 059 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | --- FAIL: TestExecuteInvokeTransaction (59.64s)
+unit-tests_1  |     --- FAIL: TestExecuteInvokeTransaction/JAVA (29.23s)
+unit-tests_1  |     	exectransaction_test.go:835: Error invoking transaction: Error deploying <cc_java_976098>: Error deploying chaincode(2): Timeout expired while starting chaincode cc_java_976098:1.0.0.0(networkid:dev,peerid:jdoe,tx:45e9c1a4-91c2-4304-b37b-0b32d8366c98)
+unit-tests_1  | 2017-05-11 11:48:53.736 UTC [ledgermgmt] Close -> INFO 05a Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:53.736 UTC [ledgermgmt] Close -> INFO 05b ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:48:53.737 UTC [ledgermgmt] initialize -> INFO 05c Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:48:53.737 UTC [kvledger] NewProvider -> INFO 05d Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:48:53.786 UTC [kvledger] NewProvider -> INFO 05e ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:48:53.786 UTC [ledgermgmt] initialize -> INFO 05f ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:48:53.793 UTC [chaincode] NewChaincodeSupport -> INFO 060 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:48:53.794 UTC [chaincode] NewChaincodeSupport -> ERRO 061 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:48:53.794 UTC [sccapi] RegisterSysCC -> INFO 062 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:48:53.794 UTC [sccapi] RegisterSysCC -> INFO 063 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:48:53.794 UTC [sccapi] RegisterSysCC -> INFO 064 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:48:53.795 UTC [sccapi] RegisterSysCC -> INFO 065 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:48:53.795 UTC [sccapi] RegisterSysCC -> INFO 066 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:0 UTC [msp] getMspConfig -> INFO 067 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:53.820 UTC [msp] getMspConfig -> INFO 068 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:53.842 UTC [msp] getMspConfig -> INFO 069 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:53.842 UTC [msp] getMspConfig -> INFO 06a crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:48:53.851 UTC [ledgermgmt] CreateLedger -> INFO 06b Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:48:53.877 UTC [kvledger] Commit -> INFO 06c Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:48:53.885 UTC [ledgermgmt] CreateLedger -> INFO 06d Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:48:53.885 UTC [cscc] Init -> INFO 06e Init CSCC
+unit-tests_1  | 2017-05-11 11:48:53.885 UTC [sccapi] deploySysCC -> INFO 06f system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:48:53.886 UTC [sccapi] deploySysCC -> INFO 070 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:48:53.886 UTC [escc] Init -> INFO 071 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:48:53.886 UTC [sccapi] deploySysCC -> INFO 072 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:48:53.886 UTC [sccapi] deploySysCC -> INFO 073 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:48:53.887 UTC [sccapi] deploySysCC -> INFO 074 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"example02" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:48:53.894 UTC [golang-platform] writeGopathSrc -> INFO 075 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:48:53.894 UTC [container] WriteFolderToTarPackage -> INFO 076 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:07.340 UTC [kvledger] Commit -> INFO 077 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:49:08.424 UTC [chaincode] processStream -> ERRO 078 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:49:08.438 UTC [dockercontroller] func2 -> INFO 079 Container dev-jdoe-example02-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func2 -> ERRO 07a chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func2 -> ERRO 07b chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func2 -> ERRO 07c chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func1 -> ERRO 07d chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func1 -> ERRO 07e chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func1 -> ERRO 07f chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func2 -> ERRO 080 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:08.582 UTC [inproccontroller] func1 -> ERRO 081 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:10.583 UTC [ledgermgmt] Close -> INFO 082 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:49:10.584 UTC [ledgermgmt] Close -> INFO 083 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:49:10.589 UTC [ledgermgmt] Close -> INFO 084 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:49:10.589 UTC [ledgermgmt] Close -> INFO 085 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:49:10.590 UTC [ledgermgmt] initialize -> INFO 086 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:49:10.590 UTC [kvledger] NewProvider -> INFO 087 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:49:10.635 UTC [kvledger] NewProvider -> INFO 088 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:49:10.635 UTC [ledgermgmt] initialize -> INFO 089 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:49:10.642 UTC [chaincode] NewChaincodeSupport -> INFO 08a Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:49:10.643 UTC [chaincode] NewChaincodeSupport -> ERRO 08b Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:49:10.643 UTC [sccapi] RegisterSysCC -> INFO 08c system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:49:10.643 UTC [sccapi] RegisterSysCC -> INFO 08d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:49:10.643 UTC [sccapi] RegisterSysCC -> INFO 08e system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:49:10.643 UTC [sccapi] RegisterSysCC -> INFO 08f system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:49:10.644 UTC [sccapi] RegisterSysCC -> INFO 090 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:49:10.670 UTC [msp] getMspConfig -> INFO 091 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.670 UTC [msp] getMspConfig -> INFO 092 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.694 UTC [msp] getMspConfig -> INFO 093 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.694 UTC [msp] getMspConfig -> INFO 094 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.704 UTC [ledgermgmt] CreateLedger -> INFO 095 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:49:10.733 UTC [kvledger] Commit -> INFO 096 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:49:10.740 UTC [ledgermgmt] CreateLedger -> INFO 097 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:49:10.741 UTC [cscc] Init -> INFO 098 Init CSCC
+unit-tests_1  | 2017-05-11 11:49:10.741 UTC [sccapi] deploySysCC -> INFO 099 system chaincode cscc/testchainid(github.com/hyr/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.741 UTC [sccapi] deploySysCC -> INFO 09a system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.741 UTC [escc] Init -> INFO 09b Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:49:10.741 UTC [sccapi] deploySysCC -> INFO 09c system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [sccapi] deploySysCC -> INFO 09d system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [sccapi] deploySysCC -> INFO 09e system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func2 -> ERRO 09f chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func1 -> ERRO 0a0 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func2 -> ERRO 0a1 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func2 -> ERRO 0a2 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func1 -> ERRO 0a3 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func1 -> ERRO 0a4 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func2 -> ERRO 0a5 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:49:10.742 UTC [inproccontroller] func1 -> ERRO 0a6 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:49:10.768 UTC [msp] getMspConfig -> INFO 0a7 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.768 UTC [msp] getMspConfig -> INFO 0a8 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.791 UTC [msp] getMspConfig -> INFO 0a9 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.791 UTC [msp] getMspConfig -> INFO 0aa crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:49:10.801 UTC [ledgermgmt] CreateLedger -> INFO 0ab Creating ledger [testchainid2] with genesis block
+unit-tests_1  | 2017-05-11 11:49:10.824 UTC [kvledger] Commit -> INFO 0ac Channel [testchainid2]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:49:10.831 UTC [ledgermgmt] CreateLedger -> INFO 0ad Created ledger [testchainid2] with genesis block
+unit-tests_1  | 2017-05-11 11:49:10.831 UTC [cscc] Init -> INFO 0ae Init CSCC
+unit-tests_1  | 2017-05-11 11:49:10.831 UTC [sccapi] deploySysCC -> INFO 0af system chaincode cscc/testchainid2(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.832 UTC [sccapi] deploySysCC -> INFO 0b0 system chaincode lscc/testchainid2(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.832 UTC [escc] Init -> INFO 0b1 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:49:10.832 UTC [sccapi] deploySysCC -> INFO 0b2 system chaincode escc/testchainid2(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.833 UTC [sccapi] deploySysCC -> INFO 0b3 system chaincode vscc/testchainid2(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:49:10.833 UTC [sccapi] deploySysCC -> INFO 0b4 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"cc_go_523616" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:49:10.840 UTC [golang-platform] writeGopathSrc -> INFO 0b5 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:10.840 UTC [container] WriteFolderToTarPackage -> INFO 0b6 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:34.737 UTC [kvledger] Commit -> INFO 0b7 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example04" name:"cc_go_087383" version:"0" > input:<args:"init" args:"e" args:"0" > 
+unit-tests_1  | 2017-05-11 11:49:35.763 UTC [golang-platform] writeGopathSrc -> INFO 0b8 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:35.763 UTC [container] WriteFolderToTarPackage -> INFO 0b9 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:58.902 UTC [kvledger] Commit -> INFO 0ba Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:49:59.940 UTC [kvledger] Commit -> INFO 0bb Channel [testchainid]: Created block [3] with 1 transaction(s)
+unit-tests_1  | Got string: 90
+unit-tests_1  | Aval = 90, Bval = 210
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example04" name:"cc_go_087383" version:"0" > input:<args:"init" args:"e" args:"0" > 
+unit-tests_1  | 2017-05-11 11:49:59.954 UTC [golang-platform] writeGopathSrc -> INFO 0bc rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:49:59.954 UTC [container] WriteFolderToTarPackage -> INFO 0bd rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:50:12.874 UTC [kvledger] Commit -> INFO 0be Channel [testchainid2]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:50:13.889 UTC [chaincode] func1 -> ERRO 0bf [54a57096] C-call-C cc_go_523616 on channel testchainid failed check ACL [proposal_bytes:"\n\230\001\nu\010\003\032\014\010\365\237\321\310\005\020\225\261\364\247\003\"\014testchainid2*@22b275dc4f3a2c53308636b1cf98bfd917fb0a38cab1164e40ae6d92392bbf08:\023\022\021\022\014cc_go_087383\032\0010\022\037\n\003Bob\022\030\033\"\354\247\226\203\305UX\010\331@\222\301g\250\020\217E\233w\331^\342\022D\nB\n@\010\001\022\021\022\014cc_go_087383\032\0010\032)\n\006invoke\n\014cc_go_523616\n\001e\n\0011\n\013testchainid" signature:"msg1" ]: [Failed evaluating policy on signed data during check policy on channel [testchainid] with policy [/Channel/Application/Writers}: [Creator not recognized [Bob]]]
+unit-tests_1  | 2017-05-11 11:50:13.890 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 0c0 ExecuteWithErrorFilter cc_go_087383 error: Transaction returned with failure: Failed evaluating policy on signed data during check policy on channel [testchainid] with policy [/Channel/Application/Writers}: [Creator not recognized [Bob]]
+unit-tests_1  | 2017-05-11 11:50:13.912 UTC [kvledger] Commit -> INFO 0c1 Channel [testchainid2]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:50:13.983 UTC [chaincode] processStream -> ERRO 0c2 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:50:13.997 UTC [dockercontroller] func2 -> INFO 0c3 Container dev-jdoe-cc_go_523616-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:50:14.224 UTC [chaincode] processStream -> ERRO 0c4 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:50:14.236 UTC [dockercontroller] func2 -> INFO 0c5 Container dev-jdoe-cc_go_087383-0 has closed its IO channel
+unit-tests_1  | getting deployment spec for chaincode spec: type:JAVA chain�<path:"../../examples/chaincode/java/chaincode_example04" name:"cc_java_784802" version:"0" > input:<args:"init" args:"e" args:"0" > 
+unit-tests_1  | 2017-05-11 11:50:14.409 UTC [container] WriteFolderToTarPackage -> INFO 0c6 rootDirectory = ../../examples/chaincode/java/chaincode_example04
+unit-tests_1  | 2017-05-11 11:50:41.565 UTC [dockercontroller] func2 -> INFO 0c7 Container dev-jdoe-cc_java_784802-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:50:41.718 UTC [chaincode] Launch -> ERRO 0c8 launchAndWaitForRegister failed Timeout expired while starting chaincode cc_java_784802:0(networkid:dev,peerid:jdoe,tx:81aa8782-e8ec-414b-bba3-a4b2f152dde7)
+unit-tests_1  | 2017-05-11 11:50:41.718 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 0c9 ExecuteWithErrorFilter cc_java_784802 error: Timeout expired while starting chaincode cc_java_784802:0(networkid:dev,peerid:jdoe,tx:81aa8782-e8ec-414b-bba3-a4b2f152dde7)
+unit-tests_1  | 2017-05-11 11:50:43.726 UTC [inproccontroller] func2 -> ERRO 0ca chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:50:43.726 UTC [inproccontroller] func2 -> ERRO 0cb chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:50:43.726 UTC [inproccontroller] func1 -> ERRO 0cc chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:50:43.726 UTC [inproccontroller] func1 -> ERRO 0cd chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:50:43.726 UTC [inproccontroller] func2 -> ERRO 0ce chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:50:43.727 UTC [inproccontroller] func2 -> ERRO 0cf chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:50:43.727 UTC [inproccontroller] func1 -> ERRO 0d1 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:50:43.727 UTC [inproccontroller] func1 -> ERRO 0d0 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:50:45.728 UTC [ledgermgmt] Close -> INFO 0d2 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:50:45.728 UTC [ledgermgmt] Close -> INFO 0d3 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | --- FAIL: TestChaincodeInvokeChaincode (95.15s)
+unit-tests_1  |     --- FAIL: TestChaincodeInvokeChaincode/JAVA (27.33s)
+unit-tests_1  |     	exectransaction_test.go:669: Error initializing chaincode cc_java_784802(Error deploying <cc_java_784802:0>: Error deploying chaincode(2): Timeout expired while starting chaincode cc_java_784802:0(networkid:dev,peerid:jdoe,tx:81aa8782-e8ec-414b-bba3-a4b2f152dde7))
+unit-tests_1  | 2017-05-11 11:50:45.737 UTC [ledgermgmt] Close -> INFO 0d4 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:50:45.737 UTC [ledgermgmt] Close -> INFO 0d5 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:50:45.737 UTC [ledgermgmt] initialize -> INFO 0d6 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:50:45.737 UTC [kvledger] NewProvider -> INFO 0d7 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:50:45.795 UTC [kvledger] NewProvider -> INFO 0d8 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:50:45.795 UTC [ledgermgmt] initialize -> INFO 0d9 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:50:45.804 UTC [chaincode] NewChaincodeSupport -> INFO 0da Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:50:45.805 UTC [chaincode] NewChaincodeSupport -> ERRO 0db Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:50:45.805 UTC [sccapi] RegisterSysCC -> INFO 0dc system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:50:45.805 UTC [sccapi] RegisterSysCC -> INFO 0dd system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:50:45.805 UTC [sccapi] RegisterSysCC -> INFO 0de system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:50:45.805 UTC [sccapi] RegisterSysCC -> INFO 0df system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:50:45.806 UTC [sccapi] RegisterSysCC -> INFO 0e0 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:50:45.831 UTC [msp] getMspConfig -> INFO 0e1 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:50:45.832 UTC [msp] getMspConfig -> INFO 0e2 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:50:45.854 UTC [msp] getMspConfig -> INFO 0e3 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:50:45.855 UTC [msp] getMspConfig -> INFO 0e4 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:50:45.863 UTC [ledgermgmt] CreateLedger -> INFO 0e5 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:50:45.899 UTC [kvledger] Commit -> INFO 0e6 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:50:45.905 UTC [ledgermgmt] CreateLedger -> INFO 0e7 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:50:45.906 UTC [cscc] Init -> INFO 0e8 Init CSCC
+unit-tests_1  | 2017-05-11 11:50:45.906 UTC [sccapi] deploySysCC -> INFO 0e9 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:50:45.906 UTC [sccapi] deploySysCC -> INFO 0ea system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:50:45.907 UTC [escc] Init -> INFO 0eb Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:50:45.907 UTC [sccapi] deploySysCC -> INFO 0ec system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:50:45.907 UTC [sccapi] deploySysCC -> INFO 0ed system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:50:45.907 UTC [sccapi] deploySysCC -> INFO 0ee system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"example02" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:50:45.914 UTC [golang-platform] writeGopathSrc -> INFO 0ef rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:50:45.914 UTC [container] WriteFolderToTarPackage -> INFO 0f0 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:50:59.408 UTC [kvledger] Commit -> INFO 0f1 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/passthru" name:"pthru" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:51:00.431 UTC [golang-platform] writeGopathSrc -> INFO 0f2 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:51:00.431 UTC [container] WriteFolderToTarPackage -> INFO 0f3 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:51:14.109 UTC [kvledger] Commit -> INFO 0f4 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:15.203 UTC [chaincode] processStream -> ERRO 0f5 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:51:15.212 UTC [docoller] func2 -> INFO 0f6 Container dev-jdoe-example02-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:51:15.473 UTC [chaincode] processStream -> ERRO 0f7 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:51:15.489 UTC [dockercontroller] func2 -> INFO 0f8 Container dev-jdoe-pthru-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func2 -> ERRO 0f9 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func1 -> ERRO 0fa chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func2 -> ERRO 0fb chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func2 -> ERRO 0fc chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func1 -> ERRO 0fe chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:15.674 UTC [inproccontroller] func2 -> ERRO 0fd chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:15.675 UTC [inproccontroller] func1 -> ERRO 0ff chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:15.675 UTC [inproccontroller] func1 -> ERRO 100 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:17.675 UTC [ledgermgmt] Close -> INFO 101 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:17.677 UTC [ledgermgmt] Close -> INFO 102 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:51:17.686 UTC [ledgermgmt] Close -> INFO 103 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:17.686 UTC [ledgermgmt] Close -> INFO 104 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:51:17.687 UTC [ledgermgmt] initialize -> INFO 105 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:17.687 UTC [kvledger] NewProvider -> INFO 106 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:51:17.732 UTC [kvledger] NewProvider -> INFO 107 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:51:17.732 UTC [ledgermgmt] initialize -> INFO 108 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:51:17.738 UTC [chaincode] NewChaincodeSupport -> INFO 109 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:51:17.739 UTC [chaincode] NewChaincodeSupport -> ERRO 10a Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:51:17.739 UTC [sccapi] RegisterSysCC -> INFO 10b system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:51:17.739 UTC [sccapi] RegisterSysCC -> INFO 10c system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:51:17.740 UTC [sccapi] RegisterSysCC -> INFO 10d system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:51:17.740 UTC [sccapi] RegisterSysCC -> INFO 10e system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:51:17.740 UTC [sccapi] RegisterSysCC -> INFO 10f system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:51:17.765 UTC [msp] getMspConfig -> INFO 110 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:17.766 UTC [msp] getMspConfig -> INFO 111 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:17.787 UTC [msp] getMspConfig -> INFO 112 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:17.787 UTC [msp] getMspConfig -> INFO 113 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:17.797 UTC [ledgermgmt] CreateLedger -> INFO 114 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:51:17.824 UTC [kvledger] Commit -> INFO 115 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:17.831 UTC [ledgermgmt] CreateLedger -> INFO 116 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:51:17.831 UTC [cscc] Init -> INFO 117 Init CSCC
+unit-tests_1  | 2017-05-11 11:51:17.831 UTC [sccapi] deploySysCC -> INFO 118 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:51:17.832 UTC [sccapi] deploySysCC -> INFO 119 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:51:17.832 UTC [escc] Init -> INFO 11a Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:51:17.832 UTC [sccapi] deploySysCC -> INFO 11b system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:51:17.832 UTC [sccapi] deploySysCC -> INFO 11c system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:51:17.832 UTC [sccapi] deploySysCC -> INFO 11d system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/map" name:"tmap" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:51:17.837 UTC [golang-platform] writeGopathSrc -> INFO 11e rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:51:17.837 UTC [container] WriteFolderToTarPackage -> INFO 11f rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:51:31.546 UTC [kvledger] Commit -> INFO 120 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.568 UTC [kvledger] Commit -> INFO 121 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.577 UTC [kvledger] Commit -> INFO 122 Channel [testchainid]: Created block [3] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.585 UTC [kvledger] Commit -> INFO 123 Channel [testchainid]: Created block [4] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.593 UTC [kvledger] Commit -> INFO 124 Channel [testchainid]: Created block [5] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.601 UTC [kvledger] Commit -> INFO 125 Channel [testchainid]: Created block [6] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.611 UTC [kvledger] Commit -> INFO 126 Channel [testchainid]: Created block [7] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.620 UTC [kvledger] Commit -> INFO 127 Channel [testchainid]: Created block [8] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.628 UTC [kvledger] Commit -> INFO 128 Channel [testchainid]: Created block [9] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.636 UTC [kvledger] Commit -> INFO 129 Channel [testchainid]: Created block [10] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.644 UTC [kvledger] Commit -> INFO 12a Channel [testchainid]: Created block [11] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.652 UTC [kvledger] Commit -> INFO 12b Channel [testchainid]: Created block [12] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.666 UTC [kvledger] Commit -> INFO 12c Channel [testchainid]: Created block [13] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.676 UTC [kvledger] Commit -> INFO 12d Channel [testchainid]: Created block [14] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.685 UTC [kvledger] Commit -> INFO 12e [testchainid]: Created block [15] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.694 UTC [kvledger] Commit -> INFO 12f Channel [testchainid]: Created block [16] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.705 UTC [kvledger] Commit -> INFO 130 Channel [testchainid]: Created block [17] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.715 UTC [kvledger] Commit -> INFO 131 Channel [testchainid]: Created block [18] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.724 UTC [kvledger] Commit -> INFO 132 Channel [testchainid]: Created block [19] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.732 UTC [kvledger] Commit -> INFO 133 Channel [testchainid]: Created block [20] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.741 UTC [kvledger] Commit -> INFO 134 Channel [testchainid]: Created block [21] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.751 UTC [kvledger] Commit -> INFO 135 Channel [testchainid]: Created block [22] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.760 UTC [kvledger] Commit -> INFO 136 Channel [testchainid]: Created block [23] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.769 UTC [kvledger] Commit -> INFO 137 Channel [testchainid]: Created block [24] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.777 UTC [kvledger] Commit -> INFO 138 Channel [testchainid]: Created block [25] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.787 UTC [kvledger] Commit -> INFO 139 Channel [testchainid]: Created block [26] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.795 UTC [kvledger] Commit -> INFO 13a Channel [testchainid]: Created block [27] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.803 UTC [kvledger] Commit -> INFO 13b Channel [testchainid]: Created block [28] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.812 UTC [kvledger] Commit -> INFO 13c Channel [testchainid]: Created block [29] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.820 UTC [kvledger] Commit -> INFO 13d Channel [testchainid]: Created block [30] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.828 UTC [kvledger] Commit -> INFO 13e Channel [testchainid]: Created block [31] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.837 UTC [kvledger] Commit -> INFO 13f Channel [testchainid]: Created block [32] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.846 UTC [kvledger] Commit -> INFO 140 Channel [testchainid]: Created block [33] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.854 UTC [kvledger] Commit -> INFO 141 Channel [testchainid]: Created block [34] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.862 UTC [kvledger] Commit -> INFO 142 Channel [testchainid]: Created block [35] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.870 UTC [kvledger] Commit -> INFO 143 Channel [testchainid]: Created block [36] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.879 UTC [kvledger] Commit -> INFO 144 Channel [testchainid]: Created block [37] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.887 UTC [kvledger] Commit -> INFO 145 Channel [testchainid]: Created block [38] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.895 UTC [kvledger] Commit -> INFO 146 Channel [testchainid]: Created block [39] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.902 UTC [kvledger] Commit -> INFO 147 Channel [testchainid]: Created block [40] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.910 UTC [kvledger] Commit -> INFO 148 Channel [testchainid]: Created block [41] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.918 UTC [kvledger] Commit -> INFO 149 Channel [testchainid]: Created block [42] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.927 UTC [kvledger] Commit -> INFO 14a Channel [testchainid]: Created block [43] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.935 UTC [kvledger] Commit -> INFO 14b Channel [testchainid]: Created block [44] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.943 UTC [kvledger] Commit -> INFO 14c Channel [testchainid]: Created block [45] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.955 UTC [kvledger] Commit -> INFO 14d Channel [testchainid]: Created block [46] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.966 UTC [kvledger] Commit -> INFO 14e Channel [testchainid]: Created block [47] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.974 UTC [kvledger] Commit -> INFO 14f Channel [testchainid]: Created block [48] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.982 UTC [kvledger] Commit -> INFO 150 Channel [testchainid]: Created block [49] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.990 UTC [kvledger] Commit -> INFO 151 Channel [testchainid]: Created block [50] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:31.998 UTC [kvledger] Commit -> INFO 152 Channel [testchainid]: Created block [51] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.006 UTC [kvledger] Commit -> INFO 153 Channel [testchainid]: Created block [52] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.014 UTC [kvledger] Commit -> INFO 154 Channel [testchainid]: Created block [53] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.022 UTC [kvledger] Commit -> INFO 155 Channel [testchainid]: Created block [54] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.038 UTC [kvledger] Commit -> INFO 156 Channel [testchainid]: Created block [55] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.049 UTC [kvledger] Commit -> INFO 157 Channel [testchainid]: Created block [56] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.057 UTC [kvledger] Commit -> INFO 158 Channel [testchainid]: Created block [57] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.065 UTC [kvledger] Commit -> INFO 159 Channel [testchainid]: Created block [58] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.072 UTC [kvledger] Commit -> INFO 15a Channel [testchainid]: Created block [59] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.080 UTC [kvledger] Commit -> INFO 15b Channel [testchainid]: Created block [60] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.088 UTC [kvledger] Commit -> INFO 15c Channel [testchainid]: Created block [61] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.096 UTC [kvledger] Commit -> INFO 15d Channel [testchainid]: Created block [62] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.104 UTC [kvledger] Commit -> INFO 15e Channel [testchainid]: Created block [63] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.112 UTC [kvledger] Commit -> INFO 15f Channel [testchainid]: Created block [64] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.120 UTC [kvledger] Commit -> INFO 160 Channel [testchainid]: Created block [65] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.128 UTC [kvledger] Commit -> INFO 161 Channel [testchainid]: Created block [66] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.142 UTC [kvledger] Commit -> INFO 162 Channel [testchainid]: Created block [67] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.153 UTC [kvledger] Commit -> INFO 163 Channel [testchainid]: Created block [68] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.162 UTC [kvledger] Commit -> INFO 164 Channel [testchainid]: Created block [69] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.171 UTC [kvledger] Commit -> INFO 165 Channel [testchainid]: Created block [70] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.180 UTC [kvledger] Commit -> INFO 166 Channel [testchainid]: Created block [71] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.188 UTC [kvledger] Commit -> INFO 167 Channel [testchainid]: Created block [72] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.196 UTC [kvledger] Commit -> INFO 168 Channel [testchainid]: Created block [73] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.205 UTC [kvledger] Commit -> INFO 169 Channel [testchainid]: Created block [74] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.212 UTC [kvledger] Commit -> INFO 16a Channel [testchainid]: Created block [75] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.220 UTC [kvledger] Commit -> INFO 16b Channel [testchainid]: Created block [76] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.228 UTC [kvledger] Commit -> INFO 16c Channel [testchainid]: Created block [77] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.236 UTC [kvledger] Commit -> INFO 16d Channel [testchainid]: Created block [78] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.244 UTC [kvledger] Commit -> INFO 16e Channel [testchainid]: Created block [79] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.253 UTC [kvledger] Commit -> INFO 16f Ctestchainid]: Created block [80] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.262 UTC [kvledger] Commit -> INFO 170 Channel [testchainid]: Created block [81] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.270 UTC [kvledger] Commit -> INFO 171 Channel [testchainid]: Created block [82] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.279 UTC [kvledger] Commit -> INFO 172 Channel [testchainid]: Created block [83] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.286 UTC [kvledger] Commit -> INFO 173 Channel [testchainid]: Created block [84] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.295 UTC [kvledger] Commit -> INFO 174 Channel [testchainid]: Created block [85] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.303 UTC [kvledger] Commit -> INFO 175 Channel [testchainid]: Created block [86] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.321 UTC [kvledger] Commit -> INFO 176 Channel [testchainid]: Created block [87] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.331 UTC [kvledger] Commit -> INFO 177 Channel [testchainid]: Created block [88] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.344 UTC [kvledger] Commit -> INFO 178 Channel [testchainid]: Created block [89] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.352 UTC [kvledger] Commit -> INFO 179 Channel [testchainid]: Created block [90] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.360 UTC [kvledger] Commit -> INFO 17a Channel [testchainid]: Created block [91] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.374 UTC [kvledger] Commit -> INFO 17b Channel [testchainid]: Created block [92] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.383 UTC [kvledger] Commit -> INFO 17c Channel [testchainid]: Created block [93] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.401 UTC [kvledger] Commit -> INFO 17d Channel [testchainid]: Created block [94] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.412 UTC [kvledger] Commit -> INFO 17e Channel [testchainid]: Created block [95] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.421 UTC [kvledger] Commit -> INFO 17f Channel [testchainid]: Created block [96] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.428 UTC [kvledger] Commit -> INFO 180 Channel [testchainid]: Created block [97] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.436 UTC [kvledger] Commit -> INFO 181 Channel [testchainid]: Created block [98] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.444 UTC [kvledger] Commit -> INFO 182 Channel [testchainid]: Created block [99] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.452 UTC [kvledger] Commit -> INFO 183 Channel [testchainid]: Created block [100] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.460 UTC [kvledger] Commit -> INFO 184 Channel [testchainid]: Created block [101] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.468 UTC [kvledger] Commit -> INFO 185 Channel [testchainid]: Created block [102] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:32.477 UTC [kvledger] Commit -> INFO 186 Channel [testchainid]: Created block [103] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.477 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 187 ExecuteWithErrorFilter tmap error: Failed to execute transaction (Timeout expired while executing transaction)
+unit-tests_1  | 2017-05-11 11:51:33.498 UTC [kvledger] Commit -> INFO 188 Channel [testchainid]: Created block [104] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.509 UTC [kvledger] Commit -> INFO 189 Channel [testchainid]: Created block [105] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.517 UTC [kvledger] Commit -> INFO 18a Channel [testchainid]: Created block [106] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.525 UTC [kvledger] Commit -> INFO 18b Channel [testchainid]: Created block [107] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.534 UTC [kvledger] Commit -> INFO 18c Channel [testchainid]: Created block [108] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:33.605 UTC [chaincode] processStream -> ERRO 18d Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:51:33.619 UTC [dockercontroller] func2 -> INFO 18e Container dev-jdoe-tmap-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func2 -> ERRO 18f chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func2 -> ERRO 190 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func2 -> ERRO 191 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func1 -> ERRO 192 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func2 -> ERRO 193 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func1 -> ERRO 194 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func1 -> ERRO 195 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:33.769 UTC [inproccontroller] func1 -> ERRO 196 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:51:35.771 UTC [ledgermgmt] Close -> INFO 197 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:35.772 UTC [ledgermgmt] Close -> INFO 198 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:51:35.779 UTC [ledgermgmt] Close -> INFO 199 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:35.779 UTC [ledgermgmt] Close -> INFO 19a ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:51:35.779 UTC [ledgermgmt] initialize -> INFO 19b Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:51:35.779 UTC [kvledger] NewProvider -> INFO 19c Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:51:35.826 UTC [kvledger] NewProvider -> INFO 19d ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:51:35.826 UTC [ledgermgmt] initialize -> INFO 19e ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:51:35.832 UTC [chaincode] NewChaincodeSupport -> INFO 19f Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:51:35.833 UTC [chaincode] NewChaincodeSupport -> ERRO 1a0 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:51:35.833 UTC [sccapi] RegisterSysCC -> INFO 1a1 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:51:35.834 UTC [sccapi] RegisterSysCC -> INFO 1a2 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:51:35.834 UTC [sccapi] RegisterSysCC -> INFO 1a3 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:51:35.834 UTC [sccapi] RegisterSysCC -> INFO 1a4 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:51:35.834 UTC [sccapi] RegisterSysCC -> INFO 1a5 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:51:35.861 UTC [msp] getMspConfig -> INFO 1a6 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:35.861 UTC [msp] getMspConfig -> INFO 1a7 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:35.887 UTC [msp] getMspConfig -> INFO 1a8 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:35.887 UTC [msp] getMspConfig -> INFO 1a9 crls folder noat [/opt�/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:51:35.898 UTC [ledgermgmt] CreateLedger -> INFO 1aa Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:51:35.919 UTC [kvledger] Commit -> INFO 1ab Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:51:35.925 UTC [ledgermgmt] CreateLedger -> INFO 1ac Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:51:35.926 UTC [cscc] Init -> INFO 1ad Init CSCC
+unit-tests_1  | 2017-05-11 11:51:35.926 UTC [sccapi] deploySysCC -> INFO 1ae system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:51:35.926 UTC [sccapi] deploySysCC -> INFO 1af system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:51:35.927 UTC [escc] Init -> INFO 1b0 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:51:35.927 UTC [sccapi] deploySysCC -> INFO 1b1 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:51:35.927 UTC [sccapi] deploySysCC -> INFO 1b2 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:51:35.927 UTC [sccapi] deploySysCC -> INFO 1b3 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/eventsender" name:"cc_go_626215" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:51:35.933 UTC [golang-platform] writeGopathSrc -> INFO 1b4 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:51:35.933 UTC [container] WriteFolderToTarPackage -> INFO 1b5 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:52:02.284 UTC [kvledger] Commit -> INFO 1b6 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:52:03.317 UTC [kvledger] Commit -> INFO 1b7 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:52:03.383 UTC [chaincode] processStream -> ERRO 1b8 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:52:03.393 UTC [dockercontroller] func2 -> INFO 1b9 Container dev-jdoe-cc_go_626215-0 has closed its IO channel
+unit-tests_1  | getting deployment spec for chaincode spec: type:JAVA chaincode_id:<path:"../../examples/chaincode/java/eventsender" name:"cc_java_549010" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:52:03.570 UTC [container] WriteFolderToTarPackage -> INFO 1ba rootDirectory = ../../examples/chaincode/java/eventsender
+unit-tests_1  | 2017-05-11 11:52:25.148 UTC [dockercontroller] func2 -> INFO 1bb Container dev-jdoe-cc_java_549010-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:52:25.325 UTC [chaincode] Launch -> ERRO 1bc launchAndWaitForRegister failed Timeout expired while starting chaincode cc_java_549010:0(networkid:dev,peerid:jdoe,tx:39d46b9e-eb8a-4f99-8e05-4bb0a416ebdb)
+unit-tests_1  | 2017-05-11 11:52:25.325 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 1bd ExecuteWithErrorFilter cc_java_549010 error: Timeout expired while starting chaincode cc_java_549010:0(networkid:dev,peerid:jdoe,tx:39d46b9e-eb8a-4f99-8e05-4bb0a416ebdb)
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func2 -> ERRO 1be chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func1 -> ERRO 1bf chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func2 -> ERRO 1c0 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func2 -> ERRO 1c1 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func2 -> ERRO 1c2 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func1 -> ERRO 1c3 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func1 -> ERRO 1c4 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:25.329 UTC [inproccontroller] func1 -> ERRO 1c5 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:27.331 UTC [ledgermgmt] Close -> INFO 1c6 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:27.333 UTC [ledgermgmt] Close -> INFO 1c7 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | --- FAIL: TestGetEvent (51.56s)
+unit-tests_1  |     --- FAIL: TestGetEvent/JAVA (21.77s)
+unit-tests_1  |     	exectransaction_test.go:1438: Error initializing chaincode cc_java_549010(Error deploying chaincode(2): Timeout expired while starting chaincode cc_java_549010:0(networkid:dev,peerid:jdoe,tx:39d46b9e-eb8a-4f99-8e05-4bb0a416ebdb))
+unit-tests_1  | 2017-05-11 11:52:27.339 UTC [ledgermgmt] Close -> INFO 1c8 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:27.339 UTC [ledgermgmt] Close -> INFO 1c9 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:52:27.339 UTC [ledgermgmt] initialize -> INFO 1ca Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:27.340 UTC [kvledger] NewProvider -> INFO 1cb Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:52:27.387 UTC [kvledger] NewProvider -> INFO 1cc ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:52:27.387 UTC [ledgermgmt] initialize -> INFO 1cd ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:52:27.394 UTC [chaincode] NewChaincodeSupport -> INFO 1ce Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:52:27.395 UTC [chaincode] NewChaincodeSupport -> ERRO 1cf Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:52:27.395 UTC [sccapi] RegisterSysCC -> INFO 1d0 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:52:27.395 UTC [sccapi] RegisterSysCC -> INFO 1d1 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:52:27.395 UTC [sccapi] RegisterSysCC -> INFO 1d2 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:52:27.395 UTC [sccapi] RegisterSysCC -> INFO 1d3 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:52:27.396 UTC [sccapi] RegisterSysCC -> INFO 1d4 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:52:27.422 UTC [msp] getMspConfig -> INFO 1d5 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:27.423 UTC [msp] getMspConfig -> INFO 1d6 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:27.446 UTC [msp] getMspConfig -> INFO 1d7 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:27.446 UTC [msp] getMspConfig -> INFO 1d8 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:27.456 UTC [ledgermgmt] CreateLedger -> INFO 1d9 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:52:27.485 UTC [kvledger] Commit -> INFO 1da Channel [nid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:52:27.492 UTC [ledgermgmt] CreateLedger -> INFO 1db Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:52:27.492 UTC [cscc] Init -> INFO 1dc Init CSCC
+unit-tests_1  | 2017-05-11 11:52:27.493 UTC [sccapi] deploySysCC -> INFO 1dd system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:52:27.493 UTC [sccapi] deploySysCC -> INFO 1de system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:52:27.493 UTC [escc] Init -> INFO 1df Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:52:27.493 UTC [sccapi] deploySysCC -> INFO 1e0 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:52:27.494 UTC [sccapi] deploySysCC -> INFO 1e1 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:52:27.494 UTC [sccapi] deploySysCC -> INFO 1e2 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/passthru" name:"pthru" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:52:27.499 UTC [golang-platform] writeGopathSrc -> INFO 1e3 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:52:27.499 UTC [container] WriteFolderToTarPackage -> INFO 1e4 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:52:41.411 UTC [kvledger] Commit -> INFO 1e5 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:52:42.426 UTC [chaincode] func1 -> ERRO 1e6 [4c9a0a50] C-call-C escc on channel testchainid failed check ACL [proposal_bytes:"\n\321\001\n\253\001\010\003\032\014\010\212\241\321\310\005\020\240\275\321\312\001\"\013testchainid*@f7420f53c52f4f4c232eadc1bd100cac2f515c93ad44985fa3f6f2e6eee5e189:J\022H\n<github.com/hyperledger/fabric/examples/chaincode/go/passthru\022\005pthru\032\0010\022!\n\005Admin\022\030zyX\216\025\034\n\247u\232\367\213\036w\206>\004\203\326n.\245\242*\022\177\n}\n{\010\001\022H\n<github.com/hyperledger/fabric/examples/chaincode/go/passthru\022\005pthru\032\0010\032-\n\020escc/testchainid\n\005getid\n\013testchainid\n\005pthru" signature:"msg1" ]: [System chaincode escc cannot be invoked with a cc2cc invocation]
+unit-tests_1  | 2017-05-11 11:52:42.426 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 1e7 ExecuteWithErrorFilter pthru error: Transaction returned with failure: System chaincode escc cannot be invoked with a cc2cc invocation
+unit-tests_1  | 2017-05-11 11:52:42.427 UTC [inproccontroller] func2 -> ERRO 1e8 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:42.427 UTC [inproccontroller] func2 -> ERRO 1e9 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:42.427 UTC [inproccontroller] func2 -> ERRO 1ea chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:42.428 UTC [inproccontroller] func2 -> ERRO 1eb chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:52:42.428 UTC [inproccontroller] func1 -> ERRO 1ec chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:42.428 UTC [inproccontroller] func1 -> ERRO 1ed chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:42.428 UTC [inproccontroller] func1 -> ERRO 1ee chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:42.428 UTC [inproccontroller] func1 -> ERRO 1ef chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:52:44.430 UTC [ledgermgmt] Close -> INFO 1f0 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:44.431 UTC [ledgermgmt] Close -> INFO 1f1 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:52:44.436 UTC [ledgermgmt] Close -> INFO 1f2 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:44.436 UTC [ledgermgmt] Close -> INFO 1f3 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:52:44.437 UTC [ledgermgmt] initialize -> INFO 1f4 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:52:44.437 UTC [kvledger] NewProvider -> INFO 1f5 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:52:44.479 UTC [kvledger] NewProvider -> INFO 1f6 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:52:44.479 UTC [ledgermgmt] initialize -> INFO 1f7 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:52:44.486 UTC [chaincode] NewChaincodeSupport -> INFO 1f8 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:52:44.486 UTC [chaincode] NewChaincodeSupport -> ERRO 1f9 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:52:44.487 UTC [sccapi] RegisterSysCC -> INFO 1fa system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:52:44.487 UTC [sccapi] RegisterSysCC -> INFO 1fb system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:52:44.487 UTC [sccapi] RegisterSysCC -> INFO 1fc system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:52:44.487 UTC [sccapi] RegisterSysCC -> INFO 1fd system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:52:44.487 UTC [sccapi] RegisterSysCC -> INFO 1fe system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:52:44.515 UTC [msp] getMspConfig -> INFO 1ff intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:44.515 UTC [msp] getMspConfig -> INFO 200 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:44.538 UTC [msp] getMspConfig -> INFO 201 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:44.539 UTC [msp] getMspConfig -> INFO 202 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:52:44.549 UTC [ledgermgmt] CreateLedger -> INFO 203 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:52:44.588 UTC [kvledger] Commit -> INFO 204 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:52:44.594 UTC [ledgermgmt] CreateLedger -> INFO 205 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:52:44.595 UTC [cscc] Init -> INFO 206 Init CSCC
+unit-tests_1  | 2017-05-11 11:52:44.595 UTC [sccapi] deploySysCC -> INFO 207 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:52:44.596 UTC [sccapi] deploySysCC -> INFO 208 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:52:44.596 UTC [escc] Init -> INFO 209 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:52:44.596 UTC [sccapi] deploySysCC -> INFO 20a system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:52:44.596 UTC [sccapi] deploySysCC -> INFO 20b system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:52:44.597 UTC [sccapi] deploySysCC -> INFO 20c system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disableg deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/passthru" name:"pthru" version:"0" > input:<args:"init" > 
+unit-tests_1  | 2017-05-11 11:52:44.602 UTC [golang-platform] writeGopathSrc -> INFO 20d rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:52:44.602 UTC [container] WriteFolderToTarPackage -> INFO 20e rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:52:59.676 UTC [chaincode] processStream -> ERRO 20f Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:52:59.687 UTC [dockercontroller] func2 -> INFO 210 Container dev-jdoe-pthru-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:53:00.399 UTC [kvledger] Commit -> INFO 211 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:53:01.425 UTC [kvledger] Commit -> INFO 212 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:53:01.512 UTC [chaincode] processStream -> ERRO 213 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:53:01.525 UTC [dockercontroller] func2 -> INFO 214 Container dev-jdoe-pthru-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:53:01.694 UTC [inproccontroller] func2 -> ERRO 215 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func2 -> ERRO 216 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func2 -> ERRO 217 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func1 -> ERRO 218 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func2 -> ERRO 219 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func1 -> ERRO 21a chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func1 -> ERRO 21b chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:01.695 UTC [inproccontroller] func1 -> ERRO 21c chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:03.695 UTC [ledgermgmt] Close -> INFO 21d Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:03.696 UTC [ledgermgmt] Close -> INFO 21e ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:03.700 UTC [ledgermgmt] Close -> INFO 21f Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:03.700 UTC [ledgermgmt] Close -> INFO 220 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:03.701 UTC [ledgermgmt] initialize -> INFO 221 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:03.701 UTC [kvledger] NewProvider -> INFO 222 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:53:03.740 UTC [kvledger] NewProvider -> INFO 223 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:53:03.740 UTC [ledgermgmt] initialize -> INFO 224 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:53:03.746 UTC [chaincode] NewChaincodeSupport -> INFO 225 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:53:03.747 UTC [chaincode] NewChaincodeSupport -> ERRO 226 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:53:03.747 UTC [sccapi] RegisterSysCC -> INFO 227 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:53:03.747 UTC [sccapi] RegisterSysCC -> INFO 228 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:53:03.748 UTC [sccapi] RegisterSysCC -> INFO 229 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:53:03.748 UTC [sccapi] RegisterSysCC -> INFO 22a system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:53:03.748 UTC [sccapi] RegisterSysCC -> INFO 22b system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:53:03.775 UTC [msp] getMspConfig -> INFO 22c intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:03.775 UTC [msp] getMspConfig -> INFO 22d crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:03.800 UTC [msp] getMspConfig -> INFO 22e intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:03.801 UTC [msp] getMspConfig -> INFO 22f crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:03.811 UTC [ledgermgmt] CreateLedger -> INFO 230 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:03.832 UTC [kvledger] Commit -> INFO 231 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:53:03.839 UTC [ledgermgmt] CreateLedger -> INFO 232 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:03.839 UTC [cscc] Init -> INFO 233 Init CSCC
+unit-tests_1  | 2017-05-11 11:53:03.839 UTC [sccapi] deploySysCC -> INFO 234 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:53:03.839 UTC [sccapi] deploySysCC -> INFO 235 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:53:03.840 UTC [escc] Init -> INFO 236 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:53:03.840 UTC [sccapi] deploySysCC -> INFO 237 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:53:03.840 UTC [sccapi] deploySysCC -> INFO 238 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:53:03.840 UTC [sccapi] deploySysCC -> INFO 239 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"cc_go_823929" version:"1.0.0.0" > input:<args:"init" args:"not" args:"enough" args:"args" > 
+unit-tests_1  | 2017-05-11 11:53:03.848 UTC [golang-platform] writeGopathSrc -> INFO 23a rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:53:03.848 UTC [container] WriteFolderToTarPackage -> INFO 23b rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:53:29.609 UTC [chaincode] processStream -> ERRO 23c Got error: Incorrect number of arguments. Expecting 4
+unit-tests_1  | 2017-05-11 11:53:29.609 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 23d ExecuteWithErrorFilter cc_go_823929 error: Transaction returned with failure: Incorrect number of arguments. Expecting 4
+unit-tests_1  | 2017-05-11 11:53:29.615 UTC [inproccontroller] func2 -> ERRO 23e chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:29.615 UTC [inproccontroller] func2 -> ERRO 23f chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:29.615 UTC [inproccontroller] func1 -> ERRO 240 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:29.615 UTC [inproccontroller] func2 -> ERRO 241 chaincode ended with err:  nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:29.615 UTC [inproccontroller] func1 -> ERRO 242 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:29.616 UTC [inproccontroller] func2 -> ERRO 243 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:29.616 UTC [inproccontroller] func1 -> ERRO 244 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:29.616 UTC [inproccontroller] func1 -> ERRO 245 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:31.617 UTC [ledgermgmt] Close -> INFO 246 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:31.618 UTC [ledgermgmt] Close -> INFO 247 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:31.623 UTC [ledgermgmt] Close -> INFO 248 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:31.623 UTC [ledgermgmt] Close -> INFO 249 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:31.623 UTC [ledgermgmt] initialize -> INFO 24a Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:31.623 UTC [kvledger] NewProvider -> INFO 24b Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:53:31.680 UTC [kvledger] NewProvider -> INFO 24c ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:53:31.681 UTC [ledgermgmt] initialize -> INFO 24d ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:53:31.688 UTC [chaincode] NewChaincodeSupport -> INFO 24e Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:53:31.689 UTC [chaincode] NewChaincodeSupport -> ERRO 24f Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:53:31.690 UTC [sccapi] RegisterSysCC -> INFO 250 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:53:31.690 UTC [sccapi] RegisterSysCC -> INFO 251 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:53:31.690 UTC [sccapi] RegisterSysCC -> INFO 252 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:53:31.690 UTC [sccapi] RegisterSysCC -> INFO 253 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:53:31.690 UTC [sccapi] RegisterSysCC -> INFO 254 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:53:31.717 UTC [msp] getMspConfig -> INFO 255 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:31.717 UTC [msp] getMspConfig -> INFO 256 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:31.741 UTC [msp] getMspConfig -> INFO 257 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:31.742 UTC [msp] getMspConfig -> INFO 258 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:31.752 UTC [ledgermgmt] CreateLedger -> INFO 259 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:31.781 UTC [kvledger] Commit -> INFO 25a Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:53:31.787 UTC [ledgermgmt] CreateLedger -> INFO 25b Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:31.787 UTC [cscc] Init -> INFO 25c Init CSCC
+unit-tests_1  | 2017-05-11 11:53:31.787 UTC [sccapi] deploySysCC -> INFO 25d system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:53:31.788 UTC [sccapi] deploySysCC -> INFO 25e system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:53:31.788 UTC [escc] Init -> INFO 25f Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:53:31.788 UTC [sccapi] deploySysCC -> INFO 260 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:53:31.788 UTC [sccapi] deploySysCC -> INFO 261 system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:53:31.788 UTC [sccapi] deploySysCC -> INFO 262 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:JAVA chaincode_id:<path:"../../examples/chaincode/java/chaincode_example02" name:"cc_java_120954" version:"1.0.0.0" > input:<args:"init" args:"not" args:"enough" args:"args" > 
+unit-tests_1  | 2017-05-11 11:53:31.804 UTC [container] WriteFolderToTarPackage -> INFO 263 rootDirectory = ../../examples/chaincode/java/chaincode_example02
+unit-tests_1  | 2017-05-11 11:53:38.957 UTC [dockercontroller] func2 -> INFO 264 Container dev-jdoe-cc_java_120954-1.0.0.0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:53:39.088 UTC [chaincode] Launch -> ERRO 265 launchAndWaitForRegister failed Timeout expired while starting chaincode cc_java_120954:1.0.0.0(networkid:dev,peerid:jdoe,tx:dd3c3175-7e9f-4dca-88ab-4eaadcbcc795)
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 266 ExecuteWithErrorFilter cc_java_120954 error: Timeout expired while starting chaincode cc_java_120954:1.0.0.0(networkid:dev,peerid:jdoe,tx:dd3c3175-7e9f-4dca-88ab-4eaadcbcc795)
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func2 -> ERRO 268 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func2 -> ERRO 267 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func2 -> ERRO 269 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func1 -> ERRO 26a chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func1 -> ERRO 26b chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func1 -> ERRO 26c chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func2 -> ERRO 26d chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:53:39.089 UTC [inproccontroller] func1 -> ERRO 26e chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:53:41.091 UTC [ledgermgmt] Close -> INFO 26f Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:41.092 UTC [ledgermgmt] Close -> INFO 270 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:41.095 UTC [ledgermgmt] Close -> INFO 271 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:41.095 UTC [ledgermgmt] Close -> INFO 272 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:53:41.096 UTC [ledgermgmt] initialize -> INFO 273 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:53:41.096 UTC [kvledger] NewProvider -> INFO 274 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:53:41.147 UTC [kvledger] NewProvider -> INFO 275 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:53:41.148 UTC [ledgermgmt] initialize -> INFO 276 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:53:41.157 UTC [chaincode] NewChaincodeSupporO 277 Chainc�ode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:53:41.159 UTC [chaincode] NewChaincodeSupport -> ERRO 278 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:53:41.159 UTC [sccapi] RegisterSysCC -> INFO 279 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:53:41.160 UTC [sccapi] RegisterSysCC -> INFO 27a system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:53:41.160 UTC [sccapi] RegisterSysCC -> INFO 27b system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:53:41.160 UTC [sccapi] RegisterSysCC -> INFO 27c system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:53:41.160 UTC [sccapi] RegisterSysCC -> INFO 27d system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:53:41.191 UTC [msp] getMspConfig -> INFO 27e intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:41.192 UTC [msp] getMspConfig -> INFO 27f crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:41.218 UTC [msp] getMspConfig -> INFO 280 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:41.218 UTC [msp] getMspConfig -> INFO 281 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:53:41.229 UTC [ledgermgmt] CreateLedger -> INFO 282 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:41.250 UTC [kvledger] Commit -> INFO 283 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:53:41.257 UTC [ledgermgmt] CreateLedger -> INFO 284 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:53:41.257 UTC [cscc] Init -> INFO 285 Init CSCC
+unit-tests_1  | 2017-05-11 11:53:41.257 UTC [sccapi] deploySysCC -> INFO 286 system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:53:41.258 UTC [sccapi] deploySysCC -> INFO 287 system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:53:41.258 UTC [escc] Init -> INFO 288 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:53:41.258 UTC [sccapi] deploySysCC -> INFO 289 system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:53:41.258 UTC [sccapi] deploySysCC -> INFO 28a system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:53:41.258 UTC [sccapi] deploySysCC -> INFO 28b system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:JAVA chaincode_id:<path:"../../examples/chaincode/java/chaincode_example06" name:"cc_java_575735" version:"1.0.0.0" > input:<args:"runtimeException" > 
+unit-tests_1  | 2017-05-11 11:53:41.279 UTC [container] WriteFolderToTarPackage -> INFO 28c rootDirectory = ../../examples/chaincode/java/chaincode_example06
+unit-tests_1  | 2017-05-11 11:54:02.326 UTC [dockercontroller] func2 -> INFO 28d Container dev-jdoe-cc_java_575735-1.0.0.0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:54:02.497 UTC [chaincode] Launch -> ERRO 28e launchAndWaitForRegister failed Timeout expired while starting chaincode cc_java_575735:1.0.0.0(networkid:dev,peerid:jdoe,tx:9872da4c-4617-4a05-8a3c-1e1daefdb9fb)
+unit-tests_1  | 2017-05-11 11:54:02.497 UTC [chaincode] ExecuteWithErrorFilter -> ERRO 28f ExecuteWithErrorFilter cc_java_575735 error: Timeout expired while starting chaincode cc_java_575735:1.0.0.0(networkid:dev,peerid:jdoe,tx:9872da4c-4617-4a05-8a3c-1e1daefdb9fb)
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func2 -> ERRO 290 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func1 -> ERRO 291 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func2 -> ERRO 292 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func2 -> ERRO 293 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func1 -> ERRO 294 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func2 -> ERRO 295 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func1 -> ERRO 296 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:02.498 UTC [inproccontroller] func1 -> ERRO 297 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:04.499 UTC [ledgermgmt] Close -> INFO 298 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:04.500 UTC [ledgermgmt] Close -> INFO 299 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:54:04.503 UTC [ledgermgmt] Close -> INFO 29a Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:04.503 UTC [ledgermgmt] Close -> INFO 29b ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:54:04.503 UTC [ledgermgmt] initialize -> INFO 29c Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:04.503 UTC [kvledger] NewProvider -> INFO 29d Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:54:04.574 UTC [kvledger] NewProvider -> INFO 29e ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:54:04.574 UTC [ledgermgmt] initialize -> INFO 29f ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:54:04.584 UTC [chaincode] NewChaincodeSupport -> INFO 2a0 Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:54:04.585 UTC [chaincode] NewChaincodeSupport -> ERRO 2a1 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:54:04.585 UTC [sccapi] RegisterSysCC -> INFO 2a2 system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:54:04.585 UTC [sccapi] RegisterSysCC -> INFO 2a3 system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:54:04.585 UTC [sccapi] RegisterSysCC -> INFO 2a4 system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:54:04.585 UTC [sccapi] RegisterSysCC -> INFO 2a5 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:54:04.586 UTC [sccapi] RegisterSysCC -> INFO 2a6 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:54:04.616 UTC [msp] getMspConfig -> INFO 2a7 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.616 UTC [msp] getMspConfig -> INFO 2a8 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.644 UTC [msp] getMspConfig -> INFO intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.644 UTC [msp] getMspConfig -> INFO 2aa crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.657 UTC [ledgermgmt] CreateLedger -> INFO 2ab Creating ledger [chain1] with genesis block
+unit-tests_1  | 2017-05-11 11:54:04.678 UTC [kvledger] Commit -> INFO 2ac Channel [chain1]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:04.689 UTC [ledgermgmt] CreateLedger -> INFO 2ad Created ledger [chain1] with genesis block
+unit-tests_1  | 2017-05-11 11:54:04.689 UTC [cscc] Init -> INFO 2ae Init CSCC
+unit-tests_1  | 2017-05-11 11:54:04.689 UTC [sccapi] deploySysCC -> INFO 2af system chaincode cscc/chain1(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.690 UTC [sccapi] deploySysCC -> INFO 2b0 system chaincode lscc/chain1(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.690 UTC [escc] Init -> INFO 2b1 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:54:04.690 UTC [sccapi] deploySysCC -> INFO 2b2 system chaincode escc/chain1(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [sccapi] deploySysCC -> INFO 2b3 system chaincode vscc/chain1(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [sccapi] deploySysCC -> INFO 2b4 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func2 -> ERRO 2b5 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func2 -> ERRO 2b6 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func1 -> ERRO 2b7 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func1 -> ERRO 2b8 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func2 -> ERRO 2b9 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func1 -> ERRO 2ba chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func2 -> ERRO 2bb chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:04.691 UTC [inproccontroller] func1 -> ERRO 2bc chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:04.719 UTC [msp] getMspConfig -> INFO 2bd intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.719 UTC [msp] getMspConfig -> INFO 2be crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.747 UTC [msp] getMspConfig -> INFO 2bf intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.747 UTC [msp] getMspConfig -> INFO 2c0 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:04.758 UTC [ledgermgmt] CreateLedger -> INFO 2c1 Creating ledger [chain2] with genesis block
+unit-tests_1  | 2017-05-11 11:54:04.781 UTC [kvledger] Commit -> INFO 2c2 Channel [chain2]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:04.789 UTC [ledgermgmt] CreateLedger -> INFO 2c3 Created ledger [chain2] with genesis block
+unit-tests_1  | 2017-05-11 11:54:04.789 UTC [cscc] Init -> INFO 2c4 Init CSCC
+unit-tests_1  | 2017-05-11 11:54:04.789 UTC [sccapi] deploySysCC -> INFO 2c5 system chaincode cscc/chain2(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.789 UTC [sccapi] deploySysCC -> INFO 2c6 system chaincode lscc/chain2(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.790 UTC [escc] Init -> INFO 2c7 Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:54:04.790 UTC [sccapi] deploySysCC -> INFO 2c8 system chaincode escc/chain2(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.790 UTC [sccapi] deploySysCC -> INFO 2c9 system chaincode vscc/chain2(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:54:04.791 UTC [sccapi] deploySysCC -> INFO 2ca system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"example02" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:54:04.800 UTC [golang-platform] writeGopathSrc -> INFO 2cb rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:04.800 UTC [container] WriteFolderToTarPackage -> INFO 2cc rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:20.149 UTC [kvledger] Commit -> INFO 2cd Channel [chain1]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:21.179 UTC [kvledger] Commit -> INFO 2ce Channel [chain1]: Created block [2] with 1 transaction(s)
+unit-tests_1  | Got string: 90
+unit-tests_1  | Aval = 90, Bval = 210
+unit-tests_1  | 2017-05-11 11:54:21.189 UTC [kvledger] Commit -> INFO 2cf Channel [chain1]: Created block [3] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:21.254 UTC [chaincode] processStream -> ERRO 2d0 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:54:21.269 UTC [dockercontroller] func2 -> INFO 2d1 Container dev-jdoe-example02-0 has closed its IO channel
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"example02" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:54:21.409 UTC [golang-platform] writeGopathSrc -> INFO 2d2 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:21.409 UTC [container] WriteFolderToTarPackage -> INFO 2d3 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:36.594 UTC [kvledger] Commit -> INFO 2d4 Channel [chain2]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:37.624 UTC [kvledger] Commit -> INFO 2d5 Channel [chain2]: Created block [2] with 1 transaction(s)
+unit-tests_1  | Got string: 90
+unit-tests_1  | Aval = 90, Bval = 210
+unit-tests_1  | 2017-05-11 11:54:37.634 UTC [kvledger] Commit -> INFO 2d6 Channel [chain2]: Created block [3] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:37.693 UTC [chaincode] processStream -> ERRO 2d7 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:54:37.704 UTC [dockercontroller] func2 -> INFO 2d8 Container dev-jdoe-example02-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func2 -> ERRO 2d9 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func2 -> ERRO 2da chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func1 -> ERRO 2db chaincode-support ended with err: Received nil message, endingde stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func2 -> ERRO 2dc chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func1 -> ERRO 2dd chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func1 -> ERRO 2de chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func2 -> ERRO 2df chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:37.871 UTC [inproccontroller] func1 -> ERRO 2e0 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:39.873 UTC [ledgermgmt] Close -> INFO 2e1 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:39.874 UTC [ledgermgmt] Close -> INFO 2e2 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:54:39.881 UTC [ledgermgmt] initialize -> INFO 2e3 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:39.881 UTC [kvledger] NewProvider -> INFO 2e4 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:54:39.929 UTC [kvledger] NewProvider -> INFO 2e5 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:54:39.929 UTC [ledgermgmt] initialize -> INFO 2e6 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:54:39.929 UTC [chaincode] NewChaincodeSupport -> INFO 2e7 Chaincode support using peerAddress: 0.0.0.0:21726
+unit-tests_1  | 2017-05-11 11:54:39.930 UTC [chaincode] NewChaincodeSupport -> ERRO 2e8 Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:54:39.930 UTC [sccapi] RegisterSysCC -> INFO 2e9 system chaincode sample_syscc(github.com/hyperledger/fabric/core/scc/samplesyscc) registered
+unit-tests_1  | 2017-05-11 11:54:39.959 UTC [msp] getMspConfig -> INFO 2ea intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:39.959 UTC [msp] getMspConfig -> INFO 2eb crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:39.983 UTC [msp] getMspConfig -> INFO 2ec intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:39.983 UTC [msp] getMspConfig -> INFO 2ed crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:39.993 UTC [ledgermgmt] CreateLedger -> INFO 2ee Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:54:40.023 UTC [kvledger] Commit -> INFO 2ef Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:40.030 UTC [ledgermgmt] CreateLedger -> INFO 2f0 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:54:40.030 UTC [sccapi] deploySysCC -> INFO 2f1 system chaincode sample_syscc/testchainid(github.com/hyperledger/fabric/core/scc/samplesyscc) deployed
+unit-tests_1  | 2017-05-11 11:54:40.037 UTC [kvledger] Commit -> INFO 2f2 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:40.045 UTC [kvledger] Commit -> INFO 2f3 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:40.045 UTC [inproccontroller] func2 -> ERRO 2f4 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:40.045 UTC [inproccontroller] func1 -> ERRO 2f5 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:54:42.046 UTC [ledgermgmt] initialize -> INFO 2f6 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:42.047 UTC [kvledger] NewProvider -> INFO 2f7 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:54:42.099 UTC [kvledger] NewProvider -> INFO 2f8 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:54:42.099 UTC [ledgermgmt] initialize -> INFO 2f9 ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:54:42.099 UTC [chaincode] NewChaincodeSupport -> INFO 2fa Chaincode support using peerAddress: 0.0.0.0:21726
+unit-tests_1  | 2017-05-11 11:54:42.101 UTC [chaincode] NewChaincodeSupport -> ERRO 2fb Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:54:42.101 UTC [sccapi] RegisterSysCC -> INFO 2fc system chaincode sample_syscc(github.com/hyperledger/fabric/core/scc/samplesyscc) registered
+unit-tests_1  | 2017-05-11 11:54:42.130 UTC [msp] getMspConfig -> INFO 2fd intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.130 UTC [msp] getMspConfig -> INFO 2fe crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.154 UTC [msp] getMspConfig -> INFO 2ff intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.154 UTC [msp] getMspConfig -> INFO 300 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.165 UTC [ledgermgmt] CreateLedger -> INFO 301 Creating ledger [chain1] with genesis block
+unit-tests_1  | 2017-05-11 11:54:42.188 UTC [kvledger] Commit -> INFO 302 Channel [chain1]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.198 UTC [ledgermgmt] CreateLedger -> INFO 303 Created ledger [chain1] with genesis block
+unit-tests_1  | 2017-05-11 11:54:42.199 UTC [sccapi] deploySysCC -> INFO 304 system chaincode sample_syscc/chain1(github.com/hyperledger/fabric/core/scc/samplesyscc) deployed
+unit-tests_1  | 2017-05-11 11:54:42.206 UTC [kvledger] Commit -> INFO 305 Channel [chain1]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.213 UTC [kvledger] Commit -> INFO 306 Channel [chain1]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.214 UTC [inproccontroller] func2 -> ERRO 307 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:42.214 UTC [inproccontroller] func1 -> ERRO 308 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:42.239 UTC [msp] getMspConfig -> INFO 309 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.240 UTC [msp] getMspConfig -> INFO 30a crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.263 UTC [msp] getMspConfig -> INFO 30b intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or di
+unit-tests_1  | 2017-05-11 11:54:42.263 UTC [msp] getMspConfig -> INFO 30c crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:42.275 UTC [ledgermgmt] CreateLedger -> INFO 30d Creating ledger [chain2] with genesis block
+unit-tests_1  | 2017-05-11 11:54:42.317 UTC [kvledger] Commit -> INFO 30e Channel [chain2]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.324 UTC [ledgermgmt] CreateLedger -> INFO 30f Created ledger [chain2] with genesis block
+unit-tests_1  | 2017-05-11 11:54:42.325 UTC [sccapi] deploySysCC -> INFO 310 system chaincode sample_syscc/chain2(github.com/hyperledger/fabric/core/scc/samplesyscc) deployed
+unit-tests_1  | 2017-05-11 11:54:42.331 UTC [kvledger] Commit -> INFO 311 Channel [chain2]: Created block [1] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.348 UTC [kvledger] Commit -> INFO 312 Channel [chain2]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:42.349 UTC [inproccontroller] func2 -> ERRO 313 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:54:42.349 UTC [inproccontroller] func1 -> ERRO 314 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:54:44.351 UTC [ledgermgmt] Close -> INFO 315 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:44.352 UTC [ledgermgmt] Close -> INFO 316 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:54:44.353 UTC [ledgermgmt] initialize -> INFO 317 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:54:44.353 UTC [kvledger] NewProvider -> INFO 318 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:54:44.400 UTC [kvledger] NewProvider -> INFO 319 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:54:44.401 UTC [ledgermgmt] initialize -> INFO 31a ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:54:44.409 UTC [chaincode] NewChaincodeSupport -> INFO 31b Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:54:44.410 UTC [chaincode] NewChaincodeSupport -> ERRO 31c Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:54:44.411 UTC [sccapi] RegisterSysCC -> INFO 31d system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:54:44.411 UTC [sccapi] RegisterSysCC -> INFO 31e system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:54:44.411 UTC [sccapi] RegisterSysCC -> INFO 31f system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:54:44.411 UTC [sccapi] RegisterSysCC -> INFO 320 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:54:44.411 UTC [sccapi] RegisterSysCC -> INFO 321 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:54:44.440 UTC [msp] getMspConfig -> INFO 322 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:44.440 UTC [msp] getMspConfig -> INFO 323 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:44.468 UTC [msp] getMspConfig -> INFO 324 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:44.468 UTC [msp] getMspConfig -> INFO 325 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:54:44.480 UTC [ledgermgmt] CreateLedger -> INFO 326 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:54:44.506 UTC [kvledger] Commit -> INFO 327 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:54:44.513 UTC [ledgermgmt] CreateLedger -> INFO 328 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:54:44.513 UTC [cscc] Init -> INFO 329 Init CSCC
+unit-tests_1  | 2017-05-11 11:54:44.513 UTC [sccapi] deploySysCC -> INFO 32a system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:54:44.514 UTC [sccapi] deploySysCC -> INFO 32b system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:54:44.514 UTC [escc] Init -> INFO 32c Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:54:44.514 UTC [sccapi] deploySysCC -> INFO 32d system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:54:44.514 UTC [sccapi] deploySysCC -> INFO 32e system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:54:44.514 UTC [sccapi] deploySysCC -> INFO 32f system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example01" name:"mycc" version:"0" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:54:44.519 UTC [golang-platform] writeGopathSrc -> INFO 330 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:44.519 UTC [container] WriteFolderToTarPackage -> INFO 331 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:57.777 UTC [kvledger] Commit -> INFO 332 Channel [testchainid]: Created block [1] with 1 transaction(s)
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"mycc" version:"1" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:54:57.797 UTC [golang-platform] writeGopathSrc -> INFO 333 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:54:57.797 UTC [container] WriteFolderToTarPackage -> INFO 334 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:55:11.303 UTC [kvledger] Commit -> INFO 335 Channel [testchainid]: Created block [2] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:55:11.329 UTC [kvledger] Commit -> INFO 336 Channel [testchainid]: Created block [3] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:55:11.392 UTC [chaincode] processStream -> ERRO 337 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:55:11.401 UTC [dockercontroller] func2 -> INFO 338 Container dev-jdoe-mycc-0 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:55:11.642 UTC [chaincode] processStream -> ERRO 339 Error handling chaincode support stream: stream error: code = 1 desc = "context canceled"
+unit-tests_1  | 2017-05-11 11:55:11.653 UTC [dockercontroller] func2 -> INFO 33a Container dev-jdoe-mycc-1 has closed its IO channel
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func2 -> ERRO 33b chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func2 -> ERRO 33c chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func2 -> ERRO 33d chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func1 -> ERRO 33e chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func1 -> ERRO 33f chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func1 -> ERRO chaincode-support ended Iwith err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func2 -> ERRO 340 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:11.819 UTC [inproccontroller] func1 -> ERRO 342 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:13.820 UTC [ledgermgmt] Close -> INFO 343 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:55:13.821 UTC [ledgermgmt] Close -> INFO 344 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:55:13.828 UTC [ledgermgmt] Close -> INFO 345 Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:55:13.828 UTC [ledgermgmt] Close -> INFO 346 ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | 2017-05-11 11:55:13.829 UTC [ledgermgmt] initialize -> INFO 347 Initializing ledger mgmt
+unit-tests_1  | 2017-05-11 11:55:13.829 UTC [kvledger] NewProvider -> INFO 348 Initializing ledger provider
+unit-tests_1  | 2017-05-11 11:55:13.882 UTC [kvledger] NewProvider -> INFO 349 ledger provider Initialized
+unit-tests_1  | 2017-05-11 11:55:13.882 UTC [ledgermgmt] initialize -> INFO 34a ledger mgmt initialized
+unit-tests_1  | 2017-05-11 11:55:13.890 UTC [chaincode] NewChaincodeSupport -> INFO 34b Chaincode support using peerAddress: 172.17.0.4:21212
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [chaincode] NewChaincodeSupport -> ERRO 34c Invalid execute timeout value 0s (should be at least 1s); defaulting to 30s
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [sccapi] RegisterSysCC -> INFO 34d system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [sccapi] RegisterSysCC -> INFO 34e system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [sccapi] RegisterSysCC -> INFO 34f system chaincode escc(github.com/hyperledger/fabric/core/scc/escc) registered
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [sccapi] RegisterSysCC -> INFO 350 system chaincode vscc(github.com/hyperledger/fabric/core/scc/vscc) registered
+unit-tests_1  | 2017-05-11 11:55:13.891 UTC [sccapi] RegisterSysCC -> INFO 351 system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc,true) disabled
+unit-tests_1  | 2017-05-11 11:55:13.919 UTC [msp] getMspConfig -> INFO 352 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:55:13.919 UTC [msp] getMspConfig -> INFO 353 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:55:13.946 UTC [msp] getMspConfig -> INFO 354 intermediate certs folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
+unit-tests_1  | 2017-05-11 11:55:13.946 UTC [msp] getMspConfig -> INFO 355 crls folder not found at [/opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+unit-tests_1  | 2017-05-11 11:55:13.959 UTC [ledgermgmt] CreateLedger -> INFO 356 Creating ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:55:13.981 UTC [kvledger] Commit -> INFO 357 Channel [testchainid]: Created block [0] with 1 transaction(s)
+unit-tests_1  | 2017-05-11 11:55:13.988 UTC [ledgermgmt] CreateLedger -> INFO 358 Created ledger [testchainid] with genesis block
+unit-tests_1  | 2017-05-11 11:55:13.989 UTC [cscc] Init -> INFO 359 Init CSCC
+unit-tests_1  | 2017-05-11 11:55:13.989 UTC [sccapi] deploySysCC -> INFO 35a system chaincode cscc/testchainid(github.com/hyperledger/fabric/core/scc/cscc) deployed
+unit-tests_1  | 2017-05-11 11:55:13.989 UTC [sccapi] deploySysCC -> INFO 35b system chaincode lscc/testchainid(github.com/hyperledger/fabric/core/scc/lscc) deployed
+unit-tests_1  | 2017-05-11 11:55:13.989 UTC [escc] Init -> INFO 35c Successfully initialized ESCC
+unit-tests_1  | 2017-05-11 11:55:13.989 UTC [sccapi] deploySysCC -> INFO 35d system chaincode escc/testchainid(github.com/hyperledger/fabric/core/scc/escc) deployed
+unit-tests_1  | 2017-05-11 11:55:13.990 UTC [sccapi] deploySysCC -> INFO 35e system chaincode vscc/testchainid(github.com/hyperledger/fabric/core/scc/vscc) deployed
+unit-tests_1  | 2017-05-11 11:55:13.990 UTC [sccapi] deploySysCC -> INFO 35f system chaincode (qscc,github.com/hyperledger/fabric/core/chaincode/qscc) disabled
+unit-tests_1  | getting deployment spec for chaincode spec: type:GOLANG chaincode_id:<path:"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02" name:"mycc" version:"1" > input:<args:"init" args:"a" args:"100" args:"b" args:"200" > 
+unit-tests_1  | 2017-05-11 11:55:13.997 UTC [golang-platform] writeGopathSrc -> INFO 360 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:55:13.997 UTC [container] WriteFolderToTarPackage -> INFO 361 rootDirectory = /opt/gopath/src
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func2 -> ERRO 362 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func1 -> ERRO 363 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func2 -> ERRO 364 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func2 -> ERRO 365 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func2 -> ERRO 366 chaincode ended with err: Received nil message, ending chaincode support stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func1 -> ERRO 367 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func1 -> ERRO 368 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:27.358 UTC [inproccontroller] func1 -> ERRO 369 chaincode-support ended with err: Received nil message, ending chaincode stream
+unit-tests_1  | 2017-05-11 11:55:29.359 UTC [ledgermgmt] Close -> INFO 36a Closing ledger mgmt
+unit-tests_1  | 2017-05-11 11:55:29.360 UTC [ledgermgmt] Close -> INFO 36b ledger mgmt closed
+unit-tests_1  | removing dir = /tmp/hyperledger/test/tmpdb/ledgersData
+unit-tests_1  | FAIL
+unit-tests_1  | coverage: 65.8% of statements
+unit-tests_1  | FAIL	github.com/hyperledger/fabric/core/chaincode	455.357s
+unit-tests_1  | error: exit status 1
+unit-tests_1  | panic: EOF
+unit-tests_1  | 
+unit-tests_1  | goroutine 1 [running]:
+unit-tests_1  | panic(0x4daca0, 0xc42000a0f0)
+unit-tests_1  | 	/opt/go/src/runtime/panic.go:500 +0x1a1
+unit-tests_1  | main.main()
+unit-tests_1  | 	/opt/gotools/obj/gopath/src/github.com/AlekSi/gocov-xml/gocov-xml.go:60 +0x15fd
+unittest_unit-tests_1 exited with code 2
+Aborting on container exit...
+Stopping couchdb ... done
+Stopping unittest_vp_1 ... done
+WARNING: The TEST_PKGS variable is not set. Defaulting to a blank string.
+Removing unittest_unit-tests_1 ... done
+Removing couchdb ... done
+Removing unittest_vp_1 ... done

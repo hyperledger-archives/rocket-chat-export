@@ -1,0 +1,96 @@
+truffle(uat4)> instance.isPaused(1)
+true
+truffle(uat4)> instance.pause(1)
+Uncaught:
+Error: Transaction: 0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5 exited with an error (status 0).     at PromiEvent (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/promievent.js:9:1)
+    at TruffleContract.pause (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/execute.js:169:1)
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:15)
+    at Script.runInContext (vm.js:128:14)
+    at runScript (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/console.js:219:1)
+    at Console.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/console.js:234:1)
+    at ReplManager.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/repl.js:123:1)
+    at bound (domain.js:427:14)
+    at REPLServer.runBound [as eval] (domain.js:440:12)
+    at REPLServer.onLine (repl.js:750:10)
+    at REPLServer.emit (events.js:305:20)
+    at REPLServer.EventEmitter.emit (domain.js:483:12)
+    at REPLServer.Interface._onLine (readline.js:323:10)
+    at REPLServer.Interface._line (readline.js:688:8)
+    at REPLServer.Interface._ttyWrite (readline.js:1015:14)
+    at REPLServer.self._ttyWrite (repl.js:838:7)
+    at ReadStream.onkeypress (readline.js:199:10)
+    at ReadStream.emit (events.js:305:20)
+    at ReadStream.EventEmitter.emit (domain.js:483:12)
+    at emitKeys (internal/readline/utils.js:439:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (readline.js:1150:36)
+    at ReadStream.emit (events.js:305:20)
+    at ReadStream.EventEmitter.emit (domain.js:483:12)
+    at addChunk (_stream_readable.js:341:12)
+    at readableAddChunk (_stream_readable.js:316:11)
+    at ReadStream.Readable.push (_stream_readable.js:250:10)
+    at TTY.onStreamRead (internal/stream_base_commons.js:186:23) {
+  message: 'Transaction: 0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5 exited with an error (status 0). \n' +
+    '     Please check that the transaction:\n' +
+    '     - satisfies all conditions set by Solidity `require` statements.\n' +
+    '     - does not trigger a Solidity `revert` statement.\n',
+  stack: 'Error: Transaction: 0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5 exited with an error (status 0).     at PromiEvent (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/promievent.js:9:1)\n' +
+    '    at TruffleContract.pause (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/execute.js:169:1)\n' +
+    '    at evalmachine.<anonymous>:0:10\n' +
+    '    at sigintHandlersWrap (vm.js:273:15)\n' +
+    '    at Script.runInContext (vm.js:128:14)\n' +
+    '    at runScript (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/console.js:219:1)\n' +
+    '    at Console.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/console.js:234:1)\n' +
+    '    at ReplManager.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/core/lib/repl.js:123:1)\n' +
+    '    at bound (domain.js:427:14)\n' +
+    '    at REPLServer.runBound [as eval] (domain.js:440:12)\n' +
+    '    at REPLServer.onLine (repl.js:750:10)\n' +
+    '    at REPLServer.emit (events.js:305:20)\n' +
+    '    at REPLServer.EventEmitter.emit (domain.js:483:12)\n' +
+    '    at REPLServer.Interface._onLine (readline.js:323:10)\n' +
+    '    at REPLServer.Interface._line (readline.js:688:8)\n' +
+    '    at REPLServer.Interface._ttyWrite (readline.js:1015:14)\n' +
+    '    at REPLServer.self._ttyWrite (repl.js:838:7)\n' +
+    '    at ReadStream.onkeypress (readline.js:199:10)\n' +
+    '    at ReadStream.emit (events.js:305:20)\n' +
+    '    at ReadStream.EventEmitter.emit (domain.js:483:12)\n' +
+    '    at emitKeys (internal/readline/utils.js:439:14)\n' +
+    '    at emitKeys.next (<anonymous>)\n' +
+    '    at ReadStream.onData (readline.js:1150:36)\n' +
+    '    at ReadStream.emit (events.js:305:20)\n' +
+    '    at ReadStream.EventEmitter.emit (domain.js:483:12)\n' +
+    '    at addChunk (_stream_readable.js:341:12)\n' +
+    '    at readableAddChunk (_stream_readable.js:316:11)\n' +
+    '    at ReadStream.Readable.push (_stream_readable.js:250:10)\n' +
+    '    at TTY.onStreamRead (internal/stream_base_commons.js:186:23)',
+  name: 'StatusError',
+  tx: '0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5',
+  receipt: {
+    blockHash: '0x2d9d532c44838a99f822fcbea39441be01d1b4c6e50ea03a2eb8187b94bea607',
+    blockNumber: 3405721,
+    contractAddress: null,
+    cumulativeGasUsed: 23424,
+    from: '0xfe3b557e8fb62b89f4916b721be55ceb828dbd73',
+    gasUsed: 23424,
+    logs: [],
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    status: false,
+    to: '0xc1ef73b9ccc4612246d723f00d34eeef56dbd4c3',
+    transactionHash: '0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5',
+    transactionIndex: 0,
+    rawLogs: []
+  },
+  reason: undefined,
+  hijackedStack: 'Error: Transaction: 0x2f201e929c663037fb9c60400c90b7ddd01b5b68dd8e29e7420ace67166032d5 exited with an error (status 0). \n' +
+    '     Please check that the transaction:\n' +
+    '     - satisfies all conditions set by Solidity `require` statements.\n' +
+    '     - does not trigger a Solidity `revert` statement.\n' +
+    '\n' +
+    '    at StatusError.ExtendableError (/usr/lib/node_modules/truffle/build/webpack:/packages/error/index.js:10:1)\n' +
+    '    at new StatusError (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/statuserror.js:33:1)\n' +
+    '    at Object.receipt (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/handlers.js:121:1)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n' +
+    '    at Function.start (/usr/lib/node_modules/truffle/build/webpack:/packages/contract/lib/override.js:53:1)'
+}
+truffle(uat4)>

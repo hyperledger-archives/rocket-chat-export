@@ -1,0 +1,648 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Wed, 09 Sep 2020 14:21:44 GMT):<br/>
+<i>User <em>User_1</em> added by <em>rjones</em>.</i>
+</p>
+<p><strong>rjones</strong> (Wed, 09 Sep 2020 14:21:54 GMT):<br/>
+choeppler
+</p>
+<p><strong>rjones</strong> (Wed, 09 Sep 2020 14:21:57 GMT):<br/>
+tkuhrt
+</p>
+<p><strong>rjones</strong> (Wed, 09 Sep 2020 14:22:07 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>rjones</strong> (Wed, 09 Sep 2020 15:13:20 GMT):<br/>
+<i>Room name changed to: <em>perun</em> by <em>rjones</em></i>
+</p>
+<p><strong>choeppler</strong> (Wed, 09 Sep 2020 16:25:29 GMT):<br/>
+<i>User <em>User_2</em> added by <em>choeppler</em>.</i>
+</p>
+<p><strong>choeppler</strong> (Wed, 09 Sep 2020 19:22:10 GMT):<br/>
+Discussion and information sharing about the labs project Perun
+</p>
+<p><strong>choeppler</strong> (Wed, 09 Sep 2020 19:24:00 GMT):<br/>
+Discussion and information sharing about the labs project Perun
+</p>
+<p><strong>choeppler</strong> (Wed, 09 Sep 2020 19:24:00 GMT):<br/>
+
+</p>
+<p><strong>tinnendo</strong> (Thu, 10 Sep 2020 08:29:03 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>tinnendo</strong> (Thu, 10 Sep 2020 08:29:03 GMT):<br/>
+Test
+</p>
+<p><strong>choeppler</strong> (Thu, 10 Sep 2020 08:29:18 GMT):<br/>
+Hi @tinnendo !
+</p>
+<p><strong>sebstar</strong> (Thu, 10 Sep 2020 08:30:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sebstar</strong> (Thu, 10 Sep 2020 08:30:00 GMT):<br/>
+Salut
+</p>
+<p><strong>danielksan81</strong> (Thu, 10 Sep 2020 10:11:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>danielksan81</strong> (Thu, 10 Sep 2020 10:12:41 GMT):<br/>
+Hi folks
+</p>
+<p><strong>frank-bee</strong> (Fri, 11 Sep 2020 09:23:42 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>frank-bee</strong> (Fri, 11 Sep 2020 09:23:42 GMT):<br/>
+Hi , nice that you have a chat now! :-)
+</p>
+<p><strong>c2bo</strong> (Fri, 11 Sep 2020 12:35:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>c2bo</strong> (Fri, 11 Sep 2020 12:42:11 GMT):<br/>
+Hey
+</p>
+<p><strong>manoranjith</strong> (Fri, 11 Sep 2020 12:45:47 GMT):<br/>
+Hi @c2bo 
+</p>
+<p><strong>choeppler</strong> (Mon, 14 Sep 2020 06:07:16 GMT):<br/>
+@manoranjith, how come the tickets you've just added to [perun-node](https://github.com/hyperledger-labs/perun-node) don't show up in the [project board](https://github.com/orgs/hyperledger-labs/projects/1)?
+</p>
+<p><strong>manoranjith</strong> (Mon, 14 Sep 2020 08:05:10 GMT):<br/>
+I am yet to set up the automation for  the project board to include the newly added issues. 
+
+I have added them manually for now and you they should show up in the project board.
+</p>
+<p><strong>choeppler</strong> (Mon, 14 Sep 2020 10:52:23 GMT):<br/>
+Okay, thanks.
+I was asking because I  thought at least the newly created ones would show up in the board that way it's configured at the moment...
+</p>
+<p><strong>manoranjith</strong> (Mon, 14 Sep 2020 11:04:32 GMT):<br/>
+Okay, for some reason it didn't. Will have a look into it.
+</p>
+<p><strong>manoranjith</strong> (Mon, 14 Sep 2020 12:20:23 GMT):<br/>
+Hi, 
+
+I was trying to update `perun-node` to use the shared nonce feature. But I am not able to figure out how to send the nonce share when accepting a channel proposal.
+1. I found the [`NewChannelProposalAcc`](https://github.com/hyperledger-labs/go-perun/blob/4bede739a3e4ce208390203ddd75aa3e2eb968b3/client/proposalmsgs.go#L265), to which I can pass `WithRandomNonce` as option and receive a `client.ChannelProposalAcc`.  
+2. But [`ProposalResponder.Accept`](https://github.com/hyperledger-labs/go-perun/blob/dev/client/proposal.go#L82) takes a only a `client.ProposalAcc` as a parameter.
+</p>
+<p><strong>manoranjith</strong> (Mon, 14 Sep 2020 12:20:23 GMT):<br/>
+Hi, 
+
+I was trying to update `perun-node` to use the shared nonce feature. But I am not able to figure out how to send the nonce share when accepting a channel proposal.
+1. I found the [`NewChannelProposalAcc`](https://github.com/hyperledger-labs/go-perun/blob/4bede739a3e4ce208390203ddd75aa3e2eb968b3/client/proposalmsgs.go#L265), to which I can pass `WithRandomNonce` as option and receive a `client.ChannelProposalAcc`.  
+2. But [`ProposalResponder.Accept`](https://github.com/hyperledger-labs/go-perun/blob/dev/client/proposal.go#L82) takes a only a `client.ProposalAcc` as a parameter and not `client.ChannelProposalAcc`.
+</p>
+<p><strong>anagha-ks</strong> (Tue, 15 Sep 2020 03:37:14 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>manoranjith</strong> (Wed, 16 Sep 2020 11:37:12 GMT):<br/>
+Hi, 
+Previously the [board](https://github.com/orgs/hyperledger-labs/projects/1) was configured using [Github Automation](https://docs.github.com/en/github/managing-your-work-on-github/configuring-automation-for-project-boards), but i found few limitations with it. 
+Now i have set it up to use the [project bot](https://github.com/apps/project-bot) and it seems to work now.
+</p>
+<p><strong>manoranjith</strong> (Wed, 16 Sep 2020 11:39:49 GMT):<br/>
+On creating new issues, the project should be explicitly added to the issue. Then it will appear in the `To Do (Backlog)` column of the project board.
+</p>
+<p><strong>sebstar</strong> (Wed, 16 Sep 2020 12:44:57 GMT):<br/>
+Hi, that was a mistake on our side when we recently changed the API of channel proposals on the `dev` branch. We just merged a fix where `ProposalResponder.Accept` now correctly receives a `client.ChannelProposalAcc` message, which must be created using method `NewChannelProposalAcc` on the proposal request. Note that we will probably change the API here once more before our next "Europa" release, where we implement full sub-channel support (not directly relevant to the node, but allows to "run" apps in channels).
+</p>
+<p><strong>choeppler</strong> (Wed, 16 Sep 2020 13:19:55 GMT):<br/>
+I see. So, in other words, regardless of the [board's](https://github.com/orgs/hyperledger-labs/projects/1) linked repositories, issues appear once their project property points to the board, don't they?
+</p>
+<p><strong>manoranjith</strong> (Wed, 16 Sep 2020 13:28:14 GMT):<br/>
+As I noticed from the [github docs](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-repository-to-a-project-board), issues & pull requests can be added the to project board whether it is linked or not.
+
+However, the automation will work only for the linked repositories: `perun node` and `perun doc`.
+</p>
+<p><strong>manoranjith</strong> (Wed, 16 Sep 2020 13:28:53 GMT):<br/>
+Okay, I will try using the updated version.
+</p>
+<p><strong>manoranjith</strong> (Wed, 23 Sep 2020 07:36:23 GMT):<br/>
+I was trying to use the persistence feature in go-perun and have one query: When a channel client is persisted and restored, what happens to the message bus ?
+Should the participants of the `to be restored channels` be registered in the message bus before restoring the channels ? If so, how to get the list of participants to be registered ?
+</p>
+<p><strong>manoranjith</strong> (Wed, 23 Sep 2020 07:39:20 GMT):<br/>
+@sebstar
+</p>
+<p><strong>sebstar</strong> (Wed, 23 Sep 2020 12:27:45 GMT):<br/>
+@manoranjith I pushed an [intermediate release `v0.4.1`](https://github.com/hyperledger-labs/go-perun/releases/tag/v0.4.1) with the features included that we discussed last week.
+</p>
+<p><strong>sebstar</strong> (Wed, 23 Sep 2020 12:38:56 GMT):<br/>
+You mean their IP addresses registered in the dialer?
+</p>
+<p><strong>manoranjith</strong> (Wed, 23 Sep 2020 14:15:01 GMT):<br/>
+Yes
+</p>
+<p><strong>sebstar</strong> (Wed, 23 Sep 2020 14:23:27 GMT):<br/>
+Not necessarily before, I think. But the moment the first wire message is sent, the tcp/ip wire.Bus implementation will try to dial and fail if the peer is unknown.
+But don't you load the list of known peers with their IP addresses at start anyways? I would configure the tcp/ip dialer before setting up any client.
+</p>
+<p><strong>manoranjith</strong> (Wed, 23 Sep 2020 14:29:14 GMT):<br/>
+In case of outgoing connections,  the IP address is registered in the dialer when a user wants to open a channel with that peer. 
+
+In case of restore, the first possible instance to register a peer with dialer is within the `OnNewChannel` callback.
+
+Hence wanted to clarify if the framework will try to use the message bus before a channel is processed in the `OnNewChannel` callback.
+</p>
+<p><strong>sebstar</strong> (Wed, 23 Sep 2020 14:41:02 GMT):<br/>
+I think it's fine to do it there for now... why can't you just add the ip addresses of all known peers before restoring client?
+</p>
+<p><strong>manoranjith</strong> (Thu, 24 Sep 2020 07:38:05 GMT):<br/>
+Okay, I think I will try doing it this way now.
+
+Currently we use contacts from yaml file and hence it may not make much difference whether is is loaded on demand or all of them before restoring..
+
+But when we might move to other contact sources, which might have large number of known peers, then loading on demand will be a better option.
+</p>
+<p><strong>manoranjith</strong> (Thu, 24 Sep 2020 20:08:09 GMT):<br/>
+I have a query regarding what happens when a channel is in Funding phase and the other party doesn't fund within expected time.
+Looking at [client/proposal.go:L335](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/client/proposal.go#L355), I understand that `ch.Settle`  is called and that the statemachine is in the `Funding` state.
+</p>
+<p><strong>manoranjith</strong> (Thu, 24 Sep 2020 20:08:09 GMT):<br/>
+I have a query regarding what happens when a channel is in Funding phase and the other party doesn't fund within expected time.
+
+Looking at [client/proposal.go:L335](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/client/proposal.go#L355), I understand that `ch.Settle`  is called and that the statemachine is in the `Funding` state.
+
+Within `ch.Settle` the function calls sequence is: `channel.settleLocked` -> `channel.settle` -> `channel.register` (because machine is `Funding` phase and `Funding` < `Registered`) -> `machine.SetRegistering` -> `statemachine.SetRegistering`.
+
+Within [statemachine.SetRegistering](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/channel/machine.go#L363), I found the condition check `m.Phase < Funding` which I expect to fail, because the current phase is `Funding`.
+
+And hence `ch.settle` will return an error, thereby  Is this an expected behavior ? Or should the condition check be `m.Phase <= Funding` ?
+</p>
+<p><strong>manoranjith</strong> (Thu, 24 Sep 2020 20:08:09 GMT):<br/>
+I have a query regarding what happens when a channel is in Funding phase and the other party doesn't fund within expected time.
+
+Looking at [client/proposal.go:L335](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/client/proposal.go#L355), I understand that `ch.Settle`  is called and that the statemachine is in the `Funding` state.
+
+Within `ch.Settle` the function calls sequence is: `channel.settleLocked` -> `channel.settle` -> `channel.register` (because machine is `Funding` phase and `Funding` < `Registered`) -> `machine.SetRegistering` -> `statemachine.SetRegistering`.
+
+Within [statemachine.SetRegistering](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/channel/machine.go#L363), I found the condition check `m.Phase < Funding` which I expect to fail, because the current phase is `Funding`. and `statemachine.SetRegistering` will return an error.
+
+And hence `ch.settle` will return an error, thereby  Is this an expected behavior ? Or should the condition check be `m.Phase <= Funding` ?
+</p>
+<p><strong>manoranjith</strong> (Thu, 24 Sep 2020 20:08:09 GMT):<br/>
+I have a query regarding what happens when a channel is in Funding phase and the other party doesn't fund within expected time.
+
+Looking at [client/proposal.go:L335](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/client/proposal.go#L355), I understand that `ch.Settle`  is called and that the statemachine is in the `Funding` state.
+
+Within `ch.Settle` the function calls sequence is: `channel.settleLocked` -> `channel.settle` -> `channel.register` (because machine is `Funding` phase and `Funding` < `Registered`) -> `machine.SetRegistering` -> `statemachine.SetRegistering`.
+
+Within [statemachine.SetRegistering](https://github.com/hyperledger-labs/go-perun/blob/75f39a5cc4f456b8b8f30e640c1de2419c7e899d/channel/machine.go#L363), I found the condition check `m.Phase < Funding` which I expect to fail, because the current phase is `Funding`. and `statemachine.SetRegistering` will return an error.
+
+Thereby causing `ch.settle` to return an error. Is this an expected behavior ? Or should the condition check be `m.Phase <= Funding` ?
+</p>
+<p><strong>manoranjith</strong> (Fri, 25 Sep 2020 07:47:08 GMT):<br/>
+@sebstar 
+</p>
+<p><strong>sebstar</strong> (Fri, 25 Sep 2020 08:53:41 GMT):<br/>
+Isn't it the other way around? The link you posted shows that it _fails_ if `m.Phase < Funding`, but, as you say, it is at `Funding`, it won't fail.
+</p>
+<p><strong>sebstar</strong> (Fri, 25 Sep 2020 08:53:41 GMT):<br/>
+Isn't it the other way around? The link you posted shows that it _fails_ if `m.Phase < Funding`, but, as you say, it is at `Funding`, so it _won't_ fail.
+</p>
+<p><strong>manoranjith</strong> (Fri, 25 Sep 2020 09:15:17 GMT):<br/>
+Yeah, it is the other way around🤦‍♂️, if the condition check fails, the `statemachine.SetRegistering` executes the happy path. 
+
+Thanks for the clarification.
+</p>
+<p><strong>manoranjith</strong> (Thu, 01 Oct 2020 11:15:48 GMT):<br/>
+Hi @sebstar,
+
+I looking at the proposal validation logic [here](https://github.com/hyperledger-labs/go-perun/blob/ffba499fdb4e1bc6d954426d9346a5de5306060f/client/proposal.go#L246).
+
+Is the a specific reason why the indices should be fixed: Proposer at 0 and the Proposee at 1 ?
+</p>
+<p><strong>sebstar</strong> (Thu, 01 Oct 2020 13:09:33 GMT):<br/>
+It was just much easier to implement the protocol when this was fixed. We're not aware of any application where this is a problem.
+</p>
+<p><strong>manoranjith</strong> (Thu, 01 Oct 2020 13:14:16 GMT):<br/>
+Okay, I was getting an error when I was not putting the proposer address at index 0 and was just curious about the reason behind it. Wasn't a problem though.
+</p>
+<p><strong>choeppler</strong> (Mon, 12 Oct 2020 09:41:39 GMT):<br/>
+Here's the link the /dev/weekly-Newsletter subscription page: https://www.hyperledger.org/developer-newsletter
+</p>
+<p><strong>manoranjith</strong> (Fri, 16 Oct 2020 09:54:30 GMT):<br/>
+Hi @sebstar 
+
+I have been trying to use nil app in channels and stuck at this point. 
+I am using 75f39a5c (tagged v0.4.1}.
+
+Scenario 1:
+I use 'NewLedgerChannelProposal' to create a channel proposal  `pclient.WithApp(nil,pchannel.NoData)` with this option. Then if I print the channel proposal, the App field is not nil, but initialized to zero value. 
+So when I consequently call `pclient.ProposeChannel`, the program panics as `App.Def()` is called at `backend/ethereum/channel/backend.go:L117`,  
+```
+if p.App != nil {
+app = ethwallet.AsEthAddr(p.Add.Def())
+}
+```
+
+The same is the case, even if I don't use `WithApp`  option in `NewLedgerChannelProposal`. 
+
+Scenario 2:
+
+I explicitly set app to nil in the channel proposal returned by `NewLedgerChannelProposal`, before passing it to `ProposeChannel`. 
+
+
+The I get an error, because `ValidateProposalParameters` in `pchannel/params.go` checks that app should not be nil. 
+
+Not: In pchannel, pclient etc., prefix p just refers that its a package in go-perun.
+</p>
+<p><strong>manoranjith</strong> (Fri, 16 Oct 2020 09:54:30 GMT):<br/>
+Hi @sebstar 
+
+I have been trying to use nil app in channels and stuck at this point. 
+I am using 75f39a5c (tagged v0.4.1}.
+
+Scenario 1:
+I use 'NewLedgerChannelProposal' to create a channel proposal  `pclient.WithApp(nil,pchannel.NoData)` with this option. Then if I print the channel proposal, the App field is not nil, but initialized to zero value. 
+So when I consequently call `pclient.ProposeChannel`, the program panics as `App.Def()` is called at `backend/ethereum/channel/backend.go:L117`,  
+
+```
+if p.App != nil {
+app = ethwallet.AsEthAddr(p.Add.Def())
+}
+```
+
+The same is the case, even if I don't use `WithApp`  option in `NewLedgerChannelProposal`. 
+
+Scenario 2:
+
+I explicitly set app to nil in the channel proposal returned by `NewLedgerChannelProposal`, before passing it to `ProposeChannel`. 
+
+
+The I get an error, because `ValidateProposalParameters` in `pchannel/params.go` checks that app should not be nil. 
+
+Not: In pchannel, pclient etc., prefix p just refers that its a package in go-perun.
+</p>
+<p><strong>manoranjith</strong> (Fri, 16 Oct 2020 09:54:30 GMT):<br/>
+Hi @sebstar 
+
+I have been trying to use nil app in channels and stuck at this point. 
+I am using 75f39a5c (tagged v0.4.1}.
+
+Scenario 1:
+I use 'NewLedgerChannelProposal' to create a channel proposal  `pclient.WithApp(nil,pchannel.NoData)` with this option. Then if I print the channel proposal, the App field is not nil, but initialized to zero value. 
+So when I consequently call `pclient.ProposeChannel`, the program panics as `App.Def()` is called at `backend/ethereum/channel/backend.go:L117`,  
+
+
+
+if p.App != nil {
+app = ethwallet.AsEthAddr(p.Add.Def())
+}
+
+
+
+The same is the case, even if I don't use `WithApp`  option in `NewLedgerChannelProposal`. 
+
+Scenario 2:
+
+I explicitly set app to nil in the channel proposal returned by `NewLedgerChannelProposal`, before passing it to `ProposeChannel`. 
+
+
+The I get an error, because `ValidateProposalParameters` in `pchannel/params.go` checks that app should not be nil. 
+
+Not: In pchannel, pclient etc., prefix p just refers that its a package in go-perun.
+</p>
+<p><strong>manoranjith</strong> (Fri, 16 Oct 2020 09:54:30 GMT):<br/>
+Hi @sebstar 
+
+I have been trying to use nil app in channels and stuck at this point. 
+I am using 75f39a5c (tagged v0.4.1}.
+
+Scenario 1:
+I use 'NewLedgerChannelProposal' to create a channel proposal  `pclient.WithApp(nil,pchannel.NoData)` with this option. Then if I print the channel proposal, the App field is not nil, but initialized to zero value. 
+So when I consequently call `pclient.ProposeChannel`, the program panics as `App.Def()` is called at `backend/ethereum/channel/backend.go:L117`,  
+
+
+
+if p.App != nil {
+app = ethwallet.AsEthAddr(p.Add.Def())
+}
+
+
+
+The same is the case, even if I don't use `WithApp`  option in `NewLedgerChannelProposal`. 
+
+Scenario 2:
+
+I explicitly set app to nil in the channel proposal returned by `NewLedgerChannelProposal`, before passing it to `ProposeChannel`. 
+
+
+The I get an error, because `ValidateProposalParameters` in `pchannel/params.go` checks that app should not be nil. 
+
+Note: In pchannel, pclient etc., prefix p just refers that its a package in go-perun.
+
+I am not able to figure out how to correctly set a nil app in the channel.
+</p>
+<p><strong>sebstar</strong> (Fri, 16 Oct 2020 13:00:47 GMT):<br/>
+`nil` is not a valid app, or appdef. If you just omit the `WithApp` option, it should create a proposal without an app, that is, with a `NoApp`.  You can also explicitly set `WithApp(channel.NoApp(), channel.NoData())`. The latest `dev` also contains an explicit option for that, `WithoutApp()`. We never use `nil` because this always leads to unforeseen problems in public APIs.
+</p>
+<p><strong>manoranjith</strong> (Fri, 16 Oct 2020 15:40:19 GMT):<br/>
+I tried channel.NoApp option as you have described...  Program panics for the reason described in scenario 1 above. 
+
+Because channel.NoApp sets the app to zero value, but in snippet in (go-perun), Def is called on zero value app.... Which causes it to panic
+</p>
+<p><strong>choeppler</strong> (Thu, 03 Dec 2020 11:59:25 GMT):<br/>
+@anagha-ks, I've seen you're working on docs in [perun-doc](https://github.com/hyperledger-labs/perun-doc). We still need to migrate the build scripts which date back to the pre-Hyperledger Labs days. I'm having a stab at that ATM and expect to be done later today. Maybe we could integrate that before merging your current PR...
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 00:58:49 GMT):<br/>
+Done: https://github.com/hyperledger-labs/perun-doc/pull/27
+</p>
+<p><strong>anagha-ks</strong> (Fri, 04 Dec 2020 11:33:10 GMT):<br/>
+yes, I saw the changes you have made. We will integrate this configurations first.
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 15:27:34 GMT):<br/>
+@rjones, could you please help with a configuration issue in the https://github.com/hyperledger-labs/perun-doc repo? I am trying to (automatically) deploy the generated docs in a branch gh-pages (to publish on https://hyperledger-labs.github.io/perun-doc), however the branch protection rules and DCO-check prevent that:
+```
+remote: error: GH006: Protected branch update failed for refs/heads/gh-pages.
+remote: error: Required status check "DCO" is expected. At least 1 approving review is required by reviewers with write access.
+To https://github.com/hyperledger-labs/perun-doc
+ ! [remote rejected] gh-pages -> gh-pages (protected branch hook declined)
+error: failed to push some refs to 'https://choeppler@github.com/hyperledger-labs/perun-doc'
+make: *** [Makefile:90: deploy] Error 1
+```
+</p>
+<p><strong>rjones</strong> (Fri, 04 Dec 2020 15:27:34 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 04 Dec 2020 15:47:34 GMT):<br/>
+@choeppler try now
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:00:01 GMT):<br/>
+:tada:
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:00:28 GMT):<br/>
+Works like a charm now.
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:01:10 GMT):<br/>
+Website's also up :) https://labs.hyperledger.org/perun-doc/
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:01:54 GMT):<br/>
+Thank you, @rjones
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:31:32 GMT):<br/>
+@manoranjith, since manual deployment of the perun-docs worked now. So I think everything is setup , that you can activate the circleci build with the default settings in the Makefile... :fingers_crossed:
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:31:32 GMT):<br/>
+@manoranjith, manual deployment of the perun-docs worked now. So I think everything is setup , that you can activate the circleci build with the default settings in the Makefile...
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:56:54 GMT):<br/>
+If I interpret the error in https://app.circleci.com/pipelines/github/hyperledger-labs/perun-doc/8/workflows/3390bc66-8e56-430f-95e5-681da1dea87b/jobs/9 correctly, a deploy key is missing?
+```
+Warning: Permanently added the RSA host key for IP address '140.82.114.4' to the list of known hosts.
+ERROR: Permission to hyperledger-labs/perun-doc.git denied to deploy key
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+make: *** [Makefile:90: deploy] Error 128
+
+Exited with code exit status 2
+
+CircleCI received exit code 2
+```
+</p>
+<p><strong>choeppler</strong> (Fri, 04 Dec 2020 16:59:19 GMT):<br/>
+A second issue: CircleCI should not try to build the `gh-pages`-branch. That's why the [other build](https://app.circleci.com/pipelines/github/hyperledger-labs/perun-doc/9/workflows/d1299f9c-7872-45f1-8d19-b6fd4146c316/jobs/10) failed...
+</p>
+<p><strong>choeppler</strong> (Tue, 08 Dec 2020 09:11:44 GMT):<br/>
+@manoranjith, I just created a PR in the perun-docs repo, https://github.com/hyperledger-labs/perun-doc/pull/35. CircleCI ran the deploy target (which it shouldn't for a pr) and that build failed due to the same reason detailed above. (Cf. https://app.circleci.com/pipelines/github/hyperledger-labs/perun-doc/14/workflows/0aed9019-f256-442a-8b3f-933f21177433/jobs/17)
+Could you have a look into this, please?
+</p>
+<p><strong>choeppler</strong> (Tue, 08 Dec 2020 09:27:19 GMT):<br/>
+fixed after rebasing to master where the CircleCI-config updates were just integrated.
+Thanks, @manoranjith !
+</p>
+<p><strong>manoranjith</strong> (Tue, 08 Dec 2020 09:34:20 GMT):<br/>
+Okay. There was an update need to circle ci config.... Hence it was failing before
+</p>
+<p><strong>manoranjith</strong> (Tue, 08 Dec 2020 09:36:40 GMT):<br/>
+I have updated the circle ci config to run jobs based on branches. You can find the details in this commit: https://github.com/hyperledger-labs/perun-doc/commit/4771373a9f01d25fdff3ab524ce93b6a8ada21a1
+</p>
+<p><strong>manoranjith</strong> (Tue, 08 Dec 2020 09:37:30 GMT):<br/>
+It also includes excluding gh-pages branch.
+</p>
+<p><strong>choeppler</strong> (Tue, 08 Dec 2020 10:31:00 GMT):<br/>
+Hm. it seems we still have to include a config in the gh-pages branch to exclude building that branch???
+</p>
+<p><strong>choeppler</strong> (Tue, 08 Dec 2020 10:32:08 GMT):<br/>
+Cf. the error I'm still seeing here: https://app.circleci.com/pipelines/github/hyperledger-labs/perun-doc/21/workflows/f3ce4f73-5acd-4628-ab73-f29e4463b6c1/jobs/26
+</p>
+<p><strong>choeppler</strong> (Tue, 08 Dec 2020 11:58:29 GMT):<br/>
+Fixed by [#36](https://github.com/hyperledger-labs/perun-doc/pull/36) and [#37](https://github.com/hyperledger-labs/perun-doc/pull/37)
+</p>
+<p><strong>OliverTY</strong> (Tue, 02 Mar 2021 10:01:35 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 08:24:37 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 08:24:38 GMT):<br/>
+Hi
+
+I was trying to simulate the case where I can get FundingTimeoutError with the following steps:
+1. Start ganache-cli node with insufficient funds for one of the channel participants
+2. Run `Test_Role_Integ` in `perun-node/session` package.
+
+I noticed that, in all three combinations (Y -> has sufficient funds, N -> does not)
+Alice: Y  |   N  |  N
+Bob : N  |   Y  |  N
+
+I see to get the same error for both alice and bob: `funding ledger channel: error while funding channel: sending 0th funding TX for asset 0: sending transaction: context canceled`. 
+
+Should i not receive a `FudingTimeoutError` in this case, as one of the channel participants was not able to send the funding tx in time ?
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 10:08:49 GMT):<br/>
+Hi
+
+Also I am thinking on how to detect a `Transaction Timed Out` error in go-perun. One  possibility I was if `bind.WaitMined` call within `ConfirmTransaction` function [here](https://github.com/hyperledger-labs/go-perun/blob/37f6187c1df8d05409853c4eb7301a384f12923b/backend/ethereum/channel/contractbackend.go#L132) returns an error, can we consider that the transaction has not been received within the expected time ?
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 10:09:38 GMT):<br/>
+@OliverTY
+</p>
+<p><strong>OliverTY</strong> (Thu, 04 Mar 2021 12:26:20 GMT):<br/>
+I will take a look
+</p>
+<p><strong>matthiasgeihs</strong> (Thu, 04 Mar 2021 13:29:15 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>matthiasgeihs</strong> (Thu, 04 Mar 2021 13:50:14 GMT):<br/>
+thx oli
+</p>
+<p><strong>OliverTY</strong> (Thu, 04 Mar 2021 14:45:42 GMT):<br/>
+I tried to reproduce this but because of several limitations in the simulated block chain it did not work. Which means that we can not test it :cry: 
+Will try out your code next.
+</p>
+<p><strong>OliverTY</strong> (Thu, 04 Mar 2021 14:48:28 GMT):<br/>
+The go-ethereum documentation is not helpful on that, would need to look at the source.
+</p>
+<p><strong>OliverTY</strong> (Thu, 04 Mar 2021 14:49:13 GMT):<br/>
+>Should i not receive a FudingTimeoutError in this case, as one of the channel participants was not able to send the funding tx in time ?
+yes, if someone else did not fund in time.
+I case youself could not fund, the error is different AFAIK.
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 15:08:40 GMT):<br/>
+To try out, you can
+1. Clone the repo with below commands.
+`git clone https://github.com/boschresearch/dst-go.git`
+`cd dst-go/session`
+
+2. Start the ganache-cli node using the below command.
+`ganache-cli -b 1 --account="0x1fedd636dbc7e8d41a0622a2040b86fea8842cef9d4aa4c582aad00465b7acff,100000000000000000000" --account="0xb0309c60b4622d3071fad3e16c2ce4d0b1e7758316c187754f4dd0cfb44ceb33,100000000000000000000"`
+
+3. Run the specific test. I have commented out a large part of this, so that it runs only until the point where channel is proposed and accepted.
+`go test -count=1 -tags=integration  -v -run Test_Integ_Role`
+
+In the first run, the test will pass.
+Then you can try each of the three combinations by modifying the initial balance when starting ganache-cli node.
+
+Alice: Y | N | N
+Bob : N | Y | N
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 15:08:40 GMT):<br/>
+To try out, you can
+1. Clone the repo with below commands.
+`git clone https://github.com/boschresearch/dst-go.git`
+`git checkout funding-timedout-error`
+`cd dst-go/session`
+
+2. Start the ganache-cli node using the below command.
+`ganache-cli -b 1 --account="0x1fedd636dbc7e8d41a0622a2040b86fea8842cef9d4aa4c582aad00465b7acff,100000000000000000000" --account="0xb0309c60b4622d3071fad3e16c2ce4d0b1e7758316c187754f4dd0cfb44ceb33,100000000000000000000"`
+
+3. Run the specific test. I have commented out a large part of this, so that it runs only until the point where channel is proposed and accepted.
+`go test -count=1 -tags=integration  -v -run Test_Integ_Role`
+
+In the first run, the test will pass.
+Then you can try each of the three combinations by modifying the initial balance when starting ganache-cli node.
+
+Alice: Y | N | N
+Bob : N | Y | N
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 15:10:19 GMT):<br/>
+In the command specified above, each of them get 100 ETH. Since the channel opening balance is 2,2 ETH; if you remove 2 zeros for any of the participant, that participant will have insufficient balance.
+
+Note that, since they still will have 1 ETH each, it was be sufficient to deploy contracts during test setup
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 15:10:23 GMT):<br/>
+@OliverTY
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 04 Mar 2021 15:15:42 GMT):<br/>
+But in all cases (either I did not fund or the peer did not fund), I receive the same error that is mentioned above.
+</p>
+<p><strong>mano-ranjith</strong> (Fri, 12 Mar 2021 09:58:58 GMT):<br/>
+Hi @OliverTY 
+
+I tried to investigate this error in more detail. It seems to be a problem in how transactions are handled by `ganache-cli`. 
+
+If we send both the funding transactions next to one another, both of them are not mined by ganache-cli
+
+But, if we send one funding transaction, wait for it to be mined / fail and then send the second transaction, then it works as expected. We get funding transaction error for one alice and peers did not fund error for bob.
+</p>
+<p><strong>mano-ranjith</strong> (Fri, 12 Mar 2021 10:00:14 GMT):<br/>
+To achieve the second case, i added a 2 second sleep before calling fund in `go-perun/client/proposal.go:189`
+</p>
+<p><strong>mano-ranjith</strong> (Fri, 12 Mar 2021 10:05:30 GMT):<br/>
+In the same branch, I have mentioned above, i have committed these changes.
+
+First you can start ganache-cli node with the command mentioned above with 1ETH for alice, 10 ETH for bob.
+
+Then from session directory, if you run `go test -cover -p 1 -count=1 -tags=integration  -v -run Test_Integ_Role`
+
+On commit f7a4e3 you will get funding error for both alice and bob.
+
+On commit 2ec38b (where i had added a sleep), you will get funding error for alice and peer timed out funding error for bob.
+</p>
+<p><strong>choeppler</strong> (Mon, 19 Apr 2021 19:04:55 GMT):<br/>
+After @matthiasgeihs merged https://github.com/hyperledger-labs/perun-doc/pull/58, CircleCI didn't build and deploy master. I didn't see an easy way to manually trigger a CircleCI-build. So, I rebuilt locally for the time being.
+</p>
+<p><strong>choeppler</strong> (Mon, 19 Apr 2021 19:04:55 GMT):<br/>
+After @matthiasgeihs merged https://github.com/hyperledger-labs/perun-doc/pull/58, CircleCI didn't build and deploy master. I didn't see an easy way to manually trigger CircleCI. So, I rebuilt locally for the time being.
+</p>
+<p><strong>matthiasgeihs</strong> (Mon, 19 Apr 2021 20:50:03 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/perun?msg=NjKAc3LzcB7txQiKe) Thank you. Do you know the reason why it did not trigger?
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 22 Apr 2021 07:08:22 GMT):<br/>
+Checked the settings for perun-doc repo. The `deploy` job seems to have been disabled. I have re-enabled it now.
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 22 Apr 2021 07:09:05 GMT):<br/>
+The `deploy` job should now be triggered on any future commits in the master branch.
+</p>
+<p><strong>mano-ranjith</strong> (Thu, 08 Jul 2021 14:27:47 GMT):<br/>
+We have released `perun-node v0.6.0`. It includes support for using ERC20 tokens in payment channels, a new TUI (text based UI) client and much more.
+Check out the [release notes](https://github.com/hyperledger-labs/perun-node/releases/tag/v0.6.0) for more details.
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Mon, 19 Jul 2021 15:09:00 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Mon, 19 Jul 2021 15:09:00 GMT):<br/>
+We have also released `go-perun v0.7.0`. It features support for virtual channels, which allow to open channels without any on-chain costs. :rocket:
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Mon, 19 Jul 2021 15:09:00 GMT):<br/>
+We have also released `go-perun v0.7.0`. It features support for virtual channels, which allow to open channels without any on-chain costs. :rocket:
+Check out the [go-perun repository](https://github.com/hyperledger-labs/go-perun) for more details.
+</p>
+<p><strong>choeppler</strong> (Tue, 03 Aug 2021 20:45:30 GMT):<br/>
+There was a note on the Hyperledger Labs mailing list, that lab repos should move from master to main for the default branch. (https://lists.hyperledger.org/g/labs/message/145)
+We've got [five repos](https://github.com/search?q=org%3Ahyperledger-labs+perun) which are affected:
+- hyperledger-labs/go-perun
+- hyperledger-labs/perun-doc
+- hyperledger-labs/perun-eth-contracts
+- hyperledger-labs/perun-node
+- hyperledger-labs/perun-proposals
+
+I've already renamed `master` to `main` in the doc, node, and proposals repos via the web interface as described [here](https://github.com/github/renaming)
+
+@MatthiasGeihs.Perun, do you want me to do so for the remaining repos as well or are you going to take care of that?
+</p>
+<p><strong>choeppler</strong> (Tue, 03 Aug 2021 21:30:44 GMT):<br/>
+I came across [repolinter](https://github.com/todogroup/repolinter/) recently and used it to lint the [perun-node](https://github.com/hyperledger-labs/perun-node) repo using the configuration documented in the pull request https://github.com/hyperledger-labs/perun-node/pull/222. @rjones , could you have a quick look at the PR to check whether I picked up the right config and the proposed fix looks as expected?
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Tue, 12 Oct 2021 08:48:02 GMT):<br/>
+Hi @rjones , we just released a new blockchain backend for Perun, bringing Perun to the Cosmos Network. The backend is contained in two repositories:
+- The CosmWasm smart contract: https://github.com/perun-network/perun-cosmwasm-contract
+- The Perun Backend: https://github.com/perun-network/perun-cosmwasm-backend
+
+@choeppler proposed that we make these part of Hyperledger and mentioned that you, @rjones, could help us move the repositories to the Hyperledger Organization on GitHub. Could you give us some guidance on what needs to be done?
+</p>
+<p><strong>rjones</strong> (Tue, 12 Oct 2021 15:45:34 GMT):<br/>
+@MatthiasGeihs.Perun the easiest way is to transfer them to me on GitHub - `ryjones` - and then I'll transfer them. If you're uncomfortable with that, you can make me an owner of the repos, and I can try to transfer them directly from `perun-network`
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Wed, 13 Oct 2021 11:47:36 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/perun?msg=SAgoiqYNfMH85vv7Y) Thanks for your help @rjones 
+
+I have made you an Admin on both repositories. You should be able to transfer Ownership now.
+
+https://github.com/perun-network/perun-cosmwasm-backend
+https://github.com/perun-network/perun-cosmwasm-contract
+</p>
+<p><strong>rjones</strong> (Wed, 13 Oct 2021 16:00:35 GMT):<br/>
+@MatthiasGeihs.Perun done!
+</p>
+<p><strong>choeppler</strong> (Wed, 13 Oct 2021 18:53:53 GMT):<br/>
+MatthiasGeihs.Perun
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Thu, 14 Oct 2021 07:38:28 GMT):<br/>
+[ ](https://chat.hyperledger.org/channel/perun?msg=c5EQMaBQKF9kFxcK6) :thumbsup: :pray:
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Mon, 10 Jan 2022 11:45:00 GMT):<br/>
+Hi @rjones , could you help us once more to move a project to HLL?
+
+@choeppler and I would like to move https://github.com/perun-network/perun-credential-payment.
+
+I assume we follow the same procedure as last time. I make you admin, you move the project. Correct?
+</p>
+<p><strong>rjones</strong> (Mon, 10 Jan 2022 17:54:30 GMT):<br/>
+@MatthiasGeihs.Perun done!
+</p>
+<p><strong>choeppler</strong> (Wed, 09 Mar 2022 23:12:41 GMT):<br/>
+Hi @MatthiasGeihs.Perun how about announcing the latest release of go-Perun https://github.com/hyperledger-labs/go-perun/releases/tag/v0.9.0 also in the /dev/weekly newsletter ?
+</p>
+<p><strong>MatthiasGeihs.Perun</strong> (Thu, 10 Mar 2022 08:50:53 GMT):<br/>
+Good point. Added an entry here: https://wiki.hyperledger.org/pages/viewpage.action?pageId=62242580
+
+This is how to suggest additions to the newsletter, right?
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:35:49 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:35:49 GMT):<br/>
+
+</p>

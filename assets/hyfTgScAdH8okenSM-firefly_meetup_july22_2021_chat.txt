@@ -1,0 +1,78 @@
+08:03:23 From Amit Chaudhari to Everyone : Here’s a link to the survey: https://forms.gle/FRo9t1jRNKWYRSw87
+08:04:16 From David Boswell to Everyone : YouTube livestream is at: https://www.youtube.com/watch?v=VefFjLPzkzI
+08:04:23 From Alfonso Govela to Everyone : Learning Materials and Development Working Group Mentorship Project
+“Global Scouting for DLT / Blockchain Educational Opportunities”
+08:04:26 From Alfonso Govela to Everyone : Project Page
+Global Scouting of DLT / Blockchain Educational Opportunities
+
+Survey
+https://forms.gle/FRo9t1jRNKWYRSw87
+
+Slides
+https://wiki.hyperledger.org/display/INTERN/Slide+Deck
+08:07:24 From John Carpenter to Everyone : https://www.hyperledger.org/blog/2021/06/09/meet-firefly-one-the-new-hyperledger-labs-projects-taking-on-cross-chain-and-off-chain-operations
+08:07:54 From Mi Novac to David Boswell(Direct Message) : please show slides full screen.  thank you
+08:08:14 From John Carpenter to Everyone : Please feel free to post questions in the chat as we move forward through the presentation.
+08:08:16 From Jess Hurwitz to Everyone : Can you share the screen, the slides are fuzzy this way
+08:09:53 From John Carpenter to Everyone : The session is set up as a studio presentation vs. presentation deck presentation.  The slides will be shared after the event.
+08:28:15 From Rishab Verma to Everyone : Is this a layer that sits on top of any of the 3 players (HL fabric, corda, Ethereum) ? I am failing to understand if this a new player by itself or something that makes integration with top 3 easier
+08:29:02 From Jim Zhang to Everyone : (Jim from Kaleido) Yes Firefly builds on top of existing DLT technologies
+08:29:36 From Jim Zhang to Everyone : In particular the full support is there today for Ethereum, and Fabric and Corda support being built as we speak
+08:29:38 From Peter Broadhurst to Everyone : It’s a layer that sits on top, but importantly not just the DLT technologies. The private off-chain pipes as well. It has the patterns built in. It has the private queryable database that represents your view of the world, across the ledgers (channels etc.) you’re sharing over.
+08:30:21 From Doug Bulleit to Everyone : I’m assuming that “pinned” is simply a hash of the transaction sent tot the DLT (not the actual data). Is this correct
+08:30:28 From Rishab Verma to Everyone : I see, thanks for the clarity. ^^
+08:30:56 From Jim Zhang to Everyone : @Doug That’s correct
+08:31:25 From Peter Broadhurst to Everyone : That’s correct (on the pinning). Very common pattern, and on of the first onboarded to FireFly, including sample contracts. Work is ongoing on more advanced patterns, including integrating that on-chain/off-chain pinning to custom on-chain logic, and patterns for doing that with the standards of tokens.
+08:32:17 From Doug Bulleit to Everyone : `not sure what/why an additional “token” adds to simple has/pin?
+08:32:50 From Doug Bulleit to Everyone : Opps, `meant hash/pin
+08:33:09 From Peter Broadhurst to Everyone : Popping a link to the docs as a pointer to learning more: https://labs.hyperledger.org/firefly/
+08:33:36 From John Carpenter to Everyone : Thanks Peter!
+08:33:37 From Jaejun Lee to Everyone : Is webhook between system to node or node to client?
+08:33:58 From Jim Zhang to Everyone : Great question: hash is great for representing data for immutability and ordering, but if there’s additional requirements to keep track of things for global verification of uniqueness, then a construct like Token is necessary
+08:34:15 From Peter Broadhurst to Everyone : Tokens give you things like a global unique entity with ownership (NFTs), and a system of value that can be used for encouraging good practice in your system, or to represent real value. Then there’s more advanced patterns for multi-party system, such as delivery vs. Payment scenarios.
+08:35:20 From Jim Zhang to Everyone : Of course like Peter said, fungible tokens would also be useful in payment scenarios and the like (what I referred to above would need a non-fungible token)
+08:35:23 From Peter Broadhurst to Everyone : The on-chain/off-chain parts almost always need to be coordinated with those in real-world scenarios, such as the “digital twin” problem of proving the real-world ownership/existence of the thing represented by the NFT. Or providing the evidence for settlement in the real-world of a transaction that’s being executed via the blockchain.
+08:37:11 From Doug Bulleit to Everyone : As I’m sure you know, in the healthcare space the emerging dominating API is FHIR. And just down the road from Kaliedo is a project called FHIRfly. Is there ant relationship there?
+08:37:28 From Peter Broadhurst to Everyone : Would be fantastic to talk about that in the break out Doug
+08:37:45 From Doug Bulleit to Everyone : OK
+08:38:12 From Peter Broadhurst to Everyone : Sorry, think I misunderstood the question - being whether FHIR would work well with FireFly for a project (which it would)
+08:38:20 From Jan Rock to Everyone : Question: Can I use " in the JSON payload?
+08:38:50 From Peter Broadhurst to Everyone : No relationship between the projects (I’m not aware of FHIRfly)
+08:39:04 From Peter Broadhurst to Everyone : > Question: Can I use " in the JSON payload?
+08:39:26 From Peter Broadhurst to Everyone : Yes. Anything that can be represented in JSON. So string, or Array, number, object etc.
+08:40:19 From Peter Broadhurst to Everyone : There’s also the ability to associated data with a strong datatype - encoded in a JSON Schema, that’s shared with the network (via the blockchain-backed broadcast)
+08:42:57 From Peter Broadhurst to Everyone : > Is webhook between system to node or node to client?
+08:43:14 From Peter Broadhurst to Everyone : We were talking about node to application in the example
+08:43:20 From John Carpenter to Everyone : https://github.com/hyperledger-labs/firefly
+08:46:17 From John Carpenter to Everyone : https://labs.hyperledger.org/firefly/
+08:46:18 From Jan Rock to Everyone : just tested and " makes the value ignored ...if I replace it to ' (single) all works perfectly. I will look to better way. ASCII is always problem ;) Thanks.
+08:50:45 From David Boswell to Everyone : Note that there is an open Firefly chat channel that you’re welcome to use after this meetup if you’d like to continue talking about and asking questions about Firefly.  https://chat.hyperledger.org/channel/firefly-lab
+08:54:50 From John Carpenter to Everyone : Thanks David!
+08:55:32 From Doug Bulleit to Everyone : Is this session been recorded for review?
+08:55:37 From Devendran M to Everyone : Am I right in thinking that the subscriptions, topics etc. are used to  integrate with enterprise wide messaging systems like Solace?
+08:59:02 From Ramarao Kothamasu to Everyone : Like to be a contributor for Firefly please let me know how to reach out?
+08:59:56 From Nicko Guyer to Everyone : https://chat.hyperledger.org/channel/firefly-lab
+09:04:39 From Alfonso Govela to Everyone : Great resource for #breakingthesilos #bridgingthesilos
+09:05:53 From Alfonso Govela to Everyone : Thank you Peter and Nicko for a great presentation. Thank you John for making this meeting possible
+09:07:11 From John Carpenter to Everyone : The session is being recorded Doug and will be available on the Hyperledger YouTube channel.
+09:08:57 From Devendran M to Everyone : Thank you very much
+09:12:03 From Amit Chaudhari to Everyone : Does firefly work across versions? org1 uses eth but org2 started with eth2
+09:15:35 From Amit Chaudhari to Everyone : I’ll be looking into it for sure! You guys are amazing!
+09:15:46 From Jess Hurwitz to Everyone : Could you have 2 different firefly networks each using a different blockchain but connected through firefly as a gateway?
+09:18:28 From Faizul Bari to Everyone : Is it possible to attach a file (e.g., PDF) with a transaction/message in firefly without putting it in IPFS? Let's say I want to keep the file private between me and a counterparty.
+09:20:03 From Faizul Bari to Everyone : Gr8, thanks.
+09:21:51 From Amit Chaudhari to Everyone : What do I need to do to consider me for a maintainer?
+09:22:11 From Jess Hurwitz to Everyone : Can you speak about what your expectations are for the on chain logic
+09:25:25 From Jess Hurwitz to Everyone : Thank you a very well and qualified answer. Sounds exciting!
+09:25:46 From Devendran M to Everyone : It is a wonderful session. Thank you for organizaing and thank you very much for taking us thru the trailblazing solution
+09:25:53 From Michael to Everyone : Great stuff Nicko. Thank you both and the rest of the team.
+09:25:58 From Mi Novac to Everyone : thank you!
+09:26:14 From Amit Chaudhari to Everyone : This was really awesome ,That’s some nice studio setting your guys have there!
+09:26:18 From Nicolina Intiso to Everyone : Will this be posted to review later?
+09:26:37 From David Boswell to Everyone : Yes, the recording will be on YouTube at: https://www.youtube.com/watch?v=VefFjLPzkzI
+09:26:37 From Alfonso Govela to Everyone : Thank you John for giving us this opportunity
+09:26:41 From Alfonso Govela to Everyone : https://wiki.hyperledger.org/pages/viewpage.action?pageId=54658019
+09:26:46 From Nicolina Intiso to Everyone : Ty!!
+09:26:57 From Jess Hurwitz to Everyone : Thank you! Awesome session!
+09:27:33 From Alfonso Govela to Everyone : Thanks Nicko, Peter, John, and everyone
+09:27:41 From Yunho Chung to Everyone : Thank you.~

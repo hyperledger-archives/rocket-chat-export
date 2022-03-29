@@ -1,0 +1,64 @@
+Generating certs and genesis block for with channel 'mychannel' and CLI timeout of '10000'
+Continue (y/n)? y
+proceeding ...
+/tjr/bin/cryptogen
+
+##########################################################
+##### Generate certificates using cryptogen tool #########
+##########################################################
+org1.example.com
+SIGILL: illegal instruction
+PC=0x64d1af m=0
+
+goroutine 1 [running]:
+crypto/sha256.block(0xc42009e880, 0xc4200612c0, 0x40, 0x41)
+	/opt/go/go1.7.linux.amd64/src/crypto/sha256/sha256block_amd64.s:733 +0x286f fp=0xc4200e2818 sp=0xc4200e25f0
+crypto/sha256.(*digest).Write(0xc42009e880, 0xc4200612c0, 0x41, 0x41, 0xc4200612c0, 0x41, 0x41)
+	/opt/go/go1.7.linux.amd64/src/crypto/sha256/sha256.go:119 +0x120 fp=0xc4200e2860 sp=0xc4200e2818
+github.com/hyperledger/fabric/bccsp/sw.(*ecdsaPrivateKey).SKI(0xc42002a2c0, 0x415168, 0x8, 0x6c13c0)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/bccsp/sw/ecdsakey.go:53 +0xbd fp=0xc4200e28d0 sp=0xc4200e2860
+github.com/hyperledger/fabric/bccsp/sw.(*fileBasedKeyStore).StoreKey(0xc420019480, 0x859ee0, 0xc42002a2c0, 0x859ee0, 0xc42002a2c0)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/bccsp/sw/fileks.go:181 +0x7ba fp=0xc4200e2998 sp=0xc4200e28d0
+github.com/hyperledger/fabric/bccsp/sw.(*impl).KeyGen(0xc420071b60, 0x8575a0, 0xc420013f57, 0x0, 0x0, 0xc4200d0c30, 0x1)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/bccsp/sw/impl.go:177 +0x333 fp=0xc4200e2a68 sp=0xc4200e2998
+github.com/hyperledger/fabric/common/tools/cryptogen/csp.GeneratePrivateKey(0xc420019180, 0x33, 0xc4000001ed, 0x0, 0x0, 0x4a, 0x0, 0x0)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/common/tools/cryptogen/csp/csp.go:50 +0x1c8 fp=0xc4200e2af0 sp=0xc4200e2a68
+github.com/hyperledger/fabric/common/tools/cryptogen/ca.NewCA(0xc420019180, 0x33, 0xc4200135a0, 0x10, 0xc420011aa0, 0x13, 0x876380, 0x7fe115719000, 0x0)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/common/tools/cryptogen/ca/generator.go:50 +0xae fp=0xc4200e3718 sp=0xc4200e2af0
+main.generatePeerOrg(0x70329e, 0xd, 0xc420013570, 0x4, 0xc4200135a0, 0x10, 0x7009fb, 0x2, 0xc420011aa0, 0x13, ...)
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/common/tools/cryptogen/main.go:393 +0x4e0 fp=0xc4200e3c18 sp=0xc4200e3718
+main.generate()
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/common/tools/cryptogen/main.go:263 +0x1ce fp=0xc4200e3ec8 sp=0xc4200e3c18
+main.main()
+	/w/workspace/fabric-binaries-x86_64/gopath/src/github.com/hyperledger/fabric/common/tools/cryptogen/main.go:212 +0x262 fp=0xc4200e3f38 sp=0xc4200e3ec8
+runtime.main()
+	/opt/go/go1.7.linux.amd64/src/runtime/proc.go:183 +0x1f4 fp=0xc4200e3f90 sp=0xc4200e3f38
+runtime.goexit()
+	/opt/go/go1.7.linux.amd64/src/runtime/asm_amd64.s:2086 +0x1 fp=0xc4200e3f98 sp=0xc4200e3f90
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+	/opt/go/go1.7.linux.amd64/src/runtime/asm_amd64.s:2086 +0x1
+
+rax    0x6a09e667
+rbx    0xbb67ae85
+rcx    0x3c6ef372
+rdx    0x510e527f
+rdi    0x6a09e667
+rsi    0x0
+rbp    0x72d600
+rsp    0xc4200e25f0
+r8     0xa54ff53a
+r9     0x9b05688c
+r10    0x1f83d9ab
+r11    0x5be0cd19
+r12    0x80
+r13    0x880
+r14    0x12
+r15    0x502eed2ae3adf627
+rip    0x64d1af
+rflags 0x10246
+cs     0x33
+fs     0x0
+gs     0x0
+Failed to generate certificates...

@@ -1,0 +1,16 @@
+postgres://postgres:newpassword@127.0.0.1:5432/fabricexplorer
+[31merror[39m: [NetworkConfig101.js]: NetworkConfig101 - problem reading the PEM file :: Error: EISDIR: illegal operation on a directory, read
+<<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+{ Error: EISDIR: illegal operation on a directory, read
+    at Object.fs.readSync (fs.js:675:18)
+    at tryReadSync (fs.js:540:20)
+    at Object.fs.readFileSync (fs.js:583:19)
+    at readFileSync (/home/logiticksblockchain/blockchain-explorer/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:446:17)
+    at getPEMfromConfig (/home/logiticksblockchain/blockchain-explorer/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:435:13)
+    at NetworkConfig_1_0.getOrganization (/home/logiticksblockchain/blockchain-explorer/node_modules/fabric-client/lib/impl/NetworkConfig_1_0.js:291:18)
+    at Client._setAdminFromConfig (/home/logiticksblockchain/blockchain-explorer/node_modules/fabric-client/lib/Client.js:1263:53)
+    at Client.loadFromConfig (/home/logiticksblockchain/blockchain-explorer/node_modules/fabric-client/lib/Client.js:137:9)
+    at FabricClient.LoadClientFromConfig (/home/logiticksblockchain/blockchain-explorer/app/platform/fabric/FabricClient.js:215:27)
+    at FabricClient.initialize (/home/logiticksblockchain/blockchain-explorer/app/platform/fabric/FabricClient.js:53:16) errno: -21, code: 'EISDIR', syscall: 'read' }
+Received kill signal, shutting down gracefully
+Closed out connections

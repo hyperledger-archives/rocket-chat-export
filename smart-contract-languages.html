@@ -1,0 +1,289 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8"><p><strong>rjones</strong> (Fri, 28 Feb 2020 23:02:04 GMT):<br/>
+hartm
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:02:49 GMT):<br/>
+<i>User <em>User_1</em> added by <em>rjones</em>.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:02:49 GMT):<br/>
+<i>User <em>User_2</em> added by <em>rjones</em>.</i>
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:03:41 GMT):<br/>
+shemnon
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:03:46 GMT):<br/>
+have fun!
+</p>
+<p><strong>hartm</strong> (Fri, 28 Feb 2020 23:57:43 GMT):<br/>
+Thanks @rjones !
+</p>
+<p><strong>hartm</strong> (Fri, 28 Feb 2020 23:58:02 GMT):<br/>
+Adding @seanyoung 
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:59:15 GMT):<br/>
+I don't see a way to move or copy the previous conversation over, so it's up to you all to handle the `state`
+</p>
+<p><strong>rjones</strong> (Fri, 28 Feb 2020 23:59:35 GMT):<br/>
+side-channel context switching attacks on your cortex
+</p>
+<p><strong>hartm</strong> (Sat, 29 Feb 2020 00:00:26 GMT):<br/>
+I think we'll be fine.  Our original conversation was probably a tiny-text-attack on the TSC...
+</p>
+<p><strong>rjones</strong> (Sat, 29 Feb 2020 00:25:43 GMT):<br/>
+<i>Has left the channel.</i>
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 02:29:50 GMT):<br/>
+Hello
+So I think it would be great to get the right people together to work on a standard set of wasm host functions. Who should we invite and what would be the best way to go about it?
+</p>
+<p><strong>shemnon</strong> (Sat, 29 Feb 2020 03:57:19 GMT):<br/>
+I think we may want to check in with the smart contracts working group to get a list of interested parties.
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 05:22:31 GMT):<br/>
+<i>User <em>User_3</em> added by <em>seanyoung</em>.</i>
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 05:22:31 GMT):<br/>
+<i>User <em>User_4</em> added by <em>seanyoung</em>.</i>
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 05:24:24 GMT):<br/>
+@shubham_aggarwal @amundson would be great to work together to work on standard wasm host interface functions in Fabric and Sawtooth Sabre. Please let us know what you think, thank you.
+</p>
+<p><strong>amundson</strong> (Sat, 29 Feb 2020 05:42:38 GMT):<br/>
+seems like sabre has already defined it?
+</p>
+<p><strong>amundson</strong> (Sat, 29 Feb 2020 05:56:35 GMT):<br/>
+fabric should adopt transact so we can use sabre (and other future smart contract engines) across projects.
+</p>
+<p><strong>shubham_aggarwal</strong> (Sat, 29 Feb 2020 07:17:39 GMT):<br/>
+Sounds great @seanyoung. We have mapped a few fabric shim functions as basic host wasm interfaces here: https://github.com/hyperledger-labs/fabric-chaincode-wasm
+
+We can start working out on standardizing it
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 16:57:32 GMT):<br/>
+@shubham_aggarwal great, thank you very much
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 16:59:03 GMT):<br/>
+@amundson so sabre wasm interface has a few limitation which are problematic for Solang, and therefore for general adoption. I think has some general issues too (no "free" function for "alloc"). So either we expand/improve Sabre's wasm interface.
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 16:59:03 GMT):<br/>
+@amundson so sabre wasm interface has a few limitation which are problematic for Solang, and therefore for general adoption. I think it has some general issues too (no "free" function for "alloc"). So either we expand/improve Sabre's wasm interface.
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 16:59:55 GMT):<br/>
+Maybe we start with a comparison between different wasm host interfaces.
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 17:00:45 GMT):<br/>
+A wiki page would be good for this, so everyone can comment, I think.
+</p>
+<p><strong>seanyoung</strong> (Sat, 29 Feb 2020 17:02:00 GMT):<br/>
+I'm happy to start this since I have already spent time looking at them, in order to implement Solang targets.
+</p>
+<p><strong>amundson</strong> (Sat, 29 Feb 2020 18:21:09 GMT):<br/>
+@seanyoung what specifically is problematic? we can fix those things, if its not just a problem understanding sabre.
+</p>
+<p><strong>seanyoung</strong> (Sun, 01 Mar 2020 01:26:38 GMT):<br/>
+I'll write some notes when I have some time. Currently on holiday until HGF
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 04:38:40 GMT):<br/>
+So I've started to write my thoughts down on what common smart contract interface should look like. This needs some reviewing and probably has lots of language bugs, but I thought I'd seek early feedback:  https://github.com/seanyoung/hyperwasm
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 04:39:18 GMT):<br/>
+@amundson see https://github.com/seanyoung/hyperwasm/blob/master/existing_interfaces.md for some feedback on the sabre smart contract interface.
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 04:46:01 GMT):<br/>
+The plan is to flesh this repo out; make it a labs project and invite feedback via github pull requests and issues.
+It needs more work, there is more to add. In the mean time any feedback now would be very welcome.
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 04:46:25 GMT):<br/>
+it also needs a name
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 04:46:25 GMT):<br/>
+It also needs a name. I've called it hyperwasm but totally open to suggestions
+</p>
+<p><strong>shemnon</strong> (Fri, 06 Mar 2020 05:26:40 GMT):<br/>
+I think the spec should provide for maximum compatibility.  So there are some recommendations I think should be changed to achieve that:
+* Limit storage to 256 bits
+* Limit keys to 256 bits, and zero extend short keys.
+</p>
+<p><strong>shemnon</strong> (Fri, 06 Mar 2020 05:28:19 GMT):<br/>
+For the storage values longer values can be supported, but some mapping to a 256 bit storage should be standardized so there isn't key collision.  Or make a 256 bit set of APIs and a variable length stream and clients can choose which one they want (at the expense of compatability).
+</p>
+<p><strong>shemnon</strong> (Fri, 06 Mar 2020 05:31:00 GMT):<br/>
+The other ones are fairly deep and we need many eyes on them.
+</p>
+<p><strong>hartm</strong> (Fri, 06 Mar 2020 17:02:42 GMT):<br/>
+I'm not sure I agree with limiting keys to 256 bits.  If you want to implement any kind of post-quantum cryptography, you're going to need substantially more space than that.  There are a number of other cases where you're going to need more than 256 bit keys if you want to use non-basic cryptography.
+</p>
+<p><strong>hartm</strong> (Fri, 06 Mar 2020 18:36:26 GMT):<br/>
+(Sorry for my dumb deleted comment earlier.)
+</p>
+<p><strong>amundson</strong> (Fri, 06 Mar 2020 18:44:44 GMT):<br/>
+not sure the scope of this channel, but we also have some work going on in transact to standardize how to write smart contracts (very much a next-gen of what sawtooth SDKs have currently). will remove the merkle-tree assumption (while elegantly supporting it) so that we can get wider support for other ledgers. we expect that to be the APIs folks use for writing sabre contracts once we are done with it. minimally will be supported in anything supporting sabre, so impacts sawtooth, splinter, and grid work.
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 19:11:52 GMT):<br/>
+Maximum compatibility is something we should aim for. Compatibility with how different ledgers approach storage, not just ethereum. Otherwise we might as well use ewasm.
+Different ledgers will have different limits on keys and values. So, we should use find something that works for everyone.
+</p>
+<p><strong>seanyoung</strong> (Fri, 06 Mar 2020 19:23:05 GMT):<br/>
+You want to reference keys indirectly so if keys are >256 bit, then so should values. Also this makes storing strings much nicer. 
+</p>
+<p><strong>seanyoung</strong> (Sat, 07 Mar 2020 16:45:11 GMT):<br/>
+@hartm you actually touched on an important point.
+
+If on-chain HashMap was implemented with a simple limited bucket list and bucket chain, then a type of attack is possible where the attacker chooses keys to increase the bucket length, so that the hashmap is more like a linked list. This type of attack is usually prevented with SipHash: 
+https://en.wikipedia.org/wiki/SipHash
+
+On public ethereum the bytecode and contract storage is stored on-chain, thus SipHash cannot be used: there is no place to store a secret.
+
+In Solidity, the HashMap is implemented using a crypto hash and no bucket list. This requires a large key space. We might want to increase this beyond 256 bits at some point.
+
+https://solidity.readthedocs.io/en/v0.6.3/types.html#mapping-types
+
+</p>
+<p><strong>seanyoung</strong> (Sat, 07 Mar 2020 16:45:11 GMT):<br/>
+@hartm you actually touched on an important point.
+
+If on-chain HashMap was implemented with a simple limited bucket list and bucket chain, then a type of attack is possible where the attacker chooses keys to increase the bucket length (via hash collisions), so that the hashmap is more like a linked list. This type of attack is usually prevented with SipHash: 
+https://en.wikipedia.org/wiki/SipHash
+
+On public ethereum the bytecode and contract storage is stored on-chain, thus SipHash cannot be used: there is no place to store a secret.
+
+In Solidity, the HashMap is implemented using a crypto hash and no bucket list. This requires a large key space. We might want to increase this beyond 256 bits at some point.
+
+https://solidity.readthedocs.io/en/v0.6.3/types.html#mapping-types
+
+</p>
+<p><strong>seanyoung</strong> (Sat, 07 Mar 2020 17:31:19 GMT):<br/>
+Not sure where the merkle-tree assumption is, the smart contracts host functions use key-value pairs.
+
+It would be interesting to see what this work looks like.
+</p>
+<p><strong>knagware9</strong> (Thu, 12 Mar 2020 16:49:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>GuilhermeLionzo</strong> (Mon, 16 Mar 2020 13:19:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>gokulalex</strong> (Fri, 20 Mar 2020 05:28:44 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sbalikondwar</strong> (Sun, 05 Apr 2020 13:56:54 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sbalikondwar</strong> (Sun, 05 Apr 2020 13:57:36 GMT):<br/>
+hi there @seanyoung , Shivam from the mail a couple of days ago. 
+</p>
+<p><strong>sbalikondwar</strong> (Sun, 05 Apr 2020 14:24:24 GMT):<br/>
+currently reading on LSP protocol and paralelly trying out the Solang to wasm compilation using Solang.  
+</p>
+<p><strong>sbalikondwar</strong> (Sun, 05 Apr 2020 14:24:24 GMT):<br/>
+currently reading on LSP protocol and paralelly trying out the Solang to wasm compilation using Solang( also understanding solidity syntax).  
+</p>
+<p><strong>seanyoung</strong> (Sun, 05 Apr 2020 14:42:54 GMT):<br/>
+Hi @sbalikondwar that's great. Let me know if you have any questions.
+</p>
+<p><strong>sbalikondwar</strong> (Mon, 06 Apr 2020 14:37:04 GMT):<br/>
+So I was going through the LSP specs 
+Quite a big one with lot of minute details 
+I am thinking to first go with rls
+So I am thinking about interfacing rls with Solang 
+Perhaps we might be using Solang backend.
+</p>
+<p><strong>sbalikondwar</strong> (Mon, 06 Apr 2020 14:37:28 GMT):<br/>
+Oh I forgot hi there @seanyoung 
+</p>
+<p><strong>sbalikondwar</strong> (Mon, 06 Apr 2020 14:42:09 GMT):<br/>
+Progressing in this order we can write rust binaries responding to LSP 
+</p>
+<p><strong>seanyoung</strong> (Mon, 06 Apr 2020 15:40:18 GMT):<br/>
+The LSP spec is large. However we will only need a small subset
+</p>
+<p><strong>seanyoung</strong> (Mon, 06 Apr 2020 16:17:11 GMT):<br/>
+Actually, come to think of it, re-implementing all those messages again does not make any sense.
+</p>
+<p><strong>seanyoung</strong> (Mon, 06 Apr 2020 16:18:31 GMT):<br/>
+Sharing code with RLS is a good idea. Possibly the LSP code on RLS can be spun out into a crate or so. There are different ways of doing this. For now we could copy that code into solang; we won't be able to get solang merged into RLS.
+</p>
+<p><strong>seanyoung</strong> (Mon, 06 Apr 2020 18:57:14 GMT):<br/>
+I've spent some more time reading rust rls. The LSP messages it uses are defined in the https://crates.io/crates/lsp-types crate, so that can be used as well.
+RLS has a great structure so that can be used as a basis for SLS.
+</p>
+<p><strong>Dangana</strong> (Mon, 04 May 2020 00:34:40 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>sbalikondwar</strong> (Thu, 07 May 2020 21:32:55 GMT):<br/>
+
+
+I did some digging in the codebase for rls and how it can help us in this process.
+The first thing was about rust binaries, 
+
+So the server needs to respond to queries with processing the given req, for that we need a server in first place.
+
+The rls server module can be useful as it already has function support for LSP types
+
+The another requirement is of a client,
+Now as if we suppose there is a user IDE which will use LSP as protocol for communication
+Then a small program can be written which will first receive the current file, then send the required request as clicked from ide
+This client will just forward them through std io 
+
+On the receiver side this server can use salsa lib of rust to buffer queries which our server processes
+
+The Solang backend can be wired to compile this requests from server which again are given back by server to the client.
+
+This would be integrated as a sls named dir in the current Solang codebase
+
+Sls dir will have this server, LSP types , client and other required modules
+
+Then there is need to do syntax highlighting,
+We can use the parser and resolver for it.
+I am sure parser can be hacked to give generate some special syntax tree, 
+Alongside the current AST so that we can just travel this special syntax tree for all the syntax checks with the AST telling us symantic checks.
+
+The client current can exploit the hover, code line , etc implemented functions of rls server for hover actions from user , etc.
+
+As we know LSP is vast but I do hope the above implementation fast tracks the work and we get more time to test it alongwith features like formatting etc 
+
+This is a quite high level view from my side, what are your views about it.
+
+Also sorry for the delay as you might know the classes were being conducted from  home and there was quite work load in past my month when I told you I was working. 
+But I managed to do some work in that period as you can see.
+
+</p>
+<p><strong>seanyoung</strong> (Mon, 11 May 2020 09:42:57 GMT):<br/>
+@sbalikondwar I am thinking along the same line. So the SLS will use solang as a crate. I don't there is a need for the SLS to be a separate executable from solang itself.
+</p>
+<p><strong>seanyoung</strong> (Mon, 11 May 2020 09:44:03 GMT):<br/>
+As to modifying the parser to produce the correct information we need for the language server, this  is something that I am happy to do.
+</p>
+<p><strong>seanyoung</strong> (Mon, 11 May 2020 09:44:38 GMT):<br/>
+As this requires some good knowledge of how Solang works.
+</p>
+<p><strong>seanyoung</strong> (Mon, 11 May 2020 10:12:17 GMT):<br/>
+So RLS and Solang have compatible licenses (MIT and Apache). However we should not just copy and paste the whole thing, we should trim all the bits we don't need. I think we can refine this over time though, until the final merge.
+</p>
+<p><strong>sbalikondwar</strong> (Mon, 11 May 2020 20:11:15 GMT):<br/>
+Well what I thought at first was by keeping sls as separate we can use it in many editor's, sort of a standalone utility working as server. The change doesn't require that much time so I think we can decide it at later at the time of packaging the implementation.
+About licensing if they are compatible then there is no issue, I agree to use only the most essential pieces.
+</p>
+<p><strong>sbalikondwar</strong> (Mon, 11 May 2020 20:11:15 GMT):<br/>
+Well what I thought at first was by keeping sls as separate we can use it in many editor's, sort of a standalone utility working as server. The change doesn't require that much time so I think we can decide it later at the time of packaging the implementation.
+About licensing if they are compatible then there is no issue, I agree to use only the most essential pieces.
+</p>
+<p><strong>seanyoung</strong> (Thu, 14 May 2020 14:40:13 GMT):<br/>
+Let's continue discussion on the language server in #solang @sbalikondwar 
+</p>
+<p><strong>sbalikondwar</strong> (Thu, 14 May 2020 14:57:40 GMT):<br/>
+I never knew there was a channel dedicated for Solang 
+I thought all discussions took place here.
+Cool will join in.
+</p>
+<p><strong>Kazuya.N</strong> (Sat, 30 Oct 2021 12:42:58 GMT):<br/>
+<i>Has joined the channel.</i>
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:27:19 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:27:19 GMT):<br/>
+
+</p>
+<p><strong>rjones</strong> (Wed, 23 Mar 2022 17:27:19 GMT):<br/>
+
+</p>

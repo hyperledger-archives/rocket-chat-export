@@ -1,0 +1,119 @@
+<====== Downloading the pool_transaction_genesis file from AWS S3 ======>
+Started downloading file from s3://indy-nodes/pool_transactions_genesis
+Completed 3.3 KiB/3.3 KiB (32.3 KiB/s) with 1 file(s) remaining
+download: s3://indy-nodes/pool_transactions_genesis to ./pool_transactions_genesis
+Done...
+List of files in /usr/app dir
+.
+..
+agentStart.sh
+libindystrgpostgres.so
+logs
+pool_transactions_genesis
+<====== Configuring the 'Admin' Aries Agent ======>
+Created new wallet
+Wallet type: indy
+Wallet name: adminariesagentdb
+Created new public DID: Th7MpTaRZVRYnPiabds81Y
+Verkey: FYmoFw55GeQH7SRFa37dkx1d2dZ3zUF8ckg7wmL7ofN4
+Ledger configured
+Config complete...
+<====== Starting the 'admin' Aries Agent ======>
+ptvsd library was not found
+2020-11-06 19:19:14,939 asyncio DEBUG Using selector: EpollSelector
+2020-11-06 19:19:14,942 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.actionmenu
+2020-11-06 19:19:14,942 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.basicmessage
+2020-11-06 19:19:14,943 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.connections
+2020-11-06 19:19:14,944 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.discovery
+2020-11-06 19:19:14,945 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.introduction
+2020-11-06 19:19:14,946 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.issue_credential
+2020-11-06 19:19:14,947 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.present_proof
+2020-11-06 19:19:14,948 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.problem_report
+2020-11-06 19:19:14,948 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.routing
+2020-11-06 19:19:14,949 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.protocols.trustping
+2020-11-06 19:19:14,950 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.holder
+2020-11-06 19:19:14,953 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.ledger
+2020-11-06 19:19:14,957 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.messaging.credential_definitions
+2020-11-06 19:19:14,960 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.messaging.schemas
+2020-11-06 19:19:14,964 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.revocation
+2020-11-06 19:19:14,970 aries_cloudagent.core.plugin_registry DEBUG Loaded module: aries_cloudagent.wallet
+2020-11-06 19:19:14,979 aries_cloudagent.wallet.provider INFO Opening wallet type: indy
+2020-11-06 19:19:14,989 aries_cloudagent.wallet.plugin INFO Initializing postgres wallet
+2020-11-06 19:19:15,005 aries_cloudagent.wallet.plugin INFO Success, loaded postgres wallet storage
+2020-11-06 19:19:15,005 indy.wallet DEBUG open_wallet: >>> config: '{"id": "adminariesagentdb", "freshness_time": false, "storage_type": "postgres_storage", "storage_config": {"url": "10.2.84.9:5432"}}', credentials: '{"key": "RKVLvSM1p0SHsrW8", "key_derivation_method": "ARGON2I_MOD", "storage_credentials": {"account": "root", "password": "RKVLvSM1p0SHsrW8", "admin_account": "root", "admin_password": "RKVLvSM1p0SHsrW8"}}'
+2020-11-06 19:19:15,006 indy.wallet DEBUG open_wallet: Creating callback
+2020-11-06 19:19:15,006 indy.libindy DEBUG create_cb: >>> cb_type: <class 'ctypes.CFUNCTYPE.<locals>.CFunctionType'>
+2020-11-06 19:19:15,010 indy.libindy DEBUG create_cb: <<< res: <CFunctionType object at 0x7feedf88ac00>
+2020-11-06 19:19:15,011 indy.libindy DEBUG do_call: >>> name: indy_open_wallet, args: (c_char_p(140663928511688), c_char_p(140663928439344), <CFunctionType object at 0x7feedf88ac00>)
+2020-11-06 19:19:15,012 indy.libindy DEBUG _load_cdll: >>>
+2020-11-06 19:19:15,012 indy.libindy DEBUG _load_cdll: Detected OS name: linux
+2020-11-06 19:19:15,012 indy.libindy DEBUG _load_cdll: Resolved libindy name is: libindy.so
+2020-11-06 19:19:15,012 indy.libindy DEBUG _load_cdll: <<< res: <CDLL 'libindy.so', handle 559124d2a090 at 0x7feedf7e1048>
+2020-11-06 19:19:15,013 indy.libindy DEBUG set_logger: >>>
+2020-11-06 19:19:15,013 indy.libindy DEBUG do_call_sync: >>> name: indy_set_logger, args: (None, None, <CFunctionType object at 0x7feedf88acc8>, None)
+2020-11-06 19:19:15,014 indy.libindy DEBUG do_call_sync: <<< 0
+2020-11-06 19:19:15,015 indy.libindy DEBUG set_logger: <<<
+2020-11-06 19:19:15,015 indy.libindy DEBUG do_call: Function indy_open_wallet returned err: 0
+2020-11-06 19:19:15,015 indy.libindy DEBUG do_call: <<< <Future pending>
+2020-11-06 19:19:15,016 indy.libindy.native.indy.commands DEBUG 	src/commands/mod.rs:150 | WalletCommand command received
+2020-11-06 19:19:15,016 indy.libindy.native.wallet_command_executor DEBUG 	src/commands/wallet.rs:142 | Open command received
+2020-11-06 19:19:15,028 indy.libindy.native.postgres DEBUG 	/home/user/.cargo/registry/src/github.com-1ecc6299db9ec823/postgres-0.15.2/src/lib.rs:901 | executing query: 
+2020-11-06 19:19:15,029 indy.libindy.native.postgres DEBUG 	/home/user/.cargo/registry/src/github.com-1ecc6299db9ec823/postgres-0.15.2/src/lib.rs:489 | preparing query with name ``: SELECT value FROM metadata
+thread '<unnamed>' panicked at 'called `Result::unwrap()` on an `Err` value: Error(Db(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState("42P01"), message: "relation \"metadata\" does not exist", detail: None, hint: None, position: Some(Normal(19)), where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("parse_relation.c"), line: Some(1191), routine: Some("parserOpenTable") }))', src/postgres_storage.rs:1597:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread '<unnamed>' panicked at 'called `Result::unwrap()` on an `Err` value: "PoisonError { inner: .. }"', src/lib.rs:890:27
+stack backtrace:
+   0:     0x7feedf4c1b15 - backtrace::backtrace::libunwind::trace::h396c07d2071b43af
+                               at /cargo/registry/src/github.com-1ecc6299db9ec823/backtrace-0.3.46/src/backtrace/libunwind.rs:86
+   1:     0x7feedf4c1b15 - backtrace::backtrace::trace_unsynchronized::h7aa0e4bb23d9c158
+                               at /cargo/registry/src/github.com-1ecc6299db9ec823/backtrace-0.3.46/src/backtrace/mod.rs:66
+   2:     0x7feedf4c1b15 - std::sys_common::backtrace::_print_fmt::hd15ac5d4adcd355b
+                               at src/libstd/sys_common/backtrace.rs:78
+   3:     0x7feedf4c1b15 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hec5354be8ccc3ecc
+                               at src/libstd/sys_common/backtrace.rs:59
+   4:     0x7feedf4e512c - core::fmt::write::h3d34909eeb4f225b
+                               at src/libcore/fmt/mod.rs:1076
+   5:     0x7feedf4bd3e3 - std::io::Write::write_fmt::h1da287b3de55ed16
+                               at src/libstd/io/mod.rs:1537
+   6:     0x7feedf4c4100 - std::sys_common::backtrace::_print::h4d206838e1ace354
+                               at src/libstd/sys_common/backtrace.rs:62
+   7:     0x7feedf4c4100 - std::sys_common::backtrace::print::h1f778e9940ee5977
+                               at src/libstd/sys_common/backtrace.rs:49
+   8:     0x7feedf4c4100 - std::panicking::default_hook::{{closure}}::h704403a56cbf5783
+                               at src/libstd/panicking.rs:198
+   9:     0x7feedf4c3e4c - std::panicking::default_hook::ha4567a10dec4ef8d
+                               at src/libstd/panicking.rs:218
+  10:     0x7feedf4c4737 - std::panicking::rust_panic_with_hook::h88a1f16ec8a7bb20
+                               at src/libstd/panicking.rs:486
+  11:     0x7feedf4c433b - rust_begin_unwind
+                               at src/libstd/panicking.rs:388
+  12:     0x7feedf4e3ac1 - core::panicking::panic_fmt::hbddb7fe6f399b81a
+                               at src/libcore/panicking.rs:101
+  13:     0x7feedf4e38e3 - core::option::expect_none_failed::h60849c4323f09783
+                               at src/libcore/option.rs:1272
+  14:     0x7feedf351fe0 - core::result::Result<T,E>::unwrap::hb220d6d130135664
+                               at /rustc/5c1f21c3b82297671ad3ae1e8c942d2ca92e84f2/src/libcore/result.rs:1005
+  15:     0x7feedf34a136 - indystrgpostgres::PostgresWallet::close::h59c6619ac2581d8b
+                               at src/lib.rs:890
+  16:     0x7feedeb243b4 - <indy_wallet::storage::plugged::PluggedStorage as core::ops::drop::Drop>::drop::h0ab7273bcb546dcc
+  17:     0x7feedeb10910 - core::ptr::real_drop_in_place::hd8059e8b42bbf90e
+  18:     0x7feedeb14a8b - indy_wallet::WalletService::_open_storage_and_fetch_metadata::h65105f41ff19f507
+  19:     0x7feedeb12a99 - indy_wallet::WalletService::open_wallet_prepare::h1b3da47ca1b3fe43
+  20:     0x7feede7eb392 - indy::commands::wallet::WalletCommandExecutor::execute::hd589416f9ce4a3c8
+  21:     0x7feede9d89c2 - std::sys_common::backtrace::__rust_begin_short_backtrace::h78cef693d4e097b6
+  22:     0x7feedee46b9a - __rust_maybe_catch_panic
+                               at src/libpanic_unwind/lib.rs:82
+  23:     0x7feede75d796 - core::ops::function::FnOnce::call_once{{vtable.shim}}::hd8bac0c1291652bf
+  24:     0x7feedee3742f - <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h42806b83647d4c79
+                               at /rustc/eae3437dfe991621e8afdc82734f4a172d7ddf9b/src/liballoc/boxed.rs:746
+  25:     0x7feedee45fa0 - <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h83c921c8e826dd1d
+                               at /rustc/eae3437dfe991621e8afdc82734f4a172d7ddf9b/src/liballoc/boxed.rs:746
+  26:     0x7feedee45fa0 - std::sys_common::thread::start_thread::h2613204ce513782e
+                               at src/libstd/sys_common/thread.rs:13
+  27:     0x7feedee45fa0 - std::sys::unix::thread::Thread::new::thread_start::h4570080769500bcd
+                               at src/libstd/sys/unix/thread.rs:79
+  28:     0x7feee90126db - start_thread
+  29:     0x7feee859671f - __clone
+  30:                0x0 - <unknown>
+thread panicked while panicking. aborting.
+/usr/app/agentStart.sh: line 78:    60 Illegal instruction     (core dumped) aca-py start --inbound-transport http 0.0.0.0 $INBOUND_PORT --outbound-transport http --debug --log-level DEBUG --admin 0.0.0.0 $ADMIN_PORT --label $LABEL --endpoint http://$EXTERNAL_IP:$INBOUND_PORT --auto-accept-invites --auto-accept-requests --auto-ping-connection --auto-respond-messages --wallet-name $WALLET_NAME --wallet-key $WALLET_KEY --wallet-type indy --seed 000000000000000000000000Steward$AGENT_NUM --genesis-file $GENESIS_PATH --auto-accept-requests --auto-respond-messages --auto-respond-credential-proposal --auto-respond-credential-offer --auto-respond-credential-request --admin-insecure-mode --wallet-storage-type postgres_storage --wallet-storage-config "{\"url\":\"$POSTGRES_URL:$POSTGRES_PORT\"}" --wallet-storage-creds "{\"account\":\"$POSTGRES_USER\",\"password\":\"$POSTGRES_PASSWORD\",\"admin_account\":\"$POSTGRES_USER\",\"admin_password\":\"$POSTGRES_PASSWORD\"}"

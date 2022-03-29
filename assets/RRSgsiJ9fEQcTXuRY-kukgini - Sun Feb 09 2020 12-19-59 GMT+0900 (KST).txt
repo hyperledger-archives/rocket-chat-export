@@ -1,0 +1,69 @@
+Hi. I'm trying to test java wrapper on OS X.
+indy-pool comes from public docker image and library was built from source code 1.14.2
+I ran `mvn clean test` and I got this:
+```
+Running org.hyperledger.indy.sdk.anoncreds.ProverDeleteCredentialTest
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.api.anoncreds     src/api/anoncreds.rs:1260 | indy_prover_delete_credential: >>> wallet_handle: WalletHandle(205), cred_id: 0x7fc8df6ddbe0
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.api.anoncreds     src/api/anoncreds.rs:1278 | prepare_result: >>> Ok(())
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.api.anoncreds     src/api/anoncreds.rs:1280 | indy_prover_delete_credential: <<< res: Success
+DEBUG org.hyperledger.indy.sdk.LibIndy.native.indy.commands     src/commands/mod.rs:126 | AnoncredsCommand command received
+DEBUG org.hyperledger.indy.sdk.LibIndy.native.anoncreds_command_executor     src/commands/anoncreds/mod.rs:60 | Prover command received
+DEBUG org.hyperledger.indy.sdk.LibIndy.native.prover_command_executor     src/commands/anoncreds/prover.rs:210 | DeleteCredential command received
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.commands.anoncreds.prover     src/commands/anoncreds/prover.rs:663 | delete_credential >>> wallet_handle: WalletHandle(205), cred_id: "idX"
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.api.anoncreds     src/api/anoncreds.rs:1272 | prepare_result: >>> Ok(())
+TRACE org.hyperledger.indy.sdk.LibIndy.native.indy.api.anoncreds     src/api/anoncreds.rs:1273 | indy_prover_delete_credential:
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+SUREFIRE-859: #  SIGSEGV (0xb) at pc=0x00007fff659f9c92, pid=92886, tid=26115
+#
+# JRE version: OpenJDK Runtime Environment (13.0.2+8) (build 13.0.2+8)
+SUREFIRE-859: # Java VM: OpenJDK 64-Bit Server VM (13.0.2+8, mixed mode, sharing, tiered, compressed oops, g1 gc, bsd-amd64)
+# Problematic frame:
+# C  [libsystem_platform.dylib+0x1c92]  _platform_strlen+0x12
+#
+SUREFIRE-859: # No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# An error report file with more information is saved as:
+# /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/hs_err_pid92886.log
+Compiled method (n/a)   81288 1318     n 0       com.sun.jna.Native::getStringBytes (native)
+SUREFIRE-859:  total in heap  [0x0000000123713110,0x0000000123713558] = 1096
+SUREFIRE-859:  relocation     [0x0000000123713270,0x00000001237132a8] = 56
+SUREFIRE-859:  main code      [0x00000001237132c0,0x0000000123713550] = 656
+SUREFIRE-859:  oops           [0x0000000123713550,0x0000000123713558] = 8
+Compiled method (n/a)   81298 1318     n 0       com.sun.jna.Native::getStringBytes (native)
+SUREFIRE-859:  total in heap  [0x0000000123713110,0x0000000123713558] = 1096
+SUREFIRE-859:  relocation     [0x0000000123713270,0x00000001237132a8] = 56
+SUREFIRE-859:  main code      [0x00000001237132c0,0x0000000123713550] = 656
+SUREFIRE-859:  oops           [0x0000000123713550,0x0000000123713558] = 8
+#
+SUREFIRE-859: # If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+/bin/sh: line 1: 92886 Abort trap: 6           /Library/Java/JavaVirtualMachines/openjdk-13.0.2.jdk/Contents/Home/bin/java -jar /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefirebooter6086866393183650620.jar /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefire3133039638978284282tmp /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefire_07651620417938740743tmp
+
+Results :
+
+Failed tests:
+  ProverSearchCredentialsTest.testProverSearchCredentialsWorksForEmptyFilter:19 expected:<3> but was:<4>
+
+Tests run: 53, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:33 min
+[INFO] Finished at: 2020-02-09T12:18:35+09:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.18.1:test (default-test) on project indy: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:2.18.1:test failed: The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java && /Library/Java/JavaVirtualMachines/openjdk-13.0.2.jdk/Contents/Home/bin/java -jar /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefirebooter6086866393183650620.jar /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefire3133039638978284282tmp /Users/.../D/hyperledger/indy/indy-sdk/wrappers/java/target/surefire/surefire_07651620417938740743tmp
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+```

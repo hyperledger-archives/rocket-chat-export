@@ -1,0 +1,89 @@
+import secp256k1
+import cbor
+import requests
+import binascii
+
+from random import randint
+from compiled_protos.transaction_pb2 import TransactionHeader
+from compiled_protos.transaction_pb2 import Transaction
+from compiled_protos.transaction_pb2 import TransactionList
+from compiled_protos.batch_pb2 import BatchHeader
+from compiled_protos.batch_pb2 import Batch
+from compiled_protos.batch_pb2 import BatchList
+from hashlib import sha512
+
+key_handler = secp256k1.PrivateKey()
+private_key_bytes = key_handler.private_key
+
+public_key_bytes = key_handler.pubkey.serialize()
+
+public_key_hex = public_key_bytes.encode("hex")
+
+payload = {
+    'Verb': 'set',
+    'Name': 'foo',
+    'Value': 42}
+
+payload_bytes = cbor.dumps(payload)
+payload_sha512 = sha512(payload_bytes).hexdigest()
+
+txn_header = TransactionHeader(
+    batcher_pubkey=public_key_hex,
+    dependencies=['540a6803971d1880ec73a96cb97815a95d374cbad5d865925e5aa0432fcf1931539afe10310c122c5eaae15df61236079abbf4f258889359c4d175516934484a'],
+    family_name='intkey',
+    family_version='1.0',
+    inputs=['1cf12650d858e0985ecc7f60418aaf0cc5ab587f42c2570a884095a9e8ccacd0f6545c'],
+    nonce=str(randint(0, 1000000000)),
+    outputs=['1cf12650d858e0985ecc7f60418aaf0cc5ab587f42c2570a884095a9e8ccacd0f6545c'],
+    payload_encoding='application/cbor',
+    payload_sha512=payload_sha512,
+    signer_pubkey=public_key_hex)
+
+txn_header_bytes = txn_header.SerializeToString()
+
+# No need to manually generate a SHA-256 hash in Python
+txn_signature_bytes = key_handler.ecdsa_sign(txn_header_bytes)
+txn_signature_hex = binascii.hexlify(key_handler.ecdsa_serialize(txn_signature_bytes))
+#txn_signature_hex = txn_signature_bytes.encode("hex")
+
+txn = Transaction(
+    header=txn_header_bytes,
+    header_signature=txn_signature_hex,
+    payload=payload_bytes)
+
+txnList = TransactionList(transactions=[txn])
+txnBytes = txnList.SerializeToString()
+
+txnList = TransactionList()
+txnList.ParseFromString(txnBytes)
+
+txn = txnList.transactions[0]
+
+batch_header = BatchHeader(
+    signer_pubkey=public_key_hex,
+    transaction_ids=[txn.header_signature])
+
+batch_header_bytes = batch_header.SerializeToString()
+
+batch_signature_bytes = key_handler.ecdsa_sign(batch_header_bytes)
+batch_signature_hex = binascii.hexlify(key_handler.ecdsa_serialize(batch_signature_bytes))
+#batch_signature_hex = batch_signature_bytes.hex()
+
+batch = Batch(
+    header=batch_header_bytes,
+    header_signature=batch_signature_hex,
+    transactions=[txn])
+
+batch_list = BatchList(batches=[batch])
+batch_bytes = batch_list.SerializeToString()
+
+#request = urllib.Request(
+#    'http://localhost:8080/batches',
+#    batch_bytes,
+#    method='POST',
+#    headers={'Content-Type': 'application/octet-stream'})
+
+#response = urllib.urlopen(request)
+response = requests.post("http://localhost:8080/batches", data=batch_bytes, headers={'Content-Type': 'application/octet-stream'})
+
+print response.text

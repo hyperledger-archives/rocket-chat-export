@@ -1,0 +1,37 @@
+Hi,
+
+I've a question about the dissemination (gossip) of private collection messages:
+
+It is about version 1.3 (core & Java Fabric SDK).
+Trying to add anchor peers via fabric-sdk-java, using implementation similar to the example UpdateChannelIT (on: https://github.com/hyperledger/fabric-sdk-java/blob/master/src/test/java/org/hyperledger/fabric/sdkintegration/UpdateChannelIT.java), I get the following message in the anchor peer log of the Org2:
+
+"Anchor peer peer0.org1.example.com:7051 isn't in our org(Org1MSP) and we have no external endpoint, skipping"
+
+Is this normal, why does it pop up and how could I possibly configure the external endpoind so that I do not get this message.
+I suppose this could be the cause of the following message when I try to write to a private collection:
+
+"Failed disseminating private RWSet for TxID 62...7c, namespace chaincodeName collection privateDataCollection: Requested to send to at least 1 peers, but know only of 0 suitable peers".
+
+The private data collection has "1-of" policy & "requiredPeerCount":1 in the collection configuration file.
+The issue obviously arises by the code in gossip_impl.go (https://github.com/hyperledger/fabric/blob/c45fde94b72a0f2fad7db37dff54d08ed4b280a8/gossip/gossip/gossip_impl.go):
+
+membership := g.disc.GetMembership() (or maybe the criteria)
+&
+peers2send := filter.SelectPeers(criteria.MaxPeers, membership, criteria.IsEligible)
+
+Could somebody elaborate on the exact (high level) reason why I get this message (and hence how to avoid it)?
+
+Thanks,
+Ivanovv
+
+
+
+
+
+
+
+
+
+
+
+

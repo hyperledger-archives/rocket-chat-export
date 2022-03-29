@@ -1,0 +1,55 @@
+ docker logs ica.consigner.lynkit.io 
+2019/11/07 10:08:09 [DEBUG] Home directory: /etc/hyperledger/fabric-ca-server
+2019/11/07 10:08:09 [INFO] Configuration file location: /etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+2019/11/07 10:08:09 [INFO] Starting server in home directory: /etc/hyperledger/fabric-ca-server
+2019/11/07 10:08:09 [WARNING] Unknown provider type: ; metrics disabled
+2019/11/07 10:08:09 [DEBUG] Set log level: 
+2019/11/07 10:08:09 [INFO] Server Version: 1.4.1
+2019/11/07 10:08:09 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+2019/11/07 10:08:09 [DEBUG] Making server filenames absolute
+2019/11/07 10:08:09 [DEBUG] Initializing default CA in directory /etc/hyperledger/fabric-ca-server
+2019/11/07 10:08:09 [DEBUG] Init CA with home /etc/hyperledger/fabric-ca-server and config {Version:1.4.0-stable Cfg:{Identities:{PasswordAttempts:10 AllowRemove:false} Affiliations:{AllowRemove:false}} CA:{Name:ica.consigner.lynkit.io Keyfile:/etc/hyperledger/fabric-ca-server-config/ica.consigner.lynkit.io.key.pem Certfile:/etc/hyperledger/fabric-ca-server-config/ica.consigner.lynkit.io.crt.pem Chainfile:/etc/hyperledger/fabric-ca-server-config/chain.consigner.lynkit.io.crt.pem} Signing:0xc0003cd720 CSR:{CN: ica.consigner.lynkit.io Names:[{C:US ST:North Carolina L: O:Hyperledger OU:Fabric SerialNumber:}] Hosts:[0.0.0.0] KeyRequest:0xc0003e8360 CA:0xc0003e83e0 SerialNumber:} Registry:{MaxEnrollments:-1 Identities:[{ Name:**** Pass:**** Type:client Affiliation: MaxEnrollments:0 Attrs:map[hf.Registrar.Attributes:* hf.AffiliationMgr:1 hf.Registrar.Roles:* hf.Registrar.DelegateRoles:* hf.Revoker:1 hf.IntermediateCA:1 hf.GenCRL:1]  }]} Affiliations:map[consigner:[department1 department2]] LDAP:{ Enabled:false URL:ldap://****:****@<host>:<port>/<base> UserFilter:(uid=%s) GroupFilter:(memberUid=%s) Attribute:{[uid member] [{ }] map[groups:[{ }]]} TLS:{false [] { }}  } DB:{ Type:postgres ****user=**** password=**** dbname=fabriccaserver sslmode=verify-ca TLS:{false [[/tmp/postgresCerts/root.crt]] {/tmp/postgresCerts/server.key /tmp/postgresCerts/server.crt}}  } CSP:0xc0003e8660 Client:<nil> Intermediate:{ParentServer:{ URL: CAName:  } TLS:{Enabled:false CertFiles:[] Client:{KeyFile: CertFile:}} Enrollment:{ Name: Secret:**** CAName: AttrReqs:[] Profile: Label: CSR:<nil> Type:x509  }} CRL:{Expiry:24h0m0s} Idemix:{IssuerPublicKeyfile: IssuerSecretKeyfile: RevocationPublicKeyfile: RevocationPrivateKeyfile: RHPoolSize:100 NonceExpiration:15s NonceSweepInterval:15m}}
+2019/11/07 10:08:09 [DEBUG] CA Home Directory: /etc/hyperledger/fabric-ca-server
+2019/11/07 10:08:09 [DEBUG] Checking configuration file version '1.4.0-stable' against server version: '1.4.1'
+2019/11/07 10:08:09 [DEBUG] Initializing BCCSP: &{ProviderName:SW SwOpts:0xc00022d400 PluginOpts:<nil>}
+2019/11/07 10:08:09 [DEBUG] Initializing BCCSP with software options &{SecLevel:256 HashFamily:SHA2 Ephemeral:false FileKeystore:0xc0003ea470 DummyKeystore:<nil> InmemKeystore:<nil>}
+2019/11/07 10:08:09 [DEBUG] Initialize key material
+2019/11/07 10:08:09 [DEBUG] Making CA filenames absolute
+2019/11/07 10:08:09 [INFO] The CA key and certificate files already exist
+2019/11/07 10:08:09 [INFO] Key file location: /etc/hyperledger/fabric-ca-server-config/ica.consigner.lynkit.io.key.pem
+2019/11/07 10:08:09 [INFO] Certificate file location: /etc/hyperledger/fabric-ca-server-config/ica.consigner.lynkit.io.crt.pem
+2019/11/07 10:08:09 [DEBUG] Validating the CA certificate and key
+2019/11/07 10:08:09 [DEBUG] Check CA certificate for valid dates
+2019/11/07 10:08:09 [DEBUG] Check CA certificate for valid usages
+2019/11/07 10:08:09 [DEBUG] Check CA certificate for valid IsCA value
+2019/11/07 10:08:09 [DEBUG] Check that key type is supported
+2019/11/07 10:08:09 [DEBUG] Check that key size is of appropriate length
+2019/11/07 10:08:09 [DEBUG] Check that public key and private key match
+2019/11/07 10:08:09 [DEBUG] Validation of CA certificate and key successful
+2019/11/07 10:08:09 [DEBUG] Loading CN from existing enrollment information
+2019/11/07 10:08:09 [DEBUG] Initializing DB
+2019/11/07 10:08:09 [DEBUG] Initializing 'postgres' database at 'host=db-postgres port=5432 user=**** password=**** dbname=fabriccaserver sslmode=verify-ca'
+2019/11/07 10:08:09 [DEBUG] Using postgres database, connecting to database...
+2019/11/07 10:08:09 [DEBUG] Database Name: fabriccaserver
+2019/11/07 10:08:09 [DEBUG] Connecting to PostgreSQL server, using connection string: host=db-postgres port=5432 user=**** password=**** dbname=fabriccaserver sslmode=verify-ca
+2019/11/07 10:08:09 [WARNING] Failed to connect to database 'fabriccaserver'
+2019/11/07 10:08:09 [DEBUG] Connecting to PostgreSQL server, using connection string: host=db-postgres port=5432 user=**** password=**** dbname=postgres sslmode=verify-ca
+2019/11/07 10:08:09 [WARNING] Failed to connect to database 'postgres'
+2019/11/07 10:08:09 [DEBUG] Connecting to PostgreSQL server, using connection string: host=db-postgres port=5432 user=**** password=**** dbname=template1 sslmode=verify-ca
+2019/11/07 10:08:09 [WARNING] Failed to connect to database 'template1'
+2019/11/07 10:08:09 [ERROR] Error occurred initializing database: Failed to connect to Postgres database. Postgres requires connecting to a specific database, the following databases were tried: [fabriccaserver postgres template1]. Please create one of these database before continuing
+2019/11/07 10:08:09 [DEBUG] Initializing enrollment signer
+2019/11/07 10:08:09 [DEBUG] validating configuration
+2019/11/07 10:08:09 [DEBUG] validate local profile
+2019/11/07 10:08:09 [DEBUG] profile is valid
+2019/11/07 10:08:09 [DEBUG] validate local profile
+2019/11/07 10:08:09 [DEBUG] profile is valid
+2019/11/07 10:08:09 [DEBUG] validate local profile
+2019/11/07 10:08:09 [DEBUG] profile is valid
+2019/11/07 10:08:09 [DEBUG] CA initialization successful
+2019/11/07 10:08:09 [DEBUG] Initializing Idemix issuer...
+2019/11/07 10:08:09 [DEBUG] Returning without initializing Idemix issuer for CA 'ica.consigner.lynkit.io' as the database is not initialized
+2019/11/07 10:08:09 [INFO] Home directory for default CA: /etc/hyperledger/fabric-ca-server
+2019/11/07 10:08:09 [DEBUG] 1 CA instance(s) running on server
+2019/11/07 10:08:09 [INFO] Operation Server Listening on 127.0.0.1:8443
+2019/11/07 10:08:09 [INFO] Listening on http://0.0.0.0:7054

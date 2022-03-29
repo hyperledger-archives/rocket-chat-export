@@ -1,0 +1,34 @@
+#### 1. On Root CA Server(**HOST1**) 
+* Step1 : Init and Start root CA Server(Parent Server)
+`./fabric-ca-server init -b admin:admin`
+`./fabric-ca-server start -b admin:admin -d`
+* Step2 : Enroll `admin` user via ca-client
+`./fabric-ca-client enroll -u http://admin:admin@localhost:7054`
+* Step3 : register `org1` with client type via ca-client
+`./fabric-ca-client register --id.name org1 --id.type client --id.affiliation org1 --id.secret org1pw --id.attr hf.Registrar.Roles="ca" --id.attr hf.Revoker=true --id.attr hf.IntermediateCA=true`
+#### 2. On Sub CA Server(**HOST2**)
+* Init sub CA Server with -u HOST1:7054
+`./fabric-ca-server init -u HOST1:7054 -b org1:org1pw`
+**I got error on this command**
+**HOST1 LOG:**
+_2017/04/12 01:23:28 [DEBUG] Received request
+POST /enroll
+Authorization: Basic Og==
+{"hosts":null,"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIHbMIGCAgEAMAAwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATA+/SIPY8qsvZg\n7e/lPaen5niPT+lBbnqyvUlD4D9LAglB5dda1Bkxaarxpt85hIjJ24zDuj6bqb8e\n/jWp2rrIoCAwHgYJKoZIhvcNAQkOMREwDzANBgNVHREEBjAEggJnbzAKBggqhkjO\nPQQDAgNIADBFAiAs+dTmoxoQQuysMKtzwhC9s3IuYOC+KNm50xaKZ/Bh9QIhAL+n\nQ4BjVN/fNK+Vr/ZH4fg/iRV9PSf1bQFs3E3THQO5\n-----END CERTIFICATE REQUEST-----\n","profile":"ca","crl_override":"","label":""}
+2017/04/12 01:23:28 [DEBUG] Getting user  from the database
+2017/04/12 01:23:28 [DEBUG] Failed to get user '': sql: no rows in result set_
+**HOST2 LOG:**
+_2017/04/12 01:27:54 [DEBUG] Intermediate enrollment request: {   ca  0xc4201c5140}
+2017/04/12 01:27:54 [DEBUG] Enrolling 0xc420026238
+2017/04/12 01:27:54 [DEBUG] GenCSR 0xc420026240
+2017/04/12 01:27:54 [INFO] received CSR
+2017/04/12 01:27:54 [INFO] generating key: ecdsa-256
+2017/04/12 01:27:54 [DEBUG] generate key from request: algo=ecdsa, size=256
+2017/04/12 01:27:54 [INFO] encoded CSR
+2017/04/12 01:27:54 [DEBUG] Sending request
+POST http://0.0.0.0:7054/enroll
+Authorization: Basic Og==
+{"hosts":null,"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIHbMIGCAgEAMAAwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAR1JDEVgZsNG/R9\nm7tPcsCww3U2fO9OKIMn1zVxZBRzFtzzpjT4s/f5A3n5bn9MALhBe3a5HsOEQEOI\ndDFYu+nPoCAwHgYJKoZIhvcNAQkOMREwDzANBgNVHREEBjAEggJnbzAKBggqhkjO\nPQQDAgNIADBFAiA5lDH+r2MzyUZIACLGo+hdhET4zmFA60WX/RegTq9eNwIhAI41\nZHvUZiUs9TyWpszywmHBglYdzn5ig5RLm21qokC0\n-----END CERTIFICATE REQUEST-----\n","profile":"ca","crl_override":"","label":""}
+2017/04/12 01:27:54 [DEBUG] Received response
+statusCode=400 (400 Bad Request)
+2017/04/12 01:27:54 [FATAL] Initialization failure: Failed to initialize CA: Error response from server was: Authorization failure_

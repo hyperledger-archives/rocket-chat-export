@@ -1,0 +1,57 @@
+Hi guys. I tried ACA-PY with PostgreSQL and ran some tests.
+Which lead to PostgreSQL too many connections.
+```
+2020-04-15 03:03:31,422 indy.libindy.native.postgres DEBUG      /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/postgres-0.15.2/src/lib.rs:489 | preparing query with name `s0`: SELECT i.id, i.name, i.value, i.key, i.type FROM items as i WHERE i.type = $1 AND (i.id in (SELECT item_id FROM tags_encrypted WHERE name = $2 AND value = $3))
+2020-04-15 03:03:35,630 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+2020-04-15 03:03:37,092 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+2020-04-15 03:03:37,895 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+2020-04-15 03:03:39,498 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+2020-04-15 03:03:42,700 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+2020-04-15 03:03:49,103 indy.libindy.native.r2d2 ERROR  /home/indy/.cargo/registry/src/github.com-1ecc6299db9ec823/r2d2-0.8.7/src/lib.rs:121 | database error: FATAL: sorry, too many clients already
+thread '<unnamed>' panicked at 'called `Result::unwrap()` on an `Err` value: Error(Some("database error: FATAL: sorry, too many clients already"))', src/libcore/result.rs:999:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+thread '<unnamed>' panicked at 'called `Result::unwrap()` on an `Err` value: "PoisonError { inner: .. }"', src/libcore/result.rs:999:5
+stack backtrace:
+   0:     0x7f227536f1cb - backtrace::backtrace::libunwind::trace::hfe5db90796807973
+                               at /cargo/registry/src/github.com-1ecc6299db9ec823/backtrace-0.3.29/src/backtrace/libunwind.rs:88
+   1:     0x7f227536f1cb - backtrace::backtrace::trace_unsynchronized::h34b865a835594335
+                               at /cargo/registry/src/github.com-1ecc6299db9ec823/backtrace-0.3.29/src/backtrace/mod.rs:66
+   2:     0x7f227536f1cb - std::sys_common::backtrace::_print::h527254ae44989167
+                               at src/libstd/sys_common/backtrace.rs:47
+   3:     0x7f227536f1cb - std::sys_common::backtrace::print::he85dd5ddddf46503
+                               at src/libstd/sys_common/backtrace.rs:36
+   4:     0x7f227536f1cb - std::panicking::default_hook::{{closure}}::h847a2eb38b396f14
+                               at src/libstd/panicking.rs:200
+   5:     0x7f227536eea7 - std::panicking::default_hook::h2ca0f9a30a0e206b
+                               at src/libstd/panicking.rs:214
+   6:     0x7f227536f920 - std::panicking::rust_panic_with_hook::hffcefc09751839d1
+                               at src/libstd/panicking.rs:477
+   7:     0x7f227536f4a2 - std::panicking::continue_panic_fmt::hc0f142c930c846fc
+                               at src/libstd/panicking.rs:384
+   8:     0x7f227536f386 - rust_begin_unwind
+                               at src/libstd/panicking.rs:311
+   9:     0x7f2275388bed - core::panicking::panic_fmt::h2daf88b2616ca2b2
+                               at src/libcore/panicking.rs:85
+  10:     0x7f22752fa744 - core::result::unwrap_failed::hf9c8808bb9d87265
+  11:     0x7f227530b9fa - indystrgpostgres::PostgresWallet::close::h9166f810d646c275
+  12:     0x7f2274b403b4 - <indy_wallet::storage::plugged::PluggedStorage as core::ops::drop::Drop>::drop::h0ab7273bcb546dcc
+  13:     0x7f2274a03476 - core::ptr::real_drop_in_place::ha1ea4924e8da5239
+  14:     0x7f2274a0aca3 - <alloc::rc::Rc<T> as core::ops::drop::Drop>::drop::hc460f17fc7bc784b
+  15:     0x7f22749f5ea2 - std::sys_common::backtrace::__rust_begin_short_backtrace::h78cef693d4e097b6
+  16:     0x7f2274e62b9a - __rust_maybe_catch_panic
+                               at src/libpanic_unwind/lib.rs:82
+  17:     0x7f2274779796 - core::ops::function::FnOnce::call_once{{vtable.shim}}::hd8bac0c1291652bf
+  18:     0x7f2274e5342f - <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h42806b83647d4c79
+                               at /rustc/eae3437dfe991621e8afdc82734f4a172d7ddf9b/src/liballoc/boxed.rs:746
+  19:     0x7f2274e61fa0 - <alloc::boxed::Box<F> as core::ops::function::FnOnce<A>>::call_once::h83c921c8e826dd1d
+                               at /rustc/eae3437dfe991621e8afdc82734f4a172d7ddf9b/src/liballoc/boxed.rs:746
+  20:     0x7f2274e61fa0 - std::sys_common::thread::start_thread::h2613204ce513782e
+                               at src/libstd/sys_common/thread.rs:13
+  21:     0x7f2274e61fa0 - std::sys::unix::thread::Thread::new::thread_start::h4570080769500bcd
+                               at src/libstd/sys/unix/thread.rs:79
+  22:     0x7f227ebc46db - start_thread
+  23:     0x7f227e14888f - __clone
+  24:                0x0 - <unknown>
+thread panicked while panicking. aborting.
+``` 
+Does aca-py open new connections everytime new request is received or does it keep the old one open?

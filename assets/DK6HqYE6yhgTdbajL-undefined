@@ -1,0 +1,155 @@
+VAGRANT_BOX = ubuntu/xenial64
+VAGRANT_FORWARD_PORTS = true
+VAGRANT_MEMORY = 2048
+VAGRANT_CPUS = 2
+Proxyconf plugin not found
+Install: vagrant plugin install vagrant-proxyconf
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'ubuntu/xenial64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'ubuntu/xenial64' is up to date...
+==> default: There was a problem while downloading the metadata for your box
+==> default: to check for updates. This is not an error, since it is usually due
+==> default: to temporary network problems. This is just a warning. The problem
+==> default: encountered was:
+==> default:
+==> default: Failed to connect to atlas.hashicorp.com port 443: Timed out
+==> default:
+==> default: If you want to check for box updates, verify your network connection
+==> default: is valid and try again.
+==> default: Setting the name of the VM: sawtooth
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 8800 (guest) => 8800 (host) (adapter 1)
+    default: 8900 (guest) => 8900 (host) (adapter 1)
+    default: 18080 (guest) => 18080 (host) (adapter 1)
+    default: 3000 (guest) => 3000 (host) (adapter 1)
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: ubuntu
+    default: SSH auth method: password
+    default: Warning: Remote connection disconnect. Retrying...
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 5.0.32
+    default: VirtualBox Version: 5.1
+==> default: Mounting shared folders...
+    default: /project => C:/Users/i062756/git
+    default: /vagrant => C:/Users/i062756/git/sawtooth-core/tools
+==> default: Running provisioner: shell...
+    default: Running: C:/Users/i062756/AppData/Local/Temp/vagrant-shell20170417-7544-gakbic.sh
+==> default: + cd /vagrant
+==> default: ++ sort -n
+==> default: ++ ls -1 bootstrap.d/10-setup.sh bootstrap.d/12-dotfiles.sh bootstrap.d/14-setup_stl_environment.sh bootstrap.d/20-package-update.sh bootstrap.d/22-install-tools.sh bootstrap.d/24-install-deps.sh bootstrap.d/29-link-swig.sh bootstrap.d/30-python-lib-install.sh bootstrap.d/40-etc-hosts.sh bootstrap.d/95-run-plugins.sh
+==> default: Running: ./bootstrap.d/10-setup.sh
+==> default: + for script in '$(ls -1 bootstrap.d/*.sh | sort -n)'
+==> default: + echo 'Running: ./bootstrap.d/10-setup.sh'
+==> default: + ./bootstrap.d/10-setup.sh
+==> default: + mkdir -p cache
+==> default: Running: ./bootstrap.d/12-dotfiles.sh
+==> default: + for script in '$(ls -1 bootstrap.d/*.sh | sort -n)'
+==> default: + echo 'Running: ./bootstrap.d/12-dotfiles.sh'
+==> default: + ./bootstrap.d/12-dotfiles.sh
+==> default: + . /vagrant/conf.sh
+==> default: ++ [[ -e conf-local.sh ]]
+==> default: ++ [[ -e /vagrant/conf-local.sh ]]
+==> default: ++ [[ -e conf-defaults.sh ]]
+==> default: ++ . conf-defaults.sh
+==> default: +++ [[ -z '' ]]
+==> default: +++ export SETUP_SAWTOOTH_ENVIRONMENT=yes
+==> default: +++ SETUP_SAWTOOTH_ENVIRONMENT=yes
+==> default: +++ [[ -z '' ]]
+==> default: +++ export SETUP_SAWTOOTH_PATH=no
+==> default: +++ SETUP_SAWTOOTH_PATH=no
+==> default: +++ [[ -z '' ]]
+==> default: +++ export 'PLUGINS=setup_homedir install_sphinx install_grpc install_bitcoin install_aiohttp install_js_tools install_docker install_secp256k1 install_cryptography'
+==> default: +++ PLUGINS='setup_homedir install_sphinx install_grpc install_bitcoin install_aiohttp install_js_tools install_docker install_secp256k1 install_cryptography'
+==> default: +++ [[ -e /vagrant ]]
+==> default: +++ [[ -z '' ]]
+==> default: ++++ get_vagrant_user
+==> default: ++++ for user in vagrant ubuntu
+==> default: ++++ id vagrant
+==> default: ++++ for user in vagrant ubuntu
+==> default: ++++ id ubuntu
+==> default: ++++ echo ubuntu
+==> default: ++++ return
+==> default: +++ export VAGRANT_USER=ubuntu
+==> default: +++ VAGRANT_USER=ubuntu
+==> default: +++ '[' -z ubuntu ']'
+==> default: + homedir=/home/ubuntu
+==> default: + grep -q 'source /vagrant/guest-files/bashrc' /home/ubuntu/.bashrc
+==> default: + '[' 1 = 1 ']'
+==> default: + echo 'source /vagrant/guest-files/bashrc'
+==> default: + mkdir -p /home/ubuntu/.ssh
+==> default: + mkdir -p /root/.ssh
+==> default: + '[' -e /vagrant/ssh/id_rsa ']'
+==> default: + '[' -e /vagrant/ssh/known_hosts ']'
+==> default: Running: ./bootstrap.d/14-setup_stl_environment.sh
+==> default: + for script in '$(ls -1 bootstrap.d/*.sh | sort -n)'
+==> default: + echo 'Running: ./bootstrap.d/14-setup_stl_environment.sh'
+==> default: + ./bootstrap.d/14-setup_stl_environment.sh
+==> default: + . /vagrant/conf.sh
+==> default: ++ [[ -e conf-local.sh ]]
+==> default: ++ [[ -e /vagrant/conf-local.sh ]]
+==> default: ++ [[ -e conf-defaults.sh ]]
+==> default: ++ . conf-defaults.sh
+==> default: +++ [[ -z '' ]]
+==> default: +++ export SETUP_SAWTOOTH_ENVIRONMENT=yes
+==> default: +++ SETUP_SAWTOOTH_ENVIRONMENT=yes
+==> default: +++ [[ -z '' ]]
+==> default: +++ export SETUP_SAWTOOTH_PATH=no
+==> default: +++ SETUP_SAWTOOTH_PATH=no
+==> default: +++ [[ -z '' ]]
+==> default: +++ export 'PLUGINS=setup_homedir install_sphinx install_grpc install_bitcoin install_aiohttp install_js_tools install_docker install_secp256k1 install_cryptography'
+==> default: +++ PLUGINS='setup_homedir install_sphinx install_grpc install_bitcoin install_aiohttp install_js_tools install_docker install_secp256k1 install_cryptography'
+==> default: +++ [[ -e /vagrant ]]
+==> default: +++ [[ -z '' ]]
+==> default: ++++ get_vagrant_user
+==> default: ++++ for user in vagrant ubuntu
+==> default: ++++ id vagrant
+==> default: ++++ for user in vagrant ubuntu
+==> default: ++++ id ubuntu
+==> default: ++++ echo ubuntu
+==> default: ++++ return
+==> default: +++ export VAGRANT_USER=ubuntu
+==> default: +++ VAGRANT_USER=ubuntu
+==> default: +++ '[' -z ubuntu ']'
+==> default: + [[ yes == \y\e\s ]]
+==> default: + cp /vagrant/guest-files/local-env.sh /etc/profile.d/
+==> default: + [[ no == \y\e\s ]]
+==> default: Running: ./bootstrap.d/20-package-update.sh
+==> default: + for script in '$(ls -1 bootstrap.d/*.sh | sort -n)'
+==> default: + echo 'Running: ./bootstrap.d/20-package-update.sh'
+==> default: + ./bootstrap.d/20-package-update.sh
+==> default: + set -e
+==> default: + '[' -f /etc/debian_version ']'
+==> default: + echo 'deb http://repo.sawtooth.me/ xenial universe'
+==> default: + apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6B58B1AC10FB5F63
+==> default: Executing: /tmp/tmp.LzZYrFgzl2/gpg.1.sh --keyserver
+==> default: hkp://keyserver.ubuntu.com:80
+==> default: --recv-keys
+==> default: 6B58B1AC10FB5F63
+==> default: gpg: requesting key 10FB5F63 from hkp server keyserver.ubuntu.com
+==> default: gpg: keyserver timed out
+==> default: gpg: keyserver receive failed: keyserver error
+==> default: + exit 1
+The SSH command responded with a non-zero exit status. Vagrant
+assumes that this means the command failed. The output for this command
+should be in the log above. Please read the output to determine what
+went wrong.

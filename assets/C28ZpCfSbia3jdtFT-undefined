@@ -1,0 +1,122 @@
+2017/03/23 20:16:10 [INFO] Listening at https://0.0.0.0:7054
+2017/03/23 20:16:19 [DEBUG] Received request
+POST /enroll
+Authorization: Basic YXXXXXXXXXXXXXXXX=
+{"hosts":null,"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBozCCAUgCAQAwgZExCzAJBgNVBAYTAkhLMSMwIQYDVQQIDBpDZW50cmFsICYg\nV2VzdGVybiBEaXN0cmljdDETMBEGA1UEBxMKU2hldW5nIFdhbjEWMBQGA1UEChMN\nUGFzc0tpdCwgSW5jLjEgMB4GA1UECxMXQmxvY2tjaGFpbiBBcHBsaWNhdGlvbnMx\nDjAMBgNVBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5TwZmuOX\nzs2jF98D7D25GSG7CFxkL6DGaRmOilOdJXTME4Hqfgq8lHquC9cbG+FwH+RQgNcR\napKQ4OZTSs4kh6BUMFIGCSqGSIb3DQEJDjFFMEMwMwYDVR0RBCwwKoIYKi5ibG9j\na2NoYWluLnBhc3NraXQuY29tgg4qLnZwYy5iYy53dC5pczAMBgNVHRMEBTADAQH/\nMAoGCCqGSM49BAMCA0kAMEYCIQC2nxcEpeLnxncPX4psmBBHQpqb8lx1oiXARxip\nqu8VegIhAL/xD6nbKYGk9vA0zxexUFyrxqF0pvHBYy5CuidkKjGj\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":""}
+2017/03/23 20:16:19 [DEBUG] Getting user admin from the database
+fatal error: unexpected signal during runtime execution
+[signal SIGSEGV: segmentation violation code=0x1 addr=0xe5 pc=0x7f26f4bb5a5c]
+
+runtime stack:
+runtime.throw(0xb80691, 0x2a)
+	/opt/go/src/runtime/panic.go:566 +0x95
+runtime.sigpanic()
+	/opt/go/src/runtime/sigpanic_unix.go:12 +0x2cc
+runtime.lock(0x0)
+	/opt/go/src/runtime/lock_futex.go:54 +0x5c
+
+goroutine 19 [syscall, locked to thread]:
+runtime.cgocall(0x984940, 0xc420046f38, 0x0)
+	/opt/go/src/runtime/cgocall.go:131 +0x110 fp=0xc420046ee8 sp=0xc420046ea8
+os/user._Cfunc_mygetpwuid_r(0x0, 0xc4201f6ba0, 0x7f26ec0008c0, 0x400, 0xc420026278, 0x0)
+	??:0 +0x4d fp=0xc420046f38 sp=0xc420046ee8
+os/user.lookupUnixUid.func1(0x42cf43)
+	/opt/go/src/os/user/lookup_unix.go:103 +0x1f7 fp=0xc420046fc8 sp=0xc420046f38
+os/user.retryWithBuffer(0xc4201eea60, 0xc4200470c0, 0xc4201eea60, 0xc4200470a0)
+	/opt/go/src/os/user/lookup_unix.go:253 +0x2b fp=0xc420047030 sp=0xc420046fc8
+os/user.lookupUnixUid(0x0, 0x0, 0x0, 0x0)
+	/opt/go/src/os/user/lookup_unix.go:105 +0x141 fp=0xc4200470f8 sp=0xc420047030
+os/user.current(0x0, 0x0, 0xc4201e4500)
+	/opt/go/src/os/user/lookup_unix.go:49 +0x2f fp=0xc420047128 sp=0xc4200470f8
+os/user.Current(0xb67007, 0xa, 0x0)
+	/opt/go/src/os/user/lookup.go:9 +0x22 fp=0xc420047150 sp=0xc420047128
+github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq.(*conn).handlePgpass(0xc4201bf900, 0xc4201f6b10)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq/conn.go:160 +0x7b9 fp=0xc4200472b0 sp=0xc420047150
+github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq.DialOpen(0x1065be0, 0x10ade70, 0xc420178380, 0x63, 0x0, 0x0, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq/conn.go:315 +0x65d fp=0xc420047550 sp=0xc4200472b0
+github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq.Open(0xc420178380, 0x63, 0x52a5c5, 0x1, 0x2, 0xc420192f00)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq/conn.go:233 +0x70 fp=0xc4200475a0 sp=0xc420047550
+github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq.(*drv).Open(0x10ade70, 0xc420178380, 0x63, 0xc4201ee837, 0xc4201ee837, 0xc420047648, 0x447161)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/lib/pq/conn.go:44 +0x35 fp=0xc4200475e0 sp=0xc4200475a0
+database/sql.(*DB).conn(0xc42021e210, 0x1, 0x0, 0x0, 0x0)
+	/opt/go/src/database/sql/sql.go:824 +0x24e fp=0xc420047710 sp=0xc4200475e0
+database/sql.(*DB).query(0xc42021e210, 0xc4201f6ae0, 0x25, 0xc4201ee8d0, 0x1, 0x1, 0x447001, 0xc4201f6ae0, 0xc4201f6ab0, 0x25)
+	/opt/go/src/database/sql/sql.go:1074 +0x3b fp=0xc420047788 sp=0xc420047710
+database/sql.(*DB).Query(0xc42021e210, 0xc4201f6ae0, 0x25, 0xc4201ee8d0, 0x1, 0x1, 0xc4201ee8e0, 0x10, 0x10)
+	/opt/go/src/database/sql/sql.go:1062 +0x90 fp=0xc420047808 sp=0xc420047788
+github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx.(*DB).QueryRowx(0xc4203007b0, 0xc4201f6ae0, 0x25, 0xc4201ee8d0, 0x1, 0x1, 0xc4201f6a20)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx/sqlx.go:341 +0x73 fp=0xc420047880 sp=0xc420047808
+github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx.Get(0x1066f60, 0xc4203007b0, 0xa889c0, 0xc4201c7980, 0xc4201f6ae0, 0x25, 0xc4201ee8d0, 0x1, 0x1, 0xc4201ee8e0, ...)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx/sqlx.go:643 +0x6d fp=0xc4200478c8 sp=0xc420047880
+github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx.(*DB).Get(0xc4203007b0, 0xa889c0, 0xc4201c7980, 0xc4201f6ae0, 0x25, 0xc4201ee8d0, 0x1, 0x1, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/jmoiron/sqlx/sqlx.go:308 +0x90 fp=0xc420047930 sp=0xc4200478c8
+github.com/hyperledger/fabric-ca/lib.(*Accessor).GetUser(0xc420206050, 0xc4201ee890, 0x5, 0x0, 0x0, 0x0, 0x7, 0xc4201f4ee5, 0x7, 0xbbd400)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/dbaccessor.go:219 +0x243 fp=0xc4200479e8 sp=0xc420047930
+github.com/hyperledger/fabric-ca/lib.(*fcaAuthHandler).serveHTTP(0xc42030b6e0, 0x1067ae0, 0xc42017ab60, 0xc4200bc870, 0xc4201c78c0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/serverauth.go:82 +0x2b7 fp=0xc420047c60 sp=0xc4200479e8
+github.com/hyperledger/fabric-ca/lib.(*fcaAuthHandler).ServeHTTP(0xc42030b6e0, 0x1067ae0, 0xc42017ab60, 0xc4200bc870)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/serverauth.go:55 +0x4d fp=0xc420047ca0 sp=0xc420047c60
+net/http.(*ServeMux).ServeHTTP(0xc420300de0, 0x1067ae0, 0xc42017ab60, 0xc4200bc870)
+	/opt/go/src/net/http/server.go:2022 +0x7f fp=0xc420047ce0 sp=0xc420047ca0
+net/http.serverHandler.ServeHTTP(0xc4201f9800, 0x1067ae0, 0xc42017ab60, 0xc4200bc870)
+	/opt/go/src/net/http/server.go:2202 +0x7d fp=0xc420047d28 sp=0xc420047ce0
+net/http.(*conn).serve(0xc4201f9880, 0x10682e0, 0xc4201bd280)
+	/opt/go/src/net/http/server.go:1579 +0x4b7 fp=0xc420047f88 sp=0xc420047d28
+runtime.goexit()
+	/opt/go/src/runtime/asm_amd64.s:2086 +0x1 fp=0xc420047f90 sp=0xc420047f88
+created by net/http.(*Server).Serve
+	/opt/go/src/net/http/server.go:2293 +0x44d
+
+goroutine 1 [IO wait]:
+net.runtime_pollWait(0x7f26f4dc68a8, 0x72, 0x0)
+	/opt/go/src/runtime/netpoll.go:160 +0x59
+net.(*pollDesc).wait(0xc420205e20, 0x72, 0xc4202c3728, 0xc420018028)
+	/opt/go/src/net/fd_poll_runtime.go:73 +0x38
+net.(*pollDesc).waitRead(0xc420205e20, 0x10636e0, 0xc420018028)
+	/opt/go/src/net/fd_poll_runtime.go:78 +0x34
+net.(*netFD).accept(0xc420205dc0, 0x0, 0x1061c60, 0xc4203165e0)
+	/opt/go/src/net/fd_unix.go:419 +0x238
+net.(*TCPListener).accept(0xc4202060b8, 0xc4202060c0, 0xc420028800, 0x7f26f66204b0)
+	/opt/go/src/net/tcpsock_posix.go:132 +0x2e
+net.(*TCPListener).Accept(0xc4202060b8, 0x436fde, 0xc4202c3830, 0x5f863d, 0x4558c0)
+	/opt/go/src/net/tcpsock.go:222 +0x49
+crypto/tls.(*listener).Accept(0xc420316560, 0xbc00c8, 0xc4201f9880, 0x10683a0, 0xc420301d10)
+	/opt/go/src/crypto/tls/tls.go:52 +0x37
+net/http.(*Server).Serve(0xc4201f9800, 0x1066de0, 0xc420316560, 0x0, 0x0)
+	/opt/go/src/net/http/server.go:2273 +0x1ce
+net/http.Serve(0x1066de0, 0xc420316560, 0x1061520, 0xc420300de0, 0x17, 0xc4202c3a98)
+	/opt/go/src/net/http/server.go:2091 +0x99
+github.com/hyperledger/fabric-ca/lib.(*Server).serve(0xc420145ea0, 0x17, 0xc4202c3a98)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/server.go:581 +0x54
+github.com/hyperledger/fabric-ca/lib.(*Server).listenAndServe(0xc420145ea0, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/server.go:574 +0x4ef
+github.com/hyperledger/fabric-ca/lib.(*Server).Start(0xc420145ea0, 0xa9f201, 0xc4200c7c48)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/lib/server.go:133 +0xeb
+main.runStart(0x10566c0, 0x10ade70, 0x0, 0x0, 0x0, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/cmd/fabric-ca-server/start.go:47 +0x107
+github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra.(*Command).execute(0x10566c0, 0x10ade70, 0x0, 0x0, 0x10566c0, 0x10ade70)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra/command.go:643 +0x23e
+github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x10564a0, 0x4129b9, 0xc42005c058, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra/command.go:734 +0x367
+github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra.(*Command).Execute(0x10564a0, 0xc42005c058, 0x0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/vendor/github.com/spf13/cobra/command.go:692 +0x2b
+main.RunMain(0xc42000c100, 0x2, 0x2, 0xb6b76f, 0xc4200001a0)
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/cmd/fabric-ca-server/main.go:90 +0x87
+main.main()
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/cmd/fabric-ca-server/main.go:77 +0x45
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+	/opt/go/src/runtime/asm_amd64.s:2086 +0x1
+
+goroutine 5 [chan receive]:
+database/sql.(*DB).connectionOpener(0xc4200f1760)
+	/opt/go/src/database/sql/sql.go:730 +0x4a
+created by database/sql.Open
+	/opt/go/src/database/sql/sql.go:493 +0x1e9
+
+goroutine 18 [chan receive]:
+database/sql.(*DB).connectionOpener(0xc42021e210)
+	/opt/go/src/database/sql/sql.go:730 +0x4a
+created by database/sql.Open
+	/opt/go/src/database/sql/sql.go:493 +0x1e9

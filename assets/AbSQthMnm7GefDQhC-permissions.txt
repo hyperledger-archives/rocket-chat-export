@@ -1,0 +1,75 @@
+rule OwnerHasAccessToTheirUserDetails {
+    description: "Allow all participants full access to their assets"
+    participant(p): "org.blockknowhow.com.Users"
+    operation: CREATE, READ, UPDATE
+    resource(r): "org.blockknowhow.com.UserDetails"
+    condition: (r.owner.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule ReadAndCreateUserDetails {
+    description: "Allow all participants to read UserDetails"
+    participant: "org.blockknowhow.com.Users"
+    operation: READ
+    resource: "org.blockknowhow.com.UserDetails"
+    action: ALLOW
+}
+
+rule CreateEntry {
+    description: "Allow all participants to create, read and update UserDetails"
+    participant: "org.blockknowhow.com.Users"
+    operation: CREATE
+    resource: "org.blockknowhow.com.CreateEntry"
+    action: ALLOW
+}
+
+rule DenyUsersToSeeOtherUsers {
+    description: "Allow all Users to see other users."
+    participant: "org.blockknowhow.com.Users"
+    operation: READ
+    resource: "org.blockknowhow.com.Users"
+    action: DENY
+}
+
+// specifically allow users to see historian records they invoked
+rule historianAccess{
+  description: "Only allow members to read historian records referencing transactions they submitted."
+  participant(p): "org.blockknowhow.com.Users"
+  operation: READ
+  resource(r): "org.hyperledger.composer.system.HistorianRecord"
+  condition: (r.participantInvoking.getIdentifier() == p.getIdentifier())
+  action: ALLOW
+}
+
+// prevent users from seeing historian records
+rule hidehistorianAccess{
+  description: "Deny access to Historian"
+  participant: "org.blockknowhow.com.Users"
+  operation: READ
+  resource: "org.hyperledger.composer.system.HistorianRecord"
+  action: DENY
+}
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}

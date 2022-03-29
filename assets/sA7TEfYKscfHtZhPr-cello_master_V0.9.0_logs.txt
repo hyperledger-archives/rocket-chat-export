@@ -1,0 +1,93 @@
+Starting supervisor: supervisord.
+[2019-01-18 04:35:03 +0000] [20] [INFO] Starting gunicorn 19.6.0
+[2019-01-18 04:35:03 +0000] [20] [INFO] Listening at: http://0.0.0.0:8080 (20)
+[2019-01-18 04:35:03 +0000] [20] [INFO] Using worker: eventlet
+[2019-01-18 04:35:03 +0000] [27] [INFO] Booting worker with pid: 27
+[2019-01-18 04:37:51 +0000] [27] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.6/site-packages/flask/helpers.py", line 976, in send_static_file
+    cache_timeout=cache_timeout)
+  File "/usr/local/lib/python3.6/site-packages/flask/helpers.py", line 709, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/workers/async.py", line 62, in handle
+    six.reraise(*sys.exc_info())
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/six.py", line 625, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/workers/async.py", line 52, in handle
+    self.handle_request(listener_name, req, client, addr)
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/workers/async.py", line 125, in handle_request
+    six.reraise(*sys.exc_info())
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/six.py", line 625, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/site-packages/gunicorn/workers/async.py", line 103, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.6/site-packages/flask_socketio/__init__.py", line 43, in __call__
+    start_response)
+  File "/usr/local/lib/python3.6/site-packages/engineio/middleware.py", line 67, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask_restful/__init__.py", line 273, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1713, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1644, in handle_http_exception
+    return handler(e)
+  File "/app/dashboard.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "/usr/local/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python3.6/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python3.6/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python3.6/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python3.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python3.6/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python3.6/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+[2019-01-18 04:37:51 +0000] [27] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.6/site-packages/flask/helpers.py", line 976, in send_static_file
+    cache_timeout=cache_timeout)
+  File "/usr/local/lib/python3.6/site-packages/flask/helpers.py", line 709, in send_from_directory
+    raise NotFound()
+
+

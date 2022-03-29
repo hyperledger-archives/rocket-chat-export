@@ -1,0 +1,90 @@
+logs
+```[2020-11-23T03:16:49.215] [DEBUG] main - false 'ssl-certs' '/opt/explorer/app/ssl-certs'
+[2020-11-23T03:16:49.280] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******
+[2020-11-23T03:16:49.280] [DEBUG] Platform - ******* Initialization started for hyperledger fabric platform ******, { 'first-network':
+   { name: 'first-network',
+     profile: './connection-profile/first-network.json' } }
+[2020-11-23T03:16:49.280] [DEBUG] Platform - Setting admin organization enrolment files
+[2020-11-23T03:16:49.280] [INFO] Platform -  network_config.id  first-network  network_config.profile  ./connection-profile/first-network.json
+[2020-11-23T03:16:49.280] [DEBUG] Platform - Creating network client [first-network] >>  { name: 'first-network',
+  profile: './connection-profile/first-network.json' }
+[2020-11-23T03:16:49.281] [INFO] Platform - Disabled authentication
+[2020-11-23T03:16:49.281] [DEBUG] FabricUtils - ************ Initializing fabric client for [first-network]************
+[2020-11-23T03:16:49.281] [DEBUG] FabricClient - Client configuration [first-network]  ...
+[2020-11-23T03:16:49.282] [INFO] FabricConfig - config.client.tlsEnable  false
+[2020-11-23T03:16:49.282] [DEBUG] FabricGateway - LOADING CONFIGURATION  [OBJECT OBJECT]
+[2020-11-23T03:16:49.282] [INFO] FabricConfig - FabricConfig, this.config.channels  mychannel
+[2020-11-23T03:16:49.284] [INFO] FabricGateway - enrollUserIdentity: userName : admin
+[2020-11-23T03:16:54.423] [ERROR] FabricClient - Error: Missing port parameter
+    at module.exports.checkParameter (/opt/explorer/node_modules/fabric-common/lib/Utils.js:631:8)
+    at DiscoveryService._buildUrl (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:663:58)
+    at DiscoveryService._buildPeer (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:633:20)
+    at DiscoveryService._processPeers (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:553:15)
+    at DiscoveryService._processMembership (/opt/explorer/node_modules/fabric-common/lib/DiscoveryService.js:505:42)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2020-11-23T03:16:54.425] [INFO] FabricClient - ********* call to initializeDetachClient **********
+[2020-11-23T03:16:54.426] [DEBUG] FabricClient - initializeDetachClient first-network
+[2020-11-23T03:16:54.426] [INFO] FabricClient - initializeDetachClient, network config)  { name: 'mychannel',
+  description: 'Network on IBP v2',
+  version: '1.0.0',
+  client:
+   { 'client-1':
+      { tlsEnable: true, channel: 'mychannel', organization: 'org1' },
+     channel: 'mychannel',
+     tlsEnable: false,
+     adminCredential: { id: 'admin', password: 'password' },
+     enableAuthentication: false,
+     organization: 'org1',
+     connection: { timeout: [Object] } },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations:
+   { org1:
+      { mspid: 'org1',
+        fullpath: true,
+        peers: [Array],
+        adminPrivateKey: [Object],
+        signedCert: [Object] } },
+  peers:
+   { 'my-ibp-peer-name':
+      { url:
+         'grpcs://my-ibp-peer-name:443',
+        name:
+         'my-ibp-peer-name',
+        tlsCACerts: [Object],
+        grpcOptions: [Object] } } }
+[2020-11-23T03:16:54.429] [INFO] FabricClient - ************************************* initializeDetachClient *************************************************
+[2020-11-23T03:16:54.429] [INFO] FabricClient - Error : Failed to connect client peer, please check the configuration and peer status
+[2020-11-23T03:16:54.430] [INFO] FabricClient - Info :  Explorer will continue working with only DB data
+[2020-11-23T03:16:54.430] [INFO] FabricClient - ************************************** initializeDetachClient ************************************************
+[2020-11-23T03:16:54.443] [INFO] Platform - initializeListener, network_id, network_client  first-network { name: 'mychannel',
+  description: 'Network on IBP v2',
+  version: '1.0.0',
+  client:
+   { 'client-1':
+      { tlsEnable: true, channel: 'mychannel', organization: 'org1' },
+     channel: 'mychannel',
+     tlsEnable: false,
+     adminCredential: { id: 'admin', password: 'password' },
+     enableAuthentication: false,
+     organization: 'org1',
+     connection: { timeout: [Object] } },
+  channels: { mychannel: { peers: [Object], connection: [Object] } },
+  organizations:
+   { org1:
+      { mspid: 'org1',
+        fullpath: true,
+        peers: [Array],
+        adminPrivateKey: [Object],
+        signedCert: [Object] } },
+  peers:
+   { 'my-ibp-peer-name':
+      { url:
+         'grpcs://my-ibp-peer-name:443',
+        name:
+         'my-ibp-peer-name',
+        tlsCACerts: [Object],
+        grpcOptions: [Object] } } }
+[2020-11-23T03:16:54.448] [INFO] main - Please open web browser to access ：http://localhost:8080/
+[2020-11-23T03:16:54.448] [INFO] main - pid is 19
+[2020-11-23T03:16:54.456] [ERROR] main - <<<<<<<<<<<<<<<<<<<<<<<<<< Explorer Error >>>>>>>>>>>>>>>>>>>>>
+[2020-11-23T03:16:54.456] [ERROR] main - Error :  [ 'Default client peer is down and no channel details available database' ]```

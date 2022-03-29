@@ -1,0 +1,194 @@
+var hfc = require('fabric-client');
+
+var {readFileSync } = require('fs');
+var { resolve } = require('path');
+var User = require('fabric-client/lib/User');
+var CAClient = require('fabric-ca-client');
+
+// Define the path of the certs
+const basePath = resolve(__dirname, './certs');
+// Read the Crypto File
+const readCryptoFile = filename => readFileSync(resolve(basePath, filename)).toString();
+// Define the config file
+const config = {
+  channelName: 'trackchainer',
+  channelConfig: readFileSync(resolve(__dirname, './channel.tx')),
+  chaincodeId: 'trackchainer',
+  chaincodeVersion: 'v1',
+  chaincodePath: 'trackchainer',
+  orderer0: {
+    hostname: 'orderer0',
+    url: 'grpcs://localhost:7050',
+    pem: readCryptoFile('orderer0.pem')
+  },
+  org: {
+    peer: {
+      hostname: 'trackchainer-peer',
+      url: 'grpcs://localhost:7051',
+      eventHubUrl: 'grpcs://localhost:7053',
+      pem: readCryptoFile('org.pem')
+    },
+    ca: {
+      hostname: 'trackchainer-ca',
+      url: 'https://localhost:7054',
+      mspId: 'TrackchainerOrgMSP'
+    },
+    admin: {
+      key: readCryptoFile('Admin@trackchainer-org-key.pem'),
+      cert: readCryptoFile('Admin@trackchainer-org-cert.pem')
+    }
+  }
+};
+
+var _client = new hfc();
+config.channelName,
+  config.orderer0,
+  config.org.peer,
+  config.org.ca,
+  config.org.admin
+var channel = _client.newChannel('channelall');
+
+    var _channelName = config.channelName;
+    var _channel = _client.newChannel(_channelName);
+    var _ordererConfig = config.orderer0;
+    var _peerConfig = config.org.peer;
+    var _caConfig = config.org.ca;
+    var _admin = config.org.admin;
+    const orderer = _client.newOrderer(_ordererConfig.url, {
+        pem: _ordererConfig.pem,
+        'ssl-target-name-override': _ordererConfig.hostname
+    });
+
+    _channel.addOrderer(orderer);
+
+    const defaultPeer = _client.newPeer(_peerConfig.url, {
+        pem: _peerConfig.pem,
+        'ssl-target-name-override': _peerConfig.hostname
+    });
+    var _peers = [];
+    _peers.push(defaultPeer);
+    _channel.addPeer(defaultPeer);
+    var _adminUser = null;
+    async function login() {
+        try {
+          // Set the state store of the clent in the peerConfig.hostname
+          var keyStore = await hfc.newDefaultKeyValueStore({
+            path: `./${_peerConfig.hostname}`
+          });
+          _client.setStateStore(keyStore
+            );
+          // Set the adminUser to the registered User with CA
+          _adminUser = await getSubmitter(
+            _client, "admin", "adminpw", _caConfig);
+        } catch (e) {
+          console.log(`Failed to enroll user. Error: ${e.message}`);
+          throw e;
+        }
+    }
+
+    async function getSubmitter( client, enrollmentID, enrollmentSecret, { url, mspId }) {
+        try {
+          let user = await client.getUserContext(enrollmentID, true);
+          if (user && user.isEnrolled()) {
+            return user;
+          }
+      
+          // Need to enroll with CA server
+          const ca = new CAClient(url, { verify: false });
+          // Enroll the CA
+          try {
+            const enrollment = await ca.enroll({
+              enrollmentID,
+              enrollmentSecret
+            });
+            // Initialize new User
+            user = new User(enrollmentID, client);
+            await user.setEnrollment(enrollment.key, enrollment.certificate, mspId);
+            // SDK saves the object in a persistence cache if the “state store” has been set on the Client instance.
+            // If no state store has been set, this cache will not be established and the application is
+            // responsible for setting the user context again if the application crashes and is recovered.
+            await client.setUserContext(user);
+            return user;
+          } catch (e) {
+            throw new Error(
+              `Failed to enroll and persist User. Error: ${e.message}`);
+          }
+        } catch (e) {
+          throw new Error(`Could not get UserContext! Error: ${e.message}`);
+        }
+      }
+
+      async function invoke(chaincodeId, chaincodeVersion, fcn, ...args) {
+        let proposalResponses, proposal;
+        const txId = _client.newTransactionID();
+        try {
+          const request = {
+            chaincodeId,
+            chaincodeVersion,
+            fcn,
+            args: [],
+            txId
+          };
+          const results = await _channel.sendTransactionProposal(request);
+          proposalResponses = results[0];
+          proposal = results[1];
+    
+          const allGood = proposalResponses
+            .every(pr => pr.response && pr.response.status == 200);
+    
+          if (!allGood) {
+            throw new Error(
+              `Proposal rejected by some (all) of the peers: ${proposalResponses}`);
+          }
+        } catch (e) {
+          throw e;
+        }
+    
+        try {
+          const request = {
+            proposalResponses,
+            proposal
+          };
+    
+          const transactionId = txId.getTransactionID();
+        //   const transactionCompletePromises = _eventHubs.map(eh => {
+        //     eh.connect();
+    
+        //     return new Promise((resolve, reject) => {
+        //       // Set timeout for the transaction response from the current peer
+        //       const responseTimeout = setTimeout(() => {
+        //         eh.unregisterTxEvent(transactionId);
+        //         reject(new Error('Peer did not respond in a timely fashion!'));
+        //       }, TRANSACTION_TIMEOUT);
+    
+        //       eh.registerTxEvent(transactionId, (tx, code) => {
+        //         clearTimeout(responseTimeout);
+        //         eh.unregisterTxEvent(transactionId);
+        //         if (code != 'VALID') {
+        //           reject(new Error(
+        //             `Peer has rejected transaction with code: ${code}`));
+        //         } else {
+        //           resolve();
+        //         }
+        //       });
+        //     });
+        //   });
+    
+          _channel.sendTransaction(request);
+        //   try {
+        //     await transactionCompletePromises;
+        //     const payload = proposalResponses[0].response.payload;
+        //     return unmarshalResult([payload]);
+        //   } catch (e) {
+        //     throw e;
+        //   }
+        } catch (e) {
+          throw e;
+        }
+      }
+console.log(channel);
+
+module.exports = {
+    login,
+    invoke
+}

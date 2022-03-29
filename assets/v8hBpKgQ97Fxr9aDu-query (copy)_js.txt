@@ -1,0 +1,102 @@
+var hfc = require('fabric-client');
+var path = require('path');
+
+
+// kubernetes credentials 
+var config = {
+    walletPath: path.join(__dirname, './creds'),
+    userId: 'admin',
+    channelId: 'channel1',
+    chaincode_id: 'mynetworkofasset5',
+   peerUrl: 'grpc://<cluster IP Address>:30110'
+
+
+};
+
+
+var channel = {};
+var client = null;
+
+
+function initClient(){
+    console.log("Create a client and the user");
+	console.log(config.walletPath);    
+client = new hfc();
+
+    // if(client.isDevMode())
+//    client.setDevMode(true);
+
+    return hfc.newDefaultKeyValueStore({ path: config.walletPath })
+    .then(wallet => {
+        return client.setStateStore(wallet);
+    })
+}
+
+function initUser(){
+
+	console.log("inside initUser");
+    return client.getUserContext(config.userId, true)
+    .then(user => {
+        if(!user)
+            return;
+        console.log("Check user is enrolled, and set a query URL in the network");
+        if (user === undefined || user.isEnrolled() === false) {
+            console.error("User not defined, or not enrolled - error");
+        }
+        if (user != undefined || user.isEnrolled() === true) {
+            console.error("User is defined and enrolled");
+        }
+
+    });
+}
+
+function initChannel() {
+
+	console.log("initChannel 1");
+    channel = client.newChannel(config.channelId);
+		console.log("initChannel 2");
+channel.addPeer(client.newPeer(config.peerUrl));   
+
+/*   let data = fs.readFileSync(path.join(__dirname, './tls_cacerts/tlsca.pem'));
+   let peer = client.newPeer(
+   config.peerUrl,
+   {
+      pem: Buffer.from(data).toString(),
+      'ssl-target-name-override': 'https://fft-zbc02a.4.secure.blockchain.ibm.com:23576'
+   });
+
+console.log("initChannel 3");
+channel.addPeer(peer);
+console.log("initChannel 4");
+*/
+
+}
+
+function getChannelInfo() {
+	console.log("getChannel 1");
+    return channel.queryInfo(config.peerUrl);
+}
+
+function getCurrentBlock(channelInfo){
+	console.log("in channelInfo");
+    let currentBlockIndex = channelInfo.height.toNumber() - 1;
+    return channel.queryBlock(currentBlockIndex)
+}
+
+
+function displayBlockInfo(block){
+    console.log('\n-----------------------------------------------------------------------------------');
+    console.log('This is the current block on channel', config.channelId)
+    console.log('\nheader:', JSON.stringify(block.header, null, '\t'));
+    console.log('\ndata:', JSON.stringify(block.data));
+    console.log('-----------------------------------------------------------------------------------\n');
+}
+
+Promise.resolve()
+.then(initClient)
+.then(initUser)
+.then(initChannel)
+.then(getChannelInfo)
+.then(getCurrentBlock)
+.then(displayBlockInfo)
+.catch(console.error);

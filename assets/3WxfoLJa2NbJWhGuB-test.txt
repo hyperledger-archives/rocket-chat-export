@@ -1,0 +1,73 @@
+'use strict'
+
+
+let util = require('util');
+
+
+module.exports.info = 'creating';
+
+let id_array = [];
+let txnPerBatch;
+let bc, contx;
+let argument_part1 = '{\"id\":\"';
+let argument_part2 = '\",\"user\":\"admin\"}';
+
+module.exports.init = function(blockchain, context, args) {
+    console.log("These are the arguments: \n",args);
+    // if (args.length != 0 || args == null) {
+    //     return Promise.reject(new Error('create.js - no arguments required'));
+    // }
+    if(!args.hasOwnProperty('txnPerBatch')) {
+        args.txnPerBatch = 1;
+    }
+    
+    txnPerBatch = args.txnPerBatch;
+
+    bc = blockchain;
+    contx = context;
+    return Promise.resolve();
+};
+
+function generateId () {
+    //generates a random string
+    let id = Math.random().toString(36).substring(2, 6) + Math.random().toString(36).substring(2, 6);
+    //check if the id is unique in the array
+    while (id_array.includes(id)){
+        id = Math.random().toString(36).substring(2, 6) + Math.random().toString(36).substring(2, 6);
+    }
+    return id;
+}
+
+function generateWorkLoad() {
+    let workload = [];
+    for (let i = 0; i < txnPerBatch; i++) {
+        let id = generateId();
+        id_array.push(id);
+        let arguments = argument_part1 + id + argument_part2;
+        if (bc.bcType == 'fabric-ccp'){
+            workload.push({
+                chaincodeFunction: 'create',
+                chaincodeArguments: [arguments],
+            });            
+        } else {
+            workload.push({
+                'verb': 'create',
+                arguments
+            });
+        }
+    }
+    return workload;
+}
+
+module.exports.run = function() {
+    let args = generateWorkLoad();
+    //console.log(args);
+    //console.log(contx);
+    return bc.invokeSmartContract(contx,'testcc','v1.12',args,100);
+};
+
+module.exports.end = function() {
+    return Promise.resolve();
+};
+
+module.exports.id_array = id_array;

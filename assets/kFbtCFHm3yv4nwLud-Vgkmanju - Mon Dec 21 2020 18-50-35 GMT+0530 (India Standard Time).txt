@@ -1,0 +1,286 @@
+`{
+	"name": "Bankema",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"caCredential": {
+			"id": "admin",
+			"password": "adminpw"
+		},
+		"clientTlsIdentity": "exploreradmin",
+		"enableAuthentication": true,
+		"organization": "factor",
+		"channel": ["bankemachannel"]
+	},
+	"channels": {
+		"bankemachannel": {
+			"peers": {
+				"peer0.bankema-net.x.y.z.com": {
+					"ledgerQuery": true
+				},
+				"peer0.vendor-net.x.y.z.com": {
+					"ledgerQuery": true
+				},
+				"peer0.factor-net.x.y.z.com": {
+					"ledgerQuery": true
+				},
+				"peer0.corg-net.x.y.z.com": {
+					"ledgerQuery": true
+				},
+				"peer0.insurer-net.x.y.z.com": {
+					"ledgerQuery": true
+				},
+				"peer0.investor3-net.x.y.z.com": {
+					"ledgerQuery": true
+				}
+			},
+			"orderers": {
+				"orderer1.x.y.z.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"bankema": {
+			"mspid": "bankemaMSP",
+			"peers": ["peer0.bankema-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.bankema-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/signcerts/bankema.pem"
+			}
+		},
+		"ordorg": {
+			"mspid": "ordorgMSP",
+			"certificateAuthorities": ["ca.ordorg-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/ordererOrganizations/ordorg-net/orderers/orderer1.ordorg-net/msp/keystore/server.key"
+			}
+		},
+		"vendor": {
+			"mspid": "vendorMSP",
+			"peers": ["peer0.vendor-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.vendor-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/signcerts/vendor.pem"
+			}
+		},
+		"factor": {
+			"mspid": "factorMSP",
+			"peers": ["peer0.factor-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.factor-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/signcerts/factor.pem"
+			}
+		},
+		"corg": {
+			"mspid": "corgMSP",
+			"peers": ["peer0.corg-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.corg-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/signcerts/corg.pem"
+			}
+		},
+		"insurer": {
+			"mspid": "insurerMSP",
+			"peers": ["peer0.insurer-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.insurer-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/signcerts/insurer.pem"
+			}
+		},
+		"investor3": {
+			"mspid": "investor3MSP",
+			"peers": ["peer0.investor3-net.x.y.z.com"],
+			"certificateAuthorities": ["ca.investor3-net.x.y.z.com"],
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/signcerts/investor3.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.bankema-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.bankema-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.bankema-net.x.y.z.com"
+			}
+		},
+		"peer0.vendor-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.vendor-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.vendor-net.x.y.z.com"
+			}
+		},
+		"peer0.factor-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.factor-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.factor-net.x.y.z.com"
+			}
+		},
+		"peer0.corg-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.corg-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.corg-net.x.y.z.com"
+			}
+		},
+		"peer0.insurer-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.insurer-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.insurer-net.x.y.z.com"
+			}
+		},
+		"peer0.investor3-net.x.y.z.com": {
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/msp/tlscacerts/tlsca.crt"
+			},
+			"url": "grpcs://peer0.investor3-net.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.investor3-net.x.y.z.com"
+			}
+		}
+	},
+	"orderers": {
+		"orderer1.x.y.z.com": {
+			"url": "grpcs://orderer1.x.y.z.com:443",
+			"grpcOptions": {
+				"ssl-target-name-override": "orderer1.x.y.z.com"
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/ordererOrganizations/ordorg-net/orderers/orderer1.ordorg-net/tls/ca.crt"
+			}
+		}
+	},
+	"certificateAuthorities": {
+		"ca.bankema-net.x.y.z.com": {
+			"url": "https://ca.bankema-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/bankema-net/ca/ca.bankema-net-cert.pem"
+			},
+
+			"caName": "ca.bankema-net"
+		},
+		"ca.vendor-net.x.y.z.com": {
+			"url": "https://ca.vendor-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/vendor-net/ca/ca.vendor-net-cert.pem"
+			},
+
+			"caName": "ca.vendor-net"
+		},
+		"ca.factor-net.x.y.z.com": {
+			"url": "https://ca.factor-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/factor-net/ca/ca.factor-net-cert.pem"
+			},
+
+			"caName": "ca.factor-net"
+		},
+		"ca.corg-net.x.y.z.com": {
+			"url": "https://ca.corg-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/corg-net/ca/ca.corg-net-cert.pem"
+			},
+
+			"caName": "ca.corg-net"
+		},
+		"ca.insurer-net.x.y.z.com": {
+			"url": "https://ca.insurer-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/insurer-net/ca/ca.insurer-net-cert.pem"
+			},
+
+			"caName": "ca.insurer-net"
+		},
+		"ca.investor3-net.x.y.z.com": {
+			"url": "https://ca.investor3-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/peerOrganizations/investor3-net/ca/ca.investor3-net-cert.pem"
+			},
+
+			"caName": "ca.investor3-net"
+		},
+		"ca.ordorg-net.x.y.z.com": {
+			"url": "https://ca.ordorg-net.x.y.z.com:443",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "/mnt/fabric/crypto-config/ordererOrganizations/ordorg-net/ca/ca.ordorg-net-cert.pem"
+			},
+
+			"caName": "ca.ordorg-net"
+		}
+	},
+	"configtxgenToolPath": "/mnt/fabric/fabric-samples/bin",
+	"license": "Apache-2.0"
+}
+`

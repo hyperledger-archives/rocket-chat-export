@@ -1,0 +1,95 @@
+[34m2021-05-24 06:11:28.846 UTC [nodeCmd] serve -> INFO 001[0m Starting peer:
+ Version: 2.3.1
+ Commit SHA: 2f69b42
+ Go version: go1.14.12
+ OS/Arch: linux/amd64
+ Chaincode:
+  Base Docker Label: org.hyperledger.fabric
+  Docker Namespace: hyperledger
+[34m2021-05-24 06:11:28.846 UTC [peer] getLocalAddress -> INFO 002[0m Auto-detected peer address: 172.17.0.8:7051
+[34m2021-05-24 06:11:28.847 UTC [peer] getLocalAddress -> INFO 003[0m Auto-detect flag is set, returning 172.17.0.8:7051
+[34m2021-05-24 06:11:28.851 UTC [nodeCmd] initGrpcSemaphores -> INFO 004[0m concurrency limit for endorser service is 2500
+[34m2021-05-24 06:11:28.851 UTC [nodeCmd] initGrpcSemaphores -> INFO 005[0m concurrency limit for deliver service is 2500
+[34m2021-05-24 06:11:28.851 UTC [nodeCmd] serve -> INFO 006[0m Starting peer with TLS enabled
+[34m2021-05-24 06:11:30.855 UTC [certmonitor] trackCertExpiration -> INFO 007[0m The enrollment certificate will expire on 2022-05-24 06:11:00 +0000 UTC
+[34m2021-05-24 06:11:30.855 UTC [certmonitor] trackCertExpiration -> INFO 008[0m The server TLS certificate will expire on 2022-05-24 06:11:00 +0000 UTC
+[34m2021-05-24 06:11:30.856 UTC [ledgermgmt] NewLedgerMgr -> INFO 009[0m Initializing LedgerMgr
+[34m2021-05-24 06:11:32.980 UTC [leveldbhelper] openDBAndCheckFormat -> INFO 00a[0m DB is empty Setting db format as 2.0
+[34m2021-05-24 06:11:33.099 UTC [blkstorage] NewProvider -> INFO 00b[0m Creating new file ledger directory at /var/hyperledger/production/ledgersData/chains/chains
+[34m2021-05-24 06:11:34.986 UTC [leveldbhelper] openDBAndCheckFormat -> INFO 00c[0m DB is empty Setting db format as 2.0
+[34m2021-05-24 06:11:38.669 UTC [leveldbhelper] openDBAndCheckFormat -> INFO 00d[0m DB is empty Setting db format as 2.0
+[34m2021-05-24 06:11:38.962 UTC [ledgermgmt] NewLedgerMgr -> INFO 00e[0m Initialized LedgerMgr
+[34m2021-05-24 06:11:38.967 UTC [gossip.service] New -> INFO 00f[0m Initialize gossip with endpoint peer0-govt-example-com:7051
+[34m2021-05-24 06:11:38.968 UTC [gossip.gossip] New -> INFO 010[0m Creating gossip service with self membership of Endpoint: peer0-general-example-com:9051, InternalEndpoint: peer0-govt-example-com:7051, PKI-ID: 4271de0ca4882bba7e1afe8f70f31c20970e74d439e96df97e858e8566254339, Metadata: 
+[34m2021-05-24 06:11:38.968 UTC [gossip.gossip] start -> INFO 011[0m Gossip instance peer0-govt-example-com:7051 started
+[34m2021-05-24 06:11:38.968 UTC [lifecycle] InitializeLocalChaincodes -> INFO 012[0m Initialized lifecycle cache with 0 already installed chaincodes
+[34m2021-05-24 06:11:38.969 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 013[0m Entering computeChaincodeEndpoint with peerHostname: 172.17.0.8
+[34m2021-05-24 06:11:38.969 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 014[0m Exit with ccEndpoint: localhost:7052
+[34m2021-05-24 06:11:38.974 UTC [sccapi] DeploySysCC -> INFO 015[0m deploying system chaincode 'lscc'
+[34m2021-05-24 06:11:38.974 UTC [sccapi] DeploySysCC -> INFO 016[0m deploying system chaincode 'cscc'
+[34m2021-05-24 06:11:38.974 UTC [sccapi] DeploySysCC -> INFO 017[0m deploying system chaincode 'qscc'
+[34m2021-05-24 06:11:38.974 UTC [sccapi] DeploySysCC -> INFO 018[0m deploying system chaincode '_lifecycle'
+[34m2021-05-24 06:11:38.975 UTC [nodeCmd] serve -> INFO 019[0m Deployed system chaincodes
+[34m2021-05-24 06:11:38.975 UTC [discovery] NewService -> INFO 01a[0m Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+[34m2021-05-24 06:11:38.975 UTC [nodeCmd] registerDiscoveryService -> INFO 01b[0m Discovery service activated
+[34m2021-05-24 06:11:38.975 UTC [nodeCmd] serve -> INFO 01c[0m Starting peer with ID=[peer0-govt-example-com], network ID=[dev], address=[172.17.0.8:7051]
+[34m2021-05-24 06:11:38.975 UTC [nodeCmd] func6 -> INFO 01d[0m Starting profiling server with listenAddress = 0.0.0.0:6060
+[34m2021-05-24 06:11:38.975 UTC [nodeCmd] serve -> INFO 01e[0m Started peer with ID=[peer0-govt-example-com], network ID=[dev], address=[172.17.0.8:7051]
+[34m2021-05-24 06:11:38.975 UTC [kvledger] LoadPreResetHeight -> INFO 01f[0m Loading prereset height from path [/var/hyperledger/production/ledgersData/chains]
+[34m2021-05-24 06:11:38.975 UTC [blkstorage] preResetHtFiles -> INFO 020[0m No active channels passed
+[34m2021-05-24 06:11:43.197 UTC [ledgermgmt] CreateLedger -> INFO 021[0m Creating ledger [commonchannel] with genesis block
+[34m2021-05-24 06:11:43.370 UTC [blkstorage] newBlockfileMgr -> INFO 022[0m Getting block information from block storage
+[34m2021-05-24 06:11:44.808 UTC [kvledger] commit -> INFO 023[0m [commonchannel] Committed block [0] with 1 transaction(s) in 566ms (state_validation=0ms block_and_pvtdata_commit=383ms state_commit=103ms) commitHash=[]
+[34m2021-05-24 06:11:44.808 UTC [kvledger] updateLedgerStatus -> INFO 024[0m Updating ledger [commonchannel] status to [ACTIVE]
+[34m2021-05-24 06:11:44.950 UTC [ledgermgmt] CreateLedger -> INFO 025[0m Created ledger [commonchannel] with genesis block
+[33m2021-05-24 06:11:44.953 UTC [peer.orderers] Update -> WARN 026[0m Config defines both orderer org specific endpoints and global endpoints, global endpoints will be ignored channel=commonchannel
+[34m2021-05-24 06:11:44.953 UTC [gossip.gossip] JoinChan -> INFO 027[0m Joining gossip network of channel commonchannel with 2 organizations
+[34m2021-05-24 06:11:44.953 UTC [gossip.gossip] learnAnchorPeers -> INFO 028[0m No configured anchor peers of GeneralMSP for channel commonchannel to learn about
+[34m2021-05-24 06:11:44.953 UTC [gossip.gossip] learnAnchorPeers -> INFO 029[0m No configured anchor peers of GovtMSP for channel commonchannel to learn about
+[34m2021-05-24 06:11:44.954 UTC [gossip.state] NewGossipStateProvider -> INFO 02a[0m Updating metadata information for channel commonchannel, current ledger sequence is at = 0, next expected block is = 1
+[34m2021-05-24 06:11:44.954 UTC [deliveryClient] StartDeliverForChannel -> INFO 02b[0m This peer will retrieve blocks from ordering service and disseminate to other peers in the organization for channel commonchannel
+[34m2021-05-24 06:11:44.954 UTC [endorser] callChaincode -> INFO 02c[0m finished chaincode: cscc duration: 1759ms channel= txID=2938769b
+[34m2021-05-24 06:11:44.954 UTC [comm.grpc.server] 1 -> INFO 02d[0m unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.17.0.1:45953 grpc.code=OK grpc.call_duration=1.760523235s
+[33m2021-05-24 06:11:47.955 UTC [peer.blocksprovider] DeliverBlocks -> WARN 02e[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:48.058 UTC [peer.blocksprovider] DeliverBlocks -> WARN 02f[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50410->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:11:48.180 UTC [peer.blocksprovider] DeliverBlocks -> WARN 030[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50414->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:11:51.325 UTC [peer.blocksprovider] DeliverBlocks -> WARN 031[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:51.499 UTC [peer.blocksprovider] DeliverBlocks -> WARN 032[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50456->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:11:54.707 UTC [peer.blocksprovider] DeliverBlocks -> WARN 033[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:57.955 UTC [peer.blocksprovider] DeliverBlocks -> WARN 034[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:11:58.284 UTC [peer.blocksprovider] DeliverBlocks -> WARN 035[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50522->192.168.49.2:30004: write: connection reset by peer channel=commonchannel
+[33m2021-05-24 06:11:58.649 UTC [peer.blocksprovider] DeliverBlocks -> WARN 036[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50524->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:11:59.083 UTC [peer.blocksprovider] DeliverBlocks -> WARN 037[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50528->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:11:59.604 UTC [peer.blocksprovider] DeliverBlocks -> WARN 038[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50538->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:00.228 UTC [peer.blocksprovider] DeliverBlocks -> WARN 039[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50548->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:00.973 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03a[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50554->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:04.865 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03b[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:05.940 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03c[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50598->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:07.228 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03d[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50610->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:11.745 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03e[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50662->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:16.347 UTC [peer.blocksprovider] DeliverBlocks -> WARN 03f[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50702->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:21.565 UTC [peer.blocksprovider] DeliverBlocks -> WARN 040[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:25.236 UTC [peer.blocksprovider] DeliverBlocks -> WARN 041[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50778->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:28.435 UTC [peer.blocksprovider] DeliverBlocks -> WARN 042[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50802->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:33.276 UTC [peer.blocksprovider] DeliverBlocks -> WARN 043[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50844->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:40.877 UTC [peer.blocksprovider] DeliverBlocks -> WARN 044[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:12:47.406 UTC [peer.blocksprovider] DeliverBlocks -> WARN 045[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:50942->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:12:57.031 UTC [peer.blocksprovider] DeliverBlocks -> WARN 046[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:07.981 UTC [peer.blocksprovider] DeliverBlocks -> WARN 047[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:20.521 UTC [peer.blocksprovider] DeliverBlocks -> WARN 048[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:34.968 UTC [peer.blocksprovider] DeliverBlocks -> WARN 049[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:13:48.709 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04a[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:51412->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:14:05.262 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04b[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:51520->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:14:28.044 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04c[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:14:54.781 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04d[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:15:26.267 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04e[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:03.450 UTC [peer.blocksprovider] DeliverBlocks -> WARN 04f[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:16:47.468 UTC [peer.blocksprovider] DeliverBlocks -> WARN 050[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:17:37.827 UTC [peer.blocksprovider] DeliverBlocks -> WARN 051[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:52850->192.168.49.2:30004: write: connection reset by peer channel=commonchannel
+[33m2021-05-24 06:18:37.031 UTC [peer.blocksprovider] DeliverBlocks -> WARN 052[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:53206->192.168.49.2:30004: write: broken pipe channel=commonchannel
+[33m2021-05-24 06:19:50.912 UTC [peer.blocksprovider] DeliverBlocks -> WARN 053[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 06:24:25.655 UTC [peer.blocksprovider] DeliverBlocks -> WARN 054[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:16:50.831 UTC [peer.blocksprovider] DeliverBlocks -> WARN 055[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: write tcp 172.17.0.8:54928->192.168.49.2:30004: write: connection reset by peer channel=commonchannel
+[33m2021-05-24 07:18:56.312 UTC [peer.blocksprovider] DeliverBlocks -> WARN 056[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:21:26.290 UTC [peer.blocksprovider] DeliverBlocks -> WARN 057[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel
+[33m2021-05-24 07:24:25.663 UTC [peer.blocksprovider] DeliverBlocks -> WARN 058[0m Could not connect to ordering service: could not dial endpoint '192.168.49.2.nip.io:30004': failed to create new connection: context deadline exceeded channel=commonchannel

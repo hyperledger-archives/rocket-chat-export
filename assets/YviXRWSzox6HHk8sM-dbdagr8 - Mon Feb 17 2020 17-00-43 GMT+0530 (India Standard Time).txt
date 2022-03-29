@@ -1,0 +1,93 @@
+Hi team,
+peer container is not starting up, I am getting the following logs:
+```
+2020-02-17 11:21:46.378 UTC [bccsp_p11] loadLib -> DEBU 008 Loading pkcs11 library [/usr/lib/softhsm/libsofthsm2.so]
+SIGSEGV: segmentation violation
+PC=0x0 m=6 sigcode=1
+
+goroutine 9 [syscall]:
+runtime.notetsleepg(0x264f540, 0x12a03189b, 0x0)
+	/usr/local/go/src/runtime/lock_futex.go:227 +0x34 fp=0xc00005af60 sp=0xc00005af30 pc=0xacf664
+runtime.timerproc(0x264f520)
+	/usr/local/go/src/runtime/time.go:311 +0x2f1 fp=0xc00005afd8 sp=0xc00005af60 pc=0xb137a1
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1357 +0x1 fp=0xc00005afe0 sp=0xc00005afd8 pc=0xb248e1
+created by runtime.(*timersBucket).addtimerLocked
+	/usr/local/go/src/runtime/time.go:169 +0x10e
+
+goroutine 1 [syscall]:
+github.com/hyperledger/fabric/vendor/github.com/miekg/pkcs11._Cfunc_Initialize(0x266bd20, 0x0)
+	_cgo_gotypes.go:1203 +0x4a
+github.com/hyperledger/fabric/vendor/github.com/miekg/pkcs11.(*Ctx).Initialize.func1(0xc000102ff8, 0xc000102ff8)
+	/go/src/github.com/hyperledger/fabric/vendor/github.com/miekg/pkcs11/pkcs11.go:805 +0x5e
+github.com/hyperledger/fabric/vendor/github.com/miekg/pkcs11.(*Ctx).Initialize(0xc000102ff8, 0x1f, 0xc000102ff8)
+	/go/src/github.com/hyperledger/fabric/vendor/github.com/miekg/pkcs11/pkcs11.go:805 +0x2b
+github.com/hyperledger/fabric/bccsp/pkcs11.loadLib(0xc00032e640, 0x1f, 0xc0002fe9e0, 0x8, 0xc0002fe9d0, 0x6, 0xc0002ec410, 0x0, 0x0, 0x15, ...)
+	/go/src/github.com/hyperledger/fabric/bccsp/pkcs11/pkcs11.go:35 +0x127
+github.com/hyperledger/fabric/bccsp/pkcs11.New(0x100, 0xc0002fe9f8, 0x4, 0x0, 0xc00032e640, 0x1f, 0xc0002fe9d0, 0x6, 0xc0002fe9e0, 0x8, ...)
+	/go/src/github.com/hyperledger/fabric/bccsp/pkcs11/impl.go:49 +0x173
+github.com/hyperledger/fabric/bccsp/factory.(*PKCS11Factory).Get(0x2668030, 0xc000349060, 0x1a40b05, 0x2, 0xc000347708, 0x1)
+	/go/src/github.com/hyperledger/fabric/bccsp/factory/pkcs11factory.go:41 +0x167
+github.com/hyperledger/fabric/bccsp/factory.initBCCSP(0x1c359a0, 0x2668030, 0xc000349060, 0x0, 0x0)
+	/go/src/github.com/hyperledger/fabric/bccsp/factory/factory.go:84 +0x56
+github.com/hyperledger/fabric/bccsp/factory.setFactories(0xc000349060, 0x10, 0x10)
+	/go/src/github.com/hyperledger/fabric/bccsp/factory/pkcs11.go:74 +0x262
+github.com/hyperledger/fabric/bccsp/factory.InitFactories.func1()
+	/go/src/github.com/hyperledger/fabric/bccsp/factory/pkcs11.go:39 +0x2a
+sync.(*Once).doSlow(0x26680e0, 0xc0001b5918)
+	/usr/local/go/src/sync/once.go:66 +0xe3
+sync.(*Once).Do(...)
+	/usr/local/go/src/sync/once.go:57
+github.com/hyperledger/fabric/bccsp/factory.InitFactories(0xc000349060, 0xc000310720, 0x28)
+	/go/src/github.com/hyperledger/fabric/bccsp/factory/pkcs11.go:38 +0x81
+github.com/hyperledger/fabric/msp.GetLocalMspConfig(0xc000044018, 0x1f, 0xc000349060, 0xc000040055, 0x7, 0xc000102f28, 0x0, 0x0)
+	/go/src/github.com/hyperledger/fabric/msp/configbuilder.go:175 +0x158
+github.com/hyperledger/fabric/msp.GetLocalMspConfigWithType(0xc000044018, 0x1f, 0xc000349060, 0xc000040055, 0x7, 0xc0002feb40, 0x5, 0xc000102f28, 0x1834be0, 0xc0003513e0)
+	/go/src/github.com/hyperledger/fabric/msp/configbuilder.go:162 +0x24b
+github.com/hyperledger/fabric/msp/mgmt.LoadLocalMspWithType(0xc000044018, 0x1f, 0xc000349060, 0xc000040055, 0x7, 0xc0002feb40, 0x5, 0x17d7740, 0xc000345d50)
+	/go/src/github.com/hyperledger/fabric/msp/mgmt/mgmt.go:28 +0x113
+github.com/hyperledger/fabric/internal/peer/common.InitCrypto(0xc000044018, 0x1f, 0xc000040055, 0x7, 0xc0002feb40, 0x5, 0xc000010020, 0x0)
+	/go/src/github.com/hyperledger/fabric/internal/peer/common/common.go:143 +0x28b
+github.com/hyperledger/fabric/internal/peer/common.InitCmd(0x2545420, 0x2668030, 0x0, 0x0)
+	/go/src/github.com/hyperledger/fabric/internal/peer/common/common.go:315 +0x374
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).execute(0x2545420, 0x2668030, 0x0, 0x0, 0x2545420, 0x2668030)
+	/go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:810 +0x21d
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0x2545ba0, 0xc0001b5f28, 0x1, 0x1)
+	/go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:914 +0x2fb
+github.com/hyperledger/fabric/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+	/go/src/github.com/hyperledger/fabric/vendor/github.com/spf13/cobra/command.go:864
+main.main()
+	/go/src/github.com/hyperledger/fabric/cmd/peer/main.go:54 +0x45b
+
+goroutine 10 [syscall]:
+os/signal.signal_recv(0x0)
+	/usr/local/go/src/runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:23 +0x22
+created by os/signal.init.0
+	/usr/local/go/src/os/signal/signal_unix.go:29 +0x41
+
+rax    0x0
+rbx    0x39bf81a7
+rcx    0xb26803
+rdx    0x0
+rdi    0x264f540
+rsi    0x80
+rbp    0xc00005aee8
+rsp    0xc00005aea8
+r8     0x0
+r9     0x0
+r10    0xc00005aed8
+r11    0x202
+r12    0x7fe35330fad0
+r13    0x7fe35330fb20
+r14    0x7fe35572dd48
+r15    0x7ffc4a114610
+rip    0x0
+rflags 0x10202
+cs     0x33
+fs     0x0
+gs     0x0
+
+``` 
+I am using fabric 2.0.0. Anyone knows how to fix this?

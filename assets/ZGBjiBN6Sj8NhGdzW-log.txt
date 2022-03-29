@@ -1,0 +1,105 @@
+Creating channel 'mychannel'.
+
+If network is not up, starting nodes with CLI timeout of '5' tries and CLI delay of '3' seconds and using database 'leveldb with crypto from 'cryptogen'
+
+Bringing up network
+LOCAL_VERSION=2.1.1
+DOCKER_IMAGE_VERSION=2.1.1
+/Users/admin/Documents/fabric-samples/test-network/../bin/cryptogen
+
+##########################################################
+##### Generate certificates using cryptogen tool #########
+##########################################################
+
+##########################################################
+############ Create Org1 Identities ######################
+##########################################################
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-org1.yaml --output=organizations
+org1.example.com
++ res=0
++ set +x
+##########################################################
+############ Create Org2 Identities ######################
+##########################################################
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-org2.yaml --output=organizations
+org2.example.com
++ res=0
++ set +x
+##########################################################
+############ Create Orderer Org Identities ###############
+##########################################################
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-orderer.yaml --output=organizations
++ res=0
++ set +x
+
+Generate CCP files for Org1 and Org2
+/Users/admin/Documents/fabric-samples/test-network/../bin/configtxgen
+#########  Generating Orderer Genesis block ##############
++ configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+[34m2020-07-06 21:57:43.134 +08 [common.tools.configtxgen] main -> INFO 001[0m Loading configuration
+[34m2020-07-06 21:57:43.149 +08 [common.tools.configtxgen.localconfig] completeInitialization -> INFO 002[0m Orderer.Addresses unset, setting to [127.0.0.1:7050]
+[34m2020-07-06 21:57:43.149 +08 [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003[0m orderer type: etcdraft
+[34m2020-07-06 21:57:43.149 +08 [common.tools.configtxgen.localconfig] completeInitialization -> INFO 004[0m Orderer.EtcdRaft.Options unset, setting to tick_interval:"500ms" election_tick:10 heartbeat_tick:1 max_inflight_blocks:5 snapshot_interval_size:16777216 
+[34m2020-07-06 21:57:43.150 +08 [common.tools.configtxgen.localconfig] Load -> INFO 005[0m Loaded configuration: /Users/admin/Documents/fabric-samples/test-network/configtx/configtx.yaml
+[34m2020-07-06 21:57:43.151 +08 [common.tools.configtxgen] doOutputBlock -> INFO 006[0m Generating genesis block
+[34m2020-07-06 21:57:43.151 +08 [common.tools.configtxgen] doOutputBlock -> INFO 007[0m Writing genesis block
++ res=0
++ set +x
+Creating network "net_test" with the default driver
+Creating volume "net_orderer.example.com" with default driver
+Creating volume "net_peer0.org1.example.com" with default driver
+Creating volume "net_peer0.org2.example.com" with default driver
+Creating orderer.example.com ... 
+Creating peer0.org2.example.com ... 
+Creating peer0.org1.example.com ... 
+[2A[2KCreating peer0.org2.example.com ... [32mdone[0m[2B[1A[2KCreating peer0.org1.example.com ... [32mdone[0m[1B[3A[2KCreating orderer.example.com    ... [32mdone[0m[3BCONTAINER ID        IMAGE                               COMMAND             CREATED             STATUS                  PORTS                              NAMES
+0d57c6fb4fb1        hyperledger/fabric-peer:latest      "peer node start"   1 second ago        Up Less than a second   0.0.0.0:7051->7051/tcp             peer0.org1.example.com
+fce13ed479a0        hyperledger/fabric-orderer:latest   "orderer"           1 second ago        Up Less than a second   0.0.0.0:7050->7050/tcp             orderer.example.com
+b29b3c319481        hyperledger/fabric-peer:latest      "peer node start"   1 second ago        Up Less than a second   7051/tcp, 0.0.0.0:9051->9051/tcp   peer0.org2.example.com
+dfbe609dfb8a        hello-world                         "/hello"            3 days ago          Exited (0) 3 days ago                                      serene_lederberg
+### Generating channel create transaction 'mychannel.tx' ###
++ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/mychannel.tx -channelID mychannel
+[34m2020-07-06 21:57:44.319 +08 [common.tools.configtxgen] main -> INFO 001[0m Loading configuration
+[34m2020-07-06 21:57:44.336 +08 [common.tools.configtxgen.localconfig] Load -> INFO 002[0m Loaded configuration: /Users/admin/Documents/fabric-samples/test-network/configtx/configtx.yaml
+[34m2020-07-06 21:57:44.336 +08 [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 003[0m Generating new channel configtx
+[34m2020-07-06 21:57:44.339 +08 [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 004[0m Writing new channel tx
++ res=0
++ set +x
+
+### Generating anchor peer update transactions ###
+#######    Generating anchor peer update transaction for Org1MSP  ##########
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
+[34m2020-07-06 21:57:44.358 +08 [common.tools.configtxgen] main -> INFO 001[0m Loading configuration
+[34m2020-07-06 21:57:44.372 +08 [common.tools.configtxgen.localconfig] Load -> INFO 002[0m Loaded configuration: /Users/admin/Documents/fabric-samples/test-network/configtx/configtx.yaml
+[34m2020-07-06 21:57:44.372 +08 [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 003[0m Generating anchor peer update
+[34m2020-07-06 21:57:44.373 +08 [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 004[0m Writing anchor peer update
++ res=0
++ set +x
+
+#######    Generating anchor peer update transaction for Org2MSP  ##########
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID mychannel -asOrg Org2MSP
+[34m2020-07-06 21:57:44.391 +08 [common.tools.configtxgen] main -> INFO 001[0m Loading configuration
+[34m2020-07-06 21:57:44.405 +08 [common.tools.configtxgen.localconfig] Load -> INFO 002[0m Loaded configuration: /Users/admin/Documents/fabric-samples/test-network/configtx/configtx.yaml
+[34m2020-07-06 21:57:44.405 +08 [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 003[0m Generating anchor peer update
+[34m2020-07-06 21:57:44.406 +08 [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 004[0m Writing anchor peer update
++ res=0
++ set +x
+
+Creating channel mychannel
+Using organization 1
++ peer channel create -o localhost:7050 -c mychannel --ordererTLSHostnameOverride orderer.example.com -f ./channel-artifacts/mychannel.tx --outputBlock ./channel-artifacts/mychannel.block --tls --cafile /Users/admin/Documents/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=1
++ set +x
++ peer channel create -o localhost:7050 -c mychannel --ordererTLSHostnameOverride orderer.example.com -f ./channel-artifacts/mychannel.tx --outputBlock ./channel-artifacts/mychannel.block --tls --cafile /Users/admin/Documents/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=1
++ set +x
++ peer channel create -o localhost:7050 -c mychannel --ordererTLSHostnameOverride orderer.example.com -f ./channel-artifacts/mychannel.tx --outputBlock ./channel-artifacts/mychannel.block --tls --cafile /Users/admin/Documents/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=1
++ set +x
++ peer channel create -o localhost:7050 -c mychannel --ordererTLSHostnameOverride orderer.example.com -f ./channel-artifacts/mychannel.tx --outputBlock ./channel-artifacts/mychannel.block --tls --cafile /Users/admin/Documents/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
++ res=1
++ set +x
+Error: failed to create deliver client for orderer: orderer client failed to connect to localhost:7050: failed to create new connection: connection error: desc = "transport: error while dialing: dial tcp [::1]:7050: connect: connection refused"
+!!!!!!!!!!!!!!! Channel creation failed !!!!!!!!!!!!!!!!
+
+Error !!! Create channel failed

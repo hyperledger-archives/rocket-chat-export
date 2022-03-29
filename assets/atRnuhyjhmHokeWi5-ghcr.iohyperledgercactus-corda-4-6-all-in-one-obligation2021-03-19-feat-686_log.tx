@@ -1,0 +1,197 @@
+> Executing task: docker logs --tail 1000 -f 459ab55f1d5ad31b0a29cde79c26d93a231fdb8ee72925e9bafb9a1578e448f6 <
+
+2021-11-26 07:45:22,187 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-11-26 07:45:22,256 INFO RPC interface 'supervisor' initialized
+2021-11-26 07:45:22,256 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2021-11-26 07:45:22,256 INFO supervisord started with pid 1
+2021-11-26 07:45:23,260 INFO spawned: 'corda-a' with pid 21
+2021-11-26 07:45:23,263 INFO spawned: 'corda-b' with pid 22
+2021-11-26 07:45:23,265 INFO spawned: 'corda-c' with pid 23
+2021-11-26 07:45:23,268 INFO spawned: 'corda-n' with pid 24
+2021-11-26 07:45:23,270 INFO spawned: 'corda-run-party-a-server' with pid 25
+2021-11-26 07:45:23,273 INFO spawned: 'corda-run-party-b-server' with pid 26
+2021-11-26 07:45:23,275 INFO spawned: 'corda-run-party-c-server' with pid 27
+2021-11-26 07:45:23,278 INFO spawned: 'dockerd' with pid 29
+2021-11-26 07:45:23,281 INFO spawned: 'sshd' with pid 31
+Generating RSA private key, 4096 bit long modulus (2 primes)
+.....................................................++++
+......................................................................2021-11-26 07:45:24,262 INFO success: corda-a entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,262 INFO success: corda-b entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+.2021-11-26 07:45:24,269 INFO success: corda-c entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,269 INFO success: corda-n entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,269 INFO success: corda-run-party-a-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+.2021-11-26 07:45:24,281 INFO success: corda-run-party-b-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,281 INFO success: corda-run-party-c-server entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,281 INFO success: dockerd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-11-26 07:45:24,281 INFO success: sshd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+............................................................................................................................................++++
+e is 65537 (0x010001)
+Generating RSA private key, 4096 bit long modulus (2 primes)
+.................................................................++++
+..............................................................++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = docker:dind server
+Getting CA Private Key
+/certs/server/cert.pem: OK
+Generating RSA private key, 4096 bit long modulus (2 primes)
+...........++++
+........++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = docker:dind client
+Getting CA Private Key
+/certs/client/cert.pem: OK
+time="2021-11-26T07:45:26.652975480Z" level=info msg="Starting up"
+time="2021-11-26T07:45:26.667592829Z" level=warning msg="could not change group /var/run/docker.sock to docker: group docker not found"
+time="2021-11-26T07:45:26.671211971Z" level=info msg="libcontainerd: started new containerd process" pid=161
+time="2021-11-26T07:45:26.671389575Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2021-11-26T07:45:26.671417499Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2021-11-26T07:45:26.671520748Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock  <nil> 0 <nil>}] <nil> <nil>}" module=grpc
+time="2021-11-26T07:45:26.671576584Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2021-11-26T07:45:26.892385475Z" level=info msg="starting containerd" revision=269548fa27e0089a8b8278fc4fc781d7f65a939b version=v1.4.3
+time="2021-11-26T07:45:26.925343312Z" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
+time="2021-11-26T07:45:26.925645438Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.942393530Z" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exit status 1 \"ip: can't find device 'aufs'\\nmodprobe: can't change directory to '/lib/modules': No such file or directory\\n\"): skip plugin" type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.942474898Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.942912271Z" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.btrfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs (xfs) must be a btrfs filesystem to be used with the btrfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.942945783Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.942980763Z" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.devmapper" error="devmapper not configured"
+time="2021-11-26T07:45:26.942995416Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.943226556Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.943879805Z" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.944128809Z" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
+time="2021-11-26T07:45:26.944155657Z" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
+time="2021-11-26T07:45:26.944253290Z" level=warning msg="could not use snapshotter devmapper in metadata plugin" error="devmapper not configured"
+time="2021-11-26T07:45:26.944269651Z" level=info msg="metadata content store policy set" policy=shared
+time="2021-11-26T07:45:26.947071760Z" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
+time="2021-11-26T07:45:26.947120156Z" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
+time="2021-11-26T07:45:26.947188839Z" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947242579Z" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947269373Z" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947290555Z" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947317656Z" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947348762Z" level=info msg="loading plugin \"io.containerd.service.v1.leases-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947370804Z" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947387713Z" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.947403132Z" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
+time="2021-11-26T07:45:26.947777216Z" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
+time="2021-11-26T07:45:26.948178904Z" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
+time="2021-11-26T07:45:26.948661910Z" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
+time="2021-11-26T07:45:26.948711215Z" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
+time="2021-11-26T07:45:26.948790523Z" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948813170Z" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948837850Z" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948859356Z" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948890807Z" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948907826Z" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948923433Z" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948938098Z" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.948952714Z" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
+time="2021-11-26T07:45:26.949552379Z" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.949594880Z" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.949613865Z" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.949628798Z" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
+time="2021-11-26T07:45:26.950010800Z" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock
+time="2021-11-26T07:45:26.950139591Z" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc
+time="2021-11-26T07:45:26.950252104Z" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock
+time="2021-11-26T07:45:26.950271833Z" level=info msg="containerd successfully booted in 0.061522s"
+time="2021-11-26T07:45:26.963035938Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2021-11-26T07:45:26.963081891Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2021-11-26T07:45:26.963124329Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock  <nil> 0 <nil>}] <nil> <nil>}" module=grpc
+time="2021-11-26T07:45:26.963156993Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2021-11-26T07:45:26.965592005Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2021-11-26T07:45:26.965624614Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2021-11-26T07:45:26.965646988Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock  <nil> 0 <nil>}] <nil> <nil>}" module=grpc
+time="2021-11-26T07:45:26.965660964Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2021-11-26T07:45:28.009437150Z" level=info msg="Loading containers: start."
+time="2021-11-26T07:45:28.043015110Z" level=warning msg="Running modprobe bridge br_netfilter failed with message: ip: can't find device 'bridge'\nbridge                151336  2 br_netfilter,ebtable_broute\nstp                    12976  1 bridge\nllc                    14552  2 bridge,stp\nip: can't find device 'br_netfilter'\nbr_netfilter           22256  0 \nbridge                151336  2 br_netfilter,ebtable_broute\nmodprobe: can't change directory to '/lib/modules': No such file or directory\n, error: exit status 1"
+time="2021-11-26T07:45:28.737369501Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.18.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+time="2021-11-26T07:45:30.923214921Z" level=info msg="Loading containers: done."
+Listening for transport dt_socket at address: 5008
+time="2021-11-26T07:45:31.196715824Z" level=info msg="Docker daemon" commit=8891c58 graphdriver(s)=overlay2 version=20.10.2
+time="2021-11-26T07:45:31.197051958Z" level=info msg="Daemon has completed initialization"
+Listening for transport dt_socket at address: 5007
+time="2021-11-26T07:45:31.355194833Z" level=info msg="API listen on /var/run/docker.sock"
+time="2021-11-26T07:45:31.368106188Z" level=info msg="API listen on [::]:2376"
+Listening for transport dt_socket at address: 5006
+Listening for transport dt_socket at address: 5005
+Jolokia: Agent started with URL http://127.0.0.1:7007/jolokia/
+
+   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         Top tip: never say "oops", instead
+/ /___  /_/ / /  / /_/ / /_/ /          always say "Ah, Interesting!"
+\____/     /_/   \__,_/\__,_/
+
+--- Corda Open Source 4.6 (85e387e) -------------------------------------------------------------
+
+
+Logs can be found in                    : /samples-kotlin/Advanced/obligation-cordapp/build/nodes/ParticipantC/logs
+Jolokia: Agent started with URL http://127.0.0.1:7008/jolokia/
+
+   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         Ah, Friday.
+/ /___  /_/ / /  / /_/ / /_/ /          My second favourite F-word.
+\____/     /_/   \__,_/\__,_/
+
+--- Corda Open Source 4.6 (85e387e) -------------------------------------------------------------
+
+
+Logs can be found in                    : /samples-kotlin/Advanced/obligation-cordapp/build/nodes/Notary/logs
+Jolokia: Agent started with URL http://127.0.0.1:7006/jolokia/
+
+   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         Some bankers are generous ...
+/ /___  /_/ / /  / /_/ / /_/ /          to a vault!  
+\____/     /_/   \__,_/\__,_/
+
+--- Corda Open Source 4.6 (85e387e) -------------------------------------------------------------
+
+
+Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/
+Logs can be found in                    : /samples-kotlin/Advanced/obligation-cordapp/build/nodes/ParticipantB/logs
+
+   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         "It's OK computer, I go to sleep after
+/ /___  /_/ / /  / /_/ / /_/ /          twenty minutes of inactivity too!"
+\____/     /_/   \__,_/\__,_/
+
+--- Corda Open Source 4.6 (85e387e) -------------------------------------------------------------
+
+
+Logs can be found in                    : /samples-kotlin/Advanced/obligation-cordapp/build/nodes/ParticipantA/logs
+! ATTENTION: This node is running in development mode!  This is not safe for production deployment.
+! ATTENTION: This node is running in development mode!  This is not safe for production deployment.
+! ATTENTION: This node is running in development mode!  This is not safe for production deployment.
+! ATTENTION: This node is running in development mode!  This is not safe for production deployment.
+Advertised P2P messaging addresses      : localhost:10013
+RPC connection address                  : 0.0.0.0:10014
+RPC admin connection address            : 0.0.0.0:10114
+Advertised P2P messaging addresses      : localhost:10002
+RPC connection address                  : 0.0.0.0:10003
+RPC admin connection address            : 0.0.0.0:10103
+Advertised P2P messaging addresses      : localhost:10007
+RPC connection address                  : 0.0.0.0:10008
+RPC admin connection address            : 0.0.0.0:10108
+Advertised P2P messaging addresses      : localhost:10010
+RPC connection address                  : 0.0.0.0:10011
+RPC admin connection address            : 0.0.0.0:10111
+Loaded 5 CorDapp(s)                     : Contract CorDapp: Obligation Contracts version 1 by vendor Corda Open Source with licence Apache License, Version 2.0, CorDapp corda-confidential-identities-4.6 version Unknown by Unknown with licence Unknown, Contract CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Obligation Flows version 1 by vendor Corda Open Source with licence Apache License, Version 2.0
+Node for "ParticipantC" started up and registered in 71.59 sec
+Running P2PMessaging loop
+Loaded 5 CorDapp(s)                     : Contract CorDapp: Obligation Contracts version 1 by vendor Corda Open Source with licence Apache License, Version 2.0, CorDapp corda-confidential-identities-4.6 version Unknown by Unknown with licence Unknown, Contract CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Obligation Flows version 1 by vendor Corda Open Source with licence Apache License, Version 2.0
+Node for "Notary" started up and registered in 74.63 sec
+Running P2PMessaging loop
+Loaded 5 CorDapp(s)                     : Contract CorDapp: Obligation Contracts version 1 by vendor Corda Open Source with licence Apache License, Version 2.0, CorDapp corda-confidential-identities-4.6 version Unknown by Unknown with licence Unknown, Contract CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Obligation Flows version 1 by vendor Corda Open Source with licence Apache License, Version 2.0
+Node for "ParticipantB" started up and registered in 74.13 sec
+Running P2PMessaging loop
+Loaded 5 CorDapp(s)                     : Contract CorDapp: Obligation Contracts version 1 by vendor Corda Open Source with licence Apache License, Version 2.0, CorDapp corda-confidential-identities-4.6 version Unknown by Unknown with licence Unknown, Contract CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Corda Finance Demo version 1 by vendor R3 with licence Open Source (Apache 2), Workflow CorDapp: Obligation Flows version 1 by vendor Corda Open Source with licence Apache License, Version 2.0
+Node for "ParticipantA" started up and registered in 74.67 sec
+Running P2PMessaging loop
+2021-11-26 07:47:03,226 INFO exited: sshd (exit status 255; not expected)
+2021-11-26 07:47:04,326 INFO spawned: 'sshd' with pid 1932
+2021-11-26 07:47:05,406 INFO success: sshd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

@@ -1,0 +1,48 @@
+And here is the log when I run the same config locally, as you can you the signer node starts producing blocks immediately:
+
+`2021-04-28 10:58:50.115+03:00 | main | INFO  | AbstractAltBnPrecompiledContract | Using LibEthPairings native alt bn128
+2021-04-28 10:58:51.310+03:00 | main | INFO  | SECP256K1 | Using native secp256k1
+2021-04-28 10:58:51.316+03:00 | main | INFO  | Besu | Starting Besu version: besu/v21.1.4/linux-x86_64/oracle_openjdk-java-11
+2021-04-28 10:58:51.738+03:00 | main | INFO  | Besu | Static Nodes file = /home/arjan/Dev/besu/s1/network/alphanet/0.4/Node-Signer/s1data/static-nodes.json
+2021-04-28 10:58:51.741+03:00 | main | INFO  | StaticNodesParser | StaticNodes file /home/arjan/Dev/besu/s1/network/alphanet/0.4/Node-Signer/s1data/static-nodes.json does not exist, no static connections will be created.
+2021-04-28 10:58:51.743+03:00 | main | INFO  | Besu | Connecting to 0 static nodes.
+2021-04-28 10:58:51.749+03:00 | main | INFO  | Besu | Security Module: localfile
+2021-04-28 10:58:51.800+03:00 | main | INFO  | RocksDBKeyValueStorageFactory | No existing database detected at /home/arjan/Dev/besu/s1/network/alphanet/0.4/Node-Signer/s1data. Using version 1
+2021-04-28 10:58:52.612+03:00 | main | INFO  | KeyPairUtil | Loaded public key 0x3c83dcc75be733da0589b317f4cb6d0c9d7270e4ab020f5ae43b5f071dbffedac2c48dc14ca31210345a25ab6078d64df7975b3977257f6442e8d0160ca5e9bc from /home/arjan/Dev/besu/s1/network/alphanet/0.4/Node-Signer/s1data/key
+2021-04-28 10:58:52.890+03:00 | main | INFO  | ProtocolScheduleBuilder | Protocol schedule created with milestones: [Petersburg: 0]
+2021-04-28 10:58:53.063+03:00 | main | INFO  | RunnerBuilder | Detecting NAT service.
+2021-04-28 10:58:53.309+03:00 | main | INFO  | Runner | Starting Ethereum main loop ... 
+2021-04-28 10:58:53.310+03:00 | main | INFO  | NatService | No NAT environment detected so no service could be started
+2021-04-28 10:58:53.312+03:00 | main | INFO  | NetworkRunner | Starting Network.
+2021-04-28 10:58:53.508+03:00 | nioEventLoopGroup-2-1 | INFO  | RlpxAgent | P2P RLPx agent started and listening on /0:0:0:0:0:0:0:0:30303.
+2021-04-28 10:58:53.509+03:00 | main | INFO  | PeerDiscoveryAgent | Starting peer discovery agent on host=0.0.0.0, port=30303
+2021-04-28 10:58:53.581+03:00 | vert.x-eventloop-thread-2 | INFO  | VertxPeerDiscoveryAgent | Started peer discovery agent successfully, on effective host=0:0:0:0:0:0:0:0 and port=30303
+2021-04-28 10:58:53.583+03:00 | vert.x-eventloop-thread-2 | INFO  | PeerDiscoveryAgent | P2P peer discovery agent started and listening on /0:0:0:0:0:0:0:0:30303
+2021-04-28 10:58:53.692+03:00 | vert.x-eventloop-thread-2 | INFO  | PeerDiscoveryAgent | Writing node record to disk. NodeRecord{seq=1, publicKey=0x023c83dcc75be733da0589b317f4cb6d0c9d7270e4ab020f5ae43b5f071dbffeda, udpAddress=Optional[/127.0.0.1:30303], tcpAddress=Optional[/127.0.0.1:30303], asBase64=-Je4QD7dklMB8OH9AGBRdeJaKRstRVZzE39ILj_zmH1Eoyj1DlNj_iIAvvDZgpQ0FVFWtqKm8wJ4pRIF7cjtckEPVOQBg2V0aMfGhDnY672AgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQI8g9zHW-cz2gWJsxf0y20MnXJw5KsCD1rkO18HHb_-2oN0Y3CCdl-DdWRwgnZf, nodeId=0xa58a414e0a245503be8ffe6b860dd0cc99142b5ebc39a6ceb99ce05348851d4f}
+2021-04-28 10:58:53.762+03:00 | main | INFO  | DefaultP2PNetwork | Enode URL enode://3c83dcc75be733da0589b317f4cb6d0c9d7270e4ab020f5ae43b5f071dbffedac2c48dc14ca31210345a25ab6078d64df7975b3977257f6442e8d0160ca5e9bc@127.0.0.1:30303
+2021-04-28 10:58:53.764+03:00 | main | INFO  | DefaultP2PNetwork | Node address 0x860dd0cc99142b5ebc39a6ceb99ce05348851d4f
+2021-04-28 10:58:53.787+03:00 | main | INFO  | DefaultSynchronizer | Starting synchronizer.
+2021-04-28 10:58:53.797+03:00 | main | INFO  | FullSyncDownloader | Starting full sync.
+2021-04-28 10:58:53.809+03:00 | main | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:58:53.885+03:00 | main | INFO  | JsonRpcHttpService | Starting JSON-RPC service on 0.0.0.0:8545
+2021-04-28 10:58:54.110+03:00 | vert.x-eventloop-thread-6 | INFO  | JsonRpcHttpService | JSON-RPC service started and listening on 0.0.0.0:8545
+2021-04-28 10:58:54.113+03:00 | main | INFO  | WebSocketService | Starting Websocket service on 0.0.0.0:8546
+2021-04-28 10:58:54.137+03:00 | vert.x-eventloop-thread-0 | INFO  | WebSocketService | Websocket service started and listening on 0.0.0.0:8546
+2021-04-28 10:58:54.142+03:00 | main | INFO  | Runner | Ethereum main loop is up.
+2021-04-28 10:58:54.148+03:00 | main | INFO  | AutoTransactionLogBloomCachingService | Starting auto transaction log bloom caching service.
+2021-04-28 10:58:54.149+03:00 | main | INFO  | LogBloomCacheMetadata | Lookup cache metadata file in data directory: /home/arjan/Dev/besu/s1/network/alphanet/0.4/Node-Signer/s1data/caches
+2021-04-28 10:58:54.200+03:00 | pool-7-thread-1 | INFO  | BlockMiner | Produced #1 / 0 tx / 0 om / 0 (0.0%) gas / (0xace0b2dedb39b55971dbfed8c49e6b25dd9416f2dafa7a574dd8fcfb45d26d86) in 0.192s
+2021-04-28 10:58:58.826+03:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:59:03.827+03:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:59:08.019+03:00 | pool-7-thread-2 | INFO  | BlockMiner | Produced #2 / 0 tx / 0 om / 0 (0.0%) gas / (0x2c3929fb1f2ff8f5015008341630822f29a47a58e689e455c5205e8087507f69) in 0.018s
+2021-04-28 10:59:08.827+03:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:59:13.828+03:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:59:18.829+03:00 | EthScheduler-Timer-0 | INFO  | FullSyncTargetManager | No sync target, waiting for peers: 0
+2021-04-28 10:59:20.838+03:00 | Thread-1 | INFO  | DefaultSynchronizer | Stopping synchronizer
+2021-04-28 10:59:20.840+03:00 | Thread-1 | INFO  | NetworkRunner | Stopping Network.
+2021-04-28 10:59:20.848+03:00 | Thread-1 | INFO  | EthProtocolManager | Stopping eth Subprotocol.
+2021-04-28 10:59:20.948+03:00 | Thread-1 | INFO  | EthProtocolManager | eth Subprotocol stopped.
+2021-04-28 10:59:20.948+03:00 | Thread-1 | INFO  | NetworkRunner | Network stopped.
+2021-04-28 10:59:20.949+03:00 | Thread-1 | INFO  | AutoTransactionLogBloomCachingService | Shutting down Auto transaction logs caching service.
+2021-04-28 10:59:20.950+03:00 | Thread-1 | INFO  | NatService | No NAT environment detected so no service could be stopped
+`

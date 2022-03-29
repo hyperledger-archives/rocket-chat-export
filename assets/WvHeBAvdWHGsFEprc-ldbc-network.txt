@@ -1,0 +1,60 @@
+{
+   "name": "ldbc-network",
+   "description": "A development enviornment setup",
+   "version": "1.0",
+   "client": {
+		"tlsEnable": true,
+		"adminUser": "admin",
+		"adminPassword": "adminpw",
+		"enableAuthentication": false,
+		"organization": "Org1",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+   "organizations": {
+      "Org1": {
+         "mspid": "Org1",
+		 "fullpath": true,
+         "adminPrivateKey": {
+            "path": "/tmp/crypto/org1/admin/msp/keystore/key.pem"
+         },
+         "signedCert": {
+            "path": "/tmp/crypto/org1/admin/msp/signcerts/cert.pem"
+         }
+      }
+   },
+   "channels": {
+		"legaldescriptionchannel": {
+			"peers": {
+				"172.23.155.115": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+   },
+   "peers": {
+      "172.23.155.115": {
+         "url": "grpcs://172.23.155.115:7051",
+		 "eventUrl": "grpcs://172.23.155.115:7053",
+         "grpcOptions": {
+            "ssl-target-name-override": "172.23.155.115:7051"
+         },
+         "tlsCACerts": {
+            "path": "/tmp/crypto/org1/peer1/tls-msp/tlscacerts/tls-172-23-155-113-7052.pem"
+         }
+      }
+   }
+}

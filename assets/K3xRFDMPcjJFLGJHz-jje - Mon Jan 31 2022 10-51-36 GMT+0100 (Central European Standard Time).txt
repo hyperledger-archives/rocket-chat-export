@@ -1,0 +1,194 @@
+Hi all,
+I reach out to you to understand if there is a problem with the reading of keys from `kmsdb`.
+
+I want to issue a Verifiable Credential using BbsBlsSignature2020 .
+I have done the following:
+Create a key pair:
+curl --location --request POST 'http://localhost:8082/vcwallet/create-key-pair' \
+--header 'Authorization: Bearer c23f0387-7005-4bd4-9249-17f2c56d7fa3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userID": "alice",
+    "auth": "890c6622-e069-41d4-9a4e-79c481989fc5",
+    "keyType": "BLS12381G2"
+} 
+The response is :
+{
+    "keyID": "aXpmiffvgn7i4pR-I8V7FWueXHB6T76xqYulUHEgYIg",
+    "publicKey": "hF_ABMxVO4aZzzIEnfRX92yUDAQACzcolduW6hMEqWg-JQFC__Y0RCEWNnSL30OFER-YN4z34cgVxhcCbh8hatEQIF0g_6in86G9B7KOHB_7t6uTjC-V29fVd3K5UZ4l"
+}
+I can find the keyID in the levelDB.
+
+Derive the DID and publicKeyBase58 from the publicKey : 
+DID=did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz
+publicKeyBase58=nbmoNmbX86mJBaa5xSR3CHhXngyuUhNYs8kZxHxkgvKbmwfwwEPkZRv2TPuQTUgr3vkcN5XTCu9a5AFZh46zdcg8CCqdbrmbdx3B1wS5GursGYa1sG17BQUsaGZ7dTxUpag
+ Create DID document:
+   curl --location --request POST 'http://localhost:8082/vdr/did/create' \
+--header 'Authorization: Bearer c23f0387-7005-4bd4-9249-17f2c56d7fa3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "method": "key",
+  "did": {
+          "id": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+    "@context": [
+      "https://w3id.org/did/v1"
+    ],
+    "verificationMethod": [
+      {
+        "controller": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+          "id": "JJE",
+          "publicKeyBase58": "nbmoNmbX86mJBaa5xSR3CHhXngyuUhNYs8kZxHxkgvKbmwfwwEPkZRv2TPuQTUgr3vkcN5XTCu9a5AFZh46zdcg8CCqdbrmbdx3B1wS5GursGYa1sG17BQUsaGZ7dTxUpag",
+          "type": "Bls12381G2Key2020"
+      }
+    ]
+  },
+  "opts": {
+    "store": true
+  }
+}
+
+The response is:
+{
+    "did": {
+        "@context": [
+            "https://w3id.org/did/v1"
+        ],
+        "id": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+        "verificationMethod": [
+            {
+                "controller": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+                "id": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+                "publicKeyBase58": "nbmoNmbX86mJBaa5xSR3CHhXngyuUhNYs8kZxHxkgvKbmwfwwEPkZRv2TPuQTUgr3vkcN5XTCu9a5AFZh46zdcg8CCqdbrmbdx3B1wS5GursGYa1sG17BQUsaGZ7dTxUpag",
+                "type": "Bls12381G2Key2020"
+            }
+        ],
+        "authentication": [
+            "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+        ],
+        "assertionMethod": [
+            "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+        ],
+        "capabilityDelegation": [
+            "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+        ],
+        "capabilityInvocation": [
+            "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+        ],
+        "created": "2022-01-13T11:38:27.363197+01:00",
+        "updated": "2022-01-13T11:38:27.363197+01:00"
+    }
+}
+
+Issue credential (using inputs from the didDocument:
+curl --location --request POST 'http://localhost:8082/vcwallet/issue' \
+--header 'Authorization: Bearer c23f0387-7005-4bd4-9249-17f2c56d7fa3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userID": "alice",
+    "auth": "890c6622-e069-41d4-9a4e-79c481989fc5",
+    "credential": {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://w3id.org/citizenship/v1",
+            "https://w3id.org/security/bbs/v1"
+        ],
+        "id": "https://issuer.oidp.uscis.gov/credentials/83627465",
+        "type": [
+            "VerifiableCredential",
+            "PermanentResidentCard"
+        ],
+        "issuer": "did:example:489398593",
+        "identifier": "83627465",
+        "name": "Permanent Resident Card",
+        "description": "Government of Example Permanent Resident Card.",
+        "issuanceDate": "2019-12-03T12:19:52Z",
+        "expirationDate": "2029-12-03T12:19:52Z",
+        "credentialSubject": {
+            "id": "did:example:b34ca6cd37bbf23",
+            "type": [
+                "PermanentResident",
+                "Person"
+            ],
+            "givenName": "JOHN",
+            "familyName": "SMITH",
+            "gender": "Male",
+            "image": "data:image/png;base64,iVBORw0KGgokJggg==",
+            "residentSince": "2015-01-01",
+            "lprCategory": "C09",
+            "lprNumber": "999-999-999",
+            "commuterClassification": "C1",
+            "birthCountry": "Bahamas",
+            "birthDate": "1958-07-17"
+        }
+    },
+    "proofOptions": {
+        "created": "2022-01-07T12:48:11.213Z",
+        "controller": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz",
+        "proofRepresentation": 0,
+        "proofType": "BbsBlsSignature2020",
+        "verificationMethod": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+    }
+}
+
+The response is:
+{
+    "code": 12010,
+    "message": "failed to issue credential: getKeySet: failed to read json keyset from reader: cannot read data for keysetID zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz: failed to get DB entry: data not found"
+}
+
+The underlying problem appears to be that the key material is stored in the kmsdb under a random KID
+"keyID": "aXpmiffvgn7i4pR-I8V7FWueXHB6T76xqYulUHEgYIg"
+
+When issuing the credential the kmsdb is not queried with this random KID but instead with the did:key:
+zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz
+
+Therefore, no db entry is found.
+
+If I hardcode the KID into the db read (getKeySet), I get a properly signed VC:
+
+{
+    "credential": {
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://w3id.org/citizenship/v1",
+            "https://w3id.org/security/bbs/v1"
+        ],
+        "credentialSubject": {
+            "birthCountry": "Bahamas",
+            "birthDate": "1958-07-17",
+            "commuterClassification": "C1",
+            "familyName": "SMITH",
+            "gender": "Male",
+            "givenName": "JOHN",
+            "id": "did:example:b34ca6cd37bbf23",
+            "image": "data:image/png;base64,iVBORw0KGgokJggg==",
+            "lprCategory": "C09",
+            "lprNumber": "999-999-999",
+            "residentSince": "2015-01-01",
+            "type": [
+                "PermanentResident",
+                "Person"
+            ]
+        },
+        "description": "Government of Example Permanent Resident Card.",
+        "expirationDate": "2029-12-03T12:19:52Z",
+        "id": "https://issuer.oidp.uscis.gov/credentials/83627465",
+        "identifier": "83627465",
+        "issuanceDate": "2019-12-03T12:19:52Z",
+        "issuer": "did:example:489398593",
+        "name": "Permanent Resident Card",
+        "proof": {
+            "created": "2022-01-07T12:48:11.213Z",
+            "proofPurpose": "assertionMethod",
+            "proofValue": "rFvy4xaA2BFcsbtdUFwXkPSh9nKFVgWUSxUl8vjK_JBOykCdyFXQHtlm6DJFbCoqGdl8HwTDAyibX0_79wG-nQHxEz7s6xwPJRcE_YctEcsxj3-lmaoo5cfdF_9f05ruhbe5TCnJ1zB6oC1kzDoF-A",
+            "type": "BbsBlsSignature2020",
+            "verificationMethod": "did:key:zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz#zUC72SKgSTFkUidWbXEw8P7FVb4T2yJ7WfvUjXLPS9RZRogQBYdadtnuMsshcPFeynEVC9AVQVPGanhY22ygrKSiTaCqzYjjZVu5ubjZvA4wkrzjdSucxCBDMCtr3TJ1D27MKBz"
+        },
+        "type": [
+            "VerifiableCredential",
+            "PermanentResidentCard"
+        ]
+    }
+}
+
+Am I doing something wrong with the DID Document or creation of the VC (e.g. PrrofOptions) or is this a problem with the actual code for kmsdb access?

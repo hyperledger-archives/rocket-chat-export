@@ -1,0 +1,177 @@
+:~/cello$ make logs
+docker-compose logs -f --tail=200
+Attaching to dashboard, restserver, watchdog, nginx, mongo
+restserver    |  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+restserver    |  * Restarting with stat
+restserver    |  * Debugger is active!
+restserver    |  * Debugger PIN: 176-942-082
+dashboard     | /usr/local/lib/python3.5/site-packages/bcrypt/__init__.py:83: UserWarning: implicit cast to 'char *' from a different pointer type: will be forbidden in the future (check that the types are as you expect; use an explicit ffi.cast() if they are correct)
+dashboard     |   retval = _bcrypt.lib.bcrypt_hashpass(password, salt, hashed, len(hashed))
+dashboard     |  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+dashboard     |  * Restarting with stat
+dashboard     | /usr/local/lib/python3.5/site-packages/bcrypt/__init__.py:83: UserWarning: implicit cast to 'char *' from a different pointer type: will be forbidden in the future (check that the types are as you expect; use an explicit ffi.cast() if they are correct)
+dashboard     |   retval = _bcrypt.lib.bcrypt_hashpass(password, salt, hashed, len(hashed))
+dashboard     |  * Debugger is active!
+dashboard     |  * Debugger PIN: 328-686-752
+nginx         | Adding password for user admin
+watchdog      | [2017-07-17 02:43:10,287] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-17 02:43:10,288] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-17 02:43:10,294] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-17 02:43:10,295] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-17 02:43:10,296] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-17 02:43:10,296] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=mongo
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] db version v3.2.15
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] git version: e11e3c1b9c9ce3f7b4a79493e16f5e4504e01140
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] modules: none
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] build environment:
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten]     distmod: debian81
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten]     distarch: x86_64
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+mongo         | 2017-07-16T18:43:09.347+0000 I CONTROL  [initandlisten] options: {}
+mongo         | 2017-07-16T18:43:09.350+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+mongo         | 2017-07-16T18:43:09.350+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=8G,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+mongo         | 2017-07-16T18:43:09.656+0000 I CONTROL  [initandlisten] 
+mongo         | 2017-07-16T18:43:09.657+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+mongo         | 2017-07-16T18:43:09.657+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+mongo         | 2017-07-16T18:43:09.657+0000 I CONTROL  [initandlisten] 
+mongo         | 2017-07-16T18:43:09.658+0000 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+mongo         | 2017-07-16T18:43:09.658+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+mongo         | 2017-07-16T18:43:09.658+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+mongo         | 2017-07-16T18:43:10.084+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:46340 #1 (1 connection now open)
+mongo         | 2017-07-16T18:43:10.288+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.3:46342 #2 (2 connections now open)
+mongo         | 2017-07-16T18:43:10.664+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57676 #3 (3 connections now open)
+mongo         | 2017-07-16T18:43:10.665+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57678 #4 (4 connections now open)
+mongo         | 2017-07-16T18:43:10.773+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57680 #5 (5 connections now open)
+mongo         | 2017-07-16T18:43:11.746+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57686 #6 (6 connections now open)
+mongo         | 2017-07-16T18:43:11.747+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57688 #7 (7 connections now open)
+mongo         | 2017-07-16T18:43:19.612+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:37498 #8 (8 connections now open)
+mongo         | 2017-07-16T18:43:19.612+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.5:37500 #9 (9 connections now open)
+mongo         | 2017-07-16T18:43:19.639+0000 I NETWORK  [initandlisten] connection accepted from 172.18.0.6:57696 #10 (10 connections now open)
+watchdog      | [2017-07-17 02:43:28,302] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-17 02:43:28,303] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-17 02:43:28,307] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-17 02:43:28,308] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-17 02:43:28,309] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-17 02:43:28,309] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET / HTTP/1.0" 302 -
+dashboard     | [2017-07-17 02:43:44,155] DEBUG [resources.login] [utils.py:97        request_debug()] - path=/login, method=GET
+dashboard     | [2017-07-17 02:43:44,155] DEBUG [resources.login] [utils.py:98        request_debug()] - request args:
+dashboard     | [2017-07-17 02:43:44,156] DEBUG [resources.login] [utils.py:101        request_debug()] - request form:
+dashboard     | [2017-07-17 02:43:44,156] DEBUG [resources.login] [utils.py:104        request_debug()] - request raw body data:
+dashboard     | [2017-07-17 02:43:44,157] DEBUG [resources.login] [utils.py:105        request_debug()] - b''
+dashboard     | [2017-07-17 02:43:44,157] DEBUG [resources.login] [utils.py:106        request_debug()] - None
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET /login HTTP/1.0" 500 -
+dashboard     | Traceback (most recent call last):
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1997, in __call__
+dashboard     |     return self.wsgi_app(environ, start_response)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1985, in wsgi_app
+dashboard     |     response = self.handle_exception(e)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1540, in handle_exception
+dashboard     |     reraise(exc_type, exc_value, tb)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+dashboard     |     raise value
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+dashboard     |     response = self.full_dispatch_request()
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+dashboard     |     rv = self.handle_user_exception(e)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+dashboard     |     reraise(exc_type, exc_value, tb)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+dashboard     |     raise value
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+dashboard     |     rv = self.dispatch_request()
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+dashboard     |     return self.view_functions[rule.endpoint](**req.view_args)
+dashboard     |   File "/app/resources/login.py", line 28, in login
+dashboard     |     return render_template("login.html")
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 133, in render_template
+dashboard     |     return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+dashboard     |     return self.get_template(template_name_or_list, parent, globals)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 830, in get_template
+dashboard     |     return self._load_template(name, self.make_globals(globals))
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 804, in _load_template
+dashboard     |     template = self.loader.load(self, name, globals)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/loaders.py", line 113, in load
+dashboard     |     source, filename, uptodate = self.get_source(environment, name)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 57, in get_source
+dashboard     |     return self._get_source_fast(environment, template)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 85, in _get_source_fast
+dashboard     |     raise TemplateNotFound(template)
+dashboard     | jinja2.exceptions.TemplateNotFound: login.html
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:43:44] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.0" 200 -
+watchdog      | [2017-07-17 02:43:46,317] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-17 02:43:46,318] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-17 02:43:46,322] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-17 02:43:46,323] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-17 02:43:46,324] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-17 02:43:46,324] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+watchdog      | [2017-07-17 02:44:04,338] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-17 02:44:04,338] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-17 02:44:04,343] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-17 02:44:04,344] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-17 02:44:04,345] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-17 02:44:04,345] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET / HTTP/1.0" 302 -
+dashboard     | [2017-07-17 02:44:12,155] DEBUG [resources.login] [utils.py:97        request_debug()] - path=/login, method=GET
+dashboard     | [2017-07-17 02:44:12,155] DEBUG [resources.login] [utils.py:98        request_debug()] - request args:
+dashboard     | [2017-07-17 02:44:12,155] DEBUG [resources.login] [utils.py:101        request_debug()] - request form:
+dashboard     | [2017-07-17 02:44:12,155] DEBUG [resources.login] [utils.py:104        request_debug()] - request raw body data:
+dashboard     | [2017-07-17 02:44:12,156] DEBUG [resources.login] [utils.py:105        request_debug()] - b''
+dashboard     | [2017-07-17 02:44:12,156] DEBUG [resources.login] [utils.py:106        request_debug()] - None
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET /login HTTP/1.0" 500 -
+dashboard     | Traceback (most recent call last):
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1997, in __call__
+dashboard     |     return self.wsgi_app(environ, start_response)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1985, in wsgi_app
+dashboard     |     response = self.handle_exception(e)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1540, in handle_exception
+dashboard     |     reraise(exc_type, exc_value, tb)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+dashboard     |     raise value
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+dashboard     |     response = self.full_dispatch_request()
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+dashboard     |     rv = self.handle_user_exception(e)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+dashboard     |     reraise(exc_type, exc_value, tb)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+dashboard     |     raise value
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+dashboard     |     rv = self.dispatch_request()
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+dashboard     |     return self.view_functions[rule.endpoint](**req.view_args)
+dashboard     |   File "/app/resources/login.py", line 28, in login
+dashboard     |     return render_template("login.html")
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 133, in render_template
+dashboard     |     return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+dashboard     |     return self.get_template(template_name_or_list, parent, globals)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 830, in get_template
+dashboard     |     return self._load_template(name, self.make_globals(globals))
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/environment.py", line 804, in _load_template
+dashboard     |     template = self.loader.load(self, name, globals)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/jinja2/loaders.py", line 113, in load
+dashboard     |     source, filename, uptodate = self.get_source(environment, name)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 57, in get_source
+dashboard     |     return self._get_source_fast(environment, template)
+dashboard     |   File "/usr/local/lib/python3.5/site-packages/flask/templating.py", line 85, in _get_source_fast
+dashboard     |     raise TemplateNotFound(template)
+dashboard     | jinja2.exceptions.TemplateNotFound: login.html
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.0" 200 -
+dashboard     | 172.18.0.4 - - [17/Jul/2017 02:44:12] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.0" 200 -
+watchdog      | [2017-07-17 02:44:22,364] INFO [__main__] [watchdog.py:123            watch_run()] - Watchdog run checks with period = 15 s
+watchdog      | [2017-07-17 02:44:22,365] INFO [__main__] [watchdog.py:125            watch_run()] - Found 1 hosts
+watchdog      | [2017-07-17 02:44:22,370] DEBUG [agent.docker.docker_swarm] [docker_swarm.py:144         check_daemon()] - ping_result=True
+watchdog      | [2017-07-17 02:44:22,371] DEBUG [__main__] [watchdog.py:107           host_check()] - Host test_cluster_hos/5965fada292d37001101a7df is active, start checking
+watchdog      | [2017-07-17 02:44:22,371] DEBUG [__main__] [watchdog.py:71    host_check_chains()] - Host test_cluster_hos/5965fada292d37001101a7df: checking chains
+watchdog      | [2017-07-17 02:44:22,371] DEBUG [modules.cluster] [cluster.py:64                 list()] - List all active clusters
+

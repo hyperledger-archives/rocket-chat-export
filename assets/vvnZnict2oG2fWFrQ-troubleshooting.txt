@@ -1,0 +1,568 @@
+rensatest@RF5CD101K5BG:~/poc/grid$ sudo docker-compose -f examples/splinter/docker-compose.yaml up
+Recreating gridd-beta                    ... done
+Recreating gridd-alpha                   ... done
+Starting grid-ui-gamma                   ... done
+Starting splinterd-gamma                 ... done
+Starting scabbard-cli-alpha              ... done
+Starting splinter-db-beta                ... done
+Starting product-contract-builder        ... done
+Starting scabbard-cli-beta               ... done
+Starting grid-ui-alpha                   ... done
+Starting purchase-order-contract-builder ... done
+Recreating gridd-gamma                   ... done
+Starting pike-contract-builder           ... done
+Starting schema-contract-builder         ... done
+Starting db-gamma                        ... done
+Starting splinter_generate-registry_1    ... done
+Starting db-alpha                        ... done
+Starting grid-ui-beta                    ... done
+Starting registry-server                 ... done
+Starting location-contract-builder       ... done
+Starting db-beta                         ... done
+Starting splinterd-alpha                 ... done
+Starting tnt-contract-builder            ... done
+Starting splinter-db-gamma               ... done
+Starting splinterd-beta                  ... done
+Starting splinter-db-alpha               ... done
+Attaching to scabbard-cli-alpha, splinterd-gamma, grid-ui-gamma, schema-contract-builder, product-contract-builder, splinter_generate-registry_1, pike-contract-builder, scabbard-cli-beta, db-gamma, splinter-db-beta, purchase-order-contract-builder, grid-ui-alpha, db-alpha, splinter-db-alpha, tnt-contract-builder, location-contract-builder, db-beta, registry-server, splinter-db-gamma, grid-ui-beta, splinterd-beta, gridd-gamma, gridd-beta, splinterd-alpha, gridd-alpha
+db-alpha                           |
+db-alpha                           | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-alpha                           |
+db-alpha                           | 2021-09-03 06:39:08.574 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-alpha                           | 2021-09-03 06:39:08.593 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-alpha                           | 2021-09-03 06:39:08.593 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-alpha                           | 2021-09-03 06:39:08.615 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-alpha                           | 2021-09-03 06:39:08.691 UTC [27] LOG:  database system was shut down at 2021-09-03 06:31:19 UTC
+db-alpha                           | 2021-09-03 06:39:08.704 UTC [1] LOG:  database system is ready to accept connections
+db-beta                            |
+db-beta                            | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-beta                            |
+db-beta                            | 2021-09-03 06:39:09.193 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-beta                            | 2021-09-03 06:39:09.263 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-beta                            | 2021-09-03 06:39:09.263 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-beta                            | 2021-09-03 06:39:09.291 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-beta                            | 2021-09-03 06:39:09.435 UTC [25] LOG:  database system was shut down at 2021-09-03 06:31:14 UTC
+db-beta                            | 2021-09-03 06:39:09.447 UTC [1] LOG:  database system is ready to accept connections
+db-gamma                           |
+db-gamma                           | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-gamma                           |
+db-gamma                           | 2021-09-03 06:39:06.673 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+db-gamma                           | 2021-09-03 06:39:06.673 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-gamma                           | 2021-09-03 06:39:06.673 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-gamma                           | 2021-09-03 06:39:06.686 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-gamma                           | 2021-09-03 06:39:06.700 UTC [25] LOG:  database system was shut down at 2021-09-03 06:31:19 UTC
+db-gamma                           | 2021-09-03 06:39:06.710 UTC [1] LOG:  database system is ready to accept connections
+grid-ui-alpha                      | [Fri Sep 03 06:39:08.422852 2021] [so:warn] [pid 1:tid 139725770142848] AH01574: module headers_module is already loaded, skipping
+grid-ui-alpha                      | [Fri Sep 03 06:39:08.467253 2021] [so:warn] [pid 1:tid 139725770142848] AH01574: module headers_module is already loaded, skipping
+grid-ui-alpha                      | [Fri Sep 03 06:39:08.468555 2021] [mpm_event:notice] [pid 1:tid 139725770142848] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-alpha                      | [Fri Sep 03 06:39:08.468575 2021] [core:notice] [pid 1:tid 139725770142848] AH00094: Command line: 'httpd -D FOREGROUND'
+grid-ui-beta                       | [Fri Sep 03 06:39:09.519077 2021] [so:warn] [pid 1:tid 139975708013696] AH01574: module headers_module is already loaded, skipping
+grid-ui-beta                       | [Fri Sep 03 06:39:09.522075 2021] [so:warn] [pid 1:tid 139975708013696] AH01574: module headers_module is already loaded, skipping
+grid-ui-beta                       | [Fri Sep 03 06:39:09.523668 2021] [mpm_event:notice] [pid 1:tid 139975708013696] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-beta                       | [Fri Sep 03 06:39:09.523695 2021] [core:notice] [pid 1:tid 139975708013696] AH00094: Command line: 'httpd -D FOREGROUND'
+grid-ui-gamma                      | [Fri Sep 03 06:39:02.882290 2021] [so:warn] [pid 1:tid 140016189887616] AH01574: module headers_module is already loaded, skipping
+grid-ui-gamma                      | [Fri Sep 03 06:39:02.887358 2021] [so:warn] [pid 1:tid 140016189887616] AH01574: module headers_module is already loaded, skipping
+grid-ui-gamma                      | [Fri Sep 03 06:39:02.889010 2021] [mpm_event:notice] [pid 1:tid 140016189887616] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+grid-ui-gamma                      | [Fri Sep 03 06:39:02.889038 2021] [core:notice] [pid 1:tid 140016189887616] AH00094: Command line: 'httpd -D FOREGROUND'
+gridd-beta                         | Writing file: /etc/grid/keys/gridd.pub
+gridd-beta                         | Writing file: /etc/grid/keys/gridd.priv
+gridd-beta                         | keys files exist; skipping generation
+gridd-beta                         | Successfully applied Grid migrations
+gridd-gamma                        | Writing file: /etc/grid/keys/gridd.pub
+gridd-gamma                        | Writing file: /etc/grid/keys/gridd.priv
+gridd-gamma                        | keys files exist; skipping generation
+gridd-gamma                        | Successfully applied Grid migrations
+location-contract-builder exited with code 0
+pike-contract-builder exited with code 0
+purchase-order-contract-builder exited with code 0
+product-contract-builder exited with code 0
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.18.0.15. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.18.0.15. Set the 'ServerName' directive globally to suppress this message
+registry-server                    | [Fri Sep 03 06:39:09.356003 2021] [mpm_event:notice] [pid 1:tid 140317362058368] AH00489: Apache/2.4.48 (Unix) configured -- resuming normal operations
+registry-server                    | [Fri Sep 03 06:39:09.356132 2021] [core:notice] [pid 1:tid 140317362058368] AH00094: Command line: 'httpd -D FOREGROUND'
+registry-server                    | 172.18.0.3 - - [03/Sep/2021:06:39:09 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:06:39:10 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+schema-contract-builder exited with code 0
+splinter-db-alpha                  |
+splinter-db-alpha                  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-alpha                  |
+splinter-db-beta                   |
+splinter-db-beta                   | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-beta                   |
+splinter-db-beta                   | 2021-09-03 06:39:07.683 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-beta                   | 2021-09-03 06:39:07.683 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-beta                   | 2021-09-03 06:39:07.683 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-beta                   | 2021-09-03 06:39:07.696 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-beta                   | 2021-09-03 06:39:07.716 UTC [25] LOG:  database system was shut down at 2021-09-03 06:31:14 UTC
+splinter-db-beta                   | 2021-09-03 06:39:07.727 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-gamma                  |
+splinter-db-gamma                  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+splinter-db-gamma                  |
+splinter-db-gamma                  | 2021-09-03 06:39:09.254 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-gamma                  | 2021-09-03 06:39:09.265 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-gamma                  | 2021-09-03 06:39:09.265 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-gamma                  | 2021-09-03 06:39:09.298 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-gamma                  | 2021-09-03 06:39:09.443 UTC [25] LOG:  database system was shut down at 2021-09-03 06:31:19 UTC
+splinter-db-gamma                  | 2021-09-03 06:39:09.458 UTC [1] LOG:  database system is ready to accept connections
+splinter-db-alpha                  | 2021-09-03 06:39:08.939 UTC [1] LOG:  starting PostgreSQL 13.4 (Debian 13.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+splinter-db-alpha                  | 2021-09-03 06:39:08.939 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+splinter-db-alpha                  | 2021-09-03 06:39:08.940 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+splinter-db-alpha                  | 2021-09-03 06:39:08.978 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+splinter-db-alpha                  | 2021-09-03 06:39:09.001 UTC [28] LOG:  database system was shut down at 2021-09-03 06:31:14 UTC
+splinter-db-alpha                  | 2021-09-03 06:39:09.013 UTC [1] LOG:  database system is ready to accept connections
+splinter_generate-registry_1 exited with code 0
+splinterd-beta                     | Successfully applied biome credentials migrations
+splinterd-beta                     | [2021-09-03 06:39:10.198] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-beta                     | [2021-09-03 06:39:10.198] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-beta                     | [2021-09-03 06:39:10.198] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-beta                     | [2021-09-03 06:39:10.198] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-beta                     | [2021-09-03 06:39:10.198] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-beta:8044"] (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: node_id: beta-node-000 (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-beta:5432/splinter (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-beta                     | [2021-09-03 06:39:10.201] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID beta-node-000
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-beta                     | [2021-09-03 06:39:10.202] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-beta                     | [2021-09-03 06:39:10.209] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::beta-node-000 (remote endpoint: inproc://admin-service)
+splinterd-beta                     | [2021-09-03 06:39:10.209] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::beta-node-000
+splinterd-beta                     | [2021-09-03 06:39:10.209] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::beta-node-000 (remote endpoint: inproc://orchestator)
+splinterd-beta                     | [2021-09-03 06:39:10.209] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::beta-node-000
+splinterd-beta                     | [2021-09-03 06:39:10.216] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+splinterd-beta                     | [2021-09-03 06:39:10.229] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-beta                     | [2021-09-03 06:39:10.230] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+splinterd-beta                     | [2021-09-03 06:39:10.231] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-beta                     | [2021-09-03 06:39:10.232] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-03 06:39:10.234] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-beta                     | [2021-09-03 06:39:10.234] T["main"] INFO [splinterd::daemon] Adding biome routes
+splinterd-beta                     | [2021-09-03 06:39:10.248] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-beta                     | [2021-09-03 06:39:10.248] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-beta                     | [2021-09-03 06:39:10.248] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-beta                     | [2021-09-03 06:39:10.248] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-beta                     | [2021-09-03 06:39:10.249] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-beta                     | [2021-09-03 06:39:10.252] T["Service admin::beta-node-000"] INFO [splinter::service::processor] Starting Service: admin::beta-node-000
+splinterd-beta                     | [2021-09-03 06:39:10.252] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::beta-node-000 [67 bytes]
+splinterd-beta                     | [2021-09-03 06:39:10.252] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::beta-node-000" correlation_id: "afda9a10-7384-41a5-bba6-f9ca30929a12"
+splinterd-gamma                    | psql: could not connect to server: No route to host
+splinterd-gamma                    |    Is the server running on host "splinter-db-gamma" (172.18.0.19) and accepting
+splinterd-gamma                    |    TCP/IP connections on port 5432?
+splinterd-gamma                    | Database is unavailable - sleeping
+splinterd-gamma                    | psql: could not connect to server: No route to host
+splinterd-gamma                    |    Is the server running on host "splinter-db-gamma" (172.18.0.19) and accepting
+splinterd-gamma                    |    TCP/IP connections on port 5432?
+splinterd-gamma                    | Database is unavailable - sleeping
+splinterd-gamma                    | Successfully applied biome credentials migrations
+splinterd-gamma                    | [2021-09-03 06:39:09.867] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-gamma                    | [2021-09-03 06:39:09.867] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-gamma                    | [2021-09-03 06:39:09.867] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-gamma                    | [2021-09-03 06:39:09.867] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-gamma                    | [2021-09-03 06:39:09.867] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-gamma:8044"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: node_id: gamma-node-000 (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-gamma:5432/splinter (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-gamma                    | [2021-09-03 06:39:09.869] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-gamma                    | [2021-09-03 06:39:09.870] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-gamma                    | [2021-09-03 06:39:09.871] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-gamma                    | [2021-09-03 06:39:09.871] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID gamma-node-000
+splinterd-gamma                    | [2021-09-03 06:39:09.872] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-gamma                    | [2021-09-03 06:39:09.872] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-gamma                    | [2021-09-03 06:39:09.872] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-gamma                    | [2021-09-03 06:39:09.872] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-gamma                    | [2021-09-03 06:39:09.873] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-gamma                    | [2021-09-03 06:39:09.880] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::gamma-node-000 (remote endpoint: inproc://admin-service)
+splinterd-gamma                    | [2021-09-03 06:39:09.880] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::gamma-node-000
+splinterd-gamma                    | [2021-09-03 06:39:09.886] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::gamma-node-000 (remote endpoint: inproc://orchestator)
+splinterd-gamma                    | [2021-09-03 06:39:09.886] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::gamma-node-000
+splinterd-gamma                    | [2021-09-03 06:39:09.889] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+splinterd-gamma                    | [2021-09-03 06:39:09.903] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-gamma                    | [2021-09-03 06:39:09.903] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+splinterd-gamma                    | [2021-09-03 06:39:09.904] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-gamma                    | [2021-09-03 06:39:09.908] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-gamma                    | [2021-09-03 06:39:09.908] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-gamma                    | [2021-09-03 06:39:09.909] T["main"] INFO [splinterd::daemon] Adding biome routes
+splinterd-gamma                    | [2021-09-03 06:39:09.942] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-gamma                    | [2021-09-03 06:39:09.942] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-gamma                    | [2021-09-03 06:39:09.942] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-gamma                    | [2021-09-03 06:39:09.943] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-gamma                    | [2021-09-03 06:39:09.943] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-gamma                    | [2021-09-03 06:39:09.945] T["Service admin::gamma-node-000"] INFO [splinter::service::processor] Starting Service: admin::gamma-node-000
+splinterd-gamma                    | [2021-09-03 06:39:09.946] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::gamma-node-000 [68 bytes]
+splinterd-gamma                    | [2021-09-03 06:39:09.946] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::gamma-node-000" correlation_id: "4b6e02dc-59af-4007-b7dc-d44045d30b04"
+tnt-contract-builder exited with code 0
+splinterd-alpha                    | Successfully applied biome credentials migrations
+splinterd-alpha                    | [2021-09-03 06:39:12.295] T["main"] DEBUG [splinterd::transport] Using client certificate file: "/etc/splinter/certs/client.crt"
+splinterd-alpha                    | [2021-09-03 06:39:12.296] T["main"] DEBUG [splinterd::transport] Using server certificate file: "/etc/splinter/certs/server.crt"
+splinterd-alpha                    | [2021-09-03 06:39:12.296] T["main"] DEBUG [splinterd::transport] Using server key file: "/etc/splinter/certs/private/server.key"
+splinterd-alpha                    | [2021-09-03 06:39:12.296] T["main"] DEBUG [splinterd::transport] Using client key file: "/etc/splinter/certs/private/client.key"
+splinterd-alpha                    | [2021-09-03 06:39:12.296] T["main"] WARN [splinterd::transport] Starting TlsTransport in insecure mode
+gridd-alpha                        | Writing file: /etc/grid/keys/gridd.pub
+gridd-alpha                        | Writing file: /etc/grid/keys/gridd.priv
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: config_dir: /etc/splinter (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: storage: yaml (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_ca_file: /etc/splinter/certs/ca.pem (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_cert_dir: /etc/splinter/certs (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_client_cert: /etc/splinter/certs/client.crt (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_client_key: /etc/splinter/certs/private/client.key (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_server_cert: /etc/splinter/certs/server.crt (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_server_key: /etc/splinter/certs/private/server.key (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: network_endpoints: ["tcps://0.0.0.0:8044"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: advertised_endpoints: ["tcps://splinterd-alpha:8044"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: peers: [] (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: node_id: alpha-node-000 (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: rest_api_endpoint: 0.0.0.0:8085 (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: registries: ["http://registry-server:80/registry.yaml"] (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: registry_auto_refresh: 600 (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: registry_forced_refresh: 10 (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: state_dir: /var/lib/splinter (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: heartbeat: 30 (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: admin_timeout: 30s (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] database: postgres://admin:admin@splinter-db-alpha:5432/splinter (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: tls_insecure: true (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: no_tls: false (source: Default)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: enable_biome: true (source: CommandLine)
+splinterd-alpha                    | [2021-09-03 06:39:12.332] T["main"] DEBUG [splinterd::config] Config: strict_ref_counts: false (source: Environment)
+splinterd-alpha                    | [2021-09-03 06:39:12.333] T["main"] WARN [splinterd] --service-endpoint is an experimental feature.  It is enabled by building splinterd with the features "service-endpoint" enabled
+splinterd-alpha                    | [2021-09-03 06:39:12.334] T["main"] DEBUG [splinterd::daemon] Listening for peer connections on ["tcps://0.0.0.0:8044"]
+splinterd-alpha                    | [2021-09-03 06:39:12.335] T["main"] INFO [splinterd::daemon] Starting SpinterNode with ID alpha-node-000
+splinterd-alpha                    | [2021-09-03 06:39:12.336] T["main"] DEBUG [splinter::network::connection_manager::builder] Starting connection manager pacemaker with interval of 30s
+splinterd-alpha                    | [2021-09-03 06:39:12.340] T["main"] DEBUG [splinter::peer] Starting peer manager with retry_interval=10s, max_retry_attempts=5 strict_ref_counts=false, retry_frequency=10, max_retry_frequency=300, and endpoint_retry_frequency=60
+splinterd-alpha                    | [2021-09-03 06:39:12.344] T["main"] DEBUG [splinter::peer] Starting peer manager pacemaker with interval of 10s
+splinterd-alpha                    | [2021-09-03 06:39:12.347] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect receiver
+splinterd-alpha                    | [2021-09-03 06:39:12.348] T["main"] DEBUG [splinter::peer::interconnect] Starting peer interconnect sender
+splinterd-alpha                    | [2021-09-03 06:39:12.372] T["Peer Manager"] INFO [splinter::peer] Received peer connection from admin::alpha-node-000 (remote endpoint: inproc://admin-service)
+splinterd-alpha                    | [2021-09-03 06:39:12.373] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: admin::alpha-node-000
+splinterd-alpha                    | [2021-09-03 06:39:12.373] T["Peer Manager"] INFO [splinter::peer] Received peer connection from orchestator::alpha-node-000 (remote endpoint: inproc://orchestator)
+splinterd-alpha                    | [2021-09-03 06:39:12.373] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: orchestator::alpha-node-000
+gridd-alpha                        | keys files exist; skipping generation
+splinterd-alpha                    | [2021-09-03 06:39:12.452] T["main"] DEBUG [splinter::orchestrator] Orchestrator authorized
+gridd-alpha                        | Successfully applied Grid migrations
+splinterd-alpha                    | [2021-09-03 06:39:12.490] T["main"] DEBUG [splinterd::daemon] Creating local registry with registry file: "/var/lib/splinter/local_registry.yaml"
+splinterd-alpha                    | [2021-09-03 06:39:12.490] T["main"] DEBUG [splinterd::daemon] Attempting to add remote read-only registry from URL: http://registry-server:80/registry.yaml
+gridd-beta                         | DEBUG [reqwest::connect] starting new connection: http://splinterd-beta:8085/
+splinterd-alpha                    | [2021-09-03 06:39:12.496] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+gridd-gamma                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-gamma:8085/
+splinterd-beta                     | [2021-09-03 06:39:12.504] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.25:57624 "GET /status HTTP/1.1" 200 179 "-" "-" 0.000053
+splinterd-gamma                    | [2021-09-03 06:39:12.506] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.24:48230 "GET /status HTTP/1.1" 200 182 "-" "-" 0.000102
+gridd-beta                         | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-beta:8085/status
+gridd-gamma                        | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-gamma:8085/status
+gridd-gamma                        | DEBUG [splinter::events::ws] starting: http://splinterd-gamma:8085/ws/admin/register/grid
+gridd-beta                         | DEBUG [splinter::events::ws] starting: http://splinterd-beta:8085/ws/admin/register/grid
+splinterd-beta                     | [2021-09-03 06:39:12.515] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:06:39:12 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 06:39:12.517] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-beta                     | Response HTTP/1.1 101 Switching Protocols
+splinterd-beta                     |   headers:
+splinterd-beta                     |     "upgrade": "websocket"
+splinterd-beta                     |     "transfer-encoding": "chunked"
+splinterd-beta                     |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-beta                     |   body: Stream
+splinterd-beta                     |
+gridd-beta                         | INFO [actix_server::builder] Starting 2 workers
+splinterd-beta                     | [2021-09-03 06:39:12.518] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-beta                         | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+gridd-beta                         | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Fri, 03 Sep 2021 06:39:12 GMT"}, body: Body(Empty) }
+splinterd-alpha                    | [2021-09-03 06:39:12.524] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+gridd-gamma                        | INFO [actix_server::builder] Starting 2 workers
+gridd-gamma                        | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+splinterd-gamma                    | [2021-09-03 06:39:12.529] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-gamma                    | [2021-09-03 06:39:12.529] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-gamma                    | Response HTTP/1.1 101 Switching Protocols
+splinterd-gamma                    |   headers:
+splinterd-gamma                    |     "transfer-encoding": "chunked"
+splinterd-gamma                    |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-gamma                    |     "upgrade": "websocket"
+splinterd-gamma                    |   body: Stream
+splinterd-gamma                    |
+splinterd-gamma                    | [2021-09-03 06:39:12.529] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-gamma                        | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "upgrade": "websocket", "date": "Fri, 03 Sep 2021 06:39:12 GMT"}, body: Body(Empty) }
+splinterd-alpha                    | [2021-09-03 06:39:12.533] T["main"] DEBUG [splinter::admin::service] Starting admin service's peer manager notification receiver
+splinterd-alpha                    | [2021-09-03 06:39:12.534] T["main"] INFO [splinterd::daemon] Adding biome routes
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+splinterd-alpha                    | [2021-09-03 06:39:12.588] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default config.
+splinterd-alpha                    | [2021-09-03 06:39:12.588] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default SecretManager.
+splinterd-alpha                    | [2021-09-03 06:39:12.588] T["main"] DEBUG [splinter::biome::rest_api] Building BiomeRestResourceManager with default token SecretManager.
+splinterd-alpha                    | [2021-09-03 06:39:12.593] T["SplinterDRestApi"] INFO [actix_server::builder] Starting 2 workers
+splinterd-alpha                    | [2021-09-03 06:39:12.594] T["SplinterDRestApi"] INFO [actix_server::builder] Starting server on 0.0.0.0:8085
+splinterd-alpha                    | [2021-09-03 06:39:12.597] T["Service admin::alpha-node-000"] INFO [splinter::service::processor] Starting Service: admin::alpha-node-000
+splinterd-alpha                    | [2021-09-03 06:39:12.597] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from admin::alpha-node-000 [68 bytes]
+splinterd-alpha                    | [2021-09-03 06:39:12.598] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "admin" service_id: "admin::alpha-node-000" correlation_id: "9707a0a3-0ca2-4d82-bf40-e3e087fa08a2"
+splinterd-alpha                    | [2021-09-03 06:39:12.598] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.26:57026 "GET /status HTTP/1.1" 200 182 "-" "-" 0.000097
+gridd-alpha                        | DEBUG [reqwest::async_impl::client] response '200 OK' for http://splinterd-alpha:8085/status
+gridd-alpha                        | DEBUG [splinter::events::ws] starting: http://splinterd-alpha:8085/ws/admin/register/grid
+gridd-alpha                        | INFO [actix_server::builder] Starting 2 workers
+gridd-alpha                        | INFO [actix_server::builder] Starting "actix-web-service-0.0.0.0:8080" service on 0.0.0.0:8080
+splinterd-alpha                    | [2021-09-03 06:39:12.603] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Beginning application authorization handler registration for "grid"
+splinterd-alpha                    | [2021-09-03 06:39:12.603] T["actix-rt:worker:1"] DEBUG [splinter::admin::rest_api::actix::ws_register_type] Websocket response:
+splinterd-alpha                    | Response HTTP/1.1 101 Switching Protocols
+splinterd-alpha                    |   headers:
+splinterd-alpha                    |     "upgrade": "websocket"
+splinterd-alpha                    |     "transfer-encoding": "chunked"
+splinterd-alpha                    |     "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68="
+splinterd-alpha                    |   body: Stream
+splinterd-alpha                    |
+splinterd-alpha                    | [2021-09-03 06:39:12.603] T["actix-rt:worker:1"] DEBUG [splinter::rest_api::events] Starting Event Websocket
+gridd-alpha                        | DEBUG [splinter::events::ws] response: Response { status: 101, version: HTTP/1.1, headers: {"transfer-encoding": "chunked", "connection": "upgrade", "upgrade": "websocket", "sec-websocket-accept": "qRuMdykMYGEyIrjwimgOGL79D68=", "date": "Fri, 03 Sep 2021 06:39:12 GMT"}, body: Body(Empty) }
+splinterd-alpha                    | [2021-09-03 06:46:49.678] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.17:43104 "GET /status HTTP/1.1" 200 182 "-" "-" 0.000048
+splinterd-alpha                    | [2021-09-03 06:46:49.699] T["actix-rt:worker:1"] DEBUG [splinter::admin::service::shared] Payload submitted: header: "\010\002\022!\0026.\236l&\363s\244\033y\241\n\213#x3)\307Z4w/G\224\235\227p9\377\227\034\314\032@\373g\266\265\303\373\361rq\372\033>Q\317\363\270\326\020{\"\345p\031\352\340F\266i\277\033\253\350n5!6\r\rE\021] \3378\357\262\006\204\256\261\346\032\023V\225\007M\3439\024@\023\344l\"\016alpha-node-000" signature: "e\032\236\2628Hu\2451\237\221h^\246!P\356T\337\245\373\353\247,\223\353\225\353\336\251P\017i\264\032\243\316\2453\254\234\254\315\300\323\201\342A\033H\031q\230v\317\333\304\373\376m\004\207PF" circuit_create_request {circuit {circuit_id: "SJIme-WlNSv" roster {service_id: "gsAA" service_type: "scabbard" allowed_nodes: "alpha-node-000" arguments {key: "admin_keys" value: "[\"0351ffcb4e01e211234785ade860a883e43699b3af23df4b53d65570ec98485d53\"]"} arguments {key: "peer_services" value: "[\"gsBB\"]"}} roster {service_id: "gsBB" service_type: "scabbard" allowed_nodes: "beta-node-000" arguments {key: "admin_keys" value: "[\"0351ffcb4e01e211234785ade860a883e43699b3af23df4b53d65570ec98485d53\"]"} arguments {key: "peer_services" value: "[\"gsAA\"]"}} members {node_id: "alpha-node-000" endpoints: "tcps://splinterd-alpha:8044"} members {node_id: "beta-node-000" endpoints: "tcps://splinterd-beta:8044"} authorization_type: TRUST_AUTHORIZATION persistence: ANY_PERSISTENCE durability: NO_DURABILITY routes: ANY_ROUTE circuit_management_type: "AB-circuit"}}
+splinterd-alpha                    | [2021-09-03 06:46:49.700] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:06:46:49 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-03 06:46:49.702] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-03 06:46:49.703] T["actix-rt:worker:1"] DEBUG [splinter::registry::yaml::remote] Forced refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 06:46:49.703] T["actix-rt:worker:1"] DEBUG [splinter::keys::insecure] Allowing 02362e9e6c26f373a41b79a10a8b23783329c75a34772f47949d977039ff971ccc access to proposer
+splinterd-alpha                    | [2021-09-03 06:46:49.703] T["actix-rt:worker:1"] DEBUG [splinter::admin::service::shared] received circuit proposal for SJIme-WlNSv
+splinterd-alpha                    | [2021-09-03 06:46:49.703] T["actix-rt:worker:1"] DEBUG [splinter::admin::service::shared] Referencing node node_id: "beta-node-000" endpoints: "tcps://splinterd-beta:8044"
+splinterd-alpha                    | [2021-09-03 06:46:49.703] T["Peer Manager"] INFO [splinter::peer] Attempting to peer with beta-node-000
+splinterd-beta                     | [2021-09-03 06:46:49.708] T["<unnamed>"] DEBUG [splinterd::daemon] Received connection from tcps://172.18.0.17:40672
+splinterd-alpha                    | [2021-09-03 06:46:49.708] T["actix-rt:worker:1"] DEBUG [splinter::admin::service::shared] Members ["admin::beta-node-000"] added; awaiting peering and service protocol agreement before proceeding
+splinterd-alpha                    | [2021-09-03 06:46:49.708] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.18.0.17:43106 "POST /admin/submit HTTP/1.1" 202 0 "-" "-" 0.009082
+splinterd-alpha                    | [2021-09-03 06:46:49.709] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Beginning handshake for b54911e7-8991-402a-9e0e-61741de4c969
+splinterd-alpha                    | [2021-09-03 06:46:49.710] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Sent bidirectional connect request to b54911e7-8991-402a-9e0e-61741de4c969
+splinterd-beta                     | [2021-09-03 06:46:49.808] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Beginning handshake for 884165cf-0de9-40bb-80e6-319b7debcea8
+splinterd-beta                     | [2021-09-03 06:46:49.808] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Sent bidirectional connect request to 884165cf-0de9-40bb-80e6-319b7debcea8
+splinterd-beta                     | [2021-09-03 06:46:49.809] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Ignoring duplicate connect request from 884165cf-0de9-40bb-80e6-319b7debcea8
+splinterd-beta                     | [2021-09-03 06:46:49.809] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Receive connect response from connection 884165cf-0de9-40bb-80e6-319b7debcea8: ConnectResponse { accepted_authorization_types: [Trust] }
+splinterd-alpha                    | [2021-09-03 06:46:49.812] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Ignoring duplicate connect request from b54911e7-8991-402a-9e0e-61741de4c969
+splinterd-alpha                    | [2021-09-03 06:46:49.812] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Receive connect response from connection b54911e7-8991-402a-9e0e-61741de4c969: ConnectResponse { accepted_authorization_types: [Trust] }
+splinterd-alpha                    | [2021-09-03 06:46:49.812] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Sending Authorized message to connection b54911e7-8991-402a-9e0e-61741de4c969 after receiving identity beta-node-000
+splinterd-beta                     | [2021-09-03 06:46:49.909] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Sending Authorized message to connection 884165cf-0de9-40bb-80e6-319b7debcea8 after receiving identity alpha-node-000
+splinterd-beta                     | [2021-09-03 06:46:49.910] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Received authorize message from 884165cf-0de9-40bb-80e6-319b7debcea8
+splinterd-beta                     | [2021-09-03 06:46:49.910] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Authorized by 884165cf-0de9-40bb-80e6-319b7debcea8
+splinterd-beta                     | [2021-09-03 06:46:49.910] T["Peer Manager"] INFO [splinter::peer] Received peer connection from alpha-node-000 (remote endpoint: tcps://172.18.0.17:40672)
+splinterd-beta                     | [2021-09-03 06:46:49.910] T["Peer Manager"] DEBUG [splinter::peer] Adding peer with id: alpha-node-000
+splinterd-alpha                    | [2021-09-03 06:46:49.913] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Received authorize message from b54911e7-8991-402a-9e0e-61741de4c969
+splinterd-alpha                    | [2021-09-03 06:46:49.913] T["AuthorizationManager--1"] DEBUG [splinter::network::auth::handlers] Authorized by b54911e7-8991-402a-9e0e-61741de4c969
+splinterd-alpha                    | [2021-09-03 06:46:49.914] T["Peer Manager"] INFO [splinter::peer] Pending peer beta-node-000 connected via tcps://splinterd-beta:8044
+splinterd-alpha                    | [2021-09-03 06:46:49.914] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service] Peer beta-node-000 has connected
+splinterd-alpha                    | [2021-09-03 06:46:49.914] T["PeerManagerNotification Receiver"] DEBUG [splinter::admin::service::shared] Sending service protocol request to admin::beta-node-000
+splinterd-alpha                    | [2021-09-03 06:46:49.914] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [63 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:49.915] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [9 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.015] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [63 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.015] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [9 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.016] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_REQUEST protocol_request {protocol_min: 1 protocol_max: 1}
+splinterd-beta                     | [2021-09-03 06:46:50.016] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [61 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.016] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [7 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.017] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [61 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.017] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [7 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.017] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: SERVICE_PROTOCOL_VERSION_RESPONSE protocol_response {protocol: 1}
+splinterd-alpha                    | [2021-09-03 06:46:50.017] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service::shared] Agreed with admin::beta-node-000 to use protocol version 1
+splinterd-alpha                    | [2021-09-03 06:46:50.099] T["consensus-admin::alpha-node-000"] DEBUG [splinter::keys::insecure] Allowing 02362e9e6c26f373a41b79a10a8b23783329c75a34772f47949d977039ff971ccc access to proposer
+splinterd-alpha                    | [2021-09-03 06:46:50.099] T["consensus-admin::alpha-node-000"] DEBUG [splinter::admin::service::shared] proposing SJIme-WlNSv
+splinterd-alpha                    | [2021-09-03 06:46:50.099] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [789 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.099] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [734 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.199] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal created: 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.199] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Starting coordination for proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.199] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Checking proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.200] T["consensus-admin::alpha-node-000"] DEBUG [splinter::keys::insecure] Allowing 02362e9e6c26f373a41b79a10a8b23783329c75a34772f47949d977039ff971ccc access to proposer
+splinterd-alpha                    | [2021-09-03 06:46:50.200] T["consensus-admin::alpha-node-000"] DEBUG [splinter::admin::service::shared] proposing SJIme-WlNSv
+splinterd-beta                     | [2021-09-03 06:46:50.200] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [789 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.200] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [734 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.201] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: PROPOSED_CIRCUIT proposed_circuit {circuit_payload {header: "\010\002\022!\0026.\236l&\363s\244\033y\241\n\213#x3)\307Z4w/G\224\235\227p9\377\227\034\314\032@\373g\266\265\303\373\361rq\372\033>Q\317\363\270\326\020{\"\345p\031\352\340F\266i\277\033\253\350n5!6\r\rE\021] \3378\357\262\006\204\256\261\346\032\023V\225\007M\3439\024@\023\344l\"\016alpha-node-000" signature: "e\032\236\2628Hu\2451\237\221h^\246!P\356T\337\245\373\353\247,\223\353\225\353\336\251P\017i\264\032\243\316\2453\254\234\254\315\300\323\201\342A\033H\031q\230v\317\333\304\373\376m\004\207PF" circuit_create_request {circuit {circuit_id: "SJIme-WlNSv" roster {service_id: "gsAA" service_type: "scabbard" allowed_nodes: "alpha-node-000" arguments {key: "admin_keys" value: "[\"0351ffcb4e01e211234785ade860a883e43699b3af23df4b53d65570ec98485d53\"]"} arguments {key: "peer_services" value: "[\"gsBB\"]"}} roster {service_id: "gsBB" service_type: "scabbard" allowed_nodes: "beta-node-000" arguments {key: "admin_keys" value: "[\"0351ffcb4e01e211234785ade860a883e43699b3af23df4b53d65570ec98485d53\"]"} arguments {key: "peer_services" value: "[\"gsAA\"]"}} members {node_id: "alpha-node-000" endpoints: "tcps://splinterd-alpha:8044"} members {node_id: "beta-node-000" endpoints: "tcps://splinterd-beta:8044"} authorization_type: TRUST_AUTHORIZATION persistence: ANY_PERSISTENCE durability: NO_DURABILITY routes: ANY_ROUTE circuit_management_type: "AB-circuit"}}} expected_hash: "b93c0762ef17fb5b2f02da8efe251fc5c57759d6ba859c2bd8104e087399b944" required_verifiers: "\n\025admin::alpha-node-000\n\024admin::beta-node-000"}
+splinterd-beta                     | [2021-09-03 06:46:50.201] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service::shared] Referencing node node_id: "alpha-node-000" endpoints: "tcps://splinterd-alpha:8044"
+splinterd-alpha                    | [2021-09-03 06:46:50.301] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal valid: 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.301] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Requesting verification of proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.301] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [151 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.301] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [97 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.376] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal received: 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.376] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Not coordinator, backlogging proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.402] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [151 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.402] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [97 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.402] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nD\010\001\022@dcd60ec2ee560673d69c74042b60d155c66bbc3f653f0e29e3912f963ba6655c\022\025admin::alpha-node-000"
+splinterd-beta                     | [2021-09-03 06:46:50.402] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal verification request received: 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.402] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Checking proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.403] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:06:46:50 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 06:46:50.404] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-03 06:46:50.406] T["consensus-admin::beta-node-000"] DEBUG [splinter::registry::yaml::remote] Forced refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 06:46:50.406] T["consensus-admin::beta-node-000"] DEBUG [splinter::keys::insecure] Allowing 02362e9e6c26f373a41b79a10a8b23783329c75a34772f47949d977039ff971ccc access to proposer
+splinterd-beta                     | [2021-09-03 06:46:50.406] T["consensus-admin::beta-node-000"] DEBUG [splinter::admin::service::shared] proposing SJIme-WlNSv
+splinterd-beta                     | [2021-09-03 06:46:50.506] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal valid: 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.506] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Sending verified response for proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.507] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [152 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.507] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [98 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.508] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [152 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.508] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [98 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.508] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nF\010\002\022@dcd60ec2ee560673d69c74042b60d155c66bbc3f653f0e29e3912f963ba6655c\030\001\022\024admin::beta-node-000"
+splinterd-alpha                    | [2021-09-03 06:46:50.508] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563 verified by peer 61646d696e3a3a626574612d6e6f64652d303030
+splinterd-alpha                    | [2021-09-03 06:46:50.509] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] All verifiers have approved; accepting proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.523] T["consensus-admin::alpha-node-000"] INFO [splinter::admin::service::shared] committed changes for new circuit proposal SJIme-WlNSv
+splinterd-alpha                    | [2021-09-03 06:46:50.523] T["consensus-admin::alpha-node-000"] INFO [splinter::admin::service::consensus] Committed proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:46:50.523] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [153 bytes]
+splinterd-alpha                    | [2021-09-03 06:46:50.523] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [99 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.624] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [153 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.625] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [99 bytes]
+splinterd-beta                     | [2021-09-03 06:46:50.625] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nF\010\003\022@dcd60ec2ee560673d69c74042b60d155c66bbc3f653f0e29e3912f963ba6655c \001\022\025admin::alpha-node-000"
+splinterd-beta                     | [2021-09-03 06:46:50.707] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Accepting proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-beta                     | [2021-09-03 06:46:50.730] T["consensus-admin::beta-node-000"] INFO [splinter::admin::service::shared] committed changes for new circuit proposal SJIme-WlNSv
+splinterd-beta                     | [2021-09-03 06:46:50.730] T["consensus-admin::beta-node-000"] INFO [splinter::admin::service::consensus] Committed proposal 64636436306563326565353630363733643639633734303432623630643135356336366262633366363533663065323965333931326639363362613636353563
+splinterd-alpha                    | [2021-09-03 06:47:06.180] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 127.0.0.1:34552 "GET /admin/circuits?limit=1000 HTTP/1.1" 200 285 "-" "-" 0.001330
+splinterd-gamma                    | [2021-09-03 06:49:09.910] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.3 - - [03/Sep/2021:06:49:09 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-gamma                    | [2021-09-03 06:49:09.911] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-gamma                    | [2021-09-03 06:49:09.912] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 06:49:10.234] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-beta                     | [2021-09-03 06:49:10.235] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:06:49:10 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 06:49:10.236] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 06:49:12.533] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:06:49:12 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-03 06:49:12.534] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-03 06:49:12.558] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 06:56:33.384] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 127.0.0.1:34684 "GET /admin/proposals?limit=1000 HTTP/1.1" 200 1266 "-" "-" 0.000155
+splinterd-beta                     | [2021-09-03 06:58:09.576] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.22:43360 "GET /admin/proposals?limit=1000 HTTP/1.1" 200 1266 "-" "-" 0.000941
+splinterd-gamma                    | [2021-09-03 06:59:09.913] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+splinterd-gamma                    | [2021-09-03 06:59:09.914] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+registry-server                    | 172.18.0.3 - - [03/Sep/2021:06:59:09 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-gamma                    | [2021-09-03 06:59:09.915] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 06:59:10.237] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:06:59:10 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 06:59:10.239] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-03 06:59:10.239] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 06:59:12.560] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:06:59:12 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-03 06:59:12.562] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-03 06:59:12.576] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-gamma                    | [2021-09-03 07:09:09.916] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.3 - - [03/Sep/2021:07:09:09 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-gamma                    | [2021-09-03 07:09:09.918] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-gamma                    | [2021-09-03 07:09:09.920] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 07:09:10.240] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:07:09:10 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 07:09:10.242] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-03 07:09:10.242] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 07:09:12.579] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:07:09:12 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-03 07:09:12.583] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-03 07:09:12.606] T["Remote Registry Automatic Refresh: http://registry-server:80/registry.yaml"] DEBUG [splinter::registry::yaml::remote]
+ Automatic refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 07:09:47.492] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.18.0.22:43494 "GET /admin/proposals?limit=1000 HTTP/1.1" 200 1266 "-" "-" 0.000221
+splinterd-beta                     | [2021-09-03 07:10:09.973] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.22:43496 "GET /status HTTP/1.1" 200 179 "-" "-" 0.000103
+splinterd-beta                     | [2021-09-03 07:10:09.975] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 172.18.0.22:43498 "GET /admin/proposals/SJIme-WlNSv HTTP/1.1" 200 976 "-" "-" 0.000246
+splinterd-beta                     | [2021-09-03 07:10:09.990] T["actix-rt:worker:0"] DEBUG [splinter::admin::service::shared] Payload submitted: header: "\010\001\022!\002\347\034\200\250~\0231\026c\017\353\004Jf\231\332<u\350y\250<\332sY\332\342\007\2042E\024\032@,\256\202\031\301\250*\265\320\342aw\274\245bJ\225\256\341(\262\027\250CH\252\375u;\270|[Am\354*_\334l\3375r\306\362\027G\275\177\374\232\346\007\322\n\345e\255od\3035\356\336T\"\rbeta-node-000" signature: "\313\276\352\253(\345\252\205,;\251\334}\257\1777?\277\355\027z\233\234j\241\032\227\372c\267J\246f\2557\001Y.\036\004\371h\242/aw|-5\331\330\235\377\0147\223y\334\270\306\207\302\320\354" circuit_proposal_vote {circuit_id: "SJIme-WlNSv" circuit_hash: "9b1e544f14e2f527ec70ea41786fe7d27083c0686f0449013eb219e176215d45" vote: ACCEPT}
+splinterd-beta                     | [2021-09-03 07:10:09.991] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.22 - - [03/Sep/2021:07:10:09 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-beta                     | [2021-09-03 07:10:09.992] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-beta                     | [2021-09-03 07:10:09.993] T["actix-rt:worker:0"] DEBUG [splinter::registry::yaml::remote] Forced refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-beta                     | [2021-09-03 07:10:09.994] T["actix-rt:worker:0"] DEBUG [splinter::keys::insecure] Allowing 02e71c80a87e133116630feb044a6699da3c75e879a83cda7359dae20784324514 access to voter
+splinterd-beta                     | [2021-09-03 07:10:09.994] T["actix-rt:worker:0"] DEBUG [splinter::admin::service::shared] received circuit vote for SJIme-WlNSv
+splinterd-beta                     | [2021-09-03 07:10:09.994] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.22:43500 "POST /admin/submit HTTP/1.1" 202 0 "-" "-" 0.003481
+splinterd-beta                     | [2021-09-03 07:10:10.069] T["consensus-admin::beta-node-000"] DEBUG [splinter::keys::insecure] Allowing 02e71c80a87e133116630feb044a6699da3c75e879a83cda7359dae20784324514 access to voter
+splinterd-beta                     | [2021-09-03 07:10:10.069] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [445 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.069] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [390 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.070] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [445 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.070] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [390 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.070] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: PROPOSED_CIRCUIT proposed_circuit {circuit_payload {header: "\010\001\022!\002\347\034\200\250~\0231\026c\017\353\004Jf\231\332<u\350y\250<\332sY\332\342\007\2042E\024\032@,\256\202\031\301\250*\265\320\342aw\274\245bJ\225\256\341(\262\027\250CH\252\375u;\270|[Am\354*_\334l\3375r\306\362\027G\275\177\374\232\346\007\322\n\345e\255od\3035\356\336T\"\rbeta-node-000" signature: "\313\276\352\253(\345\252\205,;\251\334}\257\1777?\277\355\027z\233\234j\241\032\227\372c\267J\246f\2557\001Y.\036\004\371h\242/aw|-5\331\330\235\377\0147\223y\334\270\306\207\302\320\354" circuit_proposal_vote {circuit_id: "SJIme-WlNSv" circuit_hash: "9b1e544f14e2f527ec70ea41786fe7d27083c0686f0449013eb219e176215d45" vote: ACCEPT}} expected_hash: "03d5dd6033ccdba61f2b5eec411ef3c7fd970c8245a75e5a8d899882b01dcab8" required_verifiers: "\n\025admin::alpha-node-000\n\024admin::beta-node-000"}
+splinterd-beta                     | [2021-09-03 07:10:10.169] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal created: 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.169] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Not coordinator, backlogging proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.269] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal received: 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.269] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Starting coordination for proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.269] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Checking proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.270] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::connect] starting new connection: http://registry-server/
+registry-server                    | 172.18.0.17 - - [03/Sep/2021:07:10:10 +0000] "GET /registry.yaml HTTP/1.1" 200 687
+splinterd-alpha                    | [2021-09-03 07:10:10.271] T["reqwest-internal-sync-runtime"] DEBUG [reqwest::async_impl::client] response '200 OK' for http://registry-server/registry.yaml
+splinterd-alpha                    | [2021-09-03 07:10:10.273] T["consensus-admin::alpha-node-000"] DEBUG [splinter::registry::yaml::remote] Forced refresh of remote registry 'http://registry-server:80/registry.yaml' successful
+splinterd-alpha                    | [2021-09-03 07:10:10.273] T["consensus-admin::alpha-node-000"] DEBUG [splinter::keys::insecure] Allowing 02e71c80a87e133116630feb044a6699da3c75e879a83cda7359dae20784324514 access to voter
+splinterd-alpha                    | [2021-09-03 07:10:10.474] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal valid: 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.474] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Requesting verification of proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.474] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [151 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.474] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [97 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.474] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [151 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.474] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [97 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.475] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nD\010\001\022@55f87bec2f03d0175cc4a9fce859f2f973d763db83bdf9c5e688a52e1345acb1\022\025admin::alpha-node-000"
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal verification request received: 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Checking proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["consensus-admin::beta-node-000"] DEBUG [splinter::keys::insecure] Allowing 02e71c80a87e133116630feb044a6699da3c75e879a83cda7359dae20784324514 access to voter
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Proposal valid: 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Sending verified response for proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [152 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.572] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [98 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.573] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [152 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.573] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [98 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.573] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nF\010\002\022@55f87bec2f03d0175cc4a9fce859f2f973d763db83bdf9c5e688a52e1345acb1\030\001\022\024admin::beta-node-000"
+splinterd-alpha                    | [2021-09-03 07:10:10.574] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] Proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231 verified by peer 61646d696e3a3a626574612d6e6f64652d303030
+splinterd-alpha                    | [2021-09-03 07:10:10.574] T["consensus-admin::alpha-node-000"] DEBUG [splinter::consensus::two_phase] All verifiers have approved; accepting proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.625] T["consensus-admin::alpha-node-000"] INFO [splinter::admin::service::consensus] Committed proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.625] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [87 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.625] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [33 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.626] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::alpha-node-000 [153 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.626] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [99 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.626] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [87 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.627] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [33 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.628] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from alpha-node-000 [153 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.629] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::alpha-node-000 => admin::beta-node-000) [99 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.631] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: MEMBER_READY member_ready {circuit_id: "SJIme-WlNSv" member_node_id: "alpha-node-000"}
+splinterd-beta                     | [2021-09-03 07:10:10.631] T["Service admin::beta-node-000"] DEBUG [splinter::admin::service] received admin message message_type: CONSENSUS_MESSAGE consensus_message: "\nF\010\003\022@55f87bec2f03d0175cc4a9fce859f2f973d763db83bdf9c5e688a52e1345acb1 \001\022\025admin::alpha-node-000"
+splinterd-beta                     | [2021-09-03 07:10:10.632] T["consensus-admin::beta-node-000"] DEBUG [splinter::consensus::two_phase] Accepting proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-beta                     | [2021-09-03 07:10:10.686] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from admin::beta-node-000 [86 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.686] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [32 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.714] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from orchestator::beta-node-000 [57 bytes]
+splinterd-beta                     | [2021-09-03 07:10:10.714] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "SJIme-WlNSv" service_id: "gsBB" correlation_id: "0a2018b5-77c7-4481-811a-db9ea84b5317"
+splinterd-beta                     | [2021-09-03 07:10:10.715] T["consensus-admin::beta-node-000"] INFO [splinter::admin::service::consensus] Committed proposal 35356638376265633266303364303137356363346139666365383539663266393733643736336462383362646639633565363838613532653133343561636231
+splinterd-alpha                    | [2021-09-03 07:10:10.787] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage ADMIN_DIRECT_MESSAGE from beta-node-000 [86 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.788] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::admin_message] Handle Admin Direct Message on admin (admin::beta-node-000 => admin::alpha-node-000) [32 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.788] T["Service admin::alpha-node-000"] DEBUG [splinter::admin::service] received admin message message_type: MEMBER_READY member_ready {circuit_id: "SJIme-WlNSv" member_node_id: "beta-node-000"}
+splinterd-alpha                    | [2021-09-03 07:10:10.805] T["NetworkDispatchLoop"] DEBUG [splinter::circuit::handlers::circuit_message] Handle CircuitMessage SERVICE_CONNECT_REQUEST from orchestator::alpha-node-000 [57 bytes]
+splinterd-alpha                    | [2021-09-03 07:10:10.805] T["CircuitDispatchLoop"] DEBUG [splinter::circuit::handlers::service_handlers] Handle Service Connect Request circuit: "SJIme-WlNSv" service_id: "gsAA" correlation_id: "13259b2c-5f6d-4567-8f54-7b80e4a4ebcf"
+splinterd-beta                     | [2021-09-03 07:10:16.020] T["actix-rt:worker:1"] INFO [actix_web::middleware::logger] 127.0.0.1:34832 "GET /admin/circuits?limit=1000 HTTP/1.1" 200 819 "-" "-" 0.000166
+
+gridd-alpha                        | DEBUG [reqwest::connect] starting new connection: http://splinterd-alpha:8085/
+splinterd-alpha                    | [2021-09-03 07:12:07.659] T["actix-rt:worker:0"] DEBUG [scabbard::service] Batch Status Link Created: /scabbard/SJIme-WlNSv/gsAA/batch_statuses?ids=7629cf62007cc92ac50f7ea520e6fa2330a58bbe69ffd660f2365a27ae0b1144680028bf454db46eef0a46993253b6f11c9628e4b683267982b297c4670b2429
+splinterd-alpha                    | [2021-09-03 07:12:07.659] T["actix-rt:worker:0"] INFO [actix_web::middleware::logger] 172.18.0.26:57448 "POST /scabbard/SJIme-WlNSv/gsAA/batches HTTP/1.1" 202 185 "-" "-" 0.000452
+gridd-alpha                        | DEBUG [reqwest::async_impl::client] response '202 Accepted' for http://splinterd-alpha:8085/scabbard/SJIme-WlNSv/gsAA/batches
+splinterd-alpha                    | [2021-09-03 07:12:07.687] T["consensus-gsAA"] DEBUG [transact::execution::executor] Execute called, creating execution adapter 0
+splinterd-alpha                    | [2021-09-03 07:12:07.687] T["StaticExecutionAdapter"] DEBUG [transact::execution::adapter::static_adapter] Executing TransactionPair { transaction: Transaction {header_signature: "5eb73168dcff2280b3cf97f53dcbb624a37d83bc65ac1df02e2d5baf269e436315bc42a315039347ae33aab4c990043d0edcff71c9039c977fca6b3b627d1fd3", header: <737 bytes>,  payload: <98 bytes> }, header: TransactionHeader{ family_name: "sabre", family_version: "0.5", inputs: ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]outputs: ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]signer_public_key: "02efeb597a7c9aa5f07754f740ad5d88a22fe1347ed04703e4b049f437b3b33102", payload_hash: "71fab46235143a9a03ffb160298d9fd2ba28c97b5b2a5721733a7399d4967d1abd0b41a89f5364ca0ad677efd3306e59f43b2875f50dbf9eb688d822d3462c24", payload_hash_method: SHA512, nonce: "30313030" } } in context [223, 32, 85, 0, 227, 160, 65, 46, 191, 244, 196, 157, 174, 150, 42, 231]
+splinterd-alpha                    | [2021-09-03 07:12:07.687] T["ExecutionTaskReader-0"] DEBUG [transact::execution::executor::reader] Completed task iterator!
+splinterd-alpha                    | [2021-09-03 07:12:07.691] T["StaticExecutionAdapter"] INFO [sawtooth_sabre::handler] Action: Execute Contract ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"] ["00ec018edefe4fbe496d59fcabd87aa450da078d5c856b9f8aa4e8944e68fdefd121a8", "00ec025e503966e698583f792b5d6e6062c97640e5eb2cfc72c4c64f9d3b6a95cfac46", "00ec00ebfd680ea8abffc272049e01409cda9efec943f4ddca0263897e715913a04705", "621dee05"]
+splinterd-alpha                    | [2021-09-03 07:12:07.692] T["consensus-gsAA"] ERROR [splinter::consensus::two_phase] Error while creating proposal: proposal manager error occurred: scabbard state error: transaction failed: "Contract does not exist: grid_pike, 2"

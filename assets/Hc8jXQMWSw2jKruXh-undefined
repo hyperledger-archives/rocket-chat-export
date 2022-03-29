@@ -1,0 +1,25 @@
+?NQ?,syscc=false,proposal=0xc421445f40,canname=end2end:0/testchainid
+2017-02-07 01:34:08.135 UTC [chaincode] getArgsAndEnv -> DEBU 9e0 Executable is /opt/gopath/bin/end2end
+2017-02-07 01:34:08.135 UTC [chaincode] Deploy -> DEBU 9e1 deploying chaincode end2end:0/testchainid(networkid:dev,peerid:vp0)
+2017-02-07 01:34:08.135 UTC [container] lockContainer -> DEBU 9e2 waiting for container(dev-vp0-end2end-0-305216ca522e84d0bf8c2b542b16bd3901dcb1879a970ae7c1eee3a74fbdee583eb8b74ad88edefc3d9647d47663f6b14574734c93a36b3968b077f3870d79cf) lock
+2017-02-07 01:34:08.135 UTC [container] lockContainer -> DEBU 9e3 got container (dev-vp0-end2end-0-305216ca522e84d0bf8c2b542b16bd3901dcb1879a970ae7c1eee3a74fbdee583eb8b74ad88edefc3d9647d47663f6b14574734c93a36b3968b077f3870d79cf) lock
+2017-02-07 01:34:08.656 UTC [gossip/discovery#172.20.0.4:7051] periodicalSendAlive -> DEBU 9e4 Sleeping 5s
+2017-02-07 01:34:08.657 UTC [gossip/comm#-1] Send -> INFO 9e5 Entering, sending tag:EMPTY signature:"0E\002!\000\315o\331\307\255g0/fc\270\031;\262\335\311)\376\351\240]b\033j\327;\022R4\317\324\020\002 6a\3457S*\3405\n\206$V\001 \"\324\333\235\237\312\204\270\027\320\336\247\375\036-\357\310\213" aliveMsg:<membership:<endpoint:"172.20.0.4:7051" pkiID:"\037\273\337\266\307\256[\312\266\303Le\301DR\221K3K\366x\205\271\032\355\320\226\211\237H\332\205" > timestamp:<inc_number:1486429302596121224 seqNum:877 > >  to  0 peers
+2017-02-07 01:34:09.034 UTC [dockercontroller] deployImage -> ERRO 9e6 Error building images: The command '/bin/sh -c go install github.com/example_cc && mv $GOPATH/bin/example_cc $GOPATH/bin/end2end' returned a non-zero code: 1
+2017-02-07 01:34:09.034 UTC [dockercontroller] deployImage -> ERRO 9e7 Image Output:
+********************
+Step 1/4 : FROM hyperledger/fabric-ccenv:x86_64-0.7.0-snapshot-7b5c1b6
+ ---> 7dc0f14d50c8
+Step 2/4 : WORKDIR $GOPATH
+ ---> Using cache
+ ---> eb44f110ad5c
+Step 3/4 : ADD codepackage.tgz $GOPATH
+ ---> Using cache
+ ---> 557cff1f326f
+Step 4/4 : RUN go install github.com/example_cc && mv $GOPATH/bin/example_cc $GOPATH/bin/end2end
+ ---> Running in 4e04fd0b2cb1
+can't load package: package github.com/example_cc: cannot find package "github.com/example_cc" in any of:
+        /opt/go/src/github.com/example_cc (from $GOROOT)
+        /opt/gopath/src/github.com/example_cc (from $GOPATH)
+
+********************

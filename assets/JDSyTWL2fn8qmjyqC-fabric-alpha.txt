@@ -1,0 +1,44 @@
+2018-02-09 03:51:41.311 UTC [chaincode-platform] generateDockerfile -> DEBU 460
+FROM hyperledger/fabric-baseimage:x86_64-0.4.5
+ADD binpackage.tar /usr/local/src
+LABEL org.hyperledger.fabric.chaincode.id.name="tutorial-network" \
+      org.hyperledger.fabric.chaincode.id.version="0.17.4" \
+      org.hyperledger.fabric.chaincode.type="NODE" \
+      org.hyperledger.fabric.version="1.1.0-alpha" \
+      org.hyperledger.fabric.base.version="0.4.5"
+ENV CORE_CHAINCODE_BUILDLEVEL=1.1.0-alpha
+2018-02-09 03:51:41.312 UTC [util] DockerBuild -> DEBU 461 Attempting build with image hyperledger/fabric-ccenv:x86_64-1.1.0-alpha
+2018-02-09 03:56:41.307 UTC [chaincode] launchAndWaitForRegister -> DEBU 462 stopping due to error while launching: timeout expired while starting chaincode tutal-network:0.17.4(networkid:dev,peerid:peer0.org1.example.com,tx:655af3770d98a5bd9cd0a096d0e422b12da4a757464ad54b5900dc48a7fe4d9c)
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).launchAndWaitForRegister
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:567
+github.com/hyperledger/fabric/core/chaincode.(*ChaincodeSupport).Launch
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/chaincode_support.go:729
+github.com/hyperledger/fabric/core/chaincode.Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/chaincode/exectransaction.go:45
+github.com/hyperledger/fabric/core/endorser.(*SupportImpl).Execute
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/support.go:83
+github.com/hyperledger/fabric/core/endorser.(*Endorser).callChaincode
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:155
+github.com/hyperledger/fabric/core/endorser.(*Endorser).simulateProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:256
+github.com/hyperledger/fabric/core/endorser.(*Endorser).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/endorser/endorser.go:458
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*expirationCheckFilter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/expiration.go:61
+github.com/hyperledger/fabric/core/handlers/auth/filter.(*filter).ProcessProposal
+        /opt/gopath/src/github.com/hyperledger/fabric/core/handlers/auth/filter/filter.go:31
+github.com/hyperledger/fabric/protos/peer._Endorser_ProcessProposal_Handler
+        /opt/gopath/src/github.com/hyperledger/fabric/protos/peer/peer.pb.go:112
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).processUnaryRPC
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:781
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).handleStream
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:981
+github.com/hyperledger/fabric/vendor/google.golang.org/grpc.(*Server).serveStreams.func1.1
+        /opt/gopath/src/github.com/hyperledger/fabric/vendor/google.golang.org/grpc/server.go:551
+runtime.goexit
+        /opt/go/src/runtime/asm_amd64.s:2337
+2018-02-09 03:56:41.307 UTC [container] lockContainer -> DEBU 463 refcount 2 (dev-peer0.org1.example.com-tutorial-network-0.17.4)
+2018-02-09 03:56:41.307 UTC [container] lockContainer -> DEBU 464 waiting for container(dev-peer0.org1.example.com-tutorial-network-0.17.4) lock
+2018-02-09 03:56:41.316 UTC [eventhub_producer] validateEventMessage -> DEBU 465 validating for signed event 0xc4217cf3b0
+2018-02-09 03:56:41.317 UTC [eventhub_producer] deRegisterHandler -> DEBU 466 deregistering event type: BLOCK
+2018-02-09 03:56:41.323 UTC [eventhub_producer] Chat -> ERRO 467 error during Chat, stopping handler: rpc error: code = Canceled desc = context canceled

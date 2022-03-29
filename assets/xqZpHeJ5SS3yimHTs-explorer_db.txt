@@ -1,0 +1,150 @@
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
+creating configuration files ... ok
+running bootstrap script ... ok
+sh: locale: not found
+2020-07-01 16:38:19.707 UTC [25] WARNING:  no usable system locales were found
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+****************************************************
+WARNING: No password has been set for the database.
+         This will allow anyone with access to the
+         Postgres port to access your database. In
+         Docker's default configuration, this is
+         effectively any other container on the same
+         system.
+
+         Use "-e POSTGRES_PASSWORD=password" to set
+         it in "docker run".
+****************************************************
+waiting for server to start....2020-07-01 16:38:23.325 UTC [30] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2020-07-01 16:38:23.383 UTC [31] LOG:  database system was shut down at 2020-07-01 16:38:20 UTC
+2020-07-01 16:38:23.396 UTC [30] LOG:  database system is ready to accept connections
+ done
+server started
+ALTER ROLE
+
+
+/usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/createdb.sh
+Copying ENV variables into temp file...
+USER="hppoc"
+DATABASE="fabricexplorer"
+PASSWD='password'
+Executing SQL scripts, OS=linux-musl
+CREATE ROLE
+psql:./explorerpg.sql:7: NOTICE:  database "fabricexplorer" does not exist, skipping
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "fabricexplorer" as user "postgres".
+psql:./explorerpg.sql:15: NOTICE:  table "blocks" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+DROP TABLE
+psql:./explorerpg.sql:37: NOTICE:  table "chaincodes" does not exist, skipping
+CREATE TABLE
+ALTER TABLE
+ALTER SEQUENCE
+psql:./explorerpg.sql:57: NOTICE:  table "peer_ref_chaincode" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+psql:./explorerpg.sql:74: NOTICE:  table "channel" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+ALTER SEQUENCE
+psql:./explorerpg.sql:99: NOTICE:  table "peer" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+DROP TABLE
+psql:./explorerpg.sql:120: NOTICE:  table "peer_ref_channel" does not exist, skipping
+CREATE TABLE
+ALTER TABLE
+psql:./explorerpg.sql:137: NOTICE:  table "orderer" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+psql:./explorerpg.sql:155: NOTICE:  table "transactions" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ALTER TABLE
+ALTER SEQUENCE
+DROP TABLE
+psql:./explorerpg.sql:187: NOTICE:  table "write_lock" does not exist, skipping
+CREATE TABLE
+ALTER TABLE
+ALTER SEQUENCE
+psql:./explorerpg.sql:196: NOTICE:  index "blocks_blocknum_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+psql:./explorerpg.sql:200: NOTICE:  index "blocks_channel_genesis_hash_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+psql:./explorerpg.sql:204: NOTICE:  index "blocks_createdt_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+psql:./explorerpg.sql:208: NOTICE:  index "transaction_txhash_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+psql:./explorerpg.sql:212: NOTICE:  index "transaction_channel_genesis_hash_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+psql:./explorerpg.sql:216: NOTICE:  index "transaction_createdt_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+DROP INDEX
+psql:./explorerpg.sql:220: NOTICE:  index "transaction_blockid_idx" does not exist, skipping
+CREATE INDEX
+DROP INDEX
+psql:./explorerpg.sql:224: NOTICE:  index "transaction_chaincode_proposal_input_idx" does not exist, skipping
+CREATE INDEX
+DROP INDEX
+psql:./explorerpg.sql:229: NOTICE:  index "channel_channel_genesis_hash_idx" does not exist, skipping
+CREATE INDEX
+psql:./explorerpg.sql:233: NOTICE:  index "channel_channel_hash_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+GRANT
+You are now connected to database "fabricexplorer" as user "postgres".
+
+2020-07-01 16:38:24.909 UTC [30] LOG:  received fast shutdown request
+waiting for server to shut down....2020-07-01 16:38:24.917 UTC [30] LOG:  aborting any active transactions
+2020-07-01 16:38:24.917 UTC [30] LOG:  worker process: logical replication launcher (PID 37) exited with exit code 1
+2020-07-01 16:38:24.918 UTC [32] LOG:  shutting down
+2020-07-01 16:38:25.026 UTC [30] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2020-07-01 16:38:25.133 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2020-07-01 16:38:25.133 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2020-07-01 16:38:25.147 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2020-07-01 16:38:25.177 UTC [64] LOG:  database system was shut down at 2020-07-01 16:38:25 UTC
+2020-07-01 16:38:25.191 UTC [1] LOG:  database system is ready to accept connections
+2020-07-01 16:38:25.404 UTC [71] LOG:  incomplete startup packet
+2020-07-01 16:51:57.571 UTC [101] LOG:  incomplete startup packet
+2020-07-01 16:56:57.038 UTC [114] LOG:  incomplete startup packet

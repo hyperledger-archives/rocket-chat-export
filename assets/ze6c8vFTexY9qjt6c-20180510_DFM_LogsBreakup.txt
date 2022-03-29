@@ -1,0 +1,25 @@
+Initial Data Processes - but the peer, this itself is taking 11 seconds
+------------------------------------------------------------------------------------------------------
+1302 05:44:01.254 - start valiating endorsing on peer.
+1353 05:44:01.271 - ValidateAndPrepareBatch
+1436 05:44:01.390 - Ledger Commit
+1479  05:44:05.131 - onstructing new tx simulator\n","stream":"stderr","time":"2018-05-10T05:44:05.136149142Z"}
+1480 05:44:06.458 - Adding payload locally
+1481 05:44:06.460 - deliver blocks
+1482 05:44:11.546 - [couchdb] handleRequest -\u003e DEBU 934\u001b[0m Couch DB Error:not_found,  Status Code:404,  Reason:missing\n","stream":"stderr","time":"2018-05-10T05:44:11.548012961Z"}
+
+Gets block from other peers (after 6 seconds)
+-------------------------------------------------------------------------------------------------------
+1569 - {"log":"\u001b[36m2018-05-10 05:44:21.906 UTC [couchdb] handleRequest -\u003e DEBU 98b\u001b[0m Couch DB Error:not_found,  Status Code:404,  Reason:missing\n","stream":"stderr","time":"2018-05-10T05:44:21.907900249Z"}
+1570 - {"log":"\u001b[36m2018-05-10 05:44:21.906 UTC [couchdb] ReadDoc -\u003e DEBU 98c\u001b[0m Document not found (404), returning nil value instead of 404 error\n","stream":"stderr","time":"2018-05-10T05:44:21.90798638Z"}
+-------------------------------------------------------------------------------------------------------
+Like above it recieves updates from all the peers
+-------------------------------------------------------------------------------------------------------
+
+LSCC Process to save and write it to the ledger and communicate back to all peers
+-------------------------------------------------------------------------------------------------------
+1622 - Actual LSCC process kicks up and saves the transaction - so from 44:01 to 44:42 the client is waiting
+{"log":"\u001b[36m2018-05-10 05:44:42.247 UTC [ccprovider] NewCCContext -\u003e DEBU 9c0\u001b[0m NewCCCC (chain=agmchannel,chaincode=lscc,version=1.0.5,txid=274ce537bc1ec58c16040ae941aebcfa65ffcf26476f88879221355fe504ed57,syscc=true,proposal=0xc421c1c730,canname=lscc:1.0.5\n","stream":"stderr","time":"2018-05-10T05:44:42.256500097Z"}
+{"log":"\u001b[36m2018-05-10 05:44:42.247 UTC [chaincode] Launch -\u003e DEBU 9c1\u001b[0m chaincode is running(no need to launch) : lscc:1.0.5\n","stream":"stderr","time":"2018-05-10T05:44:42.256519629Z"}
+{"log":"\u001b[36m2018-05-10 05:44:42.247 UTC [chaincode] Execute -\u003e DEBU 9c2\u001b[0m Entry\n","stream":"stderr","time":"2018-05-10T05:44:42.256534407Z"}
+

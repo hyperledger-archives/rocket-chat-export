@@ -1,0 +1,32 @@
+
+peer1.orh1.ehr.com    | 2018-03-26 17:50:41.169 UTC [peer/gossip/mcs] Verify -> ERRO 08d Failed getting validated identity from peer identity [Peer Identity [] cannot be validated. No MSP found able to do that.]
+peer1.org1.ehr.com    | 2018-03-26 17:50:41.170 UTC [gossip/gossip] handleMessage -> WARN 08e Failed validating identity message: Peer Identity [] cannot be validated. No MSP found able to do that.
+peer1.org1.ehr.com    | Failed verifying message
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*certStore).validateIdentityMsg
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/certstore.go:104
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*certStore).handleMessage
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/certstore.go:76
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*gossipServiceImpl).handleMessage
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/gossip_impl.go:405
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*gossipServiceImpl).acceptMessages
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/gossip_impl.go:332
+peer1.org1.ehr.com    | runtime.goexit
+peer1.org1.ehr.com    |    /opt/go/src/runtime/asm_amd64.s:2337
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*certStore).handleMessage
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/certstore.go:77
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*gossipServiceImpl).handleMessage
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/gossip_impl.go:405
+peer1.org1.ehr.com    | github.com/hyperledger/fabric/gossip/gossip.(*gossipServiceImpl).acceptMessages
+peer1.org1.ehr.com    |    /opt/gopath/src/github.com/hyperledger/fabric/gossip/gossip/gossip_impl.go:332
+peer1.org1.ehr.com    | runtime.goexit
+peer1.org1.ehr.com    |    /opt/go/src/runtime/asm_amd64.s:2337
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.010 UTC [gossip/comm] sendToEndpoint -> WARN 0ce Failed obtaining connection for peer1.org2.ehr.com:7051, PKIid:[37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128] reason: x509: certificate is valid for peer0.org2.ehr.com, peer0, not peer1.org2.ehr.com
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.011 UTC [gossip/discovery] expireDeadMembers -> WARN 0cf Entering [[37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128]]
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.012 UTC [gossip/discovery] expireDeadMembers -> WARN 0d0 Closing connection to Endpoint: peer1.org2.ehr.com:7051, InternalEndpoint: , PKI-ID: [37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128], Metadata: []
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.012 UTC [gossip/discovery] expireDeadMembers -> WARN 0d1 Exiting
+peer1.org1.ehr.com    | 2018-03-26 17:50:42.227 UTC [gossip/gossip] handleMessage -> WARN 08f Message GossipMessage: tag:EMPTY alive_msg:<membership:<endpoint:"peer0.org2.ehr.com:7051" pki_id:"\317I\3113B\204\223V\t\250EqS\004\261\346i\363\244\333\036Y\035\253T817\3205\202q" > timestamp:<inc_num:1522085217904647472 seq_num:1097 > > , Envelope: 85 bytes, Signature: 71 bytes isn't valid
+peer1.org1.ehr.com    | 2018-03-26 17:50:42.311 UTC [gossip/gossip] handleMessage -> WARN 090 Message GossipMessage: tag:EMPTY alive_msg:<membership:<endpoint:"peer1.org2.ehr.com:7051" pki_id:"%O\341\372d\255T\t\204W#h$\263\237\271\226\332\275\373&\233\224\025=\002\025\263(_\322\200" > timestamp:<inc_num:1522085217990052598 seq_num:996 > > , Envelope: 85 bytes, Signature: 70 bytes isn't valid
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.317 UTC [gossip/comm] sendToEndpoint -> WARN 0d2 Failed obtaining connection for peer1.org2.ehr.com:7051, PKIid:[37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128] reason: x509: certificate is valid for peer0.org2.ehr.com, peer0, not peer1.org2.ehr.com
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.318 UTC [gossip/discovery] expireDeadMembers -> WARN 0d3 Entering [[37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128]]
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.318 UTC [gossip/discovery] expireDeadMembers -> WARN 0d4 Closing connection to Endpoint: peer1.org2.ehr.com:7051, InternalEndpoint: , PKI-ID: [37 79 225 250 100 173 84 9 132 87 35 104 36 179 159 185 150 218 189 251 38 155 148 21 61 2 21 179 40 95 210 128], Metadata: []
+peer0.org1.ehr.com    | 2018-03-26 17:50:42.319 UTC [gossip/discovery] expireDeadMembers -> WARN 0d5 Exiting

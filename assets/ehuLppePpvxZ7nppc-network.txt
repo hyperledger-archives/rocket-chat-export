@@ -1,0 +1,312 @@
+---
+# This is a sample configuration file for SupplyChain App which has 5 nodes.
+network:
+  # Network level configuration specifies the attributes required for each organization
+  # to join an existing network.
+  type: fabric
+  version: 2.0.0                 # currently tested 1.4.0 and 1.4.4
+
+  frontend: disabled #Flag for frontend to enabled for nodes/peers
+  
+  #Environment section for Kubernetes setup
+  env:
+    type: "dev"              # tag for the environment. Important to run multiple flux on single cluster
+    proxy: haproxy                  # values can be 'haproxy' or 'ambassador'
+    ambassadorPorts: 15010,15020    # Any additional Ambassador ports can be given here, must be comma-separated without spaces, this is valid only if proxy='ambassador'
+    retry_count: 20                 # Retry count for the checks
+    external_dns: disabled           # Should be enabled if using external-dns for automatic route configuration
+
+  # Docker registry details where images are stored. This will be used to create k8s secrets
+  # Please ensure all required images are built and stored in this registry.
+  # Do not check-in docker_password.
+  docker:
+    url: "index.docker.io/hyperledgerlabs"
+    username: "docker_username"
+    password: "docker_password"
+  
+  # Remote connection information for orderer (will be blank or removed for orderer hosting organization)
+  # For RAFT consensus, have odd number (2n+1) of orderers for consensus agreement to have a majority.
+  orderers:
+    - orderer:
+      type: orderer
+      name: orderer1
+      org_name: ordorg               #org_name should match one organization definition below in organizations: key            
+      uri: orderer1.ordorg-net:7050   # Can be external or internal URI for orderer which should be reachable by all peers
+      certificate: /home/blockchain-automation-framework/orderer-certs/orderer1.crt           # Ensure that the directory exists
+
+  
+  # The channels defined for a network with participating peers in each channel
+  channels:
+  - channel:
+    consortium: MyConsortium
+    channel_name: AllChannel
+    orderer: 
+      name: ordorg
+    participants:
+    - organization:
+      name: org1
+      type: creator       # creator organization will create the channel and instantiate chaincode, in addition to joining the channel and install chaincode
+      org_status: new
+      peers:
+      - peer:
+        name: peer0
+        gossipAddress: peer0.org1-net:7051 # External or internal URI of the gossip peer
+      ordererAddress: orderer1.ordorg-net:7050             # External or internal URI of the orderer
+    - organization:      
+      name: org2
+      type: joiner        # joiner organization will only join the channel and install chaincode
+      org_status: new
+      peers:
+      - peer:
+        name: peer0
+        gossipAddress: peer0.org2-net:7051
+      ordererAddress: orderer1.ordorg-net:7050
+    genesis:
+      name: OrdererGenesis  
+
+  # Allows specification of one or many organizations that will be connecting to a network.
+  # If an organization is also hosting the root of the network (e.g. doorman, membership service, etc),
+  # then these services should be listed in this section as well.
+  organizations:
+
+    # Specification for the 1st organization. Each organization maps to a VPC and a separate k8s cluster
+    - organization:
+      name: ordorg
+      country: UK
+      state: London
+      location: London
+      subject: "O=Orderer,L=51.50/-0.13/London,C=GB"
+      type: orderer
+      external_url_suffix: ordorg-net
+      org_status: new
+      ca_data:
+        url: ca.ordorg-net:7054
+        certificate: file/server.crt        # This has not been implemented in 0.2.0.0
+  
+      cloud_provider: azure   # Options: aws, azure, gcp, minikube
+      aws:
+        access_key: "aws_access_key"        # AWS Access key, only used when cloud_provider=aws
+        secret_key: "aws_secret_key"        # AWS Secret key, only used when cloud_provider=aws
+  
+      # Kubernetes cluster deployment variables. The config file path and name has to be provided in case
+      # the cluster has already been created.
+      k8s:
+        region: "cluster_region"
+        context: "andromeda"
+        config_file: "/home/blockchain-automation-framework/build/config"
+
+      # Hashicorp Vault server address and root-token. Vault should be unsealed.
+      # Do not check-in root_token
+      vault:
+        url: "http://vault-test.eastus.azurecontainer.io:8200"
+        root_token: "s.qeeU080dTPYHtG2S4B3OUyLj"
+
+      # Git Repo details which will be used by GitOps/Flux.
+      # Do not check-in git_access_token
+      gitops:
+        git_ssh: "ssh://git@github.com/sivaramsk/blockchain-automation-framework.git"         # Gitops ssh url for flux value files 
+        branch: "try2"           # Git branch where release is being made
+        release_dir: "platforms/hyperledger-fabric/releases/dev" # Relative Path in the Git repo for flux sync per environment. 
+        chart_source: "platforms/hyperledger-fabric/charts"     # Relative Path where the Helm charts are stored in Git repo
+        git_push_url: "github.com/sivaramsk/blockchain-automation-framework.git"   # Gitops https URL for git push  (without https://)
+        username: "sivaramsk"          # Git Service user who has rights to check-in in all branches
+        password: "515e9eca60bb594c423e461add0eeb1365129f07"          # Git Server user password
+        email: "sivaramsk@gmail.com"                # Email to use in git config
+        private_key: "/home/blockchain-automation-framework/build/gitops"          # Path to private key file which has write-access to the git repo
+     
+      # Services maps to the pods that will be deployed on the k8s cluster
+      # This sample is an orderer service and includes a zk-kafka consensus
+      services:
+        ca:
+          name: ca
+          subject: "/C=GB/ST=London/L=London/O=Orderer/CN=ca.supplychain-net"
+          type: ca
+          grpc:
+            port: 7054
+        
+        consensus:
+          name: raft
+          type: broker        #This field is not consumed for raft consensus
+          replicas: 4         #This field is not consumed for raft consensus
+          grpc:
+            port: 9092        #This field is not consumed for raft consensus
+                
+        orderers:
+        # This sample has multiple orderers as an example.
+        # You can use a single orderer for most production implementations.
+        # For RAFT consensus, have odd number (2n+1) of orderers for consensus agreement to have a majority.
+        - orderer:
+          name: orderer1
+          type: orderer
+          consensus: raft
+          grpc:
+            port: 7050   
+        
+    - organization:
+      name: org1
+      country: GB
+      state: London
+      location: London
+      subject: "O=Carrier,OU=Carrier,L=51.50/-0.13/London,C=GB"
+      type: peer
+      external_url_suffix: org1-net
+      org_status: new
+      ca_data:
+        url: ca.org1-net:7054
+        certificate: file/server.crt
+      
+      cloud_provider: azure   # Options: aws, azure, gcp, minikube
+      aws:
+        access_key: "aws_access_key"        # AWS Access key, only used when cloud_provider=aws
+        secret_key: "aws_secret_key"        # AWS Secret key, only used when cloud_provider=aws
+  
+      # Kubernetes cluster deployment variables. The config file path and name has to be provided in case
+      # the cluster has already been created.
+      k8s:
+        region: "cluster_region"
+        context: "andromeda"
+        config_file: "/home/blockchain-automation-framework/build/config"
+
+      # Hashicorp Vault server address and root-token. Vault should be unsealed.
+      # Do not check-in root_token
+      vault:
+        url: "http://vault-test.eastus.azurecontainer.io:8200"
+        root_token: "s.qeeU080dTPYHtG2S4B3OUyLj"
+
+      # Git Repo details which will be used by GitOps/Flux.
+      # Do not check-in git_access_token
+      gitops:
+        git_ssh: "ssh://git@github.com/sivaramsk/blockchain-automation-framework.git"         # Gitops ssh url for flux value files 
+        branch: "try2"           # Git branch where release is being made
+        release_dir: "platforms/hyperledger-fabric/releases/dev" # Relative Path in the Git repo for flux sync per environment. 
+        chart_source: "platforms/hyperledger-fabric/charts"     # Relative Path where the Helm charts are stored in Git repo
+        git_push_url: "github.com/sivaramsk/blockchain-automation-framework.git"   # Gitops https URL for git push  (without https://)
+        username: "sivaramsk"          # Git Service user who has rights to check-in in all branches
+        password: "515e9eca60bb594c423e461add0eeb1365129f07"          # Git Server user password
+        email: "sivaramsk@gmail.com"                # Email to use in git config
+        private_key: "/home/blockchain-automation-framework/build/gitops"          # Path to private key file which has write-access to the git repo
+
+      services:
+        ca:
+          name: ca
+          subject: "/C=GB/ST=London/L=London/O=Carrier/CN=ca.carrier-net"
+          type: ca
+          grpc:
+            port: 7054
+        peers:
+        - peer:
+          name: peer0          
+          type: anchor    # This can be anchor/nonanchor. Atleast one peer should be anchor peer.    
+          gossippeeraddress: peer0.org1-net:7051 # Internal Address of the other peer in same Org for gossip, same peer if there is only one peer          
+          grpc:
+            port: 7051         
+          events:
+            port: 7053
+          couchdb:
+            port: 5984
+          restserver:
+            targetPort: 20001
+            port: 20001 
+          expressapi:
+            targetPort: 3000
+            port: 3000
+          chaincode:
+            name: "chaincode_name"   #This has to be replaced with the name of the chaincode
+            version: "chaincode_version"   #This has to be replaced with the version of the chaincode
+            maindirectory: "chaincode_main"    #The main directory where chaincode is needed to be placed
+            repository:
+              username: "git_username"          # Git Service user who has rights to check-in in all branches
+              password: "git_access_token"
+              url: "github.com/<username>/blockchain-automation-framework.git"
+              branch: develop 
+              path: "chaincode_src"    #The path to the chaincode 
+            arguments: 'chaincode_args'       #Arguments to be passed along with the chaincode parameters
+            endorsements: ""          #Endorsements (if any) provided along with the chaincode
+ 
+    - organization:
+      name: org2
+      country: US
+      state: New York
+      location: New York
+      subject: "O=Store,OU=Store,L=40.73/-74/New York,C=US"
+      type: peer
+      external_url_suffix: org2-net
+      org_status: new
+      ca_data:
+        url: ca.org2-net:7054
+        certificate: file/server.crt
+      
+      cloud_provider: azure   # Options: aws, azure, gcp, minikube
+      aws:
+        access_key: "aws_access_key"        # AWS Access key, only used when cloud_provider=aws
+        secret_key: "aws_secret_key"        # AWS Secret key, only used when cloud_provider=aws
+  
+      # Kubernetes cluster deployment variables. The config file path and name has to be provided in case
+      # the cluster has already been created.
+      k8s:
+        region: "cluster_region"
+        context: "andromeda"
+        config_file: "/home/blockchain-automation-framework/build/config"
+
+      # Hashicorp Vault server address and root-token. Vault should be unsealed.
+      # Do not check-in root_token
+      vault:
+        url: "http://vault-test.eastus.azurecontainer.io:8200"
+        root_token: "s.qeeU080dTPYHtG2S4B3OUyLj"
+
+      # Git Repo details which will be used by GitOps/Flux.
+      # Do not check-in git_access_token
+      gitops:
+        git_ssh: "ssh://git@github.com/sivaramsk/blockchain-automation-framework.git"         # Gitops ssh url for flux value files 
+        branch: "try2"           # Git branch where release is being made
+        release_dir: "platforms/hyperledger-fabric/releases/dev" # Relative Path in the Git repo for flux sync per environment. 
+        chart_source: "platforms/hyperledger-fabric/charts"     # Relative Path where the Helm charts are stored in Git repo
+        git_push_url: "github.com/sivaramsk/blockchain-automation-framework.git"   # Gitops https URL for git push  (without https://)
+        username: "sivaramsk"          # Git Service user who has rights to check-in in all branches
+        password: "515e9eca60bb594c423e461add0eeb1365129f07"          # Git Server user password
+        email: "sivaramsk@gmail.com"                # Email to use in git config
+        private_key: "/home/blockchain-automation-framework/build/gitops"          # Path to private key file which has write-access to the git repo
+
+      #Optional for infrastructure configuration files.
+      infrastructure:
+        target_state: "present"  # Options: present, absent, planned            
+        refresh_inventory: yes  
+
+        
+      services:
+        ca:
+          name: ca
+          subject: "/C=US/ST=New York/L=New York/O=Store/CN=ca.store-net"
+          type: ca
+          grpc:
+            port: 7054
+        peers:
+        - peer:
+          name: peer0          
+          type: anchor    # This can be anchor/nonanchor. Atleast one peer should be anchor peer. 
+          gossippeeraddress: peer0.org2-net:7051 # Internal Address of the other peer in same Org for gossip, same peer if there is only one peer          
+          grpc:
+            port: 7051
+          events:
+            port: 7053
+          couchdb:
+            port: 5984
+          restserver:
+            targetPort: 20001
+            port: 20001 
+          expressapi:
+            targetPort: 3000
+            port: 3000
+          chaincode:
+            name: "chaincode_name" #This has to be replaced with the name of the chaincode
+            version: "chaincode_version" #This has to be replaced with the version of the chaincode
+            maindirectory: "chaincode_main"  #The main directory where chaincode is needed to be placed
+            repository:
+              username: "git_username"          # Git Service user who has rights to check-in in all branches
+              password: "git_access_token"
+              url: "github.com/<username>/blockchain-automation-framework.git"
+              branch: develop
+              path: "chaincode_src"   #The path to the chaincode 
+            arguments: 'chaincode_args' #Arguments to be passed along with the chaincode parameters
+            endorsements: "" #Endorsements (if any) provided along with the chaincode
+

@@ -1,0 +1,128 @@
+richi@richi:~/fabric-samples/first-network$ ./byfn.sh generate
+Generating certs and genesis block for with channel 'mychannel' and CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+/home/richi/fabric-samples/first-network/../bin/cryptogen
+
+##########################################################
+##### Generate certificates using cryptogen tool #########
+##########################################################
++ cryptogen generate --config=./crypto-config.yaml
+org1.example.com
+org2.example.com
++ res=0
++ set +x
+
+/home/richi/fabric-samples/first-network/../bin/configtxgen
+##########################################################
+#########  Generating Orderer Genesis block ##############
+##########################################################
++ configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
+2018-07-02 10:15:02.194 IST [common/tools/configtxgen] main -> INFO 001 Loading configuration
+2018-07-02 10:15:02.203 IST [msp] getMspConfig -> INFO 002 Loading NodeOUs
+2018-07-02 10:15:02.203 IST [msp] getMspConfig -> INFO 003 Loading NodeOUs
+2018-07-02 10:15:02.203 IST [common/tools/configtxgen] doOutputBlock -> INFO 004 Generating genesis block
+2018-07-02 10:15:02.204 IST [common/tools/configtxgen] doOutputBlock -> INFO 005 Writing genesis block
++ res=0
++ set +x
+
+#################################################################
+### Generating channel configuration transaction 'channel.tx' ###
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID mychannel
+2018-07-02 10:15:02.214 IST [common/tools/configtxgen] main -> INFO 001 Loading configuration
+2018-07-02 10:15:02.223 IST [common/tools/configtxgen] doOutputChannelCreateTx -> INFO 002 Generating new channel configtx
+2018-07-02 10:15:02.224 IST [msp] getMspConfig -> INFO 003 Loading NodeOUs
+2018-07-02 10:15:02.224 IST [msp] getMspConfig -> INFO 004 Loading NodeOUs
+2018-07-02 10:15:02.245 IST [common/tools/configtxgen] doOutputChannelCreateTx -> INFO 005 Writing new channel tx
++ res=0
++ set +x
+
+#################################################################
+#######    Generating anchor peer update for Org1MSP   ##########
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
+2018-07-02 10:15:02.258 IST [common/tools/configtxgen] main -> INFO 001 Loading configuration
+2018-07-02 10:15:02.266 IST [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+2018-07-02 10:15:02.267 IST [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
++ res=0
++ set +x
+
+#################################################################
+#######    Generating anchor peer update for Org2MSP   ##########
+#################################################################
++ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID mychannel -asOrg Org2MSP
+2018-07-02 10:15:02.279 IST [common/tools/configtxgen] main -> INFO 001 Loading configuration
+2018-07-02 10:15:02.288 IST [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 002 Generating anchor peer update
+2018-07-02 10:15:02.288 IST [common/tools/configtxgen] doOutputAnchorPeersUpdate -> INFO 003 Writing anchor peer update
++ res=0
++ set +x
+
+richi@richi:~/fabric-samples/first-network$ ./byfn.sh up
+Starting with channel 'mychannel' and CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+2018-07-02 04:45:23.936 UTC [main] main -> INFO 001 Exiting.....
+LOCAL_VERSION=1.1.0
+DOCKER_IMAGE_VERSION=1.1.0
+Creating network "net_byfn" with the default driver
+Creating volume "net_peer0.org2.example.com" with default driver
+Creating volume "net_peer1.org2.example.com" with default driver
+Creating volume "net_peer1.org1.example.com" with default driver
+Creating volume "net_peer0.org1.example.com" with default driver
+Creating volume "net_orderer.example.com" with default driver
+Creating orderer.example.com
+Creating peer0.org1.example.com
+Creating peer1.org1.example.com
+Creating peer1.org2.example.com
+Creating peer0.org2.example.com
+Creating cli
++ peer channel create -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+ ____    _____      _      ____    _____ 
+/ ___|  |_   _|    / \    |  _ \  |_   _|
+\___ \    | |     / _ \   | |_) |   | |  
+ ___) |   | |    / ___ \  |  _ <    | |  
+|____/    |_|   /_/   \_\ |_| \_\   |_|  
+
+Build your first network (BYFN) end-to-end test
+
+Channel name : mychannel
+Creating channel...
+CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
+CORE_PEER_TLS_ENABLED=true
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+CORE_PEER_ID=cli
+CORE_LOGGING_LEVEL=INFO
+CORE_PEER_ADDRESS=peer0.org1.example.com:7051
++ res=1
++ set +x
+Error: failed to create deliver client: orderer client failed to connect to orderer.example.com:7050: failed to create new connection: context deadline exceeded
+Usage:
+  peer channel create [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+  -t, --timeout int        Channel creation timeout (default 5)
+
+Global Flags:
+      --cafile string                       Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --certfile string                     Path to file containing PEM-encoded X509 public key to use for mutual TLS communication with the orderer endpoint
+      --clientauth                          Use mutual TLS when communicating with the orderer endpoint
+      --keyfile string                      Path to file containing PEM-encoded private key to use for mutual TLS communication with the orderer endpoint
+      --logging-level string                Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string                      Ordering service endpoint
+      --ordererTLSHostnameOverride string   The hostname override to use when validating the TLS connection to the orderer.
+      --tls                                 Use TLS when communicating with the orderer endpoint
+  -v, --version                             Display current version of fabric peer server
+
+!!!!!!!!!!!!!!! Channel creation failed !!!!!!!!!!!!!!!!
+========= ERROR !!! FAILED to execute End-2-End Scenario ===========
+
+ERROR !!!! Test failed
+

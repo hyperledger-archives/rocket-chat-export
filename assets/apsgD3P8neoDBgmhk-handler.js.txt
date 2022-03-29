@@ -1,0 +1,198 @@
+'use strict';
+
+const { TransactionHandler } = require('sawtooth-sdk/processor/handler');
+const {
+  InvalidTransaction,
+  InternalError
+} = require('sawtooth-sdk/processor/exceptions');
+const { TransactionHeader } = require('sawtooth-sdk/protobuf');
+
+const { Transaction } = require('./models');
+const {
+  getAddress,
+  tabAddressGenerate
+} = require('./../../common/addressgenerate');
+
+const { FAMILY, VERSION } = require('./../../config');
+const PREFIX = getAddress(FAMILY, 6);
+
+const encode = obj => Buffer.from(JSON.stringify(obj, Object.keys(obj).sort()));
+const decode = buf => JSON.parse(buf.toString());
+
+const toInternalError = err => {
+  let message = err.message ? err.message : err;
+  throw new InternalError(message);
+};
+
+const handleDeleteCase = (txnModel, state, signer) => {
+  if (!txnModel.isValid(true)) {
+    throw new InvalidTransaction(txnModel.errors[0]);
+  }
+  const { asset, owner, isMessage, keys } = txnModel.attrs;
+  let address = '';
+  if (isMessage === 'appointments') {
+    const data = JSON.parse(keys);
+    let uid = data.uid;
+    if (!uid) {
+      throw new InvalidTransaction('Invalid request asset found');
+    }
+    address = tabAddressGenerate['appointments'](PREFIX, owner, uid);
+  } else {
+    address = tabAddressGenerate[isMessage](PREFIX, owner, keys);
+  }
+
+  if (owner === signer) {
+    return state.deleteState([address]);
+  } else {
+    throw new InvalidTransaction('Invalid owner found (Unauthorised accesss)');
+  }
+};
+
+const handleGuestAppointMent = (txnModel, state, signer) => {
+  if (!txnModel.isValid(true)) {
+    throw new InvalidTransaction(txnModel.errors[0]);
+  }
+  const {
+    action,
+    asset,
+    owner,
+    isMessage,
+    keys,
+    msgDecryptKey,
+    time
+  } = txnModel.attrs;
+
+  const data = JSON.parse(keys);
+  let Key1 = data.Key1,
+    key2 = data.key2,
+    uid = data.uid;
+
+  if (!(uid && Key1 && key2)) {
+    throw new InvalidTransaction('Invalid request asset found');
+  }
+
+  if (action === 'approve' || action === 'reject' || action === 'edit') {
+    if (owner !== signer) {
+      throw new InvalidTransaction(
+        'Unauthorised access detected.Someone else tries to access guest data'
+      );
+    }
+  }
+
+  const address = tabAddressGenerate['appointments'](PREFIX, Key1, uid);
+  return state.setState({
+    [address]: encode({
+      asset,
+      owner: Key1,
+      isMessage,
+      msgDecryptKey: msgDecryptKey,
+      time
+    })
+  });
+};
+
+const createAsset = (txnModel, state) => {
+  if (!txnModel.isValid()) {
+    throw new InvalidTransaction(txnModel.errors[0]);
+  }
+  const { asset, owner, isMessage, keys, msgDecryptKey, time } = txnModel.attrs;
+
+  const address = tabAddressGenerate['user'](PREFIX, owner);
+  return state.getState([address]).then(entries => {
+    const entry = entries[address];
+    if (isMessage === 'user' || isMessage === 'guest') {
+      if (entry && entry.length > 0) {
+        throw new InvalidTransaction('User name already in use');
+      } else {
+        if (isMessage === 'guest') {
+          const guestAddr = tabAddressGenerate['guest'](PREFIX, owner);
+          return state.setState({
+            [guestAddr]: encode({
+              asset,
+              owner,
+              isMessage,
+              time
+            }),
+            [address]: encode({ asset, owner, isMessage: 'user', time })
+          });
+        } else {
+          return state.setState({
+            [address]: encode({ asset, owner, isMessage, time })
+          });
+        }
+      }
+    } else {
+      if (entry && entry.length > 0) {
+        if (tabAddressGenerate[isMessage]) {
+          const assetAddress = tabAddressGenerate[isMessage](
+            PREFIX,
+            owner,
+            keys
+          );
+          return state.setState({
+            [assetAddress]: encode({ asset, owner, isMessage, time })
+          });
+        } else {
+          throw new InvalidTransaction('Invalid method found');
+        }
+      } else {
+        throw new InvalidTransaction(
+          'Attempt to transact directly without creating user'
+        );
+      }
+    }
+  });
+};
+
+class guestRecordHandler extends TransactionHandler {
+  constructor() {
+    console.log('Initializing Guest record handler for', FAMILY);
+    super(FAMILY, [VERSION], [PREFIX]);
+  }
+
+  apply(txn, state) {
+    // Parse the transaction header and payload
+    //const header = TransactionHeader.decode(txn.header);
+    const signer = txn.header.signerPublicKey;
+
+    const {
+      action,
+      asset,
+      owner,
+      isMessage,
+      keys,
+      msgDecryptKey,
+      time
+    } = JSON.parse(txn.payload);
+
+    const txnModel = new Transaction({
+      action,
+      asset,
+      owner,
+      isMessage,
+      keys,
+      msgDecryptKey,
+      time
+    });
+    console.info('Attempting to apply txn', txnModel);
+
+    if (action === 'create') {
+      return createAsset(txnModel, state);
+    } else if (
+      action === 'request' ||
+      action === 'approve' ||
+      action === 'reject' ||
+      action === 'edit'
+    ) {
+      return handleGuestAppointMent(txnModel, state, signer);
+    } else if (action === 'delete') {
+      return handleDeleteCase(txnModel, state, signer);
+    } else {
+      throw new InvalidTransaction('Invalid method found');
+    }
+  }
+}
+
+module.exports = {
+  guestRecordHandler
+};

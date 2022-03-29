@@ -1,0 +1,242 @@
+name: "trustrace-network"
+#
+# Schema version of the content. Used by the SDK to apply the corresponding parsing rules.
+#
+version: 1.0.0
+
+#
+# The client section used by GO SDK.
+#
+client:
+
+  # Which organization does this application instance belong to? The value must be the name of an org
+  # defined under "organizations"
+  organization: in
+  logging:
+    level: info
+  # Root of the MSP directories with keys and certs.
+  cryptoconfig:
+    path: ${GOPATH}/src/trustrace-network/crypto-config/
+
+  # Some SDKs support pluggable KV stores, the properties under "credentialStore"
+  # are implementation specific
+  credentialStore:
+    path: /tmp/trustrace-service-store
+
+    # [Optional]. Specific to the CryptoSuite implementation used by GO SDK. Software-based implementations
+    # requiring a key store. PKCS#11 based implementations does not.
+    cryptoStore:
+      path: /tmp/trustrace-service-msp
+
+    # BCCSP config for the client. Used by GO SDK.
+  BCCSP:
+    security:
+      enabled: true
+      default:
+        provider: "SW"
+      hashAlgorithm: "SHA2"
+      softVerify: true
+      level: 256
+
+  tlsCerts:
+    # [Optional]. Use system certificate pool when connecting to peers, orderers (for negotiating TLS) Default: false
+    systemCertPool: false
+
+    # [Optional]. Client key and cert for TLS handshake with peers and orderers
+    client:
+      keyfile:
+      certfile:
+
+channels:
+  # name of the channel
+  ttchann:
+    # Required. list of orderers designated by the application to use for transactions on this
+    # channel. This list can be a result of access control ("in" can only access "ordererA"), or
+    # operational decisions to share loads from applications among the orderers.  The values must
+    # be "names" of orgs defined under "organizations/peers"
+    # deprecated: not recommended, to override any orderer configuration items, entity matchers should be used.
+    # orderers:
+    #  - orderer.example.com
+
+    # Required. list of peers from participating orgs
+    peers:
+      peer0.in.myorg.io:
+        # [Optional]. will this peer be sent transaction proposals for endorsement? The peer must
+        # have the chaincode installed. The app can also use this property to decide which peers
+        # to send the chaincode install request. Default: true
+        endorsingPeer: true
+
+        # [Optional]. will this peer be sent query proposals? The peer must have the chaincode
+        # installed. The app can also use this property to decide which peers to send the
+        # chaincode install request. Default: true
+        chaincodeQuery: true
+
+        # [Optional]. will this peer be sent query proposals that do not require chaincodes, like
+        # queryBlock(), queryTransaction(), etc. Default: true
+        ledgerQuery: true
+
+        # [Optional]. will this peer be the target of the SDK's listener registration? All peers can
+        # produce events but the app typically only needs to connect to one to listen to events.
+        # Default: true
+        eventSource: true
+
+      peer0.se.myorg.io:
+        # [Optional]. will this peer be sent transaction proposals for endorsement? The peer must
+        # have the chaincode installed. The app can also use this property to decide which peers
+        # to send the chaincode install request. Default: true
+        endorsingPeer: true
+
+        # [Optional]. will this peer be sent query proposals? The peer must have the chaincode
+        # installed. The app can also use this property to decide which peers to send the
+        # chaincode install request. Default: true
+        chaincodeQuery: true
+
+        # [Optional]. will this peer be sent query proposals that do not require chaincodes, like
+        # queryBlock(), queryTransaction(), etc. Default: true
+        ledgerQuery: true
+
+        # [Optional]. will this peer be the target of the SDK's listener registration? All peers can
+        # produce events but the app typically only needs to connect to one to listen to events.
+        # Default: true
+        eventSource: true
+
+
+    policies:
+      queryChannelConfig:
+        minResponses: 1
+        maxTargets: 1
+        retryOpts:
+          attempts: 5
+          initialBackoff: 500ms
+          maxBackoff: 5s
+          backoffFactor: 2.0
+#
+# list of participating organizations in this network
+#
+organizations:
+  in:
+    mspid: InMSP
+    cryptoPath: peerOrganizations/in.myorg.io/users/Admin@in.myorg.io/msp
+    peers:
+      - peer0.in.myorg.io
+  se:
+    mspid: SeMSP
+    cryptoPath: peerOrganizations/se.myorg.io/users/Admin@se.myorg.io/msp
+    peers:
+      - peer0.se.myorg.io
+  ordererorg:
+    # Membership Service Provider ID for this organization
+    mspID: OrdererMSP
+    # Needed to load users crypto keys and certs for this org (absolute path or relative to global crypto path, DEV mode)
+    cryptoPath: ordererOrganizations/myorg.io/users/Admin@myorg.io/msp
+
+peers:
+  peer0.in.myorg.io:
+    # this URL is used to send endorsement and query requests
+    url: peer0.in.myorg.io:7051
+    # eventUrl is only needed when using eventhub (default is delivery service)
+
+    grpcOptions:
+      ssl-target-name-override: peer0.in.myorg.io
+      # These parameters should be set in coordination with the keepalive policy on the server,
+      # as incompatible settings can result in closing of connection.
+      # When duration of the 'keep-alive-time' is set to 0 or less the keep alive client parameters are disabled
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
+      allow-insecure: false
+
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/trustrace-network/crypto-config/peerOrganizations/in.myorg.io/tlsca/tlsca.in.myorg.io-cert.pem
+
+  peer0.se.myorg.io:
+    # this URL is used to send endorsement and query requests
+    url: peer0.se.myorg.io:9051
+    # eventUrl is only needed when using eventhub (default is delivery service)
+    grpcOptions:
+      ssl-target-name-override: peer0.se.myorg.io
+      # These parameters should be set in coordination with the keepalive policy on the server,
+      # as incompatible settings can result in closing of connection.
+      # When duration of the 'keep-alive-time' is set to 0 or less the keep alive client parameters are disabled
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
+      allow-insecure: false
+
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/trustrace-network/crypto-config/peerOrganizations/se.myorg.io/tlsca/tlsca.se.myorg.io-cert.pem
+
+
+  #
+  # List of orderers to send transaction and channel create/update requests to. For the time
+  # being only one orderer is needed. If more than one is defined, which one get used by the
+  # SDK is implementation specific. Consult each SDK's documentation for its handling of orderers.
+  #
+orderers:
+  orderer.myorg.io:
+    url: https://orderer.myorg.io:7050
+
+    # these are standard properties defined by the gRPC library
+    # they will be passed in as-is to gRPC client constructor
+    grpcOptions:
+      #ssl-target-name-override: orderer.myorg.io
+      # These parameters should be set in coordination with the keepalive policy on the server,
+      # as incompatible settings can result in closing of connection.
+      # When duration of the 'keep-alive-time' is set to 0 or less the keep alive client parameters are disabled
+      keep-alive-time: 0s
+      keep-alive-timeout: 20s
+      keep-alive-permit: false
+      fail-fast: false
+      # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
+      allow-insecure: false
+
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/trustrace-network/crypto-config/ordererOrganizations/myorg.io/tlsca/tlsca.myorg.io-cert.pem
+  #
+  # List of peers to send various requests to, including endorsement, query
+  # and event listener registration.
+  #
+
+#
+# Fabric-CA is a special kind of Certificate Authority provided by Hyperledger Fabric which allows
+# certificate management to be done via REST APIs. Application may choose to use a standard
+# Certificate Authority instead of Fabric-CA, in which case this section would not be specified.
+#
+certificateAuthorities:
+  ca.in.myorg.io:
+    url: https://ca.in.myorg.io:7054
+    # Fabric-CA supports dynamic user enrollment via REST APIs. A "root" user, a.k.a registrar, is
+    # needed to enroll and invoke new users.
+    httpOptions:
+      verify: false
+    registrar:
+      enrollId: admin
+      enrollSecret: adminpw
+    # [Optional] The optional name of the CA.
+    caName: ca.in.myorg.io
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/trustrace-network/crypto-config/peerOrganizations/in.myorg.io/ca/ca.in.myorg.io-cert.pem
+
+
+  ca.se.myorg.io:
+    url: https://ca.se.myorg.io:7054
+    # Fabric-CA supports dynamic user enrollment via REST APIs. A "root" user, a.k.a registrar, is
+    # needed to enroll and invoke new users.
+    httpOptions:
+      verify: false
+    registrar:
+      enrollId: admin
+      enrollSecret: adminpw
+    # [Optional] The optional name of the CA.
+    caName: ca.se.myorg.io
+    tlsCACerts:
+      # Certificate location absolute path
+      path: ${GOPATH}/src/trustrace-network/crypto-config/peerOrganizations/se.myorg.io/ca/ca.se.myorg.io-cert.pem

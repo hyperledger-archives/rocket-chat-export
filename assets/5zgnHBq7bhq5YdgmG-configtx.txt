@@ -1,0 +1,169 @@
+Organizations:
+  - &OrdererOrg
+      Name: OrdererOrg
+      ID: OrdererMSP
+      MSPDir: ./crypto-config/ordererOrganizations/myorg1.ch/msp
+      Policies: &OrdererMSPPolicies
+        Readers:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('OrdererMSP.admin')"
+  - &Org1
+      Name: MyOrg1MSP
+      ID: MyOrg1MSP
+      MSPDir: ./crypto-config/peerOrganizations/myorg1.ch/msp
+      Policies: &MyOrg1MSPPolicies
+        Readers:
+          Type: Signature
+          Rule: "OR('MyOrg1MSP.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('MyOrg1MSP.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('MyOrg1MSP.admin')"
+      AnchorPeers:
+        - Host: peer0.myorg1.ch
+          Port: 7051
+  - &Org2
+      Name: MyOrg2MSP
+      ID: MyOrg2MSP
+      MSPDir: ./crypto-config/peerOrganizations/myorg2.ch/msp
+      Policies: &MyOrg2MSPPolicies
+        Readers:
+          Type: Signature
+          Rule: "OR('MyOrg2MSP.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('MyOrg2MSP.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('MyOrg2MSP.admin')"
+      AnchorPeers:
+        - Host: peer0.myorg2.ch
+          Port: 7051
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V1_1: true
+  Orderer: &OrdererCapabilities
+    V1_1: true
+  Application: &ApplicationCapabilities
+    V1_2: true
+    V1_1: false
+
+Application: &ApplicationDefaults
+  ACLs: &ACLsDefault
+    lscc/ChaincodeExists: /Channel/Application/Readers
+    lscc/GetDeploymentSpec: /Channel/Application/Readers
+    lscc/GetChaincodeData: /Channel/Application/Readers
+    lscc/GetInstantiatedChaincodes: /Channel/Application/Readers
+    qscc/GetChainInfo: /Channel/Application/Readers
+    qscc/GetBlockByNumber: /Channel/Application/Readers
+    qscc/GetBlockByHash: /Channel/Application/Readers
+    qscc/GetTransactionByID: /Channel/Application/Readers
+    qscc/GetBlockByTxID: /Channel/Application/Readers
+    cscc/GetConfigBlock: /Channel/Application/Readers
+    cscc/GetConfigTree: /Channel/Application/Readers
+    cscc/SimulateConfigTreeUpdate: /Channel/Application/Readers
+    peer/Propose: /Channel/Application/Writers
+    peer/ChaincodeToChaincode: /Channel/Application/Readers
+    event/Block: /Channel/Application/Readers
+    event/FilteredBlock: /Channel/Application/Readers
+  Organizations:
+  Policies: &ApplicationDefaultPolicies
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: kafka
+  Addresses:
+    - orderer.myorg1.ch:7050
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+  MaxChannels: 0
+  Kafka:
+    Brokers:
+      - kafka0.myorg1.ch:9092
+      - kafka1.myorg1.ch:9092
+      - kafka2.myorg1.ch:9092
+      - kafka3.myorg1.ch:9092
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+  Capabilities:
+    <<: *OrdererCapabilities
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+  Capabilities:
+    <<: *ChannelCapabilities
+  Consortium: SampleConsortium # I needed to add this line, else it complains about no consortium value defined
+
+Profiles:
+  TwoOrgsOrdererGenesis:
+    <<: *ChannelDefaults
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+        - *OrdererOrg
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+          - *Org1
+          - *Org2
+  TwoOrgsChannel:
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - <<: *Org1
+          Policies:
+            <<: *MyOrg1MSPPolicies
+            Admins:
+              Type: Signature
+              Rule: "OR('MyOrg1MSP.member')"
+        - <<: *Org2
+          Policies:
+            <<: *MyOrg2MSPPolicies
+            Admins:
+              Type: Signature
+              Rule: "OR('MyOrg2MSP.member')"
+    Consortium: SampleConsortium

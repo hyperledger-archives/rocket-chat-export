@@ -1,0 +1,331 @@
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$ npm run test:ca-client
+
+> fabric-sdk-node@1.4.5-snapshot test:ca-client /gp/src/github.com/hyperledger/fabric-sdk-node
+> npm run coverage -- fabric-ca-client/test
+
+
+> fabric-sdk-node@1.4.5-snapshot coverage /gp/src/github.com/hyperledger/fabric-sdk-node
+> nyc npm run unit-test "fabric-ca-client/test"
+
+
+> fabric-sdk-node@1.4.5-snapshot unit-test /gp/src/github.com/hyperledger/fabric-sdk-node
+> mocha --exclude 'fabric-client/test/data/**' --recursive "fabric-ca-client/test"
+
+
+
+  AffiliationService
+    #constructor
+      ✓ should set the client as passed in the argument
+    #create
+      ✓ should throw if called with a null argument "req"
+      ✓ should throw if called with an undefined argument "req"
+      ✓ should throw if called without the parameter "req.name"
+      ✓ should throw if registrar is null
+      ✓ should throw if registrar is undefined
+      ✓ should call "checkRegistrar"
+      ✓ should call the client POST method with the extracted url, request and signing identity
+      ✓ should call the client POST method with a "force" option if specified
+    #getOne
+      ✓ should throw if missing required argument "affiliation"
+      ✓ should throw if argument "affiliation" is not a valid string
+      ✓ should call "checkRegistrar"
+      ✓ should call the client get method with the extracted url and signing identity
+    #getAll
+      ✓ should call "checkRegistrar"
+      ✓ should call the client get method with "affiliations" and the signing identity
+    #delete
+      ✓ should throw if missing required argument "req"
+      ✓ should throw if called without the parameter "req.name"
+      ✓ should throw if parameter "req.name" is not a valid string
+      ✓ should throw if missing required argument "registrar"
+      ✓ should call "checkRegistrar"
+      ✓ should call the client DELETE method with an extracted "url" and the signing identity
+      ✓ should call the client DELETE method with a "force" option if specified
+    #update
+      ✓ should throw if missing required argument "affiliation"
+      ✓ should throw if required argument "affiliation" is not a valid string
+      ✓ should throw if missing required argument "req"
+      ✓ should throw if missing required parameter "req.name"
+      ✓ should throw if required parameter "req.name" is not a valid string
+      ✓ should call "checkRegistrar"
+      ✓ should call the client PUT method with an extracted "url", request and the signing identity
+      ✓ should call the client PUT method with a "force" option if specified
+      ✓ should pass the caname to the request if supplied
+
+  IdentityService
+    #constructor
+      ✓ should throw if no client passed as argument
+      ✓ should set the client as passed in the argument
+    #getCertificates
+      ✓ should call "checkRegistrar"
+      ✓ should provide debug logging
+      ✓ should provide error logging on failure
+      ✓ should call get with the correct url and signing identity if no request
+      ✓ should call get with the correctly mapped request
+
+  FabricCAClient
+    #constructor
+      ✓ should call "_validateConnectionOpts"
+      ✓ should throw if called with invalid connection options
+      ✓ should set all base properties of the client
+      ✓ should set http if provided
+      ✓ should set port if provided
+      ✓ should set _tlsOptions if provided
+      ✓ should default _tlsOptions.verify if not provided in opts
+      ✓ should default _tlsOptions.trustedRoots if not provided in opts
+    #register
+      ✓ should throw if called with too few parameters
+      ✓ should throw if called with maxEnrollements that is not a number
+      ✓ should call POST with the correct method, request, and signing identity
+      ✓ should call POST without the type in the request if no role provided
+      ✓ should call POST without the secret in the request if no enrollmentSecret provided
+      ✓ should reject on POST failure
+    #revoke
+      ✓ should throw if not called with the correct number of parameters
+      ✓ should call POST with the correct method, request, and signing identity
+      ✓ should reject on POST failure
+    #reenroll
+      ✓ should throw if not called with the correct number of parameters
+      ✓ should call POST with the correct method, request, and signing identity
+      ✓ should call POST without attributes if not provided
+      ✓ should reject on POST failure
+    #newIdentityService
+      ✓ should return a new instance of IdentityService
+    #newAffiliationService
+      ✓ should return a new instance of AffiliationService
+    #newCertificateService
+      ✓ should return a new instance of CertificateService
+    #post
+      ✓ should call a POST request with the passed parameters
+    #delete
+      ✓ should call a DELETE request with the passed parameters
+    #get
+      ✓ should call a GET request with the passed parameters
+    #put
+      ✓ should call a PUT request with the passed parameters
+    #request
+      ✓ should reject if not passed the required parameters
+      ✓ should pass a correctly formulated request options
+      ✓ should return the response data on success
+      ✓ should reject if no success message
+      ✓ should reject if invalid jason recieved
+      ✓ should reject if no payload returned and the end data contains an error status code
+    #generateAuthToken
+      ✓ should sign the certificate if no request body provided (168ms)
+      ✓ should sign the certificate if a request body is provided
+      ✓ should return a concatention of the cert and signing in base64 string
+    #enroll
+      ✓ should throw if not provided the required number of arguments
+      ✓ should pass a correctly formulated request options
+      ✓ should return the enrollmentCert and caCertChain on success
+      ✓ should reject if no payload returned and the end data contains an error status code
+      ✓ should reject if no success message
+      ✓ should reject if invalid jason recieved
+      ✓ should reject on end point error
+    #generateCRL
+      ✓ should reject if not provided the required number of arguments
+      ✓ should call POST with the correct method, request, and signing identity
+      ✓ should reject if POST does not return success in the response body
+      ✓ should reject if POST does not return result in the repsonse body
+      ✓ should reject if POST throws an error
+    #_validateConnectionOpts
+      ✓ should throw if no protocol
+      ✓ should throw if protocol is not set to http or https
+      ✓ should throw if no hostname
+      ✓ should throw if provided port is not an integer
+      ✓ should pass with a valid input
+
+  FabricCAServices
+    #constructor
+      ✓ should call "parseURL" with information extracted from the URL object
+      ✓ should call "parseURL" with information from additional parameters id passed URL is a string
+      ✓ should set the crypto suite if passed
+      ✓ should create a new crypto suite and store if none passed
+      ✓ should create a new FabricCAClient and store within the FabricCAServices object
+    #getCaName
+      ✓ should return the caName
+    #register
+      ✓ should throw if missing required argument "request"
+      ✓ should throw if required argument "request" is null
+      ✓ should throw if missing required argument "request.enrollmentID"
+      ✓ should set max enrollments to "1" if req.maxEnrollments is undefined
+      ✓ should set max enrollments to "1" if req.maxEnrollments is null
+      ✓ should call "checkRegistrar"
+      ✓ should call the register function on the FabricCAClient object with mapped values
+    #enroll
+2019-09-18T01:59:11.414Z - error: [FabricCAClientService.js]: enroll() missing required argument "request"
+      ✓ should throw if missing required argument "request"
+2019-09-18T01:59:11.415Z - error: [FabricCAClientService.js]: enroll() missing required argument "request"
+      ✓ should throw if required argument "request" is null
+2019-09-18T01:59:11.416Z - error: [FabricCAClientService.js]: Invalid enroll request, missing enrollmentID
+      ✓ should throw if missing required argument "request.enrollmentID"
+2019-09-18T01:59:11.417Z - error: [FabricCAClientService.js]: Invalid enroll request, missing enrollmentSecret
+      ✓ should throw if missing required argument "request.enrollmentSecret"
+2019-09-18T01:59:11.418Z - error: [FabricCAClientService.js]: Invalid enroll request, attr_reqs must be an array of AttributeRequest objects
+      ✓ should throw if request attributes is specified but not an array
+2019-09-18T01:59:11.418Z - error: [FabricCAClientService.js]: Invalid enroll request, attr_reqs object is missing the name of the attribute
+      ✓ should throw if any request attributes are missing a name
+2019-09-18T01:59:11.420Z - error: [FabricCAClientService.js]: Failed to enroll enrollmentID, error:%o message=enroll error, stack=Error: enroll error
+    at Context.it (/gp/src/github.com/hyperledger/fabric-sdk-node/fabric-ca-client/test/FabricCAServices.js:258:30)
+    at callFn (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runnable.js:372:21)
+    at Test.Runnable.run (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runnable.js:364:7)
+    at Runner.runTest (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:455:10)
+    at /gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:573:12
+    at next (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:369:14)
+    at /gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:379:7
+    at next (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:303:14)
+    at /gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:342:7
+    at done (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runnable.js:319:5)
+    at callFn (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runnable.js:395:7)
+    at Hook.Runnable.run (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runnable.js:364:7)
+    at next (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:317:10)
+    at Immediate.<anonymous> (/gp/src/github.com/hyperledger/fabric-sdk-node/node_modules/mocha/lib/runner.js:347:5)
+    at runCallback (timers.js:705:18)
+    at tryOnImmediate (timers.js:676:5)
+    at processImmediate (timers.js:658:5)
+      ✓ should reject on enroll failure
+2019-09-18T01:59:11.422Z - error: [FabricCAClientService.js]: Failed to enroll enrollmentID, error:%o message=Failed to generate CSR for enrollmemnt due to error [Error: CSR error], stack=Error: Failed to generate CSR for enrollmemnt due to error [Error: CSR error]
+    at FabricCAServices.enroll (/gp/src/github.com/hyperledger/fabric-sdk-node/fabric-ca-client/lib/FabricCAServices.js:225:12)
+      ✓ should reject in generate CSR failure
+2019-09-18T01:59:11.422Z - error: [FabricCAClientService.js]: Failed to enroll enrollmentID, error:%o message=Failed to generate key for enrollment due to error [Error: Key error], stack=Error: Failed to generate key for enrollment due to error [Error: Key error]
+    at FabricCAServices.enroll (/gp/src/github.com/hyperledger/fabric-sdk-node/fabric-ca-client/lib/FabricCAServices.js:219:12)
+      ✓ should reject in generate key failure
+      ✓ should set ephemeral option to false if `getCryptoSuite()._cryptoKeyStore` exists
+      ✓ should call the enroll function on the FabricCAClient object 
+      ✓ should return a known object on success
+    #reenroll
+2019-09-18T01:59:11.427Z - error: [FabricCAClientService.js]: Invalid re-enroll request, missing argument "currentUser"
+      ✓ should throw if missing required argument "currentUser"
+2019-09-18T01:59:11.428Z - error: [FabricCAClientService.js]: Invalid re-enroll request, "currentUser" is not a valid User object
+      ✓ should throw if required argument "currentUser" is not a valid User object
+2019-09-18T01:59:11.429Z - error: [FabricCAClientService.js]: Invalid re-enroll request, attr_reqs must be an array of AttributeRequest objects
+      ✓ should throw if request attributes is specified but not an array
+2019-09-18T01:59:11.430Z - error: [FabricCAClientService.js]: Invalid re-enroll request, attr_reqs object is missing the name of the attribute
+      ✓ should throw if any request attributes are missing a name
+2019-09-18T01:59:11.431Z - error: [FabricCAClientService.js]: Failed to parse enrollment certificate undefined for Subject. 
+Error: Error: forced error
+      ✓ should throw if unable to parse enrollment certificate
+      ✓ should reject if unable to generate key
+      ✓ should reject if unable to generate CSR
+      ✓ should rejected if reenroll fails
+      ✓ should call the reenroll function on the FabricCAClient object with mapped parameters
+      ✓ should return the correct object on success
+    #revoke
+      ✓ should throw if missing required argument "request"
+      ✓ should throw if required argument "request" is null
+      ✓ should throw if no enrollmentID and missing aki
+      ✓ should throw if no enrollmentID and aki is an empty string
+      ✓ should throw if no enrollmentID and missing serial
+      ✓ should throw if no enrollmentID and serial is an empty string
+      ✓ should call "checkRegistrar"
+      ✓ should call the revoke function on the FabricCAClient object with mapped parameters
+      ✓ should call the revoke function on the FabricCAClient object with conditional reasoning
+    #generateCRL
+      ✓ should throw if missing required argument "request"
+      ✓ should throw if required argument "request" is null
+      ✓ should call "checkRegistrar"
+      ✓ should call the generateCRL function on the FabricCAClient object with the mapped parameters
+    #newCertificateService
+      ✓ should call the newCertificateService function on the FabricCAClient object 
+    #newIdentityService
+      ✓ should call the newIdentityService function on the FabricCAClient object 
+    #newAffiliationService
+      ✓ should call the newAffiliationService function on the FabricCAClient object 
+    #toString
+      ✓ should provide a String object showing the hostname and port
+    #_parseURL
+      ✓ should call the helper parseURL() method via static call
+
+  IdentityService
+    #constructor
+      ✓ should set the client as passed in the argument
+    #create
+      ✓ should throw if called with missing request
+      ✓ should throw if if missing req.enrollmentID within request argument
+      ✓ should throw if if missing req.affiliation within request argument
+      ✓ should throw if missing required argument "registrar"
+      ✓ should throw if required argument "registrar" is an empty object
+      ✓ should throw if required argument "registrar" is null
+      ✓ should throw if required argument "registrar" is undefined
+      ✓ should throw if unable to get signingIdentity from registrar
+      ✓ should call `checkRegistrar` with the passed registrar
+      ✓ should call the client POST method with the correct path and signing identity
+      ✓ should set max enrollments to 1 by default
+      ✓ should enable override of max enrollments
+      ✓ should return a promise containing the response secret on success
+      ✓ should reject a promise containing an error message on failure
+    #getOne
+      ✓ should throw if missing required argument "enrollmentID"
+      ✓ should throw if required argument "enrollmentID" is not a valid string
+      ✓ should call `checkRegistrar` with the passed registrar
+      ✓ should call the client GET method with the extracted url and signing identity
+    #getAll
+      ✓ should call `checkRegistrar` with the passed registrar
+      ✓ should call the client GET method with the extracted url and signing identity
+    #delete
+      ✓ should throw if missing required argument "enrollmentID"
+      ✓ should throw if required argument "enrollmentID" is not a valid string
+      ✓ should call `checkRegistrar` with the passed registrar
+      ✓ should call the client DELETE method with an extracted "url" and the signing identity
+      ✓ should call the client DELETE method with a "force" option if specified
+    #update
+      ✓ should throw if missing required argument "enrollmentID"
+      ✓ should throw if required argument "enrollmentID" is not a valid string
+      ✓ should call `checkRegistrar` with the passed registrar
+      ✓ should call the client PUT method with an extracted "url", request, and the signing identity
+      ✓ should call the client PUT method with with extracted request options
+
+  Helper
+    #checkRegistrar
+      ✓ should throw if called with missing argument
+      ✓ should throw if called with argument that in not an instance of the class "User"
+      ✓ should throw if unable to retrieve signing identity due to missing method
+      ✓ should throw if unable to retrieve signing identity
+      ✓ should not throw if valid registrar
+    #getSubjectCommonName
+      ✓ should throw if does not contain common name
+      ✓ should return the common name on success
+    #parseURL
+      ✓ should throw if invalid protocol
+      ✓ should throw if not http or https protocol
+      ✓ should throw if not http or https protocol
+      ✓ should throw if no hostname
+      ✓ should return a URL Object on success
+
+
+  188 passing (369ms)
+
+-----------------------|----------|----------|----------|----------|-------------------|
+File                   |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-----------------------|----------|----------|----------|----------|-------------------|
+All files              |      100 |    99.02 |      100 |      100 |                   |
+ AffiliationService.js |      100 |      100 |      100 |      100 |                   |
+ IdentityService.js    |      100 |      100 |      100 |      100 |                   |
+ helper.js             |      100 |       95 |      100 |      100 |                67 |
+-----------------------|----------|----------|----------|----------|-------------------|
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 149/149 )
+Branches     : 99.02% ( 101/102 )
+Functions    : 100% ( 18/18 )
+Lines        : 100% ( 149/149 )
+================================================================================
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$ 
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$ node --version
+v10.16.3
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$ npm --version
+6.9.0
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$  git log
+commit f62d9ecd0e3132e898b5324d7026e91f47471637 (HEAD -> release-1.4, origin/release-1.4, origin/HEAD)
+Merge: fdb2b1b1 f32f2f4e
+Author: Andrew Coleman <andrew_coleman@uk.ibm.com>
+Date:   Thu Aug 29 12:57:33 2019 +0000
+
+    Merge "FABN-1348 NodeSDK Define discovery" into release-1.4
+
+commit fdb2b1b1dcd25f1cd6f0dfad64291458612314de
+....
+
+
+ping@ping:/gp/src/github.com/hyperledger/fabric-sdk-node$ git branch
+* release-1.4
